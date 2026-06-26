@@ -1,5 +1,2 @@
-# Cloudflare Pages SPA 重定向规则
-# /api/* 明确路由到自身（200），确保不被 /* 规则意外拦截
-# _worker.js 负责处理 /api/* 的实际逻辑
-/api/*   200  !
-/*       /index.html   200
+# Cloudflare Pages SPA routing
+/*   /index.html   200

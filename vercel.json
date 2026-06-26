@@ -4,13 +4,14 @@
     "outputDirectory": "dist"
   },
   "framework": "vite",
-  "functions": {
-    "api/**/*.ts": {
-      "maxDuration": 120
-    }
-  },
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/((?!_next|_vercel|api/).*)", "destination": "/index.html" }
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/((?!_next|_vercel|api/).*)",
+      "destination": "/index.html"
+    }
   ]
 }
