@@ -208,25 +208,48 @@ export async function onRequest(context: { request: Request; env: Env }) {
     const fields = extractFields(eventData);
     const hasContactInfo = !!(fields.name || fields.email || fields.phone || fields.company);
 
+    console.log('[Tracking] Processing:', { eventType, visitorId, hasContactInfo, fields });
+
+    let upsertResult = null;
+    let behaviorResult = null;
+
     // 1. 处理访客 upsert
     if (eventType === 'form_submit' || hasContactInfo) {
-      await upsertVisitor(env.DB, visitorId, fields, cf, deviceInfo, pageUrl);
+      console.log('[Tracking] Upserting visitor:', visitorId);
+      try {
+        await upsertVisitor(env.DB, visitorId, fields, cf, deviceInfo, pageUrl);
+        upsertResult = 'upserted';
+      } catch (e: any) {
+        upsertResult = 'error: ' + e.message;
+        console.error('[Tracking] Upsert error:', e);
+      }
+    } else {
+      upsertResult = 'skipped';
     }
 
     // 2. 记录行为事件
-    await insertBehavior(env.DB, visitorId, eventType, pageUrl, pageTitle, {
-      website_url: body.website_url || '',
-      referrer: body.referrer || '',
-      user_agent: userAgent,
-      traffic_source: body.traffic_source || body.trafficSource || '',
-      ...eventData,
-    }, sessionId, cf, deviceInfo);
+    console.log('[Tracking] Inserting behavior for:', visitorId, eventType);
+    try {
+      await insertBehavior(env.DB, visitorId, eventType, pageUrl, pageTitle, {
+        website_url: body.website_url || '',
+        referrer: body.referrer || '',
+        user_agent: userAgent,
+        traffic_source: body.traffic_source || body.trafficSource || '',
+        ...eventData,
+      }, sessionId, cf, deviceInfo);
+      behaviorResult = 'inserted';
+    } catch (e: any) {
+      behaviorResult = 'error: ' + e.message;
+      console.error('[Tracking] Behavior error:', e);
+    }
+    console.log('[Tracking] Done', { upsertResult, behaviorResult });
 
     return new Response(JSON.stringify({
       success: true,
       visitor_id: visitorId,
       session_id: sessionId,
       event_type: eventType,
+      debug: { upsertResult, behaviorResult, envDB: !!env.DB },
     }), {
       headers: { 'Content-Type': 'application/json', ...corsHeaders },
     });
