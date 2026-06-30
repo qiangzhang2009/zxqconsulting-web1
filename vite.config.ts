@@ -66,10 +66,8 @@ export default defineConfig(({ mode }) => ({
       },
     },
     chunkSizeWarningLimit: 800,
-    // 生产构建时显式标记，避免 i18next / tracking 等 dev-only 路径被打包
     sourcemap: mode !== 'production',
   },
-  // 减少 ESBuild 缓存压力
   esbuild: {
     legalComments: 'none',
   },
