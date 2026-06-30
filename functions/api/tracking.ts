@@ -208,15 +208,25 @@ export async function onRequest(context: { request: Request; env: Env }) {
     const fields = extractFields(eventData);
     const hasContactInfo = !!(fields.name || fields.email || fields.phone || fields.company);
 
+    // Get D1 database - check both 'DB' and 'zxqconsulting_comments' binding names
+    const db = (env as any).DB || (env as any).zxqconsulting_comments;
+    if (!db) {
+      console.error('[Tracking] No D1 database binding found');
+      return new Response(JSON.stringify({ success: false, error: 'Database not configured' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json', ...corsHeaders },
+      });
+    }
+
     console.log('[Tracking] Processing:', { eventType, visitorId, hasContactInfo });
 
     // 1. 处理访客 upsert
     if (eventType === 'form_submit' || hasContactInfo) {
-      await upsertVisitor(env.DB, visitorId, fields, cf, deviceInfo, pageUrl);
+      await upsertVisitor(db, visitorId, fields, cf, deviceInfo, pageUrl);
     }
 
     // 2. 记录行为事件
-    await insertBehavior(env.DB, visitorId, eventType, pageUrl, pageTitle, {
+    await insertBehavior(db, visitorId, eventType, pageUrl, pageTitle, {
       website_url: body.website_url || '',
       referrer: body.referrer || '',
       user_agent: userAgent,
