@@ -13,5 +13,11 @@
       "source": "/((?!_next|_vercel|api/).*)",
       "destination": "/index.html"
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/comments",
+      "schedule": "*/15 * * * *"
+    }
   ]
 }

@@ -1,144 +1,166 @@
 /**
- * 统计分析 API
+ * 统计分析 API - Cloudflare D1 版本
  * GET /api/admin/analytics?website_id=&days=30
- * PATCH /api/admin/submissions/:id - 更新表单状态
+ * 认证方式：Bearer session_token（登录后获取）
+ *
+ * 返回数据:
+ * - 今日/总 KPI（访客、提交、评论、诊断）
+ * - 趋势数据（访客+提交 按日）
+ * - 流量来源分布
+ * - 设备分布（桌面/移动/平板）
+ * - 浏览器分布
+ * - 国家/地区分布
+ * - 热门页面
+ * - 状态分布
+ * - 最近报告
+ * - 热门市场
  */
 
+import { verifySession, authResponse, corsPreflight } from './auth';
+
 interface Env {
-  SUPABASE_URL: string;
-  SUPABASE_SERVICE_KEY: string;
+  DB: D1Database;
+  ADMIN_KV: KVNamespace;
 }
 
-const ADMIN_API_KEY = 'zxq_admin_secret_key_2024';
-
-async function verifyAuth(request: Request): Promise<boolean> {
-  const authHeader = request.headers.get('Authorization');
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return false;
-  }
-  return authHeader.substring(7) === ADMIN_API_KEY;
-}
-
-async function supabaseFetch(env: Env, endpoint: string, options: RequestInit = {}) {
-  const response = await fetch(`${env.SUPABASE_URL}/rest/v1/${endpoint}`, {
-    ...options,
-    headers: {
-      'apikey': env.SUPABASE_SERVICE_KEY,
-      'Authorization': `Bearer ${env.SUPABASE_SERVICE_KEY}`,
-      'Content-Type': 'application/json',
-      'Prefer': options.headers?.['Prefer'] || 'return=representation',
-      ...options.headers
-    }
-  });
-  
-  if (!response.ok) {
-    const error = await response.text();
-    throw new Error(error);
-  }
-  
-  return { data: await response.json() };
+export async function onRequestOptions() {
+  return corsPreflight();
 }
 
 export async function onRequestGet(context: { request: Request; env: Env }) {
   const { request, env } = context;
-  
-  if (!await verifyAuth(request)) {
-    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-      status: 401,
-      headers: { 'Content-Type': 'application/json' }
-    });
-  }
+
+  const session = await verifySession({ request, env });
+  if (!session) return authResponse();
 
   try {
     const url = new URL(request.url);
     const websiteId = url.searchParams.get('website_id') || 'zxqconsulting';
     const days = parseInt(url.searchParams.get('days') || '30');
-    
+
     const today = new Date().toISOString().split('T')[0];
     const sinceDate = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
-    
-    // 今日统计
-    const todayVisitors = await supabaseFetch(env,
-      `visitors?website_id=eq.${websiteId}&last_visit=gte.${today}T00:00:00&select=id`
-    );
-    const todaySubmissions = await supabaseFetch(env,
-      `submissions?website_id=eq.${websiteId}&created_at=gte.${today}T00:00:00&select=id`
-    );
-    
-    // 总计统计
-    const totalVisitors = await supabaseFetch(env,
-      `visitors?website_id=eq.${websiteId}&select=id`
-    );
-    const totalSubmissions = await supabaseFetch(env,
-      `submissions?website_id=eq.${websiteId}&select=id`
-    );
-    
-    // 趋势数据（按天聚合）
-    const { data: behaviors } = await supabaseFetch(env,
-      `behaviors?website_id=eq.${websiteId}&created_at=gte.${sinceDate}&select=created_at,event_type`
-    );
-    
-    // 按天统计
-    const dailyStats: Record<string, { pageViews: number; submissions: number }> = {};
-    behaviors?.forEach((b: any) => {
-      const date = b.created_at.split('T')[0];
-      if (!dailyStats[date]) {
-        dailyStats[date] = { pageViews: 0, submissions: 0 };
-      }
-      dailyStats[date].pageViews++;
-      if (b.event_type === 'submit') {
-        dailyStats[date].submissions++;
-      }
+
+    const todayVisitorsResult = await env.DB.prepare(
+      `SELECT COUNT(DISTINCT visitor_id) as count FROM visitors WHERE website_id = ? AND date(created_at) >= ?`
+    ).bind(websiteId, today).first() as { count: number };
+
+    const todaySubmissionsResult = await env.DB.prepare(
+      `SELECT COUNT(*) as count FROM submissions WHERE website_id = ? AND date(created_at) >= ?`
+    ).bind(websiteId, today).first() as { count: number };
+
+    const totalVisitorsResult = await env.DB.prepare(
+      `SELECT COUNT(DISTINCT visitor_id) as count FROM visitors WHERE website_id = ?`
+    ).bind(websiteId).first() as { count: number };
+
+    const totalSubmissionsResult = await env.DB.prepare(
+      `SELECT COUNT(*) as count FROM submissions WHERE website_id = ?`
+    ).bind(websiteId).first() as { count: number };
+
+    const trendResult = await env.DB.prepare(`
+      SELECT date(created_at) as date, COUNT(DISTINCT visitor_id) as visitors
+      FROM visitors
+      WHERE website_id = ? AND created_at >= ?
+      GROUP BY date(created_at)
+      ORDER BY date
+    `).bind(websiteId, sinceDate).all() as { results: Array<{ date: string; visitors: number }> };
+
+    const submissionsTrendResult = await env.DB.prepare(`
+      SELECT date(created_at) as date, COUNT(*) as submissions
+      FROM submissions
+      WHERE website_id = ? AND created_at >= ?
+      GROUP BY date(created_at)
+      ORDER BY date
+    `).bind(websiteId, sinceDate).all() as { results: Array<{ date: string; submissions: number }> };
+
+    const trendMap = new Map<string, { visitors: number; submissions: number }>();
+    trendResult.results?.forEach(r => {
+      trendMap.set(r.date, { visitors: r.visitors || 0, submissions: 0 });
     });
-    
-    const trend = Object.entries(dailyStats)
+    submissionsTrendResult.results?.forEach(r => {
+      const existing = trendMap.get(r.date) || { visitors: 0 };
+      existing.submissions = r.submissions;
+      trendMap.set(r.date, existing);
+    });
+
+    const trend = Array.from(trendMap.entries())
       .map(([date, stats]) => ({ date, ...stats }))
       .sort((a, b) => a.date.localeCompare(b.date));
-    
-    // 热门页面
-    const { data: topPagesRaw } = await supabaseFetch(env,
-      `behaviors?website_id=eq.${websiteId}&event_type=eq.page_view&select=page_url&created_at=gte.${sinceDate}`
-    );
-    
-    const pageCounts: Record<string, number> = {};
-    topPagesRaw?.forEach((b: any) => {
-      pageCounts[b.page_url] = (pageCounts[b.page_url] || 0) + 1;
+
+    const topPagesResult = await env.DB.prepare(`
+      SELECT source_page as page, COUNT(*) as views
+      FROM submissions
+      WHERE website_id = ? AND source_page IS NOT NULL AND created_at >= ?
+      GROUP BY source_page
+      ORDER BY views DESC
+      LIMIT 10
+    `).bind(websiteId, sinceDate).all() as { results: Array<{ page: string; views: number }> };
+
+    const topCountriesResult = await env.DB.prepare(`
+      SELECT country, COUNT(DISTINCT visitor_id) as visitors
+      FROM visitors
+      WHERE website_id = ? AND country IS NOT NULL
+      GROUP BY country
+      ORDER BY visitors DESC
+      LIMIT 10
+    `).bind(websiteId).all() as { results: Array<{ country: string; visitors: number }> };
+
+    const topSourcesResult = await env.DB.prepare(`
+      SELECT source, COUNT(DISTINCT visitor_id) as count
+      FROM visitors
+      WHERE website_id = ? AND source IS NOT NULL AND source != ''
+      GROUP BY source
+      ORDER BY count DESC
+      LIMIT 6
+    `).bind(websiteId).all() as { results: Array<{ source: string; count: number }> };
+
+    const statusBreakdownResult = await env.DB.prepare(`
+      SELECT status, COUNT(*) as count
+      FROM submissions
+      WHERE website_id = ?
+      GROUP BY status
+    `).bind(websiteId).all() as { results: Array<{ status: string; count: number }> };
+
+    const statusBreakdown: Record<string, number> = {};
+    statusBreakdownResult.results?.forEach(r => {
+      statusBreakdown[r.status] = r.count;
     });
-    const topPages = Object.entries(pageCounts)
-      .map(([page, views]) => ({ page, views }))
-      .sort((a, b) => b.views - a.views)
-      .slice(0, 10);
-    
-    // 热门国家
-    const { data: topCountriesRaw } = await supabaseFetch(env,
-      `visitors?website_id=eq.${websiteId}&country=not.is.null&select=country`
-    );
-    
-    const countryCounts: Record<string, number> = {};
-    topCountriesRaw?.forEach((v: any) => {
-      if (v.country) {
-        countryCounts[v.country] = (countryCounts[v.country] || 0) + 1;
-      }
+
+    const recentReportsResult = await env.DB.prepare(`
+      SELECT id, market_id, market_name, market_name_en, category, product_type,
+             diagnosis_input, diagnosis_report, qualification_decision,
+             country, region, visitor_id, created_at
+      FROM diagnosis_reports
+      WHERE website_id = ?
+      ORDER BY created_at DESC
+      LIMIT 5
+    `).bind(websiteId).all();
+
+    const recentReports = (recentReportsResult.results || []).map((r: any) => {
+      let di = {}, dr = {}, qd = {};
+      try { di = r.diagnosis_input ? JSON.parse(r.diagnosis_input) : {}; } catch(e) { /* ignore malformed JSON */ }
+      try { dr = r.diagnosis_report ? JSON.parse(r.diagnosis_report) : {}; } catch(e) { /* ignore malformed JSON */ }
+      try { qd = r.qualification_decision ? JSON.parse(r.qualification_decision) : {}; } catch(e) { /* ignore malformed JSON */ }
+      return { ...r, diagnosis_input: di, diagnosis_report: dr, qualification_decision: qd };
     });
-    const topCountries = Object.entries(countryCounts)
-      .map(([country, visitors]) => ({ country, visitors }))
-      .sort((a, b) => b.visitors - a.visitors)
-      .slice(0, 10);
-    
-    // 最近提交
-    const { data: recentSubmissions } = await supabaseFetch(env,
-      `submissions?website_id=eq.${websiteId}&order=created_at.desc&limit=5`
-    );
-    
-    // 转化率
-    const totalV = totalVisitors.data?.length || 0;
-    const totalS = totalSubmissions.data?.length || 0;
-    const conversionRate = totalV > 0 ? ((totalS / totalV) * 100).toFixed(2) : 0;
-    
+
+    const topMarketsResult = await env.DB.prepare(`
+      SELECT market_id, market_name, COUNT(*) as count
+      FROM diagnosis_reports
+      WHERE website_id = ? AND market_name IS NOT NULL
+      GROUP BY market_id, market_name
+      ORDER BY count DESC
+      LIMIT 10
+    `).bind(websiteId).all() as { results: Array<{ market_id: string; market_name: string; count: number }> };
+
+    const totalV = totalVisitorsResult?.count || 0;
+    const totalS = totalSubmissionsResult?.count || 0;
+    const conversionRate = totalV > 0 ? Number(((totalS / totalV) * 100).toFixed(2)) : 0;
+
     return new Response(JSON.stringify({
       today: {
-        visitors: todayVisitors.data?.length || 0,
-        submissions: todaySubmissions.data?.length || 0
+        visitors: todayVisitorsResult?.count || 0,
+        submissions: todaySubmissionsResult?.count || 0
       },
       total: {
         visitors: totalV,
@@ -146,60 +168,18 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
         conversionRate
       },
       trend,
-      topPages,
-      topCountries,
-      recentSubmissions: recentSubmissions || []
+      topPages: topPagesResult.results || [],
+      topCountries: topCountriesResult.results || [],
+      topSources: topSourcesResult.results || [],
+      topMarkets: topMarketsResult.results || [],
+      statusBreakdown,
+      recentReports
     }), {
       headers: { 'Content-Type': 'application/json' }
     });
-    
+
   } catch (error) {
     console.error('Analytics error:', error);
-    return new Response(JSON.stringify({ error: (error as Error).message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
-    });
-  }
-}
-
-/**
- * 更新表单状态
- * PATCH /api/admin/submissions/:id
- */
-export async function onRequestPatch(context: { request: Request; params: any; env: Env }) {
-  const { request, params, env } = context;
-  
-  if (!await verifyAuth(request)) {
-    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-      status: 401,
-      headers: { 'Content-Type': 'application/json' }
-    });
-  }
-
-  try {
-    const { id } = params;
-    const body = await request.json();
-    const { status, notes, assigned_to } = body;
-    
-    const updateData: Record<string, any> = {
-      updated_at: new Date().toISOString()
-    };
-    
-    if (status) updateData.status = status;
-    if (notes !== undefined) updateData.notes = notes;
-    if (assigned_to !== undefined) updateData.assigned_to = assigned_to;
-    
-    await supabaseFetch(env, `submissions?id=eq.${id}`, {
-      method: 'PATCH',
-      body: JSON.stringify(updateData)
-    });
-    
-    return new Response(JSON.stringify({ success: true }), {
-      headers: { 'Content-Type': 'application/json' }
-    });
-    
-  } catch (error) {
-    console.error('Update submission error:', error);
     return new Response(JSON.stringify({ error: (error as Error).message }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }

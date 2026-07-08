@@ -1,31 +1,30 @@
 /**
- * 获取表单提交列表 API
- * GET /api/admin/submissions
- * 
+ * 获取表单提交列表 API - D1 版本
+ * GET /api/admin/submissions?page=1&limit=20&status=&search=&website_id=
  * 获取所有联系表单提交列表，支持分页和搜索
+ * 认证方式：Bearer session_token（登录后获取）
  */
 
-const ADMIN_API_KEY = 'zxq_admin_secret_key_2024';
+import { verifySession, authResponse, corsPreflight } from './auth';
 
-async function verifyAuth(request) {
-  const authHeader = request.headers.get('Authorization');
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return false;
-  }
-  const token = authHeader.substring(7);
-  return token === ADMIN_API_KEY;
+interface Env {
+  DB: D1Database;
+  ADMIN_KV: KVNamespace;
 }
 
-export async function onRequestGet(context) {
+function verifyAuth(request: Request, env: Env) {
+  return verifySession({ request, env });
+}
+
+export async function onRequestOptions() {
+  return corsPreflight();
+}
+
+export async function onRequestGet(context: { request: Request; env: Env }) {
   const { env, request } = context;
   
-  const isAuth = await verifyAuth(request);
-  if (!isAuth) {
-    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-      status: 401,
-      headers: { 'Content-Type': 'application/json' }
-    });
-  }
+  const session = await verifyAuth(request, env);
+  if (!session) return authResponse();
 
   try {
     const url = new URL(request.url);
@@ -33,8 +32,7 @@ export async function onRequestGet(context) {
     const limit = parseInt(url.searchParams.get('limit') || '20');
     const search = url.searchParams.get('search') || '';
     const status = url.searchParams.get('status');
-    const dateFrom = url.searchParams.get('date_from');
-    const dateTo = url.searchParams.get('date_to');
+    const websiteId = url.searchParams.get('website_id') || 'zxqconsulting';
     const offset = (page - 1) * limit;
     
     const DB = env.DB;
@@ -44,14 +42,15 @@ export async function onRequestGet(context) {
         total: 0,
         page,
         limit,
-        data: []
+        data: [],
+        totalPages: 0
       }), {
         headers: { 'Content-Type': 'application/json' }
       });
     }
     
-    let whereClause = 'WHERE 1=1';
-    const params: any[] = [];
+    let whereClause = 'WHERE website_id = ?';
+    const params: any[] = [websiteId];
     
     if (search) {
       whereClause += ` AND (name LIKE ? OR email LIKE ? OR phone LIKE ? OR company LIKE ?)`;
@@ -64,24 +63,15 @@ export async function onRequestGet(context) {
       params.push(status);
     }
     
-    if (dateFrom) {
-      whereClause += ' AND date(created_at) >= ?';
-      params.push(dateFrom);
-    }
-    
-    if (dateTo) {
-      whereClause += ' AND date(created_at) <= ?';
-      params.push(dateTo);
-    }
-    
     const countResult = await DB.prepare(
       `SELECT COUNT(*) as total FROM submissions ${whereClause}`
-    ).bind(...params).first();
+    ).bind(...params).first() as { total: number };
     const total = countResult?.total || 0;
     
-    const data = await DB.prepare(`
-      SELECT id, visitor_id, name, email, phone, company, message,
-             product_interest, source_page, country, status, created_at
+    const dataResult = await DB.prepare(`
+      SELECT id, visitor_id, name, email, phone, company,
+             product_stage, target_markets, timeline, challenge, budget, has_validation,
+             message, source_page, country, status, notes, assigned_to, created_at
       FROM submissions 
       ${whereClause}
       ORDER BY created_at DESC
@@ -93,7 +83,7 @@ export async function onRequestGet(context) {
       page,
       limit,
       totalPages: Math.ceil(total / limit),
-      data: data.results || []
+      data: dataResult.results || []
     }), {
       headers: { 'Content-Type': 'application/json' }
     });
@@ -101,7 +91,7 @@ export async function onRequestGet(context) {
   } catch (error) {
     console.error('Get Submissions API error:', error);
     return new Response(JSON.stringify({
-      error: error.message
+      error: (error as Error).message
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
@@ -111,22 +101,17 @@ export async function onRequestGet(context) {
 
 /**
  * 更新表单状态 API
- * PATCH /api/admin/submissions/:id
+ * PATCH /api/admin/submissions?id=
  */
-export async function onRequestPatch(context) {
-  const { env, params } = context;
-  
-  const isAuth = await verifyAuth(context.request);
-  if (!isAuth) {
-    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-      status: 401,
-      headers: { 'Content-Type': 'application/json' }
-    });
-  }
+export async function onRequestPatch(context: { request: Request; env: Env }) {
+  const { env, request } = context;
 
+  const session = await verifyAuth(request, env);
+  if (!session) return authResponse();
   try {
-    const { id } = params;
-    const body = await context.request.json();
+    const url = new URL(request.url);
+    const id = url.searchParams.get('id');
+    const body = await request.json();
     const { status, notes, assigned_to } = body;
     
     const DB = env.DB;
@@ -138,11 +123,26 @@ export async function onRequestPatch(context) {
       });
     }
     
+    if (!id) {
+      return new Response(JSON.stringify({ error: 'Missing id parameter' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
     await DB.prepare(`
-      UPDATE submissions 
-      SET status = ?, notes = ?, assigned_to = ?, updated_at = datetime("now")
+      UPDATE submissions
+      SET status = COALESCE(?, status),
+          notes = COALESCE(?, notes),
+          assigned_to = COALESCE(?, assigned_to),
+          updated_at = datetime('now')
       WHERE id = ?
-    `).bind(status, notes || null, assigned_to || null, id).run();
+    `).bind(
+      status !== undefined ? status : null,
+      notes !== undefined ? notes : null,
+      assigned_to !== undefined ? assigned_to : null,
+      id
+    ).run();
     
     return new Response(JSON.stringify({
       success: true,
@@ -154,7 +154,7 @@ export async function onRequestPatch(context) {
   } catch (error) {
     console.error('Update Submission API error:', error);
     return new Response(JSON.stringify({
-      error: error.message
+      error: (error as Error).message
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
