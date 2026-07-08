@@ -22,70 +22,23 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
 
     // 提取所有表单字段
     const {
-      // 企业基本信息
-      companyName,
-      companyNameEn,
-      unifiedCode,
-      companyType,
-      establishDate,
-      registeredCapital,
-      industry,
-      productCategory,
-      companyIntro,
-      contactName,
-      contactTitle,
-      contactPhone,
-      contactEmail,
-      contactWechat,
-      // 出海现状
-      overseasStage,
-      hasBranch,
-      branchDetails,
-      hasRevenue,
-      overseasRevenue,
-      revenueRatio,
-      overseasExperience,
-      // 目标市场
-      targetMarkets,
-      priorityMarkets,
-      marketTimeline,
-      marketFactors,
-      // 商业模式
-      businessModel,
-      productDetail,
-      avgPrice,
-      supplyCapacity,
-      hasCert,
-      certDetail,
-      supplyChain,
-      // 服务需求
-      services,
-      serviceDetail,
-      existingPartners,
-      // 预算时间
-      budget,
-      budgetFocus,
-      startDate,
-      endDate,
-      urgency,
-      // 财务状况
-      annualRevenue,
-      profitRate,
-      availableFunds,
-      financeNeed,
-      financialNote,
-      // 竞争分析
-      competitors,
-      advantages,
-      keyFactors,
-      // 风险挑战
-      challenges,
-      pastProblems,
-      riskTolerance,
-      // 资料提交
-      docs,
-      additionalNote,
-    } = body;
+      companyName = '', companyNameEn = '', unifiedCode = '', companyType = '',
+      establishDate = '', registeredCapital = '', industry = '', productCategory = '',
+      companyIntro = '', contactName = '', contactTitle = '', contactPhone = '',
+      contactEmail = '', contactWechat = '',
+      overseasStage = '', hasBranch = '', branchDetails = '', hasRevenue = '',
+      overseasRevenue = '', revenueRatio = '', overseasExperience = '',
+      targetMarkets = [], priorityMarkets = '', marketTimeline = '', marketFactors = [],
+      businessModel = [], productDetail = '', avgPrice = '', supplyCapacity = '',
+      hasCert = '', certDetail = '', supplyChain = '',
+      services = [], serviceDetail = '', existingPartners = '',
+      budget = '', budgetFocus = [], startDate = '', endDate = '', urgency = '',
+      annualRevenue = '', profitRate = '', availableFunds = '', financeNeed = '',
+      financialNote = '',
+      competitors = '', advantages = '', keyFactors = [],
+      challenges = [], pastProblems = '', riskTolerance = '',
+      docs = [], additionalNote = '',
+    } = body as Record<string, any>;
 
     // ================================================================
     // 保存到 D1 数据库

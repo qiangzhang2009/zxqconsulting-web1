@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业出海服务客户信息采集表 | 专业咨询评估问卷</title>
+    <style>
+        :root {
+            --bg-primary: #0a0f1c;
+            --bg-secondary: #111827;
+            --bg-card: rgba(17, 24, 39, 0.95);
+            --bg-input: rgba(255, 255, 255, 0.05);
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --accent-1: #3b82f6;
+            --accent-2: #06b6d4;
+            --accent-3: #8b5cf6;
+            --accent-4: #10b981;
+            --accent-5: #f59e0b;
+            --accent-6: #f43f5e;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-accent: rgba(59, 130, 246, 0.4);
+            --border-hover: rgba(59, 130, 246, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 56px;
+            padding: 48px;
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.08) 0%, transparent 100%);
+            border-radius: 24px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 24px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 0%, #c9d1d9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-desc {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .header-note {
+            margin-top: 20px;
+            padding: 16px 24px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            font-size: 14px;
+            color: var(--accent-4);
+            display: inline-block;
+        }
+
+        /* Form Sections */
+        .form-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            margin-bottom: 32px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px 32px;
+            background: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .section-1 .section-number { background: linear-gradient(135deg, var(--accent-1), var(--accent-2)); color: #fff; }
+        .section-2 .section-number { background: linear-gradient(135deg, var(--accent-2), var(--accent-3)); color: #fff; }
+        .section-3 .section-number { background: linear-gradient(135deg, var(--accent-3), var(--accent-4)); color: #fff; }
+        .section-4 .section-number { background: linear-gradient(135deg, var(--accent-4), var(--accent-5)); color: #fff; }
+        .section-5 .section-number { background: linear-gradient(135deg, var(--accent-5), var(--accent-6)); color: #fff; }
+        .section-6 .section-number { background: linear-gradient(135deg, var(--accent-6), var(--accent-1)); color: #fff; }
+        .section-7 .section-number { background: linear-gradient(135deg, #8b5cf6, #ec4899); color: #fff; }
+        .section-8 .section-number { background: linear-gradient(135deg, #ec4899, var(--accent-5)); color: #fff; }
+        .section-9 .section-number { background: linear-gradient(135deg, var(--accent-5), var(--accent-4)); color: #fff; }
+        .section-10 .section-number { background: linear-gradient(135deg, var(--accent-4), var(--accent-1)); color: #fff; }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .section-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .section-body {
+            padding: 32px;
+        }
+
+        /* Form Groups */
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .form-label .required {
+            color: var(--accent-6);
+            margin-left: 4px;
+        }
+
+        .form-label .optional {
+            color: var(--text-muted);
+            font-weight: 400;
+            font-size: 12px;
+            margin-left: 8px;
+        }
+
+        .form-hint {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            font-weight: 400;
+        }
+
+        /* Inputs */
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:hover,
+        .form-select:hover,
+        .form-textarea:hover {
+            border-color: var(--border-hover);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent-1);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 18px;
+            padding-right: 48px;
+        }
+
+        /* Grid Layout */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid { grid-template-columns: 1fr; }
+        }
+
+        .form-grid-full {
+            grid-column: 1 / -1;
+        }
+
+        /* Checkbox & Radio */
+        .checkbox-group,
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .checkbox-item,
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 140px;
+        }
+
+        .checkbox-item:hover,
+        .radio-item:hover {
+            border-color: var(--border-hover);
+        }
+
+        .checkbox-item input,
+        .radio-item input {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent-1);
+            cursor: pointer;
+        }
+
+        .checkbox-item label,
+        .radio-item label {
+            font-size: 14px;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        /* Table-like input */
+        .input-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .input-table th,
+        .input-table td {
+            padding: 12px 14px;
+            border: 1px solid var(--border-subtle);
+            text-align: left;
+        }
+
+        .input-table th {
+            background: rgba(255, 255, 255, 0.03);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .input-table td input,
+        .input-table td select {
+            width: 100%;
+            padding: 8px 12px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+
+        .input-table td input:focus,
+        .input-table td select:focus {
+            outline: none;
+            border-color: var(--accent-1);
+        }
+
+        /* File Upload */
+        .file-upload-area {
+            border: 2px dashed var(--border-subtle);
+            border-radius: 12px;
+            padding: 40px 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .file-upload-area:hover {
+            border-color: var(--border-hover);
+            background: rgba(59, 130, 246, 0.03);
+        }
+
+        .file-upload-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .file-upload-text {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .file-upload-hint {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 48px;
+        }
+
+        .btn {
+            padding: 16px 48px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-1), #2563eb);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--bg-input);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+        }
+
+        /* Footer Note */
+        .footer-note {
+            text-align: center;
+            margin-top: 48px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .footer-note p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .footer-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Section divider */
+        .subsection {
+            margin-top: 32px;
+            margin-bottom: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .subsection-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .subsection-title::before {
+            content: '';
+            width: 4px;
+            height: 18px;
+            background: var(--accent-1);
+            border-radius: 2px;
+        }
+
+        /* Priority indicator */
+        .priority-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: 12px;
+        }
+
+        .priority-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .priority-high { background: var(--accent-6); }
+        .priority-medium { background: var(--accent-5); }
+        .priority-low { background: var(--accent-4); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-badge">📋 客户信息采集</div>
+            <h1>企业出海服务客户信息采集表</h1>
+            <p class="header-desc">为确保为您提供精准、高效的出海服务解决方案，请完整填写以下信息。我们将根据您提供的信息进行专业评估，并制定定制化服务方案与报价。</p>
+            <div class="header-note">
+                <strong>📌 提示：</strong>标有 <span style="color: var(--accent-6);">*</span> 的字段为必填项，其余为选填项。信息越详尽，我们的服务方案越精准。
+            </div>
+        </header>
+
+        <form id="clientForm">
+            <!-- 第一部分：企业基本信息 -->
+            <section class="form-section section-1">
+                <div class="section-header">
+                    <div class="section-number">01</div>
+                    <div>
+                        <div class="section-title">企业基本信息</div>
+                        <div class="section-desc">企业主体与联系人核心信息</div>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">企业全称 <span class="required">*</span></label>
+                            <input type="text" class="form-input" name="companyName" placeholder="请输入公司全称（中文）" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">企业全称（英文） <span class="optional">选填</span></label>
+                            <input type="text" class="form-input" name="companyNameEn" placeholder="Company Name in English">
+                        </div>
+                    </div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">统一社会信用代码 <span class="required">*</span></label>
+                            <input type="text" class="form-input" name="unifiedCode" placeholder="18位统一社会信用代码" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">企业性质 <span class="required">*</span></label>
+                            <select class="form-select" name="companyType" required>
+                                <option value="">请选择企业性质</option>
+                                <option value="private">民营企业</option>
+                                <option value="state">国有企业</option>
+                                <option value="joint">中外合资企业</option>
+                                <option value="foreign">外资企业</option>
+                                <option value="public">上市公司</option>
+                                <option value="startup">初创企业</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">成立时间 <span class="required">*</span></label>
+                            <input type="date" class="form-input" name="establishDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">注册资本 <span class="required">*</span></label>
+                            <select class="form-select" name="registeredCapital" required>
+                                <option value="">请选择注册资本范围</option>
+                                <option value="under1m">100万元以下</option>
+                                <option value="1m-10m">100万-1000万元</option>
+                                <option value="10m-50m">1000万-5000万元</option>
+                                <option value="50m-100m">5000万-1亿元</option>
+                                <option value="100m-500m">1亿-5亿元</option>
+                                <option value="above500m">5亿元以上</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">所属行业 <span class="required">*</span></label>
+                            <select class="form-select" name="industry" required>
+                                <option value="">请选择所属行业</option>
+                                <option value="manufacturing">制造业（消费电子/机械/汽车等）</option>
+                                <option value="ecommerce">跨境电商</option>
+                                <option value="app">App/软件/游戏</option>
+                                <option value="consumer">消费品（服装/美妆/家居等）</option>
+                                <option value="food">食品/饮料</option>
+                                <option value="healthcare">医疗器械/医药</option>
+                                <option value="energy">新能源/光伏</option>
+                                <option value="service">专业服务</option>
+                                <option value="education">教育培训</option>
+                                <option value="finance">金融科技</option>
+                                <option value="entertainment">文化娱乐/内容</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">具体产品品类 <span class="required">*</span></label>
+                            <input type="text" class="form-input" name="productCategory" placeholder="请详细描述您的产品品类" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">企业简介 <span class="required">*</span></label>
+                        <textarea class="form-textarea" name="companyIntro" placeholder="请简要描述企业历史、核心业务、市场地位、核心竞争优势等（200-500字）" required></textarea>
+                    </div>
+
+                    <div class="subsection-title">主要联系人信息</div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">联系人姓名 <span class="required">*</span></label>
+                            <input type="text" class="form-input" name="contactName" placeholder="请输入联系人姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">职务/Title <span class="required">*</span></label>
+                            <input type="text" class="form-input" name="contactTitle" placeholder="如：CEO/COO/海外业务负责人" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">手机号码 <span class="required">*</span></label>
+                            <input type="tel" class="form-input" name="contactPhone" placeholder="+86-xxx-xxxx-xxxx" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">电子邮箱 <span class="required">*</span></label>
+                            <input type="email" class="form-input" name="contactEmail" placeholder="xxx@company.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">微信/WhatsApp <span class="optional">选填</span></label>
+                        <input type="text" class="form-input" name="contactWechat" placeholder="方便快捷沟通">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 第二部分：出海现状评估 -->
+            <section class="form-section section-2">
+                <div class="section-header">
+                    <div class="section-number">02</div>
+                    <div>
+                        <div class="section-title">出海现状与经验</div>
+                        <div class="section-desc">评估企业当前出海阶段与已有经验</div>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="form-group">
+                        <label class="form-label">当前出海阶段 <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="stage1" name="overseasStage" value="planning" required>
+                                <label for="stage1">计划出海（尚未开始）</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="stage2" name="overseasStage" value="exploring">
+                                <label for="stage2">初步探索中</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="stage3" name="overseasStage" value="testing">
+                                <label for="stage3">小范围试水</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="stage4" name="overseasStage" value="scaling">
+                                <label for="stage4">规模化扩张</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="stage5" name="overseasStage" value="established">
+                                <label for="stage5">已建立成熟业务</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">是否有海外子公司/分支机构</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="branchYes" name="hasBranch" value="yes">
+                                <label for="branchYes">是</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="branchNo" name="hasBranch" value="no">
+                                <label for="branchNo">否</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="branchDetailGroup" style="display: none;">
+                        <label class="form-label">已设立的海外机构详情</label>
+                        <table class="input-table">
+                            <thead>
+                                <tr>
+                                    <th>公司名称</th>
+                                    <th>注册地</th>
+                                    <th>成立时间</th>
+                                    <th>业务范围</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" placeholder="公司名称"></td>
+                                    <td><input type="text" placeholder="如：新加坡/美国"></td>
+                                    <td><input type="text" placeholder="YYYY-MM"></td>
+                                    <td><input type="text" placeholder="业务范围"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="公司名称"></td>
+                                    <td><input type="text" placeholder="如：新加坡/美国"></td>
+                                    <td><input type="text" placeholder="YYYY-MM"></td>
+                                    <td><input type="text" placeholder="业务范围"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">是否已有海外销售/营收</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="revenueYes" name="hasRevenue" value="yes">
+                                <label for="revenueYes">是</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="revenueNo" name="hasRevenue" value="no">
+                                <label for="revenueNo">否</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="revenueDetailGroup" style="display: none;">
+                        <label class="form-label">海外营收详情</label>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">年海外营收规模</label>
+                                <select class="form-select" name="overseasRevenue">
+                                    <option value="">请选择</option>
+                                    <option value="under100w">100万元以下</option>
+                                    <option value="100w-1000w">100万-1000万元</option>
+                                    <option value="1000w-5000w">1000万-5000万元</option>
+                                    <option value="5000w-1y">5000万-1亿元</option>
+                                    <option value="1y-5y">1亿-5亿元</option>
+                                    <option value="above5y">5亿元以上</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">占整体营收比例</label>
+                                <input type="text" class="form-input" name="revenueRatio" placeholder="如：20%">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">过往出海经验简述 <span class="optional">选填</span></label>
+                        <textarea class="form-textarea" name="overseasExperience" placeholder="请描述过往出海尝试，包括：目标市场、进入方式、取得成果、遇到的问题等"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 第三部分：目标市场 -->
+            <section class="form-section section-3">
+                <div class="section-header">
+                    <div class="section-number">03</div>
+                    <div>
+                        <div class="section-title">目标市场选择</div>
+                        <div class="section-desc">确定出海目的地与市场优先级</div>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="form-group">
+                        <label class="form-label">目标市场（可多选）<span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="market1" name="targetMarkets" value="southeast">
+                                <label for="market1">东南亚（越南/印尼/泰国/菲律宾/马来西亚/新加坡）</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="market2" name="targetMarkets" value="eastasia">
+                                <label for="market2">东亚（日韩/中国港澳台）</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="market3" name="targetMarkets" value="southasia">
+                                <label for="market3">南亚（印度/巴基斯坦/孟加拉）</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="market4" name="targetMarkets" value="mideast">
+                                <label for="market4">中东（沙特/阿联酋/土耳其/以色列）</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="market5" name="targetMarkets" value="africa">
+                                <label for="market5">非洲（南非/尼日利亚/肯尼亚/埃及）</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="market6" name="targetMarkets" value="russia">
+                                <label for="market6">俄罗斯/独联体</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="market7" name="targetMarkets" value="europe">
+                                <label for="market7">欧洲（西欧/东欧）</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="market8" name="targetMarkets" value="northamerica">
+                                <label for="market8">北美（美国/加拿大）</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="market9" name="targetMarkets" value="latin">
+                                <label for="market9">拉丁美洲（巴西/墨西哥/阿根廷/智利）</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="market10" name="targetMarkets" value="oceania">
+                                <label for="market10">大洋洲（澳大利亚/新西兰）</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">首选目标市场（1-3个）<span class="required">*</span></label>
+                        <textarea class="form-textarea" name="priorityMarkets" placeholder="请详细说明您的首选目标市场及理由，如：1. 美国（市场规模大、消费能力强）2. 东南亚（地理位置近、文化相近）" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">市场进入时间规划</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="timeline1" name="marketTimeline" value="immediate">
+                                <label for="timeline1">立即启动（1个月内）</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="timeline2" name="marketTimeline" value="short">
+                                <label for="timeline2">短期（1-3个月）</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="timeline3" name="marketTimeline" value="medium">
+                                <label for="timeline3">中期（3-6个月）</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="timeline4" name="marketTimeline" value="long">
+                                <label for="timeline4">长期规划（6个月以上）</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">选择目标市场的考量因素</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="factor1" name="marketFactors" value="scale">
+                                <label for="factor1">市场规模</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="factor2" name="marketFactors" value="growth">
+                                <label for="factor2">增长潜力</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="factor3" name="marketFactors" value="competition">
+                                <label for="factor3">竞争程度</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="factor4" name="marketFactors" value="culture">
+                                <label for="factor4">文化亲近性</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="factor5" name="marketFactors" value="regulation">
+                                <label for="factor5">政策环境</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="factor6" name="marketFactors" value="infrastructure">
+                                <label for="factor6">基础设施</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="factor7" name="marketFactors" value="profit">
+                                <label for="factor7">利润空间</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="factor8" name="marketFactors" value="logistics">
+                                <label for="factor8">物流便利</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 第四部分：商业模式 -->
+            <section class="form-section section-4">
+                <div class="section-header">
+                    <div class="section-number">04</div>
+                    <div>
+                        <div class="section-title">商业模式与产品</div>
+                        <div class="section-desc">明确业务模式与核心产品/服务</div>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="form-group">
+                        <label class="form-label">商业模式类型（可多选）<span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="biz1" name="businessModel" value="b2c">
+                                <label for="biz1">B2C电商（平台销售）</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="biz2" name="businessModel" value="dtc">
+                                <label for="biz2">DTC独立站</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="biz3" name="businessModel" value="b2b">
+                                <label for="biz3">B2B批发/分销</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="biz4" name="businessModel" value="saas">
+                                <label for="biz4">SaaS/软件服务</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="biz5" name="businessModel" value="app">
+                                <label for="biz5">App/移动应用</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="biz6" name="businessModel" value="game">
+                                <label for="biz6">游戏</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="biz7" name="businessModel" value="service">
+                                <label for="biz7">线下服务</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="biz8" name="businessModel" value="manufacturing">
+                                <label for="biz8">生产制造/代工</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">核心产品/服务详细描述 <span class="required">*</span></label>
+                        <textarea class="form-textarea" name="productDetail" placeholder="请详细描述您的核心产品或服务，包括：产品线、SKU数量、主力产品、定价区间、独特卖点等" required></textarea>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">平均客单价（人民币）</label>
+                            <select class="form-select" name="avgPrice">
+                                <option value="">请选择</option>
+                                <option value="under50">50元以下</option>
+                                <option value="50-200">50-200元</option>
+                                <option value="200-500">200-500元</option>
+                                <option value="500-1000">500-1000元</option>
+                                <option value="1000-5000">1000-5000元</option>
+                                <option value="5000-1w">5000-1万元</option>
+                                <option value="above1w">1万元以上</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">年供货/服务能力</label>
+                            <input type="text" class="form-input" name="supplyCapacity" placeholder="如：年产能100万件/月服务500客户">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">产品是否有特殊认证/许可要求</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="certYes" name="hasCert" value="yes">
+                                <label for="certYes">是</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="certNo" name="hasCert" value="no">
+                                <label for="certNo">否</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="certDetailGroup" style="display: none;">
+                        <label class="form-label">所需认证/许可类型</label>
+                        <textarea class="form-textarea" name="certDetail" placeholder="请列出产品所需的认证或许可，如：CE/FCC认证、FDA注册、食品许可等"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">自有供应链情况</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="supply1" name="supplyChain" value="self">
+                                <label for="supply1">完全自有</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="supply2" name="supplyChain" value="partial">
+                                <label for="supply2">部分自有+外采</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="supply3" name="supplyChain" value="outsource">
+                                <label for="supply3">完全外包</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 第五部分：服务需求 -->
+            <section class="form-section section-5">
+                <div class="section-header">
+                    <div class="section-number">05</div>
+                    <div>
+                        <div class="section-title">服务需求意向</div>
+                        <div class="section-desc">明确需要的服务类型与范围</div>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="form-group">
+                        <label class="form-label">需要的服务类型（可多选）<span class="required">*</span></label>
+                        
+                        <div class="subsection">
+                            <div class="subsection-title">📋 咨询与战略</div>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s1" name="services" value="market-research">
+                                    <label for="s1">市场调研</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s2" name="services" value="strategy">
+                                    <label for="s2">战略规划</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s3" name="services" value="feasibility">
+                                    <label for="s3">可行性分析</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <div class="subsection-title">⚖️ 法律合规</div>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s4" name="services" value="company-reg">
+                                    <label for="s4">公司注册</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s5" name="services" value="legal-compliance">
+                                    <label for="s5">法律合规</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s6" name="services" value="ip">
+                                    <label for="s6">知识产权</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s7" name="services" value="labor-law">
+                                    <label for="s7">劳动法务</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s8" name="services" value="data-privacy">
+                                    <label for="s8">数据合规</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <div class="subsection-title">💰 财务税务</div>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s9" name="services" value="tax">
+                                    <label for="s9">税务筹划</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s10" name="services" value="transfer-price">
+                                    <label for="s10">转让定价</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s11" name="services" value="bank">
+                                    <label for="s11">银行开户</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s12" name="services" value="accounting">
+                                    <label for="s12">会计代理</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s13" name="services" value="audit">
+                                    <label for="s13">审计服务</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <div class="subsection-title">📢 营销推广</div>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s14" name="services" value="ads">
+                                    <label for="s14">广告投放</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s15" name="services" value="kols">
+                                    <label for="s15">红人营销</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s16" name="services" value="pr">
+                                    <label for="s16">公关媒体</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s17" name="services" value="content">
+                                    <label for="s17">内容创作</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s18" name="services" value="seo">
+                                    <label for="s18">SEO/SEM</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s19" name="services" value="brand">
+                                    <label for="s19">品牌策划</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <div class="subsection-title">🛒 电商平台</div>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s20" name="services" value="platform">
+                                    <label for="s20">平台入驻</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s21" name="services" value="operation">
+                                    <label for="s21">店铺代运营</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s22" name="services" value="website">
+                                    <label for="s22">独立站建设</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s23" name="services" value="erp">
+                                    <label for="s23">ERP系统</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <div class="subsection-title">🚚 物流仓储</div>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s24" name="services" value="logistics">
+                                    <label for="s24">国际物流</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s25" name="services" value="warehouse">
+                                    <label for="s25">海外仓</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s26" name="services" value="fulfillment">
+                                    <label for="s26">FBA服务</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s27" name="services" value="customs">
+                                    <label for="s27">清关服务</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <div class="subsection-title">💳 支付金融</div>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s28" name="services" value="payment">
+                                    <label for="s28">跨境支付</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s29" name="services" value="fx">
+                                    <label for="s29">外汇管理</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s30" name="services" value="financing">
+                                    <label for="s30">供应链金融</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <div class="subsection-title">👥 人力资源</div>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s31" name="services" value="recruitment">
+                                    <label for="s31">人才招聘</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s32" name="services" value="eor">
+                                    <label for="s32">EOR服务</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s33" name="services" value="payroll">
+                                    <label for="s33">薪酬外包</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s34" name="services" value="training">
+                                    <label for="s34">培训发展</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <div class="subsection-title">🌐 科技服务</div>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s35" name="services" value="cloud">
+                                    <label for="s35">云服务部署</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s36" name="services" value="localization">
+                                    <label for="s36">本地化翻译</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s37" name="services" value="ai">
+                                    <label for="s37">AI工具应用</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <div class="subsection-title">🏢 办公落地</div>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s38" name="services" value="office">
+                                    <label for="s38">办公室选址</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s39" name="services" value="coworking">
+                                    <label for="s39">共享办公</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="s40" name="services" value="visa">
+                                    <label for="s40">签证居留</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">服务需求详细描述 <span class="required">*</span></label>
+                        <textarea class="form-textarea" name="serviceDetail" placeholder="请详细描述您的具体需求，包括：期望解决的问题、业务痛点、特殊要求等" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">是否有指定的服务商/合作方</label>
+                        <textarea class="form-textarea" name="existingPartners" placeholder="如已有合作的服务商或平台方，请说明"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 第六部分：预算与时间 -->
+            <section class="form-section section-6">
+                <div class="section-header">
+                    <div class="section-number">06</div>
+                    <div>
+                        <div class="section-title">预算与时间预期</div>
+                        <div class="section-desc">项目预算范围与时间要求</div>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="form-group">
+                        <label class="form-label">整体项目预算（人民币）<span class="required">*</span></label>
+                        <select class="form-select" name="budget" required>
+                            <option value="">请选择预算范围</option>
+                            <option value="under10w">10万元以下</option>
+                            <option value="10w-30w">10-30万元</option>
+                            <option value="30w-50w">30-50万元</option>
+                            <option value="50w-100w">50-100万元</option>
+                            <option value="100w-300w">100-300万元</option>
+                            <option value="300w-500w">300-500万元</option>
+                            <option value="500w-1000w">500-1000万元</option>
+                            <option value="above1000w">1000万元以上</option>
+                            <option value="tbd">待定（需评估后报价）</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">预算分配倾向（可多选）</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="budget1" name="budgetFocus" value="consulting">
+                                <label for="budget1">咨询规划</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="budget2" name="budgetFocus" value="legal">
+                                <label for="budget2">法律合规</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="budget3" name="budgetFocus" value="marketing">
+                                <label for="budget3">营销推广</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="budget4" name="budgetFocus" value="tech">
+                                <label for="budget4">技术系统</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="budget5" name="budgetFocus" value="team">
+                                <label for="budget5">团队组建</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="budget6" name="budgetFocus" value="operation">
+                                <label for="budget6">运营落地</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">期望项目启动时间</label>
+                            <input type="date" class="form-input" name="startDate">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">期望完成时间</label>
+                            <input type="date" class="form-input" name="endDate">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">时间紧迫程度</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="urgent1" name="urgency" value="critical">
+                                <label for="urgent1">非常紧迫（有时间节点压力）</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="urgent2" name="urgency" value="normal">
+                                <label for="urgent2">正常节奏</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="urgent3" name="urgency" value="flexible">
+                                <label for="urgent3">时间灵活</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 第七部分：财务状况 -->
+            <section class="form-section section-7">
+                <div class="section-header">
+                    <div class="section-number">07</div>
+                    <div>
+                        <div class="section-title">企业财务状况</div>
+                        <div class="section-desc">用于评估项目可行性与风险</div>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">企业年营收（人民币）<span class="required">*</span></label>
+                            <select class="form-select" name="annualRevenue" required>
+                                <option value="">请选择</option>
+                                <option value="under1000w">1000万元以下</option>
+                                <option value="1000w-5000w">1000万-5000万元</option>
+                                <option value="5000w-1y">5000万-1亿元</option>
+                                <option value="1y-5y">1亿-5亿元</option>
+                                <option value="5y-10y">5亿-10亿元</option>
+                                <option value="above10y">10亿元以上</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">近一年净利润率</label>
+                            <select class="form-select" name="profitRate">
+                                <option value="">请选择</option>
+                                <option value="negative">亏损</option>
+                                <option value="0-5">0-5%</option>
+                                <option value="5-10">5-10%</option>
+                                <option value="10-20">10-20%</option>
+                                <option value="20-30">20-30%</option>
+                                <option value="above30">30%以上</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">可动用资金规模</label>
+                            <select class="form-select" name="availableFunds">
+                                <option value="">请选择</option>
+                                <option value="under100w">100万元以下</option>
+                                <option value="100w-500w">100万-500万元</option>
+                                <option value="500w-1000w">500万-1000万元</option>
+                                <option value="1000w-3000w">1000万-3000万元</option>
+                                <option value="above3000w">3000万元以上</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">是否有融资需求</label>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="finance1" name="financeNeed" value="yes">
+                                    <label for="finance1">是</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="finance2" name="financeNeed" value="no">
+                                    <label for="finance2">否</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">财务状况补充说明 <span class="optional">选填</span></label>
+                        <textarea class="form-textarea" name="financialNote" placeholder="如有关于财务状况的重要信息，请补充说明"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 第八部分：竞争与差异化 -->
+            <section class="form-section section-8">
+                <div class="section-header">
+                    <div class="section-number">08</div>
+                    <div>
+                        <div class="section-title">竞争分析</div>
+                        <div class="section-desc">竞争对手与差异化优势</div>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="form-group">
+                        <label class="form-label">主要竞争对手（至少列出3个）<span class="required">*</span></label>
+                        <table class="input-table">
+                            <thead>
+                                <tr>
+                                    <th>竞争对手名称</th>
+                                    <th>优势</th>
+                                    <th>劣势</th>
+                                    <th>市场份额</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" placeholder="竞争对手名称"></td>
+                                    <td><input type="text" placeholder="其优势"></td>
+                                    <td><input type="text" placeholder="其劣势"></td>
+                                    <td><input type="text" placeholder="预估份额"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="竞争对手名称"></td>
+                                    <td><input type="text" placeholder="其优势"></td>
+                                    <td><input type="text" placeholder="其劣势"></td>
+                                    <td><input type="text" placeholder="预估份额"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="竞争对手名称"></td>
+                                    <td><input type="text" placeholder="其优势"></td>
+                                    <td><input type="text" placeholder="其劣势"></td>
+                                    <td><input type="text" placeholder="预估份额"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">您的核心竞争优势 <span class="required">*</span></label>
+                        <textarea class="form-textarea" name="advantages" placeholder="请详细描述您的核心竞争优势，如：技术壁垒、成本优势、供应链、独特资源、品牌优势等" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">您认为出海成功的关键因素</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="key1" name="keyFactors" value="product">
+                                <label for="key1">产品力</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="key2" name="keyFactors" value="price">
+                                <label for="key2">价格竞争力</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="key3" name="keyFactors" value="brand">
+                                <label for="key3">品牌建设</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="key4" name="keyFactors" value="localization">
+                                <label for="key4">本地化运营</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="key5" name="keyFactors" value="channel">
+                                <label for="key5">渠道资源</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="key6" name="keyFactors" value="tech">
+                                <label for="key6">技术创新</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="key7" name="keyFactors" value="service">
+                                <label for="key7">服务质量</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 第九部分：风险与挑战 -->
+            <section class="form-section section-9">
+                <div class="section-header">
+                    <div class="section-number">09</div>
+                    <div>
+                        <div class="section-title">潜在风险与挑战</div>
+                        <div class="section-desc">识别可能面临的问题</div>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="form-group">
+                        <label class="form-label">预计面临的主要挑战（可多选）</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="risk1" name="challenges" value="regulation">
+                                <label for="risk1">政策法规限制</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="risk2" name="challenges" value="competition">
+                                <label for="risk2">竞争压力大</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="risk3" name="challenges" value="fund">
+                                <label for="risk3">资金不足</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="risk4" name="challenges" value="talent">
+                                <label for="risk4">人才缺乏</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="risk5" name="challenges" value="localization">
+                                <label for="risk5">本地化难度</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="risk6" name="challenges" value="cultural">
+                                <label for="risk6">文化差异</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="risk7" name="challenges" value="supply">
+                                <label for="risk7">供应链挑战</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="risk8" name="challenges" value="fx">
+                                <label for="risk8">汇率风险</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="risk9" name="challenges" value="tech">
+                                <label for="risk9">技术适应</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="risk10" name="challenges" value="ip">
+                                <label for="risk10">知识产权风险</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">过往出海尝试中遇到的主要问题 <span class="optional">选填</span></label>
+                        <textarea class="form-textarea" name="pastProblems" placeholder="如有过往出海经验，请描述遇到的主要问题和困难"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">对风险的容忍度</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="riskTol1" name="riskTolerance" value="low">
+                                <label for="riskTol1">保守（追求稳定回报）</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="riskTol2" name="riskTolerance" value="medium">
+                                <label for="riskTol2">中等（可接受适度风险）</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="riskTol3" name="riskTolerance" value="high">
+                                <label for="riskTol3">积极（追求高增长）</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 第十部分：资料提交 -->
+            <section class="form-section section-10">
+                <div class="section-header">
+                    <div class="section-number">10</div>
+                    <div>
+                        <div class="section-title">补充资料提交</div>
+                        <div class="section-desc">上传相关资质文件以加速审核</div>
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="form-group">
+                        <label class="form-label">请上传以下资料（可选，但有助于获得更精准报价）</label>
+                        
+                        <div class="subsection">
+                            <div class="subsection-title">企业资质文件</div>
+                            <div class="checkbox-group" style="margin-bottom: 16px;">
+                                <div class="checkbox-item" style="min-width: 200px;">
+                                    <input type="checkbox" id="doc1" name="docs" value="license">
+                                    <label for="doc1">营业执照扫描件</label>
+                                </div>
+                                <div class="checkbox-item" style="min-width: 200px;">
+                                    <input type="checkbox" id="doc2" name="docs" value="introduction">
+                                    <label for="doc2">企业介绍PPT/PDF</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <div class="subsection-title">产品资料</div>
+                            <div class="checkbox-group" style="margin-bottom: 16px;">
+                                <div class="checkbox-item" style="min-width: 200px;">
+                                    <input type="checkbox" id="doc3" name="docs" value="product-list">
+                                    <label for="doc3">产品目录/清单</label>
+                                </div>
+                                <div class="checkbox-item" style="min-width: 200px;">
+                                    <input type="checkbox" id="doc4" name="docs" value="product-photo">
+                                    <label for="doc4">产品图片</label>
+                                </div>
+                                <div class="checkbox-item" style="min-width: 200px;">
+                                    <input type="checkbox" id="doc5" name="docs" value="cert">
+                                    <label for="doc5">产品认证证书</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <div class="subsection-title">财务资料</div>
+                            <div class="checkbox-group" style="margin-bottom: 16px;">
+                                <div class="checkbox-item" style="min-width: 200px;">
+                                    <input type="checkbox" id="doc6" name="docs" value="financial">
+                                    <label for="doc6">近两年财务报表</label>
+                                </div>
+                                <div class="checkbox-item" style="min-width: 200px;">
+                                    <input type="checkbox" id="doc7" name="docs" value="tax">
+                                    <label for="doc7">完税证明</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subsection">
+                            <div class="subsection-title">其他资料</div>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item" style="min-width: 200px;">
+                                    <input type="checkbox" id="doc8" name="docs" value="existing-ip">
+                                    <label for="doc8">已有海外商标/专利</label>
+                                </div>
+                                <div class="checkbox-item" style="min-width: 200px;">
+                                    <input type="checkbox" id="doc9" name="docs" value="existing-partner">
+                                    <label for="doc9">现有合作伙伴</label>
+                                </div>
+                                <div class="checkbox-item" style="min-width: 200px;">
+                                    <input type="checkbox" id="doc10" name="docs" value="other">
+                                    <label for="doc10">其他补充材料</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">补充材料清单</label>
+                        <div style="padding: 16px 20px; background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 12px; font-size: 14px; color: var(--text-secondary); line-height: 2;">
+                            <p style="margin-bottom: 12px; color: var(--text-primary); font-weight: 600;">请将以下材料打包发送至 <span style="color: var(--accent-1);">customer@zxqconsulting.com</span>，邮件标题请注明「企业名称 + 出海咨询补充材料」：</p>
+                            <p style="margin-bottom: 8px;"><strong>企业资质</strong></p>
+                            <ul style="margin-left: 20px; margin-bottom: 16px;">
+                                <li>营业执照扫描件（PDF）</li>
+                                <li>企业介绍 PPT/PDF（含核心业务、市场地位、团队介绍）</li>
+                            </ul>
+                            <p style="margin-bottom: 8px;"><strong>产品资料</strong></p>
+                            <ul style="margin-left: 20px; margin-bottom: 16px;">
+                                <li>产品目录或清单（含价格区间）</li>
+                                <li>产品高清图片（用于市场定位参考）</li>
+                                <li>产品认证证书（如有 CE/FCC/FDA 等）</li>
+                            </ul>
+                            <p style="margin-bottom: 8px;"><strong>财务资料</strong></p>
+                            <ul style="margin-left: 20px; margin-bottom: 16px;">
+                                <li>近两年财务报表（加盖公章 PDF）</li>
+                                <li>完税证明或审计报告</li>
+                            </ul>
+                            <p style="margin-bottom: 8px;"><strong>其他（如有）</strong></p>
+                            <ul style="margin-left: 20px;">
+                                <li>已有海外商标/专利证书</li>
+                                <li>与海外合作伙伴的协议或往来记录</li>
+                                <li>过往出海尝试的总结或复盘报告</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">其他补充说明 <span class="optional">选填</span></label>
+                        <textarea class="form-textarea" name="additionalNote" placeholder="如有其他需要补充的信息，请在此说明"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 提交按钮 -->
+            <div class="btn-group">
+                <button type="submit" class="btn btn-primary">提交信息</button>
+                <button type="reset" class="btn btn-secondary">重置表单</button>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer-note">
+                <p><strong>隐私声明：</strong>您提供的所有信息将受到严格保密，仅用于评估您的出海服务需求和制定服务方案。</p>
+                <p><strong>审核周期：</strong>我们将在收到完整信息后1-3个工作日内与您联系，进行进一步沟通。</p>
+                <p><strong>如有疑问，请联系：</strong>上海张小强企业咨询事务所 | +86-13764872538</p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Toggle visibility for conditional fields
+        document.querySelectorAll('input[name="hasBranch"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.getElementById('branchDetailGroup').style.display = 
+                    this.value === 'yes' ? 'block' : 'none';
+            });
+        });
+
+        document.querySelectorAll('input[name="hasRevenue"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.getElementById('revenueDetailGroup').style.display = 
+                    this.value === 'yes' ? 'block' : 'none';
+            });
+        });
+
+        document.querySelectorAll('input[name="hasCert"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.getElementById('certDetailGroup').style.display = 
+                    this.value === 'yes' ? 'block' : 'none';
+            });
+        });
+
+        // Helper to collect checkbox values
+        function getCheckboxValues(name) {
+            const checked = document.querySelectorAll(`input[name="${name}"]:checked`);
+            return Array.from(checked).map(cb => cb.value);
+        }
+
+        // Helper to collect table data
+        function getTableData() {
+            const tables = document.querySelectorAll('.input-table');
+            const data = [];
+            tables.forEach(table => {
+                const rows = table.querySelectorAll('tbody tr');
+                // Detect table type by header count: 4 cols with "市场份额" = competitor table
+                const hasMarketShareHeader = table.querySelector('th:nth-child(4)')?.textContent?.includes('份额');
+                const headers = hasMarketShareHeader
+                    ? ['name', 'strength', 'weak', 'share']
+                    : ['name', 'location', 'date', 'business'];
+                rows.forEach(row => {
+                    const cells = row.querySelectorAll('td input');
+                    if (cells.length > 0) {
+                        const rowData = {};
+                        cells.forEach((cell, idx) => {
+                            rowData[headers[idx] || `col${idx}`] = cell.value;
+                        });
+                        if (Object.values(rowData).some(v => v)) {
+                            data.push(rowData);
+                        }
+                    }
+                });
+            });
+            return data.length > 0 ? JSON.stringify(data) : '';
+        }
+
+        // Form submission with API
+        document.getElementById('clientForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '提交中...';
+            submitBtn.disabled = true;
+
+            try {
+                // Collect all form data
+                const formData = {
+                    // 企业基本信息
+                    companyName: document.querySelector('input[name="companyName"]')?.value || '',
+                    companyNameEn: document.querySelector('input[name="companyNameEn"]')?.value || '',
+                    unifiedCode: document.querySelector('input[name="unifiedCode"]')?.value || '',
+                    companyType: document.querySelector('select[name="companyType"]')?.value || '',
+                    establishDate: document.querySelector('input[name="establishDate"]')?.value || '',
+                    registeredCapital: document.querySelector('select[name="registeredCapital"]')?.value || '',
+                    industry: document.querySelector('select[name="industry"]')?.value || '',
+                    productCategory: document.querySelector('input[name="productCategory"]')?.value || '',
+                    companyIntro: document.querySelector('textarea[name="companyIntro"]')?.value || '',
+                    contactName: document.querySelector('input[name="contactName"]')?.value || '',
+                    contactTitle: document.querySelector('input[name="contactTitle"]')?.value || '',
+                    contactPhone: document.querySelector('input[name="contactPhone"]')?.value || '',
+                    contactEmail: document.querySelector('input[name="contactEmail"]')?.value || '',
+                    contactWechat: document.querySelector('input[name="contactWechat"]')?.value || '',
+                    // 出海现状
+                    overseasStage: document.querySelector('input[name="overseasStage"]:checked')?.value || '',
+                    hasBranch: document.querySelector('input[name="hasBranch"]:checked')?.value || '',
+                    branchDetails: getTableData(),
+                    hasRevenue: document.querySelector('input[name="hasRevenue"]:checked')?.value || '',
+                    overseasRevenue: document.querySelector('select[name="overseasRevenue"]')?.value || '',
+                    revenueRatio: document.querySelector('input[name="revenueRatio"]')?.value || '',
+                    overseasExperience: document.querySelector('textarea[name="overseasExperience"]')?.value || '',
+                    // 目标市场
+                    targetMarkets: getCheckboxValues('targetMarkets'),
+                    priorityMarkets: document.querySelector('textarea[name="priorityMarkets"]')?.value || '',
+                    marketTimeline: document.querySelector('input[name="marketTimeline"]:checked')?.value || '',
+                    marketFactors: getCheckboxValues('marketFactors'),
+                    // 商业模式
+                    businessModel: getCheckboxValues('businessModel'),
+                    productDetail: document.querySelector('textarea[name="productDetail"]')?.value || '',
+                    avgPrice: document.querySelector('select[name="avgPrice"]')?.value || '',
+                    supplyCapacity: document.querySelector('input[name="supplyCapacity"]')?.value || '',
+                    hasCert: document.querySelector('input[name="hasCert"]:checked')?.value || '',
+                    certDetail: document.querySelector('textarea[name="certDetail"]')?.value || '',
+                    supplyChain: document.querySelector('input[name="supplyChain"]:checked')?.value || '',
+                    // 服务需求
+                    services: getCheckboxValues('services'),
+                    serviceDetail: document.querySelector('textarea[name="serviceDetail"]')?.value || '',
+                    existingPartners: document.querySelector('textarea[name="existingPartners"]')?.value || '',
+                    // 预算时间
+                    budget: document.querySelector('select[name="budget"]')?.value || '',
+                    budgetFocus: getCheckboxValues('budgetFocus'),
+                    startDate: document.querySelector('input[name="startDate"]')?.value || '',
+                    endDate: document.querySelector('input[name="endDate"]')?.value || '',
+                    urgency: document.querySelector('input[name="urgency"]:checked')?.value || '',
+                    // 财务状况
+                    annualRevenue: document.querySelector('select[name="annualRevenue"]')?.value || '',
+                    profitRate: document.querySelector('select[name="profitRate"]')?.value || '',
+                    availableFunds: document.querySelector('select[name="availableFunds"]')?.value || '',
+                    financeNeed: document.querySelector('input[name="financeNeed"]:checked')?.value || '',
+                    financialNote: document.querySelector('textarea[name="financialNote"]')?.value || '',
+                    // 竞争分析
+                    competitors: getTableData(),
+                    advantages: document.querySelector('textarea[name="advantages"]')?.value || '',
+                    keyFactors: getCheckboxValues('keyFactors'),
+                    // 风险挑战
+                    challenges: getCheckboxValues('challenges'),
+                    pastProblems: document.querySelector('textarea[name="pastProblems"]')?.value || '',
+                    riskTolerance: document.querySelector('input[name="riskTolerance"]:checked')?.value || '',
+                    // 资料提交
+                    docs: getCheckboxValues('docs'),
+                    additionalNote: document.querySelector('textarea[name="additionalNote"]')?.value || '',
+                };
+
+                // Submit to API
+                const response = await fetch('/api/client-intake', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Show success message
+                    document.querySelector('.container').innerHTML = `
+                        <div style="text-align: center; padding: 80px 20px;">
+                            <div style="font-size: 80px; margin-bottom: 24px;">✅</div>
+                            <h2 style="font-size: 32px; color: var(--accent-4); margin-bottom: 16px;">提交成功！</h2>
+                            <p style="font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px;">
+                                感谢您填写客户信息采集表。我们将尽快审核您的信息，并在1-3个工作日内与您联系。
+                            </p>
+                            <p style="color: var(--text-muted);">
+                                如有紧急事项，请联系：customer@zxqconsulting.com
+                            </p>
+                        </div>
+                    `;
+                } else {
+                    throw new Error(result.error || '提交失败');
+                }
+            } catch (error) {
+                console.error('Submit error:', error);
+                alert('提交失败，请稍后重试或联系 customer@zxqconsulting.com');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
