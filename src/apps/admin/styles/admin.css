@@ -1,0 +1,503 @@
+/* ==========================================================================
+   🎨 Admin Dashboard - 深色专业主题
+   ========================================================================== */
+
+/* Admin 主题变量 */
+:root {
+  --admin-bg: #09090b;
+  --admin-sidebar: #18181b;
+  --admin-card: #27272a;
+  --admin-border: #3f3f46;
+  --admin-muted: #52525b;
+  --admin-text: #fafafa;
+  --admin-text-muted: #a1a1aa;
+  
+  /* 状态色 */
+  --admin-success: #22c55e;
+  --admin-warning: #f59e0b;
+  --admin-error: #ef4444;
+  --admin-info: #3b82f6;
+  
+  /* 主色调 */
+  --admin-primary: #10b981;
+  --admin-primary-hover: #34d399;
+  --admin-primary-muted: rgba(16, 185, 129, 0.15);
+  
+  /* 侧边栏 */
+  --sidebar-width: 280px;
+  --sidebar-collapsed: 72px;
+  --header-height: 64px;
+}
+
+/* Admin 全局样式 */
+.admin-root {
+  --background: 0 0% 4%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 160 84% 39%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 14%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 14%;
+  --muted-foreground: 240 5% 65%;
+  --accent: 0 0% 14%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 160 84% 39%;
+  --radius: 0.75rem;
+  
+  background-color: var(--admin-bg);
+  color: var(--admin-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* 侧边栏样式 */
+.admin-sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--admin-sidebar);
+  border-right: 1px solid var(--admin-border);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  transition: width 0.3s ease, transform 0.3s ease;
+}
+
+.admin-sidebar.collapsed {
+  width: var(--sidebar-collapsed);
+}
+
+/* 侧边栏项目 */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin: 4px 8px;
+  border-radius: 10px;
+  color: var(--admin-text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--admin-text);
+}
+
+.sidebar-item.active {
+  background: var(--admin-primary-muted);
+  color: var(--admin-primary);
+}
+
+.sidebar-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 3px;
+  height: 24px;
+  background: var(--admin-primary);
+  border-radius: 0 2px 2px 0;
+}
+
+/* 主内容区 */
+.admin-main {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+.admin-sidebar.collapsed + .admin-main {
+  margin-left: var(--sidebar-collapsed);
+}
+
+/* Header */
+.admin-header {
+  height: var(--header-height);
+  background: var(--admin-sidebar);
+  border-bottom: 1px solid var(--admin-border);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+/* 卡片样式 */
+.admin-card {
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* KPI 卡片 */
+.kpi-card {
+  background: linear-gradient(135deg, var(--admin-card) 0%, rgba(39, 39, 42, 0.5) 100%);
+  border: 1px solid var(--admin-border);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  background: var(--admin-primary);
+  opacity: 0.03;
+  border-radius: 50%;
+  transform: translate(30%, -30%);
+}
+
+.kpi-card .label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--admin-text-muted);
+  margin-bottom: 8px;
+}
+
+.kpi-card .value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--admin-text);
+  line-height: 1.2;
+}
+
+.kpi-card .trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  margin-top: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.kpi-card .trend.up {
+  color: var(--admin-success);
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.kpi-card .trend.down {
+  color: var(--admin-error);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* 表格样式 */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--admin-text-muted);
+  border-bottom: 1px solid var(--admin-border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.admin-table td {
+  padding: 16px;
+  border-bottom: 1px solid rgba(63, 63, 70, 0.5);
+  font-size: 14px;
+}
+
+.admin-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* 状态徽章 */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.status-badge.new {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.status-badge.new::before {
+  background: #60a5fa;
+}
+
+.status-badge.contacted {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+
+.status-badge.contacted::before {
+  background: #fbbf24;
+}
+
+.status-badge.qualified {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.status-badge.qualified::before {
+  background: #22c55e;
+}
+
+.status-badge.closed {
+  background: rgba(82, 82, 91, 0.15);
+  color: #71717a;
+}
+
+.status-badge.closed::before {
+  background: #71717a;
+}
+
+.status-badge.pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+
+.status-badge.pending::before {
+  background: #fbbf24;
+}
+
+.status-badge.approved {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.status-badge.approved::before {
+  background: #22c55e;
+}
+
+.status-badge.rejected {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.status-badge.rejected::before {
+  background: #ef4444;
+}
+
+/* 搜索框 */
+.admin-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  border-radius: 10px;
+  min-width: 280px;
+}
+
+.admin-search input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--admin-text);
+  font-size: 14px;
+}
+
+.admin-search input::placeholder {
+  color: var(--admin-muted);
+}
+
+/* 按钮 */
+.admin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  outline: none;
+}
+
+.admin-btn.primary {
+  background: var(--admin-primary);
+  color: white;
+}
+
+.admin-btn.primary:hover {
+  background: var(--admin-primary-hover);
+}
+
+.admin-btn.secondary {
+  background: var(--admin-card);
+  color: var(--admin-text);
+  border: 1px solid var(--admin-border);
+}
+
+.admin-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 分页 */
+.admin-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.admin-pagination .info {
+  font-size: 14px;
+  color: var(--admin-text-muted);
+}
+
+.admin-pagination .controls {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-pagination button {
+  padding: 8px 12px;
+  background: var(--admin-card);
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  color: var(--admin-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-pagination button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.admin-pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 模态框 */
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-modal {
+  background: var(--admin-sidebar);
+  border: 1px solid var(--admin-border);
+  border-radius: 20px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 85vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.admin-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--admin-border);
+}
+
+/* 空状态 */
+.admin-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--admin-text-muted);
+}
+
+.admin-empty svg {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+/* 加载状态 */
+.admin-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.admin-skeleton {
+  background: linear-gradient(90deg, var(--admin-card) 25%, var(--admin-border) 50%, var(--admin-card) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* 响应式 */
+@media (max-width: 1024px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .admin-sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .admin-main {
+    margin-left: 0;
+  }
+}
