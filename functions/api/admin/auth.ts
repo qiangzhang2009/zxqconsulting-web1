@@ -15,7 +15,7 @@ interface AuthContext {
   };
 }
 
-const CORS_HEADERS = {
+export const CORS_HEADERS = {
   'Access-Control-Allow-Origin': 'https://www.zxqconsulting.com',
   'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
