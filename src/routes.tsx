@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
@@ -7,6 +8,9 @@ import ExpertPage from './pages/ExpertPage';
 import MethodPage from './pages/MethodPage';
 import MarketsPage from './pages/MarketsPage';
 import AdminPage from './pages/AdminPage';
+
+const ResearchHub = lazy(() => import('./pages/ResearchHub'));
+const ResearchReport = lazy(() => import('./pages/ResearchReport'));
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +27,8 @@ export const router = createBrowserRouter([
       { path: 'expert', element: <ExpertPage /> },
       { path: 'method', element: <MethodPage /> },
       { path: 'markets', element: <MarketsPage /> },
+      { path: 'research', element: <ResearchHub /> },
+      { path: 'research/:reportId', element: <ResearchReport /> },
     ],
   },
   {
