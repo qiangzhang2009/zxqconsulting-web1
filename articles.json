@@ -1,0 +1,38 @@
+{
+  "articles": [
+    {
+      "id": "1",
+      "title": "日本公司注册全攻略：流程、费用、注意事项一文详解",
+      "titleEn": "Complete Guide to Registering a Company in Japan",
+      "excerpt": "详细介绍日本公司注册的完整流程、所需材料、费用预算以及常见注意事项，帮助企业顺利进入日本市场。",
+      "excerptEn": "A comprehensive guide to company registration in Japan, covering procedures, required documents, cost estimates, and key considerations.",
+      "category": "日本",
+      "categoryEn": "Japan",
+      "date": "2026-02-13",
+      "tags": ["日本", "公司注册", "出海"]
+    },
+    {
+      "id": "2",
+      "title": "欧盟CE认证避坑指南：常见问题与解决方案",
+      "titleEn": "EU CE Certification Guide: Common Issues & Solutions",
+      "excerpt": "深入解析欧盟CE认证的常见问题和难点，提供实用的解决方案，帮助企业顺利进入欧洲市场。",
+      "excerptEn": "In-depth analysis of common CE certification issues with practical solutions for entering the European market.",
+      "category": "欧洲",
+      "categoryEn": "Europe",
+      "date": "2026-02-12",
+      "tags": ["欧洲", "CE认证", "合规"]
+    },
+    {
+      "id": "3",
+      "title": "中医药出海日本市场：机遇与挑战全分析",
+      "titleEn": "TCM Entering Japan Market: Opportunities & Challenges",
+      "excerpt": "分析中医药产品进入日本市场的机遇、挑战及合规要求，提供实用的市场进入策略。",
+      "excerptEn": "Analyzing opportunities and challenges for TCM products entering the Japanese market with practical strategies.",
+      "category": "中医",
+      "categoryEn": "TCM",
+      "date": "2026-02-11",
+      "tags": ["中医药", "日本", "市场策略"]
+    }
+  ],
+  "lastUpdated": "2026-02-13"
+}

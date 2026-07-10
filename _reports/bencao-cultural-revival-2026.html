@@ -1,0 +1,3771 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>本草文明 · 创意复兴 | 中医药文创产业战略全景报告 2026</title>
+<meta name="description" content="上海张小强企业咨询事务所 出品 · 解码中医药文创产业万亿级市场机遇 · 十二大战略维度 · 五十个核心洞察">
+<meta name="keywords" content="中医药,文创产业,文化出海,非遗,本草,文创设计,文化IP">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ================================================================
+   本草文明 · 创意复兴
+   中医药文创产业战略全景报告 2026
+   设计理念：东方美学 × 现代咨询 × 数据可视化
+   色彩哲学：朱砂红 · 墨金 · 翠玉绿 · 宣纸白 · 玄墨底
+   ================================================================ */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:"Noto Serif SC",Georgia,"Source Han Serif SC","Songti SC",serif;
+  font-size:15px;line-height:1.8;
+  color:var(--ink);background:var(--paper);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+a{color:var(--cinnabar);text-decoration:none}
+a:hover{border-bottom:1px solid var(--cinnabar)}
+::selection{background:var(--cinnabar);color:#fff}
+
+/* ========== 设计系统 ========== */
+:root{
+  /* 核心色板 - 东方智库美学 */
+  --paper:#0A0D0F;           /* 玄墨底 */
+  --paper-2:#111518;
+  --paper-3:#1A1F24;
+  --panel:#212830;
+  --panel-hi:#2A323C;
+  
+  --ink:#F5F0E8;             /* 宣纸白 */
+  --ink-2:#D4CCBA;           /* 淡墨 */
+  --ink-3:#9E9586;          /* 辅文灰 */
+  --ink-4:#6B635A;          /* 元信息 */
+  --ink-5:#3D3833;          /* 装饰线 */
+  
+  --rule:#2A2F34;
+  --rule-2:#363D44;
+  --rule-soft:#1C2126;
+  
+  /* 主色调 */
+  --cinnabar:#C9372D;       /* 朱砂红 - 文化血脉 */
+  --cinnabar-2:#E04A3A;
+  --cinnabar-3:#9A2A20;
+  --cinnabar-glow:rgba(201,55,45,0.4);
+  --cinnabar-soft:rgba(201,55,45,0.1);
+  
+  --gold:#C8A75E;           /* 墨金 - 智慧光芒 */
+  --gold-2:#D4B870;
+  --gold-3:#A88A48;
+  --gold-glow:rgba(200,167,94,0.35);
+  --gold-soft:rgba(200,167,94,0.1);
+  
+  --jade:#0D7F6E;           /* 翠玉绿 - 生机希望 */
+  --jade-2:#1A9D86;
+  --jade-3:#085F52;
+  --jade-glow:rgba(13,127,110,0.4);
+  --jade-soft:rgba(13,127,110,0.1);
+  
+  --violet:#7C6B9E;         /* 紫藤 - 雅致神秘 */
+  --violet-2:#9688B8;
+  --violet-soft:rgba(124,107,158,0.12);
+  
+  --amber:#E8A93C;          /* 琥珀 - 温暖珍贵 */
+  --amber-soft:rgba(232,169,60,0.12);
+  
+  --cyan:#00C4B4;           /* 青瓷 - 现代活力 */
+  --cyan-soft:rgba(0,196,180,0.1);
+  
+  /* 语义色 */
+  --positive:#2DD4A0;
+  --warn:#F5A623;
+  --negative:#EF4444;
+  --info:#60A5FA;
+  
+  /* 字体系统 */
+  --serif:"Noto Serif SC","Source Han Serif SC","Songti SC",Georgia,serif;
+  --sans:"Noto Sans SC","PingFang SC","Hiragino Sans GB",system-ui,sans-serif;
+  --mono:"JetBrains Mono","SF Mono","IBM Plex Mono",monospace;
+  
+  /* 布局常量 */
+  --container:min(1320px,100% - 48px);
+  --reading:860px;
+  --section-gap:120px;
+}
+
+/* ========== 背景纹理 ========== */
+body{
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(201,55,45,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 0%, rgba(200,167,94,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(13,127,110,0.04) 0%, transparent 50%),
+    var(--paper);
+  min-height:100vh;
+}
+
+/* 扫描线效果 */
+body::before{
+  content:"";
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0,0,0,0.015) 2px,
+    rgba(0,0,0,0.015) 4px
+  );
+  pointer-events:none;z-index:9998;
+}
+
+/* ========== 布局系统 ========== */
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+.reading{max-width:var(--reading);margin:0 auto}
+
+/* ========== 顶部导航 ========== */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(10,13,15,0.88);
+  backdrop-filter:blur(20px) saturate(1.5);
+  -webkit-backdrop-filter:blur(20px) saturate(1.5);
+  border-bottom:1px solid var(--rule);
+  padding:16px 0;
+  transition:all 0.3s ease;
+}
+.topbar-inner{
+  max-width:var(--container);margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-seal{
+  width:42px;height:42px;
+  background:linear-gradient(145deg,var(--cinnabar) 0%,var(--cinnabar-3) 100%);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;color:#fff;
+  box-shadow:0 4px 20px var(--cinnabar-glow);
+  position:relative;
+}
+.brand-seal::after{
+  content:"";
+  position:absolute;inset:-2px;border-radius:12px;
+  border:1px solid rgba(201,55,45,0.3);
+  animation:sealPulse 3s ease-in-out infinite;
+}
+@keyframes sealPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.05)}}
+.brand-text{
+  font-family:var(--serif);font-size:16px;color:var(--ink);font-weight:600;
+  letter-spacing:0.05em;
+}
+.brand-meta{
+  font-family:var(--mono);font-size:9px;color:var(--ink-4);
+  letter-spacing:2px;text-transform:uppercase;margin-top:3px;
+}
+.topnav{
+  display:flex;gap:28px;
+  font-family:var(--sans);font-size:13px;
+}
+.topnav a{color:var(--ink-3);transition:color 0.2s}
+.topnav a:hover{color:var(--cinnabar)}
+.topnav a.active{color:var(--cinnabar)}
+
+/* 滚动进度条 */
+.scroll-progress{
+  position:fixed;top:0;left:0;height:3px;
+  background:linear-gradient(90deg,var(--cinnabar),var(--gold),var(--jade));
+  width:0;z-index:9999;
+  box-shadow:0 0 15px var(--cinnabar-glow);
+}
+
+/* ========== 英雄区 ========== */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:140px 0 100px;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(201,55,45,0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(200,167,94,0.12) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(13,127,110,0.08) 0%, transparent 50%);
+}
+.hero-pattern{
+  position:absolute;inset:0;
+  opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='%23C8A75E' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-size:60px 60px;
+}
+.hero-content{
+  position:relative;z-index:2;
+  max-width:var(--container);margin:0 auto;padding:0 24px;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--mono);font-size:10px;letter-spacing:4px;
+  color:var(--cinnabar);text-transform:uppercase;
+  padding:10px 20px;border:1px solid var(--cinnabar-3);
+  border-radius:100px;background:var(--cinnabar-soft);
+  margin-bottom:40px;
+}
+.hero-eyebrow-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--cinnabar);
+  box-shadow:0 0 12px var(--cinnabar-glow);
+  animation:pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.85)}}
+.hero-title{
+  font-family:var(--serif);
+  font-size:clamp(44px,7vw,96px);
+  line-height:1.05;letter-spacing:-0.02em;
+  color:var(--ink);margin-bottom:32px;
+}
+.hero-title .accent{color:var(--cinnabar);font-weight:300}
+.hero-title .gold{color:var(--gold)}
+.hero-title .jade{color:var(--jade-2)}
+.hero-subtitle{
+  font-family:var(--serif);
+  font-size:clamp(18px,2vw,24px);
+  color:var(--ink-2);line-height:1.7;
+  max-width:900px;margin-bottom:48px;
+  font-weight:400;
+}
+.hero-meta{
+  display:flex;gap:40px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:10px;
+  color:var(--ink-4);letter-spacing:2px;text-transform:uppercase;
+  padding-top:32px;border-top:1px solid var(--rule);
+}
+.hero-meta span{display:flex;align-items:center;gap:10px}
+.hero-meta strong{color:var(--ink-2);font-weight:500}
+
+/* 装饰本草图案 */
+.hero-deco{
+  position:absolute;right:5%;top:50%;transform:translateY(-50%);
+  width:400px;height:400px;
+  opacity:0.06;
+}
+@media(max-width:1024px){.hero-deco{opacity:0.03}}
+
+/* ========== KPI 指标条 ========== */
+.kpi-bar{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  background:var(--paper-2);
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+}
+.kpi{
+  padding:40px 28px;
+  border-right:1px solid var(--rule);
+  position:relative;overflow:hidden;
+}
+.kpi:last-child{border-right:none}
+.kpi::before{
+  content:"";
+  position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:var(--cinnabar);
+  transform:scaleY(0);transform-origin:top;
+  transition:transform 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.kpi:hover::before{transform:scaleY(1)}
+.kpi:nth-child(2)::before{background:var(--gold)}
+.kpi:nth-child(3)::before{background:var(--jade)}
+.kpi:nth-child(4)::before{background:var(--violet)}
+.kpi:nth-child(5)::before{background:var(--amber)}
+.kpi-label{
+  font-family:var(--mono);font-size:9px;color:var(--ink-4);
+  letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;
+}
+.kpi-value{
+  font-family:var(--serif);font-size:clamp(32px,3.5vw,48px);
+  font-weight:700;color:var(--ink);line-height:1;
+  font-variant-numeric:tabular-nums;margin-bottom:8px;
+}
+.kpi-value .unit{font-size:0.45em;color:var(--ink-3);margin-left:4px;font-weight:400}
+.kpi-delta{
+  font-family:var(--mono);font-size:11px;
+  display:flex;align-items:center;gap:6px;
+}
+.kpi-delta.up{color:var(--positive)}
+.kpi-delta.down{color:var(--negative)}
+@media(max-width:900px){
+  .kpi-bar{grid-template-columns:repeat(2,1fr)}
+  .kpi:nth-child(2n){border-right:none}
+  .kpi:nth-child(n+3){border-top:1px solid var(--rule)}
+}
+
+/* ========== 章节通用样式 ========== */
+section{padding:var(--section-gap) 0;position:relative}
+.section-header{
+  margin-bottom:64px;
+}
+.section-num{
+  font-family:var(--mono);font-size:11px;color:var(--cinnabar);
+  letter-spacing:5px;margin-bottom:16px;
+  display:flex;align-items:center;gap:16px;
+}
+.section-num::after{
+  content:"";flex:1;height:1px;
+  background:linear-gradient(90deg,var(--cinnabar) 0%,transparent 100%);
+  max-width:100px;
+}
+.section-title{
+  font-family:var(--serif);
+  font-size:clamp(36px,4.5vw,60px);
+  line-height:1.1;letter-spacing:-0.02em;
+  color:var(--ink);margin-bottom:24px;
+}
+.section-title .accent{color:var(--cinnabar)}
+.section-title .gold{color:var(--gold)}
+.section-title .jade{color:var(--jade-2)}
+.section-lead{
+  font-family:var(--serif);
+  font-size:clamp(16px,1.5vw,20px);
+  color:var(--ink-2);line-height:1.8;
+  max-width:800px;
+}
+.section h3{
+  font-family:var(--serif);font-size:clamp(24px,2.5vw,32px);
+  color:var(--ink);margin:56px 0 20px;letter-spacing:-0.01em;
+}
+.section h4{
+  font-family:var(--serif);font-size:20px;color:var(--ink-2);margin:32px 0 12px;
+}
+.section p{color:var(--ink-2);margin-bottom:18px;max-width:820px}
+.section p strong{color:var(--ink);font-weight:600}
+.section p em{color:var(--gold);font-style:italic}
+
+/* 标签 */
+.tag{
+  display:inline-block;
+  font-family:var(--mono);font-size:9px;
+  padding:5px 12px;border-radius:4px;
+  letter-spacing:2px;text-transform:uppercase;
+  margin-right:8px;vertical-align:middle;
+}
+.tag-red{background:var(--cinnabar-soft);color:var(--cinnabar);border:1px solid var(--cinnabar-3)}
+.tag-gold{background:var(--gold-soft);color:var(--gold);border:1px solid var(--gold-3)}
+.tag-jade{background:var(--jade-soft);color:var(--jade-2);border:1px solid var(--jade-3)}
+.tag-violet{background:var(--violet-soft);color:var(--violet-2);border:1px solid var(--violet)}
+.tag-amber{background:var(--amber-soft);color:var(--amber);border:1px solid var(--amber)}
+
+/* ========== 引用块 ========== */
+.pull-quote{
+  margin:48px 0;padding:36px 44px;
+  background:linear-gradient(135deg,var(--paper-2) 0%,var(--paper-3) 100%);
+  border-left:5px solid var(--cinnabar);
+  border-radius:0 12px 12px 0;
+  position:relative;
+}
+.pull-quote::before{
+  content:"\201C";
+  position:absolute;top:-15px;left:24px;
+  font-family:var(--serif);font-size:100px;color:var(--cinnabar);
+  opacity:0.2;line-height:1;
+}
+.pull-quote p{
+  font-family:var(--serif);font-size:clamp(18px,1.8vw,24px);
+  color:var(--ink);font-style:italic;line-height:1.6;
+  margin-bottom:16px;max-width:none;
+}
+.pull-quote cite{
+  font-style:normal;font-family:var(--mono);font-size:10px;
+  color:var(--ink-4);letter-spacing:3px;text-transform:uppercase;
+}
+.pull-quote.gold{border-left-color:var(--gold)}
+.pull-quote.gold::before{color:var(--gold)}
+.pull-quote.jade{border-left-color:var(--jade-2)}
+.pull-quote.jade::before{color:var(--jade-2)}
+
+/* ========== 卡片网格 ========== */
+.grid{display:grid;gap:24px}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+.card{
+  background:var(--panel);
+  border:1px solid var(--rule);
+  border-radius:16px;padding:32px;
+  transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:"";
+  position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--cinnabar),var(--gold));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.35s ease;
+}
+.card:hover::before{transform:scaleX(1)}
+.card:hover{
+  border-color:var(--rule-2);
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+.card.accent-gold::before{background:var(--gold)}
+.card.accent-jade::before{background:var(--jade-2)}
+.card.accent-violet::before{background:var(--violet-2)}
+.card-icon{
+  width:56px;height:56px;border-radius:14px;
+  background:var(--cinnabar-soft);
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;margin-bottom:20px;
+}
+.card.accent-gold .card-icon{background:var(--gold-soft)}
+.card.accent-jade .card-icon{background:var(--jade-soft)}
+.card.accent-violet .card-icon{background:var(--violet-soft)}
+.card-title{
+  font-family:var(--serif);font-size:20px;color:var(--ink);
+  margin-bottom:12px;line-height:1.3;
+}
+.card-text{
+  font-size:14px;color:var(--ink-3);line-height:1.7;
+}
+.card-stat{
+  font-family:var(--serif);font-size:36px;font-weight:700;
+  color:var(--ink);margin:16px 0 8px;
+}
+.card-stat .unit{font-size:0.5em;color:var(--ink-3);font-weight:400}
+.card-stat-label{
+  font-family:var(--mono);font-size:10px;
+  color:var(--ink-4);letter-spacing:2px;text-transform:uppercase;
+}
+
+/* ========== 数据可视化区域 ========== */
+.chart-container{
+  background:var(--paper-2);
+  border:1px solid var(--rule);
+  border-radius:20px;padding:48px;
+  margin:48px 0;
+}
+.chart-title{
+  font-family:var(--serif);font-size:24px;color:var(--ink);
+  margin-bottom:32px;display:flex;align-items:center;gap:16px;
+}
+.chart-title::before{
+  content:"";width:5px;height:24px;
+  background:linear-gradient(180deg,var(--cinnabar),var(--gold));
+  border-radius:3px;
+}
+
+/* 柱状图 */
+.bar-chart{display:flex;flex-direction:column;gap:20px}
+.bar-item{display:flex;align-items:center;gap:20px}
+.bar-label{
+  width:140px;font-family:var(--sans);font-size:13px;color:var(--ink-2);
+  flex-shrink:0;
+}
+.bar-track{
+  flex:1;height:32px;
+  background:var(--panel);
+  border-radius:6px;overflow:hidden;
+  position:relative;
+}
+.bar-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--cinnabar),var(--cinnabar-2));
+  border-radius:6px;
+  transition:width 1.2s cubic-bezier(0.4,0,0.2,1);
+  position:relative;
+}
+.bar-fill::after{
+  content:attr(data-value);
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  font-family:var(--mono);font-size:11px;color:var(--ink);
+  font-weight:500;
+}
+.bar-fill.gold{background:linear-gradient(90deg,var(--gold-3),var(--gold))}
+.bar-fill.jade{background:linear-gradient(90deg,var(--jade-3),var(--jade-2))}
+.bar-fill.violet{background:linear-gradient(90deg,var(--violet),var(--violet-2))}
+
+/* 饼图 */
+.pie-chart{
+  display:flex;align-items:center;gap:48px;flex-wrap:wrap;
+}
+.pie-svg{width:220px;height:220px;flex-shrink:0}
+.pie-legend{
+  display:flex;flex-direction:column;gap:16px;flex:1;min-width:200px;
+}
+.legend-item{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--sans);font-size:14px;color:var(--ink-2);
+}
+.legend-dot{
+  width:14px;height:14px;border-radius:4px;
+  flex-shrink:0;
+}
+.legend-value{
+  margin-left:auto;font-family:var(--mono);font-size:13px;
+  color:var(--ink);font-weight:500;
+}
+
+/* 趋势线图 */
+.line-chart{
+  position:relative;height:300px;
+  border-left:2px solid var(--rule);
+  border-bottom:2px solid var(--rule);
+  margin:32px 0 48px;
+}
+.chart-grid{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.chart-grid span{
+  border-top:1px dashed var(--rule-soft);
+  font-family:var(--mono);font-size:9px;color:var(--ink-4);
+  padding-left:8px;
+}
+.chart-lines{
+  position:absolute;inset:0;
+}
+.chart-line{
+  position:absolute;bottom:0;left:0;right:0;height:100%;
+}
+.chart-path{
+  fill:none;stroke-width:3;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.chart-area{fill-opacity:0.1}
+
+/* 雷达图 */
+.radar-chart{
+  display:flex;justify-content:center;align-items:center;
+}
+.radar-svg{width:320px;height:320px}
+
+/* ========== 时间轴 ========== */
+.timeline{
+  position:relative;padding-left:40px;
+  margin:48px 0;
+}
+.timeline::before{
+  content:"";
+  position:absolute;left:8px;top:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,var(--cinnabar),var(--gold),var(--jade));
+}
+.timeline-item{
+  position:relative;margin-bottom:40px;
+}
+.timeline-item::before{
+  content:"";
+  position:absolute;left:-40px;top:6px;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--cinnabar);
+  border:4px solid var(--paper);
+  box-shadow:0 0 0 2px var(--cinnabar);
+}
+.timeline-item:nth-child(2)::before{background:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+.timeline-item:nth-child(3)::before{background:var(--jade-2);box-shadow:0 0 0 2px var(--jade-2)}
+.timeline-item:nth-child(4)::before{background:var(--violet-2);box-shadow:0 0 0 2px var(--violet)}
+.timeline-year{
+  font-family:var(--mono);font-size:12px;color:var(--cinnabar);
+  letter-spacing:3px;margin-bottom:8px;
+}
+.timeline-title{
+  font-family:var(--serif);font-size:20px;color:var(--ink);
+  margin-bottom:8px;
+}
+.timeline-text{font-size:14px;color:var(--ink-3)}
+
+/* ========== 矩阵/表格 ========== */
+.matrix{
+  display:grid;gap:2px;
+  background:var(--rule);border-radius:12px;overflow:hidden;
+  margin:32px 0;
+}
+.matrix-header{
+  display:contents;
+}
+.matrix-header > div{
+  background:var(--paper-3);padding:16px 20px;
+  font-family:var(--mono);font-size:10px;
+  color:var(--ink-4);letter-spacing:2px;text-transform:uppercase;
+  text-align:center;
+}
+.matrix-row{
+  display:contents;
+  cursor:pointer;
+}
+.matrix-row > div{
+  background:var(--panel);padding:20px;
+  text-align:center;
+  transition:background 0.2s;
+}
+.matrix-row:hover > div{background:var(--panel-hi)}
+.matrix-row > div:first-child{
+  text-align:left;font-family:var(--sans);font-size:14px;color:var(--ink);
+}
+.matrix-value{
+  font-family:var(--serif);font-size:24px;font-weight:600;color:var(--ink);
+}
+.matrix-value.high{color:var(--positive)}
+.matrix-value.med{color:var(--warn)}
+.matrix-value.low{color:var(--negative)}
+
+/* ========== 分隔装饰 ========== */
+.section-divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--rule),transparent);
+  margin:80px 0;
+}
+.ornament{
+  text-align:center;margin:64px 0;
+  font-size:32px;letter-spacing:24px;
+  color:var(--ink-5);
+}
+
+/* ========== 洞察卡片 ========== */
+.insight-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  margin:48px 0;
+}
+@media(max-width:900px){.insight-grid{grid-template-columns:1fr}}
+.insight-card{
+  background:linear-gradient(145deg,var(--panel) 0%,var(--paper-3) 100%);
+  border:1px solid var(--rule);
+  border-radius:16px;padding:32px;
+  position:relative;overflow:hidden;
+}
+.insight-card::after{
+  content:"";
+  position:absolute;top:0;right:0;
+  width:80px;height:80px;
+  background:radial-gradient(circle at 100% 0%,var(--cinnabar-soft) 0%,transparent 70%);
+}
+.insight-num{
+  font-family:var(--serif);font-size:56px;font-weight:900;
+  color:var(--cinnabar);opacity:0.15;
+  position:absolute;top:12px;right:20px;
+  line-height:1;
+}
+.insight-title{
+  font-family:var(--serif);font-size:18px;color:var(--ink);
+  margin-bottom:12px;position:relative;
+}
+.insight-text{
+  font-size:13px;color:var(--ink-3);line-height:1.7;
+  position:relative;
+}
+
+/* ========== 对比框 ========== */
+.compare-box{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  background:var(--rule);border-radius:16px;overflow:hidden;
+  margin:48px 0;
+}
+.compare-panel{
+  padding:40px;background:var(--paper-2);
+}
+.compare-panel.good{background:linear-gradient(135deg,var(--jade-soft) 0%,var(--paper-2) 100%)}
+.compare-panel.bad{background:linear-gradient(135deg,var(--cinnabar-soft) 0%,var(--paper-2) 100%)}
+.compare-title{
+  font-family:var(--serif);font-size:22px;color:var(--ink);
+  margin-bottom:24px;display:flex;align-items:center;gap:12px;
+}
+.compare-icon{
+  width:32px;height:32px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+}
+.compare-list{
+  list-style:none;
+}
+.compare-list li{
+  padding:12px 0;border-bottom:1px solid var(--rule-soft);
+  font-size:14px;color:var(--ink-2);
+  display:flex;align-items:flex-start;gap:12px;
+}
+.compare-list li:last-child{border-bottom:none}
+.compare-list li::before{
+  content:"→";color:var(--gold);flex-shrink:0;
+}
+@media(max-width:768px){.compare-box{grid-template-columns:1fr}}
+
+/* ========== 战略路径 ========== */
+.strategy-path{
+  display:flex;flex-direction:column;gap:0;
+  margin:48px 0;position:relative;
+}
+.strategy-item{
+  display:flex;gap:32px;padding:32px 0;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.strategy-num{
+  width:64px;height:64px;
+  background:linear-gradient(145deg,var(--cinnabar),var(--cinnabar-3));
+  border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:28px;font-weight:700;
+  color:#fff;flex-shrink:0;
+  box-shadow:0 8px 24px var(--cinnabar-glow);
+}
+.strategy-content{flex:1}
+.strategy-title{
+  font-family:var(--serif);font-size:22px;color:var(--ink);
+  margin-bottom:8px;
+}
+.strategy-text{font-size:14px;color:var(--ink-3);line-height:1.7}
+
+/* ========== 案例卡片 ========== */
+.case-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
+  margin:48px 0;
+}
+@media(max-width:768px){.case-grid{grid-template-columns:1fr}}
+.case-card{
+  background:var(--panel);
+  border:1px solid var(--rule);
+  border-radius:20px;overflow:hidden;
+  transition:all 0.3s ease;
+}
+.case-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+.case-image{
+  height:200px;
+  background:linear-gradient(135deg,var(--paper-3),var(--panel));
+  display:flex;align-items:center;justify-content:center;
+  font-size:64px;opacity:0.5;
+  position:relative;overflow:hidden;
+}
+.case-image::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 50%,var(--panel) 100%);
+}
+.case-content{padding:28px}
+.case-tag{
+  font-family:var(--mono);font-size:9px;
+  padding:4px 10px;border-radius:4px;
+  background:var(--gold-soft);color:var(--gold);
+  letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:12px;display:inline-block;
+}
+.case-title{
+  font-family:var(--serif);font-size:20px;color:var(--ink);
+  margin-bottom:12px;
+}
+.case-text{font-size:13px;color:var(--ink-3);line-height:1.7}
+
+/* ========== 关键数据高亮 ========== */
+.stat-highlight{
+  display:inline-flex;align-items:baseline;gap:4px;
+  font-family:var(--serif);font-size:1.4em;
+  color:var(--cinnabar);font-weight:700;
+}
+.stat-highlight .unit{
+  font-size:0.5em;color:var(--ink-3);font-weight:400;
+}
+
+/* ========== 列表样式 ========== */
+.feature-list{
+  list-style:none;margin:24px 0;
+}
+.feature-list li{
+  padding:14px 0;border-bottom:1px solid var(--rule-soft);
+  font-size:15px;color:var(--ink-2);
+  display:flex;align-items:flex-start;gap:16px;
+}
+.feature-list li::before{
+  content:"◈";
+  color:var(--gold);flex-shrink:0;
+  font-size:12px;margin-top:3px;
+}
+
+/* ========== 底部CTA ========== */
+.cta-section{
+  padding:100px 0;
+  background:linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 100%);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.cta-section::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 50%, rgba(201,55,45,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(200,167,94,0.08) 0%, transparent 50%);
+}
+.cta-title{
+  font-family:var(--serif);font-size:clamp(32px,4vw,52px);
+  color:var(--ink);margin-bottom:24px;position:relative;
+}
+.cta-text{
+  font-size:18px;color:var(--ink-2);max-width:600px;
+  margin:0 auto 40px;position:relative;
+}
+
+/* ========== 页脚 ========== */
+.footer{
+  padding:60px 0;
+  background:var(--paper-2);
+  border-top:1px solid var(--rule);
+}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:24px;
+}
+.footer-brand{
+  display:flex;align-items:center;gap:14px;
+}
+.footer-brand-seal{
+  width:36px;height:36px;
+  background:linear-gradient(145deg,var(--cinnabar),var(--cinnabar-3));
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:#fff;
+}
+.footer-brand-text{
+  font-family:var(--serif);font-size:15px;color:var(--ink);
+}
+.footer-meta{
+  font-family:var(--mono);font-size:10px;
+  color:var(--ink-4);letter-spacing:2px;text-transform:uppercase;
+}
+.footer-links{
+  display:flex;gap:28px;
+  font-family:var(--sans);font-size:13px;
+}
+.footer-links a{color:var(--ink-3)}
+.footer-links a:hover{color:var(--cinnabar)}
+
+/* ========== 动画 ========== */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.animate-in{
+  opacity:0;
+  animation:fadeInUp 0.8s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.delay-1{animation-delay:0.1s}
+.delay-2{animation-delay:0.2s}
+.delay-3{animation-delay:0.3s}
+.delay-4{animation-delay:0.4s}
+.delay-5{animation-delay:0.5s}
+
+/* ========== 响应式 ========== */
+@media(max-width:768px){
+  section{padding:80px 0}
+  .hero{padding:120px 0 80px}
+  .hero-deco{display:none}
+  .kpi-bar{grid-template-columns:repeat(2,1fr)}
+  .kpi:nth-child(2n){border-right:none}
+  .chart-container{padding:28px}
+  .pie-chart{flex-direction:column}
+  .compare-box{grid-template-columns:1fr}
+}
+
+/* ========== 滚动条 ========== */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--paper)}
+::-webkit-scrollbar-thumb{background:var(--rule-2);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--ink-5)}
+
+/* ========== SVG 图标 ========== */
+.icon{display:inline-block;vertical-align:middle}
+
+/* 特殊：八卦图动画 */
+.bagua{
+  width:120px;height:120px;
+  animation:rotate 60s linear infinite;
+}
+@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* 文化符号 */
+.culture-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 16px;
+  background:var(--paper-3);
+  border:1px solid var(--rule);
+  border-radius:100px;
+  font-family:var(--sans);font-size:12px;color:var(--ink-2);
+}
+.culture-badge svg{width:16px;height:16px}
+
+/* ========== 数据表格 ========== */
+.data-table{
+  width:100%;border-collapse:collapse;
+  margin:32px 0;font-family:var(--sans);
+  background:var(--paper-2);border-radius:12px;overflow:hidden;
+}
+.data-table thead{
+  background:var(--paper-3);
+}
+.data-table th{
+  padding:18px 20px;text-align:left;
+  font-family:var(--mono);font-size:10px;
+  color:var(--ink-4);letter-spacing:2px;text-transform:uppercase;
+  border-bottom:2px solid var(--cinnabar-3);
+}
+.data-table td{
+  padding:16px 20px;
+  font-size:13px;color:var(--ink-2);
+  border-bottom:1px solid var(--rule-soft);
+}
+.data-table tbody tr:hover{background:var(--panel)}
+.data-table tbody tr:last-child td{border-bottom:none}
+.data-table .num{font-family:var(--mono);color:var(--ink);font-weight:600}
+.data-table .highlight{color:var(--cinnabar);font-weight:600}
+
+/* ========== 雷达评估 ========== */
+.score-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;margin:32px 0;
+}
+.score-item{
+  background:var(--paper-2);border:1px solid var(--rule);
+  border-radius:14px;padding:24px;
+}
+.score-name{
+  font-family:var(--serif);font-size:15px;color:var(--ink);
+  margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;
+}
+.score-bar{
+  height:6px;background:var(--panel);border-radius:3px;overflow:hidden;
+  margin-bottom:6px;
+}
+.score-fill{height:100%;background:linear-gradient(90deg,var(--cinnabar),var(--gold));border-radius:3px}
+.score-val{font-family:var(--mono);font-size:11px;color:var(--ink-4);text-align:right}
+
+/* ========== 阶段路线图 ========== */
+.roadmap{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin:40px 0;border-radius:16px;overflow:hidden;
+}
+.roadmap-phase{
+  background:var(--panel);padding:32px 24px;
+  border-right:1px solid var(--rule);position:relative;
+}
+.roadmap-phase:last-child{border-right:none}
+.roadmap-phase::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--cinnabar),var(--gold));
+}
+.roadmap-phase:nth-child(2)::before{background:linear-gradient(90deg,var(--gold),var(--jade))}
+.roadmap-phase:nth-child(3)::before{background:linear-gradient(90deg,var(--jade),var(--violet))}
+.roadmap-phase:nth-child(4)::before{background:linear-gradient(90deg,var(--violet),var(--amber))}
+.roadmap-period{
+  font-family:var(--mono);font-size:10px;color:var(--cinnabar);
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;
+}
+.roadmap-title{
+  font-family:var(--serif);font-size:18px;color:var(--ink);
+  margin-bottom:14px;
+}
+.roadmap-list{list-style:none}
+.roadmap-list li{
+  font-size:13px;color:var(--ink-3);padding:6px 0;
+  border-bottom:1px solid var(--rule-soft);
+  display:flex;align-items:flex-start;gap:8px;
+}
+.roadmap-list li::before{
+  content:"▸";color:var(--gold);flex-shrink:0;
+}
+.roadmap-list li:last-child{border-bottom:none}
+@media(max-width:900px){.roadmap{grid-template-columns:1fr}.roadmap-phase{border-right:none;border-bottom:1px solid var(--rule)}}
+
+/* ========== 角色画像卡 ========== */
+.persona{
+  background:var(--paper-2);border:1px solid var(--rule);
+  border-radius:18px;padding:32px;margin:24px 0;
+  display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:center;
+}
+.persona-avatar{
+  width:180px;height:180px;border-radius:50%;
+  background:linear-gradient(145deg,var(--cinnabar-soft),var(--gold-soft));
+  display:flex;align-items:center;justify-content:center;
+  font-size:80px;position:relative;
+}
+.persona-avatar::after{
+  content:"";position:absolute;inset:-6px;border-radius:50%;
+  border:2px dashed var(--gold);opacity:0.3;
+}
+.persona-info h4{
+  font-family:var(--serif);font-size:24px;color:var(--ink);
+  margin:0 0 8px;
+}
+.persona-meta{
+  display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;
+}
+.persona-tag{
+  font-family:var(--mono);font-size:10px;color:var(--gold);
+  padding:4px 10px;background:var(--gold-soft);border-radius:4px;
+}
+.persona-text{font-size:14px;color:var(--ink-2);line-height:1.7}
+@media(max-width:768px){.persona{grid-template-columns:1fr;text-align:center}.persona-avatar{margin:0 auto}}
+
+/* ========== 商业模式画布 ========== */
+.canvas{
+  display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,180px);
+  gap:2px;background:var(--rule);border-radius:14px;overflow:hidden;
+  margin:32px 0;
+}
+.canvas-cell{
+  background:var(--paper-2);padding:20px;position:relative;
+}
+.canvas-cell.highlight{background:var(--paper-3)}
+.canvas-label{
+  font-family:var(--mono);font-size:9px;color:var(--ink-4);
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;
+}
+.canvas-cell h5{
+  font-family:var(--serif);font-size:14px;color:var(--ink);margin-bottom:8px;
+}
+.canvas-cell ul{list-style:none}
+.canvas-cell li{
+  font-size:12px;color:var(--ink-3);padding:3px 0;line-height:1.5;
+}
+@media(max-width:900px){.canvas{grid-template-columns:1fr;grid-template-rows:auto}}
+
+/* ========== 复合 KPI 网格 ========== */
+.metric-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  margin:32px 0;
+}
+.metric-card{
+  background:var(--paper-2);border:1px solid var(--rule);
+  border-radius:14px;padding:24px;
+  border-top:3px solid var(--cinnabar);
+}
+.metric-card.gold{border-top-color:var(--gold)}
+.metric-card.jade{border-top-color:var(--jade-2)}
+.metric-card.violet{border-top-color:var(--violet)}
+.metric-card .label{
+  font-family:var(--mono);font-size:9px;color:var(--ink-4);
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;
+}
+.metric-card .value{
+  font-family:var(--serif);font-size:32px;font-weight:700;
+  color:var(--ink);line-height:1;
+}
+.metric-card .value .unit{font-size:0.45em;color:var(--ink-3)}
+.metric-card .desc{
+  font-size:12px;color:var(--ink-3);margin-top:10px;line-height:1.5;
+}
+@media(max-width:900px){.metric-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ========== 信息密度标签 ========== */
+.dense-list{columns:2;column-gap:48px;margin:24px 0}
+.dense-list li{
+  font-size:13px;color:var(--ink-2);padding:8px 0;
+  border-bottom:1px solid var(--rule-soft);
+  break-inside:avoid;display:flex;align-items:flex-start;gap:10px;
+}
+.dense-list li::before{
+  content:"◆";color:var(--cinnabar);font-size:8px;margin-top:6px;flex-shrink:0;
+}
+@media(max-width:768px){.dense-list{columns:1}}
+
+/* ========== 章节首字下沉 ========== */
+.drop-cap::first-letter{
+  font-family:var(--serif);font-size:72px;float:left;
+  line-height:0.85;padding-right:12px;padding-top:6px;
+  color:var(--cinnabar);font-weight:700;
+}
+
+/* ========== 注释脚注 ========== */
+.footnote{
+  font-family:var(--mono);font-size:10px;color:var(--ink-4);
+  padding:16px 20px;background:var(--paper-3);
+  border-left:3px solid var(--gold);margin:24px 0;
+  line-height:1.6;
+}
+
+/* ========== 来源标记 ========== */
+.source-tag{
+  font-family:var(--mono);font-size:10px;color:var(--gold-2);
+  background:var(--gold-soft);padding:3px 8px;border-radius:3px;
+  margin-left:6px;vertical-align:middle;
+}
+
+/* ========== 进度条式数据 ========== */
+.progress-stack{margin:32px 0}
+.progress-row{display:flex;align-items:center;gap:20px;margin-bottom:16px}
+.progress-name{
+  width:180px;font-family:var(--sans);font-size:13px;color:var(--ink-2);
+  flex-shrink:0;
+}
+.progress-track{
+  flex:1;height:24px;background:var(--panel);
+  border-radius:4px;overflow:hidden;position:relative;
+}
+.progress-fill{
+  height:100%;border-radius:4px;
+  position:relative;display:flex;align-items:center;padding-right:12px;
+  justify-content:flex-end;
+  font-family:var(--mono);font-size:11px;color:var(--ink);font-weight:500;
+}
+
+/* ========== 阶段里程碑 ========== */
+.milestone{
+  background:var(--paper-2);border:1px solid var(--rule);
+  border-radius:12px;padding:20px;margin-bottom:16px;
+  display:flex;gap:20px;align-items:center;
+}
+.milestone-flag{
+  width:56px;height:56px;flex-shrink:0;
+  background:linear-gradient(145deg,var(--cinnabar),var(--cinnabar-3));
+  border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:20px;color:#fff;font-weight:700;
+}
+.milestone-content{flex:1}
+.milestone-title{
+  font-family:var(--serif);font-size:16px;color:var(--ink);margin-bottom:4px;
+}
+.milestone-text{font-size:13px;color:var(--ink-3);line-height:1.6}
+
+/* ========== 二级标题带图标 ========== */
+.h-with-icon{
+  display:flex;align-items:center;gap:14px;
+  margin:48px 0 20px;
+}
+.h-with-icon .icon-wrap{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--cinnabar-soft);color:var(--cinnabar);
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+}
+.h-with-icon h3{margin:0}
+
+/* ========== 双栏对照表 ========== */
+.dual-table{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  margin:32px 0;
+}
+.dual-col{
+  background:var(--paper-2);border:1px solid var(--rule);
+  border-radius:14px;padding:28px;
+}
+.dual-col-head{
+  font-family:var(--serif);font-size:18px;color:var(--ink);
+  margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;gap:10px;
+}
+.dual-col ul{list-style:none}
+.dual-col li{
+  font-size:13px;color:var(--ink-2);padding:8px 0;
+  border-bottom:1px solid var(--rule-soft);display:flex;align-items:flex-start;gap:10px;
+}
+.dual-col li:last-child{border-bottom:none}
+.dual-col li::before{content:"✓";color:var(--jade-2);flex-shrink:0;font-weight:bold}
+.dual-col.bad li::before{content:"✗";color:var(--cinnabar)}
+@media(max-width:768px){.dual-table{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- 滚动进度条 -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- 顶部导航 -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-seal">TCM</div>
+      <div>
+        <div class="brand-text">本草文明 · 创意复兴</div>
+        <div class="brand-meta">中医药文创产业全景报告 2026</div>
+      </div>
+    </div>
+    <div class="topnav">
+      <a href="#overview">总览</a>
+      <a href="#market">市场格局</a>
+      <a href="#value-chain">产业链</a>
+      <a href="#ip">文化IP</a>
+      <a href="#strategy">战略路径</a>
+      <a href="#cases">案例库</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 英雄区 -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      上海张小强企业咨询事务所 出品
+    </div>
+    <h1 class="hero-title">
+      <span class="accent">本草</span>文明<br>
+      <span class="gold">创意</span>复兴
+    </h1>
+    <p class="hero-subtitle">
+      中医药文创产业战略全景报告<br>
+      解码千年本草文化与现代创意产业的万亿级融合机遇
+    </p>
+    <div class="hero-meta">
+      <span>发布 <strong>2026.07</strong></span>
+      <span>版本 <strong>V1.0</strong></span>
+      <span>页数 <strong>128页</strong></span>
+      <span>数据源 <strong>47个</strong></span>
+    </div>
+  </div>
+  
+  <!-- 装饰本草图案 -->
+  <svg class="hero-deco" viewBox="0 0 400 400" fill="none">
+    <circle cx="200" cy="200" r="180" stroke="var(--gold)" stroke-width="0.5" stroke-dasharray="8 4"/>
+    <circle cx="200" cy="200" r="140" stroke="var(--cinnabar)" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="100" stroke="var(--jade)" stroke-width="0.5" stroke-dasharray="4 8"/>
+    <path d="M200 40 L200 360 M40 200 L360 200" stroke="var(--ink-5)" stroke-width="0.5"/>
+    <path d="M80 80 L320 320 M320 80 L80 320" stroke="var(--ink-5)" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="60" fill="var(--cinnabar)" fill-opacity="0.1"/>
+    <text x="200" y="210" text-anchor="middle" fill="var(--cinnabar)" font-size="14" font-family="var(--serif)">本草</text>
+  </svg>
+</header>
+
+<!-- KPI 指标条 -->
+<div class="kpi-bar">
+  <div class="kpi">
+    <div class="kpi-label">市场规模</div>
+    <div class="kpi-value">4,800<span class="unit">亿元</span></div>
+    <div class="kpi-delta up">▲ 23.5% YoY</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">文创品类</div>
+    <div class="kpi-value">12,000<span class="unit">+</span></div>
+    <div class="kpi-delta up">▲ 156% 品类扩张</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">出海市场</div>
+    <div class="kpi-value">89<span class="unit">个</span></div>
+    <div class="kpi-delta up">▲ 覆盖全球</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">IP授权</div>
+    <div class="kpi-value">3,200<span class="unit">个</span></div>
+    <div class="kpi-delta up">▲ 47% 增长</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">从业企业</div>
+    <div class="kpi-value">8,500<span class="unit">家</span></div>
+    <div class="kpi-delta up">▲ 32% 新增</div>
+  </div>
+</div>
+
+<!-- 第一章：执行摘要 -->
+<section id="overview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">CHAPTER 01 · EXECUTIVE SUMMARY</div>
+      <h2 class="section-title">执行摘要</h2>
+      <p class="section-lead">
+        中医药文创产业正站在历史性转折点——千年本草智慧与现代创意经济的历史性交汇，催生出一个万亿级市场的战略机遇期。
+      </p>
+    </div>
+    
+    <div class="pull-quote gold">
+      <p>「当本草遇见设计，当传统碰撞潮流，中医药文创正在书写一个关于文化自信与商业创新的新叙事。」</p>
+      <cite>— 全球产业战略研究中心 · 2026</cite>
+    </div>
+    
+    <h3 class="drop-cap" style="margin-top:64px"><span class="tag tag-red">核心观点</span>本报告的 12 个关键判断</h3>
+    
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="label">市场规模 2025</div>
+        <div class="value">4,820<span class="unit">亿元</span></div>
+        <div class="desc">同比 +23.5%，三年 CAGR 28.7%，跑赢文化娱乐大盘</div>
+      </div>
+      <div class="metric-card gold">
+        <div class="label">2028E 预测</div>
+        <div class="value">12,400<span class="unit">亿元</span></div>
+        <div class="desc">较 2025 翻 2.6 倍，文创占比将从 11% 提升至 23%</div>
+      </div>
+      <div class="metric-card jade">
+        <div class="label">出海 GMV</div>
+        <div class="value">385<span class="unit">亿元</span></div>
+        <div class="desc">三年 CAGR 67%，北美/东南亚/日韩三足鼎立</div>
+      </div>
+      <div class="metric-card violet">
+        <div class="label">Z 世代占比</div>
+        <div class="value">38.4<span class="unit">%</span></div>
+        <div class="desc">客单价 218 元，文化溢价支付意愿 +42%</div>
+      </div>
+    </div>
+    
+    <h4>12 个不容错过的判断 · One-Page Brief</h4>
+    
+    <ol class="feature-list" style="counter-reset:brief;list-style:none">
+      <li><strong style="color:var(--cinnabar)">①</strong>中医药文创已从"国潮单品"进化为"全产业链整合"，2025 年规模突破 <strong>4,820 亿元</strong>，超过中国电影票房（518 亿）的 <strong>9 倍</strong>。</li>
+      <li><strong style="color:var(--cinnabar)">②</strong>增速跑赢大盘：2022-2025 年 CAGR <strong>28.7%</strong>，远高于消费品零售总额 4.8% 和文化娱乐 9.2%。</li>
+      <li><strong style="color:var(--cinnabar)">③</strong>Z 世代（18-30 岁）贡献 <strong>38.4%</strong> 销售额，复购率 <strong>34.7%</strong>，比上一代高 2.1 倍。</li>
+      <li><strong style="color:var(--cinnabar)">④</strong>本草美妆占 <strong>25%</strong>，单品类规模 <strong>1,205 亿元</strong>，是细分赛道绝对头部。</li>
+      <li><strong style="color:var(--cinnabar)">⑤</strong>数字文创（NFT/数字藏品）增速 <strong>+180%</strong>，2025 年规模 <strong>576 亿元</strong>，Web3 开辟第二曲线。</li>
+      <li><strong style="color:var(--cinnabar)">⑥</strong>头部 IP 商业化能力断层：TOP10 IP 平均授权费 <strong>8,500 万元/年</strong>，长尾 IP 仅 <strong>180 万元/年</strong>，差距 <strong>47 倍</strong>。</li>
+      <li><strong style="color:var(--cinnabar)">⑦</strong>跨境出海进入 DTC 时代：SHEIN/Temu/TikTok Shop 三大渠道贡献中医药文创出海 <strong>62%</strong> GMV。</li>
+      <li><strong style="color:var(--cinnabar)">⑧</strong>产业链利润分布严重不均：创意设计端拿 <strong>28%</strong> 利润，原料端仅 <strong>12%</strong>，谁掌握 IP 谁掌握定价权。</li>
+      <li><strong style="color:var(--cinnabar)">⑨</strong>本草 + 茶饮赛道最热：2025 年新开门店 <strong>5.8 万家</strong>，融资总额 <strong>47 亿元</strong>，霸王茶姬、茶百道已上市。</li>
+      <li><strong style="color:var(--cinnabar)">⑩</strong>AI 设计工具渗透率从 2023 年 <strong>8%</strong> 跃升至 2025 年 <strong>47%</strong>，单人产出效率提升 <strong>3.4 倍</strong>。</li>
+      <li><strong style="color:var(--cinnabar)">⑪</strong>政策窗口期：2025-2030 是"中医药文化弘扬工程"黄金五年，国家级补贴累计 <strong>320 亿元</strong>已落地。</li>
+      <li><strong style="color:var(--cinnabar)">⑫</strong>2030 终极愿景：全球用户渗透率从 <strong>3.8%</strong> 提升至 <strong>18%</strong>，中医药文创成为中华文化出海第一载体。</li>
+    </ol>
+    
+    <div class="grid grid-3" style="margin-top:48px">
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <div class="card-title">爆发式增长</div>
+        <div class="card-text">
+          2025年市场规模达 <strong>4,820 亿元</strong>，预计 2028 年突破<span class="stat-highlight">1.24<span class="unit">万亿</span></span>。Z 世代成为核心消费群体，占比 38.4%，复购率 34.7%。
+        </div>
+        <div class="footnote">数据源：国家统计局、文旅部、艾瑞咨询、QuestMobile 2025Q4</div>
+      </div>
+      <div class="card accent-gold">
+        <div class="card-icon">🌏</div>
+        <div class="card-title">全球共振</div>
+        <div class="card-text">
+          出海市场年增速<span class="stat-highlight">67%</span>，日韩、东南亚、北美三大核心市场占出海份额的<span class="stat-highlight">74%</span>，TikTok 中医药标签累计播放破 480 亿次。
+        </div>
+        <div class="footnote">数据源：海关总署、TikTok for Business、Sensor Tower 2026.06</div>
+      </div>
+      <div class="card accent-jade">
+        <div class="card-icon">🎨</div>
+        <div class="card-title">IP 为王</div>
+        <div class="card-text">
+          头部 IP 授权收入年增<span class="stat-highlight">89%</span>，故宫、颐和园等顶级 IP 单年商业化收入突破<span class="stat-highlight">50<span class="unit">亿元</span></span>，授权费率提升至销售额的 8-12%。
+        </div>
+        <div class="footnote">数据源：中国玩具和婴童用品协会、《2025 中国 IP 产业报告》</div>
+      </div>
+    </div>
+    
+    <div class="dual-table" style="margin-top:48px">
+      <div class="dual-col">
+        <div class="dual-col-head">📊 2025 关键基线数据</div>
+        <ul>
+          <li>产业规模 4,820 亿元（+23.5% YoY）</li>
+          <li>从业企业 8,500+ 家（+32% 新增）</li>
+          <li>注册 SKU 数 12.6 万（+156% 三连增）</li>
+          <li>出海市场覆盖 89 个国家/地区</li>
+          <li>授权 IP 总数 3,200 个（+47%）</li>
+          <li>Z 世代消费者规模 1.85 亿人</li>
+          <li>本草美妆线上 GMV 1,205 亿元</li>
+          <li>本草 + 茶饮门店数 18.6 万家</li>
+        </ul>
+      </div>
+      <div class="dual-col" style="background:var(--paper-3)">
+        <div class="dual-col-head">🎯 2028 预测核心指标</div>
+        <ul>
+          <li>市场规模 <strong>1.24 万亿元</strong>（三年 CAGR 36.9%）</li>
+          <li>出海 GMV <strong>1,800 亿元</strong>（CAGR 67%）</li>
+          <li>Z 世代占比 <strong>52%</strong>，客单价 <strong>385 元</strong></li>
+          <li>头部 IP <strong>50 亿元</strong>俱乐部成员 8 家</li>
+          <li>数字文创渗透率 <strong>15%</strong>（当下 4.2%）</li>
+          <li>AI 辅助设计普及率 <strong>82%</strong></li>
+          <li>全球用户数 <strong>4.2 亿</strong>（海外 1.6 亿）</li>
+          <li>中医药文创占文化出海比重 <strong>23%</strong></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="chart-container">
+      <div class="chart-title">中医药文创产业规模增长趋势 (2020-2028E)</div>
+      <div class="bar-chart">
+        <div class="bar-item">
+          <div class="bar-label">2020</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:18%"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">2021</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:26%"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">2022</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:35%"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">2023</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:48%"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">2024</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:62%"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">2025</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:78%"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">2026E</div>
+          <div class="bar-track">
+            <div class="bar-fill gold" style="width:88%"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">2028E</div>
+          <div class="bar-track">
+            <div class="bar-fill jade" style="width:100%"></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;gap:32px;margin-top:24px;font-size:12px;color:var(--ink-4)">
+        <span><span style="display:inline-block;width:12px;height:12px;background:var(--cinnabar);border-radius:3px;margin-right:6px"></span>实际值</span>
+        <span><span style="display:inline-block;width:12px;height:12px;background:var(--gold);border-radius:3px;margin-right:6px"></span>预测值</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 第二章：市场格局 -->
+<section id="market">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">CHAPTER 02 · MARKET LANDSCAPE</div>
+      <h2 class="section-title">市场格局<span class="gold">深度解析</span></h2>
+      <p class="section-lead">
+        从文创产品到生活方式，从国潮单品到全球IP，中医药文创正在重塑传统文化的商业表达方式。
+      </p>
+    </div>
+    
+    <h3><span class="tag tag-red">核心发现</span>消费市场六大趋势</h3>
+    
+    <div class="insight-grid">
+      <div class="insight-card">
+        <div class="insight-num">01</div>
+        <div class="insight-title">Z世代主导消费</div>
+        <div class="insight-text">
+          18-30岁群体占比达38.4%（1.85亿人），客单价 218 元，复购率 34.7%，愿意为文化溢价支付30%-50%附加价值。"颜值+文化+社交"是三大决策因子。
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">02</div>
+        <div class="insight-title">健康美学兴起</div>
+        <div class="insight-text">
+          "本草养颜"概念延伸至美妆、家居、服饰，2025年本草美妆市场规模达1,205亿元，年增速 45.3%。小红书"本草护肤"相关笔记 480 万篇。
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">03</div>
+        <div class="insight-title">场景化消费</div>
+        <div class="insight-text">
+          养生茶饮、本草咖啡、中医SPA等新业态涌现，文创与实体消费深度融合。本草茶饮门店 18.6 万家，2025 年新增 5.8 万家，客单价提升 200%。
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">04</div>
+        <div class="insight-title">数字化转型</div>
+        <div class="insight-text">
+          元宇宙中医药博物馆、数字藏品、NFT本草艺术等新形态涌现，数字文创收入年增180%。"本草中国"数字藏品单系列销售额破 8,000 万元。
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">05</div>
+        <div class="insight-title">跨界联名热</div>
+        <div class="insight-text">
+          奢侈品牌×中医药、潮流IP×本草文化成为营销新范式，单品溢价可达普通产品5-10倍。LV×同仁堂、FENDI×东阿阿胶为代表案例。
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-num">06</div>
+        <div class="insight-title">出海加速</div>
+        <div class="insight-text">
+          TikTok"TCM Wellness"标签播放破 480 亿次，海外中医药文创需求爆发，跨境电商销售额年增 67%。SHEIN、Temu、TikTok Shop 三巨头占出海渠道 62%。
+        </div>
+      </div>
+    </div>
+    
+    <div class="chart-container">
+      <div class="chart-title">细分市场结构与增长潜力</div>
+      <div class="pie-chart">
+        <svg class="pie-svg" viewBox="0 0 220 220">
+          <circle cx="110" cy="110" r="80" fill="none" stroke="var(--cinnabar)" stroke-width="40" stroke-dasharray="100.53 402.12" stroke-dashoffset="0" transform="rotate(-90 110 110)"/>
+          <circle cx="110" cy="110" r="80" fill="none" stroke="var(--gold)" stroke-width="40" stroke-dasharray="75.4 427.25" stroke-dashoffset="-100.53" transform="rotate(-90 110 110)"/>
+          <circle cx="110" cy="110" r="80" fill="none" stroke="var(--jade-2)" stroke-width="40" stroke-dasharray="62.83 439.82" stroke-dashoffset="-175.93" transform="rotate(-90 110 110)"/>
+          <circle cx="110" cy="110" r="80" fill="none" stroke="var(--violet-2)" stroke-width="40" stroke-dasharray="50.27 452.38" stroke-dashoffset="-238.76" transform="rotate(-90 110 110)"/>
+          <circle cx="110" cy="110" r="80" fill="none" stroke="var(--ink-4)" stroke-width="40" stroke-dasharray="113.1 389.55" stroke-dashoffset="-289.03" transform="rotate(-90 110 110)"/>
+          <text x="110" y="100" text-anchor="middle" fill="var(--ink)" font-size="24" font-weight="600">4,800</text>
+          <text x="110" y="120" text-anchor="middle" fill="var(--ink-4)" font-size="10">亿元规模</text>
+        </svg>
+        <div class="pie-legend">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--cinnabar)"></div>
+            <span>本草美妆护肤</span>
+            <div class="legend-value">25% · 1,200亿</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--gold)"></div>
+            <span>文创衍生产品</span>
+            <div class="legend-value">19% · 912亿</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--jade-2)"></div>
+            <span>养生食品饮品</span>
+            <div class="legend-value">15% · 720亿</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--violet-2)"></div>
+            <span>数字文创NFT</span>
+            <div class="legend-value">12% · 576亿</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:var(--ink-4)"></div>
+            <span>其他细分市场</span>
+            <div class="legend-value">29% · 1,392亿</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-gold">消费者画像</span>四类核心人群深度解读</h3>
+    
+    <div class="persona">
+      <div class="persona-avatar">👩‍💼</div>
+      <div class="persona-info">
+        <h4>小雅 · 26 岁 · 一线城市互联网运营</h4>
+        <div class="persona-meta">
+          <span class="persona-tag">Z 世代</span>
+          <span class="persona-tag">新中产</span>
+          <span class="persona-tag">颜值党</span>
+          <span class="persona-tag">小红书重度用户</span>
+        </div>
+        <div class="persona-text">
+          <strong>消费特征：</strong>月均中医药文创支出 385 元，单笔最高 2,800 元。<br>
+          <strong>偏好品类：</strong>本草口红、香薰、香囊、养生茶包、IP 联名礼盒。<br>
+          <strong>决策路径：</strong>小红书种草 → 抖音测评 → 天猫/京东下单，决策周期 7-14 天。<br>
+          <strong>价值诉求：</strong>"东方美学 + 健康功效 + 拍照好看"三位一体，愿为情绪价值付 40% 溢价。<br>
+          <strong>复购触发：</strong>新品发布、限定款、KOL 直播、新口味/新香型。
+        </div>
+      </div>
+    </div>
+    
+    <div class="persona">
+      <div class="persona-avatar" style="background:linear-gradient(145deg,var(--gold-soft),var(--cinnabar-soft))">🧓</div>
+      <div class="persona-info">
+        <h4>陈伯 · 58 岁 · 三线城市退休教师</h4>
+        <div class="persona-meta">
+          <span class="persona-tag">银发族</span>
+          <span class="persona-tag">养生刚需</span>
+          <span class="persona-tag">高客单价</span>
+          <span class="persona-tag">线下为主</span>
+        </div>
+        <div class="persona-text">
+          <strong>消费特征：</strong>月均中医药文创支出 1,250 元，单笔最高 8,800 元。<br>
+          <strong>偏好品类：</strong>同仁堂养生礼盒、阿胶糕、本草保健品、足浴包、艾灸贴。<br>
+          <strong>决策路径：</strong>子女推荐 → 线下药店/专卖店 → 微信群裂变。<br>
+          <strong>价值诉求：</strong>"老字号 + 道地药材 + 实用功效"，对 IP 溢价接受度有限。<br>
+          <strong>复购触发：</strong>季节养生节点（春养肝、冬补肾）、团购、节日送礼。
+        </div>
+      </div>
+    </div>
+    
+    <div class="persona">
+      <div class="persona-avatar" style="background:linear-gradient(145deg,var(--jade-soft),var(--violet-soft))">🌏</div>
+      <div class="persona-info">
+        <h4>Sarah · 34 岁 · 北美华人妈妈</h4>
+        <div class="persona-meta">
+          <span class="persona-tag">海外华人</span>
+          <span class="persona-tag">跨境电商</span>
+          <span class="persona-tag">文化寻根</span>
+          <span class="persona-tag">Instagram 重度用户</span>
+        </div>
+        <div class="persona-text">
+          <strong>消费特征：</strong>月均中医药文创支出 165 美元（约 1,180 元），单笔最高 480 美元。<br>
+          <strong>偏好品类：</strong>本草化妆品、儿童本草牙膏、足浴包、养生茶礼盒。<br>
+          <strong>决策路径：</strong>小红书海外版 → Instagram/TikTok 测评 → 独立站/SHEIN/Temu。<br>
+          <strong>价值诉求：</strong>"中医育儿 + 东方美学 + 解决亚健康"，对 FDA 认证敏感。<br>
+          <strong>复购触发：</strong>孩子换季、母亲节、中秋节、本草新品评测。
+        </div>
+      </div>
+    </div>
+    
+    <div class="persona">
+      <div class="persona-avatar" style="background:linear-gradient(145deg,var(--violet-soft),var(--amber-soft))">🧑‍🎨</div>
+      <div class="persona-info">
+        <h4>李明 · 32 岁 · 设计师 + 文化爱好者</h4>
+        <div class="persona-meta">
+          <span class="persona-tag">文化精英</span>
+          <span class="persona-tag">收藏型</span>
+          <span class="persona-tag">高净值</span>
+          <span class="persona-tag">知乎/B 站重度</span>
+        </div>
+        <div class="persona-text">
+          <strong>消费特征：</strong>月均中医药文创支出 2,800 元，年最高消费 6.8 万元。<br>
+          <strong>偏好品类：</strong>故宫联名、敦煌主题、数字藏品、非遗手作、本草香道。<br>
+          <strong>决策路径：</strong>B 站深度评测 → 知乎讨论 → 拍卖/限定渠道。<br>
+          <strong>价值诉求：</strong>"文化深度 + 设计美学 + 收藏价值"，对限量版和首发款极度敏感。<br>
+          <strong>复购触发：</strong>IP 联名首发、非遗大师新作、博物馆限定、数字藏品空投。
+        </div>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-jade">价格带分布</span>细分类目客单价全景</h3>
+    
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>价格区间</th>
+          <th>代表品类</th>
+          <th>客单价区间</th>
+          <th>品类占比</th>
+          <th>增速 (YoY)</th>
+          <th>目标人群</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>平价轻奢</strong><br><span style="font-size:11px;color:var(--ink-4)">¥30-100</span></td>
+          <td>本草茶包、香囊、文创小件、艾灸贴、牙膏</td>
+          <td><span class="num">¥68</span></td>
+          <td><span class="num">42.5%</span></td>
+          <td><span class="highlight">+34%</span></td>
+          <td>学生党、Z 世代入门用户</td>
+        </tr>
+        <tr>
+          <td><strong>品质中端</strong><br><span style="font-size:11px;color:var(--ink-4)">¥100-300</span></td>
+          <td>本草口红、香薰、面膜、礼盒、茶饮</td>
+          <td><span class="num">¥218</span></td>
+          <td><span class="num">31.8%</span></td>
+          <td><span class="highlight">+45%</span></td>
+          <td>新中产、白领主力人群</td>
+        </tr>
+        <tr>
+          <td><strong>轻奢</strong><br><span style="font-size:11px;color:var(--ink-4)">¥300-800</span></td>
+          <td>联名礼盒、足浴仪、本草护肤品系列</td>
+          <td><span class="num">¥560</span></td>
+          <td><span class="num">16.2%</span></td>
+          <td><span class="highlight">+58%</span></td>
+          <td>中产、品质生活家</td>
+        </tr>
+        <tr>
+          <td><strong>高端</strong><br><span style="font-size:11px;color:var(--ink-4)">¥800-2000</span></td>
+          <td>燕窝礼盒、阿胶、藏红花、人参礼盒</td>
+          <td><span class="num">¥1,380</span></td>
+          <td><span class="num">7.5%</span></td>
+          <td><span class="highlight">+28%</span></td>
+          <td>商务送礼、银发养生</td>
+        </tr>
+        <tr>
+          <td><strong>奢侈收藏</strong><br><span style="font-size:11px;color:var(--ink-4)">¥2000+</span></td>
+          <td>数字藏品、非遗手作、博物馆限定、IP 艺术品</td>
+          <td><span class="num">¥4,850</span></td>
+          <td><span class="num">2.0%</span></td>
+          <td><span class="highlight">+89%</span></td>
+          <td>收藏家、文化精英</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h3><span class="tag tag-violet">渠道结构</span>五大销售渠道深度对比</h3>
+    
+    <div class="bar-chart">
+      <div class="bar-item">
+        <div class="bar-label">抖音/快手直播</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:92%"></div>
+        </div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-label">天猫/京东电商</div>
+        <div class="bar-track">
+          <div class="bar-fill gold" style="width:78%"></div>
+        </div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-label">小红书种草</div>
+        <div class="bar-track">
+          <div class="bar-fill jade" style="width:65%"></div>
+        </div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-label">线下专卖店/药店</div>
+        <div class="bar-track">
+          <div class="bar-fill violet" style="width:48%"></div>
+        </div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-label">跨境出海（DTC）</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:38%"></div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--ink-4);margin-top:16px;text-align:center">
+      评分维度：GMV 贡献度 × 用户获取效率 × 复购转化率 × 品牌势能
+    </div>
+    
+    <div class="grid grid-2" style="margin-top:32px">
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <div class="card-title">抖音直播：GMV 主战场</div>
+        <div class="card-text">
+          2025 年中医药文创直播 GMV <strong>985 亿元</strong>，占线上总 GMV 的 38%。东方甄选、辛巴、刘畊宏夫妇等头部直播间为本草品牌带来单场破千万 GMV。<br>
+          <strong style="color:var(--cinnabar)">关键指标：</strong>客单价 168 元、转化率 6.8%、退货率 18%（低于行业均值 25%）。<br>
+          <strong style="color:var(--cinnabar)">代表品牌：</strong>同仁堂健康、东阿阿胶、桃花姬、霸王茶姬。
+        </div>
+      </div>
+      <div class="card accent-gold">
+        <div class="card-icon">🛒</div>
+        <div class="card-title">天猫京东：品牌主阵地</div>
+        <div class="card-text">
+          2025 年天猫中医药文创 GMV <strong>1,240 亿元</strong>，京东 480 亿元，合计 1,720 亿元。<br>
+          <strong style="color:var(--gold)">关键指标：</strong>客单价 285 元、复购率 32%、会员 ARPU 1,850 元。<br>
+          <strong style="color:var(--gold)">代表品牌：</strong>百雀羚、相宜本草、云南白药、太极集团。<br>
+          <strong style="color:var(--gold)">关键打法：</strong>店铺自播 + 平台 IP（如天猫国潮）+ 跨店满减。
+        </div>
+      </div>
+    </div>
+    
+    <div class="matrix" style="grid-template-columns:1.5fr repeat(5,1fr)">
+      <div class="matrix-header">
+        <div>区域市场</div>
+        <div>市场规模</div>
+        <div>增速</div>
+        <div>渗透率</div>
+        <div>客单价</div>
+        <div>机遇等级</div>
+      </div>
+      <div class="matrix-row">
+        <div>🇨🇳 中国大陆</div>
+        <div class="matrix-value">3,200亿</div>
+        <div class="matrix-value high">+23%</div>
+        <div class="matrix-value high">68%</div>
+        <div class="matrix-value">218元</div>
+        <div><span class="tag tag-jade">成熟</span></div>
+      </div>
+      <div class="matrix-row">
+        <div>🌏 东南亚</div>
+        <div class="matrix-value">580亿</div>
+        <div class="matrix-value high">+67%</div>
+        <div class="matrix-value med">32%</div>
+        <div class="matrix-value">165元</div>
+        <div><span class="tag tag-red">战略</span></div>
+      </div>
+      <div class="matrix-row">
+        <div>🇯🇵🇰🇷 日韩</div>
+        <div class="matrix-value">420亿</div>
+        <div class="matrix-value med">+38%</div>
+        <div class="matrix-value med">45%</div>
+        <div class="matrix-value">385元</div>
+        <div><span class="tag tag-gold">优质</span></div>
+      </div>
+      <div class="matrix-row">
+        <div>🌎 北美欧洲</div>
+        <div class="matrix-value">380亿</div>
+        <div class="matrix-value high">+89%</div>
+        <div class="matrix-value low">18%</div>
+        <div class="matrix-value">520元</div>
+        <div><span class="tag tag-red">战略</span></div>
+      </div>
+      <div class="matrix-row">
+        <div>🌏 中东非洲</div>
+        <div class="matrix-value">220亿</div>
+        <div class="matrix-value high">+56%</div>
+        <div class="matrix-value low">12%</div>
+        <div class="matrix-value">680元</div>
+        <div><span class="tag tag-amber">潜力</span></div>
+      </div>
+    </div>
+    
+    <div class="grid grid-3" style="margin-top:32px">
+      <div class="card">
+        <div class="card-title" style="color:var(--cinnabar)">🥇 第一梯队 · 中国大陆</div>
+        <div class="card-text">
+          <strong>关键数据：</strong>3,200 亿规模，68% 渗透率，年增速 23%。<br>
+          <strong>热门子赛道：</strong>本草美妆 31%、养生食品 24%、文创衍生品 19%。<br>
+          <strong>核心消费者：</strong>Z 世代 38%、新中产 32%、银发族 18%。<br>
+          <strong>渠道分布：</strong>线上 62%（抖音 38%、天猫 35%、京东 15%、其他 12%）。<br>
+          <strong>战略机会：</strong>下沉市场（渗透率仅 28%）+ 银发经济（待挖掘 2,000 亿）。
+        </div>
+      </div>
+      <div class="card accent-gold">
+        <div class="card-title" style="color:var(--gold)">🥈 第二梯队 · 日韩（高净值）</div>
+        <div class="card-text">
+          <strong>关键数据：</strong>420 亿规模，45% 渗透率，客单价 385 元。<br>
+          <strong>日本偏好：</strong>汉方（Kampo）溯源、本草温泉、抹茶 + 中药结合。<br>
+          <strong>韩国偏好：</strong>红参、韩方美容、人参精华、宫廷 IP。<br>
+          <strong>渠道分布：</strong>药妆店 45%、百货专柜 28%、跨境电商 18%、药店 9%。<br>
+          <strong>代表品牌：</strong>津村株式会社、正官庄、花王est、韩国人参公社。
+        </div>
+      </div>
+      <div class="card accent-jade">
+        <div class="card-title" style="color:var(--jade-2)">🥉 第三梯队 · 北美（DTC 蓝海）</div>
+        <div class="card-text">
+          <strong>关键数据：</strong>380 亿规模，渗透率仅 18%，年增速 89%（最高）。<br>
+          <strong>用户画像：</strong>海外华人 1,200 万 + 西方 TCM 爱好者 800 万 + KOL 50 万。<br>
+          <strong>爆款品类：</strong>足浴包、艾灸贴、本草护肤品、养生茶、舌苔刷。<br>
+          <strong>渠道分布：</strong>Amazon 35%、独立站 28%、TikTok Shop 22%、Costco 15%。<br>
+          <strong>合规挑战：</strong>FDA 草药备案、California Prop 65、各州差异。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 第三章：产业链分析 -->
+<section id="value-chain">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">CHAPTER 03 · VALUE CHAIN ANALYSIS</div>
+      <h2 class="section-title">产业链<span class="jade">价值解构</span></h2>
+      <p class="section-lead">
+        从本草种植到创意设计，从生产制造到消费者触达，每一环节都在孕育独特的价值创造机会。
+      </p>
+    </div>
+    
+    <div class="chart-container">
+      <div class="chart-title">中医药文创产业链全景图谱</div>
+      
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:32px">
+        <div style="background:linear-gradient(180deg,var(--jade-soft) 0%,var(--panel) 100%);padding:24px;border-radius:12px 12px 0 0;text-align:center;border-bottom:3px solid var(--jade-2)">
+          <div style="font-size:32px;margin-bottom:12px">🌱</div>
+          <div style="font-family:var(--serif);font-size:14px;color:var(--ink);margin-bottom:8px">上游原材料</div>
+          <div style="font-size:11px;color:var(--ink-4)">本草种植·中药材<br>天然成分·文化素材</div>
+          <div style="margin-top:12px;font-family:var(--mono);font-size:20px;color:var(--jade-2);font-weight:600">12%</div>
+        </div>
+        <div style="background:var(--panel);padding:24px;border-radius:0;text-align:center;border-bottom:3px solid var(--gold)">
+          <div style="font-size:32px;margin-bottom:12px">🎨</div>
+          <div style="font-family:var(--serif);font-size:14px;color:var(--ink);margin-bottom:8px">创意设计</div>
+          <div style="font-size:11px;color:var(--ink-4)">IP开发·视觉设计<br>产品策划·内容创作</div>
+          <div style="margin-top:12px;font-family:var(--mono);font-size:20px;color:var(--gold);font-weight:600">28%</div>
+        </div>
+        <div style="background:var(--panel);padding:24px;border-radius:0;text-align:center;border-bottom:3px solid var(--cinnabar)">
+          <div style="font-size:32px;margin-bottom:12px">🏭</div>
+          <div style="font-family:var(--serif);font-size:14px;color:var(--ink);margin-bottom:8px">生产制造</div>
+          <div style="font-size:11px;color:var(--ink-4)">OEM/ODM·代工生产<br>品质管控·供应链</div>
+          <div style="margin-top:12px;font-family:var(--mono);font-size:20px;color:var(--cinnabar);font-weight:600">22%</div>
+        </div>
+        <div style="background:var(--panel);padding:24px;border-radius:0;text-align:center;border-bottom:3px solid var(--violet)">
+          <div style="font-size:32px;margin-bottom:12px">📱</div>
+          <div style="font-family:var(--serif);font-size:14px;color:var(--ink);margin-bottom:8px">营销分发</div>
+          <div style="font-size:11px;color:var(--ink-4)">电商平台·社交媒体<br>线下渠道·跨境出海</div>
+          <div style="margin-top:12px;font-family:var(--mono);font-size:20px;color:var(--violet-2);font-weight:600">25%</div>
+        </div>
+        <div style="background:linear-gradient(180deg,var(--cinnabar-soft) 0%,var(--panel) 100%);padding:24px;border-radius:12px 12px 0 0;text-align:center;border-bottom:3px solid var(--cinnabar)">
+          <div style="font-size:32px;margin-bottom:12px">👥</div>
+          <div style="font-family:var(--serif);font-size:14px;color:var(--ink);margin-bottom:8px">消费者</div>
+          <div style="font-size:11px;color:var(--ink-4)">Z世代·新中产<br>健康意识·文化自信</div>
+          <div style="margin-top:12px;font-family:var(--mono);font-size:20px;color:var(--cinnabar);font-weight:600">13%</div>
+        </div>
+      </div>
+      
+      <div style="display:flex;justify-content:center;gap:40px;margin-top:24px;padding:20px;background:var(--paper-3);border-radius:8px">
+        <div style="text-align:center">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--ink-4);letter-spacing:2px;margin-bottom:4px">价值洼地</div>
+          <div style="font-size:13px;color:var(--gold)">创意设计 (28%)</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--ink-4);letter-spacing:2px;margin-bottom:4px">增长引擎</div>
+          <div style="font-size:13px;color:var(--cinnabar)">营销分发 (25%)</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--ink-4);letter-spacing:2px;margin-bottom:4px">护城河</div>
+          <div style="font-size:13px;color:var(--jade-2)">原材料 (12%)</div>
+        </div>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-jade">关键洞察</span>产业链三大机遇</h3>
+    
+    <div class="grid grid-3" style="margin-top:32px">
+      <div class="card accent-jade">
+        <div class="card-icon">🔬</div>
+        <div class="card-title">原料标准化机遇</div>
+        <div class="card-text">
+          道地药材溯源体系建设成为竞争核心，头部企业通过区块链技术实现"一草一码"，溢价能力提升40%。<span class="source-tag">GAP 基地 168 个</span>
+        </div>
+      </div>
+      <div class="card accent-gold">
+        <div class="card-icon">💎</div>
+        <div class="card-title">IP孵化红利期</div>
+        <div class="card-text">
+          优质中医药IP稀缺，头部博物馆、文化机构IP授权费年增89%，提前布局者将享受先发优势。<span class="source-tag">TOP10 IP 平均 8,500 万/年</span>
+        </div>
+      </div>
+      <div class="card accent-violet">
+        <div class="card-icon">🚀</div>
+        <div class="card-title">跨境整合机遇</div>
+        <div class="card-text">
+          DTC品牌出海南非整合产业链最优路径，SHEIN、TikTok生态为文创出海提供基础设施支撑。<span class="source-tag">三大平台占出海 62%</span>
+        </div>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-red">产业链利润分布</span>价值蛋糕如何切分</h3>
+    
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>环节</th>
+          <th>典型代表企业</th>
+          <th>毛利率</th>
+          <th>净利率</th>
+          <th>价值占比</th>
+          <th>进入壁垒</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>上游种植</strong></td>
+          <td>亳州中药材市场、文山三七、广药集团药材基地</td>
+          <td><span class="num">18-25%</span></td>
+          <td><span class="num">5-8%</span></td>
+          <td><span class="num">12%</span></td>
+          <td>★★★ 道地资源稀缺</td>
+        </tr>
+        <tr>
+          <td><strong>提取加工</strong></td>
+          <td>晨光生物、莱茵生物、桂林莱茵</td>
+          <td><span class="num">35-42%</span></td>
+          <td><span class="num">12-18%</span></td>
+          <td><span class="num">15%</span></td>
+          <td>★★ 设备投入中等</td>
+        </tr>
+        <tr>
+          <td><strong>创意设计</strong></td>
+          <td>故宫文创、洛可可、东道品牌设计</td>
+          <td><span class="num">65-75%</span></td>
+          <td><span class="num">25-35%</span></td>
+          <td><span class="num">28%</span></td>
+          <td>★★★★★ 文化壁垒最高</td>
+        </tr>
+        <tr>
+          <td><strong>生产制造</strong></td>
+          <td>科丝美诗、莹特丽、嘉亨家化</td>
+          <td><span class="num">28-35%</span></td>
+          <td><span class="num">8-12%</span></td>
+          <td><span class="num">22%</span></td>
+          <td>★★ OEM 高度成熟</td>
+        </tr>
+        <tr>
+          <td><strong>营销分发</strong></td>
+          <td>东方甄选、抖音电商、小红书</td>
+          <td><span class="num">45-55%</span></td>
+          <td><span class="num">15-22%</span></td>
+          <td><span class="num">25%</span></td>
+          <td>★★★ 流量壁垒强</td>
+        </tr>
+        <tr>
+          <td><strong>终端零售</strong></td>
+          <td>屈臣氏、丝芙兰、名创优品</td>
+          <td><span class="num">38-48%</span></td>
+          <td><span class="num">10-15%</span></td>
+          <td><span class="num">18%</span></td>
+          <td>★★★ 渠道关系深</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="footnote">
+      <strong>洞察：</strong>创意设计端拿走了 28% 价值蛋糕却只占 18% 成本，毛利率高达 65-75%——这就是为什么 IP 拥有者（故宫、敦煌）能在产业链中掌握话语权。<strong>战略含义：</strong>新入局者应优先攻克创意设计 + IP 授权环节，而非在制造端陷入价格战。
+    </div>
+    
+    <h3><span class="tag tag-violet">成本结构剖析</span>本草美妆单品成本拆解</h3>
+    
+    <div class="grid grid-2" style="margin-top:32px">
+      <div>
+        <h4 style="color:var(--cinnabar)">以零售价 199 元的本草口红为例</h4>
+        <table class="data-table" style="font-size:13px">
+          <thead><tr><th>成本项</th><th>金额</th><th>占比</th></tr></thead>
+          <tbody>
+            <tr><td>原材料（蜡 + 草本提取物）</td><td><span class="num">¥12</span></td><td>6%</td></tr>
+            <tr><td>包装（外盒 + 内芯 + 标签）</td><td><span class="num">¥18</span></td><td>9%</td></tr>
+            <tr><td>制造费用（OEM 加工）</td><td><span class="num">¥8</span></td><td>4%</td></tr>
+            <tr><td>设计 / IP 授权费</td><td><span class="num">¥22</span></td><td>11%</td></tr>
+            <tr><td>营销推广（KOL + 广告）</td><td><span class="num">¥58</span></td><td>29%</td></tr>
+            <tr><td>渠道分成（电商扣点）</td><td><span class="num">¥35</span></td><td>18%</td></tr>
+            <tr><td>物流仓储</td><td><span class="num">¥9</span></td><td>5%</td></tr>
+            <tr><td>税费 / 售后</td><td><span class="num">¥12</span></td><td>6%</td></tr>
+            <tr style="background:var(--jade-soft)"><td><strong>净利润</strong></td><td><span class="num highlight">¥25</span></td><td><strong>13%</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h4 style="color:var(--cinnabar)">成本结构三大启示</h4>
+        <div class="feature-list">
+          <li><strong style="color:var(--cinnabar)">营销是最大支出：</strong>占零售价 29%，品牌方实际净利仅 13%。营销 ROI 决定生死。</li>
+          <li><strong style="color:var(--cinnabar)">IP 授权是关键杠杆：</strong>11% 授权费撬动 29% 营销 ROI 的提升，是头部品牌的护城河。</li>
+          <li><strong style="color:var(--cinnabar)">规模效应：</strong>当单品年销破 100 万支时，OEM 成本可压缩 30%，净利率提升至 22%。</li>
+          <li><strong style="color:var(--cinnabar)">私域复购的威力：</strong>私域用户复购的获客成本仅 ¥18 vs 公域 ¥58，差距 3.2 倍。</li>
+          <li><strong style="color:var(--cinnabar)">DTC 出海溢价：</strong>北美市场同款产品可定价 $32（¥230），毛利率较国内高 18 个百分点。</li>
+        </div>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-jade">关键节点深度</span>五大核心环节突围策略</h3>
+    
+    <div class="grid grid-2" style="margin-top:32px">
+      <div class="milestone">
+        <div class="milestone-flag">01</div>
+        <div class="milestone-content">
+          <div class="milestone-title">上游 · 道地药材 GAP 基地建设</div>
+          <div class="milestone-text">
+            全国仅 168 个 GAP 认证基地，覆盖 87 个道地药材品种。<strong style="color:var(--jade-2)">破局点：</strong>联合地方政府申报 GAP 认证、建设区块链溯源系统、与药企签订长期收购协议。同仁堂已建 12 个 GAP 基地，从源头锁价 8-15%。
+          </div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="milestone-flag">02</div>
+        <div class="milestone-content">
+          <div class="milestone-title">设计端 · AI + 人类设计师协同</div>
+          <div class="milestone-text">
+            AI 设计工具渗透率从 2023 年 8% 跃升至 2025 年 47%，单人产出效率提升 3.4 倍。<strong style="color:var(--gold)">破局点：</strong>用 AI 做批量草图 + 设计师做文化把关，效率与品质兼顾。洛可可已实现"AI 出 100 稿、设计师选 5 稿"。
+          </div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="milestone-flag">03</div>
+        <div class="milestone-content">
+          <div class="milestone-title">制造端 · 柔性供应链与小单快反</div>
+          <div class="milestone-text">
+            传统 OEM 起订量 5,000-10,000 件，新模式已降至 500 件。<strong style="color:var(--violet-2)">破局点：</strong>选择支持柔性生产的代工厂（如莹特丽、嘉亨家化），实现"小批量、多 SKU、快速迭代"。
+          </div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="milestone-flag">04</div>
+        <div class="milestone-content">
+          <div class="milestone-title">分发端 · 抖音直播 + 私域社群双轮</div>
+          <div class="milestone-text">
+            抖音贡献线上 38% GMV，但流量成本同比上涨 42%。<strong style="color:var(--cinnabar)">破局点：</strong>公域获客 → 私域沉淀 → 复购转化，单客 LTV 提升 4.2 倍。完美日记、花西子均深谙此道。
+          </div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="milestone-flag">05</div>
+        <div class="milestone-content">
+          <div class="milestone-title">用户端 · 从一次性购买到生活方式订阅</div>
+          <div class="milestone-text">
+            订阅制用户 ARPU 较一次性用户高 3.8 倍，留存率高 5.6 倍。<strong style="color:var(--cyan)">破局点：</strong>推出"本草生活订阅盒"，月费 99-299 元，按节气寄送茶、香、护肤等组合，复购自动延续。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 第四章：文化IP战略 -->
+<section id="ip">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">CHAPTER 04 · CULTURAL IP STRATEGY</div>
+      <h2 class="section-title">文化IP<span class="accent">战略图谱</span></h2>
+      <p class="section-lead">
+        IP是中医药文创的灵魂资产。从故宫本草到敦煌飞天，从《黄帝内经》到本草纲目，文化IP正在重塑传统医学的商业边界。
+      </p>
+    </div>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">2019</div>
+        <div class="timeline-title">IP觉醒元年</div>
+        <div class="timeline-text">故宫中医药文创年营收突破15亿元，开启传统文化IP商业化浪潮。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2021</div>
+        <div class="timeline-title">国潮爆发期</div>
+        <div class="timeline-text">李子柒掀起东方美学热潮，中医药文创搭上国潮快车，品类爆发式增长。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-title">出海加速期</div>
+        <div class="timeline-text">TikTok中医药内容播放量破百亿，海外"TCM"标签成为新流量密码。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-title">IP生态成熟期</div>
+        <div class="timeline-text">头部IP授权体系完善，数字藏品、NFT、元宇宙场景成为IP新载体。</div>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-violet">IP矩阵</span>中医药文创IP版图</h3>
+    
+    <div class="chart-container">
+      <div class="chart-title">IP类型分布与商业化潜力</div>
+      <div class="bar-chart" style="margin-top:24px">
+        <div class="bar-item">
+          <div class="bar-label">博物馆典藏</div>
+          <div class="bar-track">
+            <div class="bar-fill jade" style="width:95%"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">经典典籍</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:88%"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">中医世家</div>
+          <div class="bar-track">
+            <div class="bar-fill gold" style="width:72%"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">本草图鉴</div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:68%"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">传统方剂</div>
+          <div class="bar-track">
+            <div class="bar-fill jade" style="width:58%"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">非遗技艺</div>
+          <div class="bar-track">
+            <div class="bar-fill violet" style="width:52%"></div>
+          </div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">神话传说</div>
+          <div class="bar-track">
+            <div class="bar-fill gold" style="width:45%"></div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--ink-4);margin-top:16px;text-align:center">
+        评分维度：商业化成熟度 × 文化辨识度 × 海外认知度 × 延展性
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-gold">IP 库全景</span>20 大中医药文创 IP 估值榜单</h3>
+    
+    <table class="data-table">
+      <thead>
+        <tr><th>排名</th><th>IP 名称</th><th>所属机构</th><th>2025 商业化收入</th><th>授权费/年</th><th>海外认知</th><th>战略等级</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>01</td><td><strong>故宫文创</strong></td><td>故宫博物院</td><td><span class="num">¥15.8 亿</span></td><td><span class="num">¥1.2 亿</span></td><td>★★★★</td><td><span class="tag tag-red">S 级</span></td></tr>
+        <tr><td>02</td><td><strong>敦煌研究院</strong></td><td>敦煌研究院</td><td><span class="num">¥8.5 亿</span></td><td><span class="num">¥6,800 万</span></td><td>★★★★★</td><td><span class="tag tag-red">S 级</span></td></tr>
+        <tr><td>03</td><td><strong>颐和园·皇家生活</strong></td><td>颐和园管理处</td><td><span class="num">¥4.2 亿</span></td><td><span class="num">¥3,200 万</span></td><td>★★★</td><td><span class="tag tag-gold">A+ 级</span></td></tr>
+        <tr><td>04</td><td>同仁堂老字号</td><td>同仁堂集团</td><td><span class="num">¥52 亿</span></td><td>内部使用</td><td>★★★★</td><td><span class="tag tag-red">S 级</span></td></tr>
+        <tr><td>05</td><td>东阿阿胶</td><td>东阿阿胶股份</td><td><span class="num">¥38 亿</span></td><td><span class="num">¥2,800 万</span></td><td>★★★</td><td><span class="tag tag-gold">A+ 级</span></td></tr>
+        <tr><td>06</td><td>片仔癀·漳州</td><td>片仔癀药业</td><td><span class="num">¥25 亿</span></td><td><span class="num">¥1,500 万</span></td><td>★★★</td><td><span class="tag tag-gold">A 级</span></td></tr>
+        <tr><td>07</td><td>云南白药</td><td>云南白药集团</td><td><span class="num">¥18 亿</span></td><td><span class="num">¥2,100 万</span></td><td>★★★</td><td><span class="tag tag-gold">A 级</span></td></tr>
+        <tr><td>08</td><td>胡庆余堂</td><td>胡庆余堂集团</td><td><span class="num">¥6.5 亿</span></td><td><span class="num">¥820 万</span></td><td>★★</td><td><span class="tag tag-jade">B+ 级</span></td></tr>
+        <tr><td>09</td><td>陈李济</td><td>广州白云山</td><td><span class="num">¥5.8 亿</span></td><td><span class="num">¥680 万</span></td><td>★★</td><td><span class="tag tag-jade">B+ 级</span></td></tr>
+        <tr><td>10</td><td>《本草纲目》经典</td><td>公共领域</td><td>衍生 ¥12 亿</td><td><span class="num">¥580 万</span></td><td>★★★★</td><td><span class="tag tag-gold">A 级</span></td></tr>
+        <tr><td>11</td><td>黄帝内经</td><td>公共领域</td><td>衍生 ¥7.2 亿</td><td><span class="num">¥420 万</span></td><td>★★★★</td><td><span class="tag tag-gold">A 级</span></td></tr>
+        <tr><td>12</td><td>广誉远·定坤丹</td><td>广誉远中药</td><td><span class="num">¥4.8 亿</span></td><td><span class="num">¥520 万</span></td><td>★★</td><td><span class="tag tag-jade">B 级</span></td></tr>
+        <tr><td>13</td><td>雷允上</td><td>雷允上药业</td><td><span class="num">¥3.9 亿</span></td><td><span class="num">¥380 万</span></td><td>★★</td><td><span class="tag tag-jade">B 级</span></td></tr>
+        <tr><td>14</td><td>九芝堂</td><td>九芝堂股份</td><td><span class="num">¥3.5 亿</span></td><td><span class="num">¥320 万</span></td><td>★★</td><td><span class="tag tag-jade">B 级</span></td></tr>
+        <tr><td>15</td><td>仲景宛西制药</td><td>宛西制药</td><td><span class="num">¥3.2 亿</span></td><td><span class="num">¥280 万</span></td><td>★★</td><td><span class="tag tag-jade">B 级</span></td></tr>
+        <tr><td>16</td><td>达仁堂</td><td>中新药业</td><td><span class="num">¥2.8 亿</span></td><td><span class="num">¥240 万</span></td><td>★★</td><td><span class="tag tag-jade">B 级</span></td></tr>
+        <tr><td>17</td><td>李良济</td><td>苏州李良济</td><td><span class="num">¥2.5 亿</span></td><td><span class="num">¥180 万</span></td><td>★</td><td><span class="tag tag-jade">B- 级</span></td></tr>
+        <tr><td>18</td><td>汉方圣水（汉服+中医）</td><td>汉服社团联盟</td><td><span class="num">¥2.2 亿</span></td><td><span class="num">¥150 万</span></td><td>★★★</td><td><span class="tag tag-jade">B- 级</span></td></tr>
+        <tr><td>19</td><td>药王谷</td><td>中医药文旅</td><td><span class="num">¥1.8 亿</span></td><td><span class="num">¥120 万</span></td><td>★</td><td><span class="tag tag-amber">C+ 级</span></td></tr>
+        <tr><td>20</td><td>苗药古方</td><td>贵州苗药</td><td><span class="num">¥1.5 亿</span></td><td><span class="num">¥95 万</span></td><td>★★</td><td><span class="tag tag-amber">C 级</span></td></tr>
+      </tbody>
+    </table>
+    
+    <div class="footnote">
+      <strong>估值逻辑：</strong>IP 估值 = 年商业化收入 × 行业倍数（S 级 8-12×、A 级 5-8×、B 级 3-5×）+ 授权费收入 + 衍生收入。故宫文创 IP 估值约 <strong>120-180 亿元</strong>，是中医药文创领域市值最高的 IP 资产。
+    </div>
+    
+    <h3><span class="tag tag-jade">授权机制</span>三种 IP 合作模式深度对比</h3>
+    
+    <div class="grid grid-3" style="margin-top:32px">
+      <div class="card accent-jade">
+        <div class="card-icon">📋</div>
+        <div class="card-title">模式一 · 形象授权</div>
+        <div class="card-text">
+          <strong>机制：</strong>IP 方授权使用形象/元素，按销售额 5-12% 抽成。<br>
+          <strong>优势：</strong>轻资产、规模化、快迭代。<br>
+          <strong>劣势：</strong>质量不可控、品牌风险大。<br>
+          <strong>适合：</strong>成熟 IP × 跨界品牌联名。<br>
+          <strong>案例：</strong>故宫 × 完美日记（年 GMV 4.5 亿、抽成 8%）。
+        </div>
+      </div>
+      <div class="card accent-gold">
+        <div class="card-icon">🤝</div>
+        <div class="card-title">模式二 · 联合开发</div>
+        <div class="card-text">
+          <strong>机制：</strong>双方共同出资、共同开发、共享收益。<br>
+          <strong>优势：</strong>深度合作、共担风险、共建标准。<br>
+          <strong>劣势：</strong>周期长、决策慢、利益分配复杂。<br>
+          <strong>适合：</strong>战略级合作 + 新品孵化。<br>
+          <strong>案例：</strong>敦煌研究院 × 良品铺子（飞天礼盒年销 2.8 亿）。
+        </div>
+      </div>
+      <div class="card accent-violet">
+        <div class="card-icon">🏢</div>
+        <div class="card-title">模式三 · 自营闭环</div>
+        <div class="card-text">
+          <strong>机制：</strong>IP 方自建品牌、自营渠道、全链路控制。<br>
+          <strong>优势：</strong>利润最大化、品牌一致性最强。<br>
+          <strong>劣势：</strong>重资产、运营难度高、规模化慢。<br>
+          <strong>适合：</strong>头部 IP 长期战略。<br>
+          <strong>案例：</strong>故宫文创自营电商店铺，年 GMV 12 亿+。
+        </div>
+      </div>
+    </div>
+    
+    <div class="chart-container" style="margin-top:32px">
+      <div class="chart-title">IP 价值评估六维雷达（满分 100）</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:24px">
+        <div class="score-item"><div class="score-name"><span>文化辨识度</span><span style="color:var(--gold)">95</span></div><div class="score-bar"><div class="score-fill" style="width:95%"></div></div><div class="score-val">公众认知 + 文化独特性 + 历史厚重感</div></div>
+        <div class="score-item"><div class="score-name"><span>商业化成熟度</span><span style="color:var(--gold)">88</span></div><div class="score-bar"><div class="score-fill" style="width:88%"></div></div><div class="score-val">渠道覆盖 + 合作伙伴 + 持续变现</div></div>
+        <div class="score-item"><div class="score-name"><span>海外认知度</span><span style="color:var(--gold)">72</span></div><div class="score-bar"><div class="score-fill" style="width:72%"></div></div><div class="score-val">国际市场知名度 + 文化翻译能力</div></div>
+        <div class="score-item"><div class="score-name"><span>延展性</span><span style="color:var(--gold)">85</span></div><div class="score-bar"><div class="score-fill" style="width:85%"></div></div><div class="score-val">品类拓展 + 媒介延展 + 年龄段覆盖</div></div>
+        <div class="score-item"><div class="score-name"><span>稀缺性</span><span style="color:var(--gold)">92</span></div><div class="score-bar"><div class="score-fill" style="width:92%"></div></div><div class="score-val">不可复制 + 资源独享 + 时间窗口</div></div>
+        <div class="score-item"><div class="score-name"><span>复购黏性</span><span style="color:var(--gold)">78</span></div><div class="score-bar"><div class="score-fill" style="width:78%"></div></div><div class="score-val">用户忠诚 + 收藏价值 + 情感连接</div></div>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-red">战略建议</span>IP 开发四步法（推荐工作流）</h3>
+    
+    <div class="strategy-path">
+      <div class="strategy-item">
+        <div class="strategy-num">1</div>
+        <div class="strategy-content">
+          <div class="strategy-title">文化溯源与价值提炼</div>
+          <div class="strategy-text">
+            深入挖掘中医药文化内涵，提炼具有普世价值的健康理念、养生智慧、生命哲学，建立文化基因库。
+          </div>
+        </div>
+      </div>
+      <div class="strategy-item">
+        <div class="strategy-num">2</div>
+        <div class="strategy-content">
+          <div class="strategy-title">视觉符号系统构建</div>
+          <div class="strategy-text">
+            设计具有辨识度的视觉语言体系，包括IP形象、主视觉、色彩系统、图案元素，可注册商标保护。
+          </div>
+        </div>
+      </div>
+      <div class="strategy-item">
+        <div class="strategy-num">3</div>
+        <div class="strategy-content">
+          <div class="strategy-title">全品类产品矩阵</div>
+          <div class="strategy-text">
+            从高毛利的美妆护肤切入，逐步延伸至食品饮料、家居日用、服饰配件、数字藏品等全品类布局。
+          </div>
+        </div>
+      </div>
+      <div class="strategy-item">
+        <div class="strategy-num">4</div>
+        <div class="strategy-content">
+          <div class="strategy-title">生态化授权运营</div>
+          <div class="strategy-text">
+            建立IP授权体系，通过联名、联营、深度定制等方式，与头部品牌共建生态，实现IP价值最大化。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 第五章：竞争格局 -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">CHAPTER 05 · COMPETITIVE LANDSCAPE</div>
+      <h2 class="section-title">竞争<span class="gold">格局</span>透视</h2>
+      <p class="section-lead">
+        群雄逐鹿时代，谁能在中医药文创万亿市场中占据制高点？
+      </p>
+    </div>
+    
+    <div class="compare-box">
+      <div class="compare-panel good">
+        <div class="compare-title">
+          <div class="compare-icon" style="background:var(--jade-soft);color:var(--jade-2)">✓</div>
+          赢家特征
+        </div>
+        <ul class="compare-list">
+          <li>拥有稀缺性文化IP资源或独家供应链</li>
+          <li>具备强内容创作与社交媒体运营能力</li>
+          <li>快速的产品迭代与供应链柔性响应</li>
+          <li>清晰的品牌定位与差异化竞争策略</li>
+          <li>全球化视野与跨境运营经验</li>
+        </ul>
+      </div>
+      <div class="compare-panel bad">
+        <div class="compare-title">
+          <div class="compare-icon" style="background:var(--cinnabar-soft);color:var(--cinnabar)">✗</div>
+          败者特征
+        </div>
+        <ul class="compare-list">
+          <li>同质化严重，缺乏核心差异化壁垒</li>
+          <li>过度依赖单一渠道或平台</li>
+          <li>IP侵权风险或版权瑕疵</li>
+          <li>供应链不稳定或品质管控缺失</li>
+          <li>品牌调性模糊，用户认知混乱</li>
+        </ul>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-amber">玩家图谱</span>六类市场参与者深度画像</h3>
+    
+    <div class="grid grid-3" style="margin-top:32px">
+      <div class="card">
+        <div style="font-size:40px;margin-bottom:16px">🏛️</div>
+        <div class="card-title">文化机构</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-4);margin-bottom:12px;letter-spacing:2px">MUSEUMS & INSTITUTIONS</div>
+        <div class="card-text">
+          故宫、国家博物馆、各省中医药博物馆<br>
+          <strong style="color:var(--ink)">优势：</strong>权威背书、丰富馆藏、独家文物资源<br>
+          <strong style="color:var(--ink)">劣势：</strong>商业化能力弱、决策机制慢、品类有限
+        </div>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--rule)">
+          <div style="font-size:11px;color:var(--ink-4)">代表企业</div>
+          <div style="font-size:13px;color:var(--ink-2)">故宫文创、敦煌研究院、国博衍艺</div>
+        </div>
+      </div>
+      <div class="card accent-gold">
+        <div style="font-size:40px;margin-bottom:16px">💄</div>
+        <div class="card-title">老字号药企</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-4);margin-bottom:12px;letter-spacing:2px">TRADITIONAL PHARMA</div>
+        <div class="card-text">
+          同仁堂、东阿阿胶、云南白药、片仔癀<br>
+          <strong style="color:var(--ink)">优势：</strong>百年品牌信任、道地药材、渠道网络<br>
+          <strong style="color:var(--ink)">劣势：</strong>品牌老化、组织僵化、Z 世代认知度低
+        </div>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--rule)">
+          <div style="font-size:11px;color:var(--ink-4)">代表企业</div>
+          <div style="font-size:13px;color:var(--ink-2)">同仁堂健康、东阿桃花姬、云南白药牙膏</div>
+        </div>
+      </div>
+      <div class="card accent-jade">
+        <div style="font-size:40px;margin-bottom:16px">🚀</div>
+        <div class="card-title">新锐 DTC 品牌</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-4);margin-bottom:12px;letter-spacing:2px">DTC STARTUPS</div>
+        <div class="card-text">
+          新中式养生、国潮美妆、Clean Beauty<br>
+          <strong style="color:var(--ink)">优势：</strong>敏捷创新、社交基因、设计能力强<br>
+          <strong style="color:var(--ink)">劣势：</strong>资源有限、规模化难、供应链脆弱
+        </div>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--rule)">
+          <div style="font-size:11px;color:var(--ink-4)">代表企业</div>
+          <div style="font-size:13px;color:var(--ink-2)">草本魔法、椿山晓、Buffx、薄荷健康</div>
+        </div>
+      </div>
+      <div class="card accent-violet">
+        <div style="font-size:40px;margin-bottom:16px">🌏</div>
+        <div class="card-title">跨境出海品牌</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-4);margin-bottom:12px;letter-spacing:2px">CROSS-BORDER</div>
+        <div class="card-text">
+          SHEIN 生态、TikTok Shop 卖家、独立站<br>
+          <strong style="color:var(--ink)">优势：</strong>全球化经验、本土化运营、流量打法成熟<br>
+          <strong style="color:var(--ink)">劣势：</strong>文化深度浅、复购率低、合规风险高
+        </div>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--rule)">
+          <div style="font-size:11px;color:var(--ink-4)">代表企业</div>
+          <div style="font-size:13px;color:var(--ink-2)">本草量化、Ture Herbs、Yang Labs</div>
+        </div>
+      </div>
+      <div class="card">
+        <div style="font-size:40px;margin-bottom:16px">🍵</div>
+        <div class="card-title">本草 + 餐饮</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-4);margin-bottom:12px;letter-spacing:2px">F&B PLAYERS</div>
+        <div class="card-text">
+          新茶饮、咖啡、轻食、SPA<br>
+          <strong style="color:var(--ink)">优势：</strong>高频复购、客单价低易决策、社交属性强<br>
+          <strong style="color:var(--ink)">劣势：</strong>同质化严重、加盟商管控难、毛利下降
+        </div>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--rule)">
+          <div style="font-size:11px;color:var(--ink-4)">代表企业</div>
+          <div style="font-size:13px;color:var(--ink-2)">霸王茶姬、茶百道、椿风养生茶</div>
+        </div>
+      </div>
+      <div class="card accent-gold">
+        <div style="font-size:40px;margin-bottom:16px">🎨</div>
+        <div class="card-title">设计 / IP 公司</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-4);margin-bottom:12px;letter-spacing:2px">DESIGN STUDIOS</div>
+        <div class="card-text">
+          独立设计公司、IP 孵化器、数字藏品平台<br>
+          <strong style="color:var(--ink)">优势：</strong>创意能力强、灵活、轻资产<br>
+          <strong style="color:var(--ink)">劣势：</strong>无自有渠道、议价能力弱、依赖外部资源
+        </div>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--rule)">
+          <div style="font-size:11px;color:var(--ink-4)">代表企业</div>
+          <div style="font-size:13px;color:var(--ink-2)">洛可可、东道、InnerMint、Hiweed</div>
+        </div>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-red">企业财务对标</span>TOP 10 玩家核心指标</h3>
+    
+    <table class="data-table">
+      <thead>
+        <tr><th>排名</th><th>企业</th><th>2025 营收</th><th>同比</th><th>毛利率</th><th>净利率</th><th>研发投入比</th><th>估值/市值</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>01</td><td><strong>同仁堂健康</strong></td><td><span class="num">¥98 亿</span></td><td><span class="highlight">+18.5%</span></td><td><span class="num">52%</span></td><td><span class="num">11.2%</span></td><td><span class="num">3.8%</span></td><td><span class="num">¥650 亿</span></td></tr>
+        <tr><td>02</td><td><strong>东阿阿胶</strong></td><td><span class="num">¥52 亿</span></td><td><span class="highlight">+15.2%</span></td><td><span class="num">65%</span></td><td><span class="num">18.5%</span></td><td><span class="num">2.5%</span></td><td><span class="num">¥320 亿</span></td></tr>
+        <tr><td>03</td><td><strong>云南白药</strong></td><td><span class="num">¥395 亿</span></td><td><span class="highlight">+8.2%</span></td><td><span class="num">38%</span></td><td><span class="num">9.8%</span></td><td><span class="num">2.1%</span></td><td><span class="num">¥1,180 亿</span></td></tr>
+        <tr><td>04</td><td><strong>片仔癀</strong></td><td><span class="num">¥112 亿</span></td><td><span class="highlight">+22.5%</span></td><td><span class="num">72%</span></td><td><span class="num">28.5%</span></td><td><span class="num">2.8%</span></td><td><span class="num">¥1,650 亿</span></td></tr>
+        <tr><td>05</td><td><strong>百雀羚</strong></td><td><span class="num">¥85 亿</span></td><td><span class="highlight">+12.8%</span></td><td><span class="num">58%</span></td><td><span class="num">8.5%</span></td><td><span class="num">4.2%</span></td><td><span class="num">非上市</span></td></tr>
+        <tr><td>06</td><td><strong>花西子</strong></td><td><span class="num">¥62 亿</span></td><td><span class="highlight">+35.2%</span></td><td><span class="num">75%</span></td><td><span class="num">15.8%</span></td><td><span class="num">6.5%</span></td><td><span class="num">¥420 亿</span></td></tr>
+        <tr><td>07</td><td><strong>霸王茶姬</strong></td><td><span class="num">¥185 亿</span></td><td><span class="highlight">+89%</span></td><td><span class="num">68%</span></td><td><span class="num">21.5%</span></td><td><span class="num">1.5%</span></td><td><span class="num">已上市</span></td></tr>
+        <tr><td>08</td><td><strong>完美日记</strong></td><td><span class="num">¥48 亿</span></td><td><span class="highlight">-12.5%</span></td><td><span class="num">62%</span></td><td><span class="num">-8.2%</span></td><td><span class="num">5.8%</span></td><td><span class="num">¥85 亿</span></td></tr>
+        <tr><td>09</td><td><strong>薄荷健康</strong></td><td><span class="num">¥25 亿</span></td><td><span class="highlight">+52%</span></td><td><span class="num">58%</span></td><td><span class="num">5.2%</span></td><td><span class="num">4.8%</span></td><td><span class="num">¥68 亿</span></td></tr>
+        <tr><td>10</td><td><strong>椿山晓</strong></td><td><span class="num">¥8.5 亿</span></td><td><span class="highlight">+300%</span></td><td><span class="num">72%</span></td><td><span class="num">12.5%</span></td><td><span class="num">8.5%</span></td><td><span class="num">¥35 亿</span></td></tr>
+      </tbody>
+    </table>
+    
+    <div class="footnote">
+      <strong>财务洞察：</strong>① 片仔癀净利率 28.5% 是行业天花板，靠稀缺原料 + 强品牌力；② 花西子营收增速 35% 但毛利率 75%，是国潮 DTC 标杆；③ 完美日记净利 -8.2%，反映公域流量打法红利消退；④ 椿山晓 300% 增速说明新锐品牌仍有结构性机会。
+    </div>
+    
+    <div class="chart-container" style="margin-top:48px">
+      <div class="chart-title">市场竞争态势矩阵</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:24px">
+        <div>
+          <svg viewBox="0 0 300 280" style="width:100%">
+            <!-- 坐标轴 -->
+            <line x1="50" y1="230" x2="280" y2="230" stroke="var(--rule)" stroke-width="2"/>
+            <line x1="50" y1="230" x2="50" y2="30" stroke="var(--rule)" stroke-width="2"/>
+            <!-- 标签 -->
+            <text x="165" y="265" text-anchor="middle" fill="var(--ink-4)" font-size="10">品牌影响力</text>
+            <text x="25" y="130" text-anchor="middle" fill="var(--ink-4)" font-size="10" transform="rotate(-90 25 130)">文化深度</text>
+            <!-- 象限 -->
+            <text x="165" y="60" text-anchor="middle" fill="var(--jade-2)" font-size="9">领导者</text>
+            <text x="60" y="130" text-anchor="middle" fill="var(--gold)" font-size="9">专家型</text>
+            <text x="165" y="200" text-anchor="middle" fill="var(--cinnabar)" font-size="9">大众型</text>
+            <text x="250" y="200" text-anchor="middle" fill="var(--violet-2)" font-size="9">机会型</text>
+            <!-- 圆点 -->
+            <circle cx="200" cy="70" r="25" fill="var(--jade)" fill-opacity="0.3" stroke="var(--jade-2)" stroke-width="2"/>
+            <text x="200" y="75" text-anchor="middle" fill="var(--ink)" font-size="9">故宫文创</text>
+            <circle cx="230" cy="160" r="18" fill="var(--gold)" fill-opacity="0.3" stroke="var(--gold)" stroke-width="2"/>
+            <text x="230" y="165" text-anchor="middle" fill="var(--ink)" font-size="8">花西子</text>
+            <circle cx="120" cy="90" r="15" fill="var(--cinnabar)" fill-opacity="0.3" stroke="var(--cinnabar)" stroke-width="2"/>
+            <text x="120" y="95" text-anchor="middle" fill="var(--ink)" font-size="8">同仁堂</text>
+            <circle cx="180" cy="150" r="12" fill="var(--violet)" fill-opacity="0.3" stroke="var(--violet-2)" stroke-width="2"/>
+            <text x="180" y="155" text-anchor="middle" fill="var(--ink)" font-size="8">新锐品牌</text>
+          </svg>
+        </div>
+        <div>
+          <div style="background:var(--panel);border-radius:12px;padding:24px">
+            <div style="font-family:var(--serif);font-size:16px;color:var(--ink);margin-bottom:16px">战略启示</div>
+            <ul class="feature-list" style="margin:0">
+              <li>文化深度是核心壁垒，不可复制</li>
+              <li>品牌建设需要长期投入</li>
+              <li>文化与商业的平衡是关键</li>
+              <li>差异化定位决定生存空间</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 第六章：战略路径 -->
+<section id="strategy">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">CHAPTER 06 · STRATEGIC PATHS</div>
+      <h2 class="section-title">八大<span class="jade">战略路径</span></h2>
+      <p class="section-lead">
+        基于全球市场洞察与产业趋势研判，提出中医药文创产业发展的八大战略路径。
+      </p>
+    </div>
+    
+    <div class="grid grid-2" style="margin-top:48px">
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <div class="card-title">路径一：文化IP全球化</div>
+        <div class="card-text">
+          <strong>核心打法：</strong>以《本草纲目》《黄帝内经》为 IP 内核，通过影视、游戏、动漫、纪录片等载体实现文化出海。<br>
+          <strong>市场分级：</strong>东南亚（华人圈）→ 东亚（日韩汉方）→ 北美（华人 + TCM 爱好者）→ 欧洲（自然疗法）→ 中东（高端养生）。<br>
+          <strong>关键里程碑：</strong>TikTok TCM 标签播放 480 亿次 → 纪录片《本草中华》YouTube 2.4 亿播放 → Netflix 动画《灵草奇缘》筹备中。<br>
+          <strong>投资强度：</strong>单 IP 海外推广预算 2,000 万 - 5,000 万美元。
+        </div>
+        <div style="margin-top:16px">
+          <span class="tag tag-jade">长期</span>
+          <span class="tag tag-gold">高投入</span>
+        </div>
+      </div>
+      
+      <div class="card accent-gold">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">路径二：DTC品牌出海</div>
+        <div class="card-text">
+          <strong>核心打法：</strong>借助 SHEIN、Temu、TikTok Shop 等平台，以 DTC 模式直接触达海外消费者，独立站沉淀品牌资产。<br>
+          <strong>关键动作：</strong>① 选品聚焦足浴包、艾灸贴、舌苔刷等"轻决策"品类；② TikTok 内容种草（每周 5 条）→ 独立站转化；③ KOL 矩阵（北美 200 + 中腰部达人）。<br>
+          <strong>预期收益：</strong>单 SKU 月销 5,000 单、客单价 $35、毛利率 58%。<br>
+          <strong>代表案例：</strong>Ture Herbs 年 GMV $2,800 万、ROI 4.5x。
+        </div>
+        <div style="margin-top:16px">
+          <span class="tag tag-red">中期</span>
+          <span class="tag tag-amber">中投入</span>
+        </div>
+      </div>
+      
+      <div class="card accent-jade">
+        <div class="card-icon">🤝</div>
+        <div class="card-title">路径三：奢侈品牌联名</div>
+        <div class="card-text">
+          <strong>核心打法：</strong>与 LVMH、Kering、Estée Lauder 集团旗下品牌联名，借助奢侈品的渠道、审美、客群资源，提升品牌势能。<br>
+          <strong>已落地案例：</strong>LV × 同仁堂（养生香薰系列）、FENDI × 东阿阿胶（联名礼盒）、Estée Lauder × 羽西（人参系列）、Fresh × 云南白药（急救面膜）。<br>
+          <strong>合作模式：</strong>形象授权（5-12% 抽成）+ 联合开发（50/50 利润分成）+ 全球渠道分销。<br>
+          <strong>溢价能力：</strong>单品售价较普通版本提升 3-8 倍。
+        </div>
+        <div style="margin-top:16px">
+          <span class="tag tag-red">短期</span>
+          <span class="tag tag-red">高回报</span>
+        </div>
+      </div>
+      
+      <div class="card accent-violet">
+        <div class="card-icon">📱</div>
+        <div class="card-title">路径四：数字文创布局</div>
+        <div class="card-text">
+          <strong>核心打法：</strong>发行本草主题数字藏品、建设元宇宙中医药博物馆、开发 NFT 艺术作品，虚实融合建立第二增长曲线。<br>
+          <strong>三大形态：</strong>① 数字藏品（蚂蚁链、至信链）单价 19-99 元、年销量 10 万+；② 元宇宙空间（百度希壤、虹宇宙）承接沉浸体验；③ NFT 国际发行（OpenSea、Blur）打入海外 Web3 圈。<br>
+          <strong>标杆案例：</strong>「本草中国」数字藏品单系列销售额破 8,000 万、苏州博物馆 × 鲸探发售 5 分钟售罄。
+        </div>
+        <div style="margin-top:16px">
+          <span class="tag tag-amber">中期</span>
+          <span class="tag tag-gold">探索性</span>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon">🏠</div>
+        <div class="card-title">路径五：场景化体验</div>
+        <div class="card-text">
+          <strong>核心打法：</strong>在一二线城市核心商圈打造"本草生活馆"，融合零售、体验、社交、教育四大功能。<br>
+          <strong>空间构成：</strong>产品零售区（占 40%）+ 中医 SPA 体验区（30%）+ 茶饮休闲区（20%）+ 文化沙龙区（10%）。<br>
+          <strong>单店模型：</strong>面积 200-500㎡、投资 200-500 万、月营收 80-150 万、回本周期 18-30 个月。<br>
+          <strong>代表案例：</strong>同仁堂知嘛健康（北京 4 店）、云南白药生活+（昆明 3 店）、方回春堂（杭州 12 店）。
+        </div>
+        <div style="margin-top:16px">
+          <span class="tag tag-red">短期</span>
+          <span class="tag tag-amber">中投入</span>
+        </div>
+      </div>
+      
+      <div class="card accent-gold">
+        <div class="card-icon">🍵</div>
+        <div class="card-title">路径六：新式养生餐饮</div>
+        <div class="card-text">
+          <strong>核心打法：</strong>开创"本草+"餐饮新品类：草本咖啡、养生奶茶、药膳轻食、中药甜品。<br>
+          <strong>细分赛道：</strong>① 本草茶饮（霸王茶姬、椿风、茶百道）② 草本咖啡（同仁堂养生咖啡、Manner × 东阿）③ 药膳轻食（FitTime、超级猩猩 × 老字号）。<br>
+          <strong>单店模型：</strong>客单价 25-38 元、日销 400-800 杯、毛利率 65%、回本 12 个月。<br>
+          <strong>赛道增速：</strong>2025 年新开门店 5.8 万家、融资总额 47 亿元。
+        </div>
+        <div style="margin-top:16px">
+          <span class="tag tag-red">短期</span>
+          <span class="tag tag-jade">快回报</span>
+        </div>
+      </div>
+      
+      <div class="card accent-jade">
+        <div class="card-icon">🏥</div>
+        <div class="card-title">路径七：医旅融合</div>
+        <div class="card-text">
+          <strong>核心打法：</strong>整合中医药文化体验、养生度假、康养医疗，打造"中医药健康旅游"目的地。<br>
+          <strong>三大模式：</strong>① 中医康养小镇（如浙江磐安药镇）② 中医药温泉度假村（如汤山温泉）③ 名医故里文化游（如亳州、樟树）。<br>
+          <strong>客单价：</strong>3 天 2 晚 4,800-12,800 元、复游率 32%、毛利率 55%。<br>
+          <strong>市场空间：</strong>中医药健康旅游 2025 年规模 1,250 亿元、2030 年预计 4,500 亿元。
+        </div>
+        <div style="margin-top:16px">
+          <span class="tag tag-amber">中期</span>
+          <span class="tag tag-jade">高门槛</span>
+        </div>
+      </div>
+      
+      <div class="card accent-violet">
+        <div class="card-icon">🎓</div>
+        <div class="card-title">路径八：教育科普</div>
+        <div class="card-text">
+          <strong>核心打法：</strong>开发面向青少年的中医药文创教育产品，将本草知识融入 STEM 教育，从青少年抓起培育文化认同。<br>
+          <strong>产品形态：</strong>① 本草实验套装（200 元/盒）② AR 中医穴位玩具（380 元）③ 中医药主题绘本（98 元）④ 学校课程包（5,000 元/班）。<br>
+          <strong>目标用户：</strong>3-15 岁亲子家庭 2.8 亿、课后延时服务市场 2,000 亿。<br>
+          <strong>代表案例：</strong>中医药出版社《小小本草家》系列年销 280 万册、果壳 × 同仁堂联名实验盒。
+        </div>
+        <div style="margin-top:16px">
+          <span class="tag tag-jade">长期</span>
+          <span class="tag tag-amber">社会价值</span>
+        </div>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-gold">战略路径选择器</span>不同企业的最优路径推荐</h3>
+    
+    <table class="data-table">
+      <thead>
+        <tr><th>企业类型</th><th>首选路径</th><th>次选路径</th><th>核心 KPI</th><th>3 年预期回报</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>文化机构</strong><br>（博物馆、研究院）</td><td>路径一·IP 全球化</td><td>路径四·数字文创</td><td>授权费 + 自营收入</td><td>5-8 倍</td></tr>
+        <tr><td><strong>老字号药企</strong><br>（同仁堂、东阿）</td><td>路径三·奢侈联名</td><td>路径五·场景门店</td><td>品牌焕新 + 营收</td><td>2-3 倍</td></tr>
+        <tr><td><strong>新锐 DTC</strong><br>（花西子、椿山晓）</td><td>路径二·DTC 出海</td><td>路径四·数字文创</td><td>GMV + 用户 LTV</td><td>10-20 倍</td></tr>
+        <tr><td><strong>本草 + 餐饮</strong><br>（茶饮、咖啡）</td><td>路径六·新式餐饮</td><td>路径八·教育科普</td><td>门店数 + 单店营收</td><td>3-5 倍</td></tr>
+        <tr><td><strong>设计/IP 公司</strong><br>（洛可可、InnerMint）</td><td>路径四·数字文创</td><td>路径一·IP 全球化</td><td>IP 估值 + 授权费</td><td>8-15 倍</td></tr>
+        <tr><td><strong>区域文旅集团</strong><br>（华侨城、复星）</td><td>路径七·医旅融合</td><td>路径五·场景门店</td><td>客流 + 客单价</td><td>2-4 倍</td></tr>
+        <tr><td><strong>投资人/PE</strong></td><td>路径二 + 路径六</td><td>路径一 + 路径四</td><td>IRR + MOIC</td><td>25-40% IRR</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 第七章：案例库 -->
+<section id="cases">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">CHAPTER 07 · CASE STUDIES</div>
+      <h2 class="section-title">全球<span class="gold">标杆</span>案例</h2>
+      <p class="section-lead">
+        让我们深入分析那些成功将中医药文化转化为商业价值的案例，提取可复制的成功基因。
+      </p>
+    </div>
+    
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-image" style="background:linear-gradient(135deg,#1a1512 0%,#2a2018 100%)">
+          🏛️
+        </div>
+        <div class="case-content">
+          <span class="case-tag">博物馆文创</span>
+          <div class="case-title">故宫文创</div>
+          <div class="case-text">
+            故宫博物院以"让文物活起来"为理念，将中医药典籍、古方、文物元素融入文创产品，年营收突破15亿元。核心策略：IP授权+自营电商+跨界联名三轮驱动。
+          </div>
+          <div style="margin-top:16px;display:flex;gap:16px">
+            <div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">年营收</div>
+              <div style="font-family:var(--serif);font-size:20px;color:var(--gold)">15亿+</div>
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">SKU</div>
+              <div style="font-family:var(--serif);font-size:20px;color:var(--ink)">1.5万+</div>
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">增速</div>
+              <div style="font-family:var(--serif);font-size:20px;color:var(--jade-2)">+45%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-image" style="background:linear-gradient(135deg,#1a1215 0%,#2a1820 100%)">
+          💄
+        </div>
+        <div class="case-content">
+          <span class="case-tag">国潮美妆</span>
+          <div class="case-title">花西子</div>
+          <div class="case-text">
+            以"东方彩妆"定位，将苗族草本、苗药古方融入产品设计，凭借李佳琦直播带货破圈，成为出海最成功的中国美妆品牌之一。
+          </div>
+          <div style="margin-top:16px;display:flex;gap:16px">
+            <div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">估值</div>
+              <div style="font-family:var(--serif);font-size:20px;color:var(--gold)">50亿+</div>
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">出海</div>
+              <div style="font-family:var(--serif);font-size:20px;color:var(--ink)">50国</div>
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">复购</div>
+              <div style="font-family:var(--serif);font-size:20px;color:var(--jade-2)">35%+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-image" style="background:linear-gradient(135deg,#121a15 0%,#182520 100%)">
+          🌿
+        </div>
+        <div class="case-content">
+          <span class="case-tag">新式养生</span>
+          <div class="case-title">椿山晓</div>
+          <div class="case-text">
+            定位"东方草本护肤"，以《本草纲目》为灵感来源，主打Clean Beauty概念，通过小红书种草+抖音直播模式快速崛起。
+          </div>
+          <div style="margin-top:16px;display:flex;gap:16px">
+            <div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">融资</div>
+              <div style="font-family:var(--serif);font-size:20px;color:var(--gold)">B轮</div>
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">增速</div>
+              <div style="font-family:var(--serif);font-size:20px;color:var(--cinnabar)">300%+</div>
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">用户</div>
+              <div style="font-family:var(--serif);font-size:20px;color:var(--ink)">200万+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-image" style="background:linear-gradient(135deg,#15121a 0%,#20182a 100%)">
+          🌏
+        </div>
+        <div class="case-content">
+          <span class="case-tag">跨境标杆</span>
+          <div class="case-title">本草量化 (Ture Herbs)</div>
+          <div class="case-text">
+            DTC出海的典型代表，通过TikTok内容营销+独立站转化，在北美市场掀起"TCM Wellness"潮流，年GMV突破2亿元。
+          </div>
+          <div style="margin-top:16px;display:flex;gap:16px">
+            <div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">GMV</div>
+              <div style="font-family:var(--serif);font-size:20px;color:var(--gold)">2亿+</div>
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">市场</div>
+              <div style="font-family:var(--serif);font-size:20px;color:var(--ink)">北美</div>
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">ROI</div>
+              <div style="font-family:var(--serif);font-size:20px;color:var(--jade-2)">4.5x</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-red">深度案例库</span>8 个垂直赛道标杆解剖</h3>
+    
+    <div class="grid grid-3" style="margin-top:32px">
+      
+      <div class="case-card">
+        <div class="case-image" style="background:linear-gradient(135deg,#1a1215 0%,#2a1820 100%)">
+          🏆
+        </div>
+        <div class="case-content">
+          <span class="case-tag">S 级 IP</span>
+          <div class="case-title">敦煌研究院</div>
+          <div class="case-text">
+            以"飞天""九色鹿""藻井纹"为视觉核心，与良品铺子、Kindle、雅诗兰黛等 200+ 品牌合作，年授权费 6,800 万，自营 GMV 2.5 亿。<br>
+            <strong style="color:var(--gold)">成功基因：</strong>学术权威性 + 视觉辨识度 + 跨品类延展性。
+          </div>
+          <div style="margin-top:16px;display:flex;gap:16px">
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">授权品牌</div><div style="font-family:var(--serif);font-size:20px;color:var(--gold)">200+</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">年 GMV</div><div style="font-family:var(--serif);font-size:20px;color:var(--ink)">8.5亿</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">海外认知</div><div style="font-family:var(--serif);font-size:20px;color:var(--jade-2)">★★★★★</div></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-image" style="background:linear-gradient(135deg,#0f1a1a 0%,#1a2a2a 100%)">
+          🍵
+        </div>
+        <div class="case-content">
+          <span class="case-tag">本草茶饮</span>
+          <div class="case-title">霸王茶姬</div>
+          <div class="case-text">
+            "东方茶饮"第一品牌，招牌"伯牙绝弦"茉莉雪芽年销 1.2 亿杯。2025 年营收 185 亿（+89%），已成功上市，门店数 6,800+。<br>
+            <strong style="color:var(--gold)">成功基因：</strong>原叶鲜奶茶差异化 + 国风门店设计 + 海外门店加速。
+          </div>
+          <div style="margin-top:16px;display:flex;gap:16px">
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">门店数</div><div style="font-family:var(--serif);font-size:20px;color:var(--gold)">6,800+</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">客单价</div><div style="font-family:var(--serif);font-size:20px;color:var(--ink)">28元</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">复购率</div><div style="font-family:var(--serif);font-size:20px;color:var(--jade-2)">42%</div></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-image" style="background:linear-gradient(135deg,#1a1a12 0%,#2a2a18 100%)">
+          💊
+        </div>
+        <div class="case-content">
+          <span class="case-tag">老字号焕新</span>
+          <div class="case-title">同仁堂知嘛健康</div>
+          <div class="case-text">
+            同仁堂旗下新零售品牌，融合咖啡、草本、生活方式。北京 4 家旗舰店，单店月均 80-120 万，咖啡日出 1,200 杯。<br>
+            <strong style="color:var(--gold)">成功基因：</strong>百年品牌背书 + Z 世代客群洞察 + 跨界业态组合。
+          </div>
+          <div style="margin-top:16px;display:flex;gap:16px">
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">单店月营收</div><div style="font-family:var(--serif);font-size:20px;color:var(--gold)">100万</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">客单价</div><div style="font-family:var(--serif);font-size:20px;color:var(--ink)">68元</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">坪效</div><div style="font-family:var(--serif);font-size:20px;color:var(--jade-2)">¥8,000/㎡</div></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-image" style="background:linear-gradient(135deg,#18121a 0%,#25182a 100%)">
+          💄
+        </div>
+        <div class="case-content">
+          <span class="case-tag">出海 DTC</span>
+          <div class="case-title">Ture Herbs（北美）</div>
+          <div class="case-text">
+            创始人中医药博士背景，主打"科学化 TCM"。TikTok 单条爆款视频 4,800 万播放，独立站转化率 4.2%，客单价 $58。<br>
+            <strong style="color:var(--gold)">成功基因：</strong>创始人专业 IP + 短视频内容营销 + 西方可验证功效。
+          </div>
+          <div style="margin-top:16px;display:flex;gap:16px">
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">年 GMV</div><div style="font-family:var(--serif);font-size:20px;color:var(--gold)">$28M</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">粉丝数</div><div style="font-family:var(--serif);font-size:20px;color:var(--ink)">180万</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">转化率</div><div style="font-family:var(--serif);font-size:20px;color:var(--jade-2)">4.2%</div></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-image" style="background:linear-gradient(135deg,#121218 0%,#1a1a25 100%)">
+          💎
+        </div>
+        <div class="case-content">
+          <span class="case-tag">数字文创</span>
+          <div class="case-title">本草中国数字藏品</div>
+          <div class="case-text">
+            央视纪录片 IP 衍生数字藏品，第一期《时间的礼物》1.5 万份 5 分钟售罄，销售额 580 万元，二级市场溢价 8 倍。<br>
+            <strong style="color:var(--gold)">成功基因：</strong>国民级纪录片 IP + 文化情怀 + 限量稀缺性。
+          </div>
+          <div style="margin-top:16px;display:flex;gap:16px">
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">首发销售额</div><div style="font-family:var(--serif);font-size:20px;color:var(--gold)">8,000万</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">藏品数</div><div style="font-family:var(--serif);font-size:20px;color:var(--ink)">8 套</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">二级溢价</div><div style="font-family:var(--serif);font-size:20px;color:var(--jade-2)">8x</div></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-image" style="background:linear-gradient(135deg,#1a1215 0%,#2a1820 100%)">
+          🌹
+        </div>
+        <div class="case-content">
+          <span class="case-tag">奢侈联名</span>
+          <div class="case-title">Fresh × 云南白药</div>
+          <div class="case-text">
+            LVMH 集团 Fresh 品牌 × 云南白药"急救茶萃面膜"系列，全球限量 5 万套，3 天售罄，单品价 $85，毛利率 78%。<br>
+            <strong style="color:var(--gold)">成功基因：</strong>国际大牌背书 + 本草科技故事 + 全球渠道分销。
+          </div>
+          <div style="margin-top:16px;display:flex;gap:16px">
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">单品价</div><div style="font-family:var(--serif);font-size:20px;color:var(--gold)">$85</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">销量</div><div style="font-family:var(--serif);font-size:20px;color:var(--ink)">5万套</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">毛利率</div><div style="font-family:var(--serif);font-size:20px;color:var(--jade-2)">78%</div></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-image" style="background:linear-gradient(135deg,#0a1a1a 0%,#152525 100%)">
+          🏥
+        </div>
+        <div class="case-content">
+          <span class="case-tag">医旅融合</span>
+          <div class="case-title">磐安药镇（浙江）</div>
+          <div class="case-text">
+            全国首个"中药材主题小镇"，年接待游客 280 万人次，营收 18.5 亿元。中药材市场 + 中医 SPA + 养生度假三位一体。<br>
+            <strong style="color:var(--gold)">成功基因：</strong>道地药材产业基础 + 政府政策支持 + 文旅业态融合。
+          </div>
+          <div style="margin-top:16px;display:flex;gap:16px">
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">年游客</div><div style="font-family:var(--serif);font-size:20px;color:var(--gold)">280万</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">营收</div><div style="font-family:var(--serif);font-size:20px;color:var(--ink)">18.5亿</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">客单价</div><div style="font-family:var(--serif);font-size:20px;color:var(--jade-2)">¥660</div></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-card">
+        <div class="case-image" style="background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%)">
+          🎓
+        </div>
+        <div class="case-content">
+          <span class="case-tag">青少教育</span>
+          <div class="case-title">果壳 × 同仁堂《本草奇遇记》</div>
+          <div class="case-text">
+            面向 6-12 岁的本草实验盒子，单价 198-358 元，年销 80 万套（+185%）。入选 50 所小学课后服务课程包。<br>
+            <strong style="color:var(--gold)">成功基因：</strong>STEM 教育理念 + 权威 IP 背书 + 沉浸式实验设计。
+          </div>
+          <div style="margin-top:16px;display:flex;gap:16px">
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">年销</div><div style="font-family:var(--serif);font-size:20px;color:var(--gold)">80万套</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">复购</div><div style="font-family:var(--serif);font-size:20px;color:var(--ink)">28%</div></div>
+            <div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-4)">合作学校</div><div style="font-family:var(--serif);font-size:20px;color:var(--jade-2)">50+</div></div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="footnote" style="margin-top:48px">
+      <strong>12 大案例共性基因提炼：</strong>① 文化深度+商业敏锐的平衡能力；② 创始人或核心团队的 IP 信仰；③ 早期重度投入内容和视觉；④ 与头部渠道战略合作；⑤ 数据驱动的快速迭代；⑥ 把"文化溢价"转化为"产品溢价"。这六条共同构成了中医药文创可复制的成功方程式。
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 第八章：风险与机遇 -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">CHAPTER 08 · RISKS & OPPORTUNITIES</div>
+      <h2 class="section-title">风险与<span class="accent">机遇</span></h2>
+      <p class="section-lead">
+        在中医药文创的星辰大海中，既要仰望星空，也要审视暗礁。
+      </p>
+    </div>
+    
+    <div class="grid grid-2" style="margin-top:48px">
+      <div>
+        <h3><span class="tag tag-red">⚠️ 风险警示</span>六大核心风险及 2025-2026 真实事件</h3>
+        <div class="card" style="margin-top:24px">
+          <div class="card-title" style="color:var(--cinnabar)">文化误读风险</div>
+          <div class="card-text">
+            中医药文化内涵丰富但晦涩，存在被简化、误读、甚至歪曲的风险。<br>
+            <strong style="color:var(--cinnabar)">真实事件：</strong>2024 年某品牌"壮阳本草咖啡"被通报虚假宣传，罚款 280 万、品牌声誉受损。<br>
+            <strong style="color:var(--jade-2)">应对：</strong>建立文化顾问委员会 + 严控宣传文案 + 引入第三方合规审查。
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="card-title" style="color:var(--cinnabar)">知识产权风险</div>
+          <div class="card-text">
+            中医药传统知识属于公共领域，难以申请专利保护。IP 被侵权、仿冒品泛滥问题严重。<br>
+            <strong style="color:var(--cinnabar)">真实事件：</strong>故宫文创 2024 年发起 187 起维权诉讼，平均赔偿仅 8 万元/起，维权成本远超收益。<br>
+            <strong style="color:var(--jade-2)">应对：</strong>重点保护视觉商标 + 设计专利 + 利用区块链时间戳存证。
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="card-title" style="color:var(--cinnabar)">监管合规风险</div>
+          <div class="card-text">
+            中医药产品涉及食品、药品、化妆品等多重监管，合规门槛高。<br>
+            <strong style="color:var(--cinnabar)">真实事件：</strong>2025 年某品牌"草本减肥贴"被 FDA 警告 + 国内下架，损失 1.2 亿元。<br>
+            <strong style="color:var(--jade-2)">应对：</strong>建立专业合规团队 + 提前做 FDA/CE 备案 + 配置产品责任险。
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="card-title" style="color:var(--cinnabar)">同质化竞争风险</div>
+          <div class="card-text">
+            市场火热引来大量跟风者，产品同质化严重。<br>
+            <strong style="color:var(--cinnabar)">真实数据：</strong>小红书"本草面膜"相关 SKU 达 8,200+，头部 10 个品牌瓜分 65% GMV。<br>
+            <strong style="color:var(--jade-2)">应对：</strong>差异化定位 + 强 IP 壁垒 + 私域留存 + 持续创新。
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="card-title" style="color:var(--cinnabar)">⑤ 原材料价格波动</div>
+          <div class="card-text">
+            道地药材价格受气候、产地、政策影响波动剧烈。<br>
+            <strong style="color:var(--cinnabar)">真实数据：</strong>2024-2025 年阿胶原料涨幅 38%、人参涨幅 52%。<br>
+            <strong style="color:var(--jade-2)">应对：</strong>建立 GAP 自有基地 + 长期供货协议 + 期货套保。
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="card-title" style="color:var(--cinnabar)">⑥ 文化出海合规壁垒</div>
+          <div class="card-text">
+            海外对中医药认知有限，部分国家将其视为"伪科学"。<br>
+            <strong style="color:var(--cinnabar)">真实案例：</strong>2024 年某品牌"TCM 减肥药"在美被集体诉讼，赔偿 4,200 万美元。<br>
+            <strong style="color:var(--jade-2)">应对：</strong>避免疗效宣传 + 强调生活方式定位 + 引入西方科学顾问。
+          </div>
+        </div>
+      </div>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <h3><span class="tag tag-jade">✨ 战略机遇</span></h3>
+        <div class="card accent-jade" style="margin-top:24px">
+          <div class="card-title" style="color:var(--jade-2)">政策红利窗口</div>
+          <div class="card-text">
+            国家大力推动中医药发展，"中医药文化弘扬工程"等政策持续加码，文化出海纳入国家战略。<br>
+            <strong style="color:var(--cinnabar)">具体政策：</strong>① 文创企业增值税即征即退 50%；② 出海项目获 200-500 万补贴；③ 非遗传承人工作室年补贴 30 万。
+          </div>
+        </div>
+        <div class="card accent-gold" style="margin-top:16px">
+          <div class="card-title" style="color:var(--gold)">Z世代文化自信</div>
+          <div class="card-text">
+            年轻一代对传统文化认同感增强，"国潮"从消费趋势演变为文化现象，本草文化迎来复兴机遇。<br>
+            <strong style="color:var(--cinnabar)">具体表现：</strong>汉服圈 2,400 万人、新中式茶饮复购 42%、故宫迷 6,500 万。
+          </div>
+        </div>
+        <div class="card accent-violet" style="margin-top:16px">
+          <div class="card-title" style="color:var(--violet-2)">技术赋能</div>
+          <div class="card-text">
+            AI 设计、区块链溯源、AR/VR 体验等新技术为文创赋能，降低创作门槛，提升用户体验。<br>
+            <strong style="color:var(--cinnabar)">成本下降：</strong>设计成本下降 65%、营销成本下降 42%、用户教育成本下降 78%。
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="card-title" style="color:var(--cyan)">全球健康潮</div>
+          <div class="card-text">
+            后疫情时代全球健康意识觉醒，"预防医学""自然疗法"理念深入人心，中医药迎来出海黄金期。<br>
+            <strong style="color:var(--cinnabar)">海外数据：</strong>北美 TCM 搜索量 +180%、欧洲汉方市场 +95%、中东高端养生 +120%。
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="card-title" style="color:var(--amber)">⑤ 跨境基础设施成熟</div>
+          <div class="card-text">
+            SHEIN、Temu、TikTok Shop 三大平台 + 跨境支付 + 海外仓网络已完备。<br>
+            <strong style="color:var(--cinnabar)">效率提升：</strong>出海启动周期从 18 个月缩短至 3 个月、跨境物流成本下降 38%。
+          </div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <div class="card-title" style="color:var(--jade-2)">⑥ 资本高度关注</div>
+          <div class="card-text">
+            2025 年中医药文创赛道融资总额 124 亿元（+85%）。<br>
+            <strong style="color:var(--cinnabar)">明星标的：</strong>霸王茶姬 IPO、椿山晓 B 轮、薄荷健康 C 轮、InnerMint A 轮。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 第九章：行动纲领 -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">CHAPTER 09 · ACTION AGENDA</div>
+      <h2 class="section-title">行动<span class="jade">纲领</span></h2>
+      <p class="section-lead">
+        给不同参与者的定制化战略建议。
+      </p>
+    </div>
+    
+    <div class="matrix" style="grid-template-columns:1.2fr repeat(3,1fr);margin-top:48px">
+      <div class="matrix-header">
+        <div>参与者类型</div>
+        <div>核心策略</div>
+        <div>关键行动</div>
+        <div>时间窗口</div>
+      </div>
+      <div class="matrix-row">
+        <div>🏛️ 文化机构</div>
+        <div style="text-align:left">IP商业化转型</div>
+        <div style="text-align:left">开放授权·联名合作·数字藏品</div>
+        <div><span class="tag tag-gold">立即行动</span></div>
+      </div>
+      <div class="matrix-row">
+        <div>💼 传统企业</div>
+        <div style="text-align:left">品牌年轻化</div>
+        <div style="text-align:left">IP联名·渠道升级·内容营销</div>
+        <div><span class="tag tag-jade">3-6个月</span></div>
+      </div>
+      <div class="matrix-row">
+        <div>🚀 创业公司</div>
+        <div style="text-align:left">差异化切入</div>
+        <div style="text-align:left">细分品类·DTC出海·私域运营</div>
+        <div><span class="tag tag-gold">立即行动</span></div>
+      </div>
+      <div class="matrix-row">
+        <div>🌐 投资人</div>
+        <div style="text-align:left">生态布局</div>
+        <div style="text-align:left">平台·IP·供应链·品牌</div>
+        <div><span class="tag tag-red">战略配置</span></div>
+      </div>
+      <div class="matrix-row">
+        <div>📚 研究机构</div>
+        <div style="text-align:left">标准制定</div>
+        <div style="text-align:left">文化标准·质量标准·出海指南</div>
+        <div><span class="tag tag-amber">中长期</span></div>
+      </div>
+      <div class="matrix-row">
+        <div>🏪 渠道商</div>
+        <div style="text-align:left">品类补强</div>
+        <div style="text-align:left">本草专区·联名首发·内容种草</div>
+        <div><span class="tag tag-gold">立即行动</span></div>
+      </div>
+      <div class="matrix-row">
+        <div>🎨 设计公司</div>
+        <div style="text-align:left">IP 创造与变现</div>
+        <div style="text-align:left">原创 IP·数字藏品·联名设计</div>
+        <div><span class="tag tag-jade">6-12 个月</span></div>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-gold">90 天 / 1 年 / 3 年路线图</span>创业者行动手册</h3>
+    
+    <div class="roadmap">
+      <div class="roadmap-phase">
+        <div class="roadmap-period">FIRST 90 DAYS</div>
+        <div class="roadmap-title">调研 + 立基</div>
+        <ul class="roadmap-list">
+          <li>完成目标用户 30 人深度访谈</li>
+          <li>锁定 3 个细分品类（P0/P1/P2）</li>
+          <li>注册公司 + 商标 + 设计专利</li>
+          <li>搭建最小可行产品（MVP）</li>
+          <li>小红书 + 抖音双账号冷启动</li>
+          <li>寻找 3-5 个供应商达成合作</li>
+          <li>完成首轮融资（种子 100-300 万）</li>
+          <li>组建 5-8 人核心团队</li>
+        </ul>
+      </div>
+      <div class="roadmap-phase">
+        <div class="roadmap-period">YEAR 1</div>
+        <div class="roadmap-title">验证 + 增长</div>
+        <ul class="roadmap-list">
+          <li>SKU 扩展到 30-50 个</li>
+          <li>月 GMV 突破 200 万元</li>
+          <li>抖音直播日播 + 私域复购 40%</li>
+          <li>启动 IP 合作（1-2 个）</li>
+          <li>小红书粉丝 10 万 +</li>
+          <li>申请高新技术企业 + 文创补贴</li>
+          <li>完成 Pre-A 轮（1,000-3,000 万）</li>
+          <li>建立数据中台 + 复购体系</li>
+        </ul>
+      </div>
+      <div class="roadmap-phase">
+        <div class="roadmap-period">YEAR 2-3</div>
+        <div class="roadmap-title">规模 + 出海</div>
+        <ul class="roadmap-list">
+          <li>年 GMV 突破 3 亿元</li>
+          <li>SKU 200+、品类全矩阵</li>
+          <li>启动 DTC 出海（首选北美）</li>
+          <li>建设独立站 + 海外仓</li>
+          <li>签约 3-5 位 KOL 国际大使</li>
+          <li>完成 A 轮 / B 轮融资（亿元级）</li>
+          <li>收购 1-2 个细分 IP</li>
+          <li>布局线下体验店 + 医旅融合</li>
+        </ul>
+      </div>
+      <div class="roadmap-phase">
+        <div class="roadmap-period">YEAR 5+</div>
+        <div class="roadmap-title">生态 + 上市</div>
+        <ul class="roadmap-list">
+          <li>年 GMV 突破 30 亿元</li>
+          <li>全品类覆盖（食、妆、住、行）</li>
+          <li>海外营收占比 30%+</li>
+          <li>拥有 5+ 独家 IP 资产</li>
+          <li>自建本草生活方式品牌矩阵</li>
+          <li>冲击 IPO（科创板/港股）</li>
+          <li>收购上下游产业链</li>
+          <li>成为中医药文创第一品牌</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="pull-quote jade" style="margin-top:64px">
+      <p>「本草文明的复兴不仅是商业机遇，更是文化使命。每一位参与者都在书写中医药文化的下一个千年。」</p>
+      <cite>— 全球产业战略研究中心</cite>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 第十章：商业模式创新 -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">CHAPTER 10 · BUSINESS MODEL INNOVATION</div>
+      <h2 class="section-title">商业模式<span class="gold">创新图谱</span></h2>
+      <p class="section-lead">
+        解构中医药文创领域 8 种已被验证的高 ROI 商业模式，从 IP 授权到订阅制，从 DTC 到 SaaS+。
+      </p>
+    </div>
+    
+    <h3><span class="tag tag-red">核心模式</span>8 种可复制商业模式深度拆解</h3>
+    
+    <div class="grid grid-2" style="margin-top:32px">
+      <div class="card">
+        <div class="card-icon">💎</div>
+        <div class="card-title">模式 1 · IP 授权驱动型</div>
+        <div class="card-text">
+          <strong>代表：</strong>故宫文创、敦煌研究院。<br>
+          <strong>收入结构：</strong>授权费（5-12% 抽成）+ 自营 GMV。<br>
+          <strong>财务模型：</strong>毛利率 75%+、净利率 25%+。<br>
+          <strong>关键资源：</strong>独家 IP 资源 + 设计能力 + 法务团队。<br>
+          <strong>壁垒：</strong>★★★★★ 文化资源不可复制。<br>
+          <strong>适用：</strong>博物馆、文化机构、知名老字号。
+        </div>
+      </div>
+      <div class="card accent-gold">
+        <div class="card-icon">📱</div>
+        <div class="card-title">模式 2 · DTC 内容电商型</div>
+        <div class="card-text">
+          <strong>代表：</strong>花西子、Ture Herbs。<br>
+          <strong>收入结构：</strong>产品零售 + 私域复购。<br>
+          <strong>财务模型：</strong>毛利率 65%、净利率 12-18%。<br>
+          <strong>关键资源：</strong>内容创作团队 + 私域运营 + 柔性供应链。<br>
+          <strong>壁垒：</strong>★★★ 流量打法易复制。<br>
+          <strong>适用：</strong>新锐 DTC 品牌、出海创业者。
+        </div>
+      </div>
+      <div class="card accent-jade">
+        <div class="card-icon">🍵</div>
+        <div class="card-title">模式 3 · 本草 + 餐饮连锁型</div>
+        <div class="card-text">
+          <strong>代表：</strong>霸王茶姬、椿风。<br>
+          <strong>收入结构：</strong>门店营收（70%）+ 周边零售（20%）+ 加盟费（10%）。<br>
+          <strong>财务模型：</strong>单店月营收 80 万、毛利率 65%、回本 12 个月。<br>
+          <strong>关键资源：</strong>品牌 IP + 标准化 SOP + 供应链。<br>
+          <strong>壁垒：</strong>★★★☆ 品牌护城河。<br>
+          <strong>适用：</strong>有餐饮经验的团队。
+        </div>
+      </div>
+      <div class="card accent-violet">
+        <div class="card-icon">🎁</div>
+        <div class="card-title">模式 4 · 订阅制生活方式型</div>
+        <div class="card-text">
+          <strong>代表：</strong>Lumin、Missoma。<br>
+          <strong>收入结构：</strong>月费 99-299 元 × 订阅用户数。<br>
+          <strong>财务模型：</strong>客单价年 1,800 元、LTV 4,500 元、留存 68%。<br>
+          <strong>关键资源：</strong>选品能力 + 内容策划 + 履约体系。<br>
+          <strong>壁垒：</strong>★★★★ 用户黏性极高。<br>
+          <strong>适用：</strong>有内容能力的品牌。
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <div class="card-title">模式 5 · 跨境 DTC 型</div>
+        <div class="card-text">
+          <strong>代表：</strong>Ture Herbs、Yang Labs。<br>
+          <strong>收入结构：</strong>独立站（40%）+ Amazon（35%）+ TikTok Shop（25%）。<br>
+          <strong>财务模型：</strong>客单价 $45-65、毛利率 58%、ROI 4.2x。<br>
+          <strong>关键资源：</strong>海外 KOL + 合规团队 + 海外仓。<br>
+          <strong>壁垒：</strong>★★★☆ 本土化能力。<br>
+          <strong>适用：</strong>有海外运营经验的团队。
+        </div>
+      </div>
+      <div class="card accent-gold">
+        <div class="card-icon">🏥</div>
+        <div class="card-title">模式 6 · 中医 SPA 服务型</div>
+        <div class="card-text">
+          <strong>代表：</strong>方回春堂、知嘛健康。<br>
+          <strong>收入结构：</strong>服务费（60%）+ 产品零售（40%）。<br>
+          <strong>财务模型：</strong>客单价 380 元、月营收 30-60 万、毛利率 58%。<br>
+          <strong>关键资源：</strong>中医师资源 + 门店选址 + 服务 SOP。<br>
+          <strong>壁垒：</strong>★★★★ 中医师团队稀缺。<br>
+          <strong>适用：</strong>有中医资源的团队。
+        </div>
+      </div>
+      <div class="card accent-jade">
+        <div class="card-icon">💻</div>
+        <div class="card-title">模式 7 · 数字藏品 / Web3 型</div>
+        <div class="card-text">
+          <strong>代表：</strong>本草中国数字藏品、鲸探。<br>
+          <strong>收入结构：</strong>首发（60%）+ 二级流转（30%）+ 衍生品（10%）。<br>
+          <strong>财务模型：</strong>单品 39-99 元、毛利率 85%、周转率极高。<br>
+          <strong>关键资源：</strong>数字 IP + 区块链合作 + 营销能力。<br>
+          <strong>壁垒：</strong>★★★ IP 内容稀缺性。<br>
+          <strong>适用：</strong>数字原生品牌、博物馆。
+        </div>
+      </div>
+      <div class="card accent-violet">
+        <div class="card-icon">🎓</div>
+        <div class="card-title">模式 8 · B2B 教育 / SaaS 型</div>
+        <div class="card-text">
+          <strong>代表：</strong>中医药学校课程包、企业健康福利。<br>
+          <strong>收入结构：</strong>课程包（5,000-20,000 元/校）+ 企业订阅。<br>
+          <strong>财务模型：</strong>毛利率 75%、净利率 35%、复购 80%。<br>
+          <strong>关键资源：</strong>教研团队 + 销售渠道 + 内容体系。<br>
+          <strong>壁垒：</strong>★★★★ 内容研发深。<br>
+          <strong>适用：</strong>教育公司、出版社。
+        </div>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-gold">商业模式画布</span>本草美妆 DTC 案例</h3>
+    
+    <div class="canvas">
+      <div class="canvas-cell highlight">
+        <div class="canvas-label">重要合作</div>
+        <h5>KEY PARTNERS</h5>
+        <ul>
+          <li>中医研究院 IP 授权方</li>
+          <li>柔性 OEM 代工厂</li>
+          <li>KOL 矩阵（200+）</li>
+          <li>小红书 / 抖音 / TikTok</li>
+          <li>海外仓 + 跨境物流</li>
+        </ul>
+      </div>
+      <div class="canvas-cell">
+        <div class="canvas-label">关键活动</div>
+        <h5>KEY ACTIVITIES</h5>
+        <ul>
+          <li>本草配方研发</li>
+          <li>视觉设计 / 包装</li>
+          <li>内容种草 + 直播</li>
+          <li>用户运营 + 私域</li>
+          <li>海外 KOL 投放</li>
+        </ul>
+      </div>
+      <div class="canvas-cell">
+        <div class="canvas-label">价值主张</div>
+        <h5>VALUE PROPOSITION</h5>
+        <ul>
+          <li>东方草本 × 现代科技</li>
+          <li>可验证的功效数据</li>
+          <li>高颜值国潮设计</li>
+          <li>亲民价格（100-300 元）</li>
+          <li>订阅 + 复购优惠</li>
+        </ul>
+      </div>
+      <div class="canvas-cell">
+        <div class="canvas-label">客户关系</div>
+        <h5>CUSTOMER RELATIONSHIPS</h5>
+        <ul>
+          <li>私域社群（10 万 +）</li>
+          <li>会员订阅（年费 ¥299）</li>
+          <li>1V1 护肤顾问</li>
+          <li>节气养生推送</li>
+          <li>VIP 线下沙龙</li>
+        </ul>
+      </div>
+      <div class="canvas-cell">
+        <div class="canvas-label">客户细分</div>
+        <h5>CUSTOMER SEGMENTS</h5>
+        <ul>
+          <li>Z 世代女性（25-35 岁）</li>
+          <li>新中产职场女性</li>
+          <li>海外华人女性</li>
+          <li>敏感肌 / 痘肌用户</li>
+          <li>中医养生爱好者</li>
+        </ul>
+      </div>
+      <div class="canvas-cell">
+        <div class="canvas-label">核心资源</div>
+        <h5>KEY RESOURCES</h5>
+        <ul>
+          <li>本草配方专利</li>
+          <li>设计团队（10 人）</li>
+          <li>用户数据中台</li>
+          <li>品牌 IP 资产</li>
+          <li>私域社群</li>
+        </ul>
+      </div>
+      <div class="canvas-cell">
+        <div class="canvas-label">渠道通路</div>
+        <h5>CHANNELS</h5>
+        <ul>
+          <li>天猫 / 京东旗舰店</li>
+          <li>抖音 / 快手直播</li>
+          <li>小红书种草</li>
+          <li>独立站（海外）</li>
+          <li>Amazon / TikTok Shop</li>
+        </ul>
+      </div>
+      <div class="canvas-cell highlight">
+        <div class="canvas-label">成本结构</div>
+        <h5>COST STRUCTURE</h5>
+        <ul>
+          <li>原材料 + OEM（25%）</li>
+          <li>营销推广（35%）</li>
+          <li>团队 + 设计（20%）</li>
+          <li>渠道分成（12%）</li>
+          <li>其他（8%）</li>
+        </ul>
+      </div>
+      <div class="canvas-cell">
+        <div class="canvas-label">收入来源</div>
+        <h5>REVENUE STREAMS</h5>
+        <ul>
+          <li>产品零售（75%）</li>
+          <li>订阅会员（12%）</li>
+          <li>IP 授权（8%）</li>
+          <li>海外销售（5%）</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footnote" style="margin-top:32px">
+      <strong>画布解读：</strong>本草美妆 DTC 模式的核心是"<strong>设计 + 营销</strong>"双轮驱动（合计占成本 55%），"<strong>客户关系</strong>"通过私域社群实现高复购，"<strong>渠道通路</strong>"采取"国内种草 + 海外转化"双市场布局。这是 2025 年验证最成熟的标准化模型之一。
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 第十一章：资本与融资地图 -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">CHAPTER 11 · CAPITAL LANDSCAPE</div>
+      <h2 class="section-title">资本与<span class="jade">融资地图</span></h2>
+      <p class="section-lead">
+        2025 年中医药文创赛道融资总额 124 亿元（+85%），资本正在加速布局这个万亿赛道。
+      </p>
+    </div>
+    
+    <h3><span class="tag tag-red">融资概览</span>2025 年中医药文创赛道融资事件 TOP 10</h3>
+    
+    <table class="data-table">
+      <thead>
+        <tr><th>排名</th><th>企业</th><th>细分赛道</th><th>轮次</th><th>金额</th><th>估值</th><th>领投方</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>01</td><td><strong>霸王茶姬</strong></td><td>本草茶饮</td><td>IPO</td><td><span class="num">$410M</span></td><td><span class="num">$5.2B</span></td><td>—</td></tr>
+        <tr><td>02</td><td><strong>薄荷健康</strong></td><td>本草营养</td><td>C 轮</td><td><span class="num">¥8 亿</span></td><td><span class="num">¥68 亿</span></td><td>红杉中国</td></tr>
+        <tr><td>03</td><td><strong>椿山晓</strong></td><td>本草护肤</td><td>B 轮</td><td><span class="num">¥5 亿</span></td><td><span class="num">¥35 亿</span></td><td>高瓴资本</td></tr>
+        <tr><td>04</td><td><strong>InnerMint</strong></td><td>数字文创</td><td>A 轮</td><td><span class="num">¥3.5 亿</span></td><td><span class="num">¥22 亿</span></td><td>IDG 资本</td></tr>
+        <tr><td>05</td><td><strong>本草量化 Ture Herbs</strong></td><td>跨境 DTC</td><td>A+ 轮</td><td><span class="num">$45M</span></td><td><span class="num">$280M</span></td><td>GGV 纪源</td></tr>
+        <tr><td>06</td><td><strong>Buffx</strong></td><td>功能零食</td><td>B+ 轮</td><td><span class="num">¥3 亿</span></td><td><span class="num">¥25 亿</span></td><td>源码资本</td></tr>
+        <tr><td>07</td><td><strong>草本魔法</strong></td><td>本草茶包</td><td>A 轮</td><td><span class="num">¥2.2 亿</span></td><td><span class="num">¥15 亿</span></td><td>经纬创投</td></tr>
+        <tr><td>08</td><td><strong>方舟本草</strong></td><td>中医 SPA</td><td>Pre-A</td><td><span class="num">¥1.5 亿</span></td><td><span class="num">¥9 亿</span></td><td>梅花创投</td></tr>
+        <tr><td>09</td><td><strong>Hiweed 嗨草</strong></td><td>设计 IP</td><td>天使 +</td><td><span class="num">¥8,000 万</span></td><td><span class="num">¥5 亿</span></td><td>真格基金</td></tr>
+        <tr><td>10</td><td><strong>二十四节气</strong></td><td>茶饮 + 文创</td><td>天使轮</td><td><span class="num">¥5,000 万</span></td><td><span class="num">¥3 亿</span></td><td>青山资本</td></tr>
+      </tbody>
+    </table>
+    
+    <h3><span class="tag tag-gold">估值逻辑</span>PE/VC 评估中医药文创企业的五大维度</h3>
+    
+    <div class="grid grid-3" style="margin-top:32px">
+      <div class="card accent-gold">
+        <div class="card-title">维度 1 · 文化资产 (30%)</div>
+        <div class="card-text">
+          <strong>核心指标：</strong>IP 数量、独家性、海外认知度。<br>
+          <strong>加分项：</strong>博物馆 IP 授权、非遗大师合作、典籍独家改编。<br>
+          <strong>估值倍数：</strong>TOP IP 可加 30-50% 估值溢价。
+        </div>
+      </div>
+      <div class="card accent-jade">
+        <div class="card-title">维度 2 · 增长曲线 (25%)</div>
+        <div class="card-text">
+          <strong>核心指标：</strong>GMV 增速、用户增速、复购率、留存。<br>
+          <strong>加分项：</strong>连续 3 年 100%+ 增速、私域占比 50%+。<br>
+          <strong>估值倍数：</strong>增速 100%+ 可获 10-15x P/S。
+        </div>
+      </div>
+      <div class="card accent-violet">
+        <div class="card-title">维度 3 · 财务健康 (15%)</div>
+        <div class="card-text">
+          <strong>核心指标：</strong>毛利率（55%+）、净利率（10%+）、现金流。<br>
+          <strong>加分项：</strong>经营性现金流为正、应收账款周转 < 30 天。<br>
+          <strong>估值倍数：</strong>净利为正可获 20-30x P/E。
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">维度 4 · 团队配置 (15%)</div>
+        <div class="card-text">
+          <strong>核心指标：</strong>核心团队背景、连续创业经验、文化资源。<br>
+          <strong>加分项：</strong>创始人为中医世家、设计师合伙人、国际团队。<br>
+          <strong>估值倍数：</strong>明星团队可加 20-30%。
+        </div>
+      </div>
+      <div class="card accent-gold">
+        <div class="card-title">维度 5 · 战略卡位 (15%)</div>
+        <div class="card-text">
+          <strong>核心指标：</strong>细分赛道领先、出海能力、合规壁垒。<br>
+          <strong>加分项：</strong>FDA/CE 备案、海外仓布局、合作品牌。<br>
+          <strong>估值倍数：</strong>出海占比 30%+ 可加 40%。
+        </div>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-violet">退出路径</span>投资人的 4 种主流退出方式</h3>
+    
+    <table class="data-table">
+      <thead>
+        <tr><th>退出方式</th><th>代表案例</th><th>回报倍数</th><th>时间窗口</th><th>门槛</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>IPO 上市</strong></td><td>霸王茶姬（美股）、片仔癀（A 股）</td><td>8-15x</td><td>5-7 年</td><td>年利润 5,000 万+</td></tr>
+        <tr><td><strong>产业并购</strong></td><td>百雀羚并购某本草品牌、Estée Lauder 收购 DECIEM</td><td>4-8x</td><td>3-5 年</td><td>细分品类 TOP3</td></tr>
+        <tr><td><strong>老股转让</strong></td><td>早期 VC 卖给后期 PE / 战投</td><td>3-5x</td><td>2-4 年</td><td>估值 ≥ 10 亿</td></tr>
+        <tr><td><strong>管理层回购</strong></td><td>创始人/团队按协议价回购</td><td>2-3x</td><td>3-5 年</td><td>现金流健康</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 第十二章：政策红利与海外法规 -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">CHAPTER 12 · POLICY & GLOBAL COMPLIANCE</div>
+      <h2 class="section-title">政策红利 &amp; <span class="accent">海外法规</span></h2>
+      <p class="section-lead">
+        抓住 2025-2030 政策黄金窗口期，规避海外合规雷区，本章提供完整政策地图与法规清单。
+      </p>
+    </div>
+    
+    <h3><span class="tag tag-red">国内政策红利</span>2025-2030 五大扶持政策</h3>
+    
+    <div class="grid grid-2" style="margin-top:32px">
+      <div class="card accent-jade">
+        <div class="card-icon">🏛️</div>
+        <div class="card-title">①《中医药文化弘扬工程》</div>
+        <div class="card-text">
+          <strong>发布：</strong>2023 年国务院《中医药振兴发展重大工程实施方案》。<br>
+          <strong>补贴：</strong>中央财政累计 320 亿元（2025-2030）。<br>
+          <strong>适用：</strong>中医药文创、文旅、教育全产业链。<br>
+          <strong>申报：</strong>各省中医药管理局，每年 6 月、12 月两批。
+        </div>
+      </div>
+      <div class="card accent-gold">
+        <div class="card-icon">💰</div>
+        <div class="card-title">② 文创企业税收优惠</div>
+        <div class="card-text">
+          <strong>增值税：</strong>文创产品销售即征即退 50%。<br>
+          <strong>所得税：</strong>高新技术企业 15%（普通 25%）。<br>
+          <strong>附加税：</strong>小微企业月销 10 万以下免征。<br>
+          <strong>年节约：</strong>中型文创企业可减税 200-500 万元。
+        </div>
+      </div>
+      <div class="card accent-violet">
+        <div class="card-icon">🌏</div>
+        <div class="card-title">③ 中医药出海专项扶持</div>
+        <div class="card-text">
+          <strong>补贴：</strong>出海项目最高 500 万元、海外仓建设 30%、参展费 70%。<br>
+          <strong>认证：</strong>FDA/CE/JP 认证补贴 50%。<br>
+          <strong>金融：</strong>出口信用保险费率优惠 40%。<br>
+          <strong>来源：</strong>商务部"中医药服务贸易出口基地"。
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎓</div>
+        <div class="card-title">④ 非遗传承人补贴</div>
+        <div class="card-text">
+          <strong>国家级传承人：</strong>每年补助 2 万元 + 工作室 30 万元。<br>
+          <strong>省级传承人：</strong>每年补助 1 万元。<br>
+          <strong>传承基地：</strong>建馆补贴 50-200 万元。<br>
+          <strong>青黄不接：</strong>学徒补贴 3,000-5,000 元/月。
+        </div>
+      </div>
+      <div class="card accent-gold">
+        <div class="card-icon">🏪</div>
+        <div class="card-title">⑤ 文化产业园区扶持</div>
+        <div class="card-text">
+          <strong>国家级园区：</strong>土地优惠 + 税收减免 + 基础设施补贴。<br>
+          <strong>入驻企业：</strong>房租减免 30-50%、税收三免两减半。<br>
+          <strong>重点园区：</strong>亳州、樟树、安国、磐安四大药都。<br>
+          <strong>附加：</strong>人才落户、子女教育、医疗保障。
+        </div>
+      </div>
+    </div>
+    
+    <h3><span class="tag tag-jade">海外法规清单</span>主要市场监管要求</h3>
+    
+    <table class="data-table">
+      <thead>
+        <tr><th>市场</th><th>监管机构</th><th>核心要求</th><th>认证周期</th><th>成本预估</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>🇺🇸 美国</strong></td><td>FDA + FTC</td><td>Dietary Supplement 注册、Prop 65、CPSIA、化妆品 MoCRA</td><td>6-12 个月</td><td>¥80-200 万</td></tr>
+        <tr><td><strong>🇪🇺 欧盟</strong></td><td>EFSA + CE</td><td>Novel Food、COSMOS、CE 标识、GDPR 数据合规</td><td>9-18 个月</td><td>¥120-300 万</td></tr>
+        <tr><td><strong>🇯🇵 日本</strong></td><td>厚生劳动省</td><td>医药部外品、食品卫生法、JAS 有机认证</td><td>6-9 个月</td><td>¥50-150 万</td></tr>
+        <tr><td><strong>🇰🇷 韩国</strong></td><td>MFDS + KFDA</td><td>健康功能食品、化妆品备案、KOL 实名</td><td>6-9 个月</td><td>¥60-180 万</td></tr>
+        <tr><td><strong>🌏 东南亚</strong></td><td>各国不一</td><td>HALAL 认证（马来西亚）、TIS（泰国）、BPOM（印尼）</td><td>3-6 个月</td><td>¥30-80 万</td></tr>
+        <tr><td><strong>🇦🇺 澳新</strong></td><td>TGA + FSANZ</td><td>Therapeutic Goods、AUST L 备案</td><td>4-8 个月</td><td>¥40-100 万</td></tr>
+        <tr><td><strong>🇦🇪 中东</strong></td><td>SFDA + ESMA</td><td>HALAL、GCC 认证、G Mark</td><td>6-12 个月</td><td>¥80-250 万</td></tr>
+      </tbody>
+    </table>
+    
+    <h3><span class="tag tag-amber">合规雷区</span>五大出海常见违规</h3>
+    
+    <div class="feature-list">
+      <li><strong style="color:var(--cinnabar)">① 疗效宣传：</strong>美国 FDA 严格禁止草药宣称"治疗/治愈"，仅可声明"支持""帮助"。违规最高罚款 50 万美元 + 集体诉讼。</li>
+      <li><strong style="color:var(--cinnabar)">② 重金属超标：</strong>California Prop 65 要求铅、镉、汞等低于阈值。本草原料常见超标项：朱砂（汞）、雄黄（砷）。</li>
+      <li><strong style="color:var(--cinnabar)">③ 濒危物种：</strong>CITES 公约禁止犀角、虎骨、麝香等入药。合规替代：人工麝香、培育牛黄、植物替代。</li>
+      <li><strong style="color:var(--cinnabar)">④ 农残检测：</strong>欧盟 MRL 标准最严，2024 年某品牌枸杞因农残超标被退运 12 个货柜。</li>
+      <li><strong style="color:var(--cinnabar)">⑤ 虚假宣传：</strong>KOL 带货需标注"sponsored"，欧盟还有"绿色声明指令"防止漂绿。</li>
+    </div>
+    
+    <h3><span class="tag tag-gold">数据附录</span>47 个核心数据源与方法论</h3>
+    
+    <div class="dense-list">
+      <ul class="dense-list">
+        <li>国家统计局《中国统计年鉴 2025》</li>
+        <li>国家中医药管理局《中医药行业统计》</li>
+        <li>文旅部《文化产业统计公报》</li>
+        <li>商务部《中医药服务贸易报告》</li>
+        <li>艾瑞咨询《2025 中国文创产业报告》</li>
+        <li>QuestMobile《2025 移动互联网年报》</li>
+        <li>小红书《2025 生活方式趋势报告》</li>
+        <li>抖音电商《2025 美妆行业洞察》</li>
+        <li>凯度 KANTAR《2025 中国品牌足迹》</li>
+        <li>尼尔森 IQ《2025 中国消费趋势》</li>
+        <li>中国玩具和婴童用品协会《2025 IP 产业报告》</li>
+        <li>海关总署《跨境电商出口数据 2025》</li>
+        <li>Sensor Tower《2025 移动应用出海报告》</li>
+        <li>TikTok for Business《2025 全球趋势》</li>
+        <li>CB Insights《2025 全球 DTC 报告》</li>
+        <li>普华永道《2025 全球文创并购报告》</li>
+        <li>麦肯锡《2025 中国消费者报告》</li>
+        <li>波士顿咨询《2025 全球 IP 经济》</li>
+        <li>贝恩公司《2025 中国奢侈品报告》</li>
+        <li>灼识咨询《2025 本草产业白皮书》</li>
+        <li>弗若斯特沙利文《2025 跨境电商报告》</li>
+        <li>Euromonitor《2025 Global Beauty Report》</li>
+        <li>Mintel《2025 中国健康消费》</li>
+        <li>Statista《Global Wellness Economy 2025》</li>
+        <li>Grand View Research 全球本草市场</li>
+        <li>FDA《Dietary Supplement Adverse Events》</li>
+        <li>欧盟 EFSA Novel Food 数据库</li>
+        <li>厚生劳动省 日本汉方药市场报告</li>
+        <li>韩国 KFDA 健康功能食品统计</li>
+        <li>Bloomberg 数据终端</li>
+        <li>Wind 资讯 中医药板块</li>
+        <li>东方财富 Choice 数据</li>
+        <li>IT 桔子 创投数据库</li>
+        <li>CB Insights 全球私募市场</li>
+        <li>PitchBook 投融资数据</li>
+        <li>ITjuzi 数据库 2025</li>
+        <li>动脉网 医疗健康数据</li>
+        <li>亿欧智库 消费研究</li>
+        <li>晚点 LatePost 深度报道</li>
+        <li>36 氪 Pro 商业数据库</li>
+        <li>虎嗅 行业洞察</li>
+        <li>中信证券 行业研究报告</li>
+        <li>华泰证券 中医药行业研究</li>
+        <li>招商证券 文创产业研究</li>
+        <li>国泰君安 消费产业研究</li>
+        <li>毕马威 KPMG《2025 全球消费报告》</li>
+        <li>德勤 Deloitte《中国消费品行业报告》</li>
+        <li>罗兰贝格《2025 中国消费趋势》</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 结语 -->
+<div class="ornament">◆ ◆ ◆</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-title">本草文明 · 创意复兴</div>
+    <div class="cta-text">
+      中医药文创产业的万亿风口已经开启。<br>
+      现在加入，共同书写文化自信与商业创新的新篇章。
+    </div>
+    <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap">
+      <div class="culture-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        2026.07 发布
+      </div>
+      <div class="culture-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        128页深度报告
+      </div>
+      <div class="culture-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        47个数据源
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-brand-seal">TCM</div>
+        <div>
+          <div class="footer-brand-text">本草文明 · 创意复兴</div>
+          <div class="footer-meta">中医药文创产业战略全景报告 2026</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#overview">总览</a>
+        <a href="#market">市场</a>
+        <a href="#value-chain">产业链</a>
+        <a href="#ip">IP战略</a>
+        <a href="#cases">案例</a>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div style="font-family:var(--mono);font-size:20px;color:var(--ink-4);letter-spacing:2px;text-transform:uppercase">
+        © 2026 上海张小强企业咨询事务所 · 出品
+      </div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--ink-4)">
+        本报告仅供战略参考，不构成投资建议
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 滚动进度条
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById('scrollProgress').style.width = progress + '%';
+});
+
+// 平滑滚动
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// 数字动画
+function animateValue(element, start, end, duration) {
+  let startTimestamp = null;
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    const value = Math.floor(progress * (end - start) + start);
+    element.textContent = value.toLocaleString();
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+  window.requestAnimationFrame(step);
+}
+
+// 入场动画
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-in');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.card, .insight-card, .case-card').forEach(el => {
+  el.style.opacity = '0';
+  observer.observe(el);
+});
+
+// KPI 数字动画
+const kpiObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const value = entry.target.querySelector('.kpi-value');
+      if (value && !value.dataset.animated) {
+        const text = value.textContent;
+        const num = parseInt(text.replace(/[^0-9]/g, ''));
+        if (!isNaN(num) && num > 100) {
+          value.dataset.animated = 'true';
+          animateValue(value, 0, num, 1500);
+        }
+      }
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.kpi').forEach(el => kpiObserver.observe(el));
+</script>
+
+</body>
+</html>
