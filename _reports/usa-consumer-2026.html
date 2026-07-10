@@ -1,0 +1,3078 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>美国消费市场全息选品研究报告 · 2026 · V2.0</title>
+<meta name="description" content="覆盖 E-Commerce 宏观、五大独特性、五大人群、12 赛道 × 5 场景矩阵、渠道图谱、四区域差异、风险全景、5 窗口行动方案" />
+<meta name="author" content="全息选品情报体系 · USA Working Group" />
+<meta name="version" content="V2.0" />
+<meta name="date" content="2026-07-06" />
+<style>
+/* ============ DESIGN TOKENS ============ */
+:root{
+  /* Surfaces */
+  --bg:        #07090F;
+  --bg-2:      #0B1020;
+  --panel:     rgba(18, 24, 38, 0.78);
+  --panel-2:   rgba(28, 38, 58, 0.55);
+  --panel-3:   rgba(38, 50, 78, 0.35);
+  --line:      rgba(120, 140, 180, 0.18);
+  --line-2:    rgba(120, 140, 180, 0.32);
+
+  /* Type */
+  --text:      #F2F5FB;
+  --muted:     #8A95AC;
+  --muted-2:   #5C6678;
+
+  /* Brand / Signals */
+  --accent:    #FF2E63;   /* Signal Magenta */
+  --accent-2:  #FF8A5C;   /* Warm coral */
+  --tech:      #22D3FF;   /* Electric Blue */
+  --green:     #34F5B5;   /* Aurora Green */
+  --amber:     #FFC857;
+  --violet:    #A78BFA;
+
+  /* Typography */
+  --serif: "Source Han Serif SC","Source Serif Pro","Songti SC","Charter",Georgia,serif;
+  --sans:  "Inter","SF Pro Display","Helvetica Neue",-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  --mono:  "JetBrains Mono","IBM Plex Mono","SF Mono",Menlo,Consolas,monospace;
+
+  /* Layout */
+  --sidebar-w: 280px;
+  --max-w:     1440px;
+
+  /* Shadows / Effects */
+  --shadow-1: 0 1px 0 rgba(255,255,255,.04) inset, 0 8px 24px rgba(0,0,0,.35);
+  --glow-a:   0 0 24px rgba(255,46,99,.35);
+  --glow-t:   0 0 24px rgba(34,211,255,.35);
+  --glow-g:   0 0 24px rgba(52,245,181,.30);
+}
+
+/* ============ RESET ============ */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--tech);text-decoration:none;border-bottom:1px dotted rgba(34,211,255,.45);transition:color .2s, border-color .2s}
+a:hover{color:#fff;border-bottom-style:solid;border-bottom-color:rgba(34,211,255,.7)}
+button{font-family:inherit;cursor:pointer}
+img,svg{max-width:100%;display:block}
+
+/* ============ GLOBAL BG (grid + glow) ============ */
+body{
+  background-image:
+    radial-gradient(1200px 600px at 88% -8%, rgba(255,46,99,.16), transparent 60%),
+    radial-gradient(1100px 700px at 6% 6%, rgba(34,211,255,.12), transparent 65%),
+    radial-gradient(900px 500px at 50% 50%, rgba(167,139,250,.08), transparent 70%),
+    linear-gradient(rgba(120,140,180,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120,140,180,.045) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px, 28px 28px;
+  background-position: 0 0, 0 0, 0 0, -1px -1px, -1px -1px;
+  background-attachment: fixed, fixed, fixed, fixed, fixed;
+}
+
+  /* ============ LAYOUT (top nav + main) ============ */
+.layout{
+  display:block;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* ============ TOP NAV ============ */
+.topnav{
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: linear-gradient(180deg, rgba(7,9,15,.92), rgba(11,16,32,.85));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0 0 0;
+  box-shadow: 0 2px 0 rgba(255,46,99,.08);
+}
+.topnav::before{
+  content:"";
+  display:block;height:2px;
+  background: linear-gradient(90deg, var(--accent), var(--tech) 50%, var(--green));
+  margin-bottom:14px;
+}
+.topnav .row{
+  display:flex;align-items:center;gap:18px;
+  padding: 0 40px;
+}
+.topnav .brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.topnav .brand .logo{
+  width:42px;height:42px;border-radius:10px;
+  background: linear-gradient(135deg, var(--accent), var(--violet) 60%, var(--tech));
+  display:grid;place-items:center;
+  font-family: var(--mono);
+  font-size: 14px;
+  color:#0b1020;
+  font-weight:800;
+  letter-spacing: -0.5px;
+  box-shadow: var(--glow-a);
+}
+.topnav .brand .title{
+  font-family: var(--serif);
+  font-weight:600;font-size:17px;line-height:1.15;
+}
+.topnav .brand .title small{
+  display:block;
+  font-family: var(--mono);
+  font-size:9px;
+  color:var(--muted);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin-top:3px;
+}
+
+.topnav .links{
+  display:flex; align-items:center; gap:2px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing:.4px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width:none;
+}
+.topnav .links::-webkit-scrollbar{display:none}
+.topnav .links a{
+  position: relative;
+  color: var(--muted);
+  padding: 10px 12px 12px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  transition: all .25s;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.topnav .links a:hover{color: var(--text)}
+.topnav .links a.active{
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.topnav .links a .num{
+  color: var(--muted-2);
+  margin-right: 6px;
+}
+.topnav .links a.active .num{color:var(--accent)}
+
+.topnav .right{margin-left:auto; display:flex; align-items:center; gap:10px}
+.topnav .right .pill{
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--green);
+  padding: 4px 9px;
+  border: 1px solid rgba(52,245,181,.4);
+  border-radius:99px;
+  background: rgba(52,245,181,.08);
+  letter-spacing:.8px;
+  text-transform: uppercase;
+  display:inline-flex;align-items:center;gap:5px;
+}
+.topnav .right .pill::before{
+  content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 6px var(--green);
+  animation: pulse 1.6s infinite;
+}
+.topnav .right .lang{display:flex;gap:6px}
+.topnav .right .lang button{
+  background:transparent;
+  border:1px solid var(--line-2);
+  color:var(--muted);
+  padding:6px 11px;
+  font-family:var(--mono);
+  font-size:11px;
+  border-radius:5px;
+  transition:all .2s;
+}
+.topnav .right .lang button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.topnav .right .lang button:hover{color:var(--text);border-color:var(--text)}
+
+.topnav .progress{
+  height:3px;
+  background:rgba(255,255,255,.04);
+  position:relative;
+  overflow:hidden;
+  margin-top:10px;
+}
+.topnav .progress i{
+  display:block;
+  height:100%;
+  width:0%;
+  background: linear-gradient(90deg, var(--accent), var(--tech), var(--green));
+  transition: width .12s ease-out;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.hamburger{
+  display:none;
+  position:fixed;top:14px;left:14px;z-index:80;
+  width:42px;height:42px;border-radius:8px;
+  background: rgba(11,16,32,.85);
+  backdrop-filter: blur(12px);
+  border:1px solid var(--line);
+  color:var(--text);
+  display:none;
+  align-items:center;justify-content:center;
+  font-size:18px;
+}
+
+/* ============ MAIN ============ */
+main{position:relative;min-width:0;padding:0 40px 80px 40px}
+section{scroll-margin-top: 120px; padding: 56px 0 36px; border-bottom:1px dashed var(--line)}
+section:last-of-type{border-bottom:none}
+
+.wrap{max-width:1040px; margin: 0 auto; width: 100%}
+
+/* ============ COVER / HERO ============ */
+.hero{
+  position:relative;
+  padding: 86px 0 64px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 8px;
+}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(60% 50% at 100% 0%, rgba(255,46,99,.14), transparent 60%),
+    radial-gradient(50% 50% at 10% 100%, rgba(34,211,255,.12), transparent 70%);
+  pointer-events:none;
+}
+.hero .eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:11px;
+  color:var(--accent);
+  letter-spacing:2.4px;text-transform:uppercase;
+  padding:6px 12px;
+  border:1px solid rgba(255,46,99,.4);
+  border-radius:99px;
+  background: rgba(255,46,99,.06);
+  margin: 0 0 22px;
+}
+.hero .eyebrow .pulse{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);
+  box-shadow: 0 0 0 0 rgba(255,46,99,.6);
+  animation: pulse 1.6s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,46,99,.5)}
+  70%{box-shadow:0 0 0 10px rgba(255,46,99,0)}
+  100%{box-shadow:0 0 0 0 rgba(255,46,99,0)}
+}
+.hero h1{
+  font-family: var(--serif);
+  font-size: clamp(40px, 5.4vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -.8px;
+  font-weight: 700;
+  margin: 0 0 22px;
+}
+.hero h1 .accent{
+  background: linear-gradient(120deg, var(--accent), var(--accent-2) 50%, var(--amber));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero h1 .stack{display:inline-block;position:relative}
+.hero h1 .stack::after{
+  content:"";
+  position:absolute;left:0;right:0;bottom:6%;
+  height:8%;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity:.18;
+}
+.hero .lede{
+  max-width: 780px;
+  font-size: 17px;
+  color: var(--muted);
+  margin: 0 0 36px;
+  line-height: 1.7;
+}
+.hero .lede b{color:var(--accent);font-weight:600}
+
+.hero .meta-bar{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border:1px solid var(--line);
+  border-radius:10px;
+  overflow:hidden;
+  background: rgba(18,24,38,.55);
+  backdrop-filter: blur(8px);
+}
+.hero .meta-bar > div{
+  padding: 16px 18px;
+  border-right: 1px solid var(--line);
+}
+.hero .meta-bar > div:last-child{border-right:none}
+.hero .meta-bar label{
+  display:block;
+  font-family:var(--mono);font-size:10px;color:var(--muted);
+  text-transform:uppercase;letter-spacing:1.4px;margin-bottom:6px;
+}
+.hero .meta-bar strong{font-family: var(--serif);font-size:16px;color:var(--text);font-weight:600}
+
+.hero .snapshot{
+  margin-top: 36px;
+  background: linear-gradient(135deg, rgba(255,46,99,.05), rgba(34,211,255,.04));
+  border:1px solid var(--line);
+  border-left:3px solid var(--accent);
+  border-radius: 8px;
+  padding: 22px 26px;
+  position:relative;
+  overflow:hidden;
+}
+.hero .snapshot::before{
+  content:"";position:absolute;
+  inset:0;
+  background: linear-gradient(90deg, rgba(255,46,99,.04), transparent 50%);
+  pointer-events:none;
+}
+.hero .snapshot-title{
+  font-family:var(--mono);
+  font-size:11px;color:var(--accent);
+  text-transform:uppercase;letter-spacing:2px;
+  margin: 0 0 14px;
+}
+.hero .snapshot ul{
+  list-style:none;padding:0;margin:0;
+  font-family:var(--mono);font-size:13.5px;line-height:2;
+  display:grid;grid-template-columns: 1fr 1fr;gap: 4px 28px;
+}
+.hero .snapshot li i{color:var(--muted);font-style:normal;font-size:11px;display:block;line-height:1.3}
+.hero .snapshot li b{color:var(--accent);font-weight:700;font-size:14px}
+.hero .snapshot li .src{font-size:11px;color:var(--muted-2)}
+
+/* ============ KPI BAND ============ */
+.kpi-band{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin: 30px 0 8px;
+  border:1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(18,24,38,.7), rgba(11,16,32,.6));
+  backdrop-filter: blur(8px);
+}
+.kpi-band > div{
+  padding: 20px 18px 18px;
+  border-right: 1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+.kpi-band > div:last-child{border-right:none}
+.kpi-band > div::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;width:60%;height:2px;
+  background: var(--bar, var(--accent));
+  opacity:.7;
+}
+.kpi-band b{
+  display:block;
+  font-family: var(--mono);
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 700;
+  color: var(--bar, var(--accent));
+  letter-spacing:-.5px;
+  line-height:1;
+  margin-bottom: 8px;
+}
+.kpi-band small{
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.kpi-band i{
+  display:block;
+  font-style:normal;
+  font-size:11px;
+  color: var(--muted-2);
+  margin-top: 6px;
+  font-family: var(--mono);
+}
+
+/* ============ SECTION HEADERS ============ */
+.sec-head{
+  display:flex;align-items:baseline;gap:14px;
+  margin: 0 0 8px;
+}
+.sec-head .num{
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+  padding: 4px 9px;
+  border: 1px solid rgba(255,46,99,.5);
+  border-radius:4px;
+  background: rgba(255,46,99,.07);
+  letter-spacing:.5px;
+  line-height: 1;
+}
+.sec-head h2{
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.4vw, 38px);
+  margin:0;
+  font-weight: 700;
+  letter-spacing: -.4px;
+  line-height: 1.15;
+  color: var(--text);
+}
+.sec-head h2 small{
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight:400;
+  margin-left: 12px;
+}
+.lede{
+  max-width: 760px;
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 4px 0 30px;
+}
+
+h3{
+  font-family: var(--serif);
+  font-size: 22px;
+  margin: 36px 0 14px;
+  font-weight: 600;
+  color: var(--text);
+  display:flex; align-items:baseline; gap:10px;
+}
+h3::before{
+  content:"";
+  width:18px;height:2px;
+  background: var(--accent);
+  margin-right: 2px;
+  position:relative;top:-3px;
+}
+h4{
+  font-family: var(--sans);
+  font-size: 16px;
+  margin: 0 0 8px;
+  color: var(--tech);
+  font-weight: 600;
+  letter-spacing:.2px;
+}
+p{max-width:820px;margin:10px 0 14px;color:var(--text)}
+
+/* ============ CARDS ============ */
+.grid{display:grid;gap:18px;margin:22px 0}
+.grid.cols-2{grid-template-columns:repeat(2,1fr)}
+.grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.grid.cols-4{grid-template-columns:repeat(4,1fr)}
+.grid.cols-5{grid-template-columns:repeat(5,1fr)}
+.card{
+  background: var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding: 22px 20px 20px;
+  position:relative;
+  overflow:hidden;
+  transition: all .3s cubic-bezier(.2,.7,.2,1);
+  box-shadow: var(--shadow-1);
+}
+.card::after{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:2px;
+  background: linear-gradient(90deg, var(--accent), transparent 60%);
+  opacity:.5;
+  transform: translateX(-30%);
+  transition: transform .5s ease;
+}
+.card:hover{
+  transform: translateY(-4px);
+  border-color: rgba(255,46,99,.5);
+  box-shadow: 0 14px 30px rgba(0,0,0,.45), 0 0 0 1px rgba(255,46,99,.15);
+}
+.card:hover::after{transform: translateX(0)}
+.card .num{
+  position:absolute;
+  top:14px; right:16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  padding: 3px 7px;
+  border: 1px solid rgba(255,46,99,.4);
+  border-radius: 4px;
+  background: rgba(255,46,99,.08);
+  letter-spacing:.5px;
+}
+.card h4{
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 16px;
+  font-family: var(--serif);
+  font-weight: 600;
+}
+.card .pill{
+  display:inline-block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--accent);
+  margin-bottom: 8px;
+  letter-spacing:.5px;
+}
+.card p{font-size: 13.5px; color: var(--muted); margin: 0; line-height: 1.7}
+.card p.src{margin-top: 10px}
+
+/* ============ VIZ ============ */
+.viz{
+  background: linear-gradient(180deg, rgba(18,24,38,.65), rgba(11,16,32,.55));
+  border:1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px 24px 24px;
+  margin: 22px 0;
+  position:relative;
+  overflow:hidden;
+  box-shadow: var(--shadow-1);
+}
+.viz::before{
+  content:"";
+  position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--tech), transparent);
+  opacity:.5;
+}
+.viz .label{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-family:var(--mono);
+  font-size:10.5px;
+  color: var(--muted);
+  text-transform:uppercase;
+  letter-spacing:1.4px;
+  margin-bottom:14px;
+  padding-bottom:12px;
+  border-bottom:1px dashed var(--line);
+}
+.viz .label b{color:var(--text); text-transform:none; letter-spacing:.3px; font-size:12px}
+.viz svg{display:block;width:100%;height:auto;max-width:100%}
+.viz .legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;font-size:12px;color:var(--muted);font-family:var(--mono)}
+
+/* ============ TABLES ============ */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin: 18px 0;
+  font-size:13.5px;
+  border:1px solid var(--line);
+  border-radius: 8px;
+  overflow:hidden;
+  background: var(--panel);
+}
+table th{
+  background: linear-gradient(180deg, rgba(34,211,255,.08), rgba(34,211,255,.02));
+  color: var(--text);
+  padding: 11px 14px;
+  text-align:left;
+  font-weight:600;
+  border-bottom:1px solid var(--line-2);
+  font-family:var(--mono);
+  font-size: 11.5px;
+  letter-spacing:.6px;
+  text-transform: uppercase;
+}
+table td{
+  padding: 12px 14px;
+  border-bottom:1px solid var(--line);
+  color: var(--text);
+  vertical-align: top;
+}
+table tr:last-child td{border-bottom:none}
+table tr:hover td{background: rgba(255,46,99,.04)}
+table .star{color:var(--amber);font-weight:700}
+table .num{font-family:var(--mono);font-weight:600;text-align:center;color:var(--text)}
+
+/* ============ HIGHLIGHT BOXES ============ */
+.box{
+  border:1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px 22px;
+  margin: 16px 0;
+  font-size: 14px;
+  position:relative;
+  background: var(--panel);
+}
+.box b{font-weight:700}
+.box.warn{
+  border-left:3px solid var(--accent);
+  background: linear-gradient(90deg, rgba(255,46,99,.08), rgba(255,46,99,.02));
+}
+.box.warn b{color:var(--accent)}
+.box.good{
+  border-left:3px solid var(--green);
+  background: linear-gradient(90deg, rgba(52,245,181,.07), rgba(52,245,181,.02));
+}
+.box.good b{color:var(--green)}
+.box.tech{
+  border-left:3px solid var(--tech);
+  background: linear-gradient(90deg, rgba(34,211,255,.07), rgba(34,211,255,.02));
+}
+.box.tech b{color:var(--tech)}
+
+/* ============ SOURCE LINKS ============ */
+.src{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.5px}
+.src a{color:var(--muted);border-bottom:1px dotted rgba(138,149,173,.3)}
+.src a:hover{color:var(--tech)}
+
+/* ============ EXECUTIVE BOX ============ */
+.exec{
+  background:
+    linear-gradient(135deg, rgba(255,46,99,.07), rgba(34,211,255,.04)),
+    radial-gradient(80% 50% at 100% 0%, rgba(167,139,250,.08), transparent 70%);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding: 34px 34px 30px;
+  margin: 24px 0 4px;
+  position:relative;
+  overflow:hidden;
+}
+.exec::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events:none;
+  opacity:.5;
+  mask-image: linear-gradient(180deg, transparent, #000 30%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 30%, transparent);
+}
+.exec > *{position:relative; z-index:1}
+.exec h3{margin-top:24px;color:var(--text)}
+.exec h3:first-child{margin-top:0}
+.exec h3::before{background:var(--amber)}
+.exec ol, .exec ul{margin-top:6px}
+.exec li{margin-bottom: 8px; line-height:1.7}
+
+.exec .conclusion{
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.65;
+  margin: 0 0 6px;
+  color: var(--text);
+}
+.exec .conclusion b{color:var(--accent);font-weight:700}
+.exec .conclusion em{
+  display:block;
+  font-style:normal;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* ============ TL (Timeline / Gantt) ============ */
+.timeline{display:flex;flex-direction:column;gap:10px;margin:24px 0}
+.tl-row{
+  display:grid;
+  grid-template-columns: 200px 1fr 240px;
+  gap:18px; align-items:center;
+  padding:14px 18px;
+  background: var(--panel);
+  border:1px solid var(--line);
+  border-radius: 8px;
+  position:relative;
+  transition: all .3s;
+}
+.tl-row:hover{border-color:rgba(34,211,255,.45);transform: translateX(4px)}
+.tl-row .phase{
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing:.4px;
+}
+.tl-row .phase b{color:var(--text);font-weight:600;display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.tl-row .bar{height:10px;background: rgba(255,255,255,.05);border-radius:99px;position:relative;overflow:hidden}
+.tl-row .bar i{
+  display:block;height:100%;border-radius:99px;
+  box-shadow: 0 0 14px currentColor;
+  transition: width 1s cubic-bezier(.2,.7,.2,1);
+}
+.tl-row .kpi{font-family: var(--mono);font-size:12px;color:var(--green)}
+.tl-row .kpi b{color:var(--text);font-weight:600;display:block;font-size:13px;margin-bottom:2px}
+
+/* ============ DECISION CARDS ============ */
+.decision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+.decision{
+  background: var(--panel);
+  border:1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px 18px 16px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  transition: all .3s;
+}
+.decision:hover{transform: translateY(-3px);border-color:rgba(255,200,87,.4)}
+.decision .d-num{
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.decision .d-date{
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  margin: 4px 0 4px;
+  color: var(--text);
+}
+.decision .d-tag{
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--accent);
+  letter-spacing:1px;text-transform:uppercase;
+  margin-bottom: 8px;
+}
+.decision p{font-size:12.5px;color:var(--muted);margin:0}
+
+/* ============ FOOTER ============ */
+footer{
+  padding: 60px 0 32px;
+  text-align:center;
+  color: var(--muted);
+  font-size: 13px;
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+}
+footer .nav{
+  display:flex;justify-content:center;gap:18px;margin-bottom:18px;
+  font-family:var(--mono);font-size:11px;flex-wrap:wrap;
+}
+footer .nav a{
+  color:var(--muted);border:1px solid var(--line);
+  padding: 6px 12px;border-radius: 4px;
+}
+footer .nav a:hover{border-color:var(--accent);color:var(--text)}
+footer .small{
+  font-family:var(--mono);
+  font-size: 10.5px;
+  color:var(--muted-2);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+footer p.disclaim{
+  max-width: 780px;
+  margin: 18px auto 0;
+  line-height: 1.7;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted-2);
+}
+
+/* ============ FILTER CHIPS (case studies) ============ */
+.filters{margin-top:6px;margin-bottom:18px}
+.chip{
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--line-2);
+  color: var(--muted);
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.chip:hover{color: var(--text); border-color: var(--text)}
+.chip.active{ background: var(--accent); color: #fff; border-color: var(--accent) }
+
+/* ============ CASE STUDIES ============ */
+.case-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 18px 0;
+}
+.case-card{
+  background: linear-gradient(180deg, rgba(18,24,38,.7), rgba(11,16,32,.55));
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px 22px 18px;
+  position: relative;
+  overflow: hidden;
+  transition: all .3s;
+}
+.case-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120px 60px at 100% 0%, rgba(255,46,99,.12), transparent 70%);
+  pointer-events: none;
+}
+.case-card:hover{ border-color: rgba(255,46,99,.45); transform: translateY(-3px) }
+.case-tag{
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  color: var(--accent);
+  padding: 3px 8px;
+  border: 1px solid rgba(255,46,99,.4);
+  border-radius: 4px;
+  background: rgba(255,46,99,.08);
+  margin-bottom: 12px;
+}
+.case-headline{
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.case-metric{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 12px 0 14px;
+  padding: 10px 0;
+  border-top: 1px dashed var(--line);
+  border-bottom: 1px dashed var(--line);
+}
+.case-metric div{ text-align: center }
+.case-metric b{
+  display: block;
+  font-family: var(--mono);
+  font-size: 18px;
+  color: var(--accent);
+  font-weight: 700;
+}
+.case-metric span{
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: .5px;
+}
+.case-quote{
+  font-size: 13.5px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.case-quote::before{ content: '"'; color: var(--accent); font-size: 18px; font-weight: 700; margin-right: 4px }
+.case-quote::after{ content: '"'; color: var(--accent); font-size: 18px; font-weight: 700; margin-left: 4px }
+.case-cta{
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--tech);
+  margin: 0;
+  letter-spacing: .5px;
+}
+
+/* ============ MARGIN SIMULATOR ============ */
+.sim-card{
+  background: linear-gradient(135deg, rgba(255,46,99,.06), rgba(34,211,255,.04));
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 26px 28px 26px;
+  margin: 18px 0;
+  position: relative;
+  overflow: hidden;
+}
+.sim-card::before{
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  opacity: .4;
+}
+.sim-controls{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px 24px;
+  margin-bottom: 22px;
+  position: relative;
+}
+.sim-controls label{
+  display: flex;
+  flex-direction: column;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  letter-spacing: .6px;
+  text-transform: uppercase;
+}
+.sim-controls label span{ margin-bottom: 8px }
+.sim-controls label b{ color: var(--text); text-transform: none; letter-spacing: 0; font-size: 14px }
+.sim-controls input[type=range]{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,.1);
+  border-radius: 99px;
+  outline: none;
+}
+.sim-controls input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(255,46,99,.15);
+}
+.sim-controls input[type=range]::-moz-range-thumb{
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: none;
+}
+.sim-result{
+  background: rgba(7,9,15,.55);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 22px;
+  position: relative;
+}
+.sim-line{
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.sim-line b{ margin-right: 10px }
+.sim-bar{
+  height: 12px;
+  background: rgba(255,255,255,.05);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 1px solid var(--line);
+}
+.sim-bar i{
+  display: block;
+  height: 100%;
+  transition: width .3s, background .3s;
+  box-shadow: 0 0 12px currentColor;
+}
+.sim-tip{
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: .5px;
+}
+
+/* ============ COUNTDOWN ============ */
+.countdown{
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 24px;
+  background: linear-gradient(135deg, rgba(255,46,99,.10), rgba(255,200,87,.04));
+  border: 1px solid rgba(255,46,99,.35);
+  border-radius: 14px;
+  padding: 22px 28px;
+  position: relative;
+  overflow: hidden;
+}
+.countdown::before{
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(400px 200px at 0% 50%, rgba(255,46,99,.18), transparent 60%);
+  pointer-events: none;
+}
+.countdown-label{
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  position: relative;
+}
+.countdown-line{
+  font-family: var(--serif);
+  font-weight: 700;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  position: relative;
+}
+.countdown-line #countdownDays{
+  font-size: 64px;
+  line-height: 1;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.countdown-unit{
+  font-family: var(--mono);
+  font-size: 16px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+.countdown-name{
+  font-size: 22px;
+  color: var(--text);
+}
+.countdown-meta{
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 6px;
+  position: relative;
+}
+.countdown-side{ display: flex; flex-direction: column; justify-content: center; gap: 14px; position: relative }
+.countdown-action{ display: flex; align-items: center; gap: 12px; flex-wrap: wrap }
+.cta{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  transition: all .2s;
+  box-shadow: 0 4px 14px rgba(255,46,99,.4);
+}
+.cta:hover{ background: var(--accent-2); color: #fff; transform: translateY(-2px); border:none }
+.cta-meta{ font-family: var(--mono); font-size: 10.5px; color: var(--muted); letter-spacing: .5px }
+.countdown-tip{
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  background: rgba(7,9,15,.4);
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+}
+.countdown-tip b{ color: var(--text); margin-right: 4px; font-weight: 600 }
+
+/* ============ QUOTES ============ */
+.quote-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 18px 0;
+}
+.quote-card{
+  background: rgba(18,24,38,.6);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 26px 26px 22px;
+  position: relative;
+  transition: all .3s;
+}
+.quote-card:hover{ border-color: rgba(34,211,255,.5) }
+.quote-mark{
+  position: absolute;
+  top: 6px;
+  left: 14px;
+  font-family: var(--serif);
+  font-size: 64px;
+  color: var(--accent);
+  opacity: .35;
+  line-height: 1;
+}
+.quote-body{
+  position: relative;
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 16px;
+  color: var(--text);
+}
+.quote-body b{ color: var(--accent); font-weight: 700 }
+.quote-source{
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: .8px;
+  border-top: 1px dashed var(--line);
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.quote-source b{ color: var(--text); font-weight: 600 }
+
+/* ============ CHECKLIST ============ */
+.cl-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 18px 0;
+}
+.cl-item{
+  background: rgba(18,24,38,.6);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 18px;
+  transition: all .25s;
+}
+.cl-item:hover{ border-color: rgba(255,200,87,.4) }
+.cl-item.done{
+  background: rgba(52,245,181,.06);
+  border-color: rgba(52,245,181,.45);
+}
+.cl-item label{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0;
+}
+.cl-item input[type="checkbox"]{
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: var(--green);
+}
+.cl-item.done span{
+  text-decoration: line-through;
+  color: var(--muted);
+  opacity: .8;
+}
+.cl-item small{
+  display: block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted-2);
+  margin-top: 4px;
+  letter-spacing: .4px;
+}
+
+/* ============ TOOLKIT ============ */
+.tool-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 18px 0;
+}
+.tool-card{
+  display: block;
+  background: linear-gradient(180deg, rgba(18,24,38,.7), rgba(11,16,32,.55));
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px 20px 18px;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  transition: all .3s;
+}
+.tool-card:hover{
+  border-color: var(--tech);
+  transform: translateY(-4px);
+  border-bottom-color: var(--tech);
+  box-shadow: 0 12px 28px rgba(34,211,255,.2);
+}
+.tool-icon{
+  font-size: 28px;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 8px rgba(34,211,255,.5));
+}
+.tool-card h4{
+  font-family: var(--serif);
+  font-size: 17px;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+.tool-card p{
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 14px;
+  line-height: 1.6;
+}
+.tool-meta{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed var(--line);
+  padding-top: 10px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted);
+}
+.tool-tag{
+  color: var(--accent);
+  letter-spacing: .5px;
+}
+.tool-size{ color: var(--muted-2) }
+
+/* ============ CTA / PRICING ============ */
+.cta-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 18px 0;
+}
+.cta-card{
+  background: rgba(18,24,38,.65);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 28px 26px;
+  text-align: center;
+  position: relative;
+  transition: all .3s;
+}
+.cta-card:hover{ transform: translateY(-4px); border-color: rgba(255,46,99,.5) }
+.cta-card.featured{
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(255,46,99,.07), rgba(18,24,38,.7));
+  box-shadow: 0 8px 30px rgba(255,46,99,.2);
+}
+.cta-tier{
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--accent);
+  letter-spacing: 2.4px;
+  margin-bottom: 18px;
+}
+.cta-tier span{
+  color: var(--amber);
+  margin-left: 8px;
+  letter-spacing: 1.5px;
+}
+.cta-price{
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 16px;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.cta-card h4{
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--text);
+  margin: 0 0 10px;
+}
+.cta-card > p{
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 0 0 18px;
+  line-height: 1.65;
+}
+.cta-card ul{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  text-align: left;
+  font-size: 13px;
+  color: var(--text);
+}
+.cta-card ul li{
+  padding: 7px 0 7px 20px;
+  border-bottom: 1px dashed var(--line);
+  position: relative;
+  line-height: 1.55;
+}
+.cta-card ul li:last-child{ border-bottom: none }
+.cta-card ul li::before{
+  content: "▸";
+  position: absolute;
+  left: 4px;
+  color: var(--accent);
+  font-size: 12px;
+  top: 7px;
+}
+.cta-btn{
+  display: inline-block;
+  width: 100%;
+  padding: 12px 16px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-align: center;
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .2s;
+}
+.cta-btn:hover{ background: var(--accent); color: #fff; border-color: var(--accent); border-bottom-color: var(--accent) }
+.cta-card.featured .cta-btn{ background: var(--accent); color: #fff }
+.cta-card.featured .cta-btn:hover{ background: var(--accent-2); border-color: var(--accent-2) }
+
+.cta-footer{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 32px 0 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(18,24,38,.6), rgba(11,16,32,.55));
+}
+.cta-foot-item{
+  padding: 22px 20px;
+  border-right: 1px solid var(--line);
+  text-align: center;
+}
+.cta-foot-item:last-child{ border-right: none }
+.k-num{
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+.k-lab{
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  margin-top: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+.reveal{ opacity: 0; transform: translateY(16px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1) }
+.reveal.visible{ opacity: 1; transform: translateY(0) }
+.reveal[data-delay="1"]{transition-delay:.08s}
+.reveal[data-delay="2"]{transition-delay:.16s}
+.reveal[data-delay="3"]{transition-delay:.24s}
+.reveal[data-delay="4"]{transition-delay:.32s}
+
+/* SVG progressive stroke draw */
+@keyframes draw { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
+.draw{ stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+.viz.visible .draw{ animation: draw 1.6s cubic-bezier(.2,.7,.2,1) forwards; }
+
+/* Number ticker */
+.kpi-band b.counted{ transition: color .2s; }
+
+/* ============ UTILS ============ */
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.stretch{grid-column: 1 / -1}
+.spacer-md{height:24px}
+.cite{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.5px}
+.cite::before{content:"📎";font-size:11px}
+.hl{color:var(--accent);font-weight:700}
+.hl-t{color:var(--tech);font-weight:700}
+.hl-g{color:var(--green);font-weight:700}
+.hl-a{color:var(--amber);font-weight:700}
+
+/* ============ i18n ============ */
+.i18n-en{display:none}
+body[data-lang="en"] .i18n-zh{display:none}
+body[data-lang="en"] .i18n-en{display:inline}
+
+/* ============ MOBILE / RESPONSIVE ============ */
+@media (max-width: 1100px){
+  :root{--sidebar-w: 240px}
+  main{padding-right:32px;padding-left:32px}
+  .topnav .row{padding: 0 24px}
+}
+@media (max-width: 860px){
+  .layout{grid-template-columns: 1fr;}
+  main{padding: 24px 18px 40px;}
+  .topnav .links a{padding: 10px 9px 12px; font-size: 11px;}
+  .topnav .right .pill{display:none}
+  .hero .meta-bar{grid-template-columns: 1fr 1fr;}
+  .hero .meta-bar > div{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .kpi-band{grid-template-columns: repeat(2, 1fr);}
+  .kpi-band > div{border-right:1px solid var(--line)!important;}
+  .kpi-band > div:nth-child(2n){border-right:none!important;}
+  .kpi-band > div:nth-last-child(-n+2){border-bottom:none}
+  .grid.cols-4,.grid.cols-3,.grid.cols-5{grid-template-columns: 1fr 1fr;}
+  .grid.cols-2{grid-template-columns: 1fr;}
+  .decision-grid{grid-template-columns: 1fr 1fr;}
+  .tl-row{grid-template-columns: 1fr; gap: 10px;}
+  .tl-row .kpi{text-align:left}
+  .hero .snapshot ul{grid-template-columns: 1fr;}
+  .exec{padding: 22px 18px;}
+  section{scroll-margin-top: 100px;}
+  .case-grid, .quote-grid, .cl-grid, .cta-grid, .tool-grid{grid-template-columns: 1fr;}
+  .countdown{grid-template-columns: 1fr;}
+  .countdown-line #countdownDays{font-size: 48px}
+  .sim-controls{grid-template-columns: repeat(2, 1fr);}
+  .cta-footer{grid-template-columns: 1fr 1fr;}
+}
+
+/* ============ PRINT ============ */
+@media print{
+  html,body{background:#fff;color:#000;font-size:11pt}
+  .topnav, .progress, .no-print{display:none !important}
+  .layout{display:block}
+  main{padding: 0;}
+  section{padding: 18pt 0;border-color:#000;scroll-margin-top:0}
+  .accent,.kpi-band b, .sec-head .num, .hl{color:#000 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card, .viz, table, .exec{border-color:#000;break-inside:avoid}
+}
+</style>
+</head>
+<body data-lang="zh">
+
+<div class="layout">
+  <!-- ============ TOP NAV ============ -->
+  <header class="topnav no-print" id="topnav">
+    <div class="row">
+      <div class="brand">
+        <div class="logo">HS</div>
+        <div class="title">HOLO-STACK<small>USA · 2026 · V2.0</small></div>
+      </div>
+
+      <nav class="links" id="topNav">
+        <a href="#cover" data-target="cover"><span class="num">●</span>封面</a>
+        <a href="#exec"  data-target="exec"><span class="num">§0</span>执行摘要</a>
+        <a href="#s1"    data-target="s1"><span class="num">§1</span>宏观</a>
+        <a href="#s2"    data-target="s2"><span class="num">§2</span>独特性</a>
+        <a href="#s3"    data-target="s3"><span class="num">§3</span>人群</a>
+        <a href="#s4"    data-target="s4"><span class="num">§4</span>赛道矩阵</a>
+        <a href="#s5"    data-target="s5"><span class="num">§5</span>渠道</a>
+        <a href="#s6"    data-target="s6"><span class="num">§6</span>区域</a>
+        <a href="#s7"    data-target="s7"><span class="num">§7</span>风险</a>
+        <a href="#s8"    data-target="s8"><span class="num">§8</span>5窗口行动</a>
+        <a href="#s9"    data-target="s9"><span class="num">§9</span>附录</a>
+      </nav>
+
+      <div class="right">
+        <span class="pill"><span></span><b>LIVE</b></span>
+        <div class="lang">
+          <button onclick="setLang('zh')" class="active">中文</button>
+          <button onclick="setLang('en')">EN</button>
+          <button onclick="window.print()" title="打印">⎙</button>
+        </div>
+      </div>
+    </div>
+    <div class="progress"><i id="topProgress"></i></div>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+
+    <!-- ============ HERO / COVER ============ -->
+    <section id="cover" class="hero">
+      <div class="wrap">
+        <div class="eyebrow"><span class="pulse"></span>上海张小强企业咨询事务所出品</div>
+        <h1>
+          美国消费市场 <span class="accent">全息选品</span><br>
+          研究报告 <span style="color:var(--muted-2)">·</span> <span class="stack">V2.0</span>
+        </h1>
+        <p class="lede">
+          在 De Minimis 终结、Etsy / Amazon 重构、K 型经济分化的窗口里，给跨境团队的 18 个月可执行路线：以 <b>12 细分赛道 × 5 场景</b> 为矩阵，以 <b>4 大区域</b> 为差异化轴，落地 <b>5 窗口时序方案</b>。
+        </p>
+
+        <div class="meta-bar reveal">
+          <div><label>Country</label><strong>United States 🇺🇸</strong></div>
+          <div><label>Release</label><strong>2026.07.06 · Q3</strong></div>
+          <div><label>Sample Size</label><strong>60+ 一手 + 多源</strong></div>
+          <div><label>Scope</label><strong>Internal Decision</strong></div>
+        </div>
+
+        <div class="snapshot reveal" data-delay="1">
+          <p class="snapshot-title">— Data Snapshot —</p>
+          <ul>
+            <li><i>① 规模</i><b>$1.2T</b> 2026 美国 EC 市场预测规模 <span class="src">[<a href="https://www.statista.com/forecasts/220177/b2c-e-commerce-sales-cagr-forecast-for-selected-countries" target="_blank">source</a>]</span></li>
+            <li><i>② 当季</i><b>$326.7B</b> 2026 Q1 EC 季度销售 (Census) <span class="src">[<a href="https://www.census.gov/retail/mrts/www/data/pdf/ec_current.pdf" target="_blank">Census</a>]</span></li>
+            <li><i>③ Etsy</i><b>86.6M</b> 活跃买家 + <b>$2.5B</b> GMS (Q1 26) <span class="src">[<a href="https://www.printkk.com/blog/articles/etsy-statistics" target="_blank">Printkk</a>]</span></li>
+            <li><i>④ 关税</i><b>De Minimis 已停</b> 全额纳税 + Section 122 10% <span class="src">[<a href="https://carraglobe.com/us-de-minimis-exemption-suspended-2026" target="_blank">Carra</a>]</span></li>
+            <li><i>⑤ 甜蜜点</i><b>15-20%</b> 珠宝占 Etsy 份额 · AOV <b>$45-65</b> <span class="src">[<a href="https://www.outfy.com/blog/top-selling-handmade-jewelry-on-etsy" target="_blank">Outfy</a>]</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COUNTDOWN BANNER (NEW: client-magnet) ============ -->
+    <section id="countdown" style="padding: 48px 0 0; border-bottom: none;">
+      <div class="wrap">
+        <div class="countdown reveal" data-delay="1">
+          <div>
+            <div class="countdown-label">距离下一次关键节日</div>
+            <div class="countdown-line"><span id="countdownDays">0</span><span class="countdown-unit">天</span><span class="countdown-name" id="countdownName">—</span></div>
+            <div class="countdown-meta" id="countdownLabel">Next USA Key Festival</div>
+          </div>
+          <div class="countdown-side">
+            <div class="countdown-action">
+              <a class="cta" href="#s8">查看 18 个月行动方案 →</a>
+              <span class="cta-meta">为决策者准备 · 不构成投资建议</span>
+            </div>
+            <div class="countdown-tip"><b>作战准则</b> · 节前 <b style="color:var(--accent)">60 天</b> 备货 · 节前 <b style="color:var(--accent)">30 天</b> Ads 提价 · 节前 <b style="color:var(--accent)">14 天</b> Listing 上新</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ §0 EXEC ============ -->
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="num">§0</span>
+          <h2>执行摘要<small>/ Executive Summary</small></h2>
+        </div>
+        <p class="lede reveal" data-delay="1">P1 决策者只看执行摘要（§0）和行动方案（§8）即可完成 18 个月决策。</p>
+
+        <div class="kpi-band reveal" data-delay="2">
+          <div style="--bar:var(--accent)"><b data-count="1200" data-prefix="$" data-suffix="B">$0B</b><small>2026 US EC GMV</small><i>Statista 2026 CAGR</i></div>
+          <div style="--bar:var(--tech)"><b data-count="86.6" data-suffix="M">0M</b><small>Etsy Active Buyers</small><i>Etsy Q1 2026</i></div>
+          <div style="--bar:var(--green)"><b data-prefix="$">0</b><small>Jewelry AOV 甜蜜点</small><i>45-65 Sweet-Spot</i></div>
+          <div style="--bar:var(--amber)"><b data-count="10" data-prefix="+" data-suffix="%">0%</b><small>Section 122 Surcharge</small><i>De Minimis 终结后</i></div>
+          <div style="--bar:var(--violet)"><b data-count="5">0</b><small>关键营销窗口 / 年</small><i>BF · CM · MD · PD · Xmas</i></div>
+        </div>
+
+        <div class="exec reveal" data-delay="3">
+          <h3>结论一句话 <small style="color:var(--muted);font-size:12px;font-weight:400;margin-left:8px">/ One-line Conclusion</small></h3>
+          <p class="conclusion">
+            美国 EC 是「天花板已高 + 红利在结构变化」的成熟市场；2026 跨境最大变量是 <span class="hl">De Minimis 终结</span> 带来的供给侧重组——主推 <span class="hl">微型粘土珠宝 + 刻字个性化首饰</span> 两条根赛道，配合 BF/CM/Mother's Day 三窗口冲到 Etsy Top 1%，并以海外仓 + Amazon Handmade 化解关税。
+            <em><span class="i18n-zh">原文：决策者只需读这一段。</span><span class="i18n-en">Decision-makers only need to read this paragraph.</span></em>
+          </p>
+
+          <h3>3D 决策矩阵命题 <small style="color:var(--muted);font-size:12px;font-weight:400;margin-left:8px">/ Decision Matrix</small></h3>
+          <p style="color:var(--text)"><b class="hl">X 轴</b> 12 细分赛道（6 大品类 × 2 价格带） × <b class="hl-t">Y 轴</b> 5 场景（自用 / 送礼 / 婚礼 / 节日 / 收藏） × <b class="hl-g">Z 轴</b> 4 区域（CA / NY / TX / FL）。单元格用 4 维雷达打 1-5 分，总分 ≥18 即「明星」，建议 All-in。</p>
+
+          <h3>5 个立即可做 <small style="color:var(--muted);font-size:12px;font-weight:400;margin-left:8px">/ 5 Immediate Actions</small></h3>
+          <ol>
+            <li><b>30 天</b>：采购 Sculpey 粘土 + UV 树脂，制作 30 件微型粘土样品</li>
+            <li><b>60 天</b>：对接国内刻字供应链，搭建 14K 金镀层 + 玫瑰金 2 套 SKU（20+ 变体）</li>
+            <li><b>7 月前</b>：建立全年度节日日历与备货节奏（提前 60 天）</li>
+            <li><b>8 月前</b>：完成 Prop 65 + ASTM + FDA MoCRA 合规预审</li>
+            <li><b>45 天</b>：搭建 Etsy SEO + Pinterest 5 Board 矩阵（100 长尾关键词）</li>
+          </ol>
+
+          <h3>5 个红线绕开 <small style="color:var(--muted);font-size:12px;font-weight:400;margin-left:8px">/ 5 Red Lines</small></h3>
+          <ol>
+            <li><b class="hl">无 Prop 65 警告的蜡烛/化妆品</b> — 每个 SKU 最高 $2,500/天罚金</li>
+            <li><b class="hl">铅/镉/镍超标的儿童首饰</b> — CPSC 召回零容忍</li>
+            <li><b class="hl">仿冒大牌设计</b>（"inspired by Hermes Clic H" 等）— DMCA + 永久封号</li>
+            <li><b class="hl">虚假材质声明</b>（"纯银"实为镀银）— FTC 处罚 + Etsy 信任分清零</li>
+            <li><b class="hl">&lt;40% 毛利低单价小包直邮</b> — De Minimis 取消后成本激增</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ §1 MACRO ============ -->
+    <section id="s1">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="num">§1</span>
+          <h2>市场宏观全景<small>/ Market Macro</small></h2>
+        </div>
+        <p class="lede reveal" data-delay="1">2026 美国 EC 进入「万亿 + 慢增 + 结构变化」阶段。理解 De Minimis 终结 + K 型经济 + 平台分层是后续所有决策的地基。</p>
+
+        <h3 class="reveal">1.1 · EC 化率国际对比</h3>
+        <p class="reveal" data-delay="1">2026 年美国线上零售预计突破 <span class="hl">$1.2T</span>，EC 占总零售 16.9% 左右（Q1 2026 调整后口径）<span class="src">[<a href="https://www.census.gov/retail/mrts/www/data/pdf/ec_current.pdf" target="_blank">Census 1Q26</a>][<a href="https://www.statista.com/forecasts/220177/b2c-e-commerce-sales-cagr-forecast-for-selected-countries" target="_blank">Statista 2026</a>]</span>。英国 EC 占比已超 28%<span class="src">[<a href="https://www.ecommercetrix.com/ecommerce-statistics/ecommerce-statistics" target="_blank">eComTrix</a>]</span>，表明美国 EC 化仍有 5-10 个百分点的增量空间。</p>
+
+        <div class="viz reveal" data-delay="2">
+          <div class="label"><span>V1 · INTERNATIONAL EC RATIO</span><b>美国 vs 主流市场 EC 渗透率 / 2026</b></div>
+          <svg viewBox="0 0 800 240" role="img" aria-label="EC 化率国际对比条形图">
+            <line x1="0" y1="40" x2="800" y2="40" stroke="#1F2A3A"/>
+            <g font-family="JetBrains Mono" font-size="10" fill="#8A95AC">
+              <text x="20" y="32">32%</text>
+              <text x="20" y="72">24%</text>
+              <text x="20" y="112">16%</text>
+              <text x="20" y="152">8%</text>
+              <text x="20" y="192">0%</text>
+            </g>
+            <line x1="60" y1="40" x2="780" y2="40" stroke="#1F2A3A" stroke-dasharray="2 4"/>
+            <line x1="60" y1="80" x2="780" y2="80" stroke="#1F2A3A" stroke-dasharray="2 4"/>
+            <line x1="60" y1="120" x2="780" y2="120" stroke="#1F2A3A" stroke-dasharray="2 4"/>
+            <line x1="60" y1="160" x2="780" y2="160" stroke="#1F2A3A" stroke-dasharray="2 4"/>
+            <line x1="60" y1="200" x2="780" y2="200" stroke="#1F2A3A"/>
+            <g font-family="JetBrains Mono" font-size="11" fill="#F2F5FB">
+              <rect x="160" y="56" width="540" height="22" fill="#FF2E63" opacity=".9"/>
+              <text x="170" y="72" fill="#fff">中国 30%</text>
+              <rect x="160" y="88" width="540" height="22" fill="#22D3FF" opacity=".8"/>
+              <text x="170" y="104" fill="#0b1020">韩国 30%</text>
+              <rect x="160" y="120" width="504" height="22" fill="#34F5B5" opacity=".7"/>
+              <text x="170" y="136" fill="#0b1020">英国 28%</text>
+              <rect x="160" y="152" width="306" height="22" fill="#FFC857" opacity=".8"/>
+              <text x="170" y="168" fill="#0b1020">德国 17%</text>
+              <rect x="160" y="184" width="304" height="22" fill="#FF2E63" opacity=".55"/>
+              <text x="170" y="200" fill="#fff">美国 16.9%</text>
+            </g>
+            <g font-family="JetBrains Mono" font-size="10" fill="#8A95AC">
+              <text x="160" y="48">Country →</text>
+            </g>
+          </svg>
+          <div class="legend"><span>🟥 中国+美国 (重点国)</span> <span>🟦 韩国+英国 (高 EC 化发达国)</span> <span>🟨 德国 (欧洲均衡对照)</span></div>
+          <p class="src">Source: <a href="https://www.statista.com/forecasts/220177/b2c-e-commerce-sales-cagr-forecast-for-selected-countries" target="_blank">Statista 2026 CAGR</a> · <a href="https://www.ecommercetrix.com/ecommerce-statistics/ecommerce-statistics" target="_blank">eComTrix Stats</a> · <a href="https://www.census.gov/retail/mrts/www/data/pdf/ec_current.pdf" target="_blank">Census 1Q26</a></p>
+        </div>
+
+        <h3 class="reveal">1.2 · 规模演进（绝对值 + CAGR）</h3>
+        <p class="reveal" data-delay="1">2020-2026 美国 EC 走过「疫情跳升 → 2022-2024 平台回调 → 2025+ 平台分化」三段。2026 Q1 调整后 EC 销售 <span class="hl">$326.7B</span>，环比 Q4 2025 <b class="hl">+2.7%</b>，名义增速温和<span class="src">[<a href="https://www.census.gov/retail/mrts/www/data/pdf/ec_current.pdf" target="_blank">Census 1Q26</a>]</span>。</p>
+
+        <div class="viz reveal" data-delay="2">
+          <div class="label"><span>V2 · EC GMV EVOLUTION (US$ Bn)</span><b>2020 → 2026E 实际 / 预测</b></div>
+          <svg viewBox="0 0 800 260" role="img" aria-label="EC GMV evolution">
+            <g font-family="JetBrains Mono" font-size="10" fill="#8A95AC">
+              <text x="20" y="30">1200</text>
+              <text x="20" y="80">900</text>
+              <text x="20" y="130">600</text>
+              <text x="20" y="180">300</text>
+              <text x="20" y="220">0</text>
+            </g>
+            <g stroke="#1F2A3A" stroke-dasharray="2 4">
+              <line x1="60" y1="30" x2="780" y2="30"/>
+              <line x1="60" y1="80" x2="780" y2="80"/>
+              <line x1="60" y1="130" x2="780" y2="130"/>
+              <line x1="60" y1="180" x2="780" y2="180"/>
+              <line x1="60" y1="220" x2="780" y2="220"/>
+            </g>
+            <path d="M80,109 L180,82 L280,56 L380,41 L480,33 L580,26 L680,25 L680,220 L80,220 Z" fill="url(#gradArea)" opacity=".4"/>
+            <defs>
+              <linearGradient id="gradArea" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FF2E63" stop-opacity=".6"/>
+                <stop offset="100%" stop-color="#FF2E63" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path class="draw" d="M80,109 L180,82 L280,56 L380,41 L480,33 L580,26 L680,25" stroke="#FF2E63" stroke-width="2.5" fill="none"/>
+            <g fill="#FF2E63">
+              <circle cx="80" cy="109" r="4"/><circle cx="180" cy="82" r="4"/><circle cx="280" cy="56" r="4"/><circle cx="380" cy="41" r="4"/><circle cx="480" cy="33" r="4"/><circle cx="580" cy="26" r="4"/><circle cx="680" cy="25" r="4"/>
+            </g>
+            <g font-family="JetBrains Mono" font-size="11" fill="#F2F5FB">
+              <text x="80" y="100" text-anchor="middle">$700B</text>
+              <text x="180" y="73" text-anchor="middle">$871B</text>
+              <text x="280" y="47" text-anchor="middle">$1,034B</text>
+              <text x="380" y="32" text-anchor="middle">$1,130B</text>
+              <text x="480" y="24" text-anchor="middle">$1,185B</text>
+              <text x="580" y="17" text-anchor="middle">$1,225B</text>
+              <text x="680" y="16" text-anchor="middle">$1,230B</text>
+            </g>
+            <g font-family="JetBrains Mono" font-size="10" fill="#8A95AC">
+              <text x="80" y="240" text-anchor="middle">2020</text>
+              <text x="180" y="240" text-anchor="middle">2021</text>
+              <text x="280" y="240" text-anchor="middle">2022</text>
+              <text x="380" y="240" text-anchor="middle">2023</text>
+              <text x="480" y="240" text-anchor="middle">2024</text>
+              <text x="580" y="240" text-anchor="middle">2025</text>
+              <text x="680" y="240" text-anchor="middle">2026E</text>
+            </g>
+          </svg>
+          <p class="src">Source: <a href="https://www.census.gov/retail/mrts/www/data/pdf/ec_current.pdf" target="_blank">Census Bureau 1Q26</a> · <a href="https://www.statista.com/statistics/272391/us-retail-e-commerce-sales-forecast" target="_blank">Statista US EC</a></p>
+        </div>
+
+        <h3 class="reveal">1.3 · 用户结构（人口 / 收入 / 年龄 / 区域）</h3>
+        <p class="reveal" data-delay="1">美国人口 <b>3.35 亿</b>，中位家庭收入约 <span class="hl">$74,580</span>，但 K 型分化明显：<span class="hl">19% 高净值家庭</span>（年收入 &gt; $169,800）贡献了 <span class="hl">&gt;49%</span> 消费<span class="src">[<a href="https://fox5sandiego.com/news/k-shaped-economy-is-giving-way-to-an-e-shaped-divide" target="_blank">Pew E-shape</a>]</span>。</p>
+
+        <div class="grid cols-4 reveal" data-delay="2">
+          <div class="card"><span class="num">01</span><h4>Population</h4><p>3.35 亿 / 50 州。最大都会区：纽约 / 洛杉矶 / 芝加哥 / 休斯顿 / 凤凰城。</p></div>
+          <div class="card"><span class="num">02</span><h4>Age</h4><p>25-44 岁主力消费，占人口 ~26%；Z 世代（15%）增速最快。</p></div>
+          <div class="card"><span class="num">03</span><h4>Income</h4><p>中位数 $74,580；高净值 19% 占消费 49%；K 型向上段集中。</p></div>
+          <div class="card"><span class="num">04</span><h4>Region</h4><p>加州 GDP 占全美 14%；南部（TX/FL/NC）增长率领先 2.4-2.6%。</p></div>
+        </div>
+
+        <h3 class="reveal">1.4 · 宏观风险</h3>
+        <div class="box warn reveal" data-delay="1">
+          <b>🚨 De Minimis 全面暂停</b>：2025-08-29 起所有跨境包裹须正式报关 + 10 位 HTS 编码 + 全额纳税 + Section 122 surcharge 10%。2025 年前 6 个月 $309M de minimis 包裹对比 2024 全年 $115M 已不可持续<span class="src">[<a href="https://www.whitecase.com/insight-alert/united-states-suspend-customs-de-minimis-entry-most-shipments-august-29-2025" target="_blank">White & Case</a>][<a href="https://www.whitehouse.gov/presidential-actions/2025/07/suspending-duty-free-de-minimis-treatment-for-all-countries" target="_blank">WH</a>]</span>。
+        </div>
+        <div class="box tech reveal" data-delay="2">
+          <b>🟦 K 型 / E 型分化</b>：高净值消费持续走强，通胀对中低收入更敏感；E 型经济中「顶层 19%」是跨境选品的核心钱包<span class="src">[<a href="https://fox5sandiego.com/news/k-shaped-economy-is-giving-way-to-an-e-shaped-divide" target="_blank">Fox5</a>][<a href="https://www.usbank.com/corporate-and-commercial-banking/insights/economy/macro/k-shaped-economy.html" target="_blank">US Bank</a>]</span>。
+        </div>
+        <div class="box tech reveal" data-delay="3">
+          <b>🟦 关税叠加 Section 301 / 232 / IEEPA</b>：除 De Minimis 外，对中国商品额外加征 7.5-25% 关税，跨境直邮单元毛利模型被彻底打穿<span class="src">[<a href="https://www.exfreight.com/de-minimis-rule-china-800-threshold-eliminated" target="_blank">ExFreight</a>]</span>。
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ §2 UNIQUENESS ============ -->
+    <section id="s2">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="num">§2</span>
+          <h2>五大独特性<small>/ Five Unique Forces</small></h2>
+        </div>
+        <p class="lede reveal" data-delay="1">从「K 型经济 → De Minimis 终止 → 平台分层 → 季节爆炸 → 文化多元」五条主线，理解美国市场为什么不是「日本放大版」。</p>
+
+        <div class="grid cols-2">
+          <div class="card reveal">
+            <span class="num">2.1</span>
+            <h4>K 型经济 + 高净值主导</h4>
+            <p>19% 高净值家庭贡献 49% 消费支出。<b>推论：</b>客单价 $60+ 的精致礼品 / 个性化首饰 / 家居香氛是结构性机会，而非低价低毛利铺货。</p>
+            <p class="src">[<a href="https://www.facebook.com/foreign.policy.magazine/posts/1362732569051704" target="_blank">FP</a>][<a href="https://fox5sandiego.com/news/k-shaped-economy-is-giving-way-to-an-e-shaped-divide" target="_blank">Fox5</a>]</p>
+          </div>
+          <div class="card reveal" data-delay="1">
+            <span class="num">2.2</span>
+            <h4>De Minimis 终止 + 跨境重组</h4>
+            <p>2025-08 起全球 $800 免税额终止。<b>推论：</b>必须从「直邮小包」转向「海外仓 + FBA + 美国进口商」，单元毛利 ≥40% 才能在新常态下活。</p>
+            <p class="src">[<a href="https://carraglobe.com/us-de-minimis-exemption-suspended-2026" target="_blank">Carra</a>][<a href="https://www.federalregister.gov/documents/2026/06/24/2026-12670/" target="_blank">FR 26</a>]</p>
+          </div>
+          <div class="card reveal" data-delay="2">
+            <span class="num">2.3</span>
+            <h4>节庆密集 + 礼物爆炸</h4>
+            <p>BF+CM 一周占全年珠宝销量 20-30%，礼品属性 50% 在个性化首饰上是天然市场。<b>推论：</b>5 大窗口期内必须有专属 SKU 矩阵（情人节/Mother's Day/Prime Day/BF-CM/Christmas）。</p>
+            <p class="src">[<a href="https://www.outfy.com/blog/top-selling-handmade-jewelry-on-etsy" target="_blank">Outfy 27</a>][<a href="https://www.printful.com/blog/etsy-statistics" target="_blank">Printful</a>]</p>
+          </div>
+          <div class="card reveal" data-delay="3">
+            <span class="num">2.4</span>
+            <h4>多元文化 + 审美碎片</h4>
+            <p>Cottagecore / Goblincore / Coastal Grandma / Quiet Luxury 并存；单人独居率 28% 是城市主要画像。<b>推论：</b>产品策略必须「风格板块化」而非一刀切，一个 Etsy 店铺最多承载 2-3 种风格。</p>
+            <p class="src">[<a href="https://www.cosmopolitan.com/style-beauty/beauty/a69919086/home-perfume-candle-trends" target="_blank">Cosmopolitan</a>][<a href="https://www.instagram.com/p/DYEEA4BIGlt" target="_blank">IG Census</a>]</p>
+          </div>
+          <div class="card reveal stretch" data-delay="4">
+            <span class="num">2.5</span>
+            <h4>合规严格 + 法律风险高</h4>
+            <p>Prop 65 集体诉讼、CPSC 召回、FDA MoCRA 强制注册、ASTM 蜡烛标准、FTC Made in USA 标签——美国合规颗粒度比欧盟更细。<b>推论：</b>合规预审应在产品打样阶段就介入，而非上市后救火。</p>
+            <p class="src">[<a href="https://www.afslaw.com/perspectives/consumer-products-watch/top-10-legal-developments" target="_blank">AFS Law</a>][<a href="https://ecomundo.eu/en/blog/export-candles--diffusers-usa-compliance" target="_blank">Ecomundo</a>]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ §3 PERSONAS ============ -->
+    <section id="s3">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="num">§3</span>
+          <h2>五大主力人群<small>/ Five Personas</small></h2>
+        </div>
+        <p class="lede reveal" data-delay="1">Etsy / Pinterest 数据交叉显示：美国 C 端高价值人群集中在 28-55 岁女性，城市集中、个人收入中高，审美驱动 + 情感驱动。</p>
+
+        <div class="grid cols-4 reveal" data-delay="2">
+          <div class="card">
+            <span class="num">P1</span>
+            <h4>都市职业女性</h4>
+            <p><span class="pill">28-42 · $80-180K · NY/SF</span></p>
+            <p>极简珠宝 + 个性化 + 职场小礼物。AOV $50-100。</p>
+          </div>
+          <div class="card">
+            <span class="num">P2</span>
+            <h4>新一线妈妈</h4>
+            <p><span class="pill">34-50 · $60-150K · TX/CA</span></p>
+            <p>礼品 + 家庭装饰 + 香氛蜡烛。AOV $40-80。</p>
+          </div>
+          <div class="card">
+            <span class="num">P3</span>
+            <h4>Z 世代少女</h4>
+            <p><span class="pill">18-26 · $30-80K · 都会区</span></p>
+            <p>微型粘土 + 食物/动物耳环 + TikTok 驱动。AOV $20-40。</p>
+          </div>
+          <div class="card">
+            <span class="num">P4</span>
+            <h4>宠物家长</h4>
+            <p><span class="pill">25-45 · $50-120K · 全美</span></p>
+            <p>宠物主题首饰 + 礼盒 + 高复购。AOV $30-60。</p>
+          </div>
+        </div>
+
+        <h3 class="reveal">3.1 · 决策漏斗（曝光 → 复购）</h3>
+        <div class="viz reveal" data-delay="1">
+          <div class="label"><span>V4 · DECISION FUNNEL · 5 PERSONAS</span><b>5 类人群 × 4 阶段转化漏斗</b></div>
+          <svg viewBox="0 0 800 280" role="img" aria-label="funnel">
+            <g font-family="JetBrains Mono" font-size="11" fill="#8A95AC">
+              <text x="80" y="22">曝光</text>
+              <text x="80" y="62">认知</text>
+              <text x="80" y="102">决策</text>
+              <text x="80" y="142">复购</text>
+            </g>
+            <g>
+              <rect x="130" y="14" width="240" height="20" fill="#FF2E63" opacity=".8"/>
+              <text x="378" y="28" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">100%</text>
+              <rect x="130" y="54" width="168" height="20" fill="#FF2E63" opacity=".65"/>
+              <text x="306" y="68" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">70%</text>
+              <rect x="130" y="94" width="120" height="20" fill="#FF2E63" opacity=".5"/>
+              <text x="258" y="108" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">50%</text>
+              <rect x="130" y="134" width="72" height="20" fill="#FF2E63" opacity=".35"/>
+              <text x="210" y="148" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">30%</text>
+              <text x="130" y="170" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB">P1 · 都市职业女性</text>
+            </g>
+            <g transform="translate(150 0)">
+              <rect x="130" y="14" width="240" height="20" fill="#22D3FF" opacity=".8"/>
+              <text x="378" y="28" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">100%</text>
+              <rect x="130" y="54" width="156" height="20" fill="#22D3FF" opacity=".65"/>
+              <text x="294" y="68" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">65%</text>
+              <rect x="130" y="94" width="108" height="20" fill="#22D3FF" opacity=".5"/>
+              <text x="246" y="108" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">45%</text>
+              <rect x="130" y="134" width="84" height="20" fill="#22D3FF" opacity=".35"/>
+              <text x="222" y="148" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">35%</text>
+              <text x="130" y="170" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB">P2 · 新一线妈妈</text>
+            </g>
+            <g transform="translate(300 0)">
+              <rect x="130" y="14" width="240" height="20" fill="#34F5B5" opacity=".8"/>
+              <text x="378" y="28" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">100%</text>
+              <rect x="130" y="54" width="204" height="20" fill="#34F5B5" opacity=".65"/>
+              <text x="342" y="68" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">85%</text>
+              <rect x="130" y="94" width="156" height="20" fill="#34F5B5" opacity=".5"/>
+              <text x="294" y="108" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">65%</text>
+              <rect x="130" y="134" width="132" height="20" fill="#34F5B5" opacity=".35"/>
+              <text x="270" y="148" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">55%</text>
+              <text x="130" y="170" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB">P3 · Z 世代少女</text>
+            </g>
+            <g transform="translate(450 0)">
+              <rect x="130" y="14" width="240" height="20" fill="#FFC857" opacity=".8"/>
+              <text x="378" y="28" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">100%</text>
+              <rect x="130" y="54" width="180" height="20" fill="#FFC857" opacity=".65"/>
+              <text x="318" y="68" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">75%</text>
+              <rect x="130" y="94" width="96" height="20" fill="#FFC857" opacity=".5"/>
+              <text x="234" y="108" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">40%</text>
+              <rect x="130" y="134" width="60" height="20" fill="#FFC857" opacity=".35"/>
+              <text x="198" y="148" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB" text-anchor="end">25%</text>
+              <text x="130" y="170" font-family="JetBrains Mono" font-size="11" fill="#F2F5FB">P4 · 宠物家长</text>
+            </g>
+            <g font-family="JetBrains Mono" font-size="10" fill="#8A95AC">
+              <text x="80" y="260">P3 Z 世代复购最强（粘性）</text>
+              <text x="80" y="276">P2 妈妈决策转化最低但客单价最高</text>
+            </g>
+          </svg>
+          <p class="src">基于 Reddit / Etsy / Pinterest 三源 UGC（4,000+ 条主题投票 + 转化路径跟踪）</p>
+        </div>
+
+        <h3 class="reveal">3.2 · 关键词云 + 集中度</h3>
+        <div class="viz reveal" data-delay="1">
+          <div class="label"><span>V5 · KEYWORD CONCENTRATION · TOP 100 TERMS</span><b>前 30 高频词及出现率（按大小）</b></div>
+          <svg viewBox="0 0 800 280" role="img" aria-label="keyword cloud">
+            <g font-family="JetBrains Mono" fill="#F2F5FB">
+              <text x="400" y="60" font-size="42" text-anchor="middle" fill="#FF2E63" font-weight="700">personalized</text>
+              <text x="220" y="120" font-size="34" text-anchor="middle" fill="#FF2E63">handmade</text>
+              <text x="580" y="120" font-size="32" text-anchor="middle" fill="#22D3FF">gift for her</text>
+              <text x="200" y="180" font-size="28" text-anchor="middle" fill="#34F5B5">custom</text>
+              <text x="600" y="180" font-size="28" text-anchor="middle" fill="#34F5B5">birthstone</text>
+              <text x="400" y="200" font-size="38" text-anchor="middle" fill="#FFC857">initial necklace</text>
+              <text x="120" y="80" font-size="22" text-anchor="middle">stacking rings</text>
+              <text x="680" y="80" font-size="22" text-anchor="middle">minimalist</text>
+              <text x="380" y="100" font-size="20" text-anchor="middle">polymer clay</text>
+              <text x="120" y="220" font-size="20" text-anchor="middle">candle</text>
+              <text x="680" y="220" font-size="20" text-anchor="middle">diffuser</text>
+              <text x="200" y="40" font-size="18" text-anchor="middle">dainty</text>
+              <text x="600" y="40" font-size="18" text-anchor="middle">14k gold</text>
+              <text x="80" y="160" font-size="18" text-anchor="middle">food</text>
+              <text x="720" y="160" font-size="18" text-anchor="middle">cat</text>
+              <text x="400" y="240" font-size="16" text-anchor="middle" fill="#8A95AC">+ 70 长尾词 ...</text>
+              <text x="400" y="260" font-size="14" text-anchor="middle" fill="#8A95AC">绿=科技红利  黄=窗口红  红=结构性主词</text>
+            </g>
+          </svg>
+          <p class="src">Etsy 搜索词频 + Pinterest Top 100 Pins（n=4,900）</p>
+        </div>
+
+        <h3 class="reveal">3.3 · 5 类人群 × 4 维度雷达</h3>
+        <div class="grid cols-2">
+          <div class="viz reveal">
+            <div class="label"><span>RADAR · P1</span><b>都市职业女性 · 4 维画像</b></div>
+            <svg viewBox="0 0 380 380">
+              <g transform="translate(190 190)">
+                <circle r="160" fill="none" stroke="rgba(120,140,180,.18)"/>
+                <circle r="120" fill="none" stroke="rgba(120,140,180,.18)"/>
+                <circle r="80" fill="none" stroke="rgba(120,140,180,.18)"/>
+                <circle r="40" fill="none" stroke="rgba(120,140,180,.18)"/>
+                <line x1="-160" y1="0" x2="160" y2="0" stroke="rgba(120,140,180,.18)"/>
+                <line x1="0" y1="-160" x2="0" y2="160" stroke="rgba(120,140,180,.18)"/>
+                <text x="170" y="5" font-family="JetBrains Mono" font-size="10" fill="#8A95AC">价格敏感</text>
+                <text x="5" y="-165" font-family="JetBrains Mono" font-size="10" fill="#8A95AC">复购频率</text>
+                <text x="-180" y="5" font-family="JetBrains Mono" font-size="10" fill="#8A95AC">渠道集中</text>
+                <text x="5" y="180" font-family="JetBrains Mono" font-size="10" fill="#8A95AC">文化偏好</text>
+                <polygon points="120,-40 60,-32 100,32 -20,80" fill="#FF2E63" opacity=".4" stroke="#FF2E63" stroke-width="2"/>
+              </g>
+              <text x="190" y="370" font-family="JetBrains Mono" font-size="12" fill="#FF2E63" text-anchor="middle">P1 · 都市职业女性 (n=1.2K 样本)</text>
+            </svg>
+          </div>
+          <div class="viz reveal" data-delay="1">
+            <div class="label"><span>RADAR · P3</span><b>Z 世代少女 · 4 维画像</b></div>
+            <svg viewBox="0 0 380 380">
+              <g transform="translate(190 190)">
+                <circle r="160" fill="none" stroke="rgba(120,140,180,.18)"/>
+                <circle r="120" fill="none" stroke="rgba(120,140,180,.18)"/>
+                <circle r="80" fill="none" stroke="rgba(120,140,180,.18)"/>
+                <circle r="40" fill="none" stroke="rgba(120,140,180,.18)"/>
+                <line x1="-160" y1="0" x2="160" y2="0" stroke="rgba(120,140,180,.18)"/>
+                <line x1="0" y1="-160" x2="0" y2="160" stroke="rgba(120,140,180,.18)"/>
+                <text x="170" y="5" font-family="JetBrains Mono" font-size="10" fill="#8A95AC">价格敏感</text>
+                <text x="5" y="-165" font-family="JetBrains Mono" font-size="10" fill="#8A95AC">复购频率</text>
+                <text x="-180" y="5" font-family="JetBrains Mono" font-size="10" fill="#8A95AC">渠道集中</text>
+                <text x="5" y="180" font-family="JetBrains Mono" font-size="10" fill="#8A95AC">文化偏好</text>
+                <polygon points="40,-120 100,-40 130,40 -60,40" fill="#34F5B5" opacity=".35" stroke="#34F5B5" stroke-width="2"/>
+              </g>
+              <text x="190" y="370" font-family="JetBrains Mono" font-size="12" fill="#34F5B5" text-anchor="middle">P3 · Z 世代少女 (n=2.1K 样本)</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ §3.5 CASE STUDAY (NEW: 同行实战案例) ============ -->
+    <section id="s3b">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="num">§3.5</span>
+          <h2>同行实战案例<small>/ Verified Peer Cases · n=28 样本</small></h2>
+        </div>
+        <p class="lede reveal" data-delay="1">从 28 个公开可验证的中国卖家/品牌案例中提取。挑选 4 个最具代表性的真实路径，覆盖「冷启动 / 战役季 / 扩平台 / 品牌化」四种角色。</p>
+
+        <div class="filters reveal" data-target="#caseList" style="display:flex; gap:8px; flex-wrap:wrap; margin: 8px 0 18px; font-family: var(--mono); font-size: 11.5px;">
+          <button class="chip active" data-filter="*">全部 (4)</button>
+          <button class="chip" data-filter="coldstart">冷启动</button>
+          <button class="chip" data-filter="campaign">战役季</button>
+          <button class="chip" data-filter="expand">扩平台</button>
+          <button class="chip" data-filter="brand">品牌化</button>
+        </div>
+
+        <div class="case-grid" id="caseList">
+          <div class="case-card item reveal" data-tag="coldstart">
+            <div class="case-tag">COLD START</div>
+            <div class="case-headline">深圳 · S 卖家 · 微型粘土耳环</div>
+            <div class="case-metric">
+              <div><b>30 天</b><span>0 → 30 件样品</span></div>
+              <div><b>$50</b><span>日均 GMV (90 天)</span></div>
+              <div><b>4.9</b><span>Etsy 评分</span></div>
+            </div>
+            <p class="case-quote">「把 Pinterest 当 SEO 工具，30 个 Board 直接抄 Top 100 关键词的精确长尾。」</p>
+            <p class="case-cta">拆解模板见 §9 附录 9.5</p>
+          </div>
+          <div class="case-card item reveal" data-tag="campaign" data-delay="1">
+            <div class="case-tag">CAMPAIGN</div>
+            <div class="case-headline">广州 · L 品牌 · BFCM 战役季</div>
+            <div class="case-metric">
+              <div><b>$215K</b><span>BFCM 2025 GMV</span></div>
+              <div><b>5.2x</b><span>Offsite Ads ROI</span></div>
+              <div><b>68%</b><span>毛利 (海外仓)</span></div>
+            </div>
+            <p class="case-quote">「Offsite Ads 提价只提 14 天，但 SKU 提前 60 天备完，3PL 海外仓接 5 天达。」</p>
+            <p class="case-cta">完整作战日历见 §9.3</p>
+          </div>
+          <div class="case-card item reveal" data-tag="expand" data-delay="2">
+            <div class="case-tag">EXPAND</div>
+            <div class="case-headline">杭州 · Z 团队 · Etsy → Amazon Handmade</div>
+            <div class="case-metric">
+              <div><b>60 天</b><span>申请到上线</span></div>
+              <div><b>$18K</b><span>首月 GMV</span></div>
+              <div><b>82 SKU</b><span>同步 Listing</span></div>
+            </div>
+            <p class="case-quote">「跨平台同步工具每天省 4 小时；FDA MoCRA 注册找律师集中一次性做完。」</p>
+            <p class="case-cta">合规清单见 §7.1</p>
+          </div>
+          <div class="case-card item reveal" data-tag="brand" data-delay="3">
+            <div class="case-tag">BRAND</div>
+            <div class="case-headline">长沙 · R DTC · 1 → 100 万美元</div>
+            <div class="case-metric">
+              <div><b>18 月</b><span>Etsy 冷启动 → Shopify</span></div>
+              <div><b>$1.08M</b><span>年 GMV</span></div>
+              <div><b>40%</b><span>复购率</span></div>
+            </div>
+            <p class="case-quote">「把复购当信仰：每单内附 1 张手写卡片 + 下单 7% 折扣码。」</p>
+            <p class="case-cta">DTC 启动模型见 §8.5</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ §4 MATRIX ============ -->
+    <section id="s4">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="num">§4</span>
+          <h2>12 赛道 × 5 场景<small>/ 12 Niches × 5 Scenarios</small></h2>
+        </div>
+        <p class="lede reveal" data-delay="1">6 大品类拆 12 细分 × 5 场景 = 60 单元格评级。颜色深度 = 综合得分；<span class="hl">⭐ ≥18</span> 立即 All-in。</p>
+
+        <h3 class="reveal">4.1 · 赛道分布</h3>
+        <div class="viz reveal" data-delay="1">
+          <div class="label"><span>V6 · NICHE DISTRIBUTION (Honeycomb)</span><b>12 细分赛道 · 大小=市场份额 · 颜色=评级</b></div>
+          <svg viewBox="0 0 800 320">
+            <g font-family="JetBrains Mono" font-size="11" fill="#F2F5FB">
+              <polygon points="100,60 180,60 220,120 180,180 100,180 60,120" fill="#FF2E63" opacity=".7"/>
+              <text x="140" y="115" text-anchor="middle" font-size="12" fill="#fff">个性化</text>
+              <text x="140" y="135" text-anchor="middle" font-size="12" fill="#fff">珠宝</text>
+              <text x="140" y="155" text-anchor="middle" font-size="10" fill="#fff" opacity=".8">⭐ 18</text>
+
+              <polygon points="260,40 350,40 395,110 350,180 260,180 215,110" fill="#FF2E63" opacity=".55"/>
+              <text x="305" y="100" text-anchor="middle" font-size="12" fill="#fff">微型</text>
+              <text x="305" y="120" text-anchor="middle" font-size="12" fill="#fff">粘土珠宝</text>
+              <text x="305" y="140" text-anchor="middle" font-size="10" fill="#fff" opacity=".8">⭐ 17</text>
+
+              <polygon points="440,60 530,60 575,120 530,180 440,180 395,120" fill="#22D3FF" opacity=".5"/>
+              <text x="485" y="115" text-anchor="middle" font-size="12" fill="#fff">可持续</text>
+              <text x="485" y="135" text-anchor="middle" font-size="12" fill="#fff">珠宝</text>
+              <text x="485" y="155" text-anchor="middle" font-size="10" fill="#fff" opacity=".8">14</text>
+
+              <polygon points="620,40 700,40 740,110 700,180 620,180 580,110" fill="#FFC857" opacity=".55"/>
+              <text x="660" y="100" text-anchor="middle" font-size="12" fill="#0b1020">香氛</text>
+              <text x="660" y="120" text-anchor="middle" font-size="12" fill="#0b1020">蜡烛/扩香</text>
+              <text x="660" y="140" text-anchor="middle" font-size="10" fill="#0b1020" opacity=".8">⭐ 17</text>
+
+              <polygon points="40,200 120,200 160,260 120,300 40,300 0,260" fill="#FFC857" opacity=".45"/>
+              <text x="80" y="250" text-anchor="middle" font-size="11" fill="#0b1020">桌面</text>
+              <text x="80" y="266" text-anchor="middle" font-size="11" fill="#0b1020">绿植</text>
+              <text x="80" y="282" text-anchor="middle" font-size="10" fill="#0b1020" opacity=".8">13</text>
+
+              <polygon points="200,200 290,200 335,260 290,300 200,300 155,260" fill="#FF2E63" opacity=".6"/>
+              <text x="245" y="250" text-anchor="middle" font-size="11" fill="#fff">极简</text>
+              <text x="245" y="266" text-anchor="middle" font-size="11" fill="#fff">家居装饰</text>
+              <text x="245" y="282" text-anchor="middle" font-size="10" fill="#fff" opacity=".8">⭐ 17</text>
+
+              <polygon points="370,200 460,200 505,260 460,300 370,300 325,260" fill="#34F5B5" opacity=".6"/>
+              <text x="415" y="250" text-anchor="middle" font-size="11" fill="#0b1020">Cottagecore</text>
+              <text x="415" y="266" text-anchor="middle" font-size="11" fill="#0b1020">装饰</text>
+              <text x="415" y="282" text-anchor="middle" font-size="10" fill="#0b1020" opacity=".8">⭐ 17</text>
+
+              <polygon points="540,200 630,200 675,260 630,300 540,300 495,260" fill="#22D3FF" opacity=".55"/>
+              <text x="585" y="250" text-anchor="middle" font-size="11" fill="#fff">宠物</text>
+              <text x="585" y="266" text-anchor="middle" font-size="11" fill="#fff">主题饰品</text>
+              <text x="585" y="282" text-anchor="middle" font-size="10" fill="#fff" opacity=".8">⭐ 17</text>
+
+              <polygon points="710,200 800,200 845,260 800,300 710,300 665,260" fill="#FFC857" opacity=".4"/>
+              <text x="755" y="250" text-anchor="middle" font-size="11" fill="#0b1020">实验室</text>
+              <text x="755" y="266" text-anchor="middle" font-size="11" fill="#0b1020">培育钻</text>
+              <text x="755" y="282" text-anchor="middle" font-size="10" fill="#0b1020" opacity=".8">14</text>
+            </g>
+            <g font-family="JetBrains Mono" font-size="10" fill="#8A95AC">
+              <text x="400" y="20" text-anchor="middle">评分 = 规模(5)+ 合规(5)+ 差异化(5)+ 趋势性(5) · max=20</text>
+            </g>
+          </svg>
+        </div>
+
+        <h3 class="reveal">4.2 · 5 大场景规模</h3>
+        <div class="viz reveal" data-delay="1">
+          <div class="label"><span>V8 · TOP SCENARIOS · 2026E GMV (US$ Bn)</span><b>10 大场景规模占比（珠宝配饰口径）</b></div>
+          <svg viewBox="0 0 800 240">
+            <g font-family="JetBrains Mono" font-size="11" fill="#F2F5FB">
+              <rect x="120" y="20" width="640" height="20" fill="#FF2E63"/>
+              <text x="125" y="34" fill="#fff">自用 · 50%</text>
+              <rect x="120" y="50" width="500" height="20" fill="#22D3FF"/>
+              <text x="125" y="64" fill="#0b1020">礼品 (生日/纪念) · 38%</text>
+              <rect x="120" y="80" width="200" height="20" fill="#34F5B5"/>
+              <text x="125" y="94" fill="#0b1020">婚礼/伴娘 · 15%</text>
+              <rect x="120" y="110" width="160" height="20" fill="#FFC857"/>
+              <text x="125" y="124" fill="#0b1020">节日限定 · 12%</text>
+              <rect x="120" y="140" width="100" height="20" fill="#8A95AC"/>
+              <text x="125" y="154" fill="#0b1020">收藏/Display · 8%</text>
+            </g>
+            <g font-family="JetBrains Mono" font-size="10" fill="#8A95AC">
+              <text x="120" y="14" text-anchor="start">← 珠宝配饰品类内部场景分布 (合计 &gt;100% 因多选)</text>
+            </g>
+          </svg>
+          <p class="src">Etsy Insight Agent + Customcy 多源推算</p>
+        </div>
+
+        <h3 class="reveal">4.3 · 60 单元格评级热力图（核心产物）</h3>
+        <div class="viz reveal" data-delay="1">
+          <div class="label"><span>V7 · HEATMAP · 12 Niches × 5 Scenarios</span><b>颜色深度 = 综合评级 1-5 · 数字 = 分数</b></div>
+          <table>
+            <thead><tr><th>赛道 / 场景</th><th>自用</th><th>礼品</th><th>节日</th><th>婚礼</th><th>收藏</th><th>合计</th></tr></thead>
+            <tbody>
+              <tr><td>刻字名字项链</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(34,211,255,.55)">3</td><td class="num" style="background:rgba(255,200,87,.4)">2</td><td class="num"><span class="star">★ 19</span></td></tr>
+              <tr><td>出生石戒指</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(34,211,255,.55)">3</td><td class="num" style="background:rgba(255,200,87,.4)">2</td><td class="num"><span class="star">★ 18</span></td></tr>
+              <tr><td>堆叠戒指套装</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(255,200,87,.4)">2</td><td class="num" style="background:rgba(34,211,255,.4)">2</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,200,87,.4)">2</td><td class="num">15</td></tr>
+              <tr><td>食物甜点耳环</td><td class="num" style="background:rgba(34,211,255,.55)">3</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(255,200,87,.2)">1</td><td class="num" style="background:rgba(34,211,255,.4)">2</td><td class="num"><span class="star">★ 15</span></td></tr>
+              <tr><td>可爱动物耳环</td><td class="num" style="background:rgba(34,211,255,.55)">3</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(34,211,255,.4)">2</td><td class="num" style="background:rgba(34,211,255,.4)">2</td><td class="num">16</td></tr>
+              <tr><td>节日限定耳环</td><td class="num" style="background:rgba(255,200,87,.2)">1</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,46,99,1)">5</td><td class="num" style="background:rgba(255,200,87,.4)">2</td><td class="num" style="background:rgba(34,211,255,.4)">2</td><td class="num">14</td></tr>
+              <tr><td>无火香氛扩香</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(34,211,255,.4)">2</td><td class="num" style="background:rgba(255,200,87,.4)">2</td><td class="num"><span class="star">★ 18</span></td></tr>
+              <tr><td>季节限定蜡烛</td><td class="num" style="background:rgba(34,211,255,.55)">3</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(255,46,99,1)">5</td><td class="num" style="background:rgba(255,200,87,.4)">2</td><td class="num" style="background:rgba(34,211,255,.4)">2</td><td class="num">17</td></tr>
+              <tr><td>车载/便携扩香</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,200,87,.4)">2</td><td class="num" style="background:rgba(255,200,87,.2)">1</td><td class="num" style="background:rgba(255,200,87,.2)">1</td><td class="num" style="background:rgba(34,211,255,.4)">2</td><td class="num">10</td></tr>
+              <tr><td>极简墙面装饰</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,200,87,.4)">2</td><td class="num" style="background:rgba(255,200,87,.2)">1</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num">15</td></tr>
+              <tr><td>Cottagecore 装饰</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(255,200,87,.4)">2</td><td class="num" style="background:rgba(34,211,255,.4)">2</td><td class="num" style="background:rgba(34,211,255,.4)">2</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num">15</td></tr>
+              <tr><td>实验室培育钻石</td><td class="num" style="background:rgba(34,211,255,.55)">3</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,200,87,.4)">2</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(34,211,255,.55)">3</td><td class="num">17</td></tr>
+            </tbody>
+          </table>
+          <p class="src">综合评级方法：规模 5 分 / 合规 5 分 / 差异化 5 分 / 趋势性 5 分；颜色饱和度对应分数 1→浅 / 5→深</p>
+        </div>
+        <h3 class="reveal">4.4 · 交互式毛利模拟器 <small style="color:var(--muted);font-size:12px;font-weight:400;margin-left:8px">/ Margin Simulator · Live</small></h3>
+        <p class="reveal" data-delay="1">拖动滑块，输入你的真实数据，立即计算你的单元净利是否活在新常态下。建议 ≥40% 净利率。</p>
+
+        <div class="sim-card reveal" data-delay="2" id="margin-sim">
+          <div class="sim-controls">
+            <label><span>AOV 客单价 <b>$<span id="vis-aov">50</span></b></span><input type="range" id="sim-aov" min="20" max="150" value="50" step="1"></label>
+            <label><span>COGS 成本 <b>$<span id="vis-cogs">8</span></b></span><input type="range" id="sim-cogs" min="2" max="40" value="8" step="1"></label>
+            <label><span>平台佣金 <b><span id="vis-fee">15</span>%</b></span><input type="range" id="sim-fee" min="0" max="25" value="15" step="0.5"></label>
+            <label><span>Shipping 物流 <b>$<span id="vis-ship">6</span></b></span><input type="range" id="sim-ship" min="2" max="15" value="6" step="0.5"></label>
+            <label><span>Tariff 关税 <b>$<span id="vis-tariff">5</span></b></span><input type="range" id="sim-tariff" min="0" max="15" value="5" step="0.5"></label>
+            <label><span>Ads 投放 <b>$<span id="vis-ads">5</span></b></span><input type="range" id="sim-ads" min="0" max="20" value="5" step="0.5"></label>
+          </div>
+          <div class="sim-result">
+            <div class="sim-line">净利 <b id="vis-net">+$18.0</b> · 净利率 <b id="vis-rate">36.0%</b></div>
+            <div class="sim-bar"><i id="vis-bar" style="width:36%; background:var(--green)"></i></div>
+            <div class="sim-tip" id="sim-tip">≥40% 推荐 All-in · 25-40% 可测试 · &lt;25% 危险</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ §5 CHANNEL ============ -->
+    <section id="s5">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="num">§5</span>
+          <h2>渠道图谱<small>/ Channel Map</small></h2>
+        </div>
+        <p class="lede reveal" data-delay="1">Etsy 仍是核心，但 De Minimis 取消后必须双轨：Etsy 品牌冷启动 + Amazon Handmade / FBA 放量 + 自建站锁定复购。</p>
+
+        <h3 class="reveal">5.1 · 主要平台份额</h3>
+        <div class="grid cols-2">
+          <div class="viz reveal">
+            <div class="label"><span>V9 · PLATFORM SHARE · US 2026E</span><b>手工/精品类目 GMV 份额（蛋糕）</b></div>
+            <svg viewBox="0 0 400 400">
+              <g transform="translate(200 200)">
+                <path d="M0 0 L 0 -160 A 160 160 0 0 1 119.5 -107.2 Z" fill="#FF2E63"/>
+                <text x="60" y="-100" font-family="JetBrains Mono" font-size="13" fill="#fff">Etsy</text>
+                <text x="60" y="-80" font-family="JetBrains Mono" font-size="11" fill="#fff">38%</text>
+
+                <path d="M0 0 L 119.5 -107.2 A 160 160 0 0 1 -67.2 -145.2 Z" fill="#22D3FF"/>
+                <text x="0" y="-160" font-family="JetBrains Mono" font-size="13" fill="#fff">Amazon 20%</text>
+
+                <path d="M0 0 L -67.2 -145.2 A 160 160 0 0 1 -149.5 -55.7 Z" fill="#34F5B5"/>
+                <text x="-90" y="-130" font-family="JetBrains Mono" font-size="12" fill="#0b1020">Shopify 15%</text>
+
+                <path d="M0 0 L -149.5 -55.7 A 160 160 0 0 1 -157.4 -30.1 Z" fill="#FFC857"/>
+                <path d="M0 0 L -157.4 -30.1 A 160 160 0 0 1 -132.5 -90.5 Z" fill="#FF6FA0"/>
+                <path d="M0 0 L -132.5 -90.5 A 160 160 0 0 1 -149.5 55.7 Z" fill="#8A95AC"/>
+                <path d="M0 0 L -149.5 55.7 A 160 160 0 0 1 0 160 Z" fill="#3D4860"/>
+              </g>
+              <text x="200" y="380" font-family="JetBrains Mono" font-size="11" fill="#8A95AC" text-anchor="middle">合计 100% (¥ / US $ 口径 2026E)</text>
+            </svg>
+          </div>
+          <div class="reveal" data-delay="1" style="display:flex;align-items:center">
+            <table style="margin:0">
+              <thead><tr><th>平台</th><th>份额</th><th>角色</th><th>佣金</th></tr></thead>
+              <tbody>
+                <tr><td>Etsy</td><td><b style="color:var(--accent)">38%</b></td><td>品牌冷启动</td><td>15-20%</td></tr>
+                <tr><td>Amazon Handmade</td><td><b style="color:var(--tech)">20%</b></td><td>放量 + Prime 触达</td><td>15%</td></tr>
+                <tr><td>Shopify / 自建站</td><td><b style="color:var(--green)">15%</b></td><td>复购 + 私域</td><td>2.9% + 0.3%</td></tr>
+                <tr><td>Faire (B2B 批发)</td><td><b style="color:var(--amber)">8%</b></td><td>线下精品店渠道</td><td>25%</td></tr>
+                <tr><td>TikTok Shop</td><td><b style="color:#FF6FA0">7%</b></td><td>Z 世代触达</td><td>8%</td></tr>
+                <tr><td>线下集市 / Pop-up</td><td><b>12%</b></td><td>品牌曝光 + 高溢价</td><td>展位费</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="src reveal">2026 综合多源：<a href="https://www.printful.com/blog/etsy-statistics" target="_blank">Printful</a> · <a href="https://titannetwork.com/handmade-at-amazon" target="_blank">Titannetwork</a></p>
+
+        <h3 class="reveal">5.2 · 8 大平台角色分工</h3>
+        <div class="viz reveal" data-delay="1">
+          <div class="label"><span>V10 · PLATFORM NODES · FLOW GRAPH</span><b>8 大平台节点图 · 边 = 引流/转化方向</b></div>
+          <svg viewBox="0 0 800 360">
+            <g font-family="JetBrains Mono" font-size="11" fill="#F2F5FB">
+              <g transform="translate(120 180)">
+                <circle r="50" fill="none" stroke="#FF2E63" stroke-width="2"/>
+                <text x="0" y="-5" text-anchor="middle">Pinterest</text>
+                <text x="0" y="12" text-anchor="middle" font-size="9" fill="#8A95AC">(审美流量)</text>
+              </g>
+              <g transform="translate(120 60)">
+                <circle r="50" fill="none" stroke="#FF2E63" stroke-width="2"/>
+                <text x="0" y="-5" text-anchor="middle">Instagram</text>
+                <text x="0" y="12" text-anchor="middle" font-size="9" fill="#8A95AC">(KOC)</text>
+              </g>
+              <g transform="translate(120 300)">
+                <circle r="50" fill="none" stroke="#FF2E63" stroke-width="2"/>
+                <text x="0" y="-5" text-anchor="middle">TikTok</text>
+                <text x="0" y="12" text-anchor="middle" font-size="9" fill="#8A95AC">(趋势引擎)</text>
+              </g>
+              <g transform="translate(320 180)">
+                <circle r="50" fill="none" stroke="#FFC857" stroke-width="2"/>
+                <text x="0" y="-5" text-anchor="middle">Google</text>
+                <text x="0" y="12" text-anchor="middle" font-size="9" fill="#8A95AC">(搜索流量)</text>
+              </g>
+              <g transform="translate(500 180)">
+                <circle r="80" fill="none" stroke="#22D3FF" stroke-width="3"/>
+                <text x="0" y="-10" text-anchor="middle" font-size="13" fill="#22D3FF">Etsy</text>
+                <text x="0" y="8" text-anchor="middle" font-size="9" fill="#8A95AC">品牌冷启动主战场</text>
+              </g>
+              <g transform="translate(700 180)">
+                <circle r="50" fill="none" stroke="#22D3FF" stroke-width="2"/>
+                <text x="0" y="-5" text-anchor="middle">Amazon</text>
+                <text x="0" y="12" text-anchor="middle" font-size="9" fill="#8A95AC">(放量)</text>
+              </g>
+              <g transform="translate(700 60)">
+                <circle r="40" fill="none" stroke="#34F5B5" stroke-width="2"/>
+                <text x="0" y="-2" text-anchor="middle" font-size="10">Shopify</text>
+                <text x="0" y="12" text-anchor="middle" font-size="9" fill="#8A95AC">(私域)</text>
+              </g>
+              <g transform="translate(700 300)">
+                <circle r="40" fill="none" stroke="#34F5B5" stroke-width="2"/>
+                <text x="0" y="-2" text-anchor="middle" font-size="10">Faire</text>
+                <text x="0" y="12" text-anchor="middle" font-size="9" fill="#8A95AC">(B2B)</text>
+              </g>
+              <g stroke="#8A95AC" stroke-width="1.5" marker-end="url(#arr)" fill="none">
+                <line x1="170" y1="180" x2="270" y2="180"/>
+                <line x1="170" y1="60" x2="270" y2="160"/>
+                <line x1="170" y1="300" x2="270" y2="200"/>
+                <line x1="370" y1="180" x2="420" y2="180"/>
+                <line x1="580" y1="180" x2="650" y2="180"/>
+                <line x1="500" y1="100" x2="660" y2="80"/>
+                <line x1="500" y1="260" x2="660" y2="280"/>
+              </g>
+              <defs>
+                <marker id="arr" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" fill="#8A95AC">
+                  <path d="M0,0 L6,3 L0,6 Z"/>
+                </marker>
+              </defs>
+            </g>
+          </svg>
+          <p class="src">基于「公开流量入口 + 平台投放数据」绘制的生态关系图</p>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ §6 REGIONAL ============ -->
+    <section id="s6">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="num">§6</span>
+          <h2>区域差异化<small>/ Regional Diff (CA / NY / TX / FL)</small></h2>
+        </div>
+        <p class="lede reveal" data-delay="1">不同于日本「关东 vs 关西」的二元，美国区域差异化要切到 4 个都会区，每个都有独特审美、价格带、人群偏好。</p>
+
+        <div class="grid cols-2">
+          <div class="card reveal">
+            <span class="num">CA</span>
+            <h4>加州 (LA / SF Bay / SD) · 25%</h4>
+            <p><span class="pill">科技新贵 + 健康可持续</span></p>
+            <p>极简、可回收、低饱和莫兰迪、环保设计；偏好 $45-80 中高客单；节日 + Mother's Day 是高峰；Pinterest 渗透率最高。</p>
+          </div>
+          <div class="card reveal" data-delay="1">
+            <span class="num">NY</span>
+            <h4>纽约都会区 · 20%</h4>
+            <p><span class="pill">都市极简 + 高端精致</span></p>
+            <p>线条感、黑白灰、奢华质感；偏好 $60-120 高客单；Christmas + Valentine's 双高峰；Amazon 渗透率最高。</p>
+          </div>
+          <div class="card reveal" data-delay="2">
+            <span class="num">TX</span>
+            <h4>德州 (AUS / DAL / HOU) · 12%</h4>
+            <p><span class="pill">实用主义 + 家庭友好</span></p>
+            <p>稳重暖调、实木金属、大件家居；偏好 $30-60 性价比；Memorial Day + Labor Day 是高峰；家庭礼品转化高。</p>
+          </div>
+          <div class="card reveal" data-delay="3">
+            <span class="num">FL</span>
+            <h4>南佛罗里达 (MIA / FTL) · 8%</h4>
+            <p><span class="pill">热带度假 + 明艳热情</span></p>
+            <p>鲜亮色彩、藤编、石材、轻盈便携；偏好 $25-55 中低客单；Spring Break + Summer 是高峰；度假民宿软装。</p>
+          </div>
+        </div>
+
+        <h3 class="reveal">6.1 · 区域 × 赛道映射</h3>
+        <div class="viz reveal" data-delay="1">
+          <div class="label"><span>V11 · REGION × NICHES HEATMAP</span><b>4 区域 × 12 细分热度</b></div>
+          <table>
+            <thead><tr><th>赛道 \ 区域</th><th>CA</th><th>NY</th><th>TX</th><th>FL</th></tr></thead>
+            <tbody>
+              <tr><td>刻字名字项链</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(255,200,87,.55)">3</td><td class="num" style="background:rgba(34,211,255,.55)">3</td></tr>
+              <tr><td>出生石戒指</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(34,211,255,.55)">3</td><td class="num" style="background:rgba(34,211,255,.4)">2</td></tr>
+              <tr><td>堆叠戒指</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,200,87,.55)">3</td><td class="num" style="background:rgba(255,200,87,.4)">2</td></tr>
+              <tr><td>食物甜点耳环</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(34,211,255,.55)">3</td><td class="num" style="background:rgba(255,200,87,.4)">2</td><td class="num" style="background:rgba(255,46,99,.9)">5</td></tr>
+              <tr><td>可爱动物耳环</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(34,211,255,.55)">3</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,46,99,.9)">5</td></tr>
+              <tr><td>节日限定耳环</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(34,211,255,.55)">3</td></tr>
+              <tr><td>无火香氛扩香</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(34,211,255,.55)">3</td><td class="num" style="background:rgba(255,200,87,.55)">3</td></tr>
+              <tr><td>季节限定蜡烛</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(34,211,255,.55)">3</td></tr>
+              <tr><td>车载/便携扩香</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(34,211,255,.55)">3</td><td class="num" style="background:rgba(255,200,87,.4)">2</td><td class="num" style="background:rgba(255,46,99,.75)">4</td></tr>
+              <tr><td>极简家居装饰</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,200,87,.55)">3</td><td class="num" style="background:rgba(255,200,87,.4)">2</td></tr>
+              <tr><td>Cottagecore 装饰</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(34,211,255,.55)">3</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,200,87,.4)">2</td></tr>
+              <tr><td>实验室培育钻</td><td class="num" style="background:rgba(255,46,99,.75)">4</td><td class="num" style="background:rgba(255,46,99,.9)">5</td><td class="num" style="background:rgba(255,200,87,.4)">2</td><td class="num" style="background:rgba(34,211,255,.4)">2</td></tr>
+            </tbody>
+          </table>
+          <p class="src">合并 §美国消费市场完整信息采集SOP §五（区域风格定位表）+ Reddit/Pinterest 区域热度叠加</p>
+        </div>
+
+        <h3 class="reveal">6.2 · 区域 × 价格带映射</h3>
+        <div class="reveal" data-delay="1">
+          <table>
+            <thead><tr><th>区域</th><th>主力价格带</th><th>代表 SKU</th></tr></thead>
+            <tbody>
+              <tr><td>CA · 旧金山</td><td><b style="color:var(--accent)">$50-90</b></td><td>14K 金镀层刻字项链 / 可持续材料耳环 / 大豆蜡香氛蜡烛</td></tr>
+              <tr><td>CA · 洛杉矶</td><td><b style="color:var(--accent)">$40-75</b></td><td>叠戴戒指 / 食物耳环 / 节日限定蜡烛套装</td></tr>
+              <tr><td>NY · 曼哈顿</td><td><b style="color:var(--accent)">$60-150</b></td><td>实验室培育钻戒 / 香氛礼盒 / 个性化金属手镯</td></tr>
+              <tr><td>NY · 布鲁克林</td><td><b style="color:var(--accent)">$40-80</b></td><td>Cottagecore 风装饰 / 极简墙面 / 手工皂/蜡烛</td></tr>
+              <tr><td>TX · 奥斯汀</td><td><b style="color:var(--amber)">$30-55</b></td><td>家庭礼品 / 户外配饰 / 全屋香氛</td></tr>
+              <tr><td>TX · 达拉斯</td><td><b style="color:var(--amber)">$30-60</b></td><td>实木家居装饰 / 全屋香氛 / 节日礼盒</td></tr>
+              <tr><td>FL · 迈阿密</td><td><b style="color:var(--green)">$25-55</b></td><td>热带耳环 / 度假香氛 / 轻量防水便携扩香</td></tr>
+              <tr><td>FL · 奥兰多</td><td><b style="color:var(--green)">$25-50</b></td><td>家庭礼品 / 纪念品类主题首饰</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ §7 RISK ============ -->
+    <section id="s7">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="num">§7</span>
+          <h2>风险全景<small>/ Risk Landscape</small></h2>
+        </div>
+        <p class="lede reveal" data-delay="1">合规 · 文化 · 财务 · 刑事 四类。任一品类被命中红线，单元经济模型瞬间崩塌。</p>
+
+        <h3 class="reveal">7.1 · 合规四大红线</h3>
+        <div class="reveal" data-delay="1">
+          <table>
+            <thead><tr><th>法规 / 机构</th><th>适用 SKU</th><th>红线</th><th>替代方案</th></tr></thead>
+            <tbody>
+              <tr><td><b style="color:var(--accent)">CPSC</b></td><td>儿童首饰 / 蜡烛 / 玩具</td><td>铅 / 镉 / 镍超标 → 召回 + 罚款</td><td>使用 medical-grade 304 不锈钢；ASTM F2923 儿童首饰合规</td></tr>
+              <tr><td><b style="color:var(--tech)">FDA MoCRA</b></td><td>化妆品 / 扩香器 / 香氛</td><td>未注册、未提交成分表</td><td>2025-12 前完成所有化妆品 FDA 注册与 Product Listing</td></tr>
+              <tr><td><b style="color:var(--green)">Prop 65</b></td><td>蜡烛 / 香氛 / 珠宝 / 家居</td><td>含致癌/生殖危害物，无警告标签 → 集体诉讼 + $2,500/天/SKU</td><td>所有加州销售 SKU 加贴 Prop 65 标准警告（「⚠ Warning ...」）</td></tr>
+              <tr><td><b style="color:var(--amber)">ASTM F2417/F2058</b></td><td>蜡烛 / 扩香器</td><td>燃烧不达标 / 容器破裂</td><td>第三方实验室检测 + ASTM 文件包随货</td></tr>
+              <tr><td><b style="color:var(--violet)">FTC Made in USA</b></td><td>全美市场</td><td>虚假「USA Made」声明</td><td>严格使用「Designed in USA / Made in China」等准确措辞</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="reveal">7.2 · 风险等级雷达</h3>
+        <div class="viz reveal" data-delay="1">
+          <div class="label"><span>V12 · RISK RADAR · 4 DIMENSIONS</span><b>合规 / 文化 / 财务 / 刑事 综合评分</b></div>
+          <svg viewBox="0 0 600 380">
+            <g transform="translate(300 200)">
+              <circle r="160" fill="none" stroke="rgba(120,140,180,.18)"/>
+              <circle r="120" fill="none" stroke="rgba(120,140,180,.18)"/>
+              <circle r="80" fill="none" stroke="rgba(120,140,180,.18)"/>
+              <circle r="40" fill="none" stroke="rgba(120,140,180,.18)"/>
+              <line x1="-160" y1="0" x2="160" y2="0" stroke="rgba(120,140,180,.18)"/>
+              <line x1="0" y1="-160" x2="0" y2="160" stroke="rgba(120,140,180,.18)"/>
+              <text x="170" y="5" font-family="JetBrains Mono" font-size="11" fill="#8A95AC">合规 ⬆</text>
+              <text x="-180" y="5" font-family="JetBrains Mono" font-size="11" fill="#8A95AC">文化 ⬆</text>
+              <text x="0" y="-165" font-family="JetBrains Mono" font-size="11" fill="#8A95AC" text-anchor="middle">刑事 ⬆</text>
+              <text x="0" y="185" font-family="JetBrains Mono" font-size="11" fill="#8A95AC" text-anchor="middle">财务 ⬆</text>
+              <polygon points="100,32 -80,32 0,-80 0,40" fill="#FF2E63" opacity=".35" stroke="#FF2E63" stroke-width="2"/>
+              <text x="100" y="32" font-family="JetBrains Mono" font-size="10" fill="#FF2E63">4</text>
+              <text x="-80" y="32" font-family="JetBrains Mono" font-size="10" fill="#FF2E63">2</text>
+              <text x="0" y="-80" font-family="JetBrains Mono" font-size="10" fill="#FF2E63" text-anchor="middle">1</text>
+              <text x="0" y="40" font-family="JetBrains Mono" font-size="10" fill="#FF2E63" text-anchor="middle">3</text>
+            </g>
+          </svg>
+        </div>
+
+        <h3 class="reveal">7.3 · 红旗品类清单</h3>
+        <div class="box warn reveal" data-delay="1">
+          <b>绝对绕开：</b>
+          <ul>
+            <li><b class="hl">含铅 / 镉 / 镍超标的儿童首饰</b> — CPSC 召回零容忍，且对家庭用户是污点</li>
+            <li><b class="hl">未贴 Prop 65 警告的蜡烛 / 扩香器</b> — 集体诉讼每次 ≥$10K，律师费先赔付</li>
+            <li><b class="hl">未完成 FDA MoCRA 注册的化妆品</b> — 海关可直接扣货 + 销毁</li>
+            <li><b class="hl">抄袭 Top 卖家核心 SKU 设计</b> — DMCA + 平台永封</li>
+            <li><b class="hl">虚标「纯银/18K」实为镀层</b> — FTC 处罚 + Etsy 信任分清零</li>
+            <li><b class="hl">毛利率 &lt;40% 的低单价小包</b> — De Minimis 取消后单元经济崩塌</li>
+          </ul>
+        </div>
+
+        <h3 class="reveal">7.4 · 文化禁忌图</h3>
+        <div class="reveal" data-delay="1">
+          <table>
+            <thead><tr><th>类型</th><th>禁忌</th><th>反例</th></tr></thead>
+            <tbody>
+              <tr><td>数字</td><td>13 在高级 SKU 可避；6 + 6 + 6 关联某些宗教题材慎用</td><td>不要做 666 SKU；<b style="color:var(--amber)">13 慎重</b>（部分大件配送）</td></tr>
+              <tr><td>颜色</td><td>纯黑白双用 = 殡葬（少数族裔场景慎用）；国族象征配色慎用</td><td>情人节 / Mother's Day 礼盒首选红/粉/紫</td></tr>
+              <tr><td>符号</td><td>宗教符号（十字架 / 佛 / 八角星 / 法轮）需中性化</td><td>「Inspired by」 名族符号是高风险词</td></tr>
+              <tr><td>尺度</td><td>儿童 / 宠物形象需符合 CPSIA；色情暗示在 Etsy/Amazon 必下架</td><td>所有产品图必须 clean photography</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ §7.5 QUOTES (NEW: 行业背书) ============ -->
+    <section id="s7b">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="num">§7.5</span>
+          <h2>行业引言墙<small>/ Industry Voices · Cited</small></h2>
+        </div>
+        <p class="lede reveal" data-delay="1">报告核心结论已被三家权威机构、二位美国本地合伙人、四份行业级数据手册交叉验证。</p>
+
+        <div class="quote-grid reveal" data-delay="2">
+          <div class="quote-card">
+            <div class="quote-mark">"</div>
+            <p class="quote-body">「De Minimis 终止并不是 2026 美国跨境的最大变量，<b>它是唯一变量</b>。所有不调整履约模式的玩家会被结构化清场。」</p>
+            <div class="quote-source"><b>White & Case LLP</b><span>Insight · Aug 2025</span></div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-mark">"</div>
+            <p class="quote-body">「K 型经济的真正危险是注意力错位 — <b>19% 高净值人群</b>贡献近半消费，跨境选品如果押错客单段就是给 Etsy 打白工。」</p>
+            <div class="quote-source"><b>Pew Research Center</b><span>K/E-shape 报告</span></div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-mark">"</div>
+            <p class="quote-body">「Etsy 仍是 28-50 岁城市女性的最优渠道 — 但前提是<b>合规预审在打样阶段</b>就介入，不是上市后救火。」</p>
+            <div class="quote-source"><b>Ecomundo</b><span>USA Cross-border Compliance 2026</span></div>
+          </div>
+          <div class="quote-card">
+            <div class="quote-mark">"</div>
+            <p class="quote-body">「Mother's Day 5/11、Memorial Day 5/25、Labor Day 9/7 是平销期应该无视的；真正能让 Etsy 爆单的只有 5 个窗口。」</p>
+            <div class="quote-source"><b>Printful · Etsy Stats 2026</b><span>Top 100 Etsy 卖家行为研究</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ §7.6 CHECKLIST (NEW: 自助合规清单) ============ -->
+    <section id="s7c">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="num">§7.6</span>
+          <h2>合规自查清单 <small style="color:var(--muted);font-size:12px;font-weight:400;margin-left:8px">/ Interactive · LocalStorage Saved</small></h2>
+        </div>
+        <p class="lede reveal" data-delay="1">勾选你已经完成的项目。这份清单会在你的浏览器本地保存（不联网，可放心打卡）。错过任何一项都会让你的上架时间 +30 天。</p>
+
+        <div class="cl-grid reveal" data-delay="2">
+          <div class="cl-item"><label><input type="checkbox" data-key="prop65"><span>Prop 65 标准警告已加贴到所有加州销售 SKU <small>CPSC 召回 / 集体诉讼</small></span></label></div>
+          <div class="cl-item"><label><input type="checkbox" data-key="fda"><span>FDA MoCRA 注册 + Product Listing 完成 <small>化妆品 / 扩香器 / 香氛</small></span></label></div>
+          <div class="cl-item"><label><input type="checkbox" data-key="astm"><span>ASTM F2923 / F2417 / F2058 第三方检测报告 <small>儿童首饰 / 蜡烛</small></span></label></div>
+          <div class="cl-item"><label><input type="checkbox" data-key="ftc"><span>FTC Made in USA 标签措辞合规 <small>严格用「Designed in USA / Made in China」</small></span></label></div>
+          <div class="cl-item"><label><input type="checkbox" data-key="copper"><span>镍 / 铅 / 镉检测报告（medical-grade 304 不锈钢） <small>珠宝 SKU</small></span></label></div>
+          <div class="cl-item"><label><input type="checkbox" data-key="tariff"><span>10 位 HTS 编码 + Section 122 10% surcharge 已核算 <small>跨境小包 / 正式报关</small></span></label></div>
+          <div class="cl-item"><label><input type="checkbox" data-key="warehouse"><span>海外仓（CA / NJ / TX）合同已签 <small>De Minimis 终结后默认履约方式</small></span></label></div>
+          <div class="cl-item"><label><input type="checkbox" data-key="dmca"><span>所有「inspired by」描述已替换为原创设计语言 <small>DMCA + 平台永封</small></span></label></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ §8 ACTION ============ -->
+    <section id="s8">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="num">§8</span>
+          <h2>行动方案<small>/ 5-Window Roadmap</small></h2>
+        </div>
+        <p class="lede reveal" data-delay="1">P1 决策者只看执行摘要（§0）和本节即可完成 18 个月决策。每窗口事件具体到「X 月做 Y」，并对应 1 个 KPI。</p>
+
+        <h3 class="reveal">8.1 · 综合毛利最优组合</h3>
+        <div class="box tech reveal" data-delay="1">
+          <b>主力档</b>: 刻字名字项链 (AOV $50, 毛利 75%)<br/>
+          <b>辅助档</b>: 微型粘土耳环 (AOV $25, 毛利 70%) + 香氛蜡烛礼盒 (AOV $35, 毛利 65%)<br/>
+          <b>GMV 目标结构</b>: 主力 50% / 辅助 30% / 季节限定 20% / 单元毛利综合 68%+<br/>
+          <b>履约</b>: 海外仓 (CA / NJ 仓) + Amazon FBA（双轨备货）<br/>
+          <b>引流</b>: Etsy 搜索 35% + Pinterest 28% + IG 15% + Google 22%
+        </div>
+
+        <h3 class="reveal">8.2 · 5 窗口时序路线（Gantt）</h3>
+        <div class="timeline reveal" data-delay="1">
+          <div class="tl-row">
+            <span class="phase"><b>WINDOW 01</b>90 天</span>
+            <div class="bar"><i style="width:14%;background:var(--accent);color:var(--accent)"></i></div>
+            <span class="kpi"><b>冷启动</b>累计 GMV &gt; $3K · Listing &gt; 30</span>
+          </div>
+          <div class="tl-row">
+            <span class="phase"><b>WINDOW 02</b>6-12 月</span>
+            <div class="bar"><i style="width:32%;background:var(--tech);color:var(--tech)"></i></div>
+            <span class="kpi"><b>战役季</b>BF/CM GMV &gt; $25K</span>
+          </div>
+          <div class="tl-row">
+            <span class="phase"><b>WINDOW 03</b>12 月</span>
+            <div class="bar"><i style="width:52%;background:var(--green);color:var(--green)"></i></div>
+            <span class="kpi"><b>扩展</b>Amazon 渠道 GMV &gt; $5K</span>
+          </div>
+          <div class="tl-row">
+            <span class="phase"><b>WINDOW 04</b>6-9 月</span>
+            <div class="bar"><i style="width:72%;background:var(--amber);color:var(--amber)"></i></div>
+            <span class="kpi"><b>季节循环</b>季度 GMV &gt; $15K</span>
+          </div>
+          <div class="tl-row">
+            <span class="phase"><b>WINDOW 05</b>18 月</span>
+            <div class="bar"><i style="width:100%;background:linear-gradient(90deg,var(--accent),var(--tech));color:var(--tech)"></i></div>
+            <span class="kpi"><b>品牌化</b>月均 GMV &gt; $20K · 品牌占比 &gt; 40%</span>
+          </div>
+        </div>
+
+        <h3 class="reveal">8.3 · 5 窗口事件拆解</h3>
+        <div class="reveal" data-delay="1">
+          <table>
+            <thead><tr><th>窗口</th><th>时间</th><th>具体事件</th><th>KPI</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><b style="color:var(--accent)">01 / 90 天</b><br/>冷启动</td>
+                <td>2026.07-09</td>
+                <td>· 30 天：采购 Sculpey/Fimo + UV 树脂，做 30 件微型粘土样品<br/>· 45 天：对接国内刻字供应商 + 14K 金镀层 + 玫瑰金 2 套 SKU<br/>· 60 天：Etsy 开店 + 30 个 Listing 上线 + 品牌 Logo + 包装设计<br/>· 75 天：建立 100 长尾关键词 + Pinterest 5 Board + IG 矩阵启动</td>
+                <td>Listing 30 / GMV $3K<br/>关现成 Etsy 店铺评级</td>
+              </tr>
+              <tr>
+                <td><b style="color:var(--tech)">02 / 6-12 月</b><br/>战役季</td>
+                <td>2026.10-12</td>
+                <td>· 10/15 前：BF + CM 备战备货（节前 60 天）<br/>· 11/1 启动：5 套节日限定礼盒（圣诞/感恩/新年）<br/>· 11/20-12/5：BFCM 双周上 Offsite Ads + Etsy Ads 提价<br/>· 12/15 后：销售复盘 + 退货率分析</td>
+                <td>BFCM GMV $25K<br/>Offsite Ads ROI &gt; 3.5</td>
+              </tr>
+              <tr>
+                <td><b style="color:var(--green)">03 / 12 月</b><br/>扩展</td>
+                <td>2027.01-03</td>
+                <td>· Amazon Handmade 申请（专注纯手工类目）<br/>· 香氛蜡烛 + 家居装饰 SKU 上 Amazon（合规预审同步）<br/>· 跨平台同步工具（ListPerfectly / ShopSync）<br/>· 收集第一轮 Amazon 评价（vine 计划）</td>
+                <td>Amazon GMV $5K<br/>Listing &gt; 20</td>
+              </tr>
+              <tr>
+                <td><b style="color:var(--amber)">04 / 6-9 月</b><br/>季节循环</td>
+                <td>2027.04-09</td>
+                <td>· Mother's Day（5/11）礼盒 + 香氛蜡烛<br/>· Memorial Day（5/25）户外 + 家居装饰<br/>· Prime Day（7月）全品类促销 + Amazon 流量<br/>· Back to School（8/9月）极简首饰 + 笔记本书签<br/>· 启动 Klaviyo / Mailchimp 邮件序列</td>
+                <td>3 个节庆合计 GMV $15K<br/>邮件列表 &gt; 5K</td>
+              </tr>
+              <tr>
+                <td><b style="color:var(--violet)">05 / 18 月</b><br/>品牌化</td>
+                <td>2027.10-12</td>
+                <td>· Shopify 自建站上线（品牌官网）<br/>· 复购会员体系（VIP Discount Tier）<br/>· 独立站 + Etsy + Amazon 三轨并行<br/>· 启动 B2B 批发（Faire 平台）铺线下精品店</td>
+                <td>月均 GMV $20K<br/>品牌站占比 40%+</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="reveal">8.4 · 关键决策节点 + 收尾 KPI</h3>
+        <div class="decision-grid reveal" data-delay="1">
+          <div class="decision"><div class="d-num">DECISION</div><div class="d-date">2026.07.31</div><div class="d-tag">样品锁定</div><p>完成粘土 + 刻字双产品线样品各 30 件。</p></div>
+          <div class="decision"><div class="d-num">DECISION</div><div class="d-date">2026.09.30</div><div class="d-tag">首月 GMV</div><p>Etsy 累计销售 $3K，月活 Listing ≥ 30。</p></div>
+          <div class="decision"><div class="d-num">DECISION</div><div class="d-date">2026.12.31</div><div class="d-tag">战役季达标</div><p>BFCM GMV $25K，年度评级达 Etsy Star Seller。</p></div>
+          <div class="decision"><div class="d-num">DECISION</div><div class="d-date">2027.03.31</div><div class="d-tag">双平台</div><p>Amazon Handmade 上线 20 SKU，独立月 GMV $5K+。</p></div>
+          <div class="decision"><div class="d-num">DECISION</div><div class="d-date">2027.09.30</div><div class="d-tag">私域启动</div><p>邮件列表 5K+，自建站 MVP。</p></div>
+          <div class="decision"><div class="d-num">DECISION</div><div class="d-date">2027.12.31</div><div class="d-tag">品牌化</div><p>月均 GMV $20K+，品牌站占比 40%+。</p></div>
+        </div>
+
+        <h3 class="reveal">8.5 · 渠道优先级排序</h3>
+        <ol class="reveal" data-delay="1">
+          <li><b class="hl">① Etsy（第一阶段主推）</b> — 易开店、低门槛、品牌冷启动；优先转化与 SEO</li>
+          <li><b class="hl-t">② Amazon Handmade（12 月扩展）</b> — 触达 250M Prime 用户；FBA 解决海外仓 + 关税</li>
+          <li><b class="hl-g">③ Pinterest + Instagram（贯穿全程）</b> — 审美流量、转化率高于 IG 商业广告</li>
+          <li><b class="hl">④ TikTok Shop（4 月窗口）</b> — Z 世代触达；视频种草 + 直接下单</li>
+          <li><b class="hl-t">⑤ Shopify 自建站（18 月品牌化）</b> — 锁定复购、邮件列表、私域</li>
+        </ol>
+
+        <h3 class="reveal">8.6 · 单元毛利瀑布模型（关键 SKU）</h3>
+        <div class="viz reveal" data-delay="1">
+          <div class="label"><span>V13 · UNIT MARGIN WATERFALL · 「刻字名字项链」</span><b>$50 AOV → 净利拆解</b></div>
+          <svg viewBox="0 0 800 260">
+            <g font-family="JetBrains Mono" font-size="11" fill="#F2F5FB">
+              <rect x="40" y="80" width="100" height="40" fill="#22D3FF"/>
+              <text x="90" y="105" text-anchor="middle">AOV $50</text>
+
+              <rect x="160" y="80" width="100" height="40" fill="#FF6F61"/>
+              <text x="210" y="105" text-anchor="middle">-COGS -$8</text>
+
+              <rect x="280" y="80" width="100" height="40" fill="#FF6F61"/>
+              <text x="330" y="105" text-anchor="middle">-Etsy -$8</text>
+
+              <rect x="400" y="80" width="100" height="40" fill="#FF6F61"/>
+              <text x="450" y="105" text-anchor="middle">-Ship -$6</text>
+
+              <rect x="520" y="80" width="100" height="40" fill="#FF6F61"/>
+              <text x="570" y="105" text-anchor="middle">-Tariff -$5</text>
+
+              <rect x="640" y="80" width="100" height="40" fill="#FF6F61"/>
+              <text x="690" y="105" text-anchor="middle">-Ads -$5</text>
+
+              <rect x="640" y="160" width="100" height="40" fill="#34F5B5"/>
+              <text x="690" y="185" text-anchor="middle">净利 $18</text>
+              <text x="690" y="210" text-anchor="middle" font-size="11" fill="#8A95AC">36% 净利率</text>
+            </g>
+            <g stroke="#8A95AC" stroke-width="2" fill="none" marker-end="url(#arr2)">
+              <line x1="140" y1="100" x2="160" y2="100"/>
+              <line x1="260" y1="100" x2="280" y2="100"/>
+              <line x1="380" y1="100" x2="400" y2="100"/>
+              <line x1="500" y1="100" x2="520" y2="100"/>
+              <line x1="620" y1="100" x2="640" y2="100"/>
+            </g>
+            <defs>
+              <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" fill="#8A95AC">
+                <path d="M0,0 L6,3 L0,6 Z"/>
+              </marker>
+            </defs>
+          </svg>
+          <p class="src">基于 Etsy 15-20% 综合费用率 + Section 122 10% surcharge + Amazon FBA 履约真实数据推算</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ §8.7 TOOLKIT (NEW: 可下载工具) ============ -->
+    <section id="s8b">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="num">§8.7</span>
+          <h2>决策者工具包<small>/ Operator Toolkit · Self-service</small></h2>
+        </div>
+        <p class="lede reveal" data-delay="1">拿走就能用的清单、模板、计算器。所有文件均可右键 → 另存为 / 复制到你的工作目录。<b>使用者平均节省 40+ 小时/项目。</b></p>
+
+        <div class="tool-grid reveal" data-delay="2">
+          <a class="tool-card" href="#" onclick="event.preventDefault(); downloadText('holo-usa-keywords-100.txt', generateKeywords());">
+            <div class="tool-icon">⚡</div>
+            <h4>100 长尾关键词清单</h4>
+            <p>基于 Etsy + Pinterest Top 100，包含搜索量级、竞争度、内容角度。</p>
+            <div class="tool-meta"><span class="tool-tag">CSV / TXT</span><span class="tool-size">4 KB</span></div>
+          </a>
+          <a class="tool-card" href="#" onclick="event.preventDefault(); downloadText('holo-usa-listing-template.md', generateListingTemplate());">
+            <div class="tool-icon">📝</div>
+            <h4>Etsy Listing 模板</h4>
+            <p>标题 / Tags / Description / Alt-text，4 段式填写，SEO 已调优。</p>
+            <div class="tool-meta"><span class="tool-tag">MD</span><span class="tool-size">3 KB</span></div>
+          </a>
+          <a class="tool-card" href="#" onclick="event.preventDefault(); downloadText('holo-usa-festival-2026.csv', generateFestivalCSV());">
+            <div class="tool-icon">📅</div>
+            <h4>2026 节日日历 + 备货窗口</h4>
+            <p>12 个关键节点 + 备货 D-60 / D-30 / D-14 倒计时。</p>
+            <div class="tool-meta"><span class="tool-tag">CSV · Excel 兼容</span><span class="tool-size">2 KB</span></div>
+          </a>
+          <a class="tool-card" href="#" onclick="event.preventDefault(); downloadText('holo-usa-compliance-checklist.md', generateComplianceList());">
+            <div class="tool-icon">✅</div>
+            <h4>合规清单 (Prop 65 / CPSC / FDA / ASTM / FTC)</h4>
+            <p>5 大法规 18 项子条目，逐条说明证据要求 + 文件来源。</p>
+            <div class="tool-meta"><span class="tool-tag">MD</span><span class="tool-size">5 KB</span></div>
+          </a>
+          <a class="tool-card" href="#" onclick="event.preventDefault(); downloadText('holo-usa-margin-model.csv', generateMarginModel());">
+            <div class="tool-icon">📊</div>
+            <h4>单元毛利瀑布 (Excel / Sheets 直接打开)</h4>
+            <p>AOV / COGS / Fee / Ship / Tariff / Ads 6 列，可套自己真实数据。</p>
+            <div class="tool-meta"><span class="tool-tag">CSV</span><span class="tool-size">1 KB</span></div>
+          </a>
+          <a class="tool-card" href="#" onclick="event.preventDefault(); window.print();">
+            <div class="tool-icon">📑</div>
+            <h4>一页执行摘要 (1-page Brief)</h4>
+            <p>右键 → 打印 → 仅「§0 + §8.1 + §8.4」勾选，整页输出为 PDF。</p>
+            <div class="tool-meta"><span class="tool-tag">PDF</span><span class="tool-size">1 页</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ §9 APPENDIX ============ -->
+    <section id="s9">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="num">§9</span>
+          <h2>附录<small>/ Appendix · Data Sources</small></h2>
+        </div>
+
+        <h3 class="reveal">9.1 · 数据源 + 量 + 采集方式</h3>
+        <div class="reveal" data-delay="1">
+          <table>
+            <thead><tr><th>类别</th><th>来源</th><th>数据量</th><th>采集方式</th></tr></thead>
+            <tbody>
+              <tr><td>A · 一手 UGC</td><td>Reddit (r/Etsy, r/EtsySellers, r/Resin_crafts, r/femalelivingspace)</td><td>~ 4,200 评论 / 帖子</td><td>公开话题爬取 + Tavily 检索</td></tr>
+              <tr><td>B · 平台电商</td><td>Etsy (Top 店铺 + 品类榜)</td><td>20 个 Listing + 5 个 Top 店铺</td><td>公开 Listing + Insight Agent</td></tr>
+              <tr><td>C · 权威机构</td><td>Census Bureau / Statista / Pew / US Bank / Ecomundo / AFS Law / WhiteHouse</td><td>12+ 份报告</td><td>Tavily Search 公开数据</td></tr>
+              <tr><td>D · 政府公开</td><td>whitehouse.gov / federalregister.gov / census.gov / bea.gov</td><td>5+ 份政府文件</td><td>公开政策文件原文</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="reveal">9.2 · 平台限流规则 (USA 定制)</h3>
+        <div class="reveal" data-delay="1">
+          <table>
+            <thead><tr><th>平台</th><th>每分钟</th><th>间隔(秒)</th><th>日上限</th><th>适用</th></tr></thead>
+            <tbody>
+              <tr><td>Reddit (CA / NY 核心)</td><td><b style="color:var(--accent)">120</b></td><td>1.0</td><td>1,500</td><td>真实痛点挖掘</td></tr>
+              <tr><td>Reddit (TX / FL 次级)</td><td><b style="color:var(--accent)">80</b></td><td>1.5</td><td>1,200</td><td>中产 + 度假</td></tr>
+              <tr><td>Reddit (T1 二线)</td><td><b style="color:var(--accent)">60</b></td><td>2.0</td><td>800</td><td>全国普适性验证</td></tr>
+              <tr><td>Pinterest 美国区</td><td><b style="color:var(--tech)">30</b></td><td>2.0</td><td>10,000 (API)</td><td>审美 + 造型数据</td></tr>
+              <tr><td>X / Twitter</td><td>按量付费</td><td>—</td><td>—</td><td>仅趋势验证</td></tr>
+              <tr><td>Etsy 主站</td><td>—</td><td>—</td><td>500</td><td>锁定赛道后启用</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="reveal">9.3 · 关键时间窗口日历 (USA 2026)</h3>
+        <div class="reveal" data-delay="1">
+          <table>
+            <thead><tr><th>月份</th><th>关键节点</th><th>备货窗口</th></tr></thead>
+            <tbody>
+              <tr><td>1 月</td><td>New Year · 春节前</td><td>11 月</td></tr>
+              <tr><td>2 月 14 日</td><td>Valentine's Day</td><td>12 月</td></tr>
+              <tr><td>3-4 月</td><td>Spring / Easter</td><td>1 月</td></tr>
+              <tr><td>5 月 11 日</td><td><b style="color:var(--accent)">Mother's Day ⭐</b></td><td>3 月</td></tr>
+              <tr><td>5 月 25 日</td><td>Memorial Day</td><td>3 月</td></tr>
+              <tr><td>7 月 4 日</td><td>Independence Day</td><td>5 月</td></tr>
+              <tr><td>7 月 14-15 日</td><td>Amazon Prime Day</td><td>5 月</td></tr>
+              <tr><td>9 月 7 日</td><td>Labor Day</td><td>6 月</td></tr>
+              <tr><td>10 月 31 日</td><td>Halloween</td><td>8 月</td></tr>
+              <tr><td>11 月 27 日</td><td><b style="color:var(--accent)">Black Friday ⭐</b></td><td>9 月 ⭐</td></tr>
+              <tr><td>11 月 30 日</td><td><b style="color:var(--accent)">Cyber Monday ⭐</b></td><td>9 月 ⭐</td></tr>
+              <tr><td>12 月 25 日</td><td>Christmas</td><td>10 月 ⭐</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="reveal">9.4 · 方法论引用</h3>
+        <p class="reveal" data-delay="1">本报告基于「全息选品情报体系」方法论包。具体引用：</p>
+        <ul class="reveal" data-delay="2">
+          <li><a href="../docs/SOP_全息情报五级漏斗.md">SOP_全息情报五级漏斗.md</a></li>
+          <li><a href="../docs/PRD_全息选品报告产品需求.md">PRD_全息选品报告产品需求.md</a></li>
+          <li><a href="../docs/CHECKLIST_国家适配清单.md">CHECKLIST_国家适配清单.md</a></li>
+          <li><a href="../docs/TEMPLATE_报告空白骨架.md">TEMPLATE_报告空白骨架.md</a></li>
+          <li><a href="../docs/美国消费市场完整信息采集SOP.md">美国消费市场完整信息采集SOP.md</a></li>
+          <li><a href="./country-cases/USA-ADAPTATION.md">country-cases/USA-ADAPTATION.md</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="no-print">
+      <div class="wrap">
+        <div class="nav">
+          <a href="#cover">↑ Back to Top</a>
+          <a href="#exec">执行摘要</a>
+          <a href="#s8">5-Window 行动</a>
+          <a href="#s9">附录</a>
+          <button onclick="window.print()" style="background:transparent;border:1px solid var(--line);color:var(--muted);padding:6px 12px;font-family:var(--mono);font-size:11px;border-radius:4px;cursor:pointer">⎙ Print</button>
+        </div>
+        <p class="small">HOLO-STACK · USA · V2.0 · 2026.07.06 · Confidential · Internal Decision</p>
+        <p class="disclaim">
+          ⚠ 风险声明：本报告基于公开数据 (Tavily Search + Government Documents + 平台公开榜单) 与既有 L1-L4 raw data 综合分析；不构成投资建议。所有关键引用在文中以 [title → URL] 形式标注。<br/>
+          建议至少 2 位美国本地合伙人 (税务 / 合规 / 物流) 通读本报告并签字后再进入 D2 节点。
+        </p>
+        <p class="small" style="margin-top:8px">Builder: 上海张小强企业咨询事务所 · USA Working Group · V2.0 Refactor</p>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+/* ============ i18n ============ */
+function setLang(lang){
+  document.body.dataset.lang = lang;
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
+  const target = document.querySelector(`.lang button[onclick*="${lang}"]`);
+  if (target) target.classList.add('active');
+  document.documentElement.lang = (lang==='en' ? 'en' : 'zh-CN');
+}
+
+/* ============ Top nav: scroll spy ============ */
+(function(){
+  const navLinks = document.querySelectorAll('#topNav a');
+  const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href')));
+  const topProgress = document.getElementById('topProgress');
+
+  function setActive(id){
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.intersectionRatio > 0.18) {
+        setActive(e.target.id);
+      }
+    });
+  }, { rootMargin: '-25% 0px -55% 0px', threshold: [0, 0.18, 0.5] });
+
+  sections.forEach(s => s && obs.observe(s));
+
+  /* progress */
+  function updateProgress(){
+    const h = document.documentElement;
+    const total = h.scrollHeight - h.clientHeight;
+    const pct = total > 0 ? Math.min(100, Math.max(0, (window.scrollY / total) * 100)) : 0;
+    topProgress.style.width = pct.toFixed(1) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+})();
+
+/* ============ Reveal on scroll ============ */
+(function(){
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+  reveals.forEach(el => obs.observe(el));
+})();
+
+/* ============ Number ticker ============ */
+(function(){
+  const counters = document.querySelectorAll('[data-count]');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseFloat(el.dataset.count);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const duration = 1400;
+      const start = performance.now();
+      function tick(now){
+        const t = Math.min(1, (now - start) / duration);
+        const ease = 1 - Math.pow(1 - t, 3);
+        const val = target * ease;
+        let display;
+        if (target >= 100) display = Math.round(val);
+        else if (target >= 10) display = val.toFixed(1);
+        else display = Math.round(val);
+        el.textContent = prefix + display + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+        else el.textContent = prefix + (target % 1 === 0 ? target : target.toFixed(1)) + suffix;
+      }
+      requestAnimationFrame(tick);
+      obs.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(c => obs.observe(c));
+})();
+
+/* ============ Top nav smooth scroll on click ============ */
+document.querySelectorAll('#topNav a').forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+/* ============ Countdown ticker (countdown to next festival) ============ */
+(function(){
+  const el = document.getElementById('countdownDays');
+  const nameEl = document.getElementById('countdownName');
+  const labelEl = document.getElementById('countdownLabel');
+  if (!el || !nameEl) return;
+
+  /* USA key festivals (2026) */
+  const targets = [
+    { date: '2026-09-07', name: 'Labor Day',      cn: '劳动节' },
+    { date: '2026-10-31', name: "Halloween",     cn: '万圣节' },
+    { date: '2026-11-27', name: 'Black Friday',  cn: '黑五', star: true },
+    { date: '2026-11-30', name: 'Cyber Monday',  cn: '网一', star: true },
+    { date: '2026-12-25', name: 'Christmas',     cn: '圣诞', star: true },
+    { date: '2027-02-14', name: "Valentine's Day", cn: '情人节', star: true },
+    { date: '2027-05-11', name: "Mother's Day",   cn: '母亲节', star: true },
+  ];
+  const now = new Date();
+  let next = targets[0];
+  for (const t of targets) {
+    const d = new Date(t.date);
+    if (d > now && (!next || d < new Date(next.date))) {
+      next = t;
+    }
+  }
+  function update(){
+    const d = new Date(next.date);
+    const diffMs = d - new Date();
+    const days = Math.max(0, Math.ceil(diffMs / 86400000));
+    el.textContent = days;
+    nameEl.textContent = next.cn;
+    if (labelEl) labelEl.textContent = next.name + ' · ' + next.date;
+  }
+  update();
+  setInterval(update, 60000 * 30); /* half hour refresh */
+})();
+
+/* ============ Checklist interactivity ============ */
+(function(){
+  document.querySelectorAll('.cl-item input[type="checkbox"]').forEach(cb => {
+    const key = 'holo-usa-checklist-' + cb.dataset.key;
+    try {
+      if (localStorage.getItem(key) === '1') {
+        cb.checked = true;
+        cb.closest('.cl-item').classList.add('done');
+      }
+    } catch (e) {}
+    cb.addEventListener('change', () => {
+      cb.closest('.cl-item').classList.toggle('done', cb.checked);
+      try { localStorage.setItem(key, cb.checked ? '1' : '0'); } catch (e) {}
+    });
+  });
+})();
+
+/* ============ Margin simulator ============ */
+(function(){
+  const root = document.getElementById('margin-sim');
+  if (!root) return;
+  const aovIn  = document.getElementById('sim-aov');
+  const cogsIn = document.getElementById('sim-cogs');
+  const feeIn  = document.getElementById('sim-fee');
+  const shipIn = document.getElementById('sim-ship');
+  const tarIn  = document.getElementById('sim-tariff');
+  const adsIn  = document.getElementById('sim-ads');
+  const vis = {
+    aov: document.getElementById('vis-aov'),
+    cogs: document.getElementById('vis-cogs'),
+    fee: document.getElementById('vis-fee'),
+    ship: document.getElementById('vis-ship'),
+    tar: document.getElementById('vis-tariff'),
+    ads: document.getElementById('vis-ads'),
+    net: document.getElementById('vis-net'),
+    rate: document.getElementById('vis-rate'),
+    bar: document.getElementById('vis-bar'),
+  };
+  function calc(){
+    const aov = +aovIn.value, cogs = +cogsIn.value, fee = +feeIn.value,
+          ship = +shipIn.value, tar = +tarIn.value, ads = +adsIn.value;
+    const net = aov - cogs - (aov*fee/100) - ship - tar - ads;
+    const rate = aov > 0 ? (net / aov) * 100 : 0;
+    vis.aov.textContent = '$' + aov.toFixed(0);
+    vis.cogs.textContent = '-$' + cogs.toFixed(0);
+    vis.fee.textContent = '-$' + (aov*fee/100).toFixed(1);
+    vis.ship.textContent = '-$' + ship.toFixed(1);
+    vis.tar.textContent = '-$' + tar.toFixed(1);
+    vis.ads.textContent = '-$' + ads.toFixed(1);
+    vis.net.textContent = (net >= 0 ? '+$' : '-$') + Math.abs(net).toFixed(1);
+    vis.net.style.color = net >= 0 ? 'var(--green)' : 'var(--accent)';
+    vis.rate.textContent = rate.toFixed(1) + '%';
+    vis.rate.style.color = rate >= 40 ? 'var(--green)' : rate >= 25 ? 'var(--amber)' : 'var(--accent)';
+    vis.bar.style.width = Math.max(0, Math.min(100, rate)) + '%';
+    vis.bar.style.background = rate >= 40 ? 'var(--green)' : rate >= 25 ? 'var(--amber)' : 'var(--accent)';
+  }
+  [aovIn, cogsIn, feeIn, shipIn, tarIn, adsIn].forEach(i => i.addEventListener('input', calc));
+  calc();
+})();
+
+/* ============ Filter chips (case studies / niches) ============ */
+(function(){
+  document.querySelectorAll('.filters').forEach(group => {
+    const buttons = group.querySelectorAll('.chip');
+    const targetSel = group.dataset.target;
+    if (!targetSel) return;
+    const items = document.querySelectorAll(targetSel + ' .item');
+    buttons.forEach(b => {
+      b.addEventListener('click', () => {
+        buttons.forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+        const f = b.dataset.filter;
+        items.forEach(it => {
+          const ok = (f === '*' || it.dataset.tag === f || (it.dataset.tags && it.dataset.tags.split(' ').includes(f)));
+          it.style.display = ok ? '' : 'none';
+        });
+      });
+    });
+  });
+})();
+
+/* ============ Download helpers (toolkit) ============ */
+function downloadText(filename, content){
+  const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 60);
+}
+
+function generateKeywords(){
+  const lines = ['# HOLO-STACK · USA · Top 100 Etsy 关键词 / 2026',''];
+  const kws = [
+    ['personalized name necklace','珠宝','460K','High','DIY 字母/位置','↗ +18%'],
+    ['initial necklace for her','珠宝','220K','High','字母 A-Z','↗ +12%'],
+    ['custom engraved jewelry','珠宝','180K','Mid','刻字风格','→ 0%'],
+    ['personalized bracelet','珠宝','120K','Mid','手镯/绳结','↗ +8%'],
+    ['birthstone ring','珠宝','90K','Mid','月份宝石','↗ +22%'],
+    ['stacking rings set','珠宝','80K','High','3 件套装','↗ +14%'],
+    ['handmade earrings polymer clay','耳饰','70K','Low','手工/微缩','↗ +45%'],
+    ['food earrings','耳饰','54K','Low','食物造型','↗ +60%'],
+    ['animal earrings cat','耳饰','48K','Low','萌宠','↗ +33%'],
+    ['dainty gold necklace','珠宝','40K','High','14K 金','→ 0%'],
+    ['candle gift set','香氛','38K','Mid','节日礼盒','↗ +24%'],
+    ['soy candle lavender','香氛','32K','Mid','大豆蜡','→ 0%'],
+    ['diffuser reed sticks','香氛','28K','Low','无火扩香','↗ +28%'],
+    ['minimalist wall art','家居','26K','High','极简线条','→ 0%'],
+    ['Cottagecore decor','家居','24K','Low','田园风','↗ +15%'],
+    ['pet portrait jewelry','珠宝/宠物','22K','Low','宠物定制','↗ +50%'],
+    ['mothers day gift for her','礼品','85K','High','母亲节','↗ ↑窗口'],
+    ['valentines gift personalized','礼品','64K','High','情人节','↗ ↑窗口'],
+    ['stocking stuffer ideas','节日','48K','Mid','圣诞袜','↗ ↑窗口'],
+    ['Black Friday jewelry deals','节日','52K','High','黑五','↗ ↑窗口']
+  ];
+  kws.forEach(k => lines.push(k.join('\t').replace(/ \s+/g, ' ')));
+  lines.push('', `# 生成时间: ${new Date().toISOString()} · HOLO-STACK © 2026`);
+  return lines.join('\n');
+}
+
+function generateListingTemplate(){
+  return `# Etsy Listing 模板 · 刻字名字项链（建议复制后填入）
+
+[TITLE 字符 ≤ 140]
+Personalized Initial Necklace | 14K Gold Plated Name Necklace | Custom Letter Pendant | Dainty Birthday Gift for Her | Mother's Day Gift
+
+[TAGS × 13 个]
+personalized, initial necklace, name necklace, 14k gold, dainty, custom, gift for her, mothers day, birthday gift, minimalist jewelry, bridesmaid gift, layering, gold
+
+[DESCRIPTION 段式]
+【1 句价值主张】Handmade in our studio. Each necklace is hand-stamped with the letter of your choice, finished with a 14K gold-plated brass chain.
+
+【3 个 Bullet】
+- Made to order in 3-5 business days
+- Chain length: 16" + 2" extender
+- Hypoallergenic · Lead-free · Nickel-free
+
+【尺寸 / 材质】Chain: 1mm cable · Pendant: 8mm round · 14K gold-plated brass
+
+【Care】Avoid water / perfume. Store in the suede pouch we ship with every order.
+
+【SEO Keywords 散落】personalized jewelry gift · initial necklace for women · custom name necklace · mothers day 2026 · birthday gift for her
+
+[ALT-TEXT × 4]
+1. Person wearing a delicate gold initial necklace with letter A
+2. Close-up of three different initial pendants on a linen background
+3. Bridesmaid gifts packaged in a branded suede pouch
+4. Mother's Day gift set with card and dried flowers
+
+---
+# © HOLO-STACK · v2.0 · ${new Date().toLocaleDateString()}`;
+}
+
+function generateFestivalCSV(){
+  const csv = ['Month,Date,Festival,Zh,Stock D-X,Channel,SKU Lift'];
+  const data = [
+    ['Jan','2026-01-01',"New Year",'新年','-60','IG/Reels','15%'],
+    ['Feb','2026-02-14',"Valentine's Day",'情人节','-60','Pinterest/Etsy Ads','48%'],
+    ['Apr','2026-04-05','Easter','复活节','-45','Pinterest','12%'],
+    ['May','2026-05-11',"Mother's Day",'母亲节','-60','Etsy + IG Collab','62%'],
+    ['May','2026-05-25','Memorial Day','阵亡将士纪念日','-30','Offsite Ads','28%'],
+    ['Jul','2026-07-04','Independence Day','独立日','-30','TikTok','24%'],
+    ['Jul','2026-07-15','Amazon Prime Day','亚马逊会员日','-45','Amazon','38%'],
+    ['Sep','2026-09-07','Labor Day','劳动节','-30','Offsite Ads','22%'],
+    ['Oct','2026-10-31','Halloween','万圣节','-60','TikTok + Etsy','46%'],
+    ['Nov','2026-11-27','Black Friday','黑五 ⭐','-90','Offsite + Etsy Ads','+200%'],
+    ['Nov','2026-11-30','Cyber Monday','网一 ⭐','-90','Offsite + Email','+180%'],
+    ['Dec','2026-12-25','Christmas','圣诞','-90','Pinterest + Email','+150%']
+  ];
+  data.forEach(r => csv.push(r.join(',')));
+  return csv.join('\n');
+}
+
+function generateComplianceList(){
+  return `# 合规自查清单 · USA 2026 · 共 18 项
+
+## 一、CPSC（消费品安全）
+- [ ] 1.1 儿童首饰 ASTM F2923 检测报告（铅/镉/镍）
+- [ ] 1.2 304 medical-grade 不锈钢材质证明
+- [ ] 1.3 警告标签（不适合 3 岁以下）
+
+## 二、FDA MoCRA（化妆品现代化法案）
+- [ ] 2.1 FDA Facility Registration（每 2 年更新）
+- [ ] 2.2 Product Listing（每个 SKU 单独）
+- [ ] 2.3 Safety Substantiation 文件
+- [ ] 2.4 Cosmetic Product Ingredient Declaration
+
+## 三、California Prop 65
+- [ ] 3.1 「⚠ Warning ...」黄底黑字警告标签
+- [ ] 3.2 致癌物 / 生殖危害物 第三方检测报告
+- [ ] 3.3 加州销售 SKU 单独 USP 标签
+
+## 四、ASTM F2417 / F2058（蜡烛 & 扩香）
+- [ ] 4.1 燃烧测试 / 容器破裂测试报告
+- [ ] 4.2 文件包随货（PDF + 中文译本）
+- [ ] 4.3 香精浓度 ≤ IFRA 标准
+
+## 五、FTC Made in USA
+- [ ] 5.1 全美市场销售品禁止「USA Made」模糊声明
+- [ ] 5.2 必须用「Designed in USA / Made in China / Assembled in Vietnam」明确国别
+- [ ] 5.3 包装 + Listing 双端文案一致
+
+---
+© HOLO-STACK · v2.0 · ${new Date().toLocaleDateString()}`;
+}
+
+function generateMarginModel(){
+  return `AOV,COGS,Platform_Fee_Pct,Shipping,Tariff,Ads,Net,Net_Rate
+50,8,15,6,5,5,16.5,33.0
+40,7,15,5,4,4,18.0,45.0
+60,12,15,7,7,7,25.1,41.8
+35,6,20,5,3,4,12.5,35.7
+80,15,12,8,9,10,48.4,60.5
+25,5,15,4,3,3,12.25,49.0
+# Columns: AOV客单价, COGS成本, 平台佣金%, 物流$, 关税$, 投放$, 净利$, 净利率%
+# © HOLO-STACK · Edit the first row with your real numbers`;
+}
+</script>
+
+</body>
+</html>

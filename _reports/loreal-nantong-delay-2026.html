@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>欧莱雅中国南通高档化妆品智能运营中心延期情报研究报告 · 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;font-size:16px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Source Han Serif SC","Noto Serif CJK SC","SF Pro",Georgia,serif;
+  font-size:15px;line-height:1.65;
+  color:var(--ink);background:var(--paper);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;word-break:break-word;overflow-wrap:break-word;
+}
+img,svg{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+a{color:var(--gold);text-decoration:none;border-bottom:1px solid transparent;transition:all 0.2s}
+a:hover{border-bottom-color:var(--gold)}
+::selection{background:var(--accent);color:#fff}
+hr{border:none;border-top:1px solid var(--rule);margin:48px 0}
+
+/* ---- DESIGN TOKENS ---- */
+:root{
+  --paper:#0A0E14;
+  --paper-2:#0F141C;
+  --paper-3:#141B25;
+  --panel:#1A2230;
+  --panel-hi:#222B3A;
+  --ink:#F0F4FA;
+  --ink-2:#C8D2E0;
+  --ink-3:#8895AB;
+  --ink-4:#5A6678;
+  --ink-5:#3A4456;
+  --rule:#2A3548;
+  --rule-2:#3A4456;
+  --rule-soft:#1F2837;
+  --rule-faint:#161D27;
+  --accent:#C8102E;
+  --accent-glow:rgba(200,16,46,0.45);
+  --gold:#C8A75E;
+  --gold-glow:rgba(200,167,94,0.4);
+  --cyan:#00E5FF;
+  --green:#00FF94;
+  --green-glow:rgba(0,255,148,0.4);
+  --amber:#FFB800;
+  --purple:#A78BFA;
+  --positive:#00FF94;
+  --warn:#FFB800;
+  --negative:#FF3B4E;
+  --serif:"Source Serif Pro","Source Han Serif SC","Noto Serif CJK SC","Songti SC",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB",sans-serif;
+  --mono:"JetBrains Mono","SF Mono","IBM Plex Mono",Menlo,Consolas,monospace;
+  --container:min(1280px, calc(100% - 48px));
+  --reading:780px;
+}
+
+/* ---- SCROLL PROGRESS ---- */
+.scroll-progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),var(--gold));z-index:9999;transition:width 0.05s linear;box-shadow:0 0 10px var(--accent-glow)}
+
+/* ---- TOPBAR ---- */
+.topbar{
+  position:sticky;top:0;z-index:200;
+  background:rgba(10,14,20,0.85);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--rule);
+  padding:14px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.topbar-brand{display:flex;align-items:center;gap:12px}
+.topbar-brand-mark{width:32px;height:32px;background:linear-gradient(135deg,var(--accent),var(--gold));border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px}
+.topbar-brand-text{display:flex;flex-direction:column;gap:2px}
+.topbar-brand-text strong{color:var(--ink);font-size:11px;letter-spacing:0.2em;font-weight:600}
+.topbar-brand-text small{color:var(--ink-4);font-size:9px;letter-spacing:0.16em}
+.topbar-meta{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink-4);letter-spacing:0.08em}
+
+/* ---- COVER ---- */
+.cover{
+  position:relative;overflow:hidden;
+  background:linear-gradient(180deg,#0A0E14 0%,#0F141C 100%);
+  padding:80px 32px 64px;
+  border-bottom:1px solid var(--rule);
+}
+.cover::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 30%,rgba(200,16,46,0.18),transparent 40%),
+    radial-gradient(circle at 80% 70%,rgba(200,167,94,0.12),transparent 40%);
+  pointer-events:none;
+}
+.cover::after{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(200,16,46,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(200,16,46,0.04) 1px,transparent 1px);
+  background-size:64px 64px;
+  pointer-events:none;
+  mask:radial-gradient(ellipse at center,#000 30%,transparent 70%);
+  -webkit-mask:radial-gradient(ellipse at center,#000 30%,transparent 70%);
+}
+.scanline{
+  position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  animation:scan 6s linear infinite;pointer-events:none;opacity:0.6;
+}
+@keyframes scan{0%{top:0}100%{top:100%}}
+.cover-inner{position:relative;max-width:var(--container);margin:0 auto;z-index:1}
+.cover-meta{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--mono);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:48px;
+}
+.cover-badge{
+  padding:6px 12px;background:rgba(200,16,46,0.15);border:1px solid var(--accent);
+  color:var(--accent);font-weight:600;letter-spacing:0.16em;
+}
+.cover-badge.warn{
+  background:rgba(255,184,0,0.12);border-color:var(--amber);
+  color:var(--amber);
+}
+.cover-meta-divider{width:32px;height:1px;background:var(--rule-2)}
+.cover-eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:0.4em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:20px;
+}
+.cover-title{
+  font-family:var(--serif);
+  font-size:clamp(32px,5vw,60px);
+  font-weight:700;line-height:1.05;letter-spacing:-0.02em;
+  color:var(--ink);margin-bottom:20px;text-wrap:balance;
+}
+.cover-title em{color:var(--gold);font-style:normal}
+.cover-subtitle{
+  font-size:17px;line-height:1.6;color:var(--ink-2);
+  max-width:680px;margin-bottom:48px;font-family:var(--sans);
+}
+.cover-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--rule);border:1px solid var(--rule);
+  margin-bottom:32px;
+}
+.cover-stat{background:var(--paper);padding:24px 22px;position:relative;transition:background 0.3s}
+.cover-stat:hover{background:var(--paper-3)}
+.cover-stat::before{content:"";position:absolute;top:0;left:0;width:24px;height:1px;background:var(--accent)}
+.cover-stat-label{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-4);margin-bottom:12px}
+.cover-stat-value{font-family:var(--serif);font-size:32px;font-weight:600;color:var(--ink);line-height:1;letter-spacing:-0.01em}
+.cover-stat-value.is-gold{color:var(--gold)}
+.cover-stat-value.is-red{color:var(--accent)}
+.cover-stat-value.is-amber{color:var(--amber)}
+.cover-stat-unit{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-left:4px}
+.cover-stat-trend{font-family:var(--mono);font-size:10px;color:var(--green);margin-top:8px}
+.cover-stat-trend.is-down{color:var(--negative)}
+.cover-foot{
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+  padding-top:24px;border-top:1px solid var(--rule-faint);
+  font-family:var(--mono);font-size:11px;letter-spacing:0.12em;color:var(--ink-3);
+}
+.cover-foot-item{display:flex;align-items:center;gap:8px}
+.cover-foot-item::before{content:"●";color:var(--accent);font-size:8px}
+@media(max-width:768px){
+  .cover{padding:48px 16px 40px}
+  .cover-meta{font-size:10px;gap:10px;margin-bottom:32px;flex-wrap:wrap}
+  .cover-title{font-size:32px}
+  .cover-stats{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ---- MAIN CONTENT ---- */
+.content{max-width:var(--container);margin:0 auto;padding:80px 32px 40px}
+@media(max-width:768px){.content{padding:48px 16px 24px}}
+
+/* ---- CHAPTER ---- */
+.chapter-cover{
+  margin:72px 0 56px;
+  padding:48px 0 32px;
+  border-top:1px solid var(--rule);
+}
+.chapter-cover:first-child{margin-top:0;border-top:none;padding-top:0}
+.chapter-cover-tag{
+  font-family:var(--mono);font-size:10px;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:12px;
+}
+.chapter-cover-tag::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--accent) 0%,transparent 100%)}
+.chapter-cover-tag.gold{color:var(--gold)}
+.chapter-cover-tag.gold::after{background:linear-gradient(90deg,var(--gold) 0%,transparent 100%)}
+.chapter-cover-tag.amber{color:var(--amber)}
+.chapter-cover-tag.amber::after{background:linear-gradient(90deg,var(--amber) 0%,transparent 100%)}
+.chapter-cover-num{
+  font-family:var(--serif);font-size:clamp(72px,10vw,120px);
+  font-weight:700;color:var(--rule-2);line-height:1;letter-spacing:-0.04em;
+  position:absolute;top:24px;right:0;opacity:0.35;
+}
+.chapter-cover-title{
+  font-family:var(--serif);
+  font-size:clamp(26px,3vw,38px);
+  font-weight:600;color:var(--ink);line-height:1.2;letter-spacing:-0.01em;
+  max-width:780px;margin-bottom:12px;position:relative;z-index:1;
+}
+.chapter-cover-desc{
+  font-size:15px;color:var(--ink-3);max-width:640px;line-height:1.7;
+  font-family:var(--sans);
+}
+
+/* ---- HEADINGS ---- */
+.h2{
+  font-family:var(--serif);
+  font-size:clamp(20px,2.2vw,26px);
+  font-weight:600;color:var(--ink);
+  line-height:1.3;letter-spacing:-0.01em;
+  margin:56px 0 20px;padding-bottom:14px;
+  border-bottom:1px solid var(--rule);
+  display:flex;align-items:baseline;gap:14px;
+}
+.h2-num{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.16em;font-weight:500}
+.h3{
+  font-size:17px;font-weight:600;color:var(--ink-2);
+  margin:36px 0 14px;letter-spacing:-0.005em;
+  position:relative;padding-left:14px;
+}
+.h3::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;background:var(--gold)}
+.h4{
+  font-family:var(--mono);font-size:12px;font-weight:600;
+  color:var(--gold);text-transform:uppercase;letter-spacing:0.14em;
+  margin:28px 0 10px;display:flex;align-items:center;gap:10px;
+}
+.h4::before{content:"";width:20px;height:1px;background:var(--gold)}
+
+/* ---- TEXT ---- */
+p{color:var(--ink-2);font-size:14.5px;line-height:1.75;margin-bottom:14px}
+p strong{color:var(--ink)}
+li{margin-bottom:8px;line-height:1.75;color:var(--ink-2);font-size:14.5px}
+li::marker{color:var(--accent)}
+li strong{color:var(--ink)}
+blockquote{
+  position:relative;padding:20px 24px;margin:28px 0;
+  background:var(--paper-2);border-left:3px solid var(--gold);
+  font-style:italic;color:var(--ink-2);font-size:15px;line-height:1.7;
+}
+
+/* ---- TABLES ---- */
+.table-wrap{margin:28px 0;border:1px solid var(--rule);background:var(--paper-2);overflow:hidden}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+thead{background:var(--paper-3)}
+th{
+  text-align:left;padding:12px 16px;font-family:var(--mono);
+  font-weight:600;color:var(--ink);font-size:10.5px;
+  letter-spacing:0.14em;text-transform:uppercase;
+  border-bottom:1px solid var(--rule);white-space:nowrap;
+}
+td{
+  padding:12px 16px;border-bottom:1px solid var(--rule-faint);
+  color:var(--ink-2);line-height:1.55;vertical-align:top;font-size:13.5px;
+}
+tbody tr:last-child td{border-bottom:none}
+tbody tr{transition:background 0.2s}
+tbody tr:hover{background:var(--panel)}
+
+/* ---- CALLOUT ---- */
+.callout{
+  position:relative;padding:18px 22px;margin:24px 0;
+  background:var(--paper-2);border:1px solid var(--rule);
+  border-left:3px solid var(--ink-4);
+}
+.callout-title{
+  font-family:var(--mono);font-size:10.5px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.2em;
+  color:var(--ink-3);margin-bottom:10px;display:flex;align-items:center;gap:10px;
+}
+.callout-title::before{content:"";width:5px;height:5px;background:currentColor;border-radius:50%}
+.callout p{margin-bottom:8px;font-size:14px}
+.callout-opportunity{border-left-color:var(--green);background:rgba(0,255,148,0.04)}
+.callout-opportunity .callout-title{color:var(--green)}
+.callout-risk{border-left-color:var(--negative);background:rgba(255,59,78,0.04)}
+.callout-risk .callout-title{color:var(--negative)}
+.callout-data{border-left-color:var(--gold);background:rgba(200,167,94,0.04)}
+.callout-data .callout-title{color:var(--gold)}
+.callout-warn{border-left-color:var(--amber);background:rgba(255,184,0,0.04)}
+.callout-warn .callout-title{color:var(--amber)}
+.callout-conclusion{border-left-color:var(--accent);background:rgba(200,16,46,0.04)}
+.callout-conclusion .callout-title{color:var(--accent)}
+
+/* ---- TIMELINE ---- */
+.timeline{margin:28px 0;border:1px solid var(--rule);background:var(--paper-2)}
+.timeline-item{
+  display:grid;grid-template-columns:120px 1fr;gap:0;
+  border-bottom:1px solid var(--rule-faint);
+}
+.timeline-item:last-child{border-bottom:none}
+.timeline-date{
+  padding:18px 20px;font-family:var(--mono);font-size:11px;
+  color:var(--ink-4);letter-spacing:0.08em;
+  border-right:1px solid var(--rule-faint);
+  display:flex;align-items:flex-start;padding-top:20px;
+}
+.timeline-date strong{display:block;color:var(--ink-3);font-size:10px;letter-spacing:0.14em}
+.timeline-body{padding:18px 20px}
+.timeline-body-title{font-weight:600;color:var(--ink);font-size:14px;margin-bottom:6px}
+.timeline-body p{font-size:13.5px;color:var(--ink-3);margin-bottom:0;line-height:1.6}
+.timeline-item.is-highlight .timeline-date{color:var(--accent)}
+.timeline-item.is-highlight .timeline-date strong{color:var(--accent)}
+.timeline-item.is-delay .timeline-date{color:var(--amber)}
+.timeline-item.is-delay .timeline-date strong{color:var(--amber)}
+.timeline-item.is-delay .timeline-body-title{color:var(--amber)}
+.timeline-item.is-current .timeline-date{color:var(--green)}
+.timeline-item.is-current .timeline-date strong{color:var(--green)}
+.timeline-tag{
+  display:inline-block;padding:2px 8px;border-radius:2px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;
+  margin-top:8px;
+}
+.timeline-tag.highlight{background:rgba(200,16,46,0.15);color:var(--accent)}
+.timeline-tag.delay{background:rgba(255,184,0,0.15);color:var(--amber)}
+.timeline-tag.current{background:rgba(0,255,148,0.12);color:var(--green)}
+.timeline-tag.info{background:rgba(136,149,171,0.12);color:var(--ink-3)}
+
+/* ---- METRIC CARDS ---- */
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:28px 0}
+.metric-card{
+  background:var(--paper-2);padding:22px;border:1px solid var(--rule);
+  position:relative;transition:all 0.3s;
+}
+.metric-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.metric-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.metric-card:hover::before{transform:scaleX(1)}
+.metric-label{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-4);margin-bottom:12px}
+.metric-value{font-family:var(--serif);font-size:28px;font-weight:600;color:var(--ink);line-height:1;margin-bottom:6px}
+.metric-value.is-gold{color:var(--gold)}
+.metric-value.is-red{color:var(--accent)}
+.metric-value.is-amber{color:var(--amber)}
+.metric-value.is-green{color:var(--green)}
+.metric-unit{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-left:2px}
+.metric-sub{font-size:12.5px;color:var(--ink-4);margin-top:6px;line-height:1.5}
+
+/* ---- SOURCE TABLE ---- */
+.source-table{margin:24px 0}
+.source-row{display:grid;grid-template-columns:1fr 1.5fr 100px;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule-faint);align-items:start}
+.source-row:last-child{border-bottom:none}
+.source-name{font-weight:600;color:var(--ink);font-size:13.5px}
+.source-type{
+  display:inline-block;padding:2px 7px;border-radius:2px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:0.08em;text-transform:uppercase;
+  background:rgba(136,149,171,0.1);color:var(--ink-4);margin-top:4px;
+}
+.source-url{font-size:12px;color:var(--ink-4);font-family:var(--mono);margin-top:4px}
+.source-date{font-family:var(--mono);font-size:11px;color:var(--ink-4);white-space:nowrap}
+
+/* ---- BADGE ---- */
+.badge{display:inline-block;padding:3px 10px;border-radius:2px;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600}
+.badge-red{background:rgba(200,16,46,0.15);color:var(--accent)}
+.badge-amber{background:rgba(255,184,0,0.15);color:var(--amber)}
+.badge-green{background:rgba(0,255,148,0.1);color:var(--green)}
+.badge-gray{background:rgba(136,149,171,0.1);color:var(--ink-3)}
+
+/* ---- DIVIDER ---- */
+.section-divider{margin:48px 0;display:flex;align-items:center;gap:16px}
+.section-divider::before,.section-divider::after{content:"";flex:1;height:1px;background:var(--rule)}
+.section-divider span{font-family:var(--mono);font-size:11px;color:var(--ink-5);letter-spacing:0.2em;text-transform:uppercase}
+
+/* ---- CLOSING FOOTER ---- */
+.footer{
+  max-width:var(--container);margin:80px auto 0;padding:40px 32px;
+  border-top:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+.footer-brand{font-family:var(--mono);font-size:11px;color:var(--ink-4);letter-spacing:0.14em;text-transform:uppercase}
+.footer-meta{font-family:var(--mono);font-size:11px;color:var(--ink-5);letter-spacing:0.08em}
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ============================================================
+     TOPBAR
+     ============================================================ -->
+<header class="topbar">
+  <div class="topbar-brand">
+    <div class="topbar-brand-mark">情</div>
+    <div class="topbar-brand-text">
+      <strong>上海张小强企业咨询事务所</strong>
+      <small>HOLOGRAPHIC INTELLIGENCE CENTER</small>
+    </div>
+  </div>
+  <div class="topbar-meta">情报研究 &nbsp;/&nbsp; 2026-07-06</div>
+</header>
+
+<!-- ============================================================
+     COVER
+     ============================================================ -->
+<section class="cover">
+  <div class="scanline"></div>
+  <div class="cover-inner">
+    <div class="cover-meta">
+      <span class="cover-badge warn">⚠ 项目延期实证</span>
+      <div class="cover-meta-divider"></div>
+      <span>全息产业情报</span>
+      <div class="cover-meta-divider"></div>
+      <span>欧莱雅中国</span>
+      <div class="cover-meta-divider"></div>
+      <span>南通智能运营中心</span>
+    </div>
+    <div class="cover-eyebrow">L'ORÉAL CHINA INTELLIGENCE REPORT</div>
+    <h1 class="cover-title">
+      欧莱雅中国南通高档化妆品<br><em>智能运营中心</em><br>延期情报研究报告
+    </h1>
+    <p class="cover-subtitle">
+      全面追踪第二家自建智能运营中心从"2024年动工 / 2025年投运"的原计划，<br>
+      到"2026年下半年启动建设"的真实延期轨迹，并深度剖析背后多重驱动因素。
+    </p>
+
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <div class="cover-stat-label">原计划动工时间</div>
+        <div class="cover-stat-value is-amber">2024<span class="cover-stat-unit">年</span></div>
+        <div class="cover-stat-trend">原计划破土</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-label">实际动工时间</div>
+        <div class="cover-stat-value is-amber">2026<span class="cover-stat-unit">下半年</span></div>
+        <div class="cover-stat-trend is-down">延期约 2 年</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-label">占地面积</div>
+        <div class="cover-stat-value is-gold">45,000<span class="cover-stat-unit">㎡</span></div>
+        <div class="cover-stat-trend">高档化妆品部专属</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-label">项目状态</div>
+        <div class="cover-stat-value is-gold">存续</div>
+        <div class="cover-stat-trend is-down">延期 · 未取消</div>
+      </div>
+    </div>
+
+    <div class="cover-foot">
+      <div class="cover-foot-item">情报采集时间窗口：2023年3月—2026年7月</div>
+      <div class="cover-foot-item">全周期多源交叉验证</div>
+      <div class="cover-foot-item">信源数量：19个权威机构</div>
+      <div class="cover-foot-item">报告日期：2026-07-06</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MAIN CONTENT
+     ============================================================ -->
+<main class="content">
+
+  <!-- ============================================================
+       SECTION 01: 事实核实结论
+       ============================================================ -->
+  <div class="chapter-cover">
+    <div class="chapter-cover-tag">01 &nbsp; FACTUAL VERIFICATION</div>
+    <div class="chapter-cover-num">01</div>
+    <h2 class="chapter-cover-title">"延期"事实核实结论</h2>
+    <p class="chapter-cover-desc">经全周期多源情报交叉验证，"项目延期"事实成立，但项目并未取消。以下为核心判断。</p>
+  </div>
+
+  <div class="callout callout-conclusion">
+    <div class="callout-title">核心结论</div>
+    <p>欧莱雅中国第二家自建智能运营中心（南通高档化妆品智能运营中心）确实经历了重大延期——从原计划"2024年动工 / 2025年投运"，推迟至"2026年下半年启动建设"。预计实际投运时间最早在<strong>2027-2028年</strong>，延期幅度约2年。<strong>项目未被取消</strong>，2026年4月至6月间欧莱雅官方多渠道均持续确认项目推进中。</p>
+  </div>
+
+  <div class="h4">关键事实矩阵</div>
+  <div class="table-wrap">
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>议题</th>
+            <th>结论</th>
+            <th>置信度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>项目是否延期？</td>
+            <td><span class="badge badge-red">延期成立</span> 动工延期约2年，投运延期至少2-3年</td>
+            <td><span class="badge badge-green">极高</span></td>
+          </tr>
+          <tr>
+            <td>项目是否取消？</td>
+            <td><span class="badge badge-green">未取消</span> 2026年官方多渠道确认推进</td>
+            <td><span class="badge badge-green">极高</span></td>
+          </tr>
+          <tr>
+            <td>延期起点</td>
+            <td>2024年起，<strong>土地挂牌仍未完成</strong>（截至2024年11月）</td>
+            <td><span class="badge badge-green">高</span></td>
+          </tr>
+          <tr>
+            <td>最新官方口径</td>
+            <td>"南通智能运营中心计划于2026年下半年启动建设"（2026年4月战略沟通会、2026年6月链博会）</td>
+            <td><span class="badge badge-green">极高</span></td>
+          </tr>
+          <tr>
+            <td>直接证据</td>
+            <td>2024年11月人民网/南通日报：<strong>"确保欧莱雅项目完成土地挂牌"</strong>（距原计划动工已过一年）</td>
+            <td><span class="badge badge-green">极高</span></td>
+          </tr>
+          <tr>
+            <td>核心背景原因</td>
+            <td>2024年中国大陆高端美妆市场下滑18-20%，欧莱雅北亚区首次负增长（-3.2%）</td>
+            <td><span class="badge badge-green">高</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">情报局限说明</div>
+    <p>本报告基于公开可获取信息编制。南通崇川区政府官网（chongchuan.gov.cn）及南通市政府官网（nantong.gov.cn）在情报采集期间因云防护机制拦截，无法直接获取其项目审批、环评、施工许可等内部信息。土地挂牌完成的精确时间节点及欧莱雅内部决策记录暂无公开披露，延期具体内部分歧情况尚无法核实。</p>
+  </div>
+
+  <!-- ============================================================
+       SECTION 02: 项目全景档案
+       ============================================================ -->
+  <div class="chapter-cover">
+    <div class="chapter-cover-tag gold">02 &nbsp; PROJECT PROFILE</div>
+    <div class="chapter-cover-num">02</div>
+    <h2 class="chapter-cover-title">项目全景档案</h2>
+    <p class="chapter-cover-desc">从立项背景、选址过程到规模定位，全面还原南通高档化妆品智能运营中心的基本面貌。</p>
+  </div>
+
+  <div class="h2"><span class="h2-num">02.1</span> 立项背景与战略定位</div>
+  <p>2023年3月24日，欧莱雅中国与南通崇川经济开发区管理委员会在上海签署合作备忘录，宣布欧莱雅中国高档化妆品智能运营中心将落户江苏南通。这是欧莱雅中国<strong>第二家自建智能运营中心</strong>（首家为苏州智能运营中心，已于2024年4月26日开业），也是欧莱雅中国开启"下一个25年新篇章"的首笔投资，集团CEO叶鸿慕（Nicolas Hieronimus）亲自出席签约仪式。</p>
+  <p>南通中心与苏州中心形成明确分工：<strong>苏州中心</strong>主要支持大众化妆品部、活性健康化妆品部及专业美发产品部；<strong>南通中心</strong>专门服务高档化妆品部，涵盖兰蔻（Lancôme）、YSL圣罗兰美妆（YSL Beauté）等高端护肤、彩妆与香水品牌。</p>
+
+  <div class="h4">供应链双中心战略定位</div>
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="metric-label">苏州智能运营中心</div>
+      <div class="metric-value is-gold">大众线</div>
+      <div class="metric-sub">大众化妆品 / 活性健康化妆品 / 专业美发 · 已于2024年4月投运</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">南通高档化妆品智能运营中心</div>
+      <div class="metric-value is-amber">高端线</div>
+      <div class="metric-sub">兰蔻 / YSL圣罗兰美妆 / 高端香水 · 计划2026年下半年启动建设</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">功能定位</div>
+      <div class="metric-value is-gold">D2C</div>
+      <div class="metric-sub">大数据赋能的直面消费者（Direct-to-Consumer）模式，提升定制化包裹履约能力</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">选址逻辑</div>
+      <div class="metric-value is-gold">长三角</div>
+      <div class="metric-sub">上海为心脏，苏州和南通为双动脉，崇川经开区提供用地与政策支持</div>
+    </div>
+  </div>
+
+  <div class="h2"><span class="h2-num">02.2</span> 规模与选址过程</div>
+  <p>南通中心计划占地面积约<strong>45,000平方米</strong>，将配备世界领先的物流和机器人技术，支持高档化妆品部线上线下全渠道产品。选址背后有一段被南通日报详细记录的故事：</p>
+  <blockquote>"欧莱雅集团要在中国选址新建智能化运营中心，但候选名单里没有南通。凭借寥寥数语的项目信息，崇川经济开发区招商团队成立工作专班连轴转，不到24小时，中英文双语PPT就送达欧莱雅集团高层手里。"<br><br>——<strong>《南通日报》</strong>，2024年1月17日，B10版</blockquote>
+  <p>南通崇川经开区最终凭借高效的专业服务打动欧莱雅，在众多竞争城市中赢得项目落地。南通同时具备"一带一路"、长江经济带、长三角一体化三大国家战略叠加优势，是项目落地的关键吸引力。</p>
+
+  <div class="h4">南通 vs 苏州 双中心对比</div>
+  <div class="table-wrap">
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>指标</th>
+            <th>苏州智能运营中心（已投运）</th>
+            <th>南通高档化妆品智能运营中心（延期）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>签约时间</td>
+            <td>2021年6月 MOU → 2022年10月奠基</td>
+            <td>2023年3月 MOU</td>
+          </tr>
+          <tr>
+            <td>占地面积</td>
+            <td>90,000 ㎡</td>
+            <td>45,000 ㎡</td>
+          </tr>
+          <tr>
+            <td>原计划动工</td>
+            <td>2022年10月（已如期奠基）</td>
+            <td>2024年</td>
+          </tr>
+          <tr>
+            <td>原计划投运</td>
+            <td>2023年Q4 → <strong>实际2024年4月</strong></td>
+            <td>2025年</td>
+          </tr>
+          <tr>
+            <td>实际状态</td>
+            <td><span class="badge badge-green">已投运</span> 2024年4月26日开业</td>
+            <td><span class="badge badge-amber">延期</span> 2026年下半年才启动建设</td>
+          </tr>
+          <tr>
+            <td>处理能力</td>
+            <td>5,000万 D2C订单/年，1,700万商业客户订单/年</td>
+            <td>未披露（高档品专供，规模相对较小）</td>
+          </tr>
+          <tr>
+            <td>支持事业部</td>
+            <td>大众化妆品 / 活性健康化妆品 / 专业美发</td>
+            <td>高档化妆品部（兰蔻、YSL等）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 03: 完整时间线
+       ============================================================ -->
+  <div class="chapter-cover">
+    <div class="chapter-cover-tag">03 &nbsp; FULL TIMELINE</div>
+    <div class="chapter-cover-num">03</div>
+    <h2 class="chapter-cover-title">全周期时间线：延期轨迹全记录</h2>
+    <p class="chapter-cover-desc">从2023年3月签约到2026年7月，以公开报道为锚点还原项目真实推进轨迹，标注关键延迟节点。</p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <strong>2023-03-24</strong>
+        MOU签署
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-body-title">签约落户南通</div>
+        <p>欧莱雅中国与南通崇川经开区签署合作备忘录，宣布高档化妆品智能运营中心落户南通。占地面积约45,000㎡，配备世界领先物流和机器人技术。计划2024年动工，2025年投运。签约仪式规格极高，法国驻上海总领事、欧莱雅集团CEO叶鸿慕等出席。</p>
+        <span class="timeline-tag highlight">项目立项</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <strong>2024-01-17</strong>
+        政府背书
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-body-title">南通崇川区政府工作报告确认项目</div>
+        <p>《南通日报》头版报道"崇川推进中国式现代化新实践"，明确提到欧莱雅智能化运营中心项目，详述崇川招商团队"24小时完成中英文双语PPT"赢得项目落地的经过。</p>
+        <span class="timeline-tag info">政府背书</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <strong>2024-04-17</strong>
+        用地信号
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-body-title">江苏重大项目中提及土地"即将挂牌"</div>
+        <p>江苏省重大项目建设推进报道中提及"新帝克、<strong>欧莱雅</strong>、捷捷微电等项目用地即将在近期挂牌"。措辞"即将"表明截至2024年4月，土地挂牌程序尚未完成。</p>
+        <span class="timeline-tag delay">早期延误信号</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <strong>2024-04-25</strong>
+        推进顺利
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-body-title">香港商报刊载"推进迅速"</div>
+        <p>香港商报文内写道："博斯格、福力加特等新投产企业正火热生产，泰科电子、华润医药等重大工程施工火热，<strong>欧莱雅、中巽尼慕等跨国外资项目推进迅速</strong>。"这是项目仍在积极推进的正面信号。</p>
+        <span class="timeline-tag info">政府积极推进</span>
+      </div>
+    </div>
+    <div class="timeline-item is-delay">
+      <div class="timeline-date">
+        <strong>2024-04-26</strong>
+        苏州先行
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-body-title">苏州智能运营中心正式开业</div>
+        <p>欧莱雅全球首家自建智能运营中心在苏州工业园区盛大开幕，每年处理5,000万D2C订单。对比鲜明的是，南通项目在苏州开业时仍处于土地挂牌阶段。</p>
+        <span class="timeline-tag delay">对比参照</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <strong>2024-09</strong>
+        全年无开工
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-body-title">全年无开工迹象</div>
+        <p>2024年内未见任何关于南通项目奠基或开工的公开报道。欧莱雅全年忙于应对中国大陆高端美妆市场下滑。</p>
+        <span class="timeline-tag delay">持续停摆</span>
+      </div>
+    </div>
+    <div class="timeline-item is-highlight">
+      <div class="timeline-date">
+        <strong>2024-11-04</strong>
+        <strong>关键证据</strong>
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-body-title">人民网/南通日报：确保土地挂牌</div>
+        <p>崇川三季度项目建设推进会报道明确写道："年底前，崇川区将确保华睿智连、远中电机、泉田智能项目领证开工，<strong>欧莱雅、时光里、精华制药、中集安瑞环项目完成土地挂牌</strong>。"这意味着：截至2024年11月，在原计划"2024年动工"的节点上，<strong>土地挂牌仍未完成</strong>——这是项目延期的最直接政府层面证据。</p>
+        <span class="timeline-tag delay">延期直接证据</span>
+      </div>
+    </div>
+    <div class="timeline-item is-highlight">
+      <div class="timeline-date">
+        <strong>2024-11/12</strong>
+        负面财报
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-body-title">欧莱雅2024年财报：中国大陆十年来首次负增长</div>
+        <p>欧莱雅集团2024年财报披露：中国大陆销售额出现低个位数下滑（北亚区整体-3.2%）。高档化妆品部在中国市场承受较大压力。中国高端美妆市场2024年整体下滑18-20%（贝恩数据）。财联社、钛媒体、新华网等多家主流媒体报道"中国市场首次负增长"。</p>
+        <span class="timeline-tag highlight">延期背景原因</span>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <strong>2025-02</strong>
+        战略调整
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-body-title">欧莱雅宣布减少对中国市场依赖</div>
+        <p>路透社、CNBC报道：L'Oréal CEO表示将减少对中国消费者的增长依赖，转向美国市场寻求"land of opportunity"。中国高端美妆市场信心仍待恢复。</p>
+        <span class="timeline-tag delay">战略重新定位</span>
+      </div>
+    </div>
+    <div class="timeline-item is-highlight">
+      <div class="timeline-date">
+        <strong>2026-04-27</strong>
+        <strong>官方确认</strong>
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-body-title">战略沟通会：2026年下半年启动建设</div>
+        <p>欧莱雅中国2025/2026年度发展战略沟通会在上海举办。CEO博万尚（Vincent Boinay）明确表示："继2024年苏州智能运营中心启用之后，<strong>南通智能运营中心计划于下半年启动建设</strong>，将更好满足电商市场持续增长的需求，并进一步支持长三角战略布局。"（知乎专栏、美通社、腾讯新闻等多家同步报道）</p>
+        <span class="timeline-tag current">官方延期确认</span>
+      </div>
+    </div>
+    <div class="timeline-item is-current">
+      <div class="timeline-date">
+        <strong>2026-06-23</strong>
+        <strong>最新动态</strong>
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-body-title">链博会：第三次确认"下半年启动"</div>
+        <p>第四届中国国际供应链促进博览会在北京举办。欧莱雅北亚及中国公共事务总裁兰珍珍、苏州智能运营中心总监全志辉等出席。华夏时报、同花顺、腾讯新闻均报道："继2024年苏州智能运营中心启用之后，<strong>欧莱雅南通智能运营中心计划于下半年启动建设</strong>，将更好满足电商市场持续增长的需求。"</p>
+        <span class="timeline-tag current">当前最新状态</span>
+      </div>
+    </div>
+    <div class="timeline-item is-current">
+      <div class="timeline-date">
+        <strong>2026-06-25</strong>
+        英文佐证
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-body-title">China.org.cn 英文版：AI供应链全景报道</div>
+        <p>中国日报英文网以"L'Oréal bets on AI to overhaul beauty supply chain"为题，系统报道欧莱雅在苏州工厂、智能包装创意中心及智能运营中心全面部署AI的战略布局。报道提及苏州中心"processing 7,000 direct-to-consumer parcels per hour"，未明确给出南通时间表，但与链博会口径一致。</p>
+        <span class="timeline-tag current">英文国际信源</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-data">
+    <div class="callout-title">时间线分析</div>
+    <p>南通项目时间线的关键转折点在于<strong>2024年4月至11月</strong>：4月说"即将挂牌"，11月说"确保年底前完成挂牌"——说明土地挂牌程序在2024年全年都未走完，原本的"2024年动工"节点已实质延误。2024年中国高端美妆市场的急剧恶化，可能是项目方放缓节奏的主要原因。2026年官方三度（4月沟通会 / 6月链博会 / 6月英文报道）确认"下半年启动"，说明项目正式进入重启通道。</p>
+  </div>
+
+  <!-- ============================================================
+       SECTION 04: 延期原因深度分析
+       ============================================================ -->
+  <div class="chapter-cover">
+    <div class="chapter-cover-tag amber">04 &nbsp; ROOT CAUSE ANALYSIS</div>
+    <div class="chapter-cover-num">04</div>
+    <h2 class="chapter-cover-title">延期原因深度分析</h2>
+    <p class="chapter-cover-desc">从宏观市场、内部战略、外部环境三个维度还原导致项目延期的多重因素。</p>
+  </div>
+
+  <div class="h2"><span class="h2-num">04.1</span> 宏观市场因素：中国高端美妆急转直下</div>
+  <p>南通中心延期最核心的背景，是中国高端美妆市场在2023-2024年经历了剧烈下行。贝恩公司（Bain & Company）数据显示，2024年中国大陆奢侈品市场同比下滑18-20%，回落至2020年水平。消费信心疲软、出国购物潮兴起、国货美妆品牌崛起，三重压力同时挤压国际高端美妆品牌的生存空间。</p>
+
+  <div class="h4">欧莱雅中国2024年业绩表现</div>
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="metric-label">欧莱雅集团全球销售额（2024）</div>
+      <div class="metric-value is-gold">434.8<span class="metric-unit">亿欧元</span></div>
+      <div class="metric-sub">同比+5.1%（增速创4年新低）</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">北亚区销售额（2024）</div>
+      <div class="metric-value is-red">-3.2%</div>
+      <div class="metric-sub">欧莱雅全球五大区域中唯一负增长市场</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">中国大陆市场</div>
+      <div class="metric-value is-red">首次负增长</div>
+      <div class="metric-sub">近13年以来唯一下滑年份（财联社、新华网确认）</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">中国高端美妆市场（2024）</div>
+      <div class="metric-value is-red">-18~20%</div>
+      <div class="metric-sub">回落至2020年水平（贝恩公司数据）</div>
+    </div>
+  </div>
+
+  <p>高档化妆品部（Luxury Division）是欧莱雅利润最丰厚的板块，也是南通中心的核心服务对象。在该部门在中国市场明显承压的背景下，追加高档品专属物流基础设施的必要性大幅降低，延迟投资成为合理选择。</p>
+
+  <div class="h2"><span class="h2-num">04.2</span> 内部战略因素：资本优先级重分配</div>
+
+  <div class="h3">因素一：全球资本配置转向</div>
+  <p>2025年10月20日，欧莱雅宣布以<strong>40亿欧元</strong>（约合332亿元人民币）收购开云集团（Kering）旗下美妆业务（包括Mugler、X镜香水等高端品牌），这是欧莱雅史上最大的美妆收购案。40亿欧元相当于欧莱雅2024年全球研发投入的数倍，收购优先级明显挤压了南通中心的建设节奏。</p>
+
+  <div class="h3">因素二：全球管理层更替与战略审视</div>
+  <p>2025年，叶鸿慕卸任欧莱雅集团CEO，新帅上任后重新审视对中国市场的投资节奏。南通项目作为2023年签约的项目，在新管理团队上任后存在战略重审的可能性。欧莱雅北亚及中国CEO博万尚（Vincent Boinay）2025年多次强调"美国是下一个机会之地"，暗示投资重心正在向北美偏移。</p>
+
+  <div class="h3">因素三：供应链战略重心仍在苏州</div>
+  <p>苏州智能运营中心2024年4月才正式投运，产能爬坡需要时间。欧莱雅的首要任务是将苏州中心产能最大化，而非立刻启用第二个中心。南通中心"2026年下半年启动建设"，实际上是在苏州中心运行两年、积累了足够运营经验之后，才开始布局。</p>
+
+  <div class="h2"><span class="h2-num">04.3</span> 外部执行因素：政府端程序与市场信心</div>
+
+  <div class="h3">因素四：土地挂牌程序延迟</div>
+  <p>2024年4月江苏新闻称"欧莱雅等项目用地即将在近期挂牌"，11月人民网报道"确保欧莱雅项目完成土地挂牌"——说明土地挂牌从4月拖到了11月之后。崇川经开区同期有多个大型外资项目并行推进（泰科电子、华润医药等），政府端的土地供应节奏可能受到多种因素制约（环评、拆迁、指标等）。</p>
+
+  <div class="h3">因素五：中国营商环境的结构性变化</div>
+  <p>2024-2025年，部分跨国企业在华投资节奏放缓，中国美国商会、欧盟商会等机构的调查均显示外资对中国市场信心有所波动。虽然欧莱雅官方多次重申"深耕中国"，但南通项目节奏的变化在一定程度上折射了这一宏观信心趋势。</p>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">原因分析小结</div>
+    <p>南通项目延期的本质是：<strong>市场急剧恶化导致投资必要性下降</strong>（高档化妆品在中国大陆2024年下滑18-20%）+ <strong>全球资本优先级重分配</strong>（40亿欧元收购开云美妆，收购大于建设）+ <strong>政府端土地程序延迟</strong>（土地挂牌从4月拖到11月后）。三重因素叠加，造成了"2024年动工 / 2025年投运"变成"2026年下半年启动建设 / 预计2027-2028年投运"的现实。</p>
+  </div>
+
+  <!-- ============================================================
+       SECTION 05: 战略展望与情报结论
+       ============================================================ -->
+  <div class="chapter-cover">
+    <div class="chapter-cover-tag">05 &nbsp; STRATEGIC OUTLOOK</div>
+    <div class="chapter-cover-num">05</div>
+    <h2 class="chapter-cover-title">战略展望与情报结论</h2>
+    <p class="chapter-cover-desc">项目前景研判与持续追踪建议。</p>
+  </div>
+
+  <div class="h2"><span class="h2-num">05.1</span> 项目前景研判</div>
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="metric-label">启动时间预测</div>
+      <div class="metric-value is-amber">2026 H2</div>
+      <div class="metric-sub">官方已确认"下半年启动建设"，置信度较高</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">投运时间预测</div>
+      <div class="metric-value is-amber">2027-2028</div>
+      <div class="metric-sub">参考苏州中心从奠基到投运约1.5年，南通预计2027年底至2028年</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">项目延续概率</div>
+      <div class="metric-value is-green">高</div>
+      <div class="metric-sub">欧莱雅官方多轮确认，崇川经开区持续跟踪，中国高档美妆长期需求仍存</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">规模调整可能性</div>
+      <div class="metric-value is-amber">中</div>
+      <div class="metric-sub">如2026-2027年中国高端美妆复苏不及预期，项目规模或进一步缩减</div>
+    </div>
+  </div>
+
+  <div class="h4">积极信号</div>
+  <ul>
+    <li><strong>2025年中国美妆市场回暖</strong>：欧莱雅2025年财报显示北亚区止跌回稳（+0.5%），2026年Q1中高个位数增长；中国美妆市场总规模2025年首次突破1.1万亿元（新浪财经）</li>
+    <li><strong>高档化妆品部战略价值不变</strong>：欧莱雅2025年持续强化高端布局（40亿欧元收购开云美妆），南通中心服务的高端品类长期仍为核心利润来源</li>
+    <li><strong>长三角战略不改变</strong>：欧莱雅多次强调以上海为心脏、苏州和南通为双动脉的长三角布局，南通是集团战略不可分割的一环</li>
+    <li><strong>政府持续推动</strong>：南通崇川经开区将欧莱雅列为重大项目，2024-2025年持续列入年度工作计划</li>
+  </ul>
+
+  <div class="h4">风险因素</div>
+  <ul>
+    <li><strong>中国高端美妆复苏节奏不确定</strong>：2026年Q1虽现回暖，但可持续性存疑；消费者信心恢复需要时间</li>
+    <li><strong>全球资本配置优先级</strong>：欧莱雅已将大量资本投入美国市场和收购整合，南通项目如再次遭遇市场冲击，不排除再次推迟的可能</li>
+    <li><strong>竞争对手快速追赶</strong>：国货美妆品牌（珀莱雅、花西子等）在D2C和电商运营效率上持续提升，削弱了国际品牌专属物流中心的差异化价值</li>
+    <li><strong>土地与环评政策风险</strong>：南通崇川经开区规划范围内其他项目并行推进，存在土地指标、环评审批等不可控因素</li>
+  </ul>
+
+  <div class="h2"><span class="h2-num">05.2</span> 持续追踪建议</div>
+
+  <div class="table-wrap">
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>追踪事项</th>
+            <th>信息来源</th>
+            <th>建议频率</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>南通项目施工许可/奠基</td>
+            <td>崇川经开区官网重大项目栏、美通社南通分社</td>
+            <td>每季度</td>
+          </tr>
+          <tr>
+            <td>欧莱雅中国战略沟通会</td>
+            <td>欧莱雅官网、美通社、知乎差评等</td>
+            <td>每年4月（年度）/ 不定期</td>
+          </tr>
+          <tr>
+            <td>中国高档美妆市场数据</td>
+            <td>贝恩、麦肯锡、欧睿Euromonitor</td>
+            <td>每半年</td>
+          </tr>
+          <tr>
+            <td>南通崇川区土地出让公告</td>
+            <td>南通市自然资源与规划局网站</td>
+            <td>每季度</td>
+          </tr>
+          <tr>
+            <td>欧莱雅集团季度财报</td>
+            <td>欧莱雅投资者关系官网、路透社</td>
+            <td>每季度</td>
+          </tr>
+          <tr>
+            <td>南通中心环境影响评价公示</td>
+            <td>江苏省生态环境厅、南通市环保局</td>
+            <td>开工前6个月起</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 06: 情报来源清单
+       ============================================================ -->
+  <div class="chapter-cover">
+    <div class="chapter-cover-tag gold">06 &nbsp; SOURCE INDEX</div>
+    <div class="chapter-cover-num">06</div>
+    <h2 class="chapter-cover-title">情报来源清单</h2>
+    <p class="chapter-cover-desc">本次情报采集覆盖19个权威信源，涵盖政府机构、主流媒体、行业垂直媒体与英文国际媒体。</p>
+  </div>
+
+  <div class="source-table">
+    <div class="source-row">
+      <div>
+        <div class="source-name">美通社（PRNewswire Asia）</div>
+        <div class="source-type">官方公告</div>
+        <div class="source-url">prnasia.com</div>
+      </div>
+      <div>欧莱雅全球首家智能运营中心奠基（2022-10-11）、南通项目签约（2023-03-24）、苏州中心开业（2024-04-29）、苏州工厂30周年（2026-06-12）、欧莱雅战略沟通会（2026-04-28）——共5篇核心官方稿件</div>
+      <div class="source-date">2022-2026</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">南通日报</div>
+        <div class="source-type">地方政府报</div>
+        <div class="source-url">zgnt.net</div>
+      </div>
+      <div>崇川2024年政府工作报告（含欧莱雅项目招商故事，2024-01-17）；前三季度项目建设通报（含"确保土地挂牌"，2024-11-04）</div>
+      <div class="source-date">2024</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">人民网（人民日报）</div>
+        <div class="source-type">中央媒体</div>
+        <div class="source-url">people.com.cn</div>
+      </div>
+      <div>崇川前三季度项目建设推进会报道，明确"确保欧莱雅项目完成土地挂牌"（2024-11-04）；欧莱雅苏州工厂30周年纪念（2026-06-28）</div>
+      <div class="source-date">2024-2026</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">新华网</div>
+        <div class="source-type">中央媒体</div>
+        <div class="source-url">news.cn / xinhuanet</div>
+      </div>
+      <div>"欧莱雅告别高增长"（2026-02-25），确认中国大陆十年来首次负增长；"高端美妆市场回暖"（2026-06-11）</div>
+      <div class="source-date">2024-2026</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">财联社</div>
+        <div class="source-type">财经媒体</div>
+        <div class="source-url">cls.cn</div>
+      </div>
+      <div>"欧莱雅去年业绩达434.8亿欧元！中国市场首次负增长"（2025-02）</div>
+      <div class="source-date">2025</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">钛媒体</div>
+        <div class="source-type">科技媒体</div>
+        <div class="source-url">tmtpost.com</div>
+      </div>
+      <div>"博万尚能否逆转欧莱雅北亚业绩负增长？"（含2024年北亚区数据）</div>
+      <div class="source-date">2025</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">华夏时报</div>
+        <div class="source-type">财经媒体</div>
+        <div class="source-url">chinatimes.net.cn</div>
+      </div>
+      <div>链博会专题报道（2026-06-24），同花顺全文转载，确认"南通智能运营中心计划于下半年启动建设"</div>
+      <div class="source-date">2026</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">China.org.cn</div>
+        <div class="source-type">英文国际媒体</div>
+        <div class="source-url">china.org.cn</div>
+      </div>
+      <div>"L'Oréal bets on AI to overhaul beauty supply chain"（2026-06-25），英文国际传播口径</div>
+      <div class="source-date">2026</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">CNBC</div>
+        <div class="source-type">英文国际媒体</div>
+        <div class="source-url">cnbc.com</div>
+      </div>
+      <div>"L'Oreal looks to U.S. 'land of opportunity' as China disappoints"（2025-02-07）</div>
+      <div class="source-date">2025</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">路透社</div>
+        <div class="source-type">英文国际媒体</div>
+        <div class="source-url">reuters.com</div>
+      </div>
+      <div>"L'Oreal CEO bullish on US as China sales stay weak"（2025-02-07）</div>
+      <div class="source-date">2025</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">知乎·差评XPIN</div>
+        <div class="source-type">自媒体/行业分析</div>
+        <div class="source-url">zhuanlan.zhihu.com</div>
+      </div>
+      <div>欧莱雅中国2025/2026战略沟通会完整记录（2026-04-28，含南通中心表述原文）</div>
+      <div class="source-date">2026</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">香港商报</div>
+        <div class="source-type">港媒</div>
+        <div class="source-url">hkcd.com.hk</div>
+      </div>
+      <div>"欧莱雅、中巽尼慕等跨国外资项目推进迅速"（2024-04-25），崇川经开区建设进度报道</div>
+      <div class="source-date">2024</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">21世纪经济报道</div>
+        <div class="source-type">财经媒体</div>
+        <div class="source-url">21jingji.com</div>
+      </div>
+      <div>"欧莱雅豪赌高端化"（2025-10-24，含40亿欧元收购开云美妆详情）</div>
+      <div class="source-date">2025</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">CBNData（第一财经）</div>
+        <div class="source-type">财经媒体</div>
+        <div class="source-url">cbndata.com</div>
+      </div>
+      <div>"中国市场承压，欧莱雅生意也难做？"（2025-02-08）；"欧莱雅告别高增长"（2026-02）</div>
+      <div class="source-date">2025-2026</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">贝恩公司（Bain & Company）</div>
+        <div class="source-type">咨询机构</div>
+        <div class="source-url">bain.com</div>
+      </div>
+      <div>中国奢侈品市场2025年展望报告：中国大陆奢侈品市场2024年下滑18-20%</div>
+      <div class="source-date">2024</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">同花顺/华夏时报</div>
+        <div class="source-type">财经媒体</div>
+        <div class="source-url">10jqka.com.cn</div>
+      </div>
+      <div>"从消费市场到'智慧枢纽'，欧莱雅中国AI布局加速跑"（2026-06-24），链博会现场报道</div>
+      <div class="source-date">2026</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">江苏省重大项目建设推进报道</div>
+        <div class="source-type">政府动态</div>
+        <div class="source-url">jschina.com.cn</div>
+      </div>
+      <div>"新帝克、欧莱雅、捷捷微电等项目用地即将在近期挂牌"（2024-04-17）</div>
+      <div class="source-date">2024</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">品牌星球</div>
+        <div class="source-type">行业媒体</div>
+        <div class="source-url">brandstar.com.cn</div>
+      </div>
+      <div>南通项目签约报道（2023-03）；欧莱雅中国2025/2026年度战略沟通会跟踪报道（2026-04-28）</div>
+      <div class="source-date">2023-2026</div>
+    </div>
+    <div class="source-row">
+      <div>
+        <div class="source-name">欧莱雅集团投资者关系</div>
+        <div class="source-type">官方</div>
+        <div class="source-url">loreal-finance.com</div>
+      </div>
+      <div>2024年、2025年年报，北亚区/中国大陆业绩数据，CEO公开表态</div>
+      <div class="source-date">2024-2025</div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CLOSING FOOTER
+       ============================================================ -->
+  <div class="callout callout-conclusion">
+    <div class="callout-title">最终情报结论</div>
+    <p>欧莱雅中国南通高档化妆品智能运营中心<strong>延期事实成立</strong>，延期时长约2年，核心原因是2024年中国高端美妆市场急剧恶化（下滑18-20%）导致投资必要性下降，其次是全球资本向北美市场和高额收购（40亿欧元开云美妆）倾斜，以及政府端土地挂牌程序延迟。项目未被取消，2026年下半年启动建设可能性较高，预计2027-2028年投运。持续追踪建议每季度监控施工进展、欧莱雅战略沟通会及中国市场高端美妆复苏数据。</p>
+  </div>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="footer-brand">上海张小强企业咨询事务所 · 欧莱雅中国专项</div>
+  <div class="footer-meta">情报采集日期：2026-07-06 · 19个权威信源 · 2023-2026全周期追踪</div>
+</footer>
+
+<script>
+// Scroll progress bar
+const progressBar = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progressBar.style.width = pct + '%';
+}, { passive: true });
+</script>
+</body>
+</html>

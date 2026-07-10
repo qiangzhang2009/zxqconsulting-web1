@@ -1,0 +1,1 @@
+import{j as s}from"./vendor-react-D8MaQRhl.js";function e(){return s.jsxs("div",{className:"admin-card space-y-3",children:[s.jsx("div",{className:"admin-skeleton h-4 w-1/3"}),s.jsx("div",{className:"admin-skeleton h-8 w-2/3"}),s.jsx("div",{className:"admin-skeleton h-3 w-1/2"})]})}export{e as C};
