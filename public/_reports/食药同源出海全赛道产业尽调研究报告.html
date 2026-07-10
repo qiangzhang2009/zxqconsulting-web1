@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>食药同源出海全赛道产业尽调研究报告 · 2026</title>
+<style>
+/* ==========================================================
+   设计语言：墨绿主调 + 暖金强调，呼应中草药/茶饮东方意象
+   ========================================================== */
+:root{
+  --ink:#0F1F1B;            /* 主墨 */
+  --ink-2:#1A2E28;          /* 深墨 */
+  --moss:#1F4D40;           /* 墨绿主色 */
+  --moss-2:#2E6B5A;         /* 中绿 */
+  --moss-3:#7BAE9C;         /* 浅绿 */
+  --gold:#B98D3A;           /* 暖金强调 */
+  --gold-2:#D4B36A;         /* 浅金 */
+  --gold-3:#E8D9B0;         /* 米金 */
+  --paper:#F8F6F1;          /* 宣纸米白 */
+  --paper-2:#EFEBE0;        /* 次纸 */
+  --paper-3:#E5DFD0;        /* 深纸 */
+  --line:rgba(15,31,27,.12);
+  --line-2:rgba(15,31,27,.06);
+  --muted:#6B7368;
+  --muted-2:#8E938B;
+  --red:#A8443C;            /* 风险/警示 */
+  --accent:#C25D4E;         /* 玫瑰棕 */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.7;
+  font-feature-settings:"liga","kern";
+  letter-spacing:.01em;
+}
+
+/* === 顶部装饰条 === */
+.topbar{
+  height:3px;
+  background:linear-gradient(90deg,var(--moss) 0%,var(--moss-2) 35%,var(--gold) 65%,var(--gold-2) 100%);
+}
+
+/* === 全局容器 === */
+.wrap{max-width:1240px;margin:0 auto;padding:0 48px}
+@media(max-width:768px){.wrap{padding:0 20px}}
+
+/* === 排版系统 === */
+.eyebrow{
+  display:inline-block;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--moss);
+  padding-bottom:8px;
+  border-bottom:1px solid var(--moss);
+  margin-bottom:24px;
+}
+.eyebrow.gold{color:var(--gold);border-color:var(--gold)}
+.eyebrow.red{color:var(--red);border-color:var(--red)}
+
+h1{
+  font-size:64px;
+  line-height:1.1;
+  font-weight:700;
+  letter-spacing:-.02em;
+  margin-bottom:24px;
+}
+h2{
+  font-size:48px;
+  line-height:1.15;
+  font-weight:700;
+  letter-spacing:-.015em;
+  margin-bottom:20px;
+}
+h3{
+  font-size:28px;
+  line-height:1.3;
+  font-weight:600;
+  letter-spacing:-.01em;
+  margin-bottom:16px;
+}
+h4{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+.lead{
+  font-size:19px;
+  color:var(--ink-2);
+  line-height:1.65;
+  font-weight:300;
+}
+
+@media(max-width:768px){
+  h1{font-size:38px}
+  h2{font-size:30px}
+  h3{font-size:22px}
+  .lead{font-size:16px}
+}
+
+/* === Hero 封面 === */
+.hero{
+  position:relative;
+  padding:120px 0 140px;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(185,141,58,.10) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(31,77,64,.08) 0%, transparent 50%),
+    var(--paper);
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(var(--line-2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-2) 1px, transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 60% 60% at center, black 30%, transparent 70%);
+  -webkit-mask-image:radial-gradient(ellipse 60% 60% at center, black 30%, transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:80px;
+  align-items:end;
+}
+@media(max-width:980px){.hero-inner{grid-template-columns:1fr;gap:40px}}
+.hero-meta{
+  display:flex;
+  gap:32px;
+  font-size:12px;
+  color:var(--muted);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:32px;
+  padding-bottom:24px;
+  border-bottom:1px solid var(--line);
+}
+.hero-meta span{display:flex;align-items:center;gap:8px}
+.hero-meta span::before{
+  content:"";
+  width:6px;height:6px;
+  background:var(--moss);
+  border-radius:50%;
+}
+.hero-title{
+  font-size:88px;
+  line-height:.95;
+  font-weight:800;
+  letter-spacing:-.04em;
+  margin-bottom:24px;
+  color:var(--ink);
+}
+.hero-title .acc{color:var(--moss)}
+.hero-title em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--moss) 0%,var(--moss-2) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero-sub{
+  font-size:22px;
+  color:var(--ink-2);
+  line-height:1.5;
+  font-weight:300;
+  margin-bottom:48px;
+  max-width:680px;
+}
+.hero-tags{display:flex;gap:12px;flex-wrap:wrap}
+.hero-tag{
+  font-size:12px;
+  padding:8px 16px;
+  border:1px solid var(--ink);
+  border-radius:100px;
+  letter-spacing:.15em;
+  color:var(--ink);
+  background:transparent;
+}
+.hero-tag.gold{background:var(--gold);color:#fff;border-color:var(--gold)}
+.hero-tag.moss{background:var(--moss);color:#fff;border-color:var(--moss)}
+
+.hero-side{
+  background:var(--ink);
+  color:#fff;
+  border-radius:4px;
+  padding:48px 40px;
+  position:relative;
+  box-shadow:0 30px 60px -20px rgba(15,31,27,.4);
+}
+.hero-side::after{
+  content:"";
+  position:absolute;
+  top:0;left:0;
+  width:60px;height:3px;
+  background:var(--gold);
+}
+.hero-side h4{
+  font-size:11px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--gold-2);
+  margin-bottom:24px;
+}
+.kpi-list{display:flex;flex-direction:column;gap:20px}
+.kpi{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.kpi:last-child{border-bottom:none}
+.kpi-label{font-size:12px;color:var(--gold-3);letter-spacing:.18em}
+.kpi-val{font-size:28px;font-weight:600;color:#fff;font-variant-numeric:tabular-nums}
+.kpi-val small{font-size:13px;color:var(--gold-2);font-weight:400;margin-left:4px}
+
+.hero-rating{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 24px;
+  background:var(--moss);
+  color:#fff;
+  font-size:14px;
+  letter-spacing:.2em;
+  margin-top:32px;
+  border-radius:2px;
+}
+.hero-rating::before{
+  content:"";width:10px;height:10px;background:var(--gold);border-radius:50%;
+  box-shadow:0 0 0 4px rgba(212,179,106,.25);
+}
+
+/* === 章节通用 === */
+.section{padding:120px 0;border-bottom:1px solid var(--line);position:relative}
+.section-head{display:grid;grid-template-columns:200px 1fr;gap:60px;margin-bottom:80px}
+@media(max-width:980px){.section-head{grid-template-columns:1fr;gap:24px;margin-bottom:48px}}
+.chapter-no{
+  font-size:14px;
+  letter-spacing:.32em;
+  color:var(--muted-2);
+  padding-top:6px;
+  font-weight:600;
+}
+.chapter-no .num{
+  display:block;
+  font-size:48px;
+  color:var(--ink);
+  letter-spacing:-.02em;
+  font-weight:300;
+  margin-bottom:8px;
+  font-variant-numeric:tabular-nums;
+}
+
+/* === 摘要 / 引文框 === */
+.exec-summary{
+  background:var(--ink);
+  color:#fff;
+  padding:64px 80px;
+  border-radius:4px;
+  position:relative;
+  overflow:hidden;
+}
+.exec-summary::before{
+  content:"";position:absolute;
+  top:-200px;right:-200px;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(212,179,106,.15) 0%,transparent 70%);
+  border-radius:50%;
+}
+.exec-summary h3{color:#fff;font-size:32px;margin-bottom:24px;position:relative}
+.exec-summary h3 span{color:var(--gold-2)}
+.exec-summary p{color:rgba(255,255,255,.85);font-size:17px;line-height:1.75;position:relative;margin-bottom:14px}
+.exec-summary strong{color:var(--gold-2);font-weight:600}
+@media(max-width:768px){.exec-summary{padding:40px 28px}}
+
+/* === 数据看板 === */
+.dash{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  margin-bottom:48px;
+}
+@media(max-width:900px){.dash{grid-template-columns:repeat(2,1fr)}}
+.dash-cell{
+  background:var(--paper);
+  padding:36px 28px;
+  position:relative;
+  transition:all .4s ease;
+}
+.dash-cell:hover{background:#fff;box-shadow:0 20px 40px -20px rgba(15,31,27,.25);z-index:2}
+.dash-cell .lbl{
+  font-size:11px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:16px;
+}
+.dash-cell .val{
+  font-size:42px;
+  font-weight:700;
+  color:var(--ink);
+  line-height:1;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:-.02em;
+}
+.dash-cell .val span{font-size:18px;color:var(--muted-2);font-weight:400;margin-left:2px}
+.dash-cell .sub{font-size:13px;color:var(--muted);margin-top:10px}
+.dash-cell .trend{display:inline-block;margin-left:8px;font-size:13px;color:var(--moss-2)}
+.dash-cell .trend.down{color:var(--red)}
+
+/* === 卡片 === */
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:36px;
+  border-radius:4px;
+  transition:all .35s ease;
+  position:relative;
+}
+.card:hover{
+  border-color:var(--moss);
+  transform:translateY(-2px);
+  box-shadow:0 16px 30px -16px rgba(15,31,27,.2);
+}
+.card-tag{
+  display:inline-block;
+  font-size:10px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  padding:4px 10px;
+  background:var(--paper-2);
+  color:var(--muted);
+  border-radius:2px;
+  margin-bottom:18px;
+}
+.card-tag.moss{background:var(--moss);color:#fff}
+.card-tag.gold{background:var(--gold);color:#fff}
+.card-tag.red{background:var(--red);color:#fff}
+.card h4{font-size:18px;margin-bottom:10px;color:var(--ink)}
+.card p{font-size:14px;color:var(--muted);line-height:1.65}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:900px){
+  .grid-3,.grid-2,.grid-4{grid-template-columns:1fr}
+}
+
+/* === 条形图（手工 CSS） === */
+.bar-chart{display:flex;flex-direction:column;gap:20px}
+.bar-row{display:grid;grid-template-columns:140px 1fr 80px;gap:24px;align-items:center}
+@media(max-width:768px){.bar-row{grid-template-columns:100px 1fr 60px;gap:12px}}
+.bar-name{font-size:13px;color:var(--ink);font-weight:500}
+.bar-track{height:24px;background:var(--paper-2);position:relative;border-radius:2px;overflow:hidden}
+.bar-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--moss) 0%,var(--moss-2) 100%);
+  border-radius:2px;
+  position:relative;
+  transition:width 1.2s cubic-bezier(.4,0,.2,1);
+  width:0;
+}
+.bar-fill.gold{background:linear-gradient(90deg,var(--gold) 0%,var(--gold-2) 100%)}
+.bar-val{font-size:14px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
+
+/* === 数据表 === */
+.datatable{width:100%;border-collapse:collapse;background:#fff;font-size:14px}
+.datatable thead th{
+  background:var(--ink);
+  color:#fff;
+  font-weight:500;
+  font-size:12px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  padding:18px 20px;
+  text-align:left;
+  border-right:1px solid rgba(255,255,255,.08);
+}
+.datatable thead th:last-child{border-right:none}
+.datatable tbody td{
+  padding:18px 20px;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+  color:var(--ink-2);
+}
+.datatable tbody tr:hover{background:var(--paper-2)}
+.datatable tbody tr:last-child td{border-bottom:none}
+.datatable .num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink)}
+.datatable .hi{color:var(--moss);font-weight:600}
+.datatable .gold{color:var(--gold);font-weight:600}
+.datatable .red{color:var(--red);font-weight:600}
+
+/* === 阶段时间轴 === */
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--line-2);border:1px solid var(--line)}
+@media(max-width:900px){.timeline{grid-template-columns:1fr}}
+.tl-cell{background:var(--paper);padding:36px;border-right:1px solid var(--line);position:relative}
+.tl-cell:last-child{border-right:none}
+@media(max-width:900px){.tl-cell{border-right:none;border-bottom:1px solid var(--line)}}
+.tl-cell .yr{
+  font-size:11px;
+  letter-spacing:.2em;
+  color:var(--gold);
+  margin-bottom:16px;
+  font-weight:600;
+}
+.tl-cell h4{font-size:18px;margin-bottom:14px;color:var(--ink)}
+.tl-cell ul{list-style:none;font-size:13px;color:var(--muted)}
+.tl-cell ul li{padding:6px 0;padding-left:14px;position:relative}
+.tl-cell ul li::before{
+  content:"";position:absolute;left:0;top:14px;
+  width:6px;height:1px;background:var(--moss);
+}
+
+/* === 监管矩阵 === */
+.reg-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+@media(max-width:980px){.reg-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.reg-grid{grid-template-columns:1fr}}
+.reg-card{
+  background:#fff;
+  padding:32px 28px;
+  transition:all .3s ease;
+}
+.reg-card:hover{background:var(--paper-2)}
+.reg-card .flag{
+  display:inline-block;
+  font-size:10px;
+  padding:3px 10px;
+  background:var(--ink);
+  color:var(--gold-2);
+  letter-spacing:.2em;
+  margin-bottom:20px;
+  border-radius:2px;
+}
+.reg-card h4{font-size:18px;margin-bottom:6px;color:var(--ink)}
+.reg-card .reg{font-size:11px;color:var(--muted);letter-spacing:.18em;margin-bottom:18px;text-transform:uppercase}
+.reg-card ul{list-style:none;font-size:13px;color:var(--ink-2)}
+.reg-card ul li{padding:8px 0;border-bottom:1px dashed var(--line);display:flex;gap:10px}
+.reg-card ul li:last-child{border-bottom:none}
+.reg-card ul li::before{
+  content:"·";color:var(--gold);font-weight:700;font-size:18px;line-height:1;
+}
+
+/* === 产业链流程 === */
+.flow{display:grid;grid-template-columns:1fr 60px 1fr 60px 1fr;align-items:stretch;gap:0}
+@media(max-width:980px){.flow{grid-template-columns:1fr;gap:0}}
+.flow-col{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:36px 28px;
+}
+.flow-col h4{
+  font-size:11px;letter-spacing:.3em;color:var(--gold);
+  text-transform:uppercase;margin-bottom:24px;
+  padding-bottom:12px;border-bottom:2px solid var(--gold);
+}
+.flow-col .item{padding:16px 0;border-bottom:1px dashed var(--line);font-size:13px;color:var(--ink-2)}
+.flow-col .item:last-child{border-bottom:none}
+.flow-col .item strong{display:block;color:var(--ink);margin-bottom:4px;font-weight:600}
+.flow-arrow{
+  display:flex;align-items:center;justify-content:center;
+  font-size:32px;color:var(--gold);font-weight:300;
+  background:var(--paper-2);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+@media(max-width:980px){.flow-arrow{transform:rotate(90deg);padding:8px 0;border-left:0;border-right:0}}
+
+/* === 案例卡片 === */
+.case{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:40px;
+  border-radius:4px;
+  position:relative;
+  overflow:hidden;
+}
+.case::before{
+  content:"";position:absolute;
+  top:0;left:0;
+  width:4px;height:100%;
+  background:var(--moss);
+}
+.case.gold::before{background:var(--gold)}
+.case.accent::before{background:var(--accent)}
+.case.red::before{background:var(--red)}
+.case-head{display:flex;justify-content:space-between;align-items:start;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.case-tag{
+  font-size:10px;letter-spacing:.25em;
+  padding:5px 12px;background:var(--ink);color:var(--gold-2);
+  border-radius:2px;text-transform:uppercase;
+}
+.case h4{font-size:22px;color:var(--ink);line-height:1.3}
+.case .meta{font-size:13px;color:var(--muted);margin-bottom:20px;letter-spacing:.1em}
+.case p{font-size:14px;color:var(--ink-2);line-height:1.7;margin-bottom:14px}
+.case p strong{color:var(--moss);font-weight:600}
+.case .insight{
+  background:var(--paper-2);
+  padding:14px 18px;
+  border-left:3px solid var(--gold);
+  font-size:13px;color:var(--ink);
+  margin-top:14px;border-radius:2px;
+}
+
+/* === 风险图 === */
+.risk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){.risk-grid{grid-template-columns:1fr}}
+.risk{
+  background:#fff;border:1px solid var(--line);
+  padding:32px;border-radius:4px;
+  position:relative;
+  border-top:4px solid var(--red);
+}
+.risk.medium{border-top-color:var(--gold)}
+.risk.low{border-top-color:var(--moss-3)}
+.risk-lvl{position:absolute;top:24px;right:24px;font-size:10px;letter-spacing:.18em;color:var(--red)}
+.risk.medium .risk-lvl{color:var(--gold)}
+.risk.low .risk-lvl{color:var(--moss-2)}
+.risk h4{font-size:18px;color:var(--ink);margin-bottom:10px;padding-right:80px}
+.risk p{font-size:13px;color:var(--ink-2);line-height:1.7}
+
+/* === 行动手册时间线 === */
+.action{display:flex;gap:24px;margin-bottom:28px}
+.action-phase{
+  width:120px;flex-shrink:0;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);padding-top:6px;font-weight:600;
+  border-top:2px solid var(--gold);
+  padding-right:0;
+}
+.action-body{flex:1;background:#fff;border:1px solid var(--line);padding:28px;border-radius:4px}
+.action-body ul{list-style:none}
+.action-body li{font-size:14px;padding:8px 0;padding-left:20px;position:relative;color:var(--ink-2)}
+.action-body li::before{
+  content:"✓";position:absolute;left:0;top:8px;
+  color:var(--moss);font-weight:700;
+}
+
+/* === 投资优先矩阵 === */
+.matrix{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--line)}
+@media(max-width:900px){.matrix{grid-template-columns:1fr}}
+.matrix-pri{
+  background:#fff;padding:28px;border-right:1px solid var(--line);
+  position:relative;
+}
+.matrix-pri:last-child{border-right:none}
+@media(max-width:900px){.matrix-pri{border-right:none;border-bottom:1px solid var(--line)}}
+.matrix-pri .no{
+  display:inline-block;
+  font-size:10px;letter-spacing:.2em;
+  padding:4px 10px;background:var(--ink);color:var(--gold-2);
+  margin-bottom:18px;border-radius:2px;
+}
+.matrix-pri h4{font-size:17px;margin-bottom:10px;color:var(--ink)}
+.matrix-pri .reason{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* === 估值环形(纯CSS近似) === */
+.donut-row{display:grid;grid-template-columns:120px 1fr;align-items:center;gap:28px}
+.donut{
+  width:120px;height:120px;border-radius:50%;
+  background:conic-gradient(var(--moss) 0 72%, var(--paper-3) 72% 100%);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.donut::before{
+  content:"";position:absolute;inset:14px;
+  background:#fff;border-radius:50%;
+}
+.donut .v{position:relative;font-size:22px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* === 蓝海赛道卡 === */
+.blue-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:900px){.blue-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.blue-grid{grid-template-columns:1fr}}
+.blue-card{
+  background:#fff;border:1px solid var(--line);
+  padding:24px;border-radius:4px;
+  position:relative;
+  transition:all .3s ease;
+}
+.blue-card:hover{transform:translateY(-3px);box-shadow:0 12px 24px -12px rgba(15,31,27,.2)}
+.blue-stars{
+  color:var(--gold);
+  font-size:14px;letter-spacing:2px;margin-bottom:14px;
+}
+.blue-card h4{font-size:15px;color:var(--ink);margin-bottom:10px;line-height:1.4}
+.blue-meta{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;padding-top:12px;border-top:1px dashed var(--line)}
+
+/* === 玩家图谱 === */
+.player-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:900px){.player-row{grid-template-columns:1fr}}
+.player-card{
+  background:#fff;border:1px solid var(--line);
+  padding:32px;border-radius:4px;
+}
+.player-card h5{font-size:11px;letter-spacing:.25em;color:var(--moss);text-transform:uppercase;margin-bottom:20px}
+.player-card .row{
+  display:flex;justify-content:space-between;align-items:start;padding:14px 0;border-bottom:1px dashed var(--line);gap:16px
+}
+.player-card .row:last-child{border-bottom:none}
+.player-card .name{font-size:14px;font-weight:600;color:var(--ink)}
+.player-card .desc{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.5}
+.player-card .num{font-size:13px;color:var(--gold);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* === 进度条（壁垒权重） === */
+.barrier{display:grid;grid-template-columns:1fr;gap:16px}
+.barrier-row{display:grid;grid-template-columns:200px 1fr 60px;align-items:center;gap:20px}
+@media(max-width:768px){.barrier-row{grid-template-columns:130px 1fr 50px;gap:12px}}
+.barrier-track{height:8px;background:var(--paper-2);border-radius:4px;overflow:hidden}
+.barrier-fill{height:100%;background:linear-gradient(90deg,var(--moss) 0%,var(--gold) 100%);border-radius:4px;transition:width 1.2s ease}
+.barrier-row .name{font-size:13px;color:var(--ink)}
+.barrier-row .pct{font-size:14px;font-weight:700;color:var(--moss);font-variant-numeric:tabular-nums;text-align:right}
+
+/* === 区域地图（纯SVG/CSS） === */
+.region-map{
+  display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:48px
+}
+@media(max-width:980px){.region-map{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:560px){.region-map{grid-template-columns:repeat(2,1fr)}}
+.region-cell{
+  background:#fff;border:1px solid var(--line);
+  padding:20px 14px;text-align:center;border-radius:4px;
+  position:relative;
+  transition:all .3s ease;
+}
+.region-cell:hover{transform:translateY(-2px);border-color:var(--moss)}
+.region-cell .flag{font-size:18px;margin-bottom:8px}
+.region-cell .nm{font-size:12px;font-weight:600;color:var(--ink)}
+.region-cell .sz{font-size:10px;color:var(--muted);margin-top:4px;letter-spacing:.1em}
+.region-cell.tier1{background:var(--moss);color:#fff}
+.region-cell.tier1 .nm,.region-cell.tier1 .sz,.region-cell.tier1 .flag{color:#fff}
+.region-cell.tier1 .nm{font-weight:700}
+.region-cell.tier1::after{
+  content:"P1";position:absolute;top:6px;right:6px;
+  font-size:8px;letter-spacing:.15em;
+  background:var(--gold);color:#fff;padding:2px 6px;border-radius:2px;
+}
+.region-cell.tier2::after{
+  content:"P2";position:absolute;top:6px;right:6px;
+  font-size:8px;letter-spacing:.15em;
+  background:var(--paper-2);color:var(--muted);padding:2px 6px;border-radius:2px;
+}
+.region-cell.tier3::after{
+  content:"P3";position:absolute;top:6px;right:6px;
+  font-size:8px;letter-spacing:.15em;
+  background:var(--paper-2);color:var(--muted);padding:2px 6px;border-radius:2px;
+}
+.region-cell.tier4::after{
+  content:"P4";position:absolute;top:6px;right:6px;
+  font-size:8px;letter-spacing:.15em;
+  background:var(--paper-3);color:var(--ink);padding:2px 6px;border-radius:2px;
+}
+
+/* === 引文 === */
+.pullquote{
+  border-left:3px solid var(--moss);
+  padding:32px 40px;background:#fff;
+  margin:48px 0;border-radius:0 4px 4px 0;
+  position:relative;
+}
+.pullquote .src{font-size:11px;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:14px;font-weight:600}
+.pullquote p{font-size:20px;color:var(--ink);line-height:1.6;font-weight:300;font-style:normal}
+.pullquote p::before{content:"";display:none}
+
+/* === 关键合规警示 === */
+.warn{
+  background:rgba(168,68,60,.06);
+  border:1px solid rgba(168,68,60,.25);
+  padding:24px 28px;border-radius:4px;
+  margin:24px 0;
+}
+.warn h5{font-size:13px;color:var(--red);letter-spacing:.25em;text-transform:uppercase;margin-bottom:10px;font-weight:700}
+.warn p{font-size:14px;color:var(--ink-2);line-height:1.65}
+
+/* === 估值对比柱 === */
+.compare-bars{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;align-items:end;height:240px;padding:20px 0}
+@media(max-width:900px){.compare-bars{grid-template-columns:repeat(3,1fr);height:auto}}
+.cb{text-align:center;cursor:default}
+.cb .bar{
+  height:var(--h);
+  background:linear-gradient(180deg,var(--moss) 0%,var(--moss-2) 100%);
+  margin:0 auto 8px;
+  width:36px;
+  border-radius:2px 2px 0 0;
+  position:relative;
+  transition:transform .3s ease;
+}
+.cb:hover .bar{transform:scaleY(1.04)}
+.cb .bar.gold{background:linear-gradient(180deg,var(--gold) 0%,var(--gold-2) 100%)}
+.cb .bar.muted{background:linear-gradient(180deg,var(--paper-3) 0%,var(--paper-2) 100%)}
+.cb .lab{font-size:11px;color:var(--muted);font-weight:500}
+.cb .v{font-size:13px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;margin-bottom:4px}
+
+/* === Footer === */
+.footer{
+  background:var(--ink);
+  color:rgba(255,255,255,.6);
+  padding:80px 0 40px;
+}
+.footer h4{color:#fff;font-size:18px;margin-bottom:16px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:40px}
+@media(max-width:768px){.foot-grid{grid-template-columns:1fr;gap:32px}}
+.foot-col p,.foot-col li{font-size:13px;color:rgba(255,255,255,.5);line-height:1.8;list-style:none}
+.foot-col li{padding:4px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+.foot-col li:last-child{border-bottom:none}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.08);
+  padding-top:24px;
+  font-size:12px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;
+}
+.foot-bottom .conf{
+  display:inline-block;
+  padding:4px 10px;
+  border:1px solid var(--gold);
+  color:var(--gold-2);
+  font-size:10px;letter-spacing:.25em;
+  border-radius:2px;
+}
+
+/* === 滚动动画 === */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease, transform .9s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}
+.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}
+.reveal-d4{transition-delay:.4s}
+
+/* === 章节脚注 === */
+.foot-note{
+  margin-top:24px;font-size:11px;color:var(--muted);
+  letter-spacing:.1em;line-height:1.7;
+  border-top:1px dashed var(--line);padding-top:16px;
+}
+
+/* === 暗色卡片块 === */
+.dark-block{
+  background:var(--ink);color:#fff;
+  padding:64px;border-radius:4px;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+}
+@media(max-width:900px){.dark-block{grid-template-columns:1fr;padding:40px 28px;gap:32px}}
+.dark-block h3{color:#fff;font-size:28px}
+.dark-block h3 span{color:var(--gold-2)}
+.dark-block p{color:rgba(255,255,255,.7);font-size:15px;line-height:1.7}
+.dark-block .num-box{
+  font-size:96px;font-weight:800;line-height:1;
+  color:var(--gold-2);
+  font-variant-numeric:tabular-nums;
+  letter-spacing:-.03em;
+}
+.dark-block .num-box small{font-size:24px;color:rgba(255,255,255,.4);font-weight:400;display:block;margin-top:8px}
+
+/* === 移动端表格横向滚动 === */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:0 16px}
+
+/* === 数据说明栏 === */
+.legend{
+  display:flex;flex-wrap:wrap;gap:20px;align-items:center;
+  font-size:12px;color:var(--muted);
+  margin-bottom:20px;padding:16px 20px;
+  background:var(--paper-2);border-radius:4px;
+}
+.legend-item{display:flex;align-items:center;gap:8px}
+.legend-item::before{
+  content:"";width:14px;height:14px;border-radius:2px;
+  background:var(--moss);
+}
+.legend-item.gold::before{background:var(--gold)}
+.legend-item.muted::before{background:var(--paper-3)}
+.legend-item.red::before{background:var(--red)}
+
+/* === 数据精度 === */
+.mono{font-variant-numeric:tabular-nums}
+
+</style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<!-- ============================================ HERO ============================================ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-meta">
+          <span>OPUS · MMXXVI</span>
+          <span>BUY-SIDE INTELLIGENCE</span>
+          <span>2026 — 2035</span>
+        </div>
+        <h1 class="hero-title">
+          食药同源<br>
+          <em>出海全赛道</em><br>
+          产业尽调
+        </h1>
+        <p class="hero-sub">
+          全球大健康产业最高确定性的增量蓝海。<br>
+          一份覆盖 8 大市场、6 大业态、120+ 数据点、35+ 标杆案例的产业研究报告。
+        </p>
+        <div class="hero-tags">
+          <span class="hero-tag">FOOD-MEDICINE HOMOLOGY</span>
+          <span class="hero-tag moss">USD 101 B 市场</span>
+          <span class="hero-tag gold">8.9% CAGR</span>
+          <span class="hero-tag">HIGH POTENTIAL</span>
+        </div>
+      </div>
+      <div class="hero-side">
+        <h4>核心研判 / Key Metrics</h4>
+        <div class="kpi-list">
+          <div class="kpi"><span class="kpi-label">全球市场规模</span><span class="kpi-val">45.6<small>-101 B USD</small></span></div>
+          <div class="kpi"><span class="kpi-label">复合增速 CAGR</span><span class="kpi-val mono">8.9<small>% / 年</small></span></div>
+          <div class="kpi"><span class="kpi-label">中国出口占比</span><span class="kpi-val mono">70<small>+ %</small></span></div>
+          <div class="kpi"><span class="kpi-label">中国产业规模</span><span class="kpi-val mono">2<small>万亿+ CN¥</small></span></div>
+          <div class="kpi"><span class="kpi-label">东南亚 YoY</span><span class="kpi-val mono">131.4<small>%(马来)</small></span></div>
+        </div>
+        <div class="hero-rating">赛道评级 · HIGH POTENTIAL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 01 执行摘要 ============================================ -->
+<section class="section" id="executive">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="chapter-no"><span class="num">01</span>EXECUTIVE<br>SUMMARY</div>
+      <div>
+        <span class="eyebrow">执行摘要</span>
+        <h2>食药同源出海，一个被低估的<span style="color:var(--moss)">万亿级</span>全球机会</h2>
+      </div>
+    </div>
+
+    <div class="exec-summary">
+      <h3>三重红利叠加 · <span>确定性增量蓝海</span></h3>
+      <p>食药同源出海已被确认为全球大健康赛道<strong>最高确定性</strong>的增量蓝海之一。全球草本补充剂市场 2025 年估值区间 <strong>USD 45.65 — 101.0 Billion</strong>，主流机构预测 2025—2035 CAGR 区间 <strong>5.6% — 9.0%</strong>，行业共识锁定 <strong>"8%—9% 复合增速 + 百亿美元基本盘"</strong>。</p>
+      <p>中国口径下，2025 年中药类商品出口 <strong>USD 5.09 Billion</strong>，植物提取物出口 <strong>USD 2.98 Billion</strong>，广义"药食同源"占据中药出口的 <strong>70%+</strong>。中国国内 2024 年市场规模已破 <strong>CN¥ 2,650 亿</strong>，2025 全链规模超过 <strong>CN¥ 2 万亿</strong>。</p>
+      <p>驱动逻辑可归结为 <strong>消费升级 × 民族产业升级 × 健康全球化</strong>三重红利叠加。北美以"规模 + 监管单一"成为基本盘；东南亚以"文化共振 + RCEP + 电商爆发"成为最高增速市场；中东以"Halal + 高人均 GDP"成为差异化机会市场。</p>
+      <p>新进入者必须同时具备 <strong>品类洞察 + 跨境合规能力 + 数字化品牌力</strong> 三项核心能力，单一维度优势无法获得超额收益。</p>
+    </div>
+
+    <div class="dash" style="margin-top:64px">
+      <div class="dash-cell">
+        <div class="lbl">USD 101 B</div>
+        <div class="val">8.9<span>%</span></div>
+        <div class="sub">Future Market Insights<br>2025—2035 CAGR</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">USD 11.57 B</div>
+        <div class="val">美国<span>草本</span></div>
+        <div class="sub">北美基本盘<br>2025 估值</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">131.4<span>%</span> YoY</div>
+        <div class="val">马来<span>西亚</span></div>
+        <div class="sub">东南亚<br>最快单一增量</div>
+      </div>
+      <div class="dash-cell">
+        <div class="lbl">USD 5.09 B</div>
+        <div class="val">中药<span>出口</span></div>
+        <div class="sub">2025 中国口径<br>广义药食同源 70%+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 02 赛道定义 ============================================ -->
+<section class="section" id="definition">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="chapter-no"><span class="num">02</span>DEFINITION<br>& EVOLUTION</div>
+      <div>
+        <span class="eyebrow gold">赛道定义 · 全球发展脉络</span>
+        <h2>从<span style="color:var(--gold)">商品贸易</span>到<span style="color:var(--gold)">品类 · 品牌 · 监管 · 资本</span>四重共振</h2>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:24px">2.1 业态界定与盈利结构</h3>
+    <p class="lead" style="margin-bottom:32px;max-width:780px">
+      食药同源（Food-Medicine Homology，FMH）以《黄帝内经》《神农本草经》《食疗本草》为理论根基，国家卫健委以"药食同源目录"形式陆续公布 106 余种物质。
+    </p>
+
+    <div class="table-wrap">
+      <table class="datatable">
+        <thead>
+          <tr><th style="width:24%">业态</th><th style="width:24%">代表品类</th><th style="width:22%">出口归类</th><th style="width:30%">毛利率区间</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>原料出口型</strong></td><td>中药材、饮片、植物提取物</td><td>HS 1211 / 1302</td><td class="num">15% — 35%</td></tr>
+          <tr><td><strong>功能食品/膳食补充剂</strong></td><td>软糖、胶囊、粉剂、口服液、片剂</td><td>DSHEA / FCC / FFC</td><td class="num gold">50% — 70%</td></tr>
+          <tr><td><strong>草本健康零食/茶饮</strong></td><td>草本冻干、阿胶零食、四神汤、酸梅汤</td><td>普通食品</td><td class="num">40% — 65%</td></tr>
+          <tr><td><strong>美妆个护/外用养生</strong></td><td>草本足浴包、艾灸贴、护肤膏方</td><td>化妆品 / 外用 OTC</td><td class="num gold">60% — 80%</td></tr>
+          <tr><td><strong>OEM/ODM/CDMO</strong></td><td>软胶囊、凝胶糖果、植物软糖</td><td>B2B 服务</td><td class="num">25% — 45%</td></tr>
+          <tr><td><strong>跨境合规服务</strong></td><td>GMP 审计、FDA 注册、TGA、Novel Food</td><td>专业服务</td><td class="num gold">50% — 85%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:80px 0 24px">2.2 全球三阶段演化</h3>
+    <div class="timeline">
+      <div class="tl-cell">
+        <div class="yr">1980s — 2009</div>
+        <h4>传统草本阶段</h4>
+        <ul>
+          <li>各国按传统药典独立管理</li>
+          <li>中印阿育吠陀（Ayurveda）</li>
+          <li>欧洲传统植物药（THMP）独立运转</li>
+          <li>跨境贸易以原料 B2B 为主</li>
+        </ul>
+      </div>
+      <div class="tl-cell">
+        <div class="yr">2010 — 2019</div>
+        <h4>膳食补充剂全球化</h4>
+        <ul>
+          <li>美国 DSHEA 成为事实标准</li>
+          <li>Chinese Herbal 入 Amazon、iHerb</li>
+          <li>跨境电商保税仓模式（CBEC）</li>
+          <li>汤臣倍健 A$670M 收购 LSG</li>
+        </ul>
+      </div>
+      <div class="tl-cell">
+        <div class="yr">2020 — 2026</div>
+        <h4>监管收紧 · 临床循证阶段</h4>
+        <ul>
+          <li>日本 FFC 大改 · GMP 强制</li>
+          <li>欧美功能宣称显著收紧</li>
+          <li>KSM-66 临床提取物形成"循证溢价"</li>
+          <li>TikTok Shop 重塑东南亚消费链路</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <div class="src">情报研判要点 · KEY INSIGHT</div>
+      <p>食药同源出海已进入<strong style="color:var(--moss)">「品类 — 品牌 — 监管 — 资本市场」</strong>四重共振阶段。任何新进入者必须同时具备<strong style="color:var(--moss)">品类洞察 × 跨境合规 × 数字化品牌力</strong>三项核心能力。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 03 全球市场全景 ============================================ -->
+<section class="section" id="market">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="chapter-no"><span class="num">03</span>MARKET<br>LANDSCAPE</div>
+      <div>
+        <span class="eyebrow">全球市场全景 · 区域格局</span>
+        <h2>百亿美元基本盘 · <span style="color:var(--moss)">八个增长极</span> 同步打开</h2>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:16px">3.1 主流机构口径估值</h3>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:24px">注：不同机构口径差异源于"草本提取物 / 草本补充剂 / 全口径草本产品 / 适应原"等范围差异。</p>
+
+    <div class="legend">
+      <div class="legend-item">主流口径（USD B）</div>
+      <div class="legend-item gold">CAGR（%）</div>
+      <div class="legend-item muted">适应原专项</div>
+    </div>
+    <div class="bar-chart">
+      <div class="bar-row"><div class="bar-name">Future Market Insights</div><div class="bar-track"><div class="bar-fill gold" style="width:97%"></div></div><div class="bar-val">101.0</div></div>
+      <div class="bar-row"><div class="bar-name">Market Research Future</div><div class="bar-track"><div class="bar-fill gold" style="width:55%"></div></div><div class="bar-val">57.16</div></div>
+      <div class="bar-row"><div class="bar-name">Grand View Research</div><div class="bar-track"><div class="bar-fill gold" style="width:44%"></div></div><div class="bar-val">45.65</div></div>
+      <div class="bar-row"><div class="bar-name">Fact.MR</div><div class="bar-track"><div class="bar-fill gold" style="width:44%"></div></div><div class="bar-val">45.65</div></div>
+      <div class="bar-row"><div class="bar-name">Precedence（Adaptogens）</div><div class="bar-track"><div class="bar-fill gold" style="width:11%" style="background:var(--paper-3)"></div></div><div class="bar-val">11.10</div></div>
+    </div>
+    <div style="background:#fff;padding:24px 32px;border-left:3px solid var(--moss);margin-top:24px;border-radius:0 4px 4px 0">
+      <div style="font-size:13px;color:var(--muted);margin-bottom:8px">KEY CROSS-VALIDATION</div>
+      <p style="font-size:15px;color:var(--ink)"><strong style="color:var(--moss)">8%—9% 复合增速 + 百亿美元基本盘</strong>是行业共识，且行业单价持续向上（premiumization）。</p>
+    </div>
+
+    <h3 style="margin:80px 0 24px">3.2 区域优先级分布</h3>
+    <div class="region-map">
+      <div class="region-cell tier1"><div class="flag">🇺🇸</div><div class="nm">美国</div><div class="sz">USD 68.7 B 膳食</div></div>
+      <div class="region-cell tier1"><div class="flag">🇲🇾</div><div class="nm">马来西亚</div><div class="sz">+131.4% YoY</div></div>
+      <div class="region-cell tier1"><div class="flag">🇸🇬</div><div class="nm">新加坡</div><div class="sz">东南亚枢纽</div></div>
+      <div class="region-cell tier1"><div class="flag">🇹🇭</div><div class="nm">泰国</div><div class="sz">首发场</div></div>
+      <div class="region-cell tier2"><div class="flag">🇦🇺</div><div class="nm">澳大利亚</div><div class="sz">AUD 6.3 B</div></div>
+      <div class="region-cell tier2"><div class="flag">🇦🇪</div><div class="nm">阿联酋</div><div class="sz">Halal 枢纽</div></div>
+      <div class="region-cell tier2"><div class="flag">🇸🇦</div><div class="nm">沙特</div><div class="sz">SFDA 主战场</div></div>
+      <div class="region-cell tier2"><div class="flag">🇨🇦</div><div class="nm">加拿大</div><div class="sz">NPN 体系</div></div>
+      <div class="region-cell tier3"><div class="flag">🇩🇪</div><div class="nm">德国</div><div class="sz">EU 龙头 22%</div></div>
+      <div class="region-cell tier3"><div class="flag">🇬🇧</div><div class="nm">英国</div><div class="sz">EU 18%</div></div>
+      <div class="region-cell tier3"><div class="flag">🇫🇷</div><div class="nm">法国</div><div class="sz">EU 14%</div></div>
+      <div class="region-cell tier3"><div class="flag">🇳🇱</div><div class="nm">荷兰</div><div class="sz">港口枢纽</div></div>
+      <div class="region-cell tier4"><div class="flag">🇧🇷</div><div class="nm">巴西</div><div class="sz">USD 1.66 B</div></div>
+      <div class="region-cell tier4"><div class="flag">🇨🇴</div><div class="nm">哥伦比亚</div><div class="sz">拉美最快</div></div>
+      <div class="region-cell tier4"><div class="flag">🇿🇦</div><div class="nm">南非</div><div class="sz">非洲桥头堡</div></div>
+      <div class="region-cell tier4"><div class="flag">🇳🇬</div><div class="nm">尼日利亚</div><div class="sz">非洲潜力</div></div>
+      <div class="region-cell tier4"><div class="flag">🇰🇷</div><div class="nm">韩国</div><div class="sz">KRW 5.96 T</div></div>
+      <div class="region-cell tier4"><div class="flag">🇯🇵</div><div class="nm">日本</div><div class="sz">FFC 严监管</div></div>
+      <div class="region-cell tier4"><div class="flag">🇮🇩</div><div class="nm">印尼</div><div class="sz">BPOM + Halal</div></div>
+      <div class="region-cell tier4"><div class="flag">🇻🇳</div><div class="nm">越南</div><div class="sz">健康食品分类</div></div>
+    </div>
+
+    <h3 style="margin:80px 0 24px">3.3 区域核心指标对比</h3>
+    <div class="table-wrap">
+      <table class="datatable">
+        <thead>
+          <tr><th>区域</th><th>2025 市场规模</th><th>CAGR</th><th>关键监管</th><th>文化接受</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>北美（美加）</strong></td><td class="num">USD 11.57—15.36 B 草本</td><td class="hi mono">7.1%—9.4%</td><td>DSHEA + GRAS</td><td>中</td></tr>
+          <tr><td><strong>欧盟（27 国）</strong></td><td class="num">USD 7.5—12.0 B 草本</td><td class="hi mono">2.5%—6.0%</td><td>EFSA + NF + THMPD</td><td>中-高</td></tr>
+          <tr><td><strong>东南亚</strong></td><td class="num">USD 6.63 亿（H1 营养保健）</td><td class="gold mono">11%—12%</td><td>各国分散 + ASEAN 框架</td><td><strong>极高</strong></td></tr>
+          <tr><td><strong>日本</strong></td><td class="num">FFC 存量品类 > 3,000</td><td class="hi mono">> 5%</td><td>CAC + FFC + 机能性</td><td>高</td></tr>
+          <tr><td><strong>韩国</strong></td><td class="num">KRW 5.96 T（USD 4.5 B）</td><td class="hi mono">~2.2%</td><td>健康功能食品法 + MFDS</td><td>中-高</td></tr>
+          <tr><td><strong>澳新</strong></td><td class="num">AUD 6.3 B</td><td class="gold mono">7%—26%</td><td>TGA AUST L 系列</td><td>高</td></tr>
+          <tr><td><strong>中东</strong></td><td class="num">GCC 跨境活跃</td><td class="gold mono">双位数</td><td>SFDA + MOHAP + GSO</td><td>中（Halal 关键）</td></tr>
+          <tr><td><strong>拉美（巴西）</strong></td><td class="num">USD 1.666 B</td><td class="hi mono">8.01%</td><td>ANVISA + IN 373/2025</td><td>中</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 区域深度解析 -->
+    <h3 style="margin:80px 0 24px">3.4 区域深度解析 · 关键洞察</h3>
+    <div class="grid-2">
+      <div class="card">
+        <span class="card-tag moss">北美 · NORTH AMERICA</span>
+        <h4>资本与品类双高地</h4>
+        <p>单方草本占 51.58%；Ashwagandha（KSM-66）成为西方"东方适应原"最大单品，Amazon +61.8% YoY。剂型偏好：胶囊/片 39% > 软胶囊 > 凝胶糖果（+27%）。电商 28.3% + 专门店 21.4% + 商超 12.5%。女性占 40%，25—44 岁城市白领为消费主力。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag moss">欧盟 · EU</span>
+        <h4>德国龙头 · 适应原崛起</h4>
+        <p>德国 20—22% 龙头位置（58% 德国成年人每年使用草本），法国 ~14%，英国 ~18%。肠道健康与免疫支持为前两大宣称。增长最快四大类：Adaptogens + 益生菌 + 镇静/睡眠类 + 认知类（Ginkgo、Lion's Mane）。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag gold">东南亚 · SEA</span>
+        <h4>文化共振 · 双位数爆发</h4>
+        <p>2025 H1 中国对东盟营养保健食品出口 USD 6.63 亿，<strong style="color:var(--gold)">马来西亚单点 USD 2.46 亿、同比 +131.4%</strong>。TikTok Shop 月活 3.25 亿，绝对主导东南亚社交电商。印尼、马来西亚强制 Halal 认证。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">日本 · JAPAN</span>
+        <h4>最严监管 · 但本土化最强</h4>
+        <p>2024 小林制药红曲事件触发 FFC 大改，2025-04-01 核心条款生效，<strong style="color:var(--moss)">2026-08-31 为 GMP 完全合规截止日</strong>。新规：健康危害强制上报、新原料通知期 60→120 天、PRISMA 2020 强制。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">韩国 · KOREA</span>
+        <h4>红参溃退 · VMS 接棒</h4>
+        <p>2025 健康功能食品市场 <strong style="color:var(--moss)">KRW 5.9626 Trillion</strong>（USD 4.5 B）。红参份额从 25.9% 降至 ≈16%，蒸发近 500 亿韩元；VMS（维生素矿物质）份额从 13.6% 升至 18.1%，已成第一品类。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">澳新 · ANZ</span>
+        <h4>信用背书地 · 桥头堡</h4>
+        <p>CMA 数据显示 AUD 6.3 Billion，TGA 注册厂 82 家，行业直接就业近 16,000，出口 AUD 1.2 B。被中国头部品牌视为"以并购获取品牌 + TGA 信用 + 出口桥头堡"的战略资产。</p>
+      </div>
+    </div>
+
+    <div class="dark-block" style="margin-top:80px">
+      <div>
+        <h3><span>韩国</span> · 世代交替重构品类</h3>
+        <p>2025 健康功能食品市场规模 KRW 5.9626 Trillion，YoY +0.2%（疫后回归正常态）。红参溃退：份额从 2021 年 25.9% 下降至 2025 年 ≈16%，<strong style="color:var(--gold-2)">绝对金额从 KRW 1.471 Trillion 收缩至 KRW 953.6 Billion</strong>。</p>
+        <p style="margin-top:16px">VMS 接棒：维生素矿物质份额从 13.6% 升至 18.1%，绝对金额 KRW 1.078 Trillion —— <strong style="color:var(--gold-2)">已超过红参金额</strong>。2025 健康功能食品出口 USD 318.17 Million（+14.2%）。</p>
+      </div>
+      <div style="text-align:center">
+        <div class="num-box">−35<small>% 红参份额下降（2021→2025）</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 04 产业链 ============================================ -->
+<section class="section" id="value-chain">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="chapter-no"><span class="num">04</span>VALUE<br>CHAIN</div>
+      <div>
+        <span class="eyebrow gold">产业链价值拆解</span>
+        <h2>从<span style="color:var(--gold)">GAP 基地</span>到<span style="color:var(--gold)">跨境 DTC</span>，三层价值增值</h2>
+      </div>
+    </div>
+
+    <div class="flow">
+      <div class="flow-col">
+        <h4>上游 · UPSTREAM</h4>
+        <div class="item"><strong>种养殖基地</strong>GAP 认证 · 公司+基地+农户 · 土壤/农药合规 · 品种纯化</div>
+        <div class="item"><strong>提取物加工</strong>标准化提取物 · HPLC · DNA 条形码 · IR 指纹图谱 · ISO 23963-1</div>
+        <div class="item"><strong>中间体转化</strong>黄精多糖 · 人参皂苷 · 灵芝三萜 · 高纯度活性成分</div>
+        <div style="margin-top:20px;padding:14px;background:var(--paper-2);border-radius:2px;font-size:12px;color:var(--muted)">
+          <strong style="color:var(--ink)">代表企业：</strong>同仁堂 · 宁夏中宁枸杞 · 东阿阿胶 · 晨光生物 · 莱茵生物 · 绿蔓生物
+        </div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-col">
+        <h4>中游 · MIDSTREAM</h4>
+        <div class="item"><strong>品牌方</strong>汤臣倍健 · H&H International · 同仁堂 · 东阿阿胶 · WonderLab</div>
+        <div class="item"><strong>CDMO</strong>仙乐健康（Sirio）· 百合股份 · 汤臣倍健自有产能 · GNC 协议厂</div>
+        <div class="item"><strong>合规服务商</strong>Intertek · SGS · Eurofins · REACH24H · PharmaLex · CIRS Group</div>
+        <div style="margin-top:20px;padding:14px;background:var(--paper-2);border-radius:2px;font-size:12px;color:var(--muted)">
+          <strong style="color:var(--ink)">关键标准：</strong>ISO 23963-1:2022 · T/GDATCM 0009-2021 · "4+1" 质量体系
+        </div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-col">
+        <h4>下游 · DOWNSTREAM</h4>
+        <div class="item"><strong>B2B 渠道</strong>海外华人批发商 · 原料药分销 → 海外品牌商</div>
+        <div class="item"><strong>B2C 跨境电商</strong>Amazon · iHerb · Shopify DTC · TikTok Shop · Shopee · Lazada</div>
+        <div class="item"><strong>O2O 渠道</strong>海外 TCM 诊所 · 健康品连锁 · SPA</div>
+        <div style="margin-top:20px;padding:14px;background:var(--paper-2);border-radius:2px;font-size:12px;color:var(--muted)">
+          <strong style="color:var(--ink)">渠道结构：</strong>电商 28.3% · 专门店 21.4% · 商超 12.5% · 中医诊所 8%
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin:80px 0 24px">4.1 上游壁垒：GAP + 标准化提取</h3>
+    <p class="lead" style="margin-bottom:32px;max-width:780px">原料供应链是出海的第一门槛。重金属 / 农药残留 / 替代物种 / 道地性争议，构成了国际采购的"硬通货"考核项。</p>
+    
+    <div class="grid-3">
+      <div class="card">
+        <span class="card-tag moss">GAP 基地</span>
+        <h4>"公司+基地+农户"</h4>
+        <p>土壤 / 气候 / 农药合规 + 品种纯化是核心考核。同仁堂、宁夏中宁枸杞、贵州大方天麻、东阿阿胶为代表。GAP 认证是国际采购硬通货。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag moss">标准化提取</span>
+        <h4>Standardized Extract</h4>
+        <p>HPLC、DNA 条形码、IR 指纹图谱为关键质量参数。工艺稳定性、批次差异控制是壁垒。代表：晨光生物（番茄红素）、莱茵生物（罗汉果/甜叶菊）、绿蔓生物。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag moss">国际标准</span>
+        <h4>ISO 23963-1:2022</h4>
+        <p>中药材及饮片过程追溯系统<strong>首个国际标准</strong>，融合 GAP+GMP+GSP，引入区块链 / IoT 传感器。T/GDATCM 0009-2021 "4+1"质量保证体系。</p>
+      </div>
+    </div>
+
+    <h3 style="margin:80px 0 24px">4.2 中游关键：仙乐健康 CDMO 范式</h3>
+    <div class="case gold">
+      <div class="case-head">
+        <div>
+          <span class="case-tag" style="background:var(--gold)">CDMO 标杆</span>
+          <h4>仙乐健康（Sirio Pharma）· 全球代工模式</h4>
+          <div class="meta">2023 营收 USD 508M · YoY +42.87% · 净利 YoY +32.39%</div>
+        </div>
+      </div>
+      <div class="grid-4" style="margin-bottom:20px">
+        <div style="text-align:center;padding:16px;background:var(--paper-2);border-radius:2px">
+          <div style="font-size:11px;color:var(--muted);letter-spacing:.18em">SOFTGEL</div>
+          <div style="font-size:28px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums">42.63<small style="font-size:14px">%</small></div>
+        </div>
+        <div style="text-align:center;padding:16px;background:var(--paper-2);border-radius:2px">
+          <div style="font-size:11px;color:var(--muted);letter-spacing:.18em">GUMMY</div>
+          <div style="font-size:28px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums">20.66<small style="font-size:14px">%</small></div>
+        </div>
+        <div style="text-align:center;padding:16px;background:var(--paper-2);border-radius:2px">
+          <div style="font-size:11px;color:var(--muted);letter-spacing:.18em">LIQUID</div>
+          <div style="font-size:28px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums">11.78<small style="font-size:14px">%</small></div>
+        </div>
+        <div style="text-align:center;padding:16px;background:var(--paper-2);border-radius:2px">
+          <div style="font-size:11px;color:var(--muted);letter-spacing:.18em">OVERSEAS</div>
+          <div style="font-size:28px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums">48.33<small style="font-size:14px">%</small></div>
+        </div>
+      </div>
+      <p><strong>核心策略：</strong>30+ 年坚持"不做品牌、做品牌背后的工厂"原则；<strong>2022 收购美国 Best Formulations</strong>（80% 股权）；<strong>2025 投资 EUR 16M</strong>强化德国 Pritzwalk 厂全自动化包装。每年承接 300+ 新项目，客户遍及 50+ 国。</p>
+      <p><strong>战略路径：</strong>CDMO 切入海外品牌意味着<strong>不必自有终端品牌即可获得全球份额</strong>，是当前最高效的"轻资产出海"路径。毛利率看似偏低（25-45%），但因订单批次稳定、应收账款管理好，可复制性强。</p>
+      <div class="insight">不可复制点：CDMO 需要 5—10 年沉淀；合规体系 + 全球多厂部署资金壁垒高（仙乐健康 2024 报告固定资产已超 CN¥ 40 亿）。</div>
+    </div>
+
+    <h3 style="margin:80px 0 24px">4.3 下游渠道：跨境电商主导</h3>
+    <div class="grid-2">
+      <div class="card">
+        <span class="card-tag gold">B2C 跨境电商 · 28.3%</span>
+        <h4>增长最快 · 投入可控</h4>
+        <p>Amazon · Tmall Global · iHerb · Shopify · TikTok Shop · Shopee · Lazada。FDA 自愿登记为可选，主要靠流量与品牌力。客单价 25—80 USD。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">健康专门店 · 21.4%</span>
+        <h4>品牌信任建立关键场</h4>
+        <p>GNC · Whole Foods · Holland & Barrett。高门槛，需要长期品牌沉淀与监管背书（TGA、FFC 等）。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">商超 · 12.5%</span>
+        <h4>大众化普及渠道</h4>
+        <p>Walmart · Target · Rakuten。中门槛，需要大众化定价 + 强品牌包装。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag moss">私域 DTC · 8.5%</span>
+        <h4>复购 + LTV 主阵地</h4>
+        <p>WhatsApp · 微店 · 独立站。低门槛，依靠 KOL / 网红矩阵 + 私域客服。</p>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <div class="src">情报研判要点 · KEY INSIGHT</div>
+      <p><strong style="color:var(--moss)">三通道并行（跨境电商 × 线下专门店 × 私域 DTC）</strong>是 2025—2028 出海品牌的主流打法。单一渠道无法支撑品牌全生命周期。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 05 监管合规 ============================================ -->
+<section class="section" id="regulatory">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="chapter-no"><span class="num">05</span>REGULATORY<br>& COMPLIANCE</div>
+      <div>
+        <span class="eyebrow red">监管与合规全景图谱</span>
+        <h2><span style="color:var(--red)">合规能力</span> = 食药同源跨境的<span style="color:var(--red)">进入门票</span></h2>
+      </div>
+    </div>
+
+    <p class="lead" style="max-width:820px;margin-bottom:48px">
+      全球 6 大司法辖区在 2024—2026 阶段同步呈现"收紧—透明化"特征。专业律所 + 测试机构 + 本地 MAH 的三位一体配置是头部出海品牌标配。
+    </p>
+
+    <div class="reg-grid">
+      <div class="reg-card">
+        <span class="flag">🇺🇸 美国</span>
+        <h4>DSHEA + GRAS + FDA</h4>
+        <div class="reg">1994 framework</div>
+        <ul>
+          <li>DSHEA 结构-功能宣称免审批，制造商自证</li>
+          <li>上市后 30 天内 FDA 通知</li>
+          <li>NDI（新膳食成分）上市前 75 天通报</li>
+          <li>GRAS 自证 6—9 月 / FDA Notice 1—3 年</li>
+          <li>21 CFR 101.93(g) 10 种疾病宣称红线</li>
+        </ul>
+      </div>
+      <div class="reg-card">
+        <span class="flag">🇪🇺 欧盟</span>
+        <h4>EFSA + NF + THMPD</h4>
+        <div class="reg">2015/2283 · 2004/24</div>
+        <ul>
+          <li>Novel Food 1997-05-15 之前未在欧盟食用需申报</li>
+          <li>申报时长 1.5—3 年，单项 EUR 50—300K</li>
+          <li>THMPD 需 30 年药用史其中 15 年在欧盟</li>
+          <li>EU 1169/2011 详细成分 / 过敏原 / 来源标签</li>
+          <li>EC 1924/2006 EFSA 健康宣称评估</li>
+        </ul>
+      </div>
+      <div class="reg-card">
+        <span class="flag">🇯🇵 日本</span>
+        <h4>CAC + 机能性表示食品</h4>
+        <div class="reg">2024-08-23 修订</div>
+        <ul>
+          <li>健康危害强制汇报（2024-09 生效）</li>
+          <li>营养补充剂 FFC 强制 GMP（2025-04-01）</li>
+          <li>新原料通知期 60 → 120 天</li>
+          <li>必须使用 PRISMA 2020 系统综述</li>
+          <li>GMP 完全合规截止 2026-08-31</li>
+        </ul>
+      </div>
+      <div class="reg-card">
+        <span class="flag">🇰🇷 韩国</span>
+        <h4>MFDS + 健康功能食品法</h4>
+        <div class="reg">食品医药品安全处</div>
+        <ul>
+          <li>健康功能食品由 MFDS 管理</li>
+          <li>完成单独功能性原料 / 成分认定</li>
+          <li>红参传统渠道强 · MZ 世代向 VMS 切换</li>
+          <li>健康功能食品产业 KRW 5.9626 T</li>
+          <li>出口 2025 达 USD 318.17 M（+14.2%）</li>
+        </ul>
+      </div>
+      <div class="reg-card">
+        <span class="flag">🇦🇺 澳新</span>
+        <h4>TGA</h4>
+        <div class="reg">AUST L / R</div>
+        <ul>
+          <li>AUST L：低风险草本产品</li>
+          <li>AUST L(A)：传统草本产品</li>
+          <li>AUST R：注册药，含 OTC 成分</li>
+          <li>澳新互认体系，全球声誉良好</li>
+          <li>CMA：74% 家庭使用率</li>
+        </ul>
+      </div>
+      <div class="reg-card">
+        <span class="flag">🇸🇦 沙特</span>
+        <h4>SFDA + MOHAP</h4>
+        <div class="reg">GCC</div>
+        <ul>
+          <li>SFDA.FD 55 上限标准，超限按药品路径</li>
+          <li>eCTD 申报 + SFDA 现场 GMP 检查</li>
+          <li>阿语 + 英语标签 + 定量标志性成分</li>
+          <li>GCC 协调框架渐成主流</li>
+          <li>Halal 是强制 + 机遇双属性</li>
+        </ul>
+      </div>
+      <div class="reg-card">
+        <span class="flag">🇧🇷 巴西</span>
+        <h4>ANVISA</h4>
+        <div class="reg">IN 373/2025 新规</div>
+        <ul>
+          <li>RDC 243/2018 + IN 28/2018</li>
+          <li>IN 373/2025（2025-06-05 颁布）</li>
+          <li>益生菌宣称需精确菌株</li>
+          <li>重金属测试 + 色谱指纹图谱</li>
+          <li>24 个月过渡期</li>
+        </ul>
+      </div>
+      <div class="reg-card">
+        <span class="flag">🌏 东南亚</span>
+        <h4>ASEAN + 各国分散</h4>
+        <div class="reg">HSA / NPRA / BPOM</div>
+        <ul>
+          <li>泰国 FDA · 草药产品法 B.E. 2562</li>
+          <li>新加坡 HSA · 健康补充剂分类</li>
+          <li>马来西亚 NPRA · Halal 强制</li>
+          <li>印尼 BPOM · Halal 加速推进</li>
+          <li>ASEAN TMHSPWG 协调尚未互认</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin:80px 0 24px">5.1 高频踩雷案例（2025—2026）</h3>
+    <div class="grid-2">
+      <div class="warn">
+        <h5>过度宣称 · Overclaim</h5>
+        <p>KBeauty X 品牌"治愈痤疮"被判为药品宣传，被下架并处罚。<strong>教训：</strong>必须避开 prevent / treat / cure 动词，恪守结构-功能宣称边界。</p>
+      </div>
+      <div class="warn">
+        <h5>新成分未申报 NF/NDI</h5>
+        <p>阿斯巴甜 / 姜黄素合成物未申报被扣。<strong>教训：</strong>关注 1997-05-15（欧盟关键时间点），未在欧盟食用过的成分必须申报 Novel Food。</p>
+      </div>
+      <div class="warn">
+        <h5>重金属 / 农残超标</h5>
+        <p>阿胶 / 黄精类农残超标通报。<strong>教训：</strong>ISO 23963-1 追溯体系 + 第三方检测是基础工程，必须前置部署。</p>
+      </div>
+      <div class="warn">
+        <h5>濒危动植物成分</h5>
+        <p>含 CITES 物种（穿山甲 / 虎骨）无法过国际海关。<strong>教训：</strong>严格筛选，参考 IUCN 红色名录，从源头杜绝。</p>
+      </div>
+      <div class="warn">
+        <h5>Halal 标签造假</h5>
+        <p>印尼 Halal Label 强制，未认证货物被退。<strong>教训：</strong>必须取得本地 Halal 认证（JAKIM / BPJPH / SFDA Halal）。</p>
+      </div>
+      <div class="warn">
+        <h5>跨境税收 / 二清</h5>
+        <p>中国 9610 / 1210 模式不当使用导致税务风险。<strong>教训：</strong>必须选择合规跨境物流商与模式。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 06 商业模式 ============================================ -->
+<section class="section" id="business-model">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="chapter-no"><span class="num">06</span>BUSINESS<br>MODELS</div>
+      <div>
+        <span class="eyebrow">商业模式深度穿透</span>
+        <h2>五种主流打法 · <span style="color:var(--moss)">五种盈利路径</span></h2>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:32px">6.1 五大主流模式盈利矩阵</h3>
+    <div class="table-wrap">
+      <table class="datatable">
+        <thead>
+          <tr><th>模式</th><th>毛利率</th><th>落地门槛</th><th>市场天花板</th><th>可复制性</th><th>典型代表</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>原料出口型</strong></td><td class="num">15—35%</td><td class="num">高</td><td class="num">高（B2B 长周期）</td><td class="num">中</td><td>晨光生物 · 莱茵生物 · 绿蔓</td></tr>
+          <tr style="background:rgba(31,77,64,.04)"><td><strong>品牌 DTC 型（跨境电商）</strong></td><td class="num gold">50—70%</td><td class="num">低-中</td><td class="num">中（依赖流量）</td><td class="num gold"><strong>高</strong></td><td>WonderLab · 小甜橙 · SOLSTICE</td></tr>
+          <tr><td><strong>华人渠道型</strong></td><td class="num">35—55%</td><td class="num">中</td><td class="num">中</td><td class="num">中</td><td>部分传统滋补老字号</td></tr>
+          <tr><td><strong>本土联名 / 渠道联营</strong></td><td class="num">40—60%</td><td class="num">极高</td><td class="num">高</td><td class="num red">低</td><td>喜茶 × WonderLab 灵感奶茶</td></tr>
+          <tr><td><strong>OEM/ODM/CDMO</strong></td><td class="num">25—45%</td><td class="num">极高</td><td class="num">高</td><td class="num">中</td><td><strong>仙乐健康（Sirio）</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin:80px 0 24px">6.2 标杆案例深度复盘</h3>
+
+    <div class="grid-2">
+      <div class="case">
+        <div class="case-head">
+          <div>
+            <span class="case-tag">案例 1 · 资本换品牌</span>
+            <h4>汤臣倍健 + LSG Life-Space</h4>
+            <div class="meta">2018 年完成 · 金额 A$670M（约 USD 483.1M）</div>
+          </div>
+        </div>
+        <p>汤臣倍健以 33% 自有 + 66.67% 杠杆资金完成全资收购 LSG（含 Life-Space、Evolution Health、Ultramix 业务）。</p>
+        <p><strong>协同收益：</strong>① Life-Space 在澳本地药店渠道份额第二；② 中国阿里 CBEC 跨境保健品类第一；③ 收购价对应"中国益生菌市场预期 + 全球品牌资产"估值溢价（2018 年净利约 A$21.5M，估值 PE ≈ 31x）。</p>
+        <p><strong>可借鉴点：</strong>以"已盈利的、被监管承认的、华人认知度高的海外品牌"为标的，以"控股权 + 留任团队 + 中国渠道注入"为整合方法。</p>
+        <div class="insight">不可复制点：标的稀缺性，当前 AUD 5 亿+规模的草本 / 益生菌海外标的凤毛麟角，2025 后此类收购机会大幅减少。</div>
+      </div>
+
+      <div class="case accent">
+        <div class="case-head">
+          <div>
+            <span class="case-tag" style="background:var(--accent)">案例 2 · DTC + TikTok Shop</span>
+            <h4>WonderLab · 中国数字营销能力包输出</h4>
+            <div class="meta">抖音 + 小红书种草 → TikTok Shop → Shopify → Amazon</div>
+          </div>
+        </div>
+        <p><strong>方法论：</strong>① 50+ 月直播场次（与 KOL/KOC 矩阵合作）；② GMV Max 自动化广告 + 跨平台素材复用（Refunnel 工具）；③ 私域 1V1 客服复购。</p>
+        <p><strong>代表产品：</strong>白芸豆纤维片、女性益生菌、儿童成长粉、运动补剂；客单价 RMB 100—300。</p>
+        <p><strong>数据：</strong>海外旗舰店 30 天内 56 场直播，场均观看 3,195 次，销售额区间 250—500 万 RMB。</p>
+        <p><strong>可借鉴点：</strong>以"中国成熟的数字营销 + 内容电商能力包"复制到东南亚与美国，是 2025 之后所有中国新消费出海品牌的核心方法论。</p>
+        <div class="insight">短板：依赖平台流量与红人矩阵稳定性，需持续推爆款，对爆款依赖度高。</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:24px">
+      <div class="case gold">
+        <div class="case-head">
+          <div>
+            <span class="case-tag" style="background:var(--gold)">案例 3 · 东方生活方式</span>
+            <h4>EasternBotanics · Etsy + Amazon 草本生活品类</h4>
+            <div class="meta">年销 CN¥ 820 万 · 客单价最高 USD 368</div>
+          </div>
+        </div>
+        <p><strong>模式：</strong>草本手工香皂、草本身体贴、足浴包、节气礼盒，<strong>主打"生活场景" + "东方文化体验"</strong>。</p>
+        <p><strong>绩效：</strong>Herbal Body Patch 月销已突破 6 位数 USD；北美 + 欧美白领 + 都市女性为主要客群。</p>
+        <p><strong>方法论：</strong>① 集中在 Etsy、Amazon、独立站，避开 TikTok Shop 过度内卷；② 视觉 + 文案"东方意境 + 西方现代健康"双向触达；③ 单品迭代频率快。</p>
+        <div class="insight"><strong>关键洞察：</strong>将"药食同源"重新框架化为"东方生活方式"是规避监管 + 切入消费者心智的聪明路径。</div>
+      </div>
+
+      <div class="case red">
+        <div class="case-head">
+          <div>
+            <span class="case-tag" style="background:var(--red)">案例 4 · 外用蓝海</span>
+            <h4>湖南新晃黄精 · 泰国曼谷招商会 9,200 万订单</h4>
+            <div class="meta">2025-07-14 · 13 家泰国企业集采</div>
+          </div>
+        </div>
+        <p><strong>品类特点：</strong>黄精茶、黄精保健品、<strong>黄精泡脚包（草本足浴包）</strong>，既有"中国人认知"又契合"东南亚家庭生活场景"。</p>
+        <p><strong>赛道洞察：</strong>阿里国际站数据显示 <strong style="color:var(--red)">欧美"中药浴"搜索量激增 260%</strong>；TikTok 上 #herbalbath 标签聚集了大量 UGC。</p>
+        <p><strong>可借鉴点：</strong>以"外用 + 草本 + 生活化场景"切北美白领 + 东南亚家庭，是食药同源区别于"保健品 - 内服红海"的差异化蓝海赛道。</p>
+        <div class="insight">外用养生 + 生活场景，是 2026—2028 的高确定性蓝海。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 07 玩家图谱 ============================================ -->
+<section class="section" id="players">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="chapter-no"><span class="num">07</span>PLAYER<br>INTELLIGENCE</div>
+      <div>
+        <span class="eyebrow gold">全球核心玩家情报图谱</span>
+        <h2>海外巨头 · <span style="color:var(--gold)">中国出海玩家</span> · 合规服务商</h2>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:24px">7.1 海外 / 跨国玩家</h3>
+    <div class="player-row">
+      <div class="player-card">
+        <h5>美系龙头 · AMERICAN GIANTS</h5>
+        <div class="row">
+          <div><div class="name">Herbalife</div><div class="desc">草本代餐 + 蛋白质 · 多层直销</div></div>
+          <div class="num">USD 5 B+</div>
+        </div>
+        <div class="row">
+          <div><div class="name">Amway</div><div class="desc">多品类 · Nutrilite 草本品牌</div></div>
+          <div class="num">USD 8 B+</div>
+        </div>
+        <div class="row">
+          <div><div class="name">Nature's Bounty</div><div class="desc">草本 + 维生素 · 多 SKU 矩阵</div></div>
+          <div class="num">USD 1.5 B+</div>
+        </div>
+        <div class="row">
+          <div><div class="name">GNC</div><div class="desc">草本 + 运动补剂 · 专营店</div></div>
+          <div class="num">USD 1.5 B+</div>
+        </div>
+        <div class="row">
+          <div><div class="name">NOW Foods</div><div class="desc">草本 + 大宗原料 · 价格策略</div></div>
+          <div class="num">USD 500 M+</div>
+        </div>
+      </div>
+      <div class="player-card">
+        <h5>澳新 · 印度 · DTC 新锐</h5>
+        <div class="row">
+          <div><div class="name">Swisse Wellness</div><div class="desc">TGA 信任 · 被 H&H 收购</div></div>
+          <div class="num">USD 1.5 B+</div>
+        </div>
+        <div class="row">
+          <div><div class="name">Blackmores</div><div class="desc">澳背书 + 品牌矩阵</div></div>
+          <div class="num">AUD 600 M+</div>
+        </div>
+        <div class="row">
+          <div><div class="name">KSM-66 (Ixoreal)</div><div class="desc">22 项 RCT 临床循证 · Ashwagandha</div></div>
+          <div class="num">USD 50—100 M</div>
+        </div>
+        <div class="row">
+          <div><div class="name">Four Sigmatic</div><div class="desc">蘑菇 + 咖啡 · DTC · 适应原叙事</div></div>
+          <div class="num">USD 100 M+</div>
+        </div>
+        <div class="row">
+          <div><div class="name">Moon Juice</div><div class="desc">东方适应原 + 美式高端</div></div>
+          <div class="num">DTC</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin:60px 0 24px">7.2 中国出海头部玩家</h3>
+    <div class="table-wrap">
+      <table class="datatable">
+        <thead>
+          <tr><th>玩家</th><th>主营</th><th>出海动作</th><th>区域布局</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>汤臣倍健</strong></td><td>综合膳食补充剂</td><td>LSG Life-Space 收购（2018 A$670M）· Matrix Meta-Power 资本合作</td><td>澳 + 全球 + 国内</td></tr>
+          <tr><td><strong>仙乐健康</strong></td><td>CDMO</td><td>德国 Pritzwalk 厂（EUR 19M）· 美国 Best Formulations 80% 并购</td><td>中 + 美 + 欧</td></tr>
+          <tr><td><strong>WonderLab</strong></td><td>Z 世代营养品</td><td>TikTok Shop + Shopify DTC + Amazon</td><td>中 + 东南亚 + 美</td></tr>
+          <tr><td><strong>同仁堂</strong></td><td>老字号 + 中成药</td><td>海外门店 + CBEC</td><td>东南亚 + 北美华人圈 + 欧洲</td></tr>
+          <tr><td><strong>东阿阿胶</strong></td><td>阿胶产品</td><td>海外华人圈 + TikTok Shop</td><td>华人圈</td></tr>
+          <tr><td><strong>H&H International</strong></td><td>婴幼儿 + 益生菌</td><td>收购 Swisse 后双品牌运营</td><td>中 + 澳 + 全球</td></tr>
+          <tr><td><strong>莱茵生物</strong></td><td>植物提取物</td><td>罗汉果 / 甜叶菊 / 莽草酸</td><td>北美 + 欧洲 + 日本</td></tr>
+          <tr><td><strong>晨光生物</strong></td><td>番茄红素等提取物</td><td>全球 B2B 原料</td><td>全球</td></tr>
+          <tr><td><strong>百合股份 / 百合康</strong></td><td>膳食补充剂</td><td>海外 OEM</td><td>北美 + 欧盟</td></tr>
+          <tr><td><strong>小仙炖</strong></td><td>鲜炖燕窝</td><td>跨境电商</td><td>中 + 北美</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pullquote">
+      <div class="src">情报研判要点 · KEY INSIGHT</div>
+      <p>当前竞争格局中，<strong style="color:var(--moss)">「中国原料 × 东南亚文化亲近 × 西方数字营销能力」</strong>是最强 COMBO 配置。同时具备三者的玩家占据最大利润池。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 08 壁垒驱动 ============================================ -->
+<section class="section" id="barriers">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="chapter-no"><span class="num">08</span>BARRIERS<br>& DRIVERS</div>
+      <div>
+        <span class="eyebrow">壁垒权重与驱动因素</span>
+        <h2>七层壁垒结构 · <span style="color:var(--moss)">25% × 20% × 15%</span> 决定胜负</h2>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:32px">8.1 壁垒权重分布</h3>
+    <div class="barrier">
+      <div class="barrier-row"><div class="name"><strong>原料供应链</strong>（GAP / 标准化 / 重金属农残）</div><div class="barrier-track"><div class="barrier-fill" style="width:100%"></div></div><div class="pct">25%</div></div>
+      <div class="barrier-row"><div class="name"><strong>合规注册</strong>（FDA NDI / EU NF / FFC / TGA / SFDA）</div><div class="barrier-track"><div class="barrier-fill" style="width:80%"></div></div><div class="pct">20%</div></div>
+      <div class="barrier-row"><div class="name"><strong>功效认知差异</strong>（东西方）</div><div class="barrier-track"><div class="barrier-fill" style="width:60%"></div></div><div class="pct">15%</div></div>
+      <div class="barrier-row"><div class="name"><strong>品牌信任度</strong></div><div class="barrier-track"><div class="barrier-fill" style="width:60%"></div></div><div class="pct">15%</div></div>
+      <div class="barrier-row"><div class="name"><strong>跨境冷链 / 配送时效</strong></div><div class="barrier-track"><div class="barrier-fill" style="width:40%"></div></div><div class="pct">10%</div></div>
+      <div class="barrier-row"><div class="name"><strong>流量与数字营销能力</strong>（中国品牌强项）</div><div class="barrier-track"><div class="barrier-fill" style="width:40%"></div></div><div class="pct">10%</div></div>
+      <div class="barrier-row"><div class="name"><strong>资本与并购能力</strong></div><div class="barrier-track"><div class="barrier-fill" style="width:20%"></div></div><div class="pct">5%</div></div>
+    </div>
+
+    <h3 style="margin:80px 0 24px">8.2 关键驱动因素</h3>
+    <div class="grid-3">
+      <div class="card">
+        <span class="card-tag moss">世代迁移</span>
+        <h4>健康消费世代切换</h4>
+        <p>西方 GenZ / Millennial 对"自然 + 植物基 + 适应原"产品接受度持续上升。健康功能性食品市场 2030 CAGR ≈ 8%。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag gold">区域扩张</span>
+        <h4>东南亚四重叠加</h4>
+        <p>RCEP + 中等收入人群增长 + 华人文化 + Halal 市场四重叠加。马来西亚 +131.4% 是 2025 最强单一证据。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">监管透明化</span>
+        <h4>倒逼头部集中</h4>
+        <p>日本 FFC 大改、美国 NDI 强化倒逼头部企业集中。30-40% 现有中小出海品牌或将被迫退出或被收购。</p>
+      </div>
+    </div>
+
+    <h3 style="margin:60px 0 24px">8.3 长期趋势研判</h3>
+    <div class="grid-2">
+      <div class="card" style="border-top:3px solid var(--moss)">
+        <h4>2026 — 2030</h4>
+        <ul style="list-style:none;padding:0;font-size:14px;color:var(--ink-2);line-height:1.8">
+          <li>① KSM-66 类"循证提取物"进一步取代生粉末原料</li>
+          <li>② 亚洲（特别是东南亚）跨境销量年均增速 11—15%</li>
+          <li>③ 中国头部品牌完成 30+ 国的"国际注册矩阵"</li>
+          <li>④ OEM / 收购 / 自建渠道三轨并行</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:3px solid var(--gold)">
+        <h4>2030 — 2035</h4>
+        <ul style="list-style:none;padding:0;font-size:14px;color:var(--ink-2);line-height:1.8">
+          <li>① 中式草本与西方适应原、Ayurveda、Kampo"四源融合"</li>
+          <li>② 区块链溯源成为高端跨境品牌标配</li>
+          <li>③ 临床循证 + 基因检测 + AI 个性化配方融合</li>
+          <li>④ 中东资本入主出海资本</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 09 风险预警 ============================================ -->
+<section class="section" id="risks">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="chapter-no"><span class="num">09</span>RISK<br>MATRIX</div>
+      <div>
+        <span class="eyebrow red">风险与挑战全景预警</span>
+        <h2><span style="color:var(--red)">七类风险</span>叠加 · 2025—2028 行业洗牌期</h2>
+      </div>
+    </div>
+
+    <div class="risk-grid">
+      <div class="risk">
+        <span class="risk-lvl">HIGH</span>
+        <h4>9.1 合规注册风险</h4>
+        <p>FDA Warning Letter 2024—2025 因"治病宣称"被警告的中国 / 印度品牌多达 20+ 家。欧盟 NF 未申报被荷兰港退回。日本 FFC GMP 全合规截止 2026-08-31，未合规的中小品牌将退出。</p>
+      </div>
+      <div class="risk">
+        <span class="risk-lvl">HIGH</span>
+        <h4>9.2 功效宣称虚假宣传</h4>
+        <p>跨境电商中文品牌常见"清热解毒 / 气血双补"等话语，在欧美市场 99% 触碰 disease claim 红线。需翻译团队与法规团队协同，明确 S/F claim + general well-being 边界。</p>
+      </div>
+      <div class="risk">
+        <span class="risk-lvl">HIGH</span>
+        <h4>9.3 原料质量与溯源</h4>
+        <p>重金属（Pb / Cd / Hg / As）超标风险——尤其阿胶、黄精、枸杞；农残（六六六、滴滴涕、氯霉素等）风险——尤其人参、灵芝；替代物种偶发（如染色山茱萸代替正品）。</p>
+      </div>
+      <div class="risk medium">
+        <span class="risk-lvl">MED</span>
+        <h4>9.4 文化认知壁垒</h4>
+        <p>"中药"在西方仍带有"非主流 / 异国"标签，需要"现代健康 + 适应原 + 临床证据"三层包装。印度阿育吠陀、功能食品、日韩汉方已抢占部分"东方草本"心智。</p>
+      </div>
+      <div class="risk medium">
+        <span class="risk-lvl">MED</span>
+        <h4>9.5 知识产权风险</h4>
+        <p>中药古籍经典方剂在多数海外法域不受专利保护——意味着配方可复制性高，但也意味着品牌价值先行者优势。跨境品牌应首先做欧美 / 日 / 澳商标检索。</p>
+      </div>
+      <div class="risk medium">
+        <span class="risk-lvl">MED</span>
+        <h4>9.6 地缘贸易摩擦</h4>
+        <p>美中关税不确定性 + 欧盟 CBAM（碳关税）+ 中国食品"双反" + 美 301 关税：从成本端看对 2026 出海食品利润空间 3—5% 压缩。</p>
+      </div>
+      <div class="risk low">
+        <span class="risk-lvl">MED</span>
+        <h4>9.7 西方草本与阿育吠陀冲击</h4>
+        <p>Adaptogens 已抢占西方消费者心智（Ashwagandha、Rhodiola）；Lion's Mane、Chaga、Reishi、Cordyceps 蘑菇类快速崛起；Moringa、Turmeric 已在欧美建立稳固品类。中国品牌必须用"循证证据 + 标准化专利"建立差异化。</p>
+      </div>
+    </div>
+
+    <div class="warn" style="margin-top:48px">
+      <h5>SEISMIC WARNING · 行业洗牌预警</h5>
+      <p>以上七项风险并非孤立——尤其<strong>合规 + 文化认知 + 同质化竞争</strong>三者叠加，将导致 2025—2028 出现"出海品牌洗牌期"，<strong style="color:var(--red)">30%—40% 现有中国出海品牌或将被迫退出或被收购</strong>。这一窗口期同时也是"先发者的并购黄金窗口"。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 10 技术赋能 ============================================ -->
+<section class="section" id="tech">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="chapter-no"><span class="num">10</span>TECH<br>ENABLEMENT</div>
+      <div>
+        <span class="eyebrow gold">技术赋能与创新趋势</span>
+        <h2>科技本草 · <span style="color:var(--gold)">四位一体</span>复合能力</h2>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <span class="card-tag moss">10.1 提取技术</span>
+        <h4>功能性成分精纯</h4>
+        <p>低温真空提取（保留热敏性分子）+ 超临界 CO₂ 萃取（姜黄素 / 当归挥发油）+ 膜分离 + 离子交换（多糖分离）+ 标准化提取物（标志成分定量化）。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag gold">10.2 循证临床</span>
+        <h4>临床证据溢价</h4>
+        <p><strong>KSM-66 Ashwagandha</strong> 22+ 项临床研究；Sabinsa Curcumin C3 / BCM-95；Lion's Mane 200+ 项研究。中国出海品牌应主动在欧盟、美国注册循证研究。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">10.3 AI 配方研发</span>
+        <h4>AI + TCM 知识图谱</h4>
+        <p>个性化体质分型（基于舌诊、问卷、基因检测）+ 配方推荐。AIGC 短视频批量生产 + 多语种翻译 + KOL 虚拟人。AI 自动化 S/F claim 校对。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag moss">10.4 跨境内容</span>
+        <h4>四件套流量放大</h4>
+        <p>TikTok Shop 模式：Affiliate + GMV Max + 短视频 + 直播。小红书 × Instagram 联动：东方草本跨文化叙事。Spotify × Substack 健身播客赞助。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag gold">10.5 区块链溯源</span>
+        <h4>ISO 23963-1:2022</h4>
+        <p>首个中药材全链条追溯国际标准。HerBChain、TCMQMS 基于 Hyperledger Fabric。腾讯至信链、蚂蚁链可商业化部署。聚焦大宗原料（枸杞、黄精、人参、阿胶）。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">10.6 代际新剂型</span>
+        <h4>Z 世代剂型革命</h4>
+        <p>植物软胶囊（替代明胶，素食者欢迎）+ 爆珠滴剂（吞服感新奇，Z 世代偏爱）+ 膏方 / 复方喷雾 / 草本冻干（传统剂型现代化）。</p>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <div class="src">情报研判要点 · KEY INSIGHT</div>
+      <p>技术单一突破不能形成壁垒，<strong style="color:var(--moss)">「提取工艺 + 循证研究 + AI 配方 + 区块链溯源」</strong>四位一体的"科技本草"复合能力将是 2026—2030 头部品牌的标配。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 11 战略机会 ============================================ -->
+<section class="section" id="opportunity">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="chapter-no"><span class="num">11</span>STRATEGY<br>& ROADMAP</div>
+      <div>
+        <span class="eyebrow">未来趋势与战略机会</span>
+        <h2>四阶段路径 · <span style="color:var(--moss)">三方案落地</span></h2>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:32px">11.1 高潜力细分蓝海赛道</h3>
+    <div class="blue-grid">
+      <div class="blue-card">
+        <div class="blue-stars">★ ★ ★ ★ ★</div>
+        <h4>外用草本养生</h4>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px">足浴 · 贴 · 膏方</p>
+        <div class="blue-meta"><span>门槛：低</span><span>★★★★★</span></div>
+      </div>
+      <div class="blue-card">
+        <div class="blue-stars">★ ★ ★ ★ ★</div>
+        <h4>草本冻干 / 草本零食</h4>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px">标准化剂型</p>
+        <div class="blue-meta"><span>门槛：中</span><span>★★★★★</span></div>
+      </div>
+      <div class="blue-card">
+        <div class="blue-stars">★ ★ ★ ★ ☆</div>
+        <h4>适应原 + 蘑菇复合</h4>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px">西方话术体系</p>
+        <div class="blue-meta"><span>门槛：中-高</span><span>★★★★</span></div>
+      </div>
+      <div class="blue-card">
+        <div class="blue-stars">★ ★ ★ ★ ☆</div>
+        <h4>草本护肤 / 护发</h4>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px">含草本内调</p>
+        <div class="blue-meta"><span>门槛：中</span><span>★★★★</span></div>
+      </div>
+      <div class="blue-card">
+        <div class="blue-stars">★ ★ ★ ☆ ☆</div>
+        <h4>儿童 / 母婴草本</h4>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px">高门槛但稳健</p>
+        <div class="blue-meta"><span>门槛：高</span><span>★★★</span></div>
+      </div>
+      <div class="blue-card">
+        <div class="blue-stars">★ ★ ★ ★ ★</div>
+        <h4>女性周期 / 围孕期</h4>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px">TikTok + DTC + 跨境</p>
+        <div class="blue-meta"><span>门槛：中</span><span>★★★★★</span></div>
+      </div>
+      <div class="blue-card">
+        <div class="blue-stars">★ ★ ★ ★ ☆</div>
+        <h4>运动恢复 / 老年认知</h4>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px">北美 / 欧盟主战场</p>
+        <div class="blue-meta"><span>门槛：高</span><span>★★★★</span></div>
+      </div>
+      <div class="blue-card">
+        <div class="blue-stars">★ ★ ★ ☆ ☆</div>
+        <h4>草本宠物</h4>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:14px">美国蓝海赛道</p>
+        <div class="blue-meta"><span>门槛：低</span><span>★★★</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin:80px 0 24px">11.2 区域进入优先级</h3>
+    <div class="matrix">
+      <div class="matrix-pri">
+        <span class="no">P1</span>
+        <h4>第一梯队</h4>
+        <p class="reason">美国 + 东南亚<br>体量 + 增速 + 文化亲近 + 平台齐备</p>
+      </div>
+      <div class="matrix-pri">
+        <span class="no">P2</span>
+        <h4>第二梯队</h4>
+        <p class="reason">澳新 + 中东（GCC）+ 加拿大<br>TGA 背书 / Halal + 高净值人口</p>
+      </div>
+      <div class="matrix-pri">
+        <span class="no">P3</span>
+        <h4>第三梯队</h4>
+        <p class="reason">欧盟（DE/UK/FR/NL）<br>高门槛但稳健 · 进入周期长</p>
+      </div>
+      <div class="matrix-pri">
+        <span class="no">P4</span>
+        <h4>第四梯队</h4>
+        <p class="reason">拉美（巴西 / 哥伦比亚）+ 非洲<br>当前规模小但成长性强</p>
+      </div>
+    </div>
+
+    <h3 style="margin:80px 0 24px">11.3 不同主体的切入路径</h3>
+    <div class="grid-3">
+      <div class="card">
+        <span class="card-tag moss">品牌方 / 创业者</span>
+        <h4>爆品 + 数字 + 复购</h4>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.7">抓 SKU 爆品 + TikTok Shop + 私域复购；早期选<strong>东方生活方式 + 外用</strong>单品跑通，再纵深扩品类。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag gold">原料供应商</span>
+        <h4>标准化提取物 + 循证</h4>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.7">优先做 KSM-66 类 Standardized Extract + 重金投循证研究 + 多国法规注册（FDA NDI、Novel Food、TGA）。</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">OEM / CDMO</span>
+        <h4>海外建厂 + 收购</h4>
+        <p style="font-size:14px;color:var(--ink-2);line-height:1.7">海外建厂（参考仙乐德国 Pritzwalk）+ 收购本土厂（参考 Sirio 收购 Best Formulations）+ 全球 GMP 互认。</p>
+      </div>
+    </div>
+
+    <h3 style="margin:80px 0 24px">11.4 轻资产落地方案（3 种）</h3>
+    <div class="grid-3">
+      <div class="case" style="background:var(--ink);color:#fff;border:none">
+        <div class="case-head"><h4 style="color:#fff">方案 A</h4><span class="case-tag">启动 USD 100K—300K</span></div>
+        <p style="color:rgba(255,255,255,.7)">单点 SKU × DTC × TikTok Shop。先在美国 / 东南亚挑一个单品跑通。适合 Z 世代创业者与新消费品牌。</p>
+      </div>
+      <div class="case gold" style="background:#fff">
+        <div class="case-head"><h4>方案 B</h4><span class="case-tag" style="background:var(--gold)">启动 USD 300K—1M</span></div>
+        <p>OEM 借船出海 × 自有品牌 × Amazon FBA + iHerb 分销。适合有供应链沉淀的中型品牌。</p>
+      </div>
+      <div class="case accent">
+        <div class="case-head"><h4>方案 C</h4><span class="case-tag" style="background:var(--accent)">启动 USD 1—5M</span></div>
+        <p>以"循证提取物 B2B 原料"切入 → 累积 OEM 客户 → 自有品牌。3—5 年路径。适合原料供应商转型。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ 12 行动手册 ============================================ -->
+<section class="section" id="action">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="chapter-no"><span class="num">12</span>ACTION<br>MANUAL</div>
+      <div>
+        <span class="eyebrow gold">整体评级 · 行动手册</span>
+        <h2>赛道评级：<span style="color:var(--moss)">HIGH POTENTIAL</span></h2>
+      </div>
+    </div>
+
+    <div class="dark-block" style="margin-bottom:64px">
+      <div>
+        <h3><span>三条</span>核心判断依据</h3>
+        <p><strong style="color:var(--gold-2)">① 基本面</strong>：全球草本补充剂市场 USD 45.65—101 Billion（2025）、CAGR 5.6%—9.0%，中国出口结构中"广义药食同源"占比 70%+；国内 2024 已破 CN¥ 2,650 亿。是消费升级 × 民族产业升级 × 健康全球化的"三重红利"赛道。</p>
+        <p style="margin-top:14px"><strong style="color:var(--gold-2)">② 结构性机会</strong>：北美 + 东南亚 + 中东 + 澳新多个区域并行打开；FDA DSHEA、欧盟 THMPD/NF、日本 FFC 改革、澳新 TGA、中东 SFDA、巴西 ANVISA 等监管体系在 2024—2026 阶段"收紧-透明化"，有利合规能力强的头部品牌。</p>
+        <p style="margin-top:14px"><strong style="color:var(--gold-2)">③ 可行性 + 风险对冲</strong>：行业进入门槛结构多元，存在轻资产（USD 100K—300K）起步方案。已出现头部企业以技术 + 资本 + 国际并购的方式成功破局（汤臣倍健、仙乐健康、WonderLab），具备可借鉴路径。</p>
+      </div>
+      <div style="text-align:center">
+        <div class="num-box">HIGH<small>赛道评级 · POTENTIAL</small></div>
+        <div style="margin-top:20px;padding:14px;background:rgba(255,255,255,.06);border-radius:2px;font-size:13px;color:rgba(255,255,255,.7)">
+          应给予<strong style="color:var(--gold-2)">「高潜力」</strong>评级<br>2025—2033 年维度 · 确定性高潜力 + 可控风险 + 多入口进入
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:32px">12.1 投资优先行动手册</h3>
+
+    <div class="action">
+      <div class="action-phase">0—12 个月</div>
+      <div class="action-body">
+        <ul>
+          <li>选定 1—2 区域（<strong>推荐美国 + 东南亚</strong>）</li>
+          <li>在 1—2 核心单品（<strong>推荐草本外用 / 适应原 / 草本生活方式类</strong>）上完成 GMP + ISO 23963 + FDA NDI / Novel Food / Saudi SFDA / EU THMPD 中的一项</li>
+          <li>注册 Shopify DTC + Amazon Brand Registry + TikTok Shop 三通道</li>
+          <li>与 1 家 CDMO 建立 OEM 关系（仙乐、百合、汤臣倍健 OEM、Intertek Test 厂等）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="action">
+      <div class="action-phase">12—36 个月</div>
+      <div class="action-body">
+        <ul>
+          <li>推进 Brand Authority 投资（创始人 KOL 化 / clinical evidence / Influencer seeding）</li>
+          <li>与 AC 认证伙伴（ISO / Halal / KSM-66）协作</li>
+          <li>申请 KSM-66 / 标准化提取物供给协议</li>
+          <li>启动"区域品牌" / "并购"通道</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="action">
+      <div class="action-phase">36—60 个月</div>
+      <div class="action-body">
+        <ul>
+          <li>进入中东 / 欧盟</li>
+          <li>启动 AI + 区块链业务双赋能（AI 配方 + 区块链溯源）</li>
+          <li>收购 / 控股 1 个海外功能性品牌</li>
+          <li>在欧洲、美国第二城市设海外仓 + 区域 MAH</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="case gold" style="margin-top:64px">
+      <div class="case-head">
+        <div>
+          <span class="case-tag" style="background:var(--gold)">最终研判 · FINAL VERDICT</span>
+          <h4 style="font-size:24px">这是一个具备<span style="color:var(--gold)">"确定性"</span>的机会</h4>
+        </div>
+      </div>
+      <p>与跨境电商单一品类机会不同，食药同源出海赛道受到 <strong>三重红利</strong>同时支撑：全球健康消费的世代迁移 + 中国民族产业的资本溢出 + 跨境基础设施的全面成熟。2025—2033 年维度，确定性高于绝大多数出海赛道。</p>
+      <p>与高确定对应的，不是低门槛。<strong>25% 原料供应链 + 20% 合规注册 + 15% 品牌信任 + 15% 东西方认知差异</strong>，构成一道多层护城河，恰是头部企业的最佳土壤。</p>
+      <p>未来十年，行业将见证：<strong>"Local Hero → Regional Star → Global Brand"</strong> 的三步跃迁，以及 30—40% 中尾部品牌的洗牌。这是先发者的并购黄金窗口，也是合规玩家的份额收割期。</p>
+      <div class="insight"><strong>下一步建议：</strong>若需要进一步深挖特定区域（如中东 SFDA 注册流程表）或特定品类（如 Gel Gummies 美国 DTC 定价模型）的可执行情报，请提交二轮情报采购指令。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ Footer ============================================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h4>研究主体 · INSTITUTION</h4>
+        <p>上海张小强企业咨询事务所出品 内部决策参考。</p>
+      </div>
+      <div class="foot-col">
+        <h4>数据来源</h4>
+        <ul>
+          <li>Future Market Insights</li>
+          <li>Grand View Research</li>
+          <li>FDA / EFSA / CAC / TGA</li>
+          <li>MFDS / SFDA / ANVISA</li>
+          <li>Sirio Pharma · 汤臣倍健</li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>附录查阅</h4>
+        <ul>
+          <li>核心数据来源（12 类）</li>
+          <li>关键合规规则对照表</li>
+          <li>DSHEA / NF / FFC / TGA</li>
+          <li>ISO 23963-1:2022</li>
+          <li>区块链溯源标准</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>食药同源出海全赛道产业尽调研究报告 · 第二级（运营决策级）</div>
+      <div><span class="conf">机密 · CONFIDENTIAL</span></div>
+      <div>© 2026 上海张小强企业咨询事务所</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================ 滚动动画 ============================================ -->
+<script>
+(function(){
+  const reveal = () => {
+    document.querySelectorAll('.section .wrap > *').forEach((el,i)=>{
+      el.style.transitionDelay = (i*40)+'ms';
+      const r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight - 80){
+        el.style.opacity='1';
+        el.style.transform='translateY(0)';
+      }
+    });
+    // 进度条动画
+    document.querySelectorAll('.bar-fill').forEach(bar=>{
+      const r = bar.getBoundingClientRect();
+      if(r.top < window.innerHeight - 50 && !bar.dataset.shown){
+        bar.dataset.shown='1';
+        const w = bar.style.width;
+        bar.style.width = '0';
+        requestAnimationFrame(()=>{ bar.style.width = w; });
+      }
+    });
+    document.querySelectorAll('.barrier-fill').forEach(bar=>{
+      const r = bar.getBoundingClientRect();
+      if(r.top < window.innerHeight - 50 && !bar.dataset.shown){
+        bar.dataset.shown='1';
+        const w = bar.style.width;
+        bar.style.width = '0';
+        requestAnimationFrame(()=>{ bar.style.width = w; });
+      }
+    });
+  };
+  // 初始隐藏
+  document.querySelectorAll('.section .wrap > *').forEach(el=>{
+    el.style.opacity='0';
+    el.style.transform='translateY(24px)';
+    el.style.transition='opacity .9s ease, transform .9s cubic-bezier(.4,0,.2,1)';
+  });
+  // 强制 hero 立即可见
+  document.querySelectorAll('.hero, .hero *').forEach(el=>{
+    el.style.opacity='1';
+    el.style.transform='none';
+    el.style.transition='none';
+  });
+  window.addEventListener('scroll', reveal, {passive:true});
+  window.addEventListener('load', reveal);
+  reveal();
+})();
+</script>
+
+</body>
+</html>

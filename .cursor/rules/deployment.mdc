@@ -1,0 +1,183 @@
+---
+description: 部署铁律 — 修改项目时(Cursor AI / Auto / Composer)必须遵守,避免重复 2026-07-09 的部署灾难
+globs: ["**/deploy.yml", "**/wrangler.toml", "**/routes.tsx", "**/researchReports.ts", "**/*.json"]
+alwaysApply: false
+---
+
+# 部署铁律(本项目)
+
+> 本项目是多平台部署:生产域名 `zxqconsulting.com` 由 Cloudflare Pages 服务,**部署源是 GitHub `main` 分支通过 GitHub integration webhook 自动 build**。`gh-pages` 分支由 Actions 同流程推到 GitHub Pages。
+>
+> 完整说明见项目根目录 `DEPLOYMENT.md`(尤其 § 〇 TL;DR 和 § 三 踩过的坑)。**修改任何部署相关文件前先读它**。
+>
+> 一键部署脚本见 `scripts/deploy.sh`(支持 `--skip-build` / `--dry-run` / `--check-token`)。
+
+---
+
+## ❌ 严禁操作(踩过的坑)
+
+### 1. 不准 `--force` 推到 `gh-pages` 后用 `git rm -rf .` 重灌
+
+任何对 `gh-pages` 分支的写操作,如果涉及 --force push,**必须先**:
+- 把 worktree 状态干净 + `git status --short | wc -l` 检查文件数
+- 用 `git add` 只 add 真正变化的文件,**不** 用 `git rm -rf .`
+
+理由:2026-07-09 一次错误操作清掉了 gh-pages 上 `.nojekyll`、`_redirects` 和 30+ SVG 文件。
+
+### 2. 不准修改 `src/data/researchReports.ts` 后直接 commit
+
+每加一条报告,**必须**:
+
+```bash
+npm run build
+grep -c "<new_report_id>" dist/assets/researchReports-*.js  # 必须 ≥ 1
+grep -c "<new_report_id>" dist/assets/index-*.js            # 通常 0,但 ResearchHub-*.js 必 ≥ 1
+```
+
+如果 grep = 0,说明 `ResearchHub.tsx` 没被路由引用(被 tree-shake),**先修 `src/routes.tsx` 加 `/research` 路由再**。
+
+### 3. 不准碰 `.github/workflows/deploy.yml` 的 workflow 主体除非明确需要
+
+如果改 workflow:
+- **必加**:build sanity check(grep bundle 关键字)
+- **必保留**:`peaceiris/actions-gh-pages@v4` 这步(推 dist 到 gh-pages)
+- **可暂时容错**:`wrangler-action@v4` step 失败不阻塞,因为 Cloudflare Pages 走自己 GitHub 集成
+
+### 4. 不准修 `wrangler.toml` 的 D1 `database_id`
+
+`database_id = "84613a5c-a4f4-43a3-bd68-55d5ed95d48a"` 在 Cloudflare 注册,改了就废了。
+
+### 5. 不准 push 前不看 `git status --short | wc -l`
+
+如果 > 1000,**停下来**,先 `git stash`,查清楚,再决定。
+
+### 6. 不准修改 `src/routes.tsx` 路径参数名后不验证详情页
+
+添加/修改 `:paramName` 时,**必须**:
+- 在对应的组件里写 `useParams<{ paramName: ... }>()`,名字完全一致
+- 不一致时,列表能渲染但详情全 404(2026-07-10 坑:全部报告点开都是"没找到")
+- 写完**手动点一条数据进详情页**验证,不只是看列表
+
+### 7. 不准在 CF Pages webhook 卡住时盲目等 30 分钟
+
+如果 push 后 > 10 分钟 `https://www.zxqconsulting.com/` 还是旧 bundle,**立即**用 `scripts/deploy.sh` 本地直推,不要干等。
+
+### 8. 不准直接 `git push` 部署相关改动而不先本地跑 `npm run build` + `verify-bundle`
+
+CI 的 `verify-bundle.mjs` 是 fail 兜底,本地 build 阶段就应该先跑一次确认通过,失败时禁止 commit。
+
+---
+
+## ✅ 必做清单(每次部署相关改动)
+
+### 新增研究报告条目
+
+```bash
+# 1. 在 src/data/researchReports.ts 添加新报告(id 必填)
+
+# 2. 检查路由引用链路
+grep -rln "RESEARCH_REPORTS\|ResearchHub\|ResearchReport" src/ --include="*.tsx" --include="*.ts"
+# 必须至少一个命中,且这个文件被 routes.tsx 用 lazy() 引用
+
+# 3. 把 id 加进 .github/deploy-asserts.json 的 reportIds 数组
+#    (这是 sanity check 的固定源头)
+
+# 4. 本地 build + grep 验证
+npm run build
+grep -c "<new_id>" dist/assets/researchReports-*.js
+# 必须 ≥ 1,否则禁止 commit
+
+# 5. commit + push(显式 add)
+git add src/data/researchReports.ts src/routes.tsx .github/deploy-asserts.json
+git commit -m "feat(research): <title>"
+git push origin main
+```
+
+### 修改 routes.tsx
+
+```bash
+# 1. 改前 grep 所有受影响的页面是否被引用
+grep -rln "<PageComponentName>" src/ --include="*.tsx"
+
+# 2. 改后跑 npm run build,所有新增的 lazy chunk 必须出现在 dist/assets/
+
+# 3. 在 dist/index.html 找引用的 hash 和实际资产对得上
+grep -oE 'index-[A-Za-z0-9_-]+\.js' dist/index.html
+ls dist/assets/index-*.js
+# 必须都能 match
+```
+
+### 修改 .github/workflows/deploy.yml
+
+保留以下结构,不要删任何 step:
+1. Checkout → Setup Node → Install → Build
+2. **Sanity check**:运行 `node scripts/verify-bundle.mjs` 检查 dist 里有关键字
+3. Deploy to GitHub Pages(peaceiris)
+4. Deploy to Cloudflare Pages(wrangler-action,**可 wrap 在 if: continue-on-error**)
+
+---
+
+## 🔧 平台速记
+
+| 平台 | 入口 | 何时更新 | 验证方式 |
+|---|---|---|---|
+| zxqconsulting.com | Cloudflare Pages | push main 后 2-5 分钟(GitHub integration) | `curl https://www.zxqconsulting.com/ \| grep index-` |
+| qiangzhang2009.github.io/... | GitHub Pages | push gh-pages 后 1-2 分钟 | `curl https://qiangzhang2009.github.io/qiangzhang2009-zxqconsulting-web1/` |
+| gh-pages 分支 | 由 Actions 自动推 | main push 后 1-2 分钟 | `gh api repos/.../commits?sha=gh-pages` |
+
+如果 CF Pages 长时间不更新(> 10 分钟):
+1. 检查仓库 webhook:`gh api repos/.../hooks`(应空,CF 用 GitHub App 集成而非 webhook)
+2. 检查 GitHub Apps:`gh api user/installations`(应包含 cloudflare-pages)
+3. 去 CF Dashboard 重新连接 GitHub
+
+---
+
+## 🚨 紧急停止协议
+
+发现以下任一情况,立刻停下来跟用户报告:
+
+- `git status --short | wc -l` > 1000(防止大规模误删)
+- `git rm -rf .` 在 worktree 里出现
+- 对 gh-pages 的 `--force push` 提议
+- `dist/` 目录 < 30 个文件(实际构建产物应该很多)
+- bundle 里 grep 不到刚加的关键字(说明代码没真正进生产)
+
+---
+
+## 参考
+
+- `DEPLOYMENT.md`(项目根) — 详细平台拓扑、回滚流程、故障排查、TL;DR
+- `.github/workflows/deploy.yml` — CI 部署流程
+- `.github/deploy-asserts.json` — bundle 内容断言清单
+- `wrangler.toml` — Cloudflare 配置
+- **`scripts/deploy.sh`** — 一键本地直推 SOP(`--skip-build` / `--dry-run` / `--check-token`)
+
+---
+
+## 🆘 应急 fallback SOP(当所有自动化都挂掉时)
+
+```bash
+# 0. 设置 token(若没设)
+export CLOUDFLARE_API_TOKEN="..."
+
+# 1. 一次性检查 token 是否有效
+./scripts/deploy.sh --check-token
+
+# 2. 完整重部署(等价于 push+Actions+CF Pages 三件套)
+./scripts/deploy.sh
+#   → npm run build
+#   → node scripts/verify-bundle.mjs(拦截 tree-shake / 缺 chunk / 缺 asset)
+#   → wrangler pages deploy dist(直推 CF Pages production)
+#   → curl 验证生产 bundle hash 一致
+
+# 3. 只想校验不部署?
+./scripts/deploy.sh --skip-build --dry-run
+
+# 4. 已 build 过,只想推?
+./scripts/deploy.sh --skip-build
+```
+
+适用场景:
+- push 到 main 后 10+ 分钟 CF Pages 还没更新(GitHub integration webhook 卡住)
+- Actions workflow 整体失败但本地 dist 是好的
+- 紧急修复需要绕过 CI 立即上线

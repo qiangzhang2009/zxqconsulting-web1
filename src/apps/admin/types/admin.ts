@@ -349,3 +349,68 @@ export interface FilterState {
 }
 
 export type LoadingState = 'idle' | 'loading' | 'succeeded' | 'failed';
+
+// ============ Report Interactions (likes / shares / read time) ============
+export interface ReportInteractionItem {
+  report_id: string;
+  likes: number;
+  shares: number;
+  views: number;
+  unique_visitors: number;
+  read_sessions: number;
+  avg_read_seconds: number;
+  max_read_seconds: number;
+  avg_scroll: number;
+}
+
+export interface ReportInteractionsResponse {
+  success: boolean;
+  days: number;
+  since: number;
+  totals: {
+    likes: number;
+    shares: number;
+    views: number;
+    read_sessions: number;
+    unique_visitors: number;
+  };
+  items: ReportInteractionItem[];
+}
+
+export interface ReportInteractionDetail {
+  success: boolean;
+  report_id: string;
+  days: number;
+  summary: {
+    likes: number;
+    shares: number;
+    views: number;
+    unique_visitors: number;
+    read_sessions: number;
+    avg_read_seconds: number;
+    max_read_seconds: number;
+    avg_scroll: number;
+  };
+  sessions: Array<{
+    id: number;
+    session_id: string;
+    ip: string;
+    country: string;
+    region: string;
+    city: string;
+    duration_seconds: number;
+    max_scroll: number;
+    created_at: number;
+  }>;
+  recent_events: Array<{
+    id: number;
+    event_type: string;
+    action: string;
+    ip: string;
+    country: string;
+    duration_seconds: number;
+    max_scroll: number;
+    created_at: number;
+  }>;
+  top_countries: Array<{ country: string; visitors: number }>;
+}

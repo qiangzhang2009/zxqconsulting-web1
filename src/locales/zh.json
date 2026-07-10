@@ -640,7 +640,8 @@
     "useCases": "适用品类",
     "caseProof": "成功案例",
     "expertUpgrade": "专家深度评估",
-    "selectLang": "选择语言"
+    "selectLang": "选择语言",
+    "research": "数据会说话"
   },
   "expertReview": {
     "title": "先用平台完成判断，再由专家对复杂项目做进一步评估。",

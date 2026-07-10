@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国企业出海全流程手册 | 完整系统化操作指南 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0a0f1c;
+            --bg-secondary: #111827;
+            --bg-card: rgba(17, 24, 39, 0.95);
+            --bg-card-hover: rgba(22, 30, 50, 0.98);
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --accent-1: #3b82f6;
+            --accent-2: #06b6d4;
+            --accent-3: #8b5cf6;
+            --accent-4: #10b981;
+            --accent-5: #f59e0b;
+            --accent-6: #f43f5e;
+            --accent-7: #ec4899;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-accent: rgba(59, 130, 246, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(180deg, rgba(10, 15, 28, 0.99) 0%, rgba(10, 15, 28, 0) 100%);
+            padding: 72px 72px 180px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            left: -150px;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 60%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .report-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            border-radius: 28px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-1);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 28px;
+        }
+
+        .report-badge::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--accent-1);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+
+        h1 {
+            font-size: 80px;
+            font-weight: 900;
+            letter-spacing: -3px;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #fff 0%, #c9d1d9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: var(--text-secondary);
+            max-width: 1000px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 36px;
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .meta-item strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 1px;
+            background: var(--border-subtle);
+            max-width: 1600px;
+            margin: -110px auto 72px;
+            padding: 0 72px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 28px 20px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .stat-card:nth-child(1) .stat-value { color: var(--accent-1); }
+        .stat-card:nth-child(2) .stat-value { color: var(--accent-2); }
+        .stat-card:nth-child(3) .stat-value { color: var(--accent-3); }
+        .stat-card:nth-child(4) .stat-value { color: var(--accent-4); }
+        .stat-card:nth-child(5) .stat-value { color: var(--accent-5); }
+        .stat-card:nth-child(6) .stat-value { color: var(--accent-6); }
+        .stat-card:nth-child(7) .stat-value { color: var(--accent-7); }
+        .stat-card:nth-child(8) .stat-value { color: #a855f7; }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 72px 120px;
+        }
+
+        /* Phase Section */
+        .phase {
+            margin-bottom: 56px;
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 28px;
+            padding: 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phase-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+        }
+
+        .phase-1 .phase-header::before { background: linear-gradient(180deg, var(--accent-1), var(--accent-2)); }
+        .phase-2 .phase-header::before { background: linear-gradient(180deg, var(--accent-2), var(--accent-3)); }
+        .phase-3 .phase-header::before { background: linear-gradient(180deg, var(--accent-3), var(--accent-4)); }
+        .phase-4 .phase-header::before { background: linear-gradient(180deg, var(--accent-4), var(--accent-5)); }
+        .phase-5 .phase-header::before { background: linear-gradient(180deg, var(--accent-5), var(--accent-6)); }
+        .phase-6 .phase-header::before { background: linear-gradient(180deg, var(--accent-6), var(--accent-7)); }
+        .phase-7 .phase-header::before { background: linear-gradient(180deg, var(--accent-7), #a855f7); }
+        .phase-8 .phase-header::before { background: linear-gradient(180deg, #a855f7, var(--accent-1)); }
+
+        .phase-number {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .phase-1 .phase-number { background: linear-gradient(135deg, var(--accent-1), var(--accent-2)); }
+        .phase-2 .phase-number { background: linear-gradient(135deg, var(--accent-2), var(--accent-3)); }
+        .phase-3 .phase-number { background: linear-gradient(135deg, var(--accent-3), var(--accent-4)); }
+        .phase-4 .phase-number { background: linear-gradient(135deg, var(--accent-4), var(--accent-5)); }
+        .phase-5 .phase-number { background: linear-gradient(135deg, var(--accent-5), var(--accent-6)); }
+        .phase-6 .phase-number { background: linear-gradient(135deg, var(--accent-6), var(--accent-7)); }
+        .phase-7 .phase-number { background: linear-gradient(135deg, var(--accent-7), #a855f7); }
+        .phase-8 .phase-number { background: linear-gradient(135deg, #a855f7, var(--accent-1)); }
+
+        .phase-info {
+            flex: 1;
+        }
+
+        .phase-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .phase-desc {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .phase-duration {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Steps Grid */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-accent);
+            transform: translateY(-2px);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .step-card:nth-child(8n+1) .step-icon { background: rgba(59, 130, 246, 0.15); }
+        .step-card:nth-child(8n+2) .step-icon { background: rgba(6, 182, 212, 0.15); }
+        .step-card:nth-child(8n+3) .step-icon { background: rgba(139, 92, 246, 0.15); }
+        .step-card:nth-child(8n+4) .step-icon { background: rgba(16, 185, 129, 0.15); }
+        .step-card:nth-child(8n+5) .step-icon { background: rgba(245, 158, 11, 0.15); }
+        .step-card:nth-child(8n+6) .step-icon { background: rgba(244, 63, 94, 0.15); }
+        .step-card:nth-child(8n+7) .step-icon { background: rgba(236, 72, 153, 0.15); }
+        .step-card:nth-child(8n+8) .step-icon { background: rgba(168, 85, 247, 0.15); }
+
+        .step-title {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .step-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+
+        .step-list {
+            margin-bottom: 14px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            padding: 6px 0;
+            font-size: 12px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .step-item:last-child {
+            border-bottom: none;
+        }
+
+        .step-item::before {
+            content: '→';
+            color: var(--accent-1);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-services {
+            padding-top: 12px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .step-services-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .step-services-list {
+            font-size: 11px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: var(--accent-2);
+            font-weight: 600;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 48px;
+            margin-bottom: 56px;
+        }
+
+        .timeline-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 1000px) {
+            .timeline-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .timeline-grid { grid-template-columns: 1fr; }
+        }
+
+        .timeline-card {
+            text-align: center;
+            padding: 28px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .timeline-card::after {
+            content: '→';
+            position: absolute;
+            right: -18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: var(--text-muted);
+        }
+
+        .timeline-card:last-child::after {
+            display: none;
+        }
+
+        .timeline-period {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .timeline-card:nth-child(1) .timeline-period { color: var(--accent-1); }
+        .timeline-card:nth-child(2) .timeline-period { color: var(--accent-3); }
+        .timeline-card:nth-child(3) .timeline-period { color: var(--accent-5); }
+        .timeline-card:nth-child(4) .timeline-period { color: var(--accent-4); }
+
+        .timeline-main {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .timeline-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 72px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .footer-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header { padding: 48px 24px 140px; }
+            h1 { font-size: 44px; letter-spacing: -1px; }
+            .subtitle { font-size: 18px; }
+            .stats-bar { 
+                grid-template-columns: repeat(4, 1fr); 
+                padding: 0 24px;
+                margin-left: 24px;
+                margin-right: 24px;
+            }
+            .main-content { padding: 0 24px 80px; }
+            .phase-header { padding: 20px; }
+            .phase-number { width: 56px; height: 56px; font-size: 24px; }
+            .phase-title { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="report-badge">2026 全流程操作手册</div>
+            <h1>中国企业出海全流程手册</h1>
+            <p class="subtitle">从战略规划到落地运营，系统梳理中国企业出海必经的8大阶段、100+关键环节、500+执行细节，涵盖法律合规、公司架构、税务筹划、本地化运营、市场进入、品牌建设、团队组建、财务管理等全维度</p>
+            <div class="meta-info">
+                <div class="meta-item">
+                    <strong>发布机构</strong>
+                    <span>上海张小强企业咨询事务所</span>
+                </div>
+                <div class="meta-item">
+                    <strong>发布日期</strong>
+                    <span>2026年7月</span>
+                </div>
+                <div class="meta-item">
+                    <strong>覆盖阶段</strong>
+                    <span>8大阶段 · 100+环节 · 500+细节</span>
+                </div>
+                <div class="meta-item">
+                    <strong>适用对象</strong>
+                    <span>全行业 · 全规模企业</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="stats-bar">
+        <div class="stat-card">
+            <div class="stat-value">8</div>
+            <div class="stat-label">核心阶段</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">100+</div>
+            <div class="stat-label">关键环节</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">500+</div>
+            <div class="stat-label">执行细节</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">200+</div>
+            <div class="stat-label">服务商</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">6-18</div>
+            <div class="stat-label">月周期</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">4</div>
+            <div class="stat-label">主要市场</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">12</div>
+            <div class="stat-label">服务领域</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">360°</div>
+            <div class="stat-label">全方位覆盖</div>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <!-- 阶段1: 战略规划 -->
+        <section class="phase phase-1">
+            <div class="phase-header">
+                <div class="phase-number">01</div>
+                <div class="phase-info">
+                    <h2 class="phase-title">战略规划与决策阶段</h2>
+                    <p class="phase-desc">明确出海目标、选择目标市场、评估自身能力、制定整体战略框架</p>
+                    <span class="phase-duration">⏱️ 建议周期：1-3个月</span>
+                </div>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🎯</div>
+                        <div class="step-title">出海动机与目标设定</div>
+                    </div>
+                    <p class="step-desc">明确为什么要出海，要达到什么目标</p>
+                    <div class="step-list">
+                        <div class="step-item">国内市场饱和，寻找新增长点</div>
+                        <div class="step-item">供应链全球化布局需求</div>
+                        <div class="step-item">品牌国际化战略诉求</div>
+                        <div class="step-item">资本市场的全球化期待</div>
+                        <div class="step-item">地缘政治风险对冲</div>
+                        <div class="step-item">技术能力输出需求</div>
+                        <div class="step-item">设定可量化的KPI指标</div>
+                        <div class="step-item">制定3-5年长期规划</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">可借助资源</div>
+                        <div class="step-services-list">咨询公司：麦肯锡/贝恩/罗兰贝格、行业研究报告：36氪/艾瑞/易观</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🔍</div>
+                        <div class="step-title">目标市场研究</div>
+                    </div>
+                    <p class="step-desc">选择最适合的首发市场</p>
+                    <div class="step-list">
+                        <div class="step-item">市场规模与增长潜力分析</div>
+                        <div class="step-item">竞争格局与差异化机会</div>
+                        <div class="step-item">消费者画像与行为特征</div>
+                        <div class="step-item">政策环境与市场准入门槛</div>
+                        <div class="step-item">文化亲近性与本地化难度</div>
+                        <div class="step-item">物流与支付基础设施</div>
+                        <div class="step-item">竞争激烈度评估</div>
+                        <div class="step-item">ROI预测模型搭建</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">可借助资源</div>
+                        <div class="step-services-list">市场调研：SimilarWeb/Semrush/Statista、国家贸易数据：海关总署/UN Comtrade</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">⚖️</div>
+                        <div class="step-title">出海模式选择</div>
+                    </div>
+                    <p class="step-desc">确定最适合的商业模式</p>
+                    <div class="step-list">
+                        <div class="step-item">跨境电商（B2C/B2B）模式</div>
+                        <div class="step-item">独立站（DTC）模式</div>
+                        <div class="step-item">平台入驻模式</div>
+                        <div class="step-item">代理/分销模式</div>
+                        <div class="step-item">直营/设立子公司模式</div>
+                        <div class="step-item">合资/并购模式</div>
+                        <div class="step-item">OEM/ODM代工模式</div>
+                        <div class="step-item">品牌授权模式</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">可借助资源</div>
+                        <div class="step-services-list">咨询公司：罗兰贝格/波士顿咨询、跨境电商协会、各省跨境电商综试区</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">📊</div>
+                        <div class="step-title">资源配置与预算规划</div>
+                    </div>
+                    <p class="step-desc">确定人财物资源投入</p>
+                    <div class="step-list">
+                        <div class="step-item">资金预算与融资计划</div>
+                        <div class="step-item">核心团队组建计划</div>
+                        <div class="step-item">技术产品准备</div>
+                        <div class="step-item">供应链能力评估</div>
+                        <div class="step-item">营销预算分配</div>
+                        <div class="step-item">时间线与里程碑设定</div>
+                        <div class="step-item">风险准备金预留</div>
+                        <div class="step-item">ROI回本周期测算</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">可借助资源</div>
+                        <div class="step-services-list">财务顾问：四大会计师事务所、投资机构、银行信贷</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 阶段2: 法律合规 -->
+        <section class="phase phase-2">
+            <div class="phase-header">
+                <div class="phase-number">02</div>
+                <div class="phase-info">
+                    <h2 class="phase-title">法律架构与合规准备</h2>
+                    <p class="phase-desc">设计公司架构、完成法律注册、确保合规运营</p>
+                    <span class="phase-duration">⏱️ 建议周期：1-3个月</span>
+                </div>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🏢</div>
+                        <div class="step-title">公司主体设计</div>
+                    </div>
+                    <p class="step-desc">设计最优的公司架构</p>
+                    <div class="step-list">
+                        <div class="step-item">母公司股权结构优化</div>
+                        <div class="step-item">海外子公司架构设计</div>
+                        <div class="step-item">离岸公司设置（如适用）</div>
+                        <div class="step-item">VIE架构搭建（如需）</div>
+                        <div class="step-item">多层SPV架构设计</div>
+                        <div class="step-item">实际控制人认定</div>
+                        <div class="step-item">董事会/治理结构</div>
+                        <div class="step-item">股东协议与章程</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">律所：</span>金杜/中伦/君合/竞天公诚、<span class="highlight">离岸代理：</span>瑞豐德永/卓佳</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">📝</div>
+                        <div class="step-title">法律实体注册</div>
+                    </div>
+                    <p class="step-desc">完成海外公司注册</p>
+                    <div class="step-list">
+                        <div class="step-item">公司名称核准与注册</div>
+                        <div class="step-item">公司章程制定</div>
+                        <div class="step-item">注册资本确定</div>
+                        <div class="step-item">注册地址选择</div>
+                        <div class="step-item">董事/高管任职安排</div>
+                        <div class="step-item">公司秘书委任</div>
+                        <div class="step-item">银行账户开立</div>
+                        <div class="step-item">各类注册证书获取</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">注册代理：</span>各地区注册代理、<span class="highlight">工商服务：</span>八戒涉外/绿专资本</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🔐</div>
+                        <div class="step-title">知识产权保护</div>
+                    </div>
+                    <p class="step-desc">保护核心无形资产</p>
+                    <div class="step-list">
+                        <div class="step-item">商标全球布局与注册</div>
+                        <div class="step-item">专利海外申请（PCT）</div>
+                        <div class="step-item">著作权登记</div>
+                        <div class="step-item">商业秘密保护</div>
+                        <div class="step-item">域名抢注防护</div>
+                        <div class="step-item">Logo/VI体系保护</div>
+                        <div class="step-item">软件著作权</div>
+                        <div class="step-item">域名资产梳理</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">商标代理：</span>超凡/柳沈/港专、<span class="highlight">专利代理：</span>贸促会/三友/天平</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">📜</div>
+                        <div class="step-title">行业资质与许可</div>
+                    </div>
+                    <p class="step-desc">获取业务所需的各类许可</p>
+                    <div class="step-list">
+                        <div class="step-item">营业执照/商业登记</div>
+                        <div class="step-item">行业特定许可证</div>
+                        <div class="step-item">进出口经营权</div>
+                        <div class="step-item">食品/化妆品许可（如适用）</div>
+                        <div class="step-item">医疗器械许可（如适用）</div>
+                        <div class="step-item">金融牌照（如适用）</div>
+                        <div class="step-item">电信业务许可（如适用）</div>
+                        <div class="step-item">环保合规认证</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">合规咨询：</span>各地区商务部门、<span class="highlight">认证机构：</span>SGS/Intertek/TUV</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🛡️</div>
+                        <div class="step-title">数据隐私与安全</div>
+                    </div>
+                    <p class="step-desc">满足数据保护法规要求</p>
+                    <div class="step-list">
+                        <div class="step-item">GDPR合规（欧盟）</div>
+                        <div class="step-item">CCPA合规（加州）</div>
+                        <div class="step-item">PDPA合规（东南亚）</div>
+                        <div class="step-item">个人信息保护法（中国）</div>
+                        <div class="step-item">隐私政策制定</div>
+                        <div class="step-item">Cookie Consent机制</div>
+                        <div class="step-item">数据本地化要求</div>
+                        <div class="step-item">数据跨境传输机制</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">合规咨询：</span>天元/奋迅/金杜科技、<span class="highlight">技术工具：</span>OneTrust/TrustArc</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">📋</div>
+                        <div class="step-title">劳动法规遵从</div>
+                    </div>
+                    <p class="step-desc">确保雇佣关系合法合规</p>
+                    <div class="step-list">
+                        <div class="step-item">劳动合同模板制定</div>
+                        <div class="step-item">员工手册/政策编写</div>
+                        <div class="step-item">薪酬福利体系设计</div>
+                        <div class="step-item">社会保险缴纳规定</div>
+                        <div class="step-item">工作时间与休假制度</div>
+                        <div class="step-item">保密与竞业协议</div>
+                        <div class="step-item">解雇与裁员程序</div>
+                        <div class="step-item">工会与员工代表</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">劳动法顾问：</span>各地区劳动部门、<span class="highlight">EOR服务：</span>Deel/Remote/PayInOne</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 阶段3: 税务筹划 -->
+        <section class="phase phase-3">
+            <div class="phase-header">
+                <div class="phase-number">03</div>
+                <div class="phase-info">
+                    <h2 class="phase-title">税务架构与财务规划</h2>
+                    <p class="phase-desc">设计最优税务架构、管理外汇、确保财务合规</p>
+                    <span class="phase-duration">⏱️ 建议周期：1-2个月</span>
+                </div>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">💰</div>
+                        <div class="step-title">税务架构设计</div>
+                    </div>
+                    <p class="step-desc">构建最优的全球税务架构</p>
+                    <div class="step-list">
+                        <div class="step-item">转让定价策略</div>
+                        <div class="step-item">常设机构风险规避</div>
+                        <div class="step-item">税收协定利用</div>
+                        <div class="step-item">中间控股公司设置</div>
+                        <div class="step-item">激励政策申请</div>
+                        <div class="step-item">BEPS合规应对</div>
+                        <div class="step-item">CRS合规准备</div>
+                        <div class="step-item">税务居民身份规划</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">税务顾问：</span>德勤/普华/安永/毕马威、<span class="highlight">税务代理：</span>各地区会计师公会</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🏦</div>
+                        <div class="step-title">银行与账户体系</div>
+                    </div>
+                    <p class="step-desc">建立全球资金管理网络</p>
+                    <div class="step-list">
+                        <div class="step-item">海外银行账户开立</div>
+                        <div class="step-item">跨境资金池搭建</div>
+                        <div class="step-item">多币种账户管理</div>
+                        <div class="step-item">收付汇通道建立</div>
+                        <div class="step-item">供应链金融接入</div>
+                        <div class="step-item">贸易融资安排</div>
+                        <div class="step-item">备用信用证开具</div>
+                        <div class="step-item">电子银行业务开通</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">银行：</span>汇丰/渣打/花旗/中银国际、<span class="highlight">数字银行：</span>Airwallex/Wise/Neat</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">💱</div>
+                        <div class="step-title">外汇管理</div>
+                    </div>
+                    <p class="step-desc">管理汇率风险与合规</p>
+                    <div class="step-list">
+                        <div class="step-item">外汇管制政策了解</div>
+                        <div class="step-item">汇率风险评估</div>
+                        <div class="step-item">对冲策略制定</div>
+                        <div class="step-item">外汇头寸管理</div>
+                        <div class="step-item">结售汇时机把握</div>
+                        <div class="step-item">跨境资金调度</div>
+                        <div class="step-item">利润汇出规划</div>
+                        <div class="step-item">反洗钱合规(KYC/AML)</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">外汇服务：</span>Airwallex/WorldFirst/XTransfer、<span class="highlight">汇率工具：</span>Bloomberg/XE</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">📊</div>
+                        <div class="step-title">财务体系搭建</div>
+                    </div>
+                    <p class="step-desc">建立海外财务管理系统</p>
+                    <div class="step-list">
+                        <div class="step-item">会计制度建立</div>
+                        <div class="step-item">财务系统部署</div>
+                        <div class="step-item">财务报表模板</div>
+                        <div class="step-item">预算管理体系</div>
+                        <div class="step-item">费用报销制度</div>
+                        <div class="step-item">发票管理体系</div>
+                        <div class="step-item">审计安排</div>
+                        <div class="step-item">财务报告合并</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">财务软件：</span>SAP/Oracle/用友/金蝶、<span class="highlight">会计服务：</span>四大+本土会计所</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 阶段4: 产品本地化 -->
+        <section class="phase phase-4">
+            <div class="phase-header">
+                <div class="phase-number">04</div>
+                <div class="phase-info">
+                    <h2 class="phase-title">产品服务本地化</h2>
+                    <p class="phase-desc">让产品/服务适应目标市场需求</p>
+                    <span class="phase-duration">⏱️ 建议周期：1-4个月</span>
+                </div>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🌍</div>
+                        <div class="step-title">语言本地化</div>
+                    </div>
+                    <p class="step-desc">多语言版本开发</p>
+                    <div class="step-list">
+                        <div class="step-item">网站多语言版本</div>
+                        <div class="step-item">APP界面翻译</div>
+                        <div class="step-item">产品说明书翻译</div>
+                        <div class="step-item">营销材料翻译</div>
+                        <div class="step-item">客服话术准备</div>
+                        <div class="step-item">法律文书翻译</div>
+                        <div class="step-item">社交媒体内容</div>
+                        <div class="step-item">Help Center知识库</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">AI翻译：</span>DeepL/译妙蛙/Translai、<span class="highlight">人工翻译：</span>传神/Lionbridge/RWS</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🎨</div>
+                        <div class="step-title">视觉设计本地化</div>
+                    </div>
+                    <p class="step-desc">符合当地审美习惯</p>
+                    <div class="step-list">
+                        <div class="step-item">Logo与品牌色调调整</div>
+                        <div class="step-item">图片素材替换</div>
+                        <div class="step-item">视频本地化制作</div>
+                        <div class="step-item">UI/UX适配调整</div>
+                        <div class="step-item">当地审美调研</div>
+                        <div class="step-item">竞品视觉分析</div>
+                        <div class="step-item">A/B测试设计</div>
+                        <div class="step-item">品牌指南本地化</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">设计公司：</span>正邦/东道/朗涛、<span class="highlight">本地创意：</span>Localised/Convious</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">⚙️</div>
+                        <div class="step-title">功能适配开发</div>
+                    </div>
+                    <p class="step-desc">产品功能本地化开发</p>
+                    <div class="step-list">
+                        <div class="step-item">当地支付方式集成</div>
+                        <div class="step-item">当地地图/位置服务</div>
+                        <div class="step-item">当地社交登录</div>
+                        <div class="step-item">当地日期/货币格式</div>
+                        <div class="step-item">当地运营商适配</div>
+                        <div class="step-item">网络制式适配</div>
+                        <div class="step-item">设备兼容性测试</div>
+                        <div class="step-item">性能优化本地</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">开发服务：</span>各地开发团队、<span class="highlight">支付接入：</span>Stripe/Adyen/Braintree</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">📦</div>
+                        <div class="step-title">产品/包装调整</div>
+                    </div>
+                    <p class="step-desc">实物产品的本地化</p>
+                    <div class="step-list">
+                        <div class="step-item">产品认证标准</div>
+                        <div class="step-item">电压/插头适配</div>
+                        <div class="step-item">说明书/标签本地化</div>
+                        <div class="step-item">包装尺寸调整</div>
+                        <div class="step-item">环保合规要求</div>
+                        <div class="step-item">条形码/RFID</div>
+                        <div class="step-item">进口清关文件</div>
+                        <div class="step-item">当地保修政策</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">检测认证：</span>SGS/Intertek/TUV/UL、<span class="highlight">包材服务：</span>各地印刷包装厂</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">💳</div>
+                        <div class="step-title">支付方式集成</div>
+                    </div>
+                    <p class="step-desc">接入当地主流支付</p>
+                    <div class="step-list">
+                        <div class="step-item">信用卡收单</div>
+                        <div class="step-item">PayPal接入</div>
+                        <div class="step-item">本地化电子钱包</div>
+                        <div class="step-item">银行转账/汇款</div>
+                        <div class="step-item">货到付款(COD)</div>
+                        <div class="step-item">先买后付(BNPL)</div>
+                        <div class="step-item">加密货币（如需）</div>
+                        <div class="step-item">退款/争议处理</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">跨境支付：</span>PingPong/万里汇/空中云汇、<span class="highlight">收单机构：</span>Stripe/Adyen/Braintree</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🏷️</div>
+                        <div class="step-title">定价策略制定</div>
+                    </div>
+                    <p class="step-desc">制定本地化定价</p>
+                    <div class="step-list">
+                        <div class="step-item">当地市场定价调研</div>
+                        <div class="step-item">竞品价格对比</div>
+                        <div class="step-item">成本加成计算</div>
+                        <div class="step-item">汇率波动预留</div>
+                        <div class="step-item">当地税费计算</div>
+                        <div class="step-item">心理定价策略</div>
+                        <div class="step-item">促销折扣设计</div>
+                        <div class="step-item">订阅/套餐设计</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">定价工具：</span>Pricing Analytics、<span class="highlight">市场数据：</span>SimilarWeb/Nielsen</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 阶段5: 基础设施建设 -->
+        <section class="phase phase-5">
+            <div class="phase-header">
+                <div class="phase-number">05</div>
+                <div class="phase-info">
+                    <h2 class="phase-title">基础设施建设部署</h2>
+                    <p class="phase-desc">搭建技术平台、物流网络、运营体系</p>
+                    <span class="phase-duration">⏱️ 建议周期：1-3个月</span>
+                </div>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">☁️</div>
+                        <div class="step-title">云基础设施部署</div>
+                    </div>
+                    <p class="step-desc">构建全球技术架构</p>
+                    <div class="step-list">
+                        <div class="step-item">云服务商选择</div>
+                        <div class="step-item">服务器区域部署</div>
+                        <div class="step-item">CDN加速配置</div>
+                        <div class="step-item">负载均衡设置</div>
+                        <div class="step-item">数据库全球部署</div>
+                        <div class="step-item">备份与灾备</div>
+                        <div class="step-item">安全防护(WAF/DDoS)</div>
+                        <div class="step-item">SSL证书部署</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">云服务商：</span>AWS/Azure/GCP/阿里云/腾讯云、<span class="highlight">CDN：</span>Cloudflare/Fastly</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🌐</div>
+                        <div class="step-title">网站与应用开发</div>
+                    </div>
+                    <p class="step-desc">打造本地化用户体验</p>
+                    <div class="step-list">
+                        <div class="step-item">本地化网站开发</div>
+                        <div class="step-item">移动APP开发/适配</div>
+                        <div class="step-item">多语言系统集成</div>
+                        <div class="step-item">SEO本地化优化</div>
+                        <div class="step-item">页面速度优化</div>
+                        <div class="step-item">用户账户系统</div>
+                        <div class="step-item">订单管理系统</div>
+                        <div class="step-item">客服系统集成</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">开发服务：</span>各地开发团队/SaaS平台、<span class="highlight">建站工具：</span>Shopify/店匠/Shopline</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🚚</div>
+                        <div class="step-title">物流网络搭建</div>
+                    </div>
+                    <p class="step-desc">建立全球履约网络</p>
+                    <div class="step-list">
+                        <div class="step-item">国际快递账号开通</div>
+                        <div class="step-item">专线物流合作</div>
+                        <div class="step-item">海外仓布局</div>
+                        <div class="step-item">FBA入仓准备</div>
+                        <div class="step-item">清关代理选择</div>
+                        <div class="step-item">最后一公里配送</div>
+                        <div class="step-item">退换货处理</div>
+                        <div class="step-item">逆向物流体系</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">国际快递：</span>DHL/FedEx/UPS/顺丰国际、<span class="highlight">专线：</span>云途/燕文/4PX/极兔、<span class="highlight">海外仓：</span>纵腾谷仓/万邑通/递四方</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🏭</div>
+                        <div class="step-title">供应链准备</div>
+                    </div>
+                    <p class="step-desc">确保供应链稳定</p>
+                    <div class="step-list">
+                        <div class="step-item">供应商资质审核</div>
+                        <div class="step-item">备货计划制定</div>
+                        <div class="step-item">库存策略设计</div>
+                        <div class="step-item">质检流程建立</div>
+                        <div class="step-item">包装材料准备</div>
+                        <div class="step-item">条码/RFID标签</div>
+                        <div class="step-item">供应链金融</div>
+                        <div class="step-item">应急备货方案</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">ERP系统：</span>店小秘/易仓/马帮ERP、<span class="highlight">供应链：</span>菜鸟供应链/京东物流</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🏢</div>
+                        <div class="step-title">办公场地准备</div>
+                    </div>
+                    <p class="step-desc">建立本地物理存在</p>
+                    <div class="step-list">
+                        <div class="step-item">办公室选址</div>
+                        <div class="step-item">租赁谈判签约</div>
+                        <div class="step-item">装修与设备采购</div>
+                        <div class="step-item">IT办公设备</div>
+                        <div class="step-item">通信系统部署</div>
+                        <div class="step-item">门禁与安全</div>
+                        <div class="step-item">当地物业对接</div>
+                        <div class="step-item">共享办公考虑</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">办公选址：</span>CBRE/戴德梁行、<span class="highlight">共享办公：</span>WeWork/Regus/IWG</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">📱</div>
+                        <div class="step-title">运营系统部署</div>
+                    </div>
+                    <p class="step-desc">搭建业务运营平台</p>
+                    <div class="step-list">
+                        <div class="step-item">CRM系统部署</div>
+                        <div class="step-item">客服系统搭建</div>
+                        <div class="step-item">工单管理系统</div>
+                        <div class="step-item">数据分析平台</div>
+                        <div class="step-item">BI报表系统</div>
+                        <div class="step-item">营销自动化</div>
+                        <div class="step-item">ERP系统集成</div>
+                        <div class="step-item">OA办公系统</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">CRM：</span>Salesforce/HubSpot/Zendesk、<span class="highlight">客服：</span>Udesk/容联七陌/Freshdesk</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 阶段6: 品牌与市场 -->
+        <section class="phase phase-6">
+            <div class="phase-header">
+                <div class="phase-number">06</div>
+                <div class="phase-info">
+                    <h2 class="phase-title">品牌建设与市场进入</h2>
+                    <p class="phase-desc">建立品牌认知、获取流量、实现销售转化</p>
+                    <span class="phase-duration">⏱️ 建议周期：持续进行</span>
+                </div>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">✨</div>
+                        <div class="step-title">品牌策略制定</div>
+                    </div>
+                    <p class="step-desc">构建品牌定位与识别</p>
+                    <div class="step-list">
+                        <div class="step-item">品牌定位与USP</div>
+                        <div class="step-item">目标受众画像</div>
+                        <div class="step-item">品牌故事撰写</div>
+                        <div class="step-item">品牌调性定义</div>
+                        <div class="step-item">品牌承诺/价值主张</div>
+                        <div class="step-item">品牌个性塑造</div>
+                        <div class="step-item">品牌架构设计</div>
+                        <div class="step-item">品牌扩展规划</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">品牌咨询：</span>华与华/君智/叶茂中、<span class="highlight">品牌设计：</span>正邦/东道/朗涛</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">📢</div>
+                        <div class="step-title">数字营销布局</div>
+                    </div>
+                    <p class="step-desc">全渠道数字营销</p>
+                    <div class="step-list">
+                        <div class="step-item">Google Ads投放</div>
+                        <div class="step-item">Meta(Facebook/Instagram)</div>
+                        <div class="step-item">TikTok Ads</div>
+                        <div class="step-item">SEO搜索引擎优化</div>
+                        <div class="step-item">内容营销策略</div>
+                        <div class="step-item">邮件营销体系</div>
+                        <div class="step-item">程序化广告</div>
+                        <div class="step-item">数据分析优化</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">营销代理：</span>钛动科技/蓝色光标/省广、<span class="highlight">投放工具：</span>Google Ads/Meta Business</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🎬</div>
+                        <div class="step-title">社交媒体运营</div>
+                    </div>
+                    <p class="step-desc">建立社交影响力</p>
+                    <div class="step-list">
+                        <div class="step-item">社交平台矩阵搭建</div>
+                        <div class="step-item">账号定位与内容规划</div>
+                        <div class="step-item">内容日历制定</div>
+                        <div class="step-item">KOL合作策略</div>
+                        <div class="step-item">红人营销执行</div>
+                        <div class="step-item">社区互动运营</div>
+                        <div class="step-item">危机公关预案</div>
+                        <div class="step-item">UGC激励计划</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">红人平台：</span>Reacher/星谷云/Noxinfluencer、<span class="highlight">社媒管理：</span>Hootsuite/SproutSocial</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🎥</div>
+                        <div class="step-title">内容营销创作</div>
+                    </div>
+                    <p class="step-desc">生产本地化内容</p>
+                    <div class="step-list">
+                        <div class="step-item">AI视频生成</div>
+                        <div class="step-item">产品视频制作</div>
+                        <div class="step-item">种草内容创作</div>
+                        <div class="step-item">直播策划执行</div>
+                        <div class="step-item">短视频运营</div>
+                        <div class="step-item">Blog/SEO内容</div>
+                        <div class="step-item">用户案例包装</div>
+                        <div class="step-item">品牌故事传播</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">AI工具：</span>可灵AI/即梦AI/Yihook、<span class="highlight">MCN机构：</span>各地MCN/红人机构</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🤝</div>
+                        <div class="step-title">渠道合作拓展</div>
+                    </div>
+                    <p class="step-desc">建立分销网络</p>
+                    <div class="step-list">
+                        <div class="step-item">平台入驻（Amazon等）</div>
+                        <div class="step-item">分销商招募</div>
+                        <div class="step-item">代理商管理</div>
+                        <div class="step-item">零售商对接</div>
+                        <div class="step-item">经销商政策制定</div>
+                        <div class="step-item">渠道激励计划</div>
+                        <div class="step-item">窜货管控</div>
+                        <div class="step-item">渠道商培训</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">电商平台：</span>Amazon/TikTok Shop/Shopee、<span class="highlight">分销服务：</span>Groupon/Offers.com</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">📰</div>
+                        <div class="step-title">公关与媒体</div>
+                    </div>
+                    <p class="step-desc">建立媒体关系</p>
+                    <div class="step-list">
+                        <div class="step-item">媒体关系维护</div>
+                        <div class="step-item">新闻稿发布</div>
+                        <div class="step-item">媒体发布会</div>
+                        <div class="step-item">行业展会参加</div>
+                        <div class="step-item">采访与嘉宾</div>
+                        <div class="step-item">舆情监测</div>
+                        <div class="step-item">危机公关处理</div>
+                        <div class="step-item">Awards申报</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">公关公司：</span>蓝标/迪思/博雅、<span class="highlight">新闻发布：</span>美通社/PR Newswire</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🏷️</div>
+                        <div class="step-title">平台运营优化</div>
+                    </div>
+                    <p class="step-desc">提升平台店铺业绩</p>
+                    <div class="step-list">
+                        <div class="step-item">Listing优化</div>
+                        <div class="step-item">关键词策略</div>
+                        <div class="step-item">评价管理</div>
+                        <div class="step-item">Q&A管理</div>
+                        <div class="step-item">广告投放优化</div>
+                        <div class="step-item">促销活动参加</div>
+                        <div class="step-item">库存管理</div>
+                        <div class="step-item">客服响应优化</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">数据分析：</span>数说全球/超店有数、<span class="highlight">运营工具：</span>船长BI/芒果店长</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🎁</div>
+                        <div class="step-title">用户增长体系</div>
+                    </div>
+                    <p class="step-desc">构建用户运营闭环</p>
+                    <div class="step-list">
+                        <div class="step-item">新客获取策略</div>
+                        <div class="step-item">用户画像分析</div>
+                        <div class="step-item">用户分层运营</div>
+                        <div class="step-item">会员体系设计</div>
+                        <div class="step-item">积分/权益体系</div>
+                        <div class="step-item">复购激励计划</div>
+                        <div class="step-item">推荐裂变机制</div>
+                        <div class="step-item">用户生命周期管理</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">CDP工具：</span>创蓝云智/友盟+、<span class="highlight">营销工具：</span>Mailchimp/Klaviyo</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 阶段7: 团队建设 -->
+        <section class="phase phase-7">
+            <div class="phase-header">
+                <div class="phase-number">07</div>
+                <div class="phase-info">
+                    <h2 class="phase-title">团队组建与管理</h2>
+                    <p class="phase-desc">建立本地化团队、确保人才供给</p>
+                    <span class="phase-duration">⏱️ 建议周期：持续进行</span>
+                </div>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">👔</div>
+                        <div class="step-title">组织架构设计</div>
+                    </div>
+                    <p class="step-desc">设计本地团队架构</p>
+                    <div class="step-list">
+                        <div class="step-item">部门设置与职能划分</div>
+                        <div class="step-item">岗位设置与KPI</div>
+                        <div class="step-item">汇报关系设计</div>
+                        <div class="step-item">矩阵管理机制</div>
+                        <div class="step-item">总部与本地分工</div>
+                        <div class="step-item">决策权限划分</div>
+                        <div class="step-item">协作流程设计</div>
+                        <div class="step-item">人才梯队规划</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">组织咨询：</span>麦肯锡/合益、<span class="highlight">HR系统：</span>SAP SuccessFactors/Workday</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🔎</div>
+                        <div class="step-title">人才招聘</div>
+                    </div>
+                    <p class="step-desc">获取本地优秀人才</p>
+                    <div class="step-list">
+                        <div class="step-item">招聘渠道选择</div>
+                        <div class="step-item">JD本地化撰写</div>
+                        <div class="step-item">雇主品牌建设</div>
+                        <div class="step-item">猎头服务合作</div>
+                        <div class="step-item">招聘流程设计</div>
+                        <div class="step-item">背景调查执行</div>
+                        <div class="step-item">薪酬谈判</div>
+                        <div class="step-item">Offer发放</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">招聘平台：</span>LinkedIn/Indeed/Glassdoor、<span class="highlight">猎头：</span>米高蒲志/科锐/瀚纳仕</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">💼</div>
+                        <div class="step-title">薪酬福利体系</div>
+                    </div>
+                    <p class="step-desc">设计有竞争力的薪酬</p>
+                    <div class="step-list">
+                        <div class="step-item">市场薪酬调研</div>
+                        <div class="step-item">薪酬结构设计</div>
+                        <div class="step-item">绩效考核体系</div>
+                        <div class="step-item">奖金/提成方案</div>
+                        <div class="step-item">股权激励计划</div>
+                        <div class="step-item">福利套餐设计</div>
+                        <div class="step-item">社保公积金</div>
+                        <div class="step-item">年度调薪机制</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">薪酬调研：</span>Mercer/Willis Towers Watson、<span class="highlight">EOR服务：</span>Deel/Remote/PayInOne</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">📚</div>
+                        <div class="step-title">培训与发展</div>
+                    </div>
+                    <p class="step-desc">建立人才培养体系</p>
+                    <div class="step-list">
+                        <div class="step-item">入职培训设计</div>
+                        <div class="step-item">产品知识培训</div>
+                        <div class="step-item">销售技能培训</div>
+                        <div class="step-item">领导力发展</div>
+                        <div class="step-item">跨文化沟通</div>
+                        <div class="step-item">E-Learning平台</div>
+                        <div class="step-item">轮岗计划</div>
+                        <div class="step-item">职业发展通道</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">培训平台：</span>LinkedIn Learning/Udemy Business、<span class="highlight">咨询：</span>DDI/富兰克林柯维</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🌐</div>
+                        <div class="step-title">跨文化管理</div>
+                    </div>
+                    <p class="step-desc">处理文化差异</p>
+                    <div class="step-list">
+                        <div class="step-item">文化差异认知</div>
+                        <div class="step-item">语言培训安排</div>
+                        <div class="step-item">沟通方式适配</div>
+                        <div class="step-item">团队建设活动</div>
+                        <div class="step-item">本地员工尊重</div>
+                        <div class="step-item">文化敏感性培训</div>
+                        <div class="step-item">节日/习俗尊重</div>
+                        <div class="step-item">冲突处理机制</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">文化咨询：</span> Hofstede Insights、<span class="highlight">语言培训：</span>EF/Lingoda</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">⚙️</div>
+                        <div class="step-title">远程/混合管理</div>
+                    </div>
+                    <p class="step-desc">管理分布式团队</p>
+                    <div class="step-list">
+                        <div class="step-item">时区差异管理</div>
+                        <div class="step-item">协作工具选型</div>
+                        <div class="step-item">会议管理规范</div>
+                        <div class="step-item">目标管理(OKR)</div>
+                        <div class="step-item">透明度文化建设</div>
+                        <div class="step-item">信任机制建立</div>
+                        <div class="step-item">绩效远程评估</div>
+                        <div class="step-item">团建/线下聚合</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">协作工具：</span>Slack/Teams/飞书/钉钉、<span class="highlight">OKR工具：</span>15Five/Lattice/PartnerSpace</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 阶段8: 持续运营 -->
+        <section class="phase phase-8">
+            <div class="phase-header">
+                <div class="phase-number">08</div>
+                <div class="phase-info">
+                    <h2 class="phase-title">持续运营与优化</h2>
+                    <p class="phase-desc">日常运营、风险管控、持续迭代</p>
+                    <span class="phase-duration">⏱️ 建议周期：长期持续</span>
+                </div>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">📊</div>
+                        <div class="step-title">数据分析与监控</div>
+                    </div>
+                    <p class="step-desc">数据驱动决策</p>
+                    <div class="step-list">
+                        <div class="step-item">核心指标监控</div>
+                        <div class="step-item">仪表盘搭建</div>
+                        <div class="step-item">异常预警机制</div>
+                        <div class="step-item">归因分析</div>
+                        <div class="step-item">转化漏斗分析</div>
+                        <div class="step-item">用户行为分析</div>
+                        <div class="step-item">竞品数据监控</div>
+                        <div class="step-item">市场趋势追踪</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">分析工具：</span>Google Analytics/Mixpanel/Amplitude、<span class="highlight">BI工具：</span>Tableau/Power BI/QuickBI</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">⚠️</div>
+                        <div class="step-title">风险管控</div>
+                    </div>
+                    <p class="step-desc">识别与应对风险</p>
+                    <div class="step-list">
+                        <div class="step-item">地缘政治风险</div>
+                        <div class="step-item">法规政策变化</div>
+                        <div class="step-item">汇率波动风险</div>
+                        <div class="step-item">供应链风险</div>
+                        <div class="step-item">竞争加剧风险</div>
+                        <div class="step-item">品牌声誉风险</div>
+                        <div class="step-item">数据安全风险</div>
+                        <div class="step-item">人员流失风险</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">风险咨询：</span>德勤风险/安达信、<span class="highlight">保险：</span>AXA/安联/平安</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🔄</div>
+                        <div class="step-title">持续迭代优化</div>
+                    </div>
+                    <p class="step-desc">产品与运营优化</p>
+                    <div class="step-list">
+                        <div class="step-item">用户反馈收集</div>
+                        <div class="step-item">产品迭代计划</div>
+                        <div class="step-item">A/B测试执行</div>
+                        <div class="step-item">运营流程优化</div>
+                        <div class="step-item">成本控制优化</div>
+                        <div class="step-item">效率提升举措</div>
+                        <div class="step-item">技术债务清理</div>
+                        <div class="step-item">创新探索实验</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">反馈工具：</span>Hotjar/UserVoice/Medallia、<span class="highlight">测试工具：</span>Optimizely/VWO</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">📈</div>
+                        <div class="step-title">规模扩张</div>
+                    </div>
+                    <p class="step-desc">市场与业务扩展</p>
+                    <div class="step-list">
+                        <div class="step-item">新市场进入评估</div>
+                        <div class="step-item">产品线扩展</div>
+                        <div class="step-item">团队规模扩张</div>
+                        <div class="step-item">基础设施升级</div>
+                        <div class="step-item">合作伙伴拓展</div>
+                        <div class="step-item">并购整合</div>
+                        <div class="step-item">生态圈构建</div>
+                        <div class="step-item">上市准备（如需）</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">战略咨询：</span>麦肯锡/贝恩/波士顿、<span class="highlight">投行：</span>高盛/摩根士丹利/中金</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">📋</div>
+                        <div class="step-title">合规更新</div>
+                    </div>
+                    <p class="step-desc">持续满足法规要求</p>
+                    <div class="step-list">
+                        <div class="step-item">法规跟踪更新</div>
+                        <div class="step-item">政策变化应对</div>
+                        <div class="step-item">许可证续期</div>
+                        <div class="step-item">年报/审计</div>
+                        <div class="step-item">税务申报更新</div>
+                        <div class="step-item">数据保护更新</div>
+                        <div class="step-item">劳动法合规更新</div>
+                        <div class="step-item">行业标准更新</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">合规服务：</span>金杜/中伦/德勤合规、<span class="highlight">监管信息：</span>各地区官方公告</div>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-icon">🤝</div>
+                        <div class="step-title">生态合作</div>
+                    </div>
+                    <p class="step-desc">构建商业生态</p>
+                    <div class="step-list">
+                        <div class="step-item">战略伙伴关系</div>
+                        <div class="step-item">技术合作伙伴</div>
+                        <div class="step-item">渠道合作伙伴</div>
+                        <div class="step-item">供应商关系管理</div>
+                        <div class="step-item">行业协会参与</div>
+                        <div class="step-item">政府关系维护</div>
+                        <div class="step-item">行业标准参与</div>
+                        <div class="step-item">生态投资布局</div>
+                    </div>
+                    <div class="step-services">
+                        <div class="step-services-title">服务提供商</div>
+                        <div class="step-services-list"><span class="highlight">商会：</span>各国中国商会、中非商会、<span class="highlight">协会：</span>贸促会/各行业协</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 时间线 -->
+        <section class="timeline-section">
+            <h2 class="timeline-title">出海实施时间线参考</h2>
+            <div class="timeline-grid">
+                <div class="timeline-card">
+                    <div class="timeline-period">Month 1-3</div>
+                    <div class="timeline-main">战略规划与决策</div>
+                    <div class="timeline-sub">市场研究 · 模式选择 · 预算规划</div>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-period">Month 3-6</div>
+                    <div class="timeline-main">合规准备与基础设施建设</div>
+                    <div class="timeline-sub">公司注册 · 税务架构 · 产品本地化 · 技术部署</div>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-period">Month 6-9</div>
+                    <div class="timeline-main">品牌建设与市场进入</div>
+                    <div class="timeline-sub">品牌策略 · 营销投放 · 渠道搭建 · 团队组建</div>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-period">Month 9+</div>
+                    <div class="timeline-main">持续运营与优化</div>
+                    <div class="timeline-sub">数据分析 · 风险管控 · 迭代优化 · 规模扩张</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-logo">上海张小强企业咨询事务所</div>
+        <p class="footer-desc">本手册涵盖企业出海全流程关键环节，数据截至2026年第二季度</p>
+        <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">© 2026 上海张小强企业咨询事务所. 保留所有权利。</p>
+    </footer>
+</body>
+</html>

@@ -579,7 +579,8 @@
     "useCases": "ユースケース",
     "caseProof": "ケース証明",
     "expertUpgrade": "Expert Evaluation",
-    "selectLang": "言語を選択"
+    "selectLang": "言語を選択",
+    "research": "研究ライブラリ"
   },
   "expertReview": {
     "title": "Let the platform complete the first judgment; experts step in for complex projects that need deeper evaluation.",

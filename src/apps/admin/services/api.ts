@@ -9,6 +9,8 @@ import type {
   ResearchAnalyticsData,
   Submission,
   Comment,
+  ReportInteractionsResponse,
+  ReportInteractionDetail,
 } from '../types/admin';
 
 const API_BASE = '/api/admin';
@@ -223,6 +225,54 @@ class ApiClient {
     if (params?.days) query.set('days', params.days.toString());
 
     return this.request<ResearchAnalyticsData>(`/research-analytics?${query}`);
+  }
+
+  // ============ Report Interactions ============
+  async getReportInteractions(params?: { days?: number; report_id?: string }): Promise<ReportInteractionsResponse | ReportInteractionDetail> {
+    const query = new URLSearchParams();
+    if (params?.days) query.set('days', params.days.toString());
+    if (params?.report_id) query.set('report_id', params.report_id);
+    return this.request<ReportInteractionsResponse | ReportInteractionDetail>(`/report-interactions?${query}`);
+  }
+
+  // ============ Report Comments ============
+  async getReportComments(params?: { days?: number; report_id?: string; q?: string }): Promise<{
+    success: boolean;
+    comments: Array<{
+      id: number;
+      report_id: string;
+      nickname: string;
+      content: string;
+      ip: string;
+      ip_hash: string;
+      country: string;
+      region: string;
+      city: string;
+      ua: string;
+      status: string;
+      created_at: string;
+    }>;
+    stats: { total: number; visible: number; hidden: number; reports: number; unique_users: number };
+    top_reports: Array<{ report_id: string; cnt: number }>;
+    daily: Array<{ day: string; cnt: number }>;
+    days: number;
+  }> {
+    const query = new URLSearchParams();
+    if (params?.days) query.set('days', params.days.toString());
+    if (params?.report_id) query.set('report_id', params.report_id);
+    if (params?.q) query.set('q', params.q);
+    return this.request(`/report-comments?${query}`);
+  }
+
+  async hideReportComment(id: number): Promise<{ success: boolean }> {
+    return this.request<{ success: boolean }>(`/report-comments?id=${id}`, { method: 'DELETE' });
+  }
+
+  async restoreReportComment(id: number): Promise<{ success: boolean }> {
+    return this.request<{ success: boolean }>(`/report-comments`, {
+      method: 'POST',
+      body: JSON.stringify({ id, action: 'restore' }),
+    });
   }
 }
 

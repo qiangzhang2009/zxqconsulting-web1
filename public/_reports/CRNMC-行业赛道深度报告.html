@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRNMC · 超高纯金属行业赛道深度报告 · 2026</title>
+<meta name="description" content="宁波创润新材料（CRNMC）所属超高纯金属行业赛道深度研究报告：行业全景、竞争格局、标杆拆解、优缺点SWOT、战略展望。">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+<style>
+:root{
+  --bg:#0a0e1a;
+  --bg2:#0f1424;
+  --bg3:#1a2138;
+  --line:#252d45;
+  --gold:#f5b041;
+  --gold2:#f7d794;
+  --cyan:#22d3ee;
+  --green:#10b981;
+  --red:#ef4444;
+  --orange:#fb923c;
+  --purple:#a78bfa;
+  --text:#e5e7eb;
+  --text2:#94a3b8;
+  --text3:#64748b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','PingFang SC','Microsoft YaHei',sans-serif;
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+.container{max-width:1280px;margin:0 auto;padding:0 32px}
+.mono{font-family:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace}
+
+.topnav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,14,26,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);padding:16px 32px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.topnav .brand{font-size:13px;letter-spacing:2px;color:var(--text2)}
+.topnav .brand b{color:var(--gold)}
+.topnav .meta{font-size:11px;color:var(--text3);letter-spacing:1px}
+
+.hero{
+  position:relative;padding:120px 32px 80px;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(ellipse 800px 400px at 20% 30%, rgba(245,176,65,.12), transparent 60%),
+    radial-gradient(ellipse 600px 400px at 80% 70%, rgba(34,211,238,.08), transparent 60%);
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background-image:
+    linear-gradient(rgba(37,45,69,.3) 1px,transparent 1px),
+    linear-gradient(90deg, rgba(37,45,69,.3) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 30%,transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 30%,transparent 80%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2;max-width:1280px;margin:0 auto}
+.hero .tag{
+  display:inline-block;padding:6px 14px;border:1px solid var(--line);
+  border-radius:999px;font-size:12px;letter-spacing:2px;
+  color:var(--gold);background:rgba(245,176,65,.05);
+  margin-bottom:32px;text-transform:uppercase;
+}
+.hero h1{
+  font-size:clamp(44px,6.5vw,86px);
+  line-height:1.05;letter-spacing:-2px;font-weight:800;
+  margin-bottom:24px;
+  background:linear-gradient(180deg,#fff 0%,#94a3b8 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero h1 .hl{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero .sub{
+  font-size:19px;color:var(--text2);max-width:880px;margin-bottom:48px;font-weight:300;
+}
+.hero .stats-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border:1px solid var(--line);border-radius:16px;
+  background:rgba(15,20,36,.6);backdrop-filter:blur(10px);overflow:hidden;
+}
+.hero .stat{padding:32px 24px;border-right:1px solid var(--line)}
+.hero .stat:last-child{border-right:none}
+.hero .stat .v{font-size:40px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:8px;letter-spacing:-1px}
+.hero .stat .l{font-size:12px;color:var(--text2);letter-spacing:1px;text-transform:uppercase}
+.hero .stat.cold .v{color:var(--cyan)}
+.hero .stat.danger .v{color:var(--red)}
+.hero .stat.warn .v{color:var(--orange)}
+.hero .meta-line{
+  display:flex;gap:32px;font-size:12px;color:var(--text3);
+  margin-top:48px;padding-top:32px;border-top:1px solid var(--line);letter-spacing:1px;
+  flex-wrap:wrap;
+}
+
+section{padding:100px 32px;border-bottom:1px solid var(--line)}
+.section-num{
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--gold);
+  letter-spacing:3px;margin-bottom:16px;
+}
+.section-title{font-size:44px;font-weight:800;letter-spacing:-1px;margin-bottom:16px;line-height:1.15}
+.section-sub{font-size:17px;color:var(--text2);font-weight:300;max-width:860px;margin-bottom:56px}
+
+.grid{display:grid;gap:24px}
+.grid-2{grid-template-columns:1fr 1fr}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.card{
+  background:var(--bg2);border:1px solid var(--line);
+  border-radius:16px;padding:28px;transition:all .3s ease;
+}
+.card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.card .icon{
+  width:46px;height:46px;border-radius:12px;
+  background:linear-gradient(135deg,var(--gold),var(--orange));
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:18px;font-weight:800;color:#0a0e1a;
+}
+.card h3{font-size:20px;margin-bottom:10px;font-weight:700}
+.card p{color:var(--text2);font-size:14.5px;line-height:1.7}
+.card .num{font-size:32px;font-weight:800;color:var(--gold);margin-bottom:6px;letter-spacing:-1px;font-family:'JetBrains Mono',monospace}
+.card .num-label{font-size:11px;color:var(--text2);margin-bottom:14px;letter-spacing:1px;text-transform:uppercase}
+
+.chart-block{
+  background:var(--bg2);border:1px solid var(--line);
+  border-radius:20px;padding:32px;margin-top:32px;position:relative;
+}
+.chart-block .head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px}
+.chart-block h4{font-size:20px;font-weight:700;margin-bottom:6px}
+.chart-block .source{font-size:11px;color:var(--text3);letter-spacing:1px}
+.chart-block .source a{color:var(--gold);text-decoration:none}
+.chart-block .insight{
+  margin-top:24px;padding:20px;
+  background:rgba(245,176,65,.08);
+  border-left:3px solid var(--gold);
+  border-radius:0 8px 8px 0;font-size:14px;color:var(--text);
+}
+.chart-block .insight b{color:var(--gold)}
+.canvas-wrap{position:relative;height:380px}
+.canvas-wrap.tall{height:480px}
+.canvas-wrap.short{height:260px}
+
+/* SWOT 矩阵 */
+.swot-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
+.swot-cell{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:28px;position:relative;overflow:hidden}
+.swot-cell::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+}
+.swot-cell.s::before{background:linear-gradient(90deg,#10b981,#22d3ee)}
+.swot-cell.w::before{background:linear-gradient(90deg,#fb923c,#ef4444)}
+.swot-cell.o::before{background:linear-gradient(90deg,#a78bfa,#22d3ee)}
+.swot-cell.t::before{background:linear-gradient(90deg,#ef4444,#f5b041)}
+.swot-cell .label{font-size:11px;letter-spacing:3px;color:var(--text3);margin-bottom:8px;text-transform:uppercase}
+.swot-cell h4{font-size:24px;margin-bottom:16px;font-weight:800}
+.swot-cell.s h4{color:#10b981}
+.swot-cell.w h4{color:#fb923c}
+.swot-cell.o h4{color:#a78bfa}
+.swot-cell.t h4{color:#ef4444}
+.swot-cell ul{list-style:none;padding:0}
+.swot-cell li{padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--text2);display:flex;gap:10px;align-items:flex-start}
+.swot-cell li:last-child{border-bottom:none}
+.swot-cell li::before{content:'▸';color:var(--gold);flex-shrink:0;font-weight:700}
+
+/* 行业赛道 KPI */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.kpi{
+  background:var(--bg2);border:1px solid var(--line);
+  border-radius:14px;padding:24px;position:relative;overflow:hidden;
+}
+.kpi .lbl{font-size:11px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.kpi .val{font-size:34px;font-weight:800;letter-spacing:-1px;line-height:1;color:var(--gold);font-family:'JetBrains Mono',monospace}
+.kpi .delta{font-size:12px;color:var(--green);margin-top:8px;letter-spacing:1px}
+.kpi .delta.down{color:var(--red)}
+.kpi .ctx{font-size:12px;color:var(--text3);margin-top:8px;line-height:1.5}
+
+/* 对比表格 */
+.bench-table{width:100%;border-collapse:collapse;margin-top:24px;font-size:13.5px}
+.bench-table th, .bench-table td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line)}
+.bench-table th{background:var(--bg3);color:var(--text3);letter-spacing:1px;text-transform:uppercase;font-size:11px;font-weight:700}
+.bench-table td{color:var(--text2)}
+.bench-table tbody tr:hover td{background:rgba(245,176,65,.05);color:var(--text)}
+.bench-table .highlight{color:var(--gold);font-weight:700}
+.bench-table .marker{
+  display:inline-block;padding:2px 8px;border-radius:4px;
+  font-size:11px;letter-spacing:1px;font-weight:700;
+}
+.bench-table .marker.tier1{background:rgba(34,211,238,.15);color:var(--cyan)}
+.bench-table .marker.tier2{background:rgba(245,176,65,.15);color:var(--gold)}
+.bench-table .marker.china{background:rgba(239,68,68,.15);color:var(--red)}
+
+/* PEST */
+.pest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+.pest-cell{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:24px}
+.pest-cell .lbl{
+  display:inline-block;padding:4px 10px;border-radius:6px;
+  background:rgba(245,176,65,.1);color:var(--gold);
+  font-size:11px;letter-spacing:2px;margin-bottom:14px;font-weight:700;
+}
+.pest-cell h4{font-size:18px;margin-bottom:14px;font-weight:700}
+.pest-cell ul{list-style:none;padding:0}
+.pest-cell li{padding:6px 0;font-size:13px;color:var(--text2);display:flex;gap:8px;align-items:flex-start}
+.pest-cell li::before{content:'•';color:var(--gold);flex-shrink:0}
+
+/* 价值链 */
+.value-chain{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:32px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.vc-stage{background:var(--bg2);padding:24px;border-right:1px solid var(--line);position:relative}
+.vc-stage:last-child{border-right:none}
+.vc-stage .num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:1px;margin-bottom:8px}
+.vc-stage h5{font-size:15px;font-weight:700;margin-bottom:10px;color:var(--gold)}
+.vc-stage p{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:8px}
+.vc-stage .mover{font-size:11px;color:var(--cyan);letter-spacing:1px}
+
+.toc{
+  display:flex;gap:24px;flex-wrap:wrap;
+  padding:20px 24px;border:1px solid var(--line);border-radius:12px;
+  background:var(--bg2);margin-bottom:56px;
+}
+.toc a{color:var(--text2);text-decoration:none;font-size:13px;letter-spacing:1px}
+.toc a:hover{color:var(--gold)}
+.section-anchor{scroll-margin-top:80px}
+
+.quote-block{
+  border-left:3px solid var(--gold);padding:24px 32px;margin:32px 0;
+  background:rgba(245,176,65,.05);border-radius:0 12px 12px 0;
+}
+.quote-block .q{font-size:18px;font-style:italic;color:var(--text);line-height:1.6}
+.quote-block .by{font-size:12px;color:var(--text2);margin-top:12px;letter-spacing:1px}
+
+.final-cta{padding:120px 32px;text-align:center;border-bottom:none;background:radial-gradient(ellipse 600px 300px at 50% 50%, rgba(245,176,65,.15), transparent 70%)}
+.final-cta h2{font-size:60px;font-weight:800;letter-spacing:-2px;margin-bottom:20px;line-height:1.1}
+.final-cta h2 .hl{background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.final-cta p{font-size:17px;color:var(--text2);max-width:760px;margin:0 auto 40px}
+.cta-pill{
+  display:inline-flex;gap:24px;align-items:center;
+  padding:18px 36px;border:1px solid var(--gold);border-radius:999px;
+  background:rgba(245,176,65,.1);
+  font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:1px;
+}
+.cta-pill .next{color:var(--gold);font-weight:800}
+.cta-pill .sep{color:var(--text3)}
+
+.disclaim{padding:40px 32px;font-size:12px;color:var(--text3);text-align:center;letter-spacing:1px}
+footer{padding:24px 32px;border-top:1px solid var(--line);font-size:12px;color:var(--text3);text-align:center;letter-spacing:1px}
+
+@media(max-width:768px){
+  .hero .stats-row{grid-template-columns:1fr 1fr}
+  .hero .stat{border-right:none;border-bottom:1px solid var(--line)}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .swot-grid,.pest-grid,.kpi-row,.value-chain{grid-template-columns:1fr}
+  .value-chain{border:none;gap:16px}
+  .vc-stage{border-right:none;border-bottom:1px solid var(--line)}
+  section{padding:72px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<nav class="topnav">
+  <div class="brand">CRNMC · <b>INDUSTRY DEEP-DIVE REPORT</b></div>
+  <div class="meta">2026.07 · FOR EXTERNAL PUBLICATION</div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top" style="border-bottom:none">
+<div class="hero-inner">
+<span class="tag">🔬 ULTRA-HIGH-PURITY METALS · INDUSTRY REPORT</span>
+<h1>全球 4 家中唯一<span class="hl">在亚洲</span><br>量产的卡脖子材料</h1>
+<p class="sub">宁波创润新材料（CRNMC）所属的"超高纯金属"赛道：半导体溅射靶材上游 5N+ 关键原料。该报告系统性拆解行业全景、竞争格局、四家全球寡头、CRNMC 的真实优劣势，并给出面向客户、合作伙伴和投资人的战略研判。</p>
+
+<div class="stats-row">
+  <div class="stat"><div class="v">4 / 4</div><div class="l">全球 5N+ 钛量产能力<br>CRNMC 占据其一</div></div>
+  <div class="stat cold"><div class="v">7.5%</div><div class="l">超高纯钛市场 CAGR<br>2026→2034</div></div>
+  <div class="stat warn"><div class="v">+47%</div><div class="l">2026 Q1 钽出口价<br>中国单季涨幅</div></div>
+  <div class="stat danger"><div class="v">3,000t</div><div class="l">未来 3 年电解钛<br>产能扩张目标</div></div>
+</div>
+
+<div class="meta-line">
+  <div>📍 总部：浙江宁波 · 余姚</div>
+  <div>🏭 生产基地：5 处</div>
+  <div>👥 员工：240+ / 高级研发 40+</div>
+  <div>📜 专利：101 申请 / 48 授权</div>
+  <div>🔬 检测精度：0.01 ppm</div>
+  <div>📆 报告日期：2026-07-06</div>
+</div>
+</div>
+</section>
+
+<!-- ===== TOC ===== -->
+<section style="padding-top:60px;padding-bottom:60px;border-bottom:none;background:var(--bg2)">
+<div class="container">
+<div class="toc">
+  <a href="#sec1">01 · 行业概览</a>
+  <a href="#sec2">02 · 下游应用拆解</a>
+  <a href="#sec3">03 · 市场容量与增长</a>
+  <a href="#sec4">04 · PEST 宏观环境</a>
+  <a href="#sec5">05 · 价值链定位</a>
+  <a href="#sec6">06 · 竞争格局</a>
+  <a href="#sec7">07 · 标杆拆解</a>
+  <a href="#sec8">08 · CRNMC SWOT</a>
+  <a href="#sec9">09 · 优劣势系统评估</a>
+  <a href="#sec10">10 · 战略研判与展望</a>
+</div>
+</div>
+</section>
+
+<!-- ===== 01 行业概览 ===== -->
+<section id="sec1" class="section-anchor">
+<div class="container">
+<div class="section-num">// 01 · INDUSTRY OVERVIEW</div>
+<h2 class="section-title">超高纯金属：一个被低估的<br>"工业隐形冠军"赛道</h2>
+<p class="section-sub">纯度达到 4N（99.99%）以上的电子级金属材料，是半导体、平板显示、光伏、5G、AI 服务器、航空航天、医疗等高端制造产业链"最上游、最不可替代"的环节。一个指甲盖大小的 5N5 钛锭，决定了下一颗 3nm 芯片能否良率达标。</p>
+
+<div class="grid grid-3">
+  <div class="card">
+    <div class="icon">🔬</div>
+    <div class="num">0.01<span style="font-size:14px;color:var(--text3)"> ppm</span></div>
+    <div class="num-label">GDMS 杂质检测精度</div>
+    <p>CRNMC 检测下限可达 0.01 ppm（10⁻⁸），是国内外仅有能量产水平线上稳定批量供应的厂商之一。</p>
+  </div>
+  <div class="card">
+    <div class="icon">🧬</div>
+    <div class="num">5N5</div>
+    <div class="num-label">电子级超高纯钛国内唯一</div>
+    <p>Kroll 海绵钛 + 自主熔盐电解法 + 真空电子束熔炼三重工艺，氧含量可压至 100 ppm 以下，国内唯一规模化量产。</p>
+  </div>
+  <div class="card">
+    <div class="icon">⚙️</div>
+    <div class="num">101<span style="font-size:14px;color:var(--text3)"> / 48</span></div>
+    <div class="num-label">发明专利申请 / 授权</div>
+    <p>申请专利 101 项、已授权 48 项，构筑深度技术护城河，覆盖海绵钛、电解提纯、电子束熔炼全流程。</p>
+  </div>
+</div>
+
+<div class="chart-block">
+  <div class="head">
+    <div>
+      <h4>纯度等级对照 · 4N – 7N</h4>
+      <div class="source">数据来源：USGS / CRNMC 技术白皮书</div>
+    </div>
+  </div>
+  <div class="canvas-wrap"><canvas id="chart-purity"></canvas></div>
+  <div class="insight">
+    <b>核心洞察：</b>纯度每提升一个 N（10 倍），技术门槛和成本呈指数级上升。从 4N 到 5N，每升一档晶圆厂良率提升约 8–15%，这也是为何 5N+ 是真正的"卡脖子"门槛——全球只有 4 家厂商能量产 5N+ 超高纯钛。
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== 02 下游应用 ===== -->
+<section id="sec2" class="section-anchor">
+<div class="container">
+<div class="section-num">// 02 · DOWNSTREAM APPLICATIONS</div>
+<h2 class="section-title">6 大下游赛道 · 每一条都在爆发</h2>
+<p class="section-sub">从 7nm 逻辑芯片到 C919 民航客机，从关节置换到钙钛矿光伏，超高纯金属的需求面在 2024–2030 年呈现"全面开花"。其中半导体 + AI 数据中心是绝对主引擎，单晶圆厂年消耗 3,000–5,000 个钛靶。</p>
+
+<div class="chart-block">
+  <div class="head">
+    <div>
+      <h4>各下游应用对纯度的最低要求与 CRNMC 的覆盖度</h4>
+      <div class="source">数据来源：CRNMC 技术文档 / Mordor Intelligence / IntelMarketResearch</div>
+    </div>
+  </div>
+  <div class="canvas-wrap tall"><canvas id="chart-app"></canvas></div>
+  <div class="insight">
+    <b>战略判断：</b>CRNMC 当前在半导体（5N5 钛）、显示（4N 铜）、光伏（3N 钛）三大主航道已完成产品线布局；但在"先进制程 5N+ 互连层"（TSMC 3nm 以下）仍仅作为江丰电子的隐性上游，尚未形成直接 OEM 直供能力。这是制约估值的最大短板，也是潜在最大增量空间。
+  </div>
+</div>
+
+<div class="grid grid-3" style="margin-top:32px">
+  <div class="card">
+    <div class="icon">💻</div>
+    <h3>半导体溅射靶材</h3>
+    <p>逻辑芯片互连层、DRAM 电容、3D NAND 堆叠层都依赖钛/钽/铜/钴靶材。先进制程 3nm 以下对纯度要求从 4N 升至 5N5+，单晶圆厂年需求 3,000–5,000 个靶。</p>
+  </div>
+  <div class="card">
+    <div class="icon">📺</div>
+    <h3>平板显示 & OLED</h3>
+    <p>Gen 10.5/11 LCD/OLED 产线使用大尺寸铜靶/钛靶（直径 400mm+、长 3,000mm+）。京东方、华星光电、LG Display 是核心买家。</p>
+  </div>
+  <div class="card">
+    <div class="icon">🛰️</div>
+    <h3>航空航天 & 国防</h3>
+    <p>航空发动机 TC4 钛合金、TiN 涂层、钽高温合金用于 C919、LEAP 引擎、卫星热防护。CRNMC 与中航科工三院已建立战略合作意向。</p>
+  </div>
+  <div class="card">
+    <div class="icon">⚡</div>
+    <h3>新能源 / HJT 光伏</h3>
+    <p>异质结（HJT）太阳能电池用钛基透明导电薄膜；2020–2024 CAGR >25%。EV 动力电池也用高纯铜箔、镍钴前驱体。</p>
+  </div>
+  <div class="card">
+    <div class="icon">🏥</div>
+    <h3>生物医学 & 医疗</h3>
+    <p>TiN 涂层人工关节、牙科种植体、心血管支架（钽）、神经探针。临床数据显示 TiN 涂层可降低磨损率 40–60%、延长寿命 20%+。全球骨科植入市场 >$500 亿。</p>
+  </div>
+  <div class="card">
+    <div class="icon">🧲</div>
+    <h3>超导 & 量子计算</h3>
+    <p>Nb-Ti 合金是 MRI、低温超导磁体主流材料；铌薄膜用于 Josephson 结量子比特。2026 起商业化前夜，本征需求进入加速期。</p>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== 03 市场容量 ===== -->
+<section id="sec3" class="section-anchor">
+<div class="container">
+<div class="section-num">// 03 · MARKET SIZE & GROWTH</div>
+<h2 class="section-title">一块$1,000亿美金的市场 · 年增速 7–10%</h2>
+<p class="section-sub">高纯钛、钽、铌、铜、镍、钴六个子赛道合计形成约 $1,000 亿美金的全球市场，2026–2034 年保持 5–10% 的稳定增长，其中半导体相关细分增速最快。</p>
+
+<div class="kpi-row">
+  <div class="kpi">
+    <div class="lbl">超高纯钛全球市场</div>
+    <div class="val">$4.5B</div>
+    <div class="delta">↑ CAGR 7.5% (2026-2034)</div>
+    <div class="ctx">2034 年预计超过 $9B；前 4 家厂商占 92%+ 份额</div>
+  </div>
+  <div class="kpi">
+    <div class="lbl">钛靶材（半导体）</div>
+    <div class="val">$680M</div>
+    <div class="delta">↑ CAGR 8.5–10.2%</div>
+    <div class="ctx">2030 年规模超 $1.1B；AI 数据中心是关键拉动力</div>
+  </div>
+  <div class="kpi">
+    <div class="lbl">钽与铌材料市场</div>
+    <div class="val">$4.36B</div>
+    <div class="delta">↑ CAGR 7.2%</div>
+    <div class="ctx">2036 年预计 $8.74B；AI 服务器 = 单板 25 个钽电容</div>
+  </div>
+  <div class="kpi">
+    <div class="lbl">铌（金属）市场</div>
+    <div class="val">$1.67B</div>
+    <div class="delta">↑ CAGR 3.6–3.7%</div>
+    <div class="ctx">2035 年达 $2.28B；电池阳极材料是新增量</div>
+  </div>
+</div>
+
+<div class="chart-block">
+  <div class="head">
+    <div>
+      <h4>6 大子赛道 · 2025 → 2030 复合增长预测</h4>
+      <div class="source">数据来源：Mordor Intelligence / Future Market Insights / Business Research Insights / SMM</div>
+    </div>
+  </div>
+  <div class="canvas-wrap tall"><canvas id="chart-growth"></canvas></div>
+  <div class="insight">
+    <b>核心结论：</b>所有 6 大子赛道在 2026–2030 年均保持 ≥5% 的 CAGR，其中钛靶、钽、铌氧化物三个细分因 AI / 5G / 量子计算的"新催化剂"出现加速增长。CRNMC 的产品矩阵正好覆盖这 6 个赛道中的 5 个（除铌铁合金铁领域专注部分），是行业内产品线最完整的玩家之一。
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== 04 PEST ===== -->
+<section id="sec4" class="section-anchor">
+<div class="container">
+<div class="section-num">// 04 · PEST MACRO ANALYSIS</div>
+<h2 class="section-title">政策 · 经济 · 社会 · 技术 — 四象限宏观环境</h2>
+<p class="section-sub">2026 年的超高纯金属赛道处于"美中科技战 + AI 算力革命 + 制造业回流 + 双碳转型"的多重宏观变量叠加期。理解 PEST 是判断 CRNMC 中长期战略空间的前提。</p>
+
+<div class="pest-grid">
+  <div class="pest-cell">
+    <span class="lbl">P · POLICY</span>
+    <h4>政策环境</h4>
+    <ul>
+      <li>中国"半导体材料国产替代"政策强推，2026 目标新晶圆厂设备国产化率达 50%</li>
+      <li>CRNMC 2022 年获评国家级"专精特新·小巨人"</li>
+      <li>美国 BIS 出口管制扩大（2024-12 新规），中国材料厂商进入海外客户名单的政治门槛升高</li>
+      <li>中国"双碳"政策拉动 HJT 光伏、动力电池需求，间接放大钛、铜、镍需求</li>
+      <li>EU Critical Raw Materials Act（2024）将钛、钴、铌列为战略金属</li>
+    </ul>
+  </div>
+  <div class="pest-cell">
+    <span class="lbl">E · ECONOMY</span>
+    <h4>经济环境</h4>
+    <ul>
+      <li>钽市场 Q1 2026 中国出口价单季 +47%（AFRIKA 矿端供应紧缩传导）</li>
+      <li>半导体级海绵钛全球供应紧张（美国 95% 进口依赖）</li>
+      <li>AI 资本支出爆发：Alphabet $175–185B、Meta $115–135B、Amazon $200B（2026）</li>
+      <li>巴西 CBMM 铌铁垄断（93% 全球份额）阻碍下游议价</li>
+      <li>海运成本回归常态，全球供应链效率修复</li>
+    </ul>
+  </div>
+  <div class="pest-cell">
+    <span class="lbl">S · SOCIAL</span>
+    <h4>社会环境</h4>
+    <ul>
+      <li>中国本土工程师红利显著，240+ 员工 + 40+ 海归博士团队，CRNMC 人均产出领先</li>
+      <li>消费者对医疗器械、生物植入物的"中国制造"接受度仍较低 → 间接限制 CRNMC 海外医疗市场拓展</li>
+      <li>海外客户对中国供应链合规审查严格（Dodd-Frank / EU CAHRA / RMI）</li>
+      <li>"硅基替代碳基"算力革命推动半导体需求长期向上</li>
+    </ul>
+  </div>
+  <div class="pest-cell">
+    <span class="lbl">T · TECH</span>
+    <h4>技术环境</h4>
+    <ul>
+      <li>芯片制程 3nm 以下量产，靶材纯度要求 5N5 → 6N 跃升</li>
+      <li>大尺寸 Gen 10.5/11 显示靶材（直径 400mm+、长 3,000mm+）技术门槛陡升</li>
+      <li>3D 打印 + 增材制造使钛粉、钛合金粉需求倍增</li>
+      <li>电子束熔炼（EBCHR）+ 真空自耗熔炼（VAR）成主流工艺路线</li>
+      <li>回收 / 再利用技术（如溅射残靶回收）是新的降本路径</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== 05 价值链 ===== -->
+<section id="sec5" class="section-anchor">
+<div class="container">
+<div class="section-num">// 05 · VALUE CHAIN POSITIONING</div>
+<h2 class="section-title">CRNMC 在价值链上的"腰位"</h2>
+<p class="section-sub">超高纯金属产业链分为 5 段：矿物原料 → 海绵金属 → 超高纯提纯 → 溅射靶材制造 → 终端晶圆/面板/电池。CRNMC 主占第 3 段（核心）、横跨第 2 和第 4 段，向下延伸至粉末/铸件/锻件等深加工。</p>
+
+<div class="value-chain">
+  <div class="vc-stage">
+    <div class="num">01</div>
+    <h5>矿物原料</h5>
+    <p>钛铁矿、镍红土矿、铜矿石、钴矿石、铌铁矿</p>
+    <div class="mover">→ 中国 / 巴西 / 澳洲</div>
+  </div>
+  <div class="vc-stage">
+    <div class="num">02</div>
+    <h5>海绵金属</h5>
+    <p>Kroll 海绵钛、镍豆、铜杆、钴片</p>
+    <div class="mover">→ 中国占全球 60%</div>
+  </div>
+  <div class="vc-stage" style="background:linear-gradient(135deg,rgba(245,176,65,.08),rgba(15,20,36,1));border-left:3px solid var(--gold)">
+    <div class="num" style="color:var(--gold)">03 ★</div>
+    <h5>超高纯提纯</h5>
+    <p>熔盐电解 / EB 电子束熔炼 → 4N–7N</p>
+    <div class="mover">→ CRNMC 主营赛道</div>
+  </div>
+  <div class="vc-stage">
+    <div class="num">04</div>
+    <h5>靶材 / 粉末制造</h5>
+    <p>HIP/HP 成型、晶粒取向控制、表面精加工</p>
+    <div class="mover">→ 江丰电子 / Honeywell / Mitsui</div>
+  </div>
+  <div class="vc-stage">
+    <div class="num">05</div>
+    <h5>晶圆 / 面板 / 电池</h5>
+    <p>台积电、京东方、中芯、Samsung、SK 海力士</p>
+    <div class="mover">→ 终端集成</div>
+  </div>
+</div>
+
+<div class="quote-block" style="margin-top:32px">
+  <div class="q">"在 5N+ 超高纯钛这条价值链上，CRNMC 是中国国境内唯一能稳定供货的玩家。这意味着，对中国半导体产业而言，CRNMC 不是一个供应商选择问题，而是'是否保证不被卡脖子'的战略安全问题。"</div>
+  <div class="by">— 行业观察 / Intel Market Research 2026</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== 06 竞争格局 ===== -->
+<section id="sec6" class="section-anchor">
+<div class="container">
+<div class="section-num">// 06 · COMPETITIVE LANDSCAPE</div>
+<h2 class="section-title">寡头垄断结构 · 92% 份额集中在 3 家</h2>
+<p class="section-sub">全球超高纯钛（5N+）市场只有 4 家厂商，合计份额超 95%。前 3 家来自日美（占 92%+），CRNMC 是唯一进入该第一梯队的中国玩家。日本 Toho + 大阪钛合计占 71%——这是半导体供应链最薄弱的"双点故障"。</p>
+
+<div class="chart-block">
+  <div class="head">
+    <div>
+      <h4>全球 5N+ 超高纯钛市场份额 · 估算</h4>
+      <div class="source">数据来源：Deep Insights Research / Intel Market Research / Mordor Intelligence 2026</div>
+    </div>
+  </div>
+  <div class="canvas-wrap tall"><canvas id="chart-market-share"></canvas></div>
+  <div class="insight">
+    <b>结构性洞察：</b>这个赛道有三重壁垒：① 技术壁垒（工艺 know-how）；② 认证壁垒（晶圆厂 18–24 个月）；③ 信任壁垒（10+ 年供货历史）。CRNMC 突破前两层，但信任壁垒需要 5–10 年的供货记录才能与日美老厂平起平坐。这意味着 CRNMC 是"长期最确定的国产替代标的"，但短期仍难撼动龙头。
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== 07 标杆拆解 ===== -->
+<section id="sec7" class="section-anchor">
+<div class="container">
+<div class="section-num">// 07 · BENCHMARK ANALYSIS</div>
+<h2 class="section-title">全球 4 家标杆 · 系统拆解</h2>
+<p class="section-sub">对每一家进入"5N+ 超高纯钛"量产俱乐部的厂商，我们从公司画像、产品矩阵、产能、工艺、客户、SWOT 角度做全面解构。CRNMC 与 Toho Titanium / OSAKA Titanium 的差距主要在"品牌信任"和"客户广度"。</p>
+
+<div style="margin-top:24px;overflow-x:auto">
+<table class="bench-table">
+  <thead>
+    <tr>
+      <th style="min-width:160px">维度</th>
+      <th><span class="marker tier1">Tier 1</span><br>东邦钛（日本）</th>
+      <th><span class="marker tier1">Tier 1</span><br>大阪钛（日本）</th>
+      <th><span class="marker tier1">Tier 1</span><br>霍尼韦尔（美国）</th>
+      <th><span class="marker china">中国唯一</span><br>CRNMC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>成立时间</td>
+      <td>1953</td>
+      <td>1950</td>
+      <td>1906 (Honeywell)</td>
+      <td><span class="highlight">2012</span></td>
+    </tr>
+    <tr>
+      <td>核心能力</td>
+      <td>Kroll 海绵钛 + 高纯提纯</td>
+      <td>Kroll 海绵钛 + 高纯提纯</td>
+      <td>钛靶 + 钨钼靶材 + 整合下游</td>
+      <td><span class="highlight">熔盐电解 + EB 熔炼（独创路线）</span></td>
+    </tr>
+    <tr>
+      <td>纯度上限</td>
+      <td>4N5 – 5N</td>
+      <td>4N5 – 5N</td>
+      <td>5N – 6N</td>
+      <td><span class="highlight">5N5（钛）/ 7N（铜）</span></td>
+    </tr>
+    <tr>
+      <td>市场份额</td>
+      <td>~38.5%</td>
+      <td>~33.0%</td>
+      <td>~20.8%</td>
+      <td>未披露（追赶者）</td>
+    </tr>
+    <tr>
+      <td>下游客户</td>
+      <td>Honeywell / 韩国 SK / 中国江丰</td>
+      <td>日本矿山 / Mitsui / JX</td>
+      <td>TSMC / Intel / Samsung</td>
+      <td><span class="highlight">江丰电子（同实控人）+ 中航</span></td>
+    </tr>
+    <tr>
+      <td>认证状态</td>
+      <td>TSMC A 级 + Sony + Micron</td>
+      <td>Sony + Samsung Tier 1</td>
+      <td>晶圆厂直接认证最多</td>
+      <td>江丰联营 → TSMC 间接 Tier 2</td>
+    </tr>
+    <tr>
+      <td>公开财务（2024–2025）</td>
+      <td>营收 ~$5B 全集团<br>金属占比 ~40%</td>
+      <td>营收 ~$2B</td>
+      <td>营收 ~$38B 总集团<br>电子材料占比 ~5%</td>
+      <td><span class="highlight">未公开；B2B 平台估算 $0.5–1M（低估）</span></td>
+    </tr>
+    <tr>
+      <td>核心优势</td>
+      <td>70 年品牌 + 客户信任</td>
+      <td>工艺稳定性 + 多年合规</td>
+      <td>全球化销售 + 整合解决方案</td>
+      <td><span class="highlight">成本 + 交期 + 创新速度</span></td>
+    </tr>
+    <tr>
+      <td>核心劣势</td>
+      <td>扩产慢、产能受限</td>
+      <td>技术升级慢、市场萎缩</td>
+      <td>分散精力到多个板块</td>
+      <td><span class="highlight">品牌信任度、认证周期、客户广度</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="grid grid-3" style="margin-top:32px">
+  <div class="card">
+    <div class="icon">🇯🇵</div>
+    <h3>Toho Titanium（东邦钛）</h3>
+    <p>日本最老牌 5 家钛制造商之一，全球第一。其核心策略是用 70 年沉淀的合规记录 + Kroll 工艺稳定性，牢牢锁住韩、日、台晶圆厂的 Tier 1 供应位置。扩产能力受限（JOGMEC 监管），但因为客户认证不可替代，是最稳定的现金牛玩家。</p>
+    <p style="margin-top:12px"><b>对 CRNMC 的启示：</b>用差异化（成本+交期）而非正面竞争争取 Tier 2 / 备份供应商位置。</p>
+  </div>
+  <div class="card">
+    <div class="icon">🇯🇵</div>
+    <h3>OSAKA Titanium（大阪钛）</h3>
+    <p>同样为 Kroll 工艺老牌，但产品线更宽（含电子级铜、镍）。近年被日本资源（JX 控股合并传闻）调整，资本开支节奏放缓。市场份额从早期的 45% 缓降至 ~33%，给中国玩家留下了缝隙。</p>
+    <p style="margin-top:12px"><b>对 CRNMC 的启示：</b>OSA 退潮 + CRNMC 上市窗口期，是中国国产替代的关键 3 年。</p>
+  </div>
+  <div class="card">
+    <div class="icon">🇺🇸</div>
+    <h3>Honeywell（霍尼韦尔）</h3>
+    <p>通过收购 Johnson Matthey 整合下游，是全球唯一"原料 + 靶材"一体的巨头。客户包括 TSMC、Intel、Samsung、SK 海力士，最高级别 OEM 认证。2026 国防项目（DLA 钽锭 $8.6M、$100M 5 年合同）让其获得美国官方背书。</p>
+    <p style="margin-top:12px"><b>对 CRNMC 的启示：</b>走"独立上游 + 国产替代 + 战略性中端 OEM"路径，避免与 Honeywell 正面竞争。</p>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== 08 SWOT ===== -->
+<section id="sec8" class="section-anchor">
+<div class="container">
+<div class="section-num">// 08 · SWOT MATRIX</div>
+<h2 class="section-title">CRNMC SWOT · 4×4 全景模型</h2>
+<p class="section-sub">基于公司基本面、行业地位、竞争格局、客户调研综合提炼。从 2 个内部维度（优势 / 劣势）+ 2 个外部维度（机会 / 威胁），构建 4×4 SWOT 网格。</p>
+
+<div class="swot-grid">
+  <div class="swot-cell s">
+    <div class="label">STRENGTHS · 内部优势</div>
+    <h4>做得对的事</h4>
+    <ul>
+      <li><b>纯度领先：</b>5N5 钛 + 7N 铜国内唯一，国际 Top 4</li>
+      <li><b>工艺独创：</b>"海绵钛 + 熔盐电解 + EB 熔炼"三条工艺自主可控，氧含量 <100 ppm</li>
+      <li><b>专利护城河：</b>101 申请 / 48 授权，覆盖全工艺链</li>
+      <li><b>产品线完整：</b>钛/铜/镍/钴/铌/钽/钼 + TC4 钛合金全谱系，下游全覆盖</li>
+      <li><b>产能扩张：</b>未来 3 年电解钛扩至 5,000 t/年，匹配半导体增长</li>
+      <li><b>关联客户：</b>江丰电子（同实控）隐性 Tier-1 通路 → TSMC、海力士</li>
+      <li><b>海归团队：</b>40+ 高级学位的"科学家 + 工程师"团队，前 Honeywell 总经理亲自领衔</li>
+    </ul>
+  </div>
+  <div class="swot-cell w">
+    <div class="label">WEAKNESSES · 内部劣势</div>
+    <h4>做得不够好的事</h4>
+    <ul>
+      <li><b>品牌认知度：</b>海外品牌识别度仍低，海外客户"听说过但不放心"</li>
+      <li><b>客户集中度：</b>江丰电子关联销售占比高，第二大客户群尚未成型</li>
+      <li><b>认证周期：</b>5N5+ 半导体级晶圆厂直供认证需 18–24 个月，CRNMC 尚未完成 Top 5 客户独立认证</li>
+      <li><b>海外渠道：</b>几乎无自有海外销售网络，30% 出口依赖被动询盘 + 江丰</li>
+      <li><b>信用条款：</b>FAQ 公开"货款结清后发货"，对国际 OEM 不友好</li>
+      <li><b>数字基建：</b>官网英文 SEO、长尾关键词、LinkedIn 海外矩阵缺位</li>
+      <li><b>供应链合规：</b>冲突矿产（RMI / CMRT）模板未对外公开披露</li>
+    </ul>
+  </div>
+  <div class="swot-cell o">
+    <div class="label">OPPORTUNITIES · 外部机会</div>
+    <h4>外部给的窗口</h4>
+    <ul>
+      <li><b>半导体材料国产替代政策：</b>2026 目标新晶圆厂设备国产化率 50%</li>
+      <li><b>AI 资本支出爆发：</b>北美 4 大科技公司 2026 合计 $600B+，拉动钽 / 钛需求</li>
+      <li><b>HJT 光伏加速：</b>2020–2024 钛靶 CAGR >25%</li>
+      <li><b>欧美供应链友岸化：</b>客户寻求"非中非俄"备份，CRNMC 虽是中资但可定位"中性"产能（如遵义/西昌基地）</li>
+      <li><b>5G / 新能源车：</b>车载钽电容年增长 8–10%</li>
+      <li><b>医疗器械本土化：</b>中国医疗器械集采推动骨科 TiN 涂层本土供应链</li>
+    </ul>
+  </div>
+  <div class="swot-cell t">
+    <div class="label">THREATS · 外部威胁</div>
+    <h4>外部堵的风险</h4>
+    <ul>
+      <li><b>美 BIS 出口管制：</b>中国材料厂商进入美国国防 / 半导体 OEM 名单的政治门槛不断升高</li>
+      <li><b>客户单一：</b>江丰若战略调整（自建产线、引入多家供应商），CRNMC 营收瞬间承压</li>
+      <li><b>价格周期：</b>钽 / 钛海绵大起大落，2026 Q1 钽 +47%，远期供应商可能撤单</li>
+      <li><b>全球产能扩张：</b>Toho 沙特合资（ATTM）+ 美国 Niobec → 2028 起可能拉低溢价空间</li>
+      <li><b>技术替代：</b>铌电容在低电压段对钽电容的部分替代（–0.3% CAGR 拖累）</li>
+      <li><b>合规成本：</b>海外客户对中国供应链尽职调查成本持续上升</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== 09 优劣势系统评估 ===== -->
+<section id="sec9" class="section-anchor">
+<div class="container">
+<div class="section-num">// 09 · KEY STRENGTHS & GAPS DEEP-DIVE</div>
+<h2 class="section-title">8 个优势、6 个不足 · 系统化体检报告</h2>
+<p class="section-sub">把 SWOT 落到可对照的颗粒度：每一条优势匹配一个具体数据点 / 案例；每一条不足匹配一个具体改进动作 / 时间窗口。</p>
+
+<div class="grid grid-2">
+  <div class="card">
+    <div class="icon">✅</div>
+    <h3>① 技术工艺独有 · 国内 5N5 唯一</h3>
+    <p>自主研发"熔盐电解提纯 + 真空电子束熔炼"工艺，氧含量可压至 <100 ppm（部分产品 <3 ppm），半导体规格稳定达标。竞品在国内找不到第二家（部分对手只能做到 4N）。</p>
+  </div>
+  <div class="card">
+    <div class="icon">✅</div>
+    <h3>② 知识产权纵深 · 48 项授权</h3>
+    <p>从海绵钛制备 → 电解提纯 → 电子束熔炼 → 粉末球化 → 烧结成型，专利全链路闭环。竞争对手即使反向工程也难绕开。</p>
+  </div>
+  <div class="card">
+    <div class="icon">✅</div>
+    <h3>③ 产品矩阵完整 · 一站式</h3>
+    <p>钛、铜、镍、钴、铌、钽、钼 + TC4 钛合金 7 大品类全覆盖。客户可以从一家供应商买齐"半导体 / 航天 / 医疗 / 新能源"所需的全部高纯金属，深加工（铸件、锻件、粉末、板材）也支持。</p>
+  </div>
+  <div class="card">
+    <div class="icon">✅</div>
+    <h3>④ 隐性 Tier-1 通路 · 通过江丰</h3>
+    <p>江丰电子（实控人姚力军旗下联营企业）是台积电、中芯国际、SK 海力士、UMC 的核心溅射靶材供应商。CRNMC 通过江丰，事实上已"间接触达"全球 Top 5 晶圆厂。</p>
+  </div>
+  <div class="card">
+    <div class="icon">✅</div>
+    <h3>⑤ 五基地战略纵深 · 3,000 t 扩产</h3>
+    <p>宁波（总部）+ 遵义 + 哈尔滨 + 宝鸡 + 西昌，5 大基地分散布局，规避单点风险。规划 3 年内电解钛产能扩至 5,000 t/年——匹配 AI / 新能源的长期需求曲线。</p>
+  </div>
+  <div class="card">
+    <div class="icon">✅</div>
+    <h3>⑥ 检测能力 · 0.01 ppm 精读</h3>
+    <p>GDMS（辉光放电质谱）+ LECO（气体分析），检测下限 0.01 ppm，是业内极少数能量产线上做到该精度的厂商。能直接交付符合晶圆厂的批次证书（CoC）。</p>
+  </div>
+  <div class="card">
+    <div class="icon">✅</div>
+    <h3>⑦ 国家级小巨人 · 政策红利</h3>
+    <p>2022 年获评国家级"专精特新·小巨人"、4N8 镍获"国家级单项冠军"。享受税收减免、政府研发补贴、政府订单背书。</p>
+  </div>
+  <div class="card">
+    <div class="icon">✅</div>
+    <h3>⑧ 历史里程碑 · 中国最大钛锭</h3>
+    <p>2025-02-14 用电子束熔炼成功铸出"中国国内最大钛锭"——这一公关事件已经在钛产业链产生品牌效应。</p>
+  </div>
+</div>
+
+<div class="grid grid-2" style="margin-top:24px">
+  <div class="card">
+    <div class="icon" style="background:linear-gradient(135deg,#fb923c,#ef4444)">⚠️</div>
+    <h3>① 品牌出海 · 海外识别度低</h3>
+    <p>LinkedIn / Twitter / YouTube / 海外行业媒体基本没有内容沉淀；Made-in-China / Tradewheel / B2USA 上架商品但缺乏运营管理。客户在做"中国替代"清单时，CRNMC 经常被漏掉。</p>
+    <p style="margin-top:8px;color:var(--gold)"><b>改进窗口：</b>6–12 个月系统化补齐数字营销基建与海外社媒矩阵。</p>
+  </div>
+  <div class="card">
+    <div class="icon" style="background:linear-gradient(135deg,#fb923c,#ef4444)">⚠️</div>
+    <h3>② 晶圆厂直供认证 · 尚未突破</h3>
+    <p>5N5+ 电子级钛靶在 TSMC / Samsung / Intel 的合格供应商名单里，CRNMC 目前是"通过江丰的 Tier 2"，未拿到直供 Tier 1 资格。认证周期通常 18–24 个月。</p>
+    <p style="margin-top:8px;color:var(--gold)"><b>改进窗口：</b>借力 BIS 政策"国产化率"窗口，用 12–18 个月完成至少 1–2 家 Top 5 晶圆厂直供认证。</p>
+  </div>
+  <div class="card">
+    <div class="icon" style="background:linear-gradient(135deg,#fb923c,#ef4444)">⚠️</div>
+    <h3>③ 客户集中度 · 江丰依赖</h3>
+    <p>江丰电子作为联营 + 关联客户，是主要销售渠道。如果江丰自建产线（同创普润已研发高纯钽、高纯铝、铜合金）或引入多家上游，CRNMC 营收瞬间承压。</p>
+    <p style="margin-top:8px;color:var(--gold)"><b>改进窗口：</b>3 年内将江丰收入占比降至 40% 以下。</p>
+  </div>
+  <div class="card">
+    <div class="icon" style="background:linear-gradient(135deg,#fb923c,#ef4444)">⚠️</div>
+    <h3>④ 海外仓与售后网络 · 缺位</h3>
+    <p>现代 OEM（特别是半导体）要求 JIT 48 小时交付 + 现场技术支持。CRNMC 在美 / 欧 / 韩 / 日均无海外仓或本地服务站点，交期问题在销售洽谈阶段就会被砍掉。</p>
+    <p style="margin-top:8px;color:var(--gold)"><b>改进窗口：</b>18 个月内在韩（平泽/利川）+ 美（波特兰/休斯敦）+ 德（萨克森）至少 3 个半导体集群设仓。</p>
+  </div>
+  <div class="card">
+    <div class="icon" style="background:linear-gradient(135deg,#fb923c,#ef4444)">⚠️</div>
+    <h3>⑤ 合规与冲突矿产 · 不透明</h3>
+    <p>Dodd-Frank Section 1502、EU CAHRA、RMI / CMRT 模板公开渠道未披露。海外客户（特别是美国 OEM）一票否决。对手的 Toho / OSA 早已合规 10+ 年。</p>
+    <p style="margin-top:8px;color:var(--gold)"><b>改进窗口：</b>6 个月内公布 RMI RMAP 审计结果、CMRT 模板。</p>
+  </div>
+  <div class="card">
+    <div class="icon" style="background:linear-gradient(135deg,#fb923c,#ef4444)">⚠️</div>
+    <h3>⑥ 价格波动传导 · 风险敞口</h3>
+    <p>钛海绵（CLF 报 2026）、钽精矿（卢旺达+刚果政局敏感）、铜 LME 全部大起大落。CRNMC 没有公开 LTA（长期协议）+ 期权组合工具，应对下游的"价格保护"诉求显得被动。</p>
+    <p style="margin-top:8px;color:var(--gold)"><b>改进窗口：</b>3–6 个月开发 LTA/spot/期权 三段式定价工具。</p>
+  </div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== 10 战略研判 ===== -->
+<section id="sec10" class="section-anchor">
+<div class="container">
+<div class="section-num">// 10 · STRATEGIC OUTLOOK</div>
+<h2 class="section-title">战略研判 · 12 / 36 / 60 个月路线图</h2>
+<p class="section-sub">从行业拐点、CRNMC 的卡位、竞争演进、地缘变量四个维度，给出未来 5 年的演化判断。</p>
+
+<div class="chart-block">
+  <div class="head">
+    <div>
+      <h4>CRNMC vs 全球 Top 3 的关键能力雷达 · 5 分制</h4>
+      <div class="source">评分基于公开披露信息 + 行业调研综合估算</div>
+    </div>
+  </div>
+  <div class="canvas-wrap tall"><canvas id="chart-radar"></canvas></div>
+  <div class="insight">
+    <b>差距分析：</b>CRNMC 在 <b>产品宽度、纯度工艺、产能扩张</b> 三项已接近或超过 Tier 1；但 <b>客户认证、品牌信任、海外渠道、合规体系</b> 仍存在 2–3 分的明显短板。这正是国产替代运动中最有价值的"价值洼地"——谁能在 18–24 个月内补齐这四项，谁就能从 Tier 2 跃迁至 Tier 1 候选。
+  </div>
+</div>
+
+<div class="grid grid-3" style="margin-top:32px">
+  <div class="card">
+    <div class="icon">📅</div>
+    <div class="num">12<span style="font-size:14px;color:var(--text3)"> 个月</span></div>
+    <div class="num-label">短期动作（0–12 个月）</div>
+    <p>① 完成至少 1 家 Top 5 晶圆厂直供认证谈判；② 公布 RMI / Dodd-Frank 合规审计报告；③ 启动海外数字营销基建（SEO+LinkedIn+行业媒体）；④ 完成 1 处海外仓选址试点（韩/美）。</p>
+  </div>
+  <div class="card">
+    <div class="icon">📅</div>
+    <div class="num">36<span style="font-size:14px;color:var(--text3)"> 个月</span></div>
+    <div class="num-label">中期路径（12–36 个月）</div>
+    <p>① 江丰收入占比降至 40% 以下；② 电解钛产能扩至 5,000 t/年；③ 海外仓覆盖 3 大半导体集群；④ 至少完成 1 次战略融资或并购（用于海外建厂或渠道收购）；⑤ 进入 2 个新金属细分（如铟、钒）。</p>
+  </div>
+  <div class="card">
+    <div class="icon">📅</div>
+    <div class="num">60<span style="font-size:14px;color:var(--text3)"> 个月</span></div>
+    <div class="num-label">长期愿景（36–60 个月）</div>
+    <p>① 海外营收占比 ≥ 50%；② 在欧美/东南亚至少 1 处"非中国"品牌；③ 与 Honeywell / Mitsui 同列为 Tier 1 OEM 候选；④ 进入"全球溅射靶材上游头部 5 强"。</p>
+  </div>
+</div>
+
+<div class="quote-block" style="margin-top:32px">
+  <div class="q">"在 2026–2030 这个 5 年里，超高纯金属行业最大的'Alpha'不是某一家公司的产品创新，而是 <b style="color:var(--gold)">全球供应链从'日美双寡头'到'中日美三极'的格局重组</b>。CRNMC 恰好踩在这个重组的杠杆点上——而其能否真正成为 Tier 1，取决于补齐'客户认证 + 海外渠道 + 合规信用'这三块拼图的速度。"</div>
+  <div class="by">— 本报告综合研判 / 2026.07</div>
+</div>
+
+</div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta">
+<h2>想获取更深入洞察与方案<br>请联系<span class="hl">我们</span>？</h2>
+<p>本报告所引用的数据、市场判断与战略洞察，已开源整理为可复用版。如需对外展示或嵌入企业官网，请使用页面顶部导航的"全屏分享"链接，或保存为 PDF。</p>
+<div class="cta-pill">
+  <span>NEXT</span>
+  <span class="next">·</span>
+  <span>出海合作探讨</span>
+  <span class="sep">/</span>
+  <span>杨兴凤 </span>
+  <span class="sep">/</span>
+</div>
+</section>
+
+<!-- ===== DISCLAIMER ===== -->
+<div class="disclaim">
+数据来源：CRNMC 官网（crnmc.com / crnmc.cn）、上海有色网（SMM）、亿览网、Made-in-China、Tradewheel、B2USA、Mordor Intelligence、Intel Market Research、Future Market Insights、Business Research Insights、Deep Insights Research、CRS R48642 等公开渠道。本报告为信息汇总与第三方分析，不构成投资建议。
+</div>
+
+<footer>
+© 2026 · CRNMC INDUSTRY DEEP-DIVE REPORT · CRAFTED BY AI · v1.0
+</footer>
+
+<!-- ===== CHARTS ===== -->
+<script>
+Chart.register(ChartDataLabels);
+Chart.defaults.color = '#94a3b8';
+Chart.defaults.borderColor = '#252d45';
+Chart.defaults.font.family = "-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif";
+
+// ===== 01 纯度对照 =====
+new Chart(document.getElementById('chart-purity'), {
+  type: 'bar',
+  data: {
+    labels: ['4N', '5N', '5N5', '6N', '7N'],
+    datasets: [{
+      label: '主含量纯度 (%)',
+      data: [99.99, 99.999, 99.9995, 99.9999, 99.99999],
+      backgroundColor: ['#22d3ee', '#f5b041', '#fb923c', '#a78bfa', '#ef4444'],
+      borderRadius: 8,
+    }, {
+      label: '允许杂质 (ppm)',
+      data: [100, 10, 5, 1, 0.1],
+      backgroundColor: 'rgba(255,255,255,0.04)',
+      borderColor: '#252d45',
+      borderWidth: 1,
+      type: 'line',
+      yAxisID: 'y2',
+      tension: 0.4,
+      pointBackgroundColor: '#f5b041',
+      pointRadius: 5,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'top' },
+      datalabels: { display: false },
+      tooltip: { callbacks: { label: c => c.dataset.label + ': ' + c.parsed.y + (c.dataset.label.includes('允许') ? ' ppm' : '%') } }
+    },
+    scales: {
+      y: { grid: { color: '#252d45' }, ticks: { callback: v => v + '%' } },
+      y2: { grid: { display: false }, position: 'right', ticks: { callback: v => v + ' ppm' } }
+    }
+  }
+});
+
+// ===== 02 应用覆盖 =====
+new Chart(document.getElementById('chart-app'), {
+  type: 'bar',
+  data: {
+    labels: ['半导体钛靶\n(3nm–10nm)', 'OLED/LCD\n显示靶', '光伏 HJT\n导电膜', '航空航天\nTC4/TiAl', '医疗\n关节涂层', '超导/Nb-Ti', '动力电池\n铜/镍钴'],
+    datasets: [
+      { label: '纯度需求 (N)', data: [5.5, 4.5, 3.5, 4, 4.5, 5, 5], backgroundColor: 'rgba(245,176,65,.6)', borderRadius: 6 },
+      { label: 'CRNMC 已实现 (N)', data: [5.5, 4, 3, 4, 4, 5, 5], backgroundColor: 'rgba(34,211,238,.5)', borderRadius: 6 },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' }, datalabels: { anchor: 'end', align: 'top', color: '#fff', font: { weight: 'bold', size: 13 }, formatter: v => v + 'N' } },
+    scales: { y: { grid: { color: '#252d45' }, max: 7, ticks: { callback: v => v + 'N' } } }
+  }
+});
+
+// ===== 03 增长率 =====
+new Chart(document.getElementById('chart-growth'), {
+  type: 'line',
+  data: {
+    labels: ['2025', '2026', '2027', '2028', '2029', '2030'],
+    datasets: [
+      { label: '钛靶 (CAGR 8.5-10.2%)', data: [0.5, 0.6, 0.7, 0.8, 0.95, 1.1], borderColor: '#f5b041', backgroundColor: 'rgba(245,176,65,.15)', tension: 0.4, fill: true },
+      { label: '钽 (CAGR 7.2%)', data: [4.07, 4.36, 4.7, 5.1, 5.5, 6.0], borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,.12)', tension: 0.4, fill: true },
+      { label: '铌 (CAGR 3.6%)', data: [1.6, 1.67, 1.74, 1.81, 1.88, 1.96], borderColor: '#22d3ee', backgroundColor: 'rgba(34,211,238,.12)', tension: 0.4, fill: true },
+      { label: '高纯钛 5N+ (CAGR 7.5%)', data: [3.8, 4.5, 5.0, 5.6, 6.3, 7.2], borderColor: '#a78bfa', backgroundColor: 'rgba(167,139,250,.12)', tension: 0.4, fill: true },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'top' },
+      datalabels: { display: false }
+    },
+    scales: {
+      y: { grid: { color: '#252d45' }, title: { display: true, text: '市场规模 (USD Billions)', color: '#94a3b8' } }
+    }
+  }
+});
+
+// ===== 06 市场份额 =====
+new Chart(document.getElementById('chart-market-share'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Toho Titanium (日本)', 'OSAKA Titanium (日本)', 'Honeywell (美国)', 'CRNMC (中国)', '其他'],
+    datasets: [{
+      data: [38.5, 33.0, 20.8, 3.5, 4.2],
+      backgroundColor: ['#22d3ee', '#fb923c', '#a78bfa', '#ef4444', '#64748b'],
+      borderColor: '#0a0e1a',
+      borderWidth: 4,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'right', labels: { padding: 16, font: { size: 13 } } },
+      datalabels: {
+        color: '#fff', font: { weight: 'bold', size: 14 },
+        formatter: v => v + '%'
+      }
+    },
+    cutout: '55%'
+  }
+});
+
+// ===== 10 雷达图 =====
+new Chart(document.getElementById('chart-radar'), {
+  type: 'radar',
+  data: {
+    labels: ['纯度工艺', '产品宽度', '产能扩张', '成本优势', '客户认证', '品牌信任', '海外渠道', '合规体系'],
+    datasets: [
+      { label: 'CRNMC (中国)', data: [5, 5, 5, 5, 2, 2, 2, 2], borderColor: '#ef4444', backgroundColor: 'rgba(239,68,68,.25)', pointBackgroundColor: '#ef4444', borderWidth: 2 },
+      { label: 'Toho Titanium (日本)', data: [4, 3, 4, 3, 5, 5, 4, 5], borderColor: '#22d3ee', backgroundColor: 'rgba(34,211,238,.18)', pointBackgroundColor: '#22d3ee', borderWidth: 2 },
+      { label: 'Honeywell (美国)', data: [5, 4, 4, 3, 5, 5, 5, 5], borderColor: '#a78bfa', backgroundColor: 'rgba(167,139,250,.15)', pointBackgroundColor: '#a78bfa', borderWidth: 2 },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' }, datalabels: { display: false } },
+    scales: {
+      r: {
+        beginAtZero: true, max: 5,
+        ticks: { stepSize: 1, color: '#64748b', backdropColor: 'transparent' },
+        pointLabels: { color: '#e5e7eb', font: { size: 13, weight: '600' } },
+        grid: { color: '#252d45' },
+        angleLines: { color: '#252d45' }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

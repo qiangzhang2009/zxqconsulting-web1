@@ -1,0 +1,36 @@
+{
+  "reportIds": [
+    "bencao-cultural-revival-2026",
+    "japan-kampo-hegemony-2026",
+    "japan-dtc-site-handbook-2026",
+    "china-global-handbook-2026",
+    "japan-2026",
+    "food-medicine-homology-2026",
+    "loreal-nantong-delay-2026",
+    "usa-consumer-2026",
+    "tcm-global-2026"
+  ],
+  "requiredChunks": [
+    {
+      "name": "vendor-react",
+      "glob": "dist/assets/vendor-react-*.js",
+      "mustContainAny": ["react", "jsx"]
+    },
+    {
+      "name": "vendor-gsap",
+      "glob": "dist/assets/vendor-gsap-*.js",
+      "mustContainAny": ["gsap", "ScrollTrigger"]
+    },
+    {
+      "name": "index-bundle",
+      "glob": "dist/assets/index-*.js",
+      "mustContainAny": ["react", "jsx"]
+    }
+  ],
+  "deployTargets": {
+    "mustExist": [
+      "dist/index.html",
+      "dist/assets"
+    ]
+  }
+}

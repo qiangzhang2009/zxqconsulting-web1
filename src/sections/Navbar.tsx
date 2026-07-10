@@ -31,6 +31,7 @@ const Navbar = () => {
     { name: t('nav2.useCases', 'Use Cases'), to: '/markets', icon: BriefcaseBusiness },
     { name: t('nav2.caseProof', 'Case Proof'), to: '/cases', icon: FileSearch },
     { name: t('nav2.expertUpgrade', 'Expert Upgrade'), to: '/expert', icon: ArrowRight },
+    { name: t('nav2.research', 'Research'), to: '/research', icon: FileSearch },
   ];
 
   const affiliatedPlatforms = [

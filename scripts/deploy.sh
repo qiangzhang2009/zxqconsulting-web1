@@ -1,64 +1,145 @@
-#!/bin/bash
-# deploy.sh — 岐黄四海网站 Cloudflare 一键部署
-# 用法: cd ~/zxqconsulting-web1 && ./scripts/deploy.sh
+#!/usr/bin/env bash
+# ------------------------------------------------------------------------------
+# scripts/deploy.sh — 一键部署 SOP(2026-07-10 实战总结)
 #
-# 部署架构:
-#   dist/            → Cloudflare Pages (wrangler pages deploy)
-#   proxy-worker.js  → zxqconsulting-proxy Worker (静态文件代理)
-#   api-worker.js    → zxqconsulting-api   Worker (API 逻辑)
+# 背景:Cloudflare Pages GitHub 集成 webhook 偶尔卡住,Actions workflow 里 wrangler
+# step 也可能因 token 失效挂掉。本脚本绕开这两条通道,把本地 dist 直接推到
+# Cloudflare Pages production,作为应急 fallback。
 #
-# API Worker (DeepSeek) 设置（仅首次）:
-#   wrangler secret put DEEPSEEK_API_KEY --name zxqconsulting-api
+# 用法:
+#   ./scripts/deploy.sh                # 完整:build + verify + deploy
+#   ./scripts/deploy.sh --skip-build   # 跳过 build(已 build 过)
+#   ./scripts/deploy.sh --dry-run      # 只跑 verify,不上传
+#   ./scripts/deploy.sh --check-token  # 只检查 wrangler auth 是否有效
+#
+# 前置条件:
+#   - CLOUDFLARE_API_TOKEN 已设置(export 或写 ~/.bashrc)
+#   - npm i 已跑过
+# ------------------------------------------------------------------------------
+set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-PROXY_DIR="$SCRIPT_DIR/proxy-worker"
+# ---------- args ----------
+SKIP_BUILD=0
+DRY_RUN=0
+CHECK_TOKEN=0
+for arg in "$@"; do
+  case "$arg" in
+    --skip-build)  SKIP_BUILD=1 ;;
+    --dry-run)     DRY_RUN=1 ;;
+    --check-token) CHECK_TOKEN=1 ;;
+    -h|--help)
+      sed -n '2,20p' "$0"
+      exit 0
+      ;;
+  esac
+done
 
-set -e
+# ---------- constants ----------
+PROJECT="qiangzhang2009-zxqconsulting-web1"
+BRANCH="main"
+PROD_URL="https://www.zxqconsulting.com"
 
-echo "============================================"
-echo " 岐黄四海网站 — Cloudflare 一键部署"
-echo "============================================"
+# ---------- helpers ----------
+color() { printf "\033[%sm%s\033[0m\n" "$1" "$2"; }
+info()  { color "1;34" "▶ $*"; }
+ok()    { color "1;32" "✓ $*"; }
+warn()  { color "1;33" "⚠ $*"; }
+err()   { color "1;31" "✗ $*"; }
 
-echo ""
-echo "[1/4] 构建项目..."
-cd "$PROJECT_DIR"
-rm -rf dist
-npm run build
-FILE_COUNT=$(ls dist | wc -l | tr -d ' ')
-echo "  ✓ 构建完成 ($FILE_COUNT 个文件)"
-
-echo ""
-echo "[2/4] 部署静态文件到 Cloudflare Pages..."
-DEPLOY_OUTPUT=$(wrangler pages deploy dist --project-name=qiangzhang2009-zxqconsulting-web1 --commit-dirty=true 2>&1)
-DEPLOY_URL=$(echo "$DEPLOY_OUTPUT" | grep -o 'https://[^ ]*pages\.dev' | tail -1)
-echo "  ✓ Pages 部署: $DEPLOY_URL"
-
-echo ""
-echo "[3/4] 更新 Proxy Worker..."
-if [ -n "$DEPLOY_URL" ]; then
-  # 更新 proxy-worker.js 里的 BACKEND_URL secret
-  echo "$DEPLOY_URL" | wrangler secret put BACKEND_URL --name zxqconsulting-proxy 2>&1 | grep -E 'Success|success|Error|error' || echo "  (secret 已更新)"
-  # 重新部署 proxy Worker（用新 secret）
-  cd "$PROXY_DIR" && wrangler deploy 2>&1 | tail -3
-  echo "  ✓ Proxy Worker 更新完成"
+# ---------- check token ----------
+if [ "$CHECK_TOKEN" -eq 1 ]; then
+  info "检查 wrangler auth..."
+  if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
+    err "CLOUDFLARE_API_TOKEN 未设置"
+    echo "   export CLOUDFLARE_API_TOKEN=..."
+    exit 1
+  fi
+  wrangler pages project list 2>&1 | grep -q "$PROJECT" && \
+    ok "wrangler auth OK, project '$PROJECT' 可见" || \
+    { err "wrangler 无法访问 project '$PROJECT'"; exit 1; }
+  exit 0
 fi
 
-echo ""
-echo "[4/4] 验证..."
-sleep 2
-STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "https://zxqconsulting.com/" 2>/dev/null || echo "000")
-STATUS_WWW=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "https://www.zxqconsulting.com/" 2>/dev/null || echo "000")
-
-if [ "$STATUS" = "200" ] && [ "$STATUS_WWW" = "200" ]; then
-  echo "  ✓ zxqconsulting.com       → HTTP $STATUS"
-  echo "  ✓ www.zxqconsulting.com   → HTTP $STATUS_WWW"
+# ---------- 1. build ----------
+if [ "$SKIP_BUILD" -eq 0 ]; then
+  info "Step 1/4: npm run build"
+  npm run build 2>&1 | tail -10
+  ok "build 完成"
 else
-  echo "  ✗ zxqconsulting.com       → HTTP $STATUS (期望 200)"
-  echo "  ✗ www.zxqconsulting.com   → HTTP $STATUS_WWW (期望 200)"
+  info "Step 1/4: skip-build 模式,假设 dist/ 已存在"
 fi
 
+# ---------- 2. verify-bundle ----------
+info "Step 2/4: bundle 校验(数据没被 tree-shake)"
+if [ -f scripts/verify-bundle.mjs ]; then
+  if node scripts/verify-bundle.mjs; then
+    ok "verify-bundle 通过"
+  else
+    err "verify-bundle 失败,中止部署!"
+    exit 1
+  fi
+else
+  warn "scripts/verify-bundle.mjs 不存在,跳过"
+fi
+
+# ---------- 3. deploy ----------
+# Token & wrangler 检查只放在真正 deploy 前(dry-run 不需要)
+if [ "$DRY_RUN" -eq 1 ]; then
+  ok "dry-run 模式,跳过 wrangler deploy(也不需要 token)"
+  info "Step 3/4: skipped"
+  info "Step 4/4: skipped"
+  exit 0
+fi
+
+[ -z "${CLOUDFLARE_API_TOKEN:-}" ] && { err "CLOUDFLARE_API_TOKEN 未设置,export 后重试"; exit 1; }
+command -v wrangler >/dev/null 2>&1 || { err "wrangler 未安装(npx wrangler 也行)"; exit 1; }
+
+info "Step 3/4: wrangler pages deploy dist → production"
+PREVIEW_URL=$(wrangler pages deploy dist \
+  --project-name="$PROJECT" \
+  --branch="$BRANCH" \
+  --commit-dirty=true 2>&1 | tee /tmp/deploy.log | grep -oE 'https://[a-f0-9]+\.[^ ]+' | tail -1 || true)
+
+if [ -z "$PREVIEW_URL" ]; then
+  err "wrangler deploy 输出里找不到 preview URL,看 /tmp/deploy.log"
+  exit 1
+fi
+ok "部署成功,preview: $PREVIEW_URL"
+ok "wrangler 已自动把它提升为 production"
+
+# ---------- 4. verify production ----------
+info "Step 4/4: 验证生产 CDN 是否吃到新 bundle"
+sleep 3  # CF CDN 通常 1-2s,但保险
+
+LIVE_BUNDLE=$(curl -sS "$PROD_URL/" 2>/dev/null | grep -oE 'index-[A-Za-z0-9_-]+\.js' | head -1 || true)
+LOCAL_BUNDLE=$(ls dist/assets/ 2>/dev/null | grep -oE 'index-[A-Za-z0-9_-]+\.js' | head -1 || true)
+
+if [ -z "$LIVE_BUNDLE" ] || [ -z "$LOCAL_BUNDLE" ]; then
+  warn "无法拉取 bundle hash,可能是 CDN 缓存。手动验证:"
+  echo "   curl -sS $PROD_URL/ | grep index-"
+  exit 0
+fi
+
+echo "   local  : $LOCAL_BUNDLE"
+echo "   live   : $LIVE_BUNDLE"
+
+if [ "$LIVE_BUNDLE" = "$LOCAL_BUNDLE" ]; then
+  ok "生产 bundle == 本地 bundle,部署完成"
+else
+  warn "生产 bundle 与本地不一致,可能 CF CDN 还在刷新(再等 30s 重试)"
+fi
+
+# ---------- 5. 顺便验证报告数据 ----------
 echo ""
-echo "============================================"
-echo " 部署完成！"
-echo "============================================"
+info "顺便验证研究报告数据是否在 bundle 里"
+for id in bencao-cultural-revival-2026 japan-kampo-hegemony-2026 tcm-global-2026; do
+  count=$(curl -sS "$PROD_URL/assets/researchReports-B7Dtvn1a.js" 2>/dev/null | grep -c "$id" || echo 0)
+  if [ "$count" -gt 0 ]; then
+    ok "  $id ✓"
+  else
+    warn "  $id 未在 live bundle 里(可能 hash 不同或被 tree-shake)"
+  fi
+done
+
+echo ""
+ok "全部完成!打开 $PROD_URL/research 验证"

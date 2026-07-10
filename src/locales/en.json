@@ -574,7 +574,8 @@
     "useCases": "Use Cases",
     "caseProof": "Case Proof",
     "expertUpgrade": "Expert Evaluation",
-    "selectLang": "Choose language"
+    "selectLang": "Choose language",
+    "research": "Research"
   },
   "expertReview": {
     "title": "Let the platform complete the first judgment; experts step in for complex projects that need deeper evaluation.",

@@ -14,6 +14,10 @@ const DiagnosesPage = lazy(() => import('./pages/DiagnosesPage').then(m => ({ de
 const VisitorsPage = lazy(() => import('./pages/VisitorsPage').then(m => ({ default: m.VisitorsPage })));
 const CommentsPage = lazy(() => import('./pages/CommentsPage').then(m => ({ default: m.CommentsPage })));
 const ResearchPage = lazy(() => import('./pages/ResearchPage').then(m => ({ default: m.ResearchPage })));
+const ReportAnalyticsPage = lazy(() => import('./pages/ReportAnalyticsPage').then(m => ({ default: m.ReportAnalyticsPage })));
+const ReportCommentsPage = lazy(() => import('./pages/ReportCommentsPage').then(m => ({ default: m.ReportCommentsPage })));
+const TasksPage = lazy(() => import('./pages/TasksPage').then(m => ({ default: m.TasksPage })));
+const AuditLogPage = lazy(() => import('./pages/AuditLogPage').then(m => ({ default: m.AuditLogPage })));
 const SettingsPage = lazy(() => import('./pages/SettingsPage').then(m => ({ default: m.SettingsPage })));
 
 import './styles/admin.css';
@@ -63,6 +67,10 @@ function AdminRoutes() {
         <Route path="visitors" element={<VisitorsPage />} />
         <Route path="comments" element={<CommentsPage />} />
         <Route path="research" element={<ResearchPage />} />
+        <Route path="report-analytics" element={<ReportAnalyticsPage />} />
+        <Route path="report-comments" element={<ReportCommentsPage />} />
+        <Route path="tasks" element={<TasksPage />} />
+        <Route path="audit-log" element={<AuditLogPage />} />
         <Route path="settings" element={<SettingsPage />} />
       </Route>
     </Routes>

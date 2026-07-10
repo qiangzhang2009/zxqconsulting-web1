@@ -7,15 +7,15 @@ import CasesPage from './pages/CasesPage';
 import ExpertPage from './pages/ExpertPage';
 import MethodPage from './pages/MethodPage';
 import MarketsPage from './pages/MarketsPage';
-import AdminPage from './pages/AdminPage';
+import AdminApp from './apps/admin/AdminApp';
 
 const ResearchHub = lazy(() => import('./pages/ResearchHub'));
 const ResearchReport = lazy(() => import('./pages/ResearchReport'));
 
 export const router = createBrowserRouter([
   {
-    path: '/admin',
-    element: <AdminPage />,
+    path: '/admin/*',
+    element: <AdminApp />,
   },
   {
     path: '/',

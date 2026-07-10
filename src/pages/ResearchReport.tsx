@@ -1,12 +1,17 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, ChevronUp, Loader2, RefreshCw, ExternalLink, Download } from 'lucide-react';
+import {
+  ArrowLeft, ChevronUp, Loader2, RefreshCw, ExternalLink, Download,
+  ThumbsUp, MessageCircle, X, Send,
+} from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { tracking } from '../lib/tracking';
 import { RESEARCH_REPORTS } from '../data/researchReports';
+import { reportInteractions } from '../lib/reportInteractions';
 
 export default function ResearchReport() {
-  const { id = '' } = useParams<{ id: string }>();
+  const params = useParams<{ reportId?: string; id?: string }>();
+  const id = params.reportId ?? params.id ?? '';
   const { t } = useTranslation();
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const [loading, setLoading] = useState(true);
@@ -14,6 +19,15 @@ export default function ResearchReport() {
   const [iframeError, setIframeError] = useState(false);
   const [srcDoc, setSrcDoc] = useState<string>('');
   const [nonce, setNonce] = useState(0);
+  const [likeCount, setLikeCount] = useState(0);
+  const [liked, setLiked] = useState(false);
+  const [commentsOpen, setCommentsOpen] = useState(false);
+  const [comments, setComments] = useState<Awaited<ReturnType<typeof reportInteractions.fetchComments>>>([]);
+  const [commentsCount, setCommentsCount] = useState(0);
+  const [commentNickname, setCommentNickname] = useState('');
+  const [commentContent, setCommentContent] = useState('');
+  const [commentSending, setCommentSending] = useState(false);
+  const [commentError, setCommentError] = useState<string | null>(null);
   const report = useMemo(() => RESEARCH_REPORTS.find((r) => r.id === id), [id]);
 
   // 切到 iframe 模式时锁定 body 滚动，归还时恢复
@@ -24,7 +38,24 @@ export default function ResearchReport() {
 
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+
+    // 启动阅读时长追踪
+    const tracker = reportInteractions.createReportTracker(report.id);
+
+    // 拉取当前点赞数
+    reportInteractions.fetchStats(report.id).then((stats) => {
+      if (!stats) return;
+      setLikeCount(stats.likes || 0);
+    });
+
+    // 拉取留言总数（用于顶栏徽标）
+    fetch(`/api/report-comments?report_id=${encodeURIComponent(report.id)}&limit=1`, { cache: 'no-cache' })
+      .then((r) => r.ok ? r.json() : { total: 0 })
+      .then((d: { total?: number }) => setCommentsCount(d.total || 0))
+      .catch(() => undefined);
+
     return () => {
+      tracker.destroy();
       document.body.style.overflow = prevOverflow;
     };
   }, [id, report]);
@@ -114,6 +145,84 @@ export default function ResearchReport() {
     tracking.click(`research_refresh_${id}`, 'research_report');
   };
 
+  const handleLike = async () => {
+    if (!report) return;
+    tracking.click(`research_like_${id}`, 'research_report', { liked: !liked });
+    const res = await fetch('/api/report-interactions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        report_id: report.id,
+        event_type: liked ? 'unlike' : 'like',
+        session_id: '',
+        visitor_id: '',
+      }),
+    });
+    if (res.ok) {
+      const data = await res.json() as { likes: number; liked: boolean };
+      setLiked(data.liked);
+      setLikeCount(data.likes);
+    } else {
+      // 离线/失败时仍给视觉反馈
+      setLiked((v) => !v);
+      setLikeCount((c) => c + (liked ? -1 : 1));
+    }
+  };
+
+  const loadComments = async () => {
+    if (!report) return;
+    const list = await reportInteractions.fetchComments(report.id, 100);
+    setComments(list);
+  };
+
+  const openComments = () => {
+    tracking.click(`research_comments_open_${id}`, 'research_report');
+    setCommentsOpen(true);
+    loadComments();
+  };
+
+  const submitComment = async () => {
+    if (!report) return;
+    const text = commentContent.trim();
+    if (!text) {
+      setCommentError('留言内容不能为空');
+      return;
+    }
+    setCommentSending(true);
+    setCommentError(null);
+    const nickname = commentNickname.trim().slice(0, 24) || '匿名读者';
+    const res = await reportInteractions.postComment(report.id, nickname, text);
+    setCommentSending(false);
+    if (!res.ok) {
+      setCommentError(res.error || '提交失败，请稍后再试');
+      return;
+    }
+    setCommentContent('');
+    setCommentNickname('');
+    setCommentsCount((c) => c + 1);
+    setComments((prev) => [res.comment, ...prev]);
+    tracking.click(`research_comment_submit_${id}`, 'research_report');
+  };
+
+  const formatRelative = (iso: string) => {
+    const diff = Date.now() - new Date(iso).getTime();
+    const min = Math.floor(diff / 60000);
+    if (min < 1) return '刚刚';
+    if (min < 60) return `${min} 分钟前`;
+    const hr = Math.floor(min / 60);
+    if (hr < 24) return `${hr} 小时前`;
+    const day = Math.floor(hr / 24);
+    if (day < 30) return `${day} 天前`;
+    return new Date(iso).toLocaleDateString('zh-CN');
+  };
+
+  const nicknameColor = (name: string) => {
+    const palette = ['bg-emerald-400/20 text-emerald-300', 'bg-sky-400/20 text-sky-300', 'bg-rose-400/20 text-rose-300', 'bg-amber-400/20 text-amber-300', 'bg-violet-400/20 text-violet-300'];
+    let h = 0;
+    for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
+    return palette[h % palette.length];
+  };
+
   return (
     // 覆盖整个屏幕（z-[60] > navbar 的 z-50），避免 SPA navbar 遮挡阅读器内容
     <main className="fixed inset-0 z-[60] flex flex-col overflow-hidden bg-[#0a0e14] text-slate-100">
@@ -139,6 +248,30 @@ export default function ResearchReport() {
           </div>
 
           <div className="flex shrink-0 items-center gap-2">
+            {/* Like button */}
+            <button
+              onClick={handleLike}
+              className={`flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs transition ${
+                liked
+                  ? 'border-emerald-400/60 bg-emerald-400/15 text-emerald-300'
+                  : 'border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/[0.08] hover:text-white'
+              }`}
+              title={liked ? '已点赞' : '点赞'}
+            >
+              <ThumbsUp className={`h-3.5 w-3.5 ${liked ? 'fill-emerald-400' : ''}`} />
+              <span className="tabular-nums">{likeCount}</span>
+            </button>
+
+            <button
+              onClick={openComments}
+              className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-slate-300 transition hover:bg-white/[0.08] hover:text-white"
+              title="留言区"
+            >
+              <MessageCircle className="h-3.5 w-3.5" />
+              <span className="tabular-nums">{commentsCount}</span>
+            </button>
+
+            <div className="mx-1 hidden h-5 w-px bg-white/10 sm:block" />
             <a
               href={sourceUrl}
               target="_blank"
@@ -257,6 +390,107 @@ export default function ResearchReport() {
           >
             <ChevronUp className="h-5 w-5" />
           </button>
+        )}
+
+        {/* Comments panel — WeChat-style bottom sheet */}
+        {commentsOpen && (
+          <>
+            <div
+              className="fixed inset-0 z-[70] bg-black/55 backdrop-blur-sm"
+              onClick={() => setCommentsOpen(false)}
+            />
+            <div className="fixed inset-x-0 bottom-0 z-[71] flex h-[78vh] max-h-[680px] flex-col overflow-hidden rounded-t-2xl border-t border-white/10 bg-[#0a1320] text-slate-100 shadow-2xl">
+              <div className="flex shrink-0 items-center justify-between border-b border-white/[0.07] bg-[#07111a]/90 px-4 py-3 backdrop-blur">
+                <div className="flex items-center gap-2">
+                  <MessageCircle className="h-4 w-4 text-emerald-300" />
+                  <h2 className="text-sm font-semibold text-white">读者留言</h2>
+                  <span className="rounded-full bg-emerald-400/15 px-2 py-0.5 text-[10px] font-medium text-emerald-300">
+                    {commentsCount}
+                  </span>
+                </div>
+                <button
+                  onClick={() => setCommentsOpen(false)}
+                  className="rounded-lg p-1.5 text-slate-400 transition hover:bg-white/[0.06] hover:text-white"
+                  title="关闭"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+
+              {/* Composer — WeChat style */}
+              <div className="shrink-0 border-b border-white/[0.07] bg-[#0d1a2c]/60 p-4">
+                <div className="flex items-center gap-2">
+                  <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold ${nicknameColor(commentNickname.trim() || '我')}`}>
+                    {(commentNickname.trim() || '我').slice(0, 1).toUpperCase()}
+                  </div>
+                  <input
+                    value={commentNickname}
+                    onChange={(e) => setCommentNickname(e.target.value.slice(0, 24))}
+                    placeholder="昵称（选填，默认匿名读者）"
+                    className="flex-1 rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-emerald-400/60 focus:outline-none"
+                    maxLength={24}
+                  />
+                </div>
+                <textarea
+                  value={commentContent}
+                  onChange={(e) => setCommentContent(e.target.value.slice(0, 500))}
+                  placeholder="留下你的看法、问题或建议…（最多 500 字）"
+                  rows={3}
+                  className="mt-2 w-full resize-none rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-white placeholder:text-slate-500 focus:border-emerald-400/60 focus:outline-none"
+                />
+                {commentError && (
+                  <div className="mt-2 text-[11px] text-rose-300">{commentError}</div>
+                )}
+                <div className="mt-2 flex items-center justify-between">
+                  <span className="text-[10px] text-slate-500">
+                    {commentContent.length} / 500
+                  </span>
+                  <button
+                    onClick={submitComment}
+                    disabled={commentSending || !commentContent.trim()}
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-400 px-4 py-1.5 text-xs font-semibold text-slate-900 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-slate-500"
+                  >
+                    {commentSending ? (
+                      <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                    ) : (
+                      <Send className="h-3.5 w-3.5" />
+                    )}
+                    发送
+                  </button>
+                </div>
+              </div>
+
+              {/* Comments list */}
+              <div className="flex-1 overflow-y-auto px-4 py-3">
+                {comments.length === 0 ? (
+                  <div className="flex h-full flex-col items-center justify-center gap-2 py-16 text-center">
+                    <div className="text-3xl">💬</div>
+                    <div className="text-sm font-medium text-slate-300">还没有留言</div>
+                    <div className="text-xs text-slate-500">做第一个分享想法的读者</div>
+                  </div>
+                ) : (
+                  <ul className="space-y-3">
+                    {comments.map((c) => (
+                      <li key={c.id} className="flex gap-3">
+                        <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold ${nicknameColor(c.nickname)}`}>
+                          {c.nickname.slice(0, 1).toUpperCase()}
+                        </div>
+                        <div className="min-w-0 flex-1 rounded-xl border border-white/[0.06] bg-white/[0.03] px-3 py-2.5">
+                          <div className="flex items-baseline justify-between gap-2">
+                            <span className="truncate text-xs font-semibold text-slate-200">{c.nickname}</span>
+                            <span className="shrink-0 text-[10px] text-slate-500">{formatRelative(c.created_at)}</span>
+                          </div>
+                          <p className="mt-1 whitespace-pre-wrap break-words text-[13px] leading-relaxed text-slate-300">
+                            {c.content}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          </>
         )}
       </div>
     </main>

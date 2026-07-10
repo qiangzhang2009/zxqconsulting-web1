@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo, lazy } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
@@ -14,8 +14,8 @@ import {
   TrendingUp,
 } from 'lucide-react';
 import { tracking } from '../lib/tracking';
+import { InteractiveAvatar } from '@/components/InteractiveAvatar';
 
-const WalkingFigures = lazy(() => import('@/components/WalkingFigures'));
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -234,8 +234,13 @@ const Hero = () => {
         </Link>
       </div>
 
+      {/* Interactive Avatar - Syrebo Llama */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 hidden opacity-20 lg:block">
-        <WalkingFigures />
+        <div className="flex items-end justify-center pb-4">
+          <div className="w-48 h-64">
+            <InteractiveAvatar />
+          </div>
+        </div>
       </div>
     </section>
   );

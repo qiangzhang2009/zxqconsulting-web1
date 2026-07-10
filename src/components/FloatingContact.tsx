@@ -20,8 +20,8 @@ const FloatingContact = () => {
     {
       icon: <Phone className="w-5 h-5" />,
       label: '立即拨打',
-      value: '+86 138-1790-9618',
-      href: 'tel:+8613817909618',
+      value: '86+13764872538',
+      href: 'tel:+8613764872538',
       color: 'bg-green-500 hover:bg-green-600',
     },
     {
@@ -31,7 +31,7 @@ const FloatingContact = () => {
         </svg>
       ),
       label: '微信咨询',
-      value: 'zxq_consulting',
+      value: '3740977',
       color: 'bg-[#07C160] hover:bg-[#06AE56]',
       copyable: true,
     },
