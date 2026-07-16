@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import React, { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
@@ -11,6 +11,8 @@ import AdminApp from './apps/admin/AdminApp';
 
 const ResearchHub = lazy(() => import('./pages/ResearchHub'));
 const ResearchReport = lazy(() => import('./pages/ResearchReport'));
+const CountryAssessmentPage = lazy(() => import('./pages/CountryAssessmentPage'));
+const AssessmentFrameworkPage = lazy(() => import('./pages/AssessmentFrameworkPage')) as React.LazyExoticComponent<React.ComponentType<object>>;
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +31,8 @@ export const router = createBrowserRouter([
       { path: 'markets', element: <MarketsPage /> },
       { path: 'research', element: <ResearchHub /> },
       { path: 'research/:reportId', element: <ResearchReport /> },
+      { path: 'country-assessment', element: <CountryAssessmentPage /> },
+      { path: 'assessment-framework', element: <AssessmentFrameworkPage /> },
     ],
   },
   {

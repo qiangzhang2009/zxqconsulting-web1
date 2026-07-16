@@ -1,0 +1,401 @@
+/**
+ * 出海目标国家评估模型
+ *
+ * 由 enterprise-global-country-assessment.canvas.tsx 的 11 维评估体系抽取而来：
+ * - 11 个评估维度（核心问题 / 指标示例 / 最低证据要求）
+ * - 7 个行业权重模板（通用 / B2B SaaS / 消费品 / 跨境电商 / 工业品 / 强监管 / 专业服务）
+ * - 6 个企业准备度维度
+ * - 6 个硬门槛（一票否决项）
+ * - 7 种进入模式
+ * - 7 类信息域 / 数据来源
+ *
+ * 这里只放可序列化的业务字典与多语言键；分数计算与推荐结论由
+ * src/lib/countryAssessmentEngine.ts 负责，避免页面组件变成大常量文件。
+ */
+
+export type DimensionId =
+  | "fit"
+  | "demand"
+  | "access"
+  | "competition"
+  | "regulation"
+  | "macro"
+  | "economics"
+  | "operations"
+  | "talent"
+  | "tax"
+  | "esg";
+
+export type ReadinessId =
+  | "offer"
+  | "gtm"
+  | "compliance"
+  | "delivery"
+  | "organization"
+  | "capital";
+
+export type GateId =
+  | "sanctions"
+  | "license"
+  | "data"
+  | "safety"
+  | "economics"
+  | "capitalControl";
+
+export type ProfileId =
+  | "general"
+  | "b2b"
+  | "consumer"
+  | "ecommerce"
+  | "industrial"
+  | "regulated"
+  | "services";
+
+export type CountryRegion =
+  | "northamerica"
+  | "europe"
+  | "eastasia"
+  | "southeastasia"
+  | "oceania"
+  | "middleast"
+  | "latinamerica"
+  | "africa";
+
+export type ScoreLevel = 1 | 2 | 3 | 4 | 5;
+export type EvidenceLevel = 0.4 | 0.65 | 0.8 | 0.95;
+export type GateStatus = "pass" | "pending" | "triggered";
+
+export const DIMENSION_WEIGHT_SUM = 100;
+
+export const DIMENSIONS: ReadonlyArray<{
+  id: DimensionId;
+  name: string;
+  question: string;
+  metrics: string;
+  evidence: string;
+}> = [
+  {
+    id: "fit",
+    name: "战略适配与国家角色",
+    question: "该国为何必须现在进入，它在全球组合中承担什么角色？",
+    metrics: "增长、利润、供应、创新、品牌、区域枢纽；与核心能力和邻近市场的复用度",
+    evidence: "董事会战略、能力盘点、区域网络图、机会成本比较",
+  },
+  {
+    id: "demand",
+    name: "需求与市场质量",
+    question: "可服务、可支付、可触达的需求有多大且多快？",
+    metrics: "SAM、目标客户数、渗透率、增速、痛点强度、支付意愿、需求稳定性",
+    evidence: "官方统计、海关/交易数据、客户访谈、搜索/流量、招投标、订单样本",
+  },
+  {
+    id: "access",
+    name: "客户可达性与渠道",
+    question: "能否以合理成本找到、转化并留住目标客户？",
+    metrics: "渠道覆盖、获客成本、销售周期、采购门槛、合作伙伴质量、续约/复购",
+    evidence: "渠道访谈、神秘采购、广告测试、CRM基准、伙伴背景与客户背调",
+  },
+  {
+    id: "competition",
+    name: "竞争结构与差异化",
+    question: "利润池被谁占据，企业凭什么赢且能赢多久？",
+    metrics: "集中度、价格带、替代品、本地龙头、转换成本、差异化可防御性、反击概率",
+    evidence: "竞品价格、客户赢输访谈、渠道货架、专利/产品对比、竞品财务与招聘",
+  },
+  {
+    id: "regulation",
+    name: "政策、准入与合规",
+    question: "是否被允许进入、销售、存储数据、雇佣并持续经营？",
+    metrics: "外资限制、牌照、产品认证、本地化、数据跨境、制裁/出口管制、公共采购",
+    evidence: "当地律师意见、监管机构原文、许可证路径、行业协会、合规差距清单",
+  },
+  {
+    id: "macro",
+    name: "宏观、政治与地缘",
+    question: "制度与外部冲击是否会破坏需求、成本或经营连续性？",
+    metrics: "增长、通胀、汇率、政策连续性、法治、腐败、社会稳定、双边关系与制裁暴露",
+    evidence: "央行/财政数据、IMF/世界银行、情景分析、保险报价、专家与供应链访谈",
+  },
+  {
+    id: "economics",
+    name: "单位经济与现金回报",
+    question: "在真实到手价和全部本地成本下，回报是否成立？",
+    metrics: "净价、到岸成本、CM2、CAC、回收期、LTV/CAC、DSO、营运资金、盈亏平衡",
+    evidence: "价格测试、物流/关税报价、渠道条款、工资租金、税务模型、真实小单",
+  },
+  {
+    id: "operations",
+    name: "运营、供应链与数字基础",
+    question: "能否稳定交付、收款、服务并达到承诺水平？",
+    metrics: "交付时效、库存、退货、支付成功率、云/网络、售后、供应商韧性、业务连续性",
+    evidence: "端到端流程演练、供应商审计、3PL报价、支付测试、灾备与服务能力验证",
+  },
+  {
+    id: "talent",
+    name: "人才、组织与文化",
+    question: "是否能组建被总部有效管理、又具本地洞察的团队？",
+    metrics: "关键人才供给、全负担成本、雇佣/解雇、语言文化距离、管理跨度、激励适配",
+    evidence: "薪酬调查、猎头访谈、雇佣法规、候选人漏斗、组织设计与文化风险访谈",
+  },
+  {
+    id: "tax",
+    name: "税务、法律与资本流动",
+    question: "实体、交易、知识产权与资金路径是否可控且高效？",
+    metrics: "企业税/VAT/关税、常设机构、转让定价、预提税、汇回、公司治理、争议解决",
+    evidence: "法律税务备忘录、交易流模型、双边税约、银行开户验证、合同可执行性分析",
+  },
+  {
+    id: "esg",
+    name: "ESG、安全与声誉",
+    question: "进入是否符合企业底线，并可承受公众与利益相关方审视？",
+    metrics: "人权、环境、产品安全、网络安全、腐败、供应链责任、品牌与员工声誉风险",
+    evidence: "制裁/KYB、供应商审计、威胁建模、媒体扫描、利益相关方与危机情景评估",
+  },
+];
+
+export const PROFILES: Record<
+  ProfileId,
+  { name: string; note: string; weights: Record<DimensionId, number> }
+> = {
+  general: {
+    name: "通用基准",
+    note: "适合尚未确定具体进入模式的跨行业初筛。",
+    weights: { fit: 8, demand: 14, access: 10, competition: 8, regulation: 12, macro: 8, economics: 16, operations: 8, talent: 6, tax: 6, esg: 4 },
+  },
+  b2b: {
+    name: "B2B SaaS / 数字产品",
+    note: "提高可达性、需求与经常性收入经济性；数据与合规仍是关键。",
+    weights: { fit: 8, demand: 16, access: 13, competition: 8, regulation: 12, macro: 6, economics: 15, operations: 7, talent: 5, tax: 6, esg: 4 },
+  },
+  consumer: {
+    name: "消费品 / 品牌",
+    note: "提高渠道、品牌竞争、库存和履约的重要性。",
+    weights: { fit: 7, demand: 15, access: 13, competition: 10, regulation: 10, macro: 7, economics: 15, operations: 12, talent: 5, tax: 3, esg: 3 },
+  },
+  ecommerce: {
+    name: "跨境电商",
+    note: "强调流量、平台、履约、退货、支付与贡献毛利。",
+    weights: { fit: 7, demand: 16, access: 14, competition: 10, regulation: 8, macro: 6, economics: 17, operations: 12, talent: 3, tax: 4, esg: 3 },
+  },
+  industrial: {
+    name: "工业品 / 制造",
+    note: "提高供应链、认证、地缘和本地服务能力权重。",
+    weights: { fit: 8, demand: 12, access: 8, competition: 7, regulation: 12, macro: 9, economics: 14, operations: 15, talent: 7, tax: 5, esg: 3 },
+  },
+  regulated: {
+    name: "医疗 / 金融等强监管行业",
+    note: "准入与合规不能被市场规模抵消，应同时设置硬门槛。",
+    weights: { fit: 7, demand: 12, access: 9, competition: 6, regulation: 20, macro: 8, economics: 13, operations: 8, talent: 5, tax: 7, esg: 5 },
+  },
+  services: {
+    name: "专业服务",
+    note: "提高客户关系、人才、资质与总部协同权重。",
+    weights: { fit: 10, demand: 12, access: 14, competition: 8, regulation: 8, macro: 6, economics: 14, operations: 5, talent: 12, tax: 7, esg: 4 },
+  },
+};
+
+export const READINESS_DIMENSIONS: ReadonlyArray<{
+  id: ReadinessId;
+  name: string;
+  weight: number;
+  test: string;
+}> = [
+  { id: "offer", name: "产品与价值主张本地化", weight: 20, test: "产品、语言、定价、合规、案例是否适配本地核心场景" },
+  { id: "gtm", name: "获客、销售与渠道能力", weight: 20, test: "是否有ICP名单、销售打法、合格伙伴和可复用获客引擎" },
+  { id: "compliance", name: "合规、实体与治理准备", weight: 15, test: "责任人、许可证、合同、数据、税务和授权机制是否就绪" },
+  { id: "delivery", name: "交付、供应链与服务准备", weight: 15, test: "订单到回款全链路能否按SLA运行并应对异常" },
+  { id: "organization", name: "团队与总部协同", weight: 15, test: "国家负责人、关键岗位、决策节奏和跨时区支持是否明确" },
+  { id: "capital", name: "资本与管理层承诺", weight: 15, test: "预算、runway、止损线、决策权与至少两年投入预期是否一致" },
+];
+
+export const HARD_GATES: ReadonlyArray<{
+  id: GateId;
+  name: string;
+  detail: string;
+  owner: string;
+}> = [
+  { id: "sanctions", name: "制裁、出口管制或最终用户风险不可化解", detail: "产品、技术、交易对手、支付路径或最终用途触及不可接受限制", owner: "法务 / 合规 / 安全" },
+  { id: "license", name: "牌照、外资或认证路径不可行", detail: "法律上无法进入，时间成本超过窗口，或必须牺牲核心控制权/IP", owner: "法务 / 业务负责人" },
+  { id: "data", name: "数据、网络安全或技术架构无法满足要求", detail: "数据本地化、跨境传输、加密或审计要求无法在预算内达成", owner: "安全 / 技术 / 法务" },
+  { id: "safety", name: "产品安全、伦理、人权或声誉风险越过底线", detail: "即便财务回报成立，也不符合董事会风险偏好与企业价值观", owner: "风控 / ESG / 董事会" },
+  { id: "economics", name: "压力情景下经济性与现金需求不可承受", detail: "真实到手价、全成本、回款周期或最大亏损超过预设止损线", owner: "财务 / 业务负责人" },
+  { id: "capitalControl", name: "资本流动、治理或资产安全不可接受", detail: "利润无法合理汇回、少数股东/伙伴治理失控或资产暴露过高", owner: "财务 / 法务 / 投委会" },
+];
+
+export const SCORE_LEVELS: ReadonlyArray<{
+  value: ScoreLevel;
+  label: string;
+  hint: string;
+}> = [
+  { value: 5, label: "5 · 显著优势", hint: "相对同组国家处于前 20%，且已被一手证据或真实交易验证" },
+  { value: 4, label: "4 · 有利", hint: "高于同组中位数，有多源证据，剩余风险可用明确措施控制" },
+  { value: 3, label: "3 · 中性/待验证", hint: "达到最低可接受标准，或正反证据并存；不得把「缺数据」自动当作 3 分" },
+  { value: 2, label: "2 · 偏弱", hint: "低于同组中位数，存在实质性障碍或较高补救成本" },
+  { value: 1, label: "1 · 显著不利", hint: "处于后 20%、障碍接近不可逆，或压力情景越过风险偏好" },
+];
+
+export const EVIDENCE_LEVELS: ReadonlyArray<{
+  value: EvidenceLevel;
+  label: string;
+  hint: string;
+}> = [
+  { value: 0.95, label: "A · 一手/已验证", hint: "来自一手访谈、真实订单或内部数据，可直接使用" },
+  { value: 0.8, label: "B · 多源交叉验证", hint: "至少两个独立来源相互印证，结论可信" },
+  { value: 0.65, label: "C · 单一/间接证据", hint: "只有单一来源或缺乏现场验证，作为假设使用" },
+  { value: 0.4, label: "D · 假设", hint: "管理层假设，必须转化为试点实验，不可直接进入规模化决策" },
+];
+
+export const COUNTRIES: ReadonlyArray<{
+  id: string;
+  name: string;
+  nameEn: string;
+  region: CountryRegion;
+  regionLabel: string;
+  currency: string;
+}> = [
+  { id: "japan", name: "日本", nameEn: "Japan", region: "eastasia", regionLabel: "东北亚", currency: "JPY" },
+  { id: "southkorea", name: "韩国", nameEn: "South Korea", region: "eastasia", regionLabel: "东北亚", currency: "KRW" },
+  { id: "hongkong", name: "中国香港", nameEn: "Hong Kong SAR", region: "eastasia", regionLabel: "东北亚", currency: "HKD" },
+  { id: "taiwan", name: "中国台湾", nameEn: "Taiwan", region: "eastasia", regionLabel: "东北亚", currency: "TWD" },
+  { id: "singapore", name: "新加坡", nameEn: "Singapore", region: "southeastasia", regionLabel: "东南亚", currency: "SGD" },
+  { id: "thailand", name: "泰国", nameEn: "Thailand", region: "southeastasia", regionLabel: "东南亚", currency: "THB" },
+  { id: "malaysia", name: "马来西亚", nameEn: "Malaysia", region: "southeastasia", regionLabel: "东南亚", currency: "MYR" },
+  { id: "vietnam", name: "越南", nameEn: "Vietnam", region: "southeastasia", regionLabel: "东南亚", currency: "VND" },
+  { id: "indonesia", name: "印度尼西亚", nameEn: "Indonesia", region: "southeastasia", regionLabel: "东南亚", currency: "IDR" },
+  { id: "india", name: "印度", nameEn: "India", region: "southeastasia", regionLabel: "南亚", currency: "INR" },
+  { id: "uae", name: "阿联酋", nameEn: "United Arab Emirates", region: "middleast", regionLabel: "中东", currency: "AED" },
+  { id: "saudiarabia", name: "沙特阿拉伯", nameEn: "Saudi Arabia", region: "middleast", regionLabel: "中东", currency: "SAR" },
+  { id: "usa", name: "美国", nameEn: "United States", region: "northamerica", regionLabel: "北美", currency: "USD" },
+  { id: "canada", name: "加拿大", nameEn: "Canada", region: "northamerica", regionLabel: "北美", currency: "CAD" },
+  { id: "germany", name: "德国", nameEn: "Germany", region: "europe", regionLabel: "欧洲", currency: "EUR" },
+  { id: "france", name: "法国", nameEn: "France", region: "europe", regionLabel: "欧洲", currency: "EUR" },
+  { id: "uk", name: "英国", nameEn: "United Kingdom", region: "europe", regionLabel: "欧洲", currency: "GBP" },
+  { id: "italy", name: "意大利", nameEn: "Italy", region: "europe", regionLabel: "欧洲", currency: "EUR" },
+  { id: "netherlands", name: "荷兰", nameEn: "Netherlands", region: "europe", regionLabel: "欧洲", currency: "EUR" },
+  { id: "australia", name: "澳大利亚", nameEn: "Australia", region: "oceania", regionLabel: "大洋洲", currency: "AUD" },
+  { id: "newzealand", name: "新西兰", nameEn: "New Zealand", region: "oceania", regionLabel: "大洋洲", currency: "NZD" },
+  { id: "brazil", name: "巴西", nameEn: "Brazil", region: "latinamerica", regionLabel: "拉丁美洲", currency: "BRL" },
+  { id: "mexico", name: "墨西哥", nameEn: "Mexico", region: "latinamerica", regionLabel: "拉丁美洲", currency: "MXN" },
+  { id: "southafrica", name: "南非", nameEn: "South Africa", region: "africa", regionLabel: "非洲", currency: "ZAR" },
+  { id: "kenya", name: "肯尼亚", nameEn: "Kenya", region: "africa", regionLabel: "非洲", currency: "KES" },
+];
+
+export const ENTRY_MODES: ReadonlyArray<{
+  id: string;
+  name: string;
+  advantages: string;
+  risks: string;
+  fit: string;
+}> = [
+  {
+    id: "cross_border_direct",
+    name: "跨境直销 / 远程交付",
+    advantages: "快、投入低、保留期权",
+    risks: "信任、本地服务、税务常设机构、支付",
+    fit: "数字产品、早期验证、少量大客户",
+  },
+  {
+    id: "distributor",
+    name: "经销商 / 代理 / 平台",
+    advantages: "借用渠道和关系、降低固定成本",
+    risks: "客户数据缺失、价格控制弱、伙伴依赖",
+    fit: "渠道主导、碎片化市场、消费品/工业品试水",
+  },
+  {
+    id: "direct_entity",
+    name: "本地实体 + 直营团队",
+    advantages: "控制客户、品牌、数据和服务",
+    risks: "固定成本、合规与管理复杂度高",
+    fit: "需求已验证、规模足够、客户要求本地主体",
+  },
+  {
+    id: "license",
+    name: "许可 / 特许经营",
+    advantages: "资本轻、扩张快、利用本地执行",
+    risks: "IP 泄露、质量与品牌控制、合同执行",
+    fit: "标准化强、监管允许、伙伴能力成熟",
+  },
+  {
+    id: "joint_venture",
+    name: "合资企业",
+    advantages: "满足准入、获得资源与政府/渠道关系",
+    risks: "治理冲突、控制权、利润分配与退出困难",
+    fit: "外资限制或关键资源必须由本地伙伴提供",
+  },
+  {
+    id: "acquisition",
+    name: "并购",
+    advantages: "快速获得客户、牌照、人才和产能",
+    risks: "估值、整合、遗留责任、文化与合规风险",
+    fit: "窗口短、目标稀缺、协同可量化且整合能力强",
+  },
+  {
+    id: "regional_hub",
+    name: "区域枢纽辐射",
+    advantages: "共享团队、库存、合规与管理成本",
+    risks: "枢纽与目标国不等价、跨境税务和服务半径",
+    fit: "多个相邻小市场、语言/法规/物流高度可复用",
+  },
+];
+
+export const INFO_DOMAINS: ReadonlyArray<{
+  domain: string;
+  sources: string;
+  use: string;
+  cadence: string;
+}> = [
+  { domain: "宏观与制度", sources: "国家统计局、央行、财政部；IMF、World Bank、OECD", use: "GDP/收入、通胀、汇率、财政、营商与制度", cadence: "季度；重大事件即时" },
+  { domain: "贸易与产业", sources: "海关、UN Comtrade、WTO、UNCTAD、行业协会", use: "进出口、关税、FDI、产业产能、贸易壁垒", cadence: "季度/半年" },
+  { domain: "需求与客户", sources: "客户访谈、招投标、CRM、搜索/流量、平台销量、支付测试", use: "目标账户、痛点、支付意愿、转化、客单价", cadence: "每轮试点实时" },
+  { domain: "竞争", sources: "竞品网站/报价、渠道、神秘采购、专利、招聘、财报", use: "价格、份额、渠道、产品差距、战略动向", cadence: "月度/季度" },
+  { domain: "监管与税务", sources: "监管机构原文、当地律师/税务顾问、行业许可证数据库", use: "准入、产品、数据、税、实体、合同、用工", cadence: "法规变化即时" },
+  { domain: "运营与成本", sources: "3PL/供应商报价、支付网关、房产/薪酬数据、真实小单", use: "到岸成本、SLA、退货、支付、工资、租金", cadence: "报价有效期内" },
+  { domain: "政治与声誉", sources: "外交与制裁清单、保险机构、可信媒体、NGO、员工/伙伴访谈", use: "制裁、冲突、社会稳定、人权、腐败、品牌风险", cadence: "持续监控" },
+];
+
+export const STAGE_OPTIONS: ReadonlyArray<{ value: string; label: string }> = [
+  { value: "idea", label: "规划中" },
+  { value: "pilot", label: "试水阶段" },
+  { value: "launch", label: "进入准备" },
+  { value: "scale", label: "已有海外业务" },
+];
+
+export const BUDGET_OPTIONS: ReadonlyArray<{ value: string; label: string }> = [
+  { value: "below-50w", label: "<50 万人民币" },
+  { value: "50w-200w", label: "50–200 万人民币" },
+  { value: "200w-500w", label: "200–500 万人民币" },
+  { value: "500w-2000w", label: "500–2000 万人民币" },
+  { value: "above-2000w", label: ">2000 万人民币" },
+];
+
+export const RISK_TOLERANCE_OPTIONS: ReadonlyArray<{ value: string; label: string }> = [
+  { value: "low", label: "保守（先试点再扩张）" },
+  { value: "medium", label: "中等（容忍可控损失）" },
+  { value: "high", label: "激进（愿意高投入试错）" },
+];
+
+export const INDUSTRY_OPTIONS: ReadonlyArray<{ value: string; label: string }> = [
+  { value: "supplement", label: "保健食品 / 营养品" },
+  { value: "tcm", label: "中药与本草" },
+  { value: "skincare", label: "汉方护肤与功效护肤" },
+  { value: "medical", label: "医疗器械 / 健康器械" },
+  { value: "consumer", label: "消费品 / 食品饮料" },
+  { value: "ecommerce", label: "跨境电商 / DTC 品牌" },
+  { value: "industrial", label: "工业品 / 制造" },
+  { value: "saas", label: "B2B SaaS / 数字产品" },
+  { value: "regulated", label: "强监管服务（医疗 / 金融）" },
+  { value: "services", label: "专业服务 / 咨询" },
+  { value: "other", label: "其他" },
+];
+
+export function getProfile(id: ProfileId) {
+  return PROFILES[id] ?? PROFILES.general;
+}
+
+export function getCountry(id: string) {
+  return COUNTRIES.find((country) => country.id === id);
+}
+
+export function getProfileEntries(): Array<{ value: ProfileId; label: string }> {
+  return (Object.keys(PROFILES) as ProfileId[]).map((id) => ({ value: id, label: PROFILES[id].name }));
+}
