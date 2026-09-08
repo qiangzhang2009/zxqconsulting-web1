@@ -8,11 +8,12 @@ import ExpertPage from './pages/ExpertPage';
 import MethodPage from './pages/MethodPage';
 import MarketsPage from './pages/MarketsPage';
 import AdminApp from './apps/admin/AdminApp';
+import DownloadGuidePage from './pages/DownloadGuidePage';
+const CaseDetailPage = lazy(() => import('./pages/CaseDetailPage'));
 
 const ResearchHub = lazy(() => import('./pages/ResearchHub'));
 const ResearchReport = lazy(() => import('./pages/ResearchReport'));
 const CountryAssessmentPage = lazy(() => import('./pages/CountryAssessmentPage'));
-const AssessmentFrameworkPage = lazy(() => import('./pages/AssessmentFrameworkPage')) as React.LazyExoticComponent<React.ComponentType<object>>;
 
 export const router = createBrowserRouter([
   {
@@ -32,7 +33,8 @@ export const router = createBrowserRouter([
       { path: 'research', element: <ResearchHub /> },
       { path: 'research/:reportId', element: <ResearchReport /> },
       { path: 'country-assessment', element: <CountryAssessmentPage /> },
-      { path: 'assessment-framework', element: <AssessmentFrameworkPage /> },
+      { path: 'download-guide', element: <DownloadGuidePage /> },
+      { path: 'cases/:slug', element: <CaseDetailPage /> },
     ],
   },
   {

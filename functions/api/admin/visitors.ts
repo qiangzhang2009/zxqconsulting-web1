@@ -1,40 +1,32 @@
 /**
- * 管理后台 API - Cloudflare D1 版本
- * GET /api/admin/visitors - 获取访客列表
- * GET /api/admin/submissions - 获取表单提交列表  
- * 认证方式：Bearer base64("email:password")
+ * 管理后台 API - 访客列表（KV session 鉴权 + D1 fallback）
+ * GET /api/admin/visitors
+ * 认证方式：Bearer qhs_<session_token>
  */
+
+import { verifySession, authResponse, corsPreflight, getDB } from './auth';
 
 interface Env {
-  DB: D1Database;
+  DB?: D1Database;
+  zxqconsulting_comments?: D1Database;
+  ADMIN_KV?: KVNamespace;
 }
 
-function verifyAuth(request: Request): boolean {
-  const authHeader = request.headers.get('Authorization');
-  if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return false;
-  }
-  const token = authHeader.substring(7);
-  try {
-    const decoded = atob(token);
-    const [email, password] = decoded.split(':');
-    return !!(email && password);
-  } catch {
-    return false;
-  }
+export async function onRequestOptions() {
+  return corsPreflight();
 }
 
-/**
- * 获取访客列表
- * GET /api/admin/visitors?page=1&limit=20&search=&website_id=
- */
-export async function onRequestGet(context: { request: Request; params: any; env: Env }) {
+export async function onRequestGet(context: { request: Request; env: Env }) {
   const { request, env } = context;
-  
-  if (!verifyAuth(request)) {
-    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-      status: 401,
-      headers: { 'Content-Type': 'application/json' }
+
+  const session = await verifySession({ request, env });
+  if (!session) return authResponse();
+
+  const DB = getDB(env);
+  if (!DB) {
+    return json({
+      total: 0, page: 1, limit: 20, totalPages: 0, data: [],
+      warning: 'D1 database binding not configured',
     });
   }
 
@@ -45,43 +37,40 @@ export async function onRequestGet(context: { request: Request; params: any; env
     const search = url.searchParams.get('search') || '';
     const websiteId = url.searchParams.get('website_id') || 'zxqconsulting';
     const offset = (page - 1) * limit;
-    
+
     let data, total;
-    
+
     if (search) {
-      // 带搜索的查询
-      const result = await env.DB.prepare(`
-        SELECT * FROM visitors 
+      const result = await DB.prepare(`
+        SELECT * FROM visitors
         WHERE website_id = ? AND (contact_name LIKE ? OR company_name LIKE ? OR phone LIKE ?)
         ORDER BY created_at DESC
         LIMIT ? OFFSET ?
       `).bind(websiteId, `%${search}%`, `%${search}%`, `%${search}%`, limit, offset).all();
-      
-      const countResult = await env.DB.prepare(`
-        SELECT COUNT(*) as total FROM visitors 
+
+      const countResult = await DB.prepare(`
+        SELECT COUNT(*) as total FROM visitors
         WHERE website_id = ? AND (contact_name LIKE ? OR company_name LIKE ? OR phone LIKE ?)
       `).bind(websiteId, `%${search}%`, `%${search}%`, `%${search}%`).first() as { total: number };
-      
+
       data = result.results || [];
       total = countResult?.total || 0;
     } else {
-      // 无搜索的查询
-      const result = await env.DB.prepare(`
-        SELECT * FROM visitors 
+      const result = await DB.prepare(`
+        SELECT * FROM visitors
         WHERE website_id = ?
         ORDER BY created_at DESC
         LIMIT ? OFFSET ?
       `).bind(websiteId, limit, offset).all();
-      
-      const countResult = await env.DB.prepare(`
+
+      const countResult = await DB.prepare(`
         SELECT COUNT(*) as total FROM visitors WHERE website_id = ?
       `).bind(websiteId).first() as { total: number };
-      
+
       data = result.results || [];
       total = countResult?.total || 0;
     }
-    
-    // 解析 selected_markets JSON（可能是字符串或数组）
+
     const visitors = (data || []).map((v: any) => ({
       ...v,
       visit_count: v.visit_count ?? 1,
@@ -92,22 +81,24 @@ export async function onRequestGet(context: { request: Request; params: any; env
         catch { return []; }
       })(),
     }));
-    
-    return new Response(JSON.stringify({
+
+    return json({
       total,
       page,
       limit,
       totalPages: Math.ceil(total / limit),
-      data: visitors
-    }), {
-      headers: { 'Content-Type': 'application/json' }
+      data: visitors,
     });
-    
+
   } catch (error) {
     console.error('Get Visitors error:', error);
-    return new Response(JSON.stringify({ error: (error as Error).message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return json({ error: (error as Error).message }, 500);
   }
+}
+
+function json(body: unknown, status = 200) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }

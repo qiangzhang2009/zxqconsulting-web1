@@ -4,8 +4,8 @@ const Markets = lazy(() => import('../sections/Markets'));
 
 export default function MarketsPage() {
   return (
-    <main>
-      <Suspense fallback={null}>
+    <main className="bg-[#07111a]">
+      <Suspense fallback={<div className="min-h-screen" />}>
         <Markets />
       </Suspense>
     </main>

@@ -1,14 +1,12 @@
 import { lazy, Suspense } from 'react';
 import Hero from '../sections/Hero';
 import ReviewComments from '../sections/ReviewComments';
-import { InteractiveAvatar } from '@/components/InteractiveAvatar';
 
-// Pre-load InteractiveAvatar to ensure it's bundled
-void InteractiveAvatar;
+// 不再预加载 InteractiveAvatar (羊驼) — 该视觉元素属于"工具审美",
+// 不符合"出海陪跑型决策伙伴"的品牌定位。
 
 const About = lazy(() => import('../sections/About'));
 const Services = lazy(() => import('../sections/Services'));
-const CaseStudies = lazy(() => import('../sections/CaseStudies'));
 
 export default function HomePage() {
   return (
@@ -17,7 +15,6 @@ export default function HomePage() {
       <Suspense fallback={null}>
         <About />
         <Services />
-        <CaseStudies />
       </Suspense>
       <ReviewComments />
     </main>

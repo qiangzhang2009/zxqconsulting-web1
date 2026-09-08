@@ -5,11 +5,12 @@
  * 认证方式：Bearer session_token（登录后获取）
  */
 
-import { verifySession, authResponse, corsPreflight, CORS_HEADERS } from './auth';
+import { verifySession, authResponse, corsPreflight, CORS_HEADERS, getDB } from './auth';
 
 interface Env {
-  DB: D1Database;
-  ADMIN_KV: KVNamespace;
+  DB?: D1Database;
+  zxqconsulting_comments?: D1Database;
+  ADMIN_KV?: KVNamespace;
 }
 
 export async function onRequestOptions() {
@@ -31,7 +32,7 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
     const websiteId = url.searchParams.get('website_id') || 'zxqconsulting';
     const offset = (page - 1) * limit;
 
-    const DB = env.DB;
+    const DB = getDB(env);
     if (!DB) return json({ total: 0, page, data: [], totalPages: 0 });
 
     const conditions: string[] = ['website_id = ?'];

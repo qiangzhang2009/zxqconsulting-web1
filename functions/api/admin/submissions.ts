@@ -5,11 +5,12 @@
  * 认证方式：Bearer session_token（登录后获取）
  */
 
-import { verifySession, authResponse, corsPreflight } from './auth';
+import { verifySession, authResponse, corsPreflight, getDB } from './auth';
 
 interface Env {
-  DB: D1Database;
-  ADMIN_KV: KVNamespace;
+  DB?: D1Database;
+  zxqconsulting_comments?: D1Database;
+  ADMIN_KV?: KVNamespace;
 }
 
 function verifyAuth(request: Request, env: Env) {
@@ -35,7 +36,7 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
     const websiteId = url.searchParams.get('website_id') || 'zxqconsulting';
     const offset = (page - 1) * limit;
     
-    const DB = env.DB;
+    const DB = getDB(env);
     
     if (!DB) {
       return new Response(JSON.stringify({
@@ -114,7 +115,7 @@ export async function onRequestPatch(context: { request: Request; env: Env }) {
     const body = await request.json();
     const { status, notes, assigned_to } = body;
     
-    const DB = env.DB;
+    const DB = getDB(env);
     
     if (!DB) {
       return new Response(JSON.stringify({ error: 'Database not configured' }), {

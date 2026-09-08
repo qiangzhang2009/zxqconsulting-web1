@@ -2,9 +2,16 @@ name = "qiangzhang2009-zxqconsulting-web1"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "dist"
 
-# D1 Database for comments
+# D1 Database for comments / visitors / submissions / analytics / etc.
+# Aliased to two binding names so both old (`zxqconsulting_comments`) and new (`DB`)
+# functions code paths work without code changes.
 [[d1_databases]]
 binding = "zxqconsulting_comments"
+database_name = "zxqconsulting-comments"
+database_id = "84613a5c-a4f4-43a3-bd68-55d5ed95d48a"
+
+[[d1_databases]]
+binding = "DB"
 database_name = "zxqconsulting-comments"
 database_id = "84613a5c-a4f4-43a3-bd68-55d5ed95d48a"
 

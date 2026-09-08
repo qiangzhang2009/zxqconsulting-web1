@@ -6,11 +6,12 @@
  * 认证方式：Bearer session_token（登录后获取）
  */
 
-import { verifySession, authResponse, corsPreflight } from './auth';
+import { verifySession, authResponse, corsPreflight, getDB } from './auth';
 
 interface Env {
-  DB: D1Database;
-  ADMIN_KV: KVNamespace;
+  DB?: D1Database;
+  zxqconsulting_comments?: D1Database;
+  ADMIN_KV?: KVNamespace;
 }
 
 function verifyAuth(request: Request, env: Env) {
@@ -35,7 +36,8 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
     const search = url.searchParams.get('search') || '';
     const offset = (page - 1) * limit;
 
-    if (!env.DB) {
+    const DB = getDB(env);
+    if (!DB) {
       return new Response(JSON.stringify({ total: 0, data: [], page, limit, totalPages: 0 }), {
         headers: { 'Content-Type': 'application/json' }
       });
@@ -55,13 +57,13 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
       params.push(searchTerm, searchTerm);
     }
 
-    const countResult = await env.DB.prepare(
+    const countResult = await DB.prepare(
       `SELECT COUNT(*) as total FROM comments WHERE ${whereClause}`
     ).bind(...params).first() as { total: number };
 
     const total = countResult?.total || 0;
 
-    const dataResult = await env.DB.prepare(`
+    const dataResult = await DB.prepare(`
       SELECT id, user_name, user_email, content, timestamp, likes, status,
              geo_country, geo_region, geo_city, lang, replies
       FROM comments
@@ -101,7 +103,8 @@ export async function onRequestPatch(context: { request: Request; env: Env }) {
     const body = await request.json();
     const { status } = body;
 
-    if (!env.DB) {
+    const DB = getDB(env);
+    if (!DB) {
       return new Response(JSON.stringify({ error: 'Database not configured' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' }
@@ -115,7 +118,7 @@ export async function onRequestPatch(context: { request: Request; env: Env }) {
       });
     }
 
-    await env.DB.prepare(`
+    await DB.prepare(`
       UPDATE comments SET status = ? WHERE id = ?
     `).bind(status, id).run();
 
@@ -142,7 +145,8 @@ export async function onRequestDelete(context: { request: Request; env: Env }) {
     const url = new URL(request.url);
     const id = url.searchParams.get('id');
 
-    if (!env.DB) {
+    const DB = getDB(env);
+    if (!DB) {
       return new Response(JSON.stringify({ error: 'Database not configured' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' }
@@ -156,8 +160,7 @@ export async function onRequestDelete(context: { request: Request; env: Env }) {
       });
     }
 
-    // Check if comment exists
-    const existing = await env.DB.prepare('SELECT id FROM comments WHERE id = ?').bind(id).first();
+    const existing = await DB.prepare('SELECT id FROM comments WHERE id = ?').bind(id).first();
     if (!existing) {
       return new Response(JSON.stringify({ error: 'Comment not found' }), {
         status: 404,
@@ -165,7 +168,7 @@ export async function onRequestDelete(context: { request: Request; env: Env }) {
       });
     }
 
-    await env.DB.prepare('DELETE FROM comments WHERE id = ?').bind(id).run();
+    await DB.prepare('DELETE FROM comments WHERE id = ?').bind(id).run();
     console.log(`[Admin] Deleted comment: ${id}`);
 
     return new Response(JSON.stringify({ success: true, message: 'Comment deleted' }), {

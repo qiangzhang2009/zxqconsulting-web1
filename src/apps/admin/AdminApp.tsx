@@ -4,6 +4,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './stores/AuthContext';
 import { UIProvider } from './stores/UIContext';
 import { MainLayout } from './components/Layout/MainLayout';
+import { ToastStack } from './components/ToastStack';
 
 // Lazy load pages for code splitting
 const LoginPage = lazy(() => import('./pages/LoginPage').then(m => ({ default: m.LoginPage })));
@@ -16,17 +17,20 @@ const CommentsPage = lazy(() => import('./pages/CommentsPage').then(m => ({ defa
 const ResearchPage = lazy(() => import('./pages/ResearchPage').then(m => ({ default: m.ResearchPage })));
 const ReportAnalyticsPage = lazy(() => import('./pages/ReportAnalyticsPage').then(m => ({ default: m.ReportAnalyticsPage })));
 const ReportCommentsPage = lazy(() => import('./pages/ReportCommentsPage').then(m => ({ default: m.ReportCommentsPage })));
-const TasksPage = lazy(() => import('./pages/TasksPage').then(m => ({ default: m.TasksPage })));
-const AuditLogPage = lazy(() => import('./pages/AuditLogPage').then(m => ({ default: m.AuditLogPage })));
+const TasksPage = lazy(() => import('./pages/TasksPage').then(m => ({ default: m.default })));
+const AuditLogPage = lazy(() => import('./pages/AuditLogPage').then(m => ({ default: m.default })));
 const SettingsPage = lazy(() => import('./pages/SettingsPage').then(m => ({ default: m.SettingsPage })));
+const ProjectsPage = lazy(() => import('./pages/ProjectsPage').then(m => ({ default: m.default })));
+const WhitepaperPipelinePage = lazy(() => import('./pages/WhitepaperPipelinePage').then(m => ({ default: m.default })));
+const SecuritySettingsPage = lazy(() => import('./pages/SecuritySettingsPage').then(m => ({ default: m.default })));
 
 import './styles/admin.css';
 
 function PageLoader() {
   return (
-    <div className="flex items-center justify-center min-h-[400px]">
+    <div className="flex items-center justify-center min-h-[60vh]">
       <div className="flex flex-col items-center gap-3">
-        <div className="w-10 h-10 border-2 border-emerald-500/30 border-t-emerald-500 rounded-full animate-spin" />
+        <div className="admin-spinner" style={{ width: 28, height: 28, borderWidth: 2.5 }} />
         <span className="text-xs text-zinc-500">加载中...</span>
       </div>
     </div>
@@ -47,11 +51,14 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 function AdminRoutes() {
   return (
     <Routes>
-      <Route path="login" element={
-        <Suspense fallback={<PageLoader />}>
-          <LoginPage />
-        </Suspense>
-      } />
+      <Route
+        path="login"
+        element={
+          <Suspense fallback={<PageLoader />}>
+            <LoginPage />
+          </Suspense>
+        }
+      />
       <Route
         path="/"
         element={
@@ -72,6 +79,9 @@ function AdminRoutes() {
         <Route path="tasks" element={<TasksPage />} />
         <Route path="audit-log" element={<AuditLogPage />} />
         <Route path="settings" element={<SettingsPage />} />
+        <Route path="projects" element={<ProjectsPage />} />
+        <Route path="whitepapers" element={<WhitepaperPipelinePage />} />
+        <Route path="security" element={<SecuritySettingsPage />} />
       </Route>
     </Routes>
   );
@@ -82,6 +92,7 @@ export default function AdminApp() {
     <AuthProvider>
       <UIProvider>
         <AdminRoutes />
+        <ToastStack />
       </UIProvider>
     </AuthProvider>
   );

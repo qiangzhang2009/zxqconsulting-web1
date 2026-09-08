@@ -5,16 +5,12 @@
  * POST /api/admin/report-comments { id, action: 'restore'|'hide' }
  */
 
-import { verifySession, corsPreflight } from './auth';
+import { verifySession, corsPreflight, getDB } from './auth';
 
 interface Env {
-  DB: D1Database;
+  DB?: D1Database;
   zxqconsulting_comments?: D1Database;
   ADMIN_KV?: KVNamespace;
-}
-
-function getDB(env: Env): D1Database | null {
-  return env.DB || env.zxqconsulting_comments || null;
 }
 
 const corsBase = { 'Access-Control-Allow-Origin': 'https://www.zxqconsulting.com' };

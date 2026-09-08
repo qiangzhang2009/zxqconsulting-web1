@@ -1,44 +1,62 @@
-// Skeleton loading component
-interface SkeletonProps {
+// Skeleton — unified loading placeholders
+import type { CSSProperties } from 'react';
+
+export function Skeleton({
+  width = '100%',
+  height = 14,
+  radius = 6,
+  className,
+  style,
+}: {
+  width?: number | string;
+  height?: number | string;
+  radius?: number;
   className?: string;
-  count?: number;
-}
-
-export function Skeleton({ className = '', count = 1 }: SkeletonProps) {
-  if (count > 1) {
-    return (
-      <>
-        {Array.from({ length: count }).map((_, i) => (
-          <div key={i} className={`admin-skeleton h-4 ${className}`} />
-        ))}
-      </>
-    );
-  }
-  return <div className={`admin-skeleton ${className}`} />;
-}
-
-export function CardSkeleton() {
+  style?: CSSProperties;
+}) {
   return (
-    <div className="admin-card space-y-3">
-      <div className="admin-skeleton h-4 w-1/3" />
-      <div className="admin-skeleton h-8 w-2/3" />
-      <div className="admin-skeleton h-3 w-1/2" />
+    <span
+      className={`admin-skeleton ${className || ''}`}
+      style={{
+        width,
+        height,
+        borderRadius: radius,
+        ...style,
+      }}
+    />
+  );
+}
+
+export function CardSkeleton({ height = 120 }: { height?: number }) {
+  return (
+    <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-5" style={{ minHeight: height }}>
+      <Skeleton width="40%" height={11} />
+      <Skeleton width="60%" height={22} radius={6} className="mt-3" />
+      <Skeleton width="80%" height={11} className="mt-3" />
     </div>
   );
 }
 
-export function TableSkeleton({ rows = 5 }: { rows?: number }) {
+export function RowSkeleton({ cols = 5 }: { cols?: number }) {
   return (
-    <div className="space-y-2">
-      {Array.from({ length: rows }).map((_, i) => (
-        <div key={i} className="flex gap-4 p-4 admin-card">
-          <div className="admin-skeleton w-10 h-10 rounded-full shrink-0" />
-          <div className="flex-1 space-y-2">
-            <div className="admin-skeleton h-4 w-1/3" />
-            <div className="admin-skeleton h-3 w-1/2" />
-          </div>
-        </div>
+    <tr>
+      {Array.from({ length: cols }).map((_, i) => (
+        <td key={i} style={{ padding: 14 }}>
+          <Skeleton width="80%" height={12} />
+        </td>
       ))}
-    </div>
+    </tr>
   );
 }
+
+export function TableSkeleton({ rows = 5, cols = 5 }: { rows?: number; cols?: number }) {
+  return (
+    <>
+      {Array.from({ length: rows }).map((_, i) => (
+        <RowSkeleton key={i} cols={cols} />
+      ))}
+    </>
+  );
+}
+
+export default Skeleton;

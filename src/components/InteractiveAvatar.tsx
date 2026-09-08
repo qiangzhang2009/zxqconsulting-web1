@@ -6,7 +6,6 @@ interface AvatarConfig {
   frameHeight: number;
   totalFrames: number;
   colsPerRow: number;
-  scale?: number;
 }
 
 const AVATAR_CONFIGS: Record<string, AvatarConfig> = {
@@ -19,8 +18,6 @@ const AVATAR_CONFIGS: Record<string, AvatarConfig> = {
   },
 };
 
-// 4 WebP chunks that together form the full spritesheet (19200x338)
-const CHUNK_COUNT = 4;
 const AVATAR_CHUNK_PATH = '/avatars/synapse-spritesheet-part';
 
 export const InteractiveAvatar = () => {
@@ -29,22 +26,21 @@ export const InteractiveAvatar = () => {
   const spritesheetRef = useRef<HTMLImageElement | HTMLCanvasElement | null>(null);
   const animationRef = useRef<number>(0);
 
-  const [currentAvatar, setCurrentAvatar] = useState('synapse');
+  const [currentAvatar] = useState('synapse');
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const frameIndexRef = useRef(0);
-  const targetFrameIndexRef = useRef(16); // Start at center
+  const targetFrameIndexRef = useRef(16);
   const lastMouseXRef = useRef<number | null>(null);
 
   const config = AVATAR_CONFIGS[currentAvatar];
 
-  // Load all WebP chunks and combine them into a single offscreen canvas
+  // 加载 4 个 chunk 并拼到一个 offscreen canvas
   useEffect(() => {
     const FRAME_W = config.frameWidth;
     const FRAME_H = config.frameHeight;
     const TOTAL_FRAMES = config.totalFrames;
-    const COLS = config.colsPerRow;
 
     const combined = document.createElement('canvas');
     combined.width = TOTAL_FRAMES * FRAME_W;
@@ -59,20 +55,19 @@ export const InteractiveAvatar = () => {
     ];
 
     let loadedCount = 0;
+    let cancelled = false;
 
-    const loadChunk = (i: number, xOffset: number) => {
-      if (i >= CHUNKS.length) return;
+    const onChunkLoad = (i: number, xOffset: number) => {
       const [chunkPath, frames] = CHUNKS[i];
       const img = new Image();
-      img.crossOrigin = 'anonymous';
       img.onload = () => {
+        if (cancelled) return;
         ctx.drawImage(img, xOffset, 0);
         loadedCount++;
         if (loadedCount === CHUNKS.length) {
           spritesheetRef.current = combined;
           setIsLoaded(true);
         }
-        loadChunk(i + 1, xOffset + frames * FRAME_W);
       };
       img.onerror = () => {
         console.error('[Avatar] Chunk failed to load:', chunkPath);
@@ -80,14 +75,18 @@ export const InteractiveAvatar = () => {
       img.src = chunkPath;
     };
 
-    loadChunk(0, 0);
+    onChunkLoad(0, 0);
+    // 预加载其余部分
+    for (let k = 1; k < CHUNKS.length; k++) {
+      onChunkLoad(k, CHUNKS.slice(0, k).reduce((acc, [, f]) => acc + f * FRAME_W, 0));
+    }
 
     return () => {
-      CHUNKS.forEach(() => {});
+      cancelled = true;
     };
   }, [config]);
 
-  // Render frame
+  // 渲染帧 - cover mode
   const renderFrame = useCallback(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
@@ -98,9 +97,8 @@ export const InteractiveAvatar = () => {
       return;
     }
 
-    const { frameWidth, frameHeight, totalFrames, colsPerRow } = config;
+    const { frameWidth, frameHeight, colsPerRow } = config;
 
-    // Smooth interpolation
     const diff = targetFrameIndexRef.current - frameIndexRef.current;
     frameIndexRef.current += diff * 0.12;
 
@@ -110,207 +108,124 @@ export const InteractiveAvatar = () => {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Calculate source rect - cover mode (may crop edges, no gaps)
     const canvasAspect = canvas.width / canvas.height;
     const spriteAspect = frameWidth / frameHeight;
-    
+
     let sx: number, sy: number, sWidth: number, sHeight: number;
 
     if (canvasAspect > spriteAspect) {
-      // Canvas is wider than sprite - crop top/bottom of sprite to fill height
-      // e.g. canvas 700x450 (1.778), sprite 600x338 (1.775) → fit by width
       const targetHeight = frameWidth / canvasAspect;
       sWidth = frameWidth;
       sHeight = targetHeight;
       sx = col * frameWidth;
       sy = row * frameHeight + (frameHeight - targetHeight) / 2;
     } else {
-      // Canvas is taller than sprite - crop left/right of sprite to fill width
-      // e.g. canvas 450x600 (0.75), sprite 600x338 (1.775) → fit by height
       const targetWidth = frameHeight * canvasAspect;
       sWidth = targetWidth;
       sHeight = frameHeight;
       sx = col * frameWidth + (frameWidth - targetWidth) / 2;
       sy = row * frameHeight;
     }
-    
-    ctx.drawImage(
-      spritesheet,
-      sx, sy, sWidth, sHeight,
-      0, 0, canvas.width, canvas.height
-    );
 
+    ctx.drawImage(spritesheet, sx, sy, sWidth, sHeight, 0, 0, canvas.width, canvas.height);
     animationRef.current = requestAnimationFrame(renderFrame);
   }, [config, isLoaded]);
 
-  // Start render loop
   useEffect(() => {
     if (isLoaded) {
       animationRef.current = requestAnimationFrame(renderFrame);
     }
-    return () => {
-      cancelAnimationFrame(animationRef.current);
-    };
+    return () => cancelAnimationFrame(animationRef.current);
   }, [isLoaded, renderFrame]);
 
-  // Handle mouse movement
+  // 鼠标交互
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
     const handleMouseMove = (e: MouseEvent) => {
-      const container = containerRef.current;
-      if (!container) return;
-
-      const rect = container.getBoundingClientRect();
-      const mouseX = e.clientX;
-
       if (lastMouseXRef.current !== null) {
-        const deltaX = mouseX - lastMouseXRef.current;
-        const sensitivity = 0.5;
-        const frameDelta = deltaX * sensitivity;
-
-        const { totalFrames, colsPerRow } = config;
-        const maxFrame = totalFrames - 1;
-
+        const deltaX = e.clientX - lastMouseXRef.current;
         targetFrameIndexRef.current = Math.max(
           0,
-          Math.min(maxFrame, targetFrameIndexRef.current + frameDelta)
+          Math.min(config.totalFrames - 1, targetFrameIndexRef.current + deltaX * 0.5)
         );
       }
-
-      lastMouseXRef.current = mouseX;
+      lastMouseXRef.current = e.clientX;
     };
 
     const handleMouseLeave = () => {
       lastMouseXRef.current = null;
-      // Return to center
       const { totalFrames, colsPerRow } = config;
       const centerCol = Math.floor(colsPerRow / 2);
-      const centerRow = Math.floor((totalFrames / colsPerRow) / 2);
+      const centerRow = Math.floor(Math.floor(totalFrames / colsPerRow) / 2);
       targetFrameIndexRef.current = centerRow * colsPerRow + centerCol;
     };
 
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
-      container.addEventListener('mouseleave', handleMouseLeave);
-    }
-
+    container.addEventListener('mousemove', handleMouseMove);
+    container.addEventListener('mouseleave', handleMouseLeave);
     return () => {
-      if (container) {
-        container.removeEventListener('mousemove', handleMouseMove);
-        container.removeEventListener('mouseleave', handleMouseLeave);
-      }
+      container.removeEventListener('mousemove', handleMouseMove);
+      container.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [config]);
 
-  // Resize canvas
+  // canvas 尺寸跟随父容器
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    const parent = canvas.parentElement!;
 
-    const resizeCanvas = () => {
-      const parent = canvas.parentElement;
-      if (parent) {
-        canvas.width = parent.clientWidth;
-        canvas.height = parent.clientHeight;
-      }
+    const resize = () => {
+      canvas.width = parent.clientWidth;
+      canvas.height = parent.clientHeight;
     };
 
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-    };
+    resize();
+    const ro = new ResizeObserver(resize);
+    ro.observe(parent);
+    return () => ro.disconnect();
   }, []);
 
   return (
     <div
       ref={containerRef}
       className={`
-        relative w-full cursor-pointer
-        transition-all duration-500 ease-out
-        ${isHovered ? 'scale-[1.02]' : 'scale-120'}
+        relative w-full h-full cursor-pointer overflow-hidden rounded-2xl
+        transition-transform duration-500 ease-spring
+        ${isHovered ? 'scale-[1.02]' : 'scale-100'}
       `}
-      style={{ 
-        height: '90%',
-        width: '100%',
-        maxWidth: '500px',
-        aspectRatio: '3 / 5'
-      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Glow effect */}
-      <div
-        className={`
-          absolute inset-0 rounded-3xl blur-3xl
-          transition-all duration-500
-          ${isHovered
-            ? 'bg-emerald-500/20 opacity-100'
-            : 'bg-emerald-500/10 opacity-60'
-          }
-        `}
+      {/* 加载状态 */}
+      {!isLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-[#FAF8F3]">
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#2F5D57]/20 border-t-[#2F5D57]" />
+        </div>
+      )}
+
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 h-full w-full"
+        style={{ objectFit: 'contain' }}
       />
 
-      {/* Avatar container */}
-      <div
-        className={`
-          relative h-full w-full overflow-hidden rounded-3xl
-          border border-white/10 bg-gradient-to-b from-white/[0.06] to-transparent
-          backdrop-blur-sm
-          transition-all duration-300
-          ${isHovered ? 'border-emerald-400/30' : ''}
-        `}
-      >
-        {/* Canvas */}
-        <canvas
-          ref={canvasRef}
-          className="absolute inset-0 h-full w-full"
-          style={{ objectFit: 'contain' }}
-        />
-
-        {/* Loading state */}
-        {!isLoaded && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="h-8 w-8 animate-spin rounded-full border-2 border-emerald-400/30 border-t-emerald-400" />
-          </div>
-        )}
-
-        {/* Floating animation */}
-        <div
-          className={`
-            absolute inset-0 pointer-events-none
-            transition-transform duration-1000 ease-in-out
-            ${isHovered ? 'translate-y-0' : '-translate-y-1'}
-          `}
-          style={{
-            animation: 'avatarFloat 4s ease-in-out infinite',
-          }}
-        />
+      {/* 帧号指示器 */}
+      <div className="absolute top-2 right-2 inline-flex items-center gap-1.5 rounded-full bg-black/40 px-2.5 py-1 text-[10px] font-medium text-white backdrop-blur-sm z-10">
+        <span className="h-1 w-1 rounded-full bg-[#C2473B] animate-ink-pulse" />
+        {Math.round(frameIndexRef.current) + 1}/{config.totalFrames}
       </div>
 
-      {/* Hint label */}
-      <div
-        className={`
-          absolute -bottom-10 left-1/2 -translate-x-1/2
-          text-xs text-slate-500 transition-opacity duration-300
-          ${isHovered ? 'opacity-0' : 'opacity-100'}
-        `}
-      >
-        <span className="inline-flex items-center gap-1.5">
-          <span className="animate-pulse">←</span>
-          move to interact
-          <span className="animate-pulse">→</span>
-        </span>
+      {/* 底部进度条 */}
+      <div className="absolute bottom-2 left-2 right-2 z-10">
+        <div className="h-1 overflow-hidden rounded-full bg-black/30">
+          <div
+            className="h-full bg-[#C2473B] transition-all duration-100"
+            style={{ width: `${((Math.round(frameIndexRef.current) + 1) / config.totalFrames) * 100}%` }}
+          />
+        </div>
       </div>
-
-      {/* CSS for floating animation */}
-      <style>{`
-        @keyframes avatarFloat {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-8px); }
-        }
-      `}</style>
     </div>
   );
 };

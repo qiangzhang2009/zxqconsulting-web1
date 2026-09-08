@@ -4,12 +4,13 @@
  * 认证方式：Bearer session_token（登录后获取）
  */
 
-import { verifySession, authResponse, corsPreflight } from './auth';
+import { verifySession, authResponse, corsPreflight, getDB } from './auth';
 
 interface Env {
-  DB: D1Database;
-  DEEPSEEK_API_KEY: string;
-  ADMIN_KV: KVNamespace;
+  DB?: D1Database;
+  zxqconsulting_comments?: D1Database;
+  DEEPSEEK_API_KEY?: string;
+  ADMIN_KV?: KVNamespace;
 }
 
 const corsHeaders = {
@@ -107,9 +108,17 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
     });
   }
 
+  const DB = getDB(env);
+  if (!DB) {
+    return new Response(JSON.stringify({ error: 'D1 database binding not configured' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json', ...corsHeaders }
+    });
+  }
+
   try {
     // Find comments without replies
-    const commentsResult = await env.DB.prepare(`
+    const commentsResult = await DB.prepare(`
       SELECT id, user_name, content, timestamp 
       FROM comments 
       WHERE status = 'approved' 
@@ -156,7 +165,7 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
           is_system: false
         };
 
-        await env.DB.prepare(`
+        await DB.prepare(`
           UPDATE comments SET replies = ? WHERE id = ?
         `).bind(JSON.stringify([reply]), comment.id).run();
 
@@ -193,10 +202,16 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
     headers: { 'Content-Type': 'application/json', ...corsHeaders }
   });
 
-  // Get count of comments without replies
-  const result = await context.env.DB.prepare(`
-    SELECT COUNT(*) as cnt FROM comments 
-    WHERE status = 'approved' 
+  const DB = getDB(env);
+  if (!DB) {
+    return new Response(JSON.stringify({ missing_replies: 0, warning: 'D1 database binding not configured' }), {
+      headers: { 'Content-Type': 'application/json', ...corsHeaders }
+    });
+  }
+
+  const result = await DB.prepare(`
+    SELECT COUNT(*) as cnt FROM comments
+    WHERE status = 'approved'
       AND (replies IS NULL OR replies = '' OR replies = '[]')
   `).first() as { cnt: number };
 

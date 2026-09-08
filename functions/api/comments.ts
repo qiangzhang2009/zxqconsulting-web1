@@ -106,7 +106,7 @@ export async function onRequest(context: { request: Request; env: Env; ctx: Exec
         .run();
 
       if (env.DEEPSEEK_API_KEY) {
-        ctx.waitUntil(triggerAiReply(env, id, body.content, lang));
+        ctx?.waitUntil?.(triggerAiReply(env, id, body.content, lang));
       }
 
       return ok({ success: true, id, timestamp }, 201);

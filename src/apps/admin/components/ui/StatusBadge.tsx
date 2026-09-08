@@ -1,65 +1,61 @@
-// Status Badge Component
+// StatusBadge — unified status pill with semantic colors
+import { cn } from '@/lib/utils';
 
-export type StatusType =
-  | 'new' | 'contacted' | 'qualified' | 'closed'
-  | 'pending' | 'approved' | 'rejected'
-  | 'self_serve' | 'prepare_then_apply' | 'expert_review'
-  | 'L1' | 'L2' | 'L3';
+export const SUBMISSION_STATUSES = ['new', 'contacted', 'qualified', 'closed'] as const;
+export const COMMENT_STATUSES = ['pending', 'approved', 'rejected'] as const;
+export type SubmissionStatus = (typeof SUBMISSION_STATUSES)[number];
+export type CommentStatus = (typeof COMMENT_STATUSES)[number];
 
-interface BadgeProps {
-  status: string;
-  label?: string;
-  variant?: 'default' | 'soft' | 'outline';
-}
-
-const STATUS_META: Record<string, { label: string; className: string }> = {
-  // Submissions
-  new:        { label: '新提交',     className: 'bg-blue-500/15 text-blue-400 border-blue-500/30' },
-  contacted:  { label: '已联系',     className: 'bg-amber-500/15 text-amber-400 border-amber-500/30' },
-  qualified:  { label: '已合格',     className: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30' },
-  closed:     { label: '已关闭',     className: 'bg-zinc-500/15 text-zinc-400 border-zinc-500/30' },
-
-  // Comments
-  pending:    { label: '待审核',     className: 'bg-amber-500/15 text-amber-400 border-amber-500/30' },
-  approved:   { label: '已发布',     className: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30' },
-  rejected:   { label: '已拒绝',     className: 'bg-red-500/15 text-red-400 border-red-500/30' },
-
-  // Decision
-  self_serve:          { label: '自助探索',   className: 'bg-zinc-500/15 text-zinc-400 border-zinc-500/30' },
-  prepare_then_apply:  { label: '准备后申请', className: 'bg-amber-500/15 text-amber-400 border-amber-500/30' },
-  expert_review:       { label: '专家评审',   className: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30' },
-
-  // Lead Tier
-  L1: { label: '潜在线索',  className: 'bg-blue-500/15 text-blue-400 border-blue-500/30' },
-  L2: { label: '意向线索',  className: 'bg-amber-500/15 text-amber-400 border-amber-500/30' },
-  L3: { label: '高价值线索', className: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30' },
+const LABELS: Record<string, { label: string; cls: string }> = {
+  new:        { label: '新线索',     cls: 'new' },
+  contacted:  { label: '已联系',     cls: 'contacted' },
+  qualified:  { label: '已合格',     cls: 'qualified' },
+  closed:     { label: '已关闭',     cls: 'closed' },
+  pending:    { label: '待审核',     cls: 'pending' },
+  approved:   { label: '已通过',     cls: 'approved' },
+  rejected:   { label: '已拒绝',     cls: 'rejected' },
+  draft:      { label: '草稿',       cls: 'draft' },
+  translating:{ label: '翻译中',     cls: 'translating' },
+  review:     { label: '审核中',     cls: 'review' },
+  scheduled:  { label: '已排期',     cls: 'scheduled' },
+  published:  { label: '已发布',     cls: 'published' },
+  todo:       { label: '待办',       cls: 'pending' },
+  in_progress:{ label: '进行中',     cls: 'info' },
+  done:       { label: '已完成',     cls: 'approved' },
+  active:     { label: '活跃',       cls: 'approved' },
+  suspended:  { label: '已停用',     cls: 'rejected' },
+  exploring:  { label: '探索中',     cls: 'pending' },
+  committed:  { label: '已立项',     cls: 'info' },
+  launched:   { label: '已落地',     cls: 'approved' },
+  on_hold:    { label: '暂停',       cls: 'warning' },
+  completed:  { label: '已完成',     cls: 'approved' },
+  success:    { label: '成功',       cls: 'approved' },
+  failed:     { label: '失败',       cls: 'rejected' },
+  urgent:     { label: '紧急',       cls: 'danger' },
+  high:       { label: '高',         cls: 'warning' },
+  medium:     { label: '中',         cls: 'pending' },
+  low:        { label: '低',         cls: 'neutral' },
 };
 
-export function StatusBadge({ status, label, variant = 'default' }: BadgeProps) {
-  const meta = STATUS_META[status] || { label: status, className: 'bg-zinc-500/15 text-zinc-400 border-zinc-500/30' };
+interface Props {
+  status: string;
+  /** Override label */
+  label?: string;
+  className?: string;
+  size?: 'sm' | 'md';
+}
 
-  if (variant === 'soft') {
-    return (
-      <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full ${meta.className.split('border')[0].trim()}`}>
-        <span className="w-1.5 h-1.5 rounded-full bg-current opacity-80" />
-        {label || meta.label}
-      </span>
-    );
-  }
-
+export function StatusBadge({ status, label, className, size = 'md' }: Props) {
+  const conf = LABELS[status] ?? { label: status, cls: 'neutral' };
   return (
-    <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full border ${meta.className}`}>
-      <span className="w-1.5 h-1.5 rounded-full bg-current opacity-80" />
-      {label || meta.label}
+    <span className={cn('admin-badge', conf.cls, className)} style={size === 'sm' ? { padding: '2px 7px', fontSize: 10 } : undefined}>
+      {label ?? conf.label}
     </span>
   );
 }
 
-export const STATUS_OPTIONS = Object.entries(STATUS_META).map(([key, meta]) => ({
-  value: key,
-  label: meta.label,
-}));
+export function statusLabel(status: string): string {
+  return LABELS[status]?.label ?? status;
+}
 
-// Filter only submission statuses
-export const SUBMISSION_STATUSES = ['new', 'contacted', 'qualified', 'closed'];
-export const COMMENT_STATUSES = ['pending', 'approved', 'rejected'];
+export default StatusBadge;

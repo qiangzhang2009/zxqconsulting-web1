@@ -1,26 +1,31 @@
 // Admin Login Page
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Eye, EyeOff, LogIn, Shield } from 'lucide-react';
+import { Eye, EyeOff, LogIn, Shield, KeyRound } from 'lucide-react';
 import { useAuth } from '../stores/AuthContext';
 
 export function LoginPage() {
   const navigate = useNavigate();
-  const { login, isLoading, error, clearError } = useAuth();
+  const { login, isLoading, error, clearError, requiresTwoFactor } = useAuth();
 
   const [email, setEmail] = useState('zxq@qq.com');
   const [password, setPassword] = useState('');
+  const [totpToken, setTotpToken] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     clearError();
-    
+
     if (!email.trim() || !password.trim()) {
       return;
     }
 
-    const success = await login(email.trim(), password);
+    const success = await login(
+      email.trim(),
+      password,
+      requiresTwoFactor ? totpToken : undefined
+    );
     if (success) {
       navigate('/admin');
     }
@@ -84,6 +89,27 @@ export function LoginPage() {
           {error && (
             <div className="bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">
               <p className="text-red-400 text-xs">{error}</p>
+            </div>
+          )}
+
+          {requiresTwoFactor && (
+            <div className="space-y-1.5">
+              <label className="block text-xs font-medium text-zinc-400 uppercase tracking-wider">
+                <KeyRound size={11} className="inline mr-1" />
+                2FA 验证码
+              </label>
+              <input
+                type="text"
+                value={totpToken}
+                onChange={(e) => setTotpToken(e.target.value)}
+                placeholder="6 位验证码"
+                maxLength={6}
+                disabled={isLoading}
+                className="w-full bg-[var(--admin-card)] border border-[var(--admin-border)] rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-500/40 focus:ring-1 focus:ring-cyan-500/20 transition backdrop-blur text-center tracking-[0.5em] font-mono"
+              />
+              <p className="text-[10px] text-zinc-500 text-center">
+                请输入验证器 App 中的 6 位动态码
+              </p>
             </div>
           )}
 
