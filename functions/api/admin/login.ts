@@ -1,7 +1,8 @@
 /**
  * POST /api/admin/login
- * 请求体: { email: string; password: string }
- * 成功返回: { success: true, token: string }
+ * 请求体: { email: string; password: string; totpToken?: string }
+ * 成功返回: { success: true, token: string, role: string }
+ * 2FA 检查: { success: false, requiresTwoFactor: true }
  * 失败返回: { success: false, error: string }
  */
 
@@ -9,6 +10,9 @@ interface Env {
   ADMIN_KV: KVNamespace;
   ADMIN_EMAIL: string;
   ADMIN_PASSWORD_HASH: string;
+  ADMIN_ROLE?: string;
+  ADMIN_2FA_SECRET?: string;
+  ADMIN_IP_WHITELIST?: string;
 }
 
 function hashPassword(password: string): string {
@@ -34,10 +38,47 @@ function generateToken(): string {
   return token;
 }
 
+function verifyTOTP(token: string, secret: string, window = 1): boolean {
+  if (!token || !secret) return false;
+  const step = 30;
+  const counter = Math.floor(Date.now() / 1000 / step);
+  for (let i = -window; i <= window; i++) {
+    const t = counter + i;
+    const expected = generateTOTP(secret, t);
+    if (expected === token) return true;
+  }
+  return false;
+}
+
+function generateTOTP(secret: string, counter: number): string {
+  let h = 0;
+  const str = secret + counter;
+  for (let i = 0; i < str.length; i++) {
+    h = (h << 5) - h + str.charCodeAt(i);
+    h |= 0;
+  }
+  return Math.abs(h).toString().padStart(10, '0').substring(0, 6).padStart(6, '0');
+}
+
+function checkIpWhitelist(request: Request, whitelistStr?: string): boolean {
+  if (!whitelistStr || whitelistStr.trim() === '') return true;
+  const whitelist = whitelistStr.split(',').map(s => s.trim()).filter(Boolean);
+  if (whitelist.length === 0) return true;
+  const ip = request.headers.get('cf-connecting-ip') || (request as any).cf?.clientIp || '';
+  if (!ip) return true;
+  return whitelist.some(pattern => {
+    if (pattern === ip) return true;
+    if (pattern.includes('*')) {
+      const re = new RegExp(pattern.replace(/\./g, '\\.').replace(/\*/g, '.*'));
+      return re.test(ip);
+    }
+    return false;
+  });
+}
+
 export async function onRequest(context: { request: Request; env: Env }) {
   const { request, env } = context;
 
-  // CORS preflight
   if (request.method === 'OPTIONS') {
     return new Response(null, {
       status: 204,
@@ -50,20 +91,15 @@ export async function onRequest(context: { request: Request; env: Env }) {
     });
   }
 
-  // Only allow POST
   if (request.method !== 'POST') {
     return new Response(JSON.stringify({ error: 'Method not allowed' }), {
       status: 405,
-      headers: {
-        'Content-Type': 'application/json',
-        'Allow': 'POST',
-        'Access-Control-Allow-Origin': '*',
-      },
+      headers: { 'Content-Type': 'application/json', 'Allow': 'POST', 'Access-Control-Allow-Origin': '*' },
     });
   }
 
   try {
-    const body = await request.json() as { email?: string; password?: string };
+    const body = await request.json() as { email?: string; password?: string; totpToken?: string };
 
     if (!body.email || !body.password) {
       return json({ success: false, error: '请提供账号和密码' }, 400);
@@ -81,19 +117,38 @@ export async function onRequest(context: { request: Request; env: Env }) {
     }
 
     if (email !== expectedEmail) {
+      // 通用错误以防账号探测
       return json({ success: false, error: '账号或密码错误' }, 401);
     }
 
     const inputHash = hashPassword(password);
     const valid = inputHash === expectedPasswordHash;
-
     if (!valid) {
       return json({ success: false, error: '账号或密码错误' }, 401);
     }
 
+    // 1. IP 白名单检查
+    if (!checkIpWhitelist(request, env.ADMIN_IP_WHITELIST)) {
+      console.warn(`[Admin Login] IP rejected for ${email}`);
+      return json({ success: false, error: 'IP 不在白名单内' }, 403);
+    }
+
+    // 2. 2FA 检查
+    if (env.ADMIN_2FA_SECRET) {
+      if (!body.totpToken) {
+        return json({ success: false, requiresTwoFactor: true, error: '需要 2FA 验证码' }, 200);
+      }
+      if (!verifyTOTP(body.totpToken, env.ADMIN_2FA_SECRET)) {
+        return json({ success: false, error: '2FA 验证码错误' }, 401);
+      }
+    }
+
+    // 3. 生成 token 并存会话
     const token = generateToken();
+    const role = env.ADMIN_ROLE || 'admin';
     const sessionData = JSON.stringify({
       email,
+      role,
       createdAt: Date.now(),
       expiresAt: Date.now() + 7 * 24 * 60 * 60 * 1000,
     });
@@ -102,7 +157,15 @@ export async function onRequest(context: { request: Request; env: Env }) {
       expirationTtl: 7 * 24 * 60 * 60,
     });
 
-    return json({ success: true, token }, 200);
+    // 4. 记录审计
+    const ip = request.headers.get('cf-connecting-ip') || '';
+    await env.ADMIN_KV.put(
+      `audit:login:${email}:${Date.now()}`,
+      JSON.stringify({ email, ip, totp: !!env.ADMIN_2FA_SECRET, role, timestamp: Date.now() }),
+      { expirationTtl: 30 * 24 * 60 * 60 }
+    );
+
+    return json({ success: true, token, role }, 200);
 
   } catch (e) {
     console.error('[Admin Login] Error:', e);

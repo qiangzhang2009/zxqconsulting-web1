@@ -4,11 +4,12 @@
  * 认证方式：Bearer session_token
  */
 
-import { verifySession, authResponse, corsPreflight } from './auth';
+import { verifySession, authResponse, corsPreflight, getDB } from './auth';
 
 interface Env {
-  DB: D1Database;
-  ADMIN_KV: KVNamespace;
+  DB?: D1Database;
+  zxqconsulting_comments?: D1Database;
+  ADMIN_KV?: KVNamespace;
 }
 
 function verifyAuth(request: Request, env: Env) {
@@ -33,7 +34,7 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
     const status = url.searchParams.get('status');
     const offset = (page - 1) * limit;
     
-    const DB = env.DB;
+    const DB = getDB(env);
     
     if (!DB) {
       return new Response(JSON.stringify({
@@ -146,10 +147,22 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
         contact_wechat,
         industry,
         product_category,
+        company_intro,
         overseas_stage,
+        has_branch,
+        has_revenue,
+        overseas_experience,
         target_markets,
+        priority_markets,
+        market_timeline,
+        business_model,
+        product_detail,
         budget,
         services,
+        service_detail,
+        advantages,
+        challenges,
+        additional_note,
         status,
         country,
         ip_address,
@@ -202,7 +215,7 @@ export async function onRequestGetById(context: { request: Request; env: Env }) 
       });
     }
 
-    const DB = env.DB;
+    const DB = getDB(env);
     
     if (!DB) {
       return new Response(JSON.stringify({ error: 'Database not configured' }), {
@@ -263,7 +276,7 @@ export async function onRequestPatch(context: { request: Request; env: Env }) {
       });
     }
 
-    const DB = env.DB;
+    const DB = getDB(env);
     
     if (!DB) {
       return new Response(JSON.stringify({ error: 'Database not configured' }), {

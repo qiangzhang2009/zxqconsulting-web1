@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Search, X, BadgeCheck, Route, ShieldAlert, TrendingUp } from 'lucide-react';
+import { ArrowRight, Search, X, BadgeCheck } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface CaseStudy {
   id: string;
+  slug?: string;
   company: string;
   companyEn: string;
   industry: string;
@@ -42,6 +43,7 @@ const CASE_CATEGORIES = [
 const cases: CaseStudy[] = [
   {
     id: 'case1',
+    slug: 'southeast-asia-three-country-entry',
     company: '某百年制药企业', companyEn: 'A Century-Old Pharmaceutical Co.',
     industry: '中成药', industryEn: 'Chinese Patent Medicine', industryCategory: 'tcm',
     decisionType: 'compliance',
@@ -62,6 +64,7 @@ const cases: CaseStudy[] = [
   },
   {
     id: 'case2',
+    slug: 'australia-tga-supplement-entry',
     company: '某中药饮片企业', companyEn: 'A TCM Decoction Company',
     industry: '中药饮片', industryEn: 'TCM Decoction Pieces', industryCategory: 'tcm',
     decisionType: 'compliance',
@@ -82,6 +85,7 @@ const cases: CaseStudy[] = [
   },
   {
     id: 'case3',
+    slug: 'eu-supplement-thr-preparation',
     company: '某保健品集团', companyEn: 'A Health Supplements Group',
     industry: '保健食品', industryEn: 'Health Supplements', industryCategory: 'supplement',
     decisionType: 'channel',
@@ -102,6 +106,7 @@ const cases: CaseStudy[] = [
   },
   {
     id: 'case4',
+    slug: 'japan-kampo-skincare-launch',
     company: '某护肤品企业', companyEn: 'A Skincare Company',
     industry: '护肤产品', industryEn: 'Skincare Products', industryCategory: 'cosmetic',
     decisionType: 'market',
@@ -121,6 +126,20 @@ const cases: CaseStudy[] = [
     ],
   },
 ];
+
+const categoryBadgeLabel: Record<string, string> = {
+  market: '市场',
+  compliance: '合规',
+  channel: '渠道',
+  resource: '资源',
+};
+
+const categoryBadgeLabelEn: Record<string, string> = {
+  market: 'Market',
+  compliance: 'Compliance',
+  channel: 'Channel',
+  resource: 'Resource',
+};
 
 const CaseStudies = () => {
   const { t, i18n } = useTranslation();
@@ -150,13 +169,13 @@ const CaseStudies = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        '.case-card',
-        { y: 34, opacity: 0 },
+        '.pub-card',
+        { y: 40, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.65,
-          stagger: 0.08,
+          duration: 0.7,
+          stagger: 0.12,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -172,32 +191,47 @@ const CaseStudies = () => {
     t(`cases.cat_${id}`, id === 'all' ? t('cases.cat_all') : id);
 
   return (
-    <section id="cases" ref={sectionRef} className="bg-[#08131d] py-24">
-      <div className="container mx-auto px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-300">
-            <BadgeCheck className="h-4 w-4" />
-            {t('cases.badge')}
+    <section id="cases" ref={sectionRef} className="section-cases relative overflow-hidden py-24 md:py-32">
+      {/* Volume mark — editorial chapter marker */}
+      <div className="relative z-10 container mx-auto px-6">
+        <div className="mb-14 flex items-end justify-between">
+          <div>
+            <div className="volume-mark">
+              <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-[#2F5D57]">
+                {isZh ? '卷首 · 案例选读' : 'Vol. I — Case Studies'}
+              </span>
+            </div>
+            <h2 className="mt-3 text-[2.25rem] md:text-5xl font-semibold leading-[1.18] tracking-tight text-[#1B2520] serif-editorial">
+              {t('cases.badgeTitle', '不是案例库,是陪跑过的真实判断')}
+            </h2>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-[#4a554f]">
+              {t(
+                'cases.desc',
+                '每一个案例都是我们陪客户从立项迷茫走到出海落地的真实过程。看到过程,你才能判断这套陪跑到底适不适合你。'
+              )}
+            </p>
           </div>
-          <h2 className="mt-5 text-3xl font-semibold text-white md:text-5xl">
-            {t('cases.badgeTitle')}
-          </h2>
-          <p className="mt-5 text-lg leading-8 text-slate-400">
-            {t('cases.desc')}
-          </p>
+
+          {/* Editorial badge on the right */}
+          <div className="hidden md:flex flex-col items-end gap-3">
+            <div className="badge badge-seal">
+              {isZh ? '过往判断' : 'Proven Cases'}
+            </div>
+            <div className="flex items-center gap-1.5 text-sm text-[#5b6661]">
+              <BadgeCheck className="h-3.5 w-3.5 text-[#2F5D57]" />
+              <span>{t('cases.showCount', { n: filteredCases.length })}</span>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex flex-wrap gap-3">
+        {/* Filter bar */}
+        <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-wrap gap-2.5">
             {CASE_CATEGORIES.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                  activeCategory === category.id
-                    ? 'bg-white text-slate-900'
-                    : 'border border-white/10 bg-white/5 text-slate-300 hover:bg-white/10'
-                }`}
+                className={`badge ${activeCategory === category.id ? 'badge-seal-active' : 'badge-seal-outline'}`}
               >
                 {catLabel(category.id)}
               </button>
@@ -205,17 +239,17 @@ const CaseStudies = () => {
           </div>
 
           <div className="relative w-full max-w-md">
-            <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
+            <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#2F5D57]/50" />
             <input
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={t('cases.searchPlaceholder')}
-              className="w-full rounded-2xl border border-white/10 bg-white/[0.04] py-3 pl-11 pr-11 text-sm text-white placeholder:text-slate-500 focus:border-emerald-400/40 focus:outline-none"
+              placeholder={t('cases.searchPlaceholder', '搜索案例 / 行业 / 市场...')}
+              className="w-full rounded-2xl border border-[#2F5D57]/20 bg-white py-3 pl-11 pr-11 text-sm text-[#1B2520] placeholder:text-[#5b6661]/70 focus:border-[#2F5D57]/40 focus:outline-none focus:ring-2 focus:ring-[#2F5D57]/10"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-[#5b6661] hover:text-[#1B2520]"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -223,76 +257,233 @@ const CaseStudies = () => {
           </div>
         </div>
 
-        <div className="mt-4 text-sm text-slate-500">
-          {t('cases.showCount', { n: filteredCases.length })}
-        </div>
+        {/* Magazine-style 2-column grid with alternating weight */}
+        <div className="mt-12 grid gap-8 xl:grid-cols-2">
+          {filteredCases.map((item, idx) => (
+            <article
+              key={item.id}
+              className={`pub-card card-seal card-hover group relative rounded-2xl border border-[#2F5D57]/18 bg-[#FDFCF8] shadow-sm transition-all duration-300 ${
+                idx % 3 === 0 ? 'xl:col-span-2' : ''
+              }`}
+            >
+              {/* Ruled-lines hover overlay */}
+              <div className="notebook-lines pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-        <div className="mt-10 grid gap-6 xl:grid-cols-2">
-          {filteredCases.map((item) => (
-            <article key={item.id} className="case-card rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="text-sm uppercase tracking-[0.22em] text-emerald-300/80">
-                    {item.flag} {isZh ? item.industry : item.industryEn}
+              <Link to={`/cases/${item.slug}`} className="relative z-10 block p-8">
+                {/* Card header */}
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <div className="flex-1">
+                    {/* Flag + industry as muted label */}
+                    <div className="flex items-center gap-2 text-sm text-[#5b6661]">
+                      <span className="text-base leading-none opacity-70">{item.flag}</span>
+                      <span className="text-xs tracking-wider text-[#5b6661]/70">
+                        {isZh ? item.industry : item.industryEn}
+                      </span>
+                    </div>
+
+                    {/* Serif title */}
+                    <h3 className="mt-3 text-2xl font-semibold text-[#1B2520] serif-editorial leading-snug">
+                      {isZh ? item.company : item.companyEn}
+                    </h3>
+
+                    {/* Market chips */}
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {(isZh ? item.markets : item.marketsEn).map((m) => (
+                        <span
+                          key={m}
+                          className="inline-flex items-center text-xs text-[#4a554f]"
+                        >
+                          {m}
+                          {m !== (isZh ? item.markets : item.marketsEn).at(-1) && (
+                            <span className="mx-1.5 text-[#2F5D57]/30">·</span>
+                          )}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <h3 className="mt-3 text-2xl font-semibold text-white">{isZh ? item.company : item.companyEn}</h3>
-                  <div className="mt-3 text-sm text-slate-400">
-                    {(isZh ? item.markets : item.marketsEn).join(' / ')}
+
+                  {/* Category badge */}
+                  <span className="badge badge-seal shrink-0">
+                    {isZh
+                      ? categoryBadgeLabel[item.decisionType]
+                      : categoryBadgeLabelEn[item.decisionType]}
+                  </span>
+                </div>
+
+                {/* Client & advisor dialogue */}
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3 rounded-xl bg-[#EDE8DC]/60 border border-[#2F5D57]/8 px-4 py-3">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#5b6661]/15 flex items-center justify-center text-[10px] font-bold text-[#5b6661]">
+                      客
+                    </div>
+                    <div>
+                      <div className="text-[10px] uppercase tracking-widest text-[#5b6661]/60 font-bold mb-1">
+                        {t('cases.industry', '客户当下')}
+                      </div>
+                      <p className="text-sm leading-relaxed text-[#3a4540] italic">
+                        "{isZh ? item.challenge : item.challengeEn}"
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 rounded-xl border border-[#2F5D57]/15 bg-[#2F5D57]/5 px-4 py-3">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-[#2F5D57] flex items-center justify-center text-[10px] font-bold text-white">
+                      <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none">
+                        <path d="M8 2L10 6H14L11 9L12.5 13L8 10.5L3.5 13L5 9L2 6H6L8 2Z" fill="currentColor"/>
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-[10px] uppercase tracking-widest text-[#2F5D57]/70 font-bold mb-1">
+                        {t('cases.pathway', '我们做的事')}
+                      </div>
+                      <p className="text-sm leading-relaxed text-[#1B2520]">
+                        {isZh ? item.solution : item.solutionEn}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl bg-[#C2473B]/5 border border-[#C2473B]/15 px-4 py-3">
+                    <div className="text-[10px] uppercase tracking-widest text-[#C2473B]/80 font-bold mb-1">
+                      {t('cases.outcome', '结果 · 和客户一起做到的')}
+                    </div>
+                    <p className="text-sm font-medium leading-relaxed text-[#1B2520]">
+                      {isZh ? item.result : item.resultEn}
+                    </p>
                   </div>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-[#0c1722] px-4 py-2 text-xs uppercase tracking-[0.18em] text-slate-400">
-                  {t('cases.proofCase')}
-                </div>
-              </div>
 
-              <div className="mt-6 grid gap-4 md:grid-cols-3">
-                <div className="rounded-2xl border border-white/10 bg-[#0c1722] p-4">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-amber-200">
-                    <ShieldAlert className="h-4 w-4" />
-                    {t('cases.industry')}
+                {/* Insight 手记 */}
+                <div className="mt-5 rounded-2xl border-l-4 border-[#C2473B] bg-[#FAF8F3] px-4 py-3.5 shadow-sm">
+                  <div className="text-[10px] uppercase tracking-widest text-[#C2473B]/70 font-bold mb-1">
+                    手记 · {t('cases.insight', '顾问判断')}
                   </div>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{isZh ? item.challenge : item.challengeEn}</p>
+                  <p className="text-sm leading-relaxed text-[#1B2520] font-medium italic">
+                    "{isZh ? item.insight : item.insightEn}"
+                  </p>
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-[#0c1722] p-4">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-emerald-300">
-                    <Route className="h-4 w-4" />
-                    {t('cases.pathway')}
-                  </div>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{isZh ? item.solution : item.solutionEn}</p>
+
+                {/* Metrics row */}
+                <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                  {item.metrics.map((metric) => (
+                    <div
+                      key={metric.label + metric.value}
+                      className="rounded-2xl border border-[#2F5D57]/10 bg-[#EDE8DC]/40 px-4 py-4 text-center"
+                    >
+                      <div className="stat-num text-2xl font-bold text-[#2F5D57]">
+                        {metric.value}
+                      </div>
+                      <div className="mt-1 text-[10px] uppercase tracking-[0.18em] text-[#5b6661]">
+                        {isZh ? metric.label : metric.labelEn}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div className="rounded-2xl border border-white/10 bg-[#0c1722] p-4">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-cyan-300">
-                    <TrendingUp className="h-4 w-4" />
-                    {t('cases.outcome')}
-                  </div>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{isZh ? item.result : item.resultEn}</p>
+
+                {/* CTA */}
+                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#C2473B] group-hover:text-[#A93B30]">
+                  {isZh ? '查看完整陪跑过程' : 'View full case analysis'}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
-              </div>
-
-              <div className="mt-5 rounded-2xl border border-emerald-400/15 bg-emerald-400/5 p-4">
-                <div className="text-sm font-semibold text-white">{t('cases.insight')}</div>
-                <p className="mt-2 text-sm leading-7 text-slate-300">{isZh ? item.insight : item.insightEn}</p>
-              </div>
-
-              <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                {item.metrics.map((metric) => (
-                  <div key={metric.label + metric.value} className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4">
-                    <div className="text-2xl font-semibold text-white">{metric.value}</div>
-                    <div className="mt-1 text-xs uppercase tracking-[0.18em] text-slate-500">{isZh ? metric.label : metric.labelEn}</div>
-                  </div>
-                ))}
-              </div>
-
-              <Link
-                to="/expert"
-                className="mt-6 inline-flex items-center gap-2 rounded-2xl border border-white/12 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-              >
-                {t('cases.applyCase')} <ArrowRight className="h-4 w-4" />
               </Link>
             </article>
           ))}
         </div>
+
+        {filteredCases.length === 0 && (
+          <div className="mt-20 text-center text-[#5b6661]">
+            <p className="text-lg">{isZh ? '暂无匹配案例' : 'No matching cases found'}</p>
+          </div>
+        )}
       </div>
+
+      <style>{`
+        .section-cases {
+          background-color: #EDE8DC;
+        }
+
+        .volume-mark {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .volume-mark::before {
+          content: '';
+          display: inline-block;
+          width: 2rem;
+          height: 1px;
+          background-color: #2F5D57;
+          opacity: 0.5;
+        }
+
+        .serif-editorial {
+          font-family: 'Noto Serif SC', 'Source Serif Pro', Georgia, 'Songti SC', serif;
+        }
+
+        .pub-card {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .pub-card.card-seal {
+          border-left: 3px solid #2F5D57;
+        }
+
+        .pub-card.card-hover {
+          transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+        }
+
+        .pub-card.card-hover:hover {
+          border-color: #2F5D57;
+          box-shadow: 0 8px 32px rgba(47, 93, 87, 0.12);
+          transform: translateY(-2px);
+        }
+
+        .badge {
+          display: inline-flex;
+          align-items: center;
+          border-radius: 9999px;
+          padding: 0.25rem 0.75rem;
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          transition: all 0.2s ease;
+        }
+
+        .badge-seal {
+          background-color: #2F5D57;
+          color: #ffffff;
+          border: 1px solid #2F5D57;
+        }
+
+        .badge-seal-outline {
+          background-color: transparent;
+          color: #2F5D57;
+          border: 1px solid #2F5D57/25;
+        }
+
+        .badge-seal-active {
+          background-color: #2F5D57;
+          color: #ffffff;
+        }
+
+        .stat-num {
+          font-variant-numeric: tabular-nums;
+        }
+
+        /* Subtle ruled-notebook lines on hover */
+        .notebook-lines {
+          background-image: repeating-linear-gradient(
+            to bottom,
+            transparent,
+            transparent 27px,
+            rgba(47, 93, 87, 0.07) 27px,
+            rgba(47, 93, 87, 0.07) 28px
+          );
+          background-size: 100% 28px;
+        }
+      `}</style>
     </section>
   );
 };

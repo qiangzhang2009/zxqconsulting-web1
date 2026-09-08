@@ -10,6 +10,8 @@ export interface LoginResponse {
   success: boolean;
   token?: string;
   error?: string;
+  requiresTwoFactor?: boolean;
+  role?: 'super_admin' | 'admin' | 'editor' | 'viewer';
 }
 
 export interface Session {

@@ -1,202 +1,207 @@
-// Research Analytics Page
-import { useState } from 'react';
-import { BarChart3, FileText, Users, Globe2, TrendingUp, Eye, Download } from 'lucide-react';
+// ResearchPage — 研究报告分析
+import { useState, useCallback, useEffect } from 'react';
+import { BarChart3, Clock, Globe, FileText, Eye, Download, ExternalLink } from 'lucide-react';
 import { PageHeader } from '../components/ui/PageHeader';
-import { KPICard } from '../components/ui/KPICard';
-import { AreaChart } from '../components/charts/AreaChart';
-import { DonutChart } from '../components/charts/DonutChart';
-import { BarChart } from '../components/charts/BarChart';
+import { DataTable, type Column } from '../components/data-table/DataTable';
 import { CardSkeleton } from '../components/ui/Skeleton';
-import { useResearchAnalytics } from '../hooks/useAdminData';
+import { fmtNumber, fmtCompact, cn } from '@/apps/admin/lib/format';
+import { api } from '../services/api';
+import type { ReportStats } from '../types/admin';
 
-const COUNTRY_FLAG: Record<string, string> = {
-  CN: '🇨🇳', HK: '🇭🇰', TW: '🇹🇼', SG: '🇸🇬', US: '🇺🇸', GB: '🇬🇧', DE: '🇩🇪',
-  JP: '🇯🇵', KR: '🇰🇷', AU: '🇦🇺', FR: '🇫🇷', MY: '🇲🇾', TH: '🇹🇭', IN: '🇮🇳',
-  AE: '🇦🇪', CA: '🇨🇦', NL: '🇳🇱', CH: '🇨🇭', BR: '🇧🇷', MX: '🇲🇽', ID: '🇮🇩',
-};
+const LIMIT = 20;
 
 export function ResearchPage() {
-  const [days, setDays] = useState(30);
-  const { data, loading } = useResearchAnalytics(days);
+  const [data, setData] = useState<{
+    overview: {
+      todayPageviews: number;
+      todayVisitors: number;
+      totalPageviews: number;
+      totalUniqueVisitors: number;
+      totalCountries: number;
+      totalReports: number;
+      avgReadTime: number | null;
+    };
+    reports: ReportStats[];
+    trafficSources: Array<{ traffic_source: string; pageviews: number; visitors: number }>;
+    devices: Array<{ device_type: string; pageviews: number }>;
+  } | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  if (loading || !data) {
-    return (
-      <>
-        <PageHeader title="研究分析" description="研究报告访问与互动数据" icon={<BarChart3 size={18} className="text-emerald-400" />} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {Array.from({ length: 4 }).map((_, i) => <CardSkeleton key={i} />)}
+  const fetchData = useCallback(async () => {
+    setLoading(true);
+    try {
+      const res = await api.getResearchAnalytics({ days: 30 });
+      setData(res);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  const columns: Column<ReportStats>[] = [
+    {
+      key: 'title',
+      header: '报告',
+      render: (r) => (
+        <div className="space-y-0.5 max-w-xs">
+          <div className="text-sm font-medium text-white truncate">{r.title}</div>
+          <div className="flex items-center gap-2 text-xs text-zinc-500">
+            <span>{r.region}</span>
+            <span>·</span>
+            <span>{r.category}</span>
+          </div>
         </div>
-      </>
-    );
-  }
+      ),
+    },
+    {
+      key: 'pageviews',
+      header: '浏览量',
+      align: 'right',
+      render: (r) => (
+        <span className="font-semibold text-white">{fmtCompact(r.pageviews)}</span>
+      ),
+    },
+    {
+      key: 'unique_visitors',
+      header: '访客数',
+      align: 'right',
+      render: (r) => (
+        <span className="text-zinc-400">{fmtCompact(r.unique_visitors)}</span>
+      ),
+    },
+    {
+      key: 'downloads',
+      header: '下载',
+      align: 'right',
+      render: (r) => (
+        <span className={cn(
+          'font-semibold',
+          (r.downloads ?? 0) > 0 ? 'text-emerald-400' : 'text-zinc-500'
+        )}>
+          {r.downloads ?? 0}
+        </span>
+      ),
+    },
+    {
+      key: 'externals',
+      header: '外链',
+      align: 'right',
+      render: (r) => (
+        <div className="flex items-center justify-end gap-1">
+          <ExternalLink size={11} className="text-zinc-500" />
+          <span className="text-zinc-400">{r.externals ?? 0}</span>
+        </div>
+      ),
+    },
+    {
+      key: 'countries_reached',
+      header: '国家数',
+      align: 'right',
+      render: (r) => (
+        <span className="text-zinc-400">{r.countries_reached ?? 0}</span>
+      ),
+    },
+  ];
+
+  const maxTraffic = data?.trafficSources?.length
+    ? Math.max(...data.trafficSources.map(s => s.pageviews))
+    : 0;
+
+  const maxDevice = data?.devices?.length
+    ? Math.max(...data.devices.map(d => d.pageviews))
+    : 0;
+
+  const avgReadTimeStr = data?.overview.avgReadTime != null
+    ? `${(data.overview.avgReadTime / 60).toFixed(1)} 分钟`
+    : '—';
 
   return (
-    <>
+    <div className="admin-content">
       <PageHeader
-        title="研究报告分析"
-        description={`${data.overview.totalReports} 份报告 · ${days} 天数据`}
-        icon={<BarChart3 size={18} className="text-emerald-400" />}
-        actions={
-          <div className="flex items-center gap-1 p-1 rounded-lg bg-[var(--admin-card)] border border-[var(--admin-border)]">
-            {[7, 30, 90].map((d) => (
-              <button
-                key={d}
-                onClick={() => setDays(d)}
-                className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${
-                  days === d
-                    ? 'bg-emerald-500/15 text-emerald-400'
-                    : 'text-zinc-500 hover:text-white'
-                }`}
-              >
-                {d}天
-              </button>
-            ))}
-          </div>
-        }
+        eyebrow="内容分析"
+        title="研究报告"
+        icon={<BarChart3 size={20} />}
+        metrics={data ? [
+          { label: '总浏览量', value: fmtNumber(data.overview.totalPageviews), accent: 'emerald' },
+          { label: '总访客', value: fmtNumber(data.overview.totalUniqueVisitors), accent: 'blue' },
+          { label: '国家覆盖', value: fmtNumber(data.overview.totalCountries), accent: 'purple' },
+          { label: '报告数', value: fmtNumber(data.overview.totalReports), accent: 'amber' },
+          { label: '平均阅读时长', value: avgReadTimeStr, accent: 'cyan' },
+        ] : undefined}
       />
 
-      {/* KPI Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <KPICard
-          label="总阅读量"
-          value={data.overview.totalPageviews}
-          accent="emerald"
-          icon={<Eye size={18} />}
-          description={`今日: ${data.overview.todayPageviews}`}
-        />
-        <KPICard
-          label="独立访客"
-          value={data.overview.totalUniqueVisitors}
-          accent="blue"
-          icon={<Users size={18} />}
-          description={`今日: ${data.overview.todayVisitors}`}
-        />
-        <KPICard
-          label="覆盖国家"
-          value={data.overview.totalCountries}
-          accent="amber"
-          icon={<Globe2 size={18} />}
-        />
-        <KPICard
-          label="研究报告"
-          value={data.overview.totalReports}
-          accent="purple"
-          icon={<FileText size={18} />}
-        />
-      </div>
-
-      {/* Trend Chart */}
-      <div className="admin-card mb-6">
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h3 className="text-sm font-semibold text-white">阅读量趋势</h3>
-            <p className="text-xs text-zinc-500 mt-0.5">各报告每日阅读量</p>
-          </div>
+      {loading && !data ? (
+        <div className="admin-grid admin-grid-3">
+          {Array.from({ length: 6 }).map((_, i) => <CardSkeleton key={i} height={80} />)}
         </div>
-      <AreaChart
-        data={data.trend.map(t => ({ date: String(t.date) }))}
-        series={data.reports.slice(0, 4).map((r, i) => ({
-          key: r.id,
-          label: r.title,
-          color: ['#34d399', '#60a5fa', '#fbbf24', '#a78bfa'][i],
-        }))}
-        height={280}
-      />
-      </div>
-
-      {/* Reports Table */}
-      <div className="admin-card mb-6">
-        <h3 className="text-sm font-semibold text-white mb-4">报告详细数据</h3>
-        <div className="overflow-x-auto -mx-6">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-[var(--admin-border)]">
-                {['报告', '地区', '分类', 'PV', 'UV', '国家', '下载', '外部'].map((h, i) => (
-                  <th key={i} className={`px-4 py-3 text-[10px] font-semibold text-zinc-500 uppercase tracking-widest ${i >= 3 ? 'text-right' : 'text-left'}`}>
-                    {h}
-                  </th>
+      ) : data ? (
+        <div className="space-y-6">
+          {/* Traffic sources */}
+          <div className="admin-card">
+            <div className="admin-section-title">流量来源分布</div>
+            {data.trafficSources.length > 0 ? (
+              <div className="space-y-2">
+                {data.trafficSources.map((s) => (
+                  <div key={s.traffic_source} className="flex items-center gap-3">
+                    <div className="w-24 text-xs text-zinc-400 truncate flex-shrink-0">
+                      {s.traffic_source || '直接访问'}
+                    </div>
+                    <div className="flex-1 h-6 bg-white/[0.04] rounded-md overflow-hidden">
+                      <div
+                        className="h-full rounded-md bg-gradient-to-r from-emerald-500/60 to-emerald-400/80"
+                        style={{ width: `${maxTraffic > 0 ? (s.pageviews / maxTraffic) * 100 : 0}%` }}
+                      />
+                    </div>
+                    <div className="w-16 text-right text-xs text-white font-medium">
+                      {fmtCompact(s.pageviews)}
+                    </div>
+                  </div>
                 ))}
-              </tr>
-            </thead>
-            <tbody>
-              {data.reports.map((r) => (
-                <tr key={r.id} className="border-b border-[var(--admin-border)]/40 hover:bg-white/[0.02] transition-colors">
-                  <td className="px-4 py-3 text-sm text-white max-w-[260px] truncate">{r.title}</td>
-                  <td className="px-4 py-3 text-xs text-zinc-400">{r.region}</td>
-                  <td className="px-4 py-3 text-xs">
-                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                      {r.category}
-                    </span>
-                  </td>
-                  <td className="px-4 py-3 text-sm font-medium text-white text-right">{r.pageviews}</td>
-                  <td className="px-4 py-3 text-sm text-zinc-300 text-right">{r.unique_visitors}</td>
-                  <td className="px-4 py-3 text-sm text-zinc-300 text-right">{r.countries_reached}</td>
-                  <td className="px-4 py-3 text-sm text-zinc-300 text-right">{r.downloads}</td>
-                  <td className="px-4 py-3 text-sm text-zinc-300 text-right">{r.externals}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* Three Column Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
-        {/* Traffic Sources */}
-        <div className="admin-card">
-          <div className="flex items-center gap-2 mb-4">
-            <TrendingUp size={14} className="text-blue-400" />
-            <h3 className="text-sm font-semibold text-white">流量来源</h3>
-          </div>
-          <BarChart
-            data={(data.trafficSources || []).slice(0, 6).map((s) => ({
-              label: s.traffic_source || '未知',
-              value: s.pageviews,
-              color: '#60a5fa',
-            }))}
-            height={170}
-          />
-        </div>
-
-        {/* Devices */}
-        <div className="admin-card">
-          <div className="flex items-center gap-2 mb-4">
-            <Eye size={14} className="text-purple-400" />
-            <h3 className="text-sm font-semibold text-white">设备分布</h3>
-          </div>
-          <DonutChart
-            data={(data.devices || []).slice(0, 5).map((d, i) => ({
-              label: d.device_type || '未知',
-              value: d.pageviews,
-              color: ['#34d399', '#60a5fa', '#fbbf24', '#a78bfa', '#f472b6'][i % 5],
-            }))}
-            size={120}
-          />
-        </div>
-
-        {/* Recent Visitors */}
-        <div className="admin-card">
-          <div className="flex items-center gap-2 mb-4">
-            <Users size={14} className="text-emerald-400" />
-            <h3 className="text-sm font-semibold text-white">最近访客</h3>
-          </div>
-          <div className="space-y-2 max-h-[200px] overflow-y-auto">
-            {(data.recentVisitors || []).slice(0, 8).map((v, i) => (
-              <div key={i} className="flex items-center justify-between gap-2 text-xs py-1.5">
-                <div className="flex items-center gap-2 min-w-0 flex-1">
-                  <span>{COUNTRY_FLAG[v.country] || '🌐'}</span>
-                  <span className="text-zinc-300 truncate">
-                    {v.city || v.region || v.country}
-                  </span>
-                </div>
-                <span className="text-zinc-600 text-[10px]">
-                  {new Date(v.created_at).toLocaleString('zh-CN', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })}
-                </span>
               </div>
-            ))}
+            ) : (
+              <div className="text-sm text-zinc-500 py-4 text-center">暂无数据</div>
+            )}
           </div>
+
+          {/* Devices */}
+          <div className="admin-card">
+            <div className="admin-section-title">设备分布</div>
+            {data.devices.length > 0 ? (
+              <div className="flex items-end gap-3 h-28">
+                {data.devices.map((d) => (
+                  <div key={d.device_type} className="flex-1 flex flex-col items-center gap-2">
+                    <div className="w-full flex flex-col items-center justify-end h-20">
+                      <div
+                        className="w-full max-w-20 rounded-t-md bg-gradient-to-t from-blue-500/60 to-sky-400/80"
+                        style={{ height: `${maxDevice > 0 ? (d.pageviews / maxDevice) * 100 : 0}%`, minHeight: 4 }}
+                      />
+                    </div>
+                    <span className="text-xs text-zinc-400 capitalize">{d.device_type || '未知'}</span>
+                    <span className="text-xs font-semibold text-white">{fmtCompact(d.pageviews)}</span>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-sm text-zinc-500 py-4 text-center">暂无数据</div>
+            )}
+          </div>
+
+          {/* Reports table */}
+          <DataTable
+            data={data.reports}
+            columns={columns}
+            loading={loading}
+            searchPlaceholder="搜索报告..."
+            emptyTitle="暂无报告数据"
+            emptyDescription="暂无研究报告数据"
+          />
         </div>
-      </div>
-    </>
+      ) : null}
+    </div>
   );
 }
+
+export default ResearchPage;

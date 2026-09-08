@@ -6,7 +6,12 @@
  */
 
 interface Env {
-  DB: D1Database;
+  DB?: D1Database;
+  zxqconsulting_comments?: D1Database;
+}
+
+function getDB(env: Env): D1Database | null {
+  return env.DB || env.zxqconsulting_comments || null;
 }
 
 export async function onRequestPost(context: { request: Request; env: Env }) {
@@ -43,7 +48,15 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
 
     const id = crypto.randomUUID();
 
-    await env.DB
+    const DB = getDB(env);
+    if (!DB) {
+      return new Response(JSON.stringify({ error: 'D1 database not configured', id }), {
+        status: 503,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    await DB
       .prepare(
         `INSERT INTO diagnosis_reports
           (id, website_id, visitor_id, market_id, market_name, market_name_en,

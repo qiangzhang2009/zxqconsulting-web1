@@ -243,34 +243,34 @@ export default function ReviewComments() {
   const countries = new Set(comments.map(c => c.geo_country)).size;
 
   return (
-    <section id="reviews" style={{ background: '#080d18', padding: '80px 0' }}>
+    <section id="reviews" style={{ background: '#F5F1E8', padding: '80px 0' }}>
       <div style={{ maxWidth: 860, margin: '0 auto', padding: '0 24px' }}>
 
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
-            background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)',
-            borderRadius: 999, padding: '6px 16px', fontSize: '0.78rem', color: '#10b981',
+            background: 'rgba(47, 93, 87, 0.08)', border: '1px solid rgba(47, 93, 87, 0.2)',
+            borderRadius: 999, padding: '6px 16px', fontSize: '0.78rem', color: '#2F5D57',
             fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', marginBottom: 12,
           }}>
             💬 全球用户问答 · AI 顾问专业回复
           </div>
           <h2 style={{
-            fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', fontWeight: 800, color: '#f0f6ff',
-            letterSpacing: '-0.03em', marginBottom: 12, fontFamily: 'Georgia, serif'
+            fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', fontWeight: 700, color: '#1B2520',
+            letterSpacing: '-0.02em', marginBottom: 12, fontFamily: 'Georgia, serif'
           }}>
             与岐黄四海用户交流
           </h2>
-          <p style={{ color: '#8899aa', maxWidth: 520, margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
+          <p style={{ color: '#5b6661', maxWidth: 520, margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
             分享您的中医出海经验，或提出合规、市场、物流、税务等实际问题。发布后，AI 顾问将自动提供专业回复
           </p>
         </div>
 
         {/* Comment Form */}
         <form onSubmit={handleSubmit} style={{
-          background: '#0d1a2a', border: '1px solid rgba(255,255,255,0.08)',
-          borderRadius: 16, padding: 28, marginBottom: 40,
+          background: '#FFFFFF', border: '1px solid rgba(47, 93, 87, 0.15)',
+          borderRadius: 16, padding: 28, marginBottom: 40, boxShadow: '0 4px 16px rgba(47, 93, 87, 0.06)',
         }}>
           <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
             <Avatar name={guestName || '游客'} />
@@ -280,13 +280,13 @@ export default function ReviewComments() {
                   type="text" placeholder="您的昵称（选填）" maxLength={50}
                   value={guestName}
                   onChange={e => setGuestName(e.target.value)}
-                  style={{ flex: 1, background: 'rgba(255,255,255,0.05)',
-                    border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8,
-                    padding: '8px 14px', color: '#f0f6ff', fontSize: '0.88rem',
+                  style={{ flex: 1, background: '#FAF8F3',
+                    border: '1px solid rgba(47, 93, 87, 0.15)', borderRadius: 8,
+                    padding: '8px 14px', color: '#1B2520', fontSize: '0.88rem',
                     outline: 'none', fontFamily: 'inherit' }}
                 />
-                <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.78rem', color: '#4a6080', padding: '0 4px' }}>
-                  <span style={{ color: content.length > 1800 ? '#f59e0b' : '#4a6080', fontWeight: content.length > 1800 ? 600 : 400 }}>{content.length}</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.78rem', color: '#5b6661', padding: '0 4px' }}>
+                  <span style={{ color: content.length > 1800 ? '#C2473B' : '#5b6661', fontWeight: content.length > 1800 ? 600 : 400 }}>{content.length}</span>
                   <span>/ 2000</span>
                 </div>
               </div>
@@ -295,15 +295,15 @@ export default function ReviewComments() {
                 placeholder="分享您的中医出海经验，或提出具体问题... AI 顾问将在发布后自动回复"
                 maxLength={2000} value={content}
                 onChange={e => setContent(e.target.value)} rows={4}
-                style={{ width: '100%', background: 'rgba(255,255,255,0.04)',
-                  border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10,
-                  padding: '12px 14px', color: '#f0f6ff', fontSize: '0.9rem',
+                style={{ width: '100%', background: '#FAF8F3',
+                  border: '1px solid rgba(47, 93, 87, 0.15)', borderRadius: 10,
+                  padding: '12px 14px', color: '#1B2520', fontSize: '0.9rem',
                   outline: 'none', resize: 'vertical', fontFamily: 'inherit', lineHeight: 1.6, boxSizing: 'border-box' }}
               />
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 12 }}>
-                <span style={{ fontSize: '0.78rem', color: '#3a5070' }}>友善交流，禁止人身攻击 · 留言公开显示</span>
+                <span style={{ fontSize: '0.78rem', color: '#5b6661' }}>友善交流，禁止人身攻击 · 留言公开显示</span>
                 <button type="submit" disabled={submitting || !content.trim()}
-                  style={{ background: (submitting || !content.trim()) ? 'rgba(16,185,129,0.3)' : '#10b981',
+                  style={{ background: (submitting || !content.trim()) ? 'rgba(47, 93, 87, 0.3)' : '#2F5D57',
                     border: 'none', borderRadius: 10, padding: '10px 24px',
                     color: 'white', fontWeight: 700, fontSize: '0.88rem',
                     cursor: (submitting || !content.trim()) ? 'not-allowed' : 'pointer',
@@ -322,9 +322,9 @@ export default function ReviewComments() {
 
         {/* Sort Controls */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20, flexWrap: 'wrap', gap: 12 }}>
-          <div style={{ fontSize: '0.9rem', color: '#8899aa' }}>
-            全部留言 <span style={{ color: '#10b981', fontWeight: 700 }}>{total}</span> 条
-            <span style={{ marginLeft: 12, fontSize: '0.75rem', color: '#3a5070' }}>
+          <div style={{ fontSize: '0.9rem', color: '#5b6661' }}>
+            全部留言 <span style={{ color: '#2F5D57', fontWeight: 700 }}>{total}</span> 条
+            <span style={{ marginLeft: 12, fontSize: '0.75rem', color: '#5b6661' }}>
               来自全球 {countries} 个国家和地区
             </span>
           </div>
@@ -332,8 +332,8 @@ export default function ReviewComments() {
             {(['latest', 'popular'] as const).map(s => (
               <button key={s} onClick={() => { setSort(s); setPage(1); }}
                 style={{ padding: '5px 16px', borderRadius: 8, border: 'none',
-                  background: sort === s ? '#10b981' : 'rgba(255,255,255,0.06)',
-                  color: sort === s ? 'white' : '#8899aa',
+                  background: sort === s ? '#2F5D57' : 'rgba(47, 93, 87, 0.08)',
+                  color: sort === s ? 'white' : '#5b6661',
                   fontSize: '0.82rem', fontWeight: sort === s ? 600 : 400,
                   cursor: 'pointer', transition: 'all 0.15s', fontFamily: 'inherit' }}>
                 {s === 'latest' ? '最新' : '最热'}
@@ -344,9 +344,9 @@ export default function ReviewComments() {
 
         {/* Comment List */}
         {loading ? (
-          <div style={{ textAlign: 'center', padding: 40, color: '#4a6080' }}>加载中...</div>
+          <div style={{ textAlign: 'center', padding: 40, color: '#5b6661' }}>加载中...</div>
         ) : comments.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: 60, color: '#4a6080', background: 'rgba(255,255,255,0.02)', borderRadius: 16 }}>
+          <div style={{ textAlign: 'center', padding: 60, color: '#5b6661', background: '#FAF8F3', borderRadius: 16, border: '1px dashed rgba(47, 93, 87, 0.2)' }}>
             <div style={{ fontSize: '2rem', marginBottom: 8 }}>💬</div>
             <div style={{ fontSize: '0.9rem' }}>暂无留言，成为第一个分享者</div>
           </div>
@@ -359,22 +359,22 @@ export default function ReviewComments() {
               const location = [flag, countryName, comment.geo_region, comment.geo_city].filter(Boolean).join(' ');
 
               return (
-                <div key={comment.id} style={{ padding: '18px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                <div key={comment.id} style={{ padding: '18px 0', borderBottom: '1px solid rgba(47, 93, 87, 0.08)' }}>
                   <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
                     <Avatar name={comment.user_name} size={38} />
 
                     <div style={{ flex: 1, minWidth: 0 }}>
                       {/* Header: name + location + time */}
                       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6, flexWrap: 'wrap' }}>
-                        <span style={{ fontWeight: 600, color: '#d0ddef', fontSize: '0.88rem' }}>
+                        <span style={{ fontWeight: 600, color: '#1B2520', fontSize: '0.88rem' }}>
                           {comment.user_name || '游客'}
                         </span>
                         {location && (
                           <span style={{
                             display: 'inline-flex', alignItems: 'center', gap: 3,
-                            fontSize: '0.72rem', color: '#4a6080',
-                            background: 'rgba(255,255,255,0.04)',
-                            border: '1px solid rgba(255,255,255,0.08)',
+                            fontSize: '0.72rem', color: '#5b6661',
+                            background: '#FAF8F3',
+                            border: '1px solid rgba(47, 93, 87, 0.12)',
                             borderRadius: 999, padding: '2px 8px',
                           }}>
                             {flag} {location}
@@ -384,7 +384,7 @@ export default function ReviewComments() {
                       </div>
 
                       {/* Content */}
-                      <div style={{ color: '#b8c8de', fontSize: '0.9rem', lineHeight: 1.75, wordBreak: 'break-word', whiteSpace: 'pre-wrap' }}>
+                      <div style={{ color: '#3a4540', fontSize: '0.9rem', lineHeight: 1.75, wordBreak: 'break-word', whiteSpace: 'pre-wrap' }}>
                         {comment.content}
                       </div>
 
@@ -393,14 +393,14 @@ export default function ReviewComments() {
                         <button onClick={() => handleLike(comment)}
                           style={{ display: 'flex', alignItems: 'center', gap: 4,
                             background: 'none', border: 'none', cursor: 'pointer',
-                            color: comment.likes > 0 ? '#10b981' : '#4a6080',
+                            color: comment.likes > 0 ? '#C2473B' : '#5b6661',
                             fontSize: '0.8rem', padding: '2px 6px', borderRadius: 6,
                             transition: 'all 0.15s' }}>
                           <span>👍</span>
                           <span>{comment.likes > 0 ? comment.likes : '赞'}</span>
                         </button>
                         {replies.length > 0 && (
-                          <span style={{ fontSize: '0.75rem', color: '#3a5070' }}>💬 {replies.length} 条回复</span>
+                          <span style={{ fontSize: '0.75rem', color: '#5b6661' }}>💬 {replies.length} 条回复</span>
                         )}
                       </div>
 
@@ -417,37 +417,33 @@ export default function ReviewComments() {
                                 paddingLeft: 14,
                                 borderLeft: `2px solid ${agentInfo?.color || 'rgba(16,185,129,0.3)'}`,
                               }}>
-                                <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 4 }}>
-                                  <Avatar
-                                    name={reply.user_name} size={28}
-                                    isAgent={isAgent} agentId={reply.agent_id}
-                                    gradient={reply.user_gradient}
-                                  />
-                                  <span style={{ fontWeight: 600, fontSize: '0.82rem', color: agentInfo ? agentInfo.color : '#c0d0e0' }}>
+                                <div style={{ marginLeft: 38, marginTop: 10 }}>
+                                  <span style={{ fontWeight: 700, fontSize: '0.82rem', color: agentInfo ? agentInfo.color : '#2F5D57' }}>
                                     {reply.user_name}
                                   </span>
                                   {isAgent && agentInfo && (
                                     <span style={{
                                       display: 'inline-flex', alignItems: 'center', gap: 3,
-                                      background: `${agentInfo.color}18`,
+                                      background: `${agentInfo.color}14`,
                                       border: `1px solid ${agentInfo.color}40`,
                                       color: agentInfo.color,
                                       borderRadius: 999, padding: '1px 8px',
-                                      fontSize: '0.68rem', fontWeight: 600,
+                                      fontSize: '0.68rem', fontWeight: 600, marginLeft: 6,
                                     }}>
                                       {agentInfo.emoji} {agentInfo.badge}
                                     </span>
                                   )}
-                                  <TimeBadge time={reply.timestamp} />
                                 </div>
                                 <div style={{
-                                  color: '#a8b8cc', fontSize: '0.88rem', lineHeight: 1.7,
-                                  paddingLeft: 36, wordBreak: 'break-word', whiteSpace: 'pre-wrap',
-                                  ...(isAgent ? {
-                                    background: `${agentInfo?.color || '#10b981'}08`,
-                                    borderRadius: 8, padding: '10px 14px',
-                                    border: `1px solid ${agentInfo?.color || '#10b981'}20`,
-                                  } : {}),
+                                  marginLeft: 38,
+                                  color: isAgent ? '#1B2520' : '#3a4540',
+                                  fontSize: '0.88rem', lineHeight: 1.7,
+                                  marginTop: 4,
+                                  wordBreak: 'break-word', whiteSpace: 'pre-wrap',
+                                  background: '#FAF8F3',
+                                  padding: '10px 14px',
+                                  borderRadius: 8,
+                                  border: '1px solid rgba(47, 93, 87, 0.08)',
                                 }}>
                                   {reply.content}
                                 </div>

@@ -1,0 +1,341 @@
+[  399418ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:20102
+[  399426ms] [INFO] 🌐 i18next is maintained with support from locize.com — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙 @ http://localhost:5173/node_modules/.vite/deps/chunk-CASNQLLY.js?v=34527e0d:1752
+[  399492ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[  399568ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  399569ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  399569ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[  399569ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[  399571ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  399577ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  399577ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  399577ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[  399578ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[  400356ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[  400359ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[  400359ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[  400359ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[  400718ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[  400719ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[  400719ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[  400719ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[  401352ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  519971ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[  520057ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:20102
+[  520058ms] [INFO] 🌐 i18next is maintained with support from locize.com — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙 @ http://localhost:5173/node_modules/.vite/deps/chunk-CASNQLLY.js?v=34527e0d:1752
+[  520131ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[  520142ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  520142ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  520142ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[  520143ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[  520143ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  520149ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  520149ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  520149ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[  520149ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[  520582ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  520588ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  521087ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[  521087ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[  521087ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[  521087ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[  521414ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[  521414ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[  521415ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[  521415ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[  541428ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[  541519ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:20102
+[  541520ms] [INFO] 🌐 i18next is maintained with support from locize.com — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙 @ http://localhost:5173/node_modules/.vite/deps/chunk-CASNQLLY.js?v=34527e0d:1752
+[  541554ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[  541575ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  541575ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  541575ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[  541575ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[  541576ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  541582ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  541582ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  541582ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[  541582ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[  542004ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  542010ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  542030ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[  542030ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[  542030ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[  542030ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[  542464ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[  542464ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[  542464ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[  542464ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[  676821ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[  677160ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:20102
+[  677161ms] [INFO] 🌐 i18next is maintained with support from locize.com — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙 @ http://localhost:5173/node_modules/.vite/deps/chunk-CASNQLLY.js?v=34527e0d:1752
+[  677202ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[  677217ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  677218ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  677218ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[  677218ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[  677219ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  677224ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  677225ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  677225ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[  677225ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[  677651ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  677657ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  678103ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[  678103ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[  678104ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[  678104ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[  678429ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[  678429ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[  678429ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[  678429ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[  680855ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[  680950ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:20102
+[  680951ms] [INFO] 🌐 i18next is maintained with support from locize.com — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙 @ http://localhost:5173/node_modules/.vite/deps/chunk-CASNQLLY.js?v=34527e0d:1752
+[  680985ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[  681001ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  681002ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  681002ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[  681002ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[  681003ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  681009ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  681010ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  681010ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[  681010ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[  681426ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[  681426ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[  681426ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[  681426ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[  681440ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  681829ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[  681829ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[  681829ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[  681829ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[  830467ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[  830830ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:20102
+[  830831ms] [INFO] 🌐 i18next is maintained with support from locize.com — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙 @ http://localhost:5173/node_modules/.vite/deps/chunk-CASNQLLY.js?v=34527e0d:1752
+[  830871ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[  830883ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  830883ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  830883ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[  830883ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[  830884ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  830896ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  830896ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  830896ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[  830896ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[  831321ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  831327ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  831697ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[  831697ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[  831697ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[  831697ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[  832036ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[  832037ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[  832037ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[  832037ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[  837966ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[  838280ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:20102
+[  838282ms] [INFO] 🌐 i18next is maintained with support from locize.com — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙 @ http://localhost:5173/node_modules/.vite/deps/chunk-CASNQLLY.js?v=34527e0d:1752
+[  838320ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[  838335ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  838335ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  838335ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[  838335ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[  838337ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  838344ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  838344ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  838344ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[  838345ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[  838770ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  838772ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[  838772ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[  838772ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[  838772ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[  838786ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[  839169ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[  839169ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[  839169ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[  839169ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[ 1105155ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[ 1105393ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:20102
+[ 1105396ms] [INFO] 🌐 i18next is maintained with support from locize.com — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙 @ http://localhost:5173/node_modules/.vite/deps/chunk-CASNQLLY.js?v=34527e0d:1752
+[ 1105446ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[ 1105459ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[ 1105460ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[ 1105460ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[ 1105460ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[ 1105461ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[ 1105469ms] [WARNING] GSAP target .hero-card not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[ 1105469ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[ 1105469ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[ 1105469ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[ 1105899ms] [WARNING] GSAP target  not found. https://gsap.com @ http://localhost:5173/node_modules/.vite/deps/gsap.js?v=34527e0d:88
+[ 1106536ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[ 1106536ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[ 1106536ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[ 1106536ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[ 1106851ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[ 1106851ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[ 1106851ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[ 1106851ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[ 2863239ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[ 2863386ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:20102
+[ 2863389ms] [INFO] 🌐 i18next is maintained with support from locize.com — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙 @ http://localhost:5173/node_modules/.vite/deps/chunk-CASNQLLY.js?v=34527e0d:1752
+[ 2863480ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/api/track:0
+[ 2863495ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[ 2863495ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[ 2863502ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[ 2863502ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[ 2864260ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[ 2864261ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[ 2864262ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[ 2864262ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[ 2864619ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[ 2864619ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[ 2864619ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[ 2864619ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[ 3355165ms] [ERROR] Error handled by React Router default ErrorBoundary: ReferenceError: CheckCircle2 is not defined
+    at http://localhost:5173/src/sections/Services.tsx?t=1788404553119:236:42
+    at Array.map (<anonymous>)
+    at http://localhost:5173/src/sections/Services.tsx?t=1788404553119:234:105
+    at Array.map (<anonymous>)
+    at Services (http://localhost:5173/src/sections/Services.tsx?t=1788404553119:213:145)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:18509:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:5654:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:7475:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:8525:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:997:72) @ http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=34527e0d:6179
+[ 3355175ms] [ERROR] Error handled by React Router default ErrorBoundary: ReferenceError: CheckCircle2 is not defined
+    at http://localhost:5173/src/sections/Services.tsx?t=1788404553119:236:42
+    at Array.map (<anonymous>)
+    at http://localhost:5173/src/sections/Services.tsx?t=1788404553119:234:105
+    at Array.map (<anonymous>)
+    at Services (http://localhost:5173/src/sections/Services.tsx?t=1788404553119:213:145)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:18509:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:5654:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:7475:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:8525:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:997:72) @ http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=34527e0d:6179
+[ 3355181ms] [ERROR] Error handled by React Router default ErrorBoundary: ReferenceError: CheckCircle2 is not defined
+    at http://localhost:5173/src/sections/Services.tsx?t=1788404553119:236:42
+    at Array.map (<anonymous>)
+    at http://localhost:5173/src/sections/Services.tsx?t=1788404553119:234:105
+    at Array.map (<anonymous>)
+    at Services (http://localhost:5173/src/sections/Services.tsx?t=1788404553119:213:145)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:18509:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:5654:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:7475:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:8525:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:997:72) @ http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=34527e0d:6179
+[ 3355181ms] [ERROR] Error handled by React Router default ErrorBoundary: ReferenceError: CheckCircle2 is not defined
+    at http://localhost:5173/src/sections/Services.tsx?t=1788404553119:236:42
+    at Array.map (<anonymous>)
+    at http://localhost:5173/src/sections/Services.tsx?t=1788404553119:234:105
+    at Array.map (<anonymous>)
+    at Services (http://localhost:5173/src/sections/Services.tsx?t=1788404553119:213:145)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:18509:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:5654:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:7475:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:8525:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:997:72) @ http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=34527e0d:6179
+[ 3355187ms] [ERROR] %o
+
+%s
+
+%s
+ ReferenceError: CheckCircle2 is not defined
+    at http://localhost:5173/src/sections/Services.tsx?t=1788404553119:236:42
+    at Array.map (<anonymous>)
+    at http://localhost:5173/src/sections/Services.tsx?t=1788404553119:234:105
+    at Array.map (<anonymous>)
+    at Services (http://localhost:5173/src/sections/Services.tsx?t=1788404553119:213:145)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:18509:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:5654:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:7475:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:8525:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:997:72) The above error occurred in the <Services> component. React will try to recreate this component tree from scratch using the error boundary you provided, RenderErrorBoundary. @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:7000
+[ 3355187ms] [ERROR] React Router caught the following error during render ReferenceError: CheckCircle2 is not defined
+    at http://localhost:5173/src/sections/Services.tsx?t=1788404553119:236:42
+    at Array.map (<anonymous>)
+    at http://localhost:5173/src/sections/Services.tsx?t=1788404553119:234:105
+    at Array.map (<anonymous>)
+    at Services (http://localhost:5173/src/sections/Services.tsx?t=1788404553119:213:145)
+    at Object.react_stack_bottom_frame (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:18509:20)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:5654:24)
+    at updateFunctionComponent (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:7475:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:8525:20)
+    at runWithFiberInDEV (http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:997:72) @ http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=34527e0d:6218
+[ 3356041ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx:238
+[ 3356041ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:223
+[ 3357140ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx:227
+[ 3357140ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx:229
+[ 3357140ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx:240
+[ 3357140ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx:242
+[ 3408792ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404606844:238
+[ 3408793ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404606844:223
+[ 3409206ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404606844:227
+[ 3409206ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404606844:229
+[ 3409206ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404606844:240
+[ 3409206ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404606844:242
+[ 3422615ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404620697:238
+[ 3422616ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404620697:223
+[ 3423015ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404620697:227
+[ 3423015ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404620697:229
+[ 3423016ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404620697:240
+[ 3423016ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404620697:242
+[ 3446909ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404644937:238
+[ 3446910ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404644937:223
+[ 3447397ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404644937:227
+[ 3447397ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404644937:229
+[ 3447397ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404644937:240
+[ 3447397ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404644937:242
+[ 3463448ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404661587:238
+[ 3463448ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404661587:223
+[ 3463834ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404661587:227
+[ 3463834ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404661587:229
+[ 3463834ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404661587:240
+[ 3463834ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404661587:242
+[ 3477682ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404675797:238
+[ 3477682ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404675797:223
+[ 3478104ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404675797:227
+[ 3478104ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404675797:229
+[ 3478104ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404675797:240
+[ 3478104ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404675797:242
+[ 3493747ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404691855:238
+[ 3493747ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404691855:223
+[ 3493927ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404692001:238
+[ 3493927ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404692001:223
+[ 3494146ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404691855:227
+[ 3494146ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404691855:229
+[ 3494146ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404691855:240
+[ 3494146ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404691855:242
+[ 3494499ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404692001:227
+[ 3494499ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404692001:229
+[ 3494499ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404692001:240
+[ 3494499ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404692001:242
+[ 3529379ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529379ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529379ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529380ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529381ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529381ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529382ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529382ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529382ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529382ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529382ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529383ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529383ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529383ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529383ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529383ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529384ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529384ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529384ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529384ms] [ERROR] %s a style property during rerender (%s) when a conflicting property is set (%s) can lead to styling bugs. To avoid this, don't mix shorthand and non-shorthand properties for the same value; instead, replace the shorthand with separate values. Removing paddingLeft padding @ http://localhost:5173/node_modules/.vite/deps/react-dom_client.js?v=34527e0d:2261
+[ 3529385ms] [LOG] [ReviewComments] useEffect triggered @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404727336:238
+[ 3529385ms] [LOG] [ReviewComments] loadComments called, sort: latest page: 1 pageSize: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404727336:223
+[ 3529792ms] [LOG] [ReviewComments] API response: {total: 401, count: 20} @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404727336:227
+[ 3529792ms] [LOG] [ReviewComments] Setting comments: 20 @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404727336:229
+[ 3529792ms] [LOG] [ReviewComments] loadComments completed @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404727336:240
+[ 3529793ms] [LOG] [ReviewComments] loading set to false @ http://localhost:5173/src/sections/ReviewComments.tsx?t=1788404727336:242

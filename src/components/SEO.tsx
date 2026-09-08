@@ -182,14 +182,16 @@ export default function SEO() {
     updateProperty('og:locale', seo.ogLocale);
     updateProperty('og:site_name', seo.siteName);
     const canonicalUrl = window.location.href.split('?')[0];
-    updateProperty('og:url', canonicalUrl);
-    updateLink('canonical', canonicalUrl);
+    // 当语言非默认(zh/en)时,URL 应包含 ?lang= 参数以保证 SEO 可索引性
+    const currentLang = (i18n.language || 'zh').split('-')[0].toLowerCase();
+    const langParam = currentLang !== 'zh' && currentLang !== 'en' ? `?lang=${currentLang}` : '';
+    updateProperty('og:url', `${canonicalUrl}${langParam}`);
+    updateLink('canonical', `${canonicalUrl}${langParam}`);
 
     Object.entries(SEO_BY_LANGUAGE).forEach(([code]) => {
       const href = new URL(baseUrl);
-      if (code !== 'zh' && code !== 'en') {
-        href.searchParams.set('lang', code);
-      }
+      // 所有语言统一使用 ?lang= 参数，确保 hreflang 标签始终包含语言标识
+      href.searchParams.set('lang', code);
       updateLink('alternate', href.toString(), code);
     });
 

@@ -1,23 +1,27 @@
-// Empty State Component
-import { Inbox } from 'lucide-react';
+// EmptyState — illustrated empty placeholders
 import type { ReactNode } from 'react';
+import { Inbox } from 'lucide-react';
 
-interface EmptyStateProps {
+interface Props {
   icon?: ReactNode;
   title: string;
   description?: string;
   action?: ReactNode;
 }
 
-export function EmptyState({ icon, title, description, action }: EmptyStateProps) {
+export function EmptyState({ icon, title, description, action }: Props) {
   return (
-    <div className="flex flex-col items-center justify-center py-16 text-center">
-      <div className="w-16 h-16 rounded-2xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-zinc-500 mb-4">
-        {icon || <Inbox size={28} />}
+    <div className="admin-empty">
+      <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-zinc-800 flex items-center justify-center text-zinc-600">
+        {icon ?? <Inbox size={26} />}
       </div>
-      <h3 className="text-base font-semibold text-white mb-1">{title}</h3>
-      {description && <p className="text-sm text-zinc-500 max-w-sm mb-4">{description}</p>}
+      <div>
+        <div className="text-sm font-semibold text-zinc-300">{title}</div>
+        {description && <div className="text-xs text-zinc-500 mt-1 max-w-sm mx-auto">{description}</div>}
+      </div>
       {action}
     </div>
   );
 }
+
+export default EmptyState;

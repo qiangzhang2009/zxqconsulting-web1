@@ -1,83 +1,103 @@
-// Modal Component
+// Modal — unified accessible modal with size variants
 import { useEffect } from 'react';
-import type { ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
+import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
+
+type Size = 'sm' | 'md' | 'lg' | 'xl';
 
 interface ModalProps {
   open: boolean;
   onClose: () => void;
-  title?: string;
-  description?: string;
-  children: ReactNode;
+  title?: ReactNode;
+  description?: ReactNode;
+  size?: Size;
+  /** Render as side drawer style (xl variant) */
+  drawer?: boolean;
   footer?: ReactNode;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  children?: ReactNode;
+  hideClose?: boolean;
 }
 
-const SIZE_MAP = {
-  sm: 'max-w-md',
-  md: 'max-w-2xl',
-  lg: 'max-w-4xl',
-  xl: 'max-w-6xl',
+const SIZE_CLASS: Record<Size, string> = {
+  sm: 'max-w-[420px]',
+  md: 'max-w-[560px]',
+  lg: 'max-w-[760px]',
+  xl: 'max-w-[960px]',
 };
 
-export function Modal({ open, onClose, title, description, children, footer, size = 'md' }: ModalProps) {
+export function Modal({
+  open,
+  onClose,
+  title,
+  description,
+  size = 'md',
+  drawer = false,
+  footer,
+  children,
+  hideClose = false,
+}: ModalProps) {
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [open]);
-
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
-    if (open) window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
+    document.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
   }, [open, onClose]);
 
   if (!open) return null;
 
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={onClose}>
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+  return createPortal(
+    <div
+      className="admin-modal-overlay"
+      onMouseDown={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
       <div
+        role="dialog"
+        aria-modal="true"
         className={cn(
-          'relative w-full bg-[var(--admin-sidebar)] border border-[var(--admin-border)] rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col',
-          SIZE_MAP[size]
+          'admin-modal',
+          SIZE_CLASS[size],
+          drawer && 'drawer'
         )}
-        onClick={(e) => e.stopPropagation()}
       >
-        {(title || description) && (
-          <div className="flex items-start justify-between px-6 py-5 border-b border-[var(--admin-border)] shrink-0">
-            <div>
-              {title && <h2 className="text-base font-semibold text-white">{title}</h2>}
-              {description && <p className="text-xs text-zinc-500 mt-1">{description}</p>}
+        {(title || !hideClose) && (
+          <div className="admin-modal-header">
+            <div className="min-w-0">
+              {title && (
+                <h2 className="text-base font-semibold text-white truncate">{title}</h2>
+              )}
+              {description && (
+                <p className="text-xs text-zinc-500 mt-0.5 truncate">{description}</p>
+              )}
             </div>
-            <button
-              onClick={onClose}
-              className="p-1.5 rounded-lg text-zinc-500 hover:text-white hover:bg-white/5 transition-colors"
-            >
-              <X size={18} />
-            </button>
+            {!hideClose && (
+              <button
+                onClick={onClose}
+                className="admin-btn subtle sm"
+                aria-label="关闭"
+              >
+                <X size={14} />
+              </button>
+            )}
           </div>
         )}
 
-        <div className="flex-1 overflow-y-auto">
-          {children}
-        </div>
+        <div className="admin-modal-body admin-scroll">{children}</div>
 
-        {footer && (
-          <div className="px-6 py-4 border-t border-[var(--admin-border)] flex justify-end gap-2 shrink-0">
-            {footer}
-          </div>
-        )}
+        {footer && <div className="admin-modal-footer">{footer}</div>}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
+
+export default Modal;

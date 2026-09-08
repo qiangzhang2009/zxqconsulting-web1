@@ -44,7 +44,7 @@ function SettingSection({ title, description, children }: {
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-2xl border border-zinc-800/50 bg-gradient-to-br from-zinc-900/50 to-zinc-900/30 p-6">
+    <div className="admin-card">
       <div className="mb-5">
         <h3 className="text-base font-semibold text-white">{title}</h3>
         {description && <p className="text-sm text-zinc-500 mt-1">{description}</p>}
@@ -87,7 +87,7 @@ function SettingInput({ label, value, onChange, placeholder, type = 'text' }: {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full px-4 py-2.5 rounded-xl bg-zinc-900/50 border border-zinc-800/50 text-sm text-white placeholder-zinc-500 outline-none focus:border-emerald-500/40 transition-colors"
+        className="admin-input"
       />
     </div>
   );
@@ -166,7 +166,7 @@ export function SettingsPage() {
             <div className="flex justify-end pt-2">
               <button
                 onClick={() => handleSave('general')}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-medium text-sm transition-colors"
+                className="admin-btn primary"
               >
                 <Save size={16} />
                 保存更改
@@ -188,7 +188,7 @@ export function SettingsPage() {
               label="自动刷新"
               description="页面数据自动刷新间隔"
             >
-              <select className="px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 text-sm text-white outline-none">
+              <select className="admin-select">
                 <option value="30">30 秒</option>
                 <option value="60">1 分钟</option>
                 <option value="300">5 分钟</option>
@@ -211,7 +211,7 @@ export function SettingsPage() {
                 A
               </div>
               <div>
-                <button className="px-4 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-sm text-white transition-colors">
+                <button className="admin-btn ghost">
                   更换头像
                 </button>
                 <p className="text-xs text-zinc-500 mt-2">支持 JPG、PNG，最大 2MB</p>
@@ -256,13 +256,13 @@ export function SettingsPage() {
               <>
                 <div className="space-y-2">
                   <label className="block text-xs font-medium text-zinc-400">API Token</label>
-                  <div className="relative">
+                  <div className="admin-relative">
                     <input
                       type={showCfToken ? 'text' : 'password'}
                       value={cfToken}
                       onChange={(e) => setCfToken(e.target.value)}
                       placeholder="Cloudflare API Token"
-                      className="w-full px-4 py-2.5 pr-10 rounded-xl bg-zinc-900/50 border border-zinc-800/50 text-sm text-white font-mono placeholder-zinc-500 outline-none focus:border-emerald-500/40 transition-colors"
+                      className="admin-input pr-10 font-mono"
                     />
                     <button
                       onClick={() => setShowCfToken(!showCfToken)}
@@ -294,7 +294,7 @@ export function SettingsPage() {
             <div className="flex justify-end pt-2">
               <button
                 onClick={() => handleSave('cloudflare')}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-medium text-sm transition-colors"
+                className="admin-btn primary"
               >
                 <Save size={16} />
                 保存配置
@@ -372,7 +372,7 @@ export function SettingsPage() {
               label="双因素认证"
               description="登录时需要手机验证码"
             >
-              <button className="px-3 py-1.5 rounded-lg bg-zinc-800 text-sm text-zinc-400 hover:text-white transition-colors">
+              <button className="admin-btn ghost">
                 未启用
               </button>
             </SettingRow>
@@ -380,7 +380,7 @@ export function SettingsPage() {
               label="会话超时"
               description="无操作后自动登出"
             >
-              <select className="px-3 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700 text-sm text-white outline-none">
+              <select className="admin-select">
                 <option value="30">30 分钟</option>
                 <option value="60">1 小时</option>
                 <option value="240">4 小时</option>
@@ -404,7 +404,7 @@ export function SettingsPage() {
                     <Monitor size={14} className="text-zinc-500" />
                     <span className="text-sm text-white">{login.device}</span>
                     {login.current && (
-                      <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px]">当前</span>
+                      <span className="admin-badge info">当前</span>
                     )}
                   </div>
                   <div className="text-xs text-zinc-500 mt-1">
@@ -412,7 +412,7 @@ export function SettingsPage() {
                   </div>
                 </div>
                 {!login.current && (
-                  <button className="text-xs text-red-400 hover:text-red-300">移除</button>
+                  <button className="admin-btn ghost text-danger text-xs">移除</button>
                 )}
               </div>
             ))}
@@ -434,12 +434,12 @@ export function SettingsPage() {
                   type="password"
                   value="sk_live_xxxxxxxxxxxx"
                   readOnly
-                  className="flex-1 px-4 py-2.5 rounded-xl bg-zinc-900/50 border border-zinc-800/50 text-sm text-white font-mono outline-none"
+                  className="admin-input font-mono"
                 />
-                <button className="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-sm text-white transition-colors">
+                <button className="admin-btn ghost">
                   复制
                 </button>
-                <button className="px-4 py-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 text-sm transition-colors">
+                <button className="admin-btn danger">
                   重新生成
                 </button>
               </div>

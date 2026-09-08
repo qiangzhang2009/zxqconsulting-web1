@@ -1,62 +1,139 @@
-// KPI Card
-import { TrendingUp, TrendingDown } from 'lucide-react';
+// KPICard — premium KPI tile with sparkline, accent & delta
 import type { ReactNode } from 'react';
+import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { AnimatedNumber } from './AnimatedNumber';
+import { cn } from '@/lib/utils';
 
-interface KPICardProps {
+type Accent = 'emerald' | 'blue' | 'amber' | 'rose' | 'purple' | 'cyan';
+
+const ACCENT = {
+  emerald: { text: 'text-emerald-400', bg: 'bg-emerald-500/10', glow: 'rgba(16, 185, 129, 0.18)' },
+  blue:    { text: 'text-blue-400',    bg: 'bg-blue-500/10',    glow: 'rgba(56, 189, 248, 0.18)' },
+  amber:   { text: 'text-amber-400',   bg: 'bg-amber-500/10',   glow: 'rgba(251, 191, 36, 0.18)' },
+  rose:    { text: 'text-rose-400',    bg: 'bg-rose-500/10',    glow: 'rgba(244, 63, 94, 0.18)' },
+  purple:  { text: 'text-purple-400',  bg: 'bg-purple-500/10',  glow: 'rgba(168, 85, 247, 0.18)' },
+  cyan:    { text: 'text-cyan-400',    bg: 'bg-cyan-500/10',    glow: 'rgba(34, 211, 238, 0.18)' },
+};
+
+interface Props {
   label: string;
   value: number;
   suffix?: string;
   prefix?: string;
   decimals?: number;
-  trend?: number;
+  delta?: number | null;
+  deltaLabel?: string;
   icon?: ReactNode;
-  accent?: 'emerald' | 'blue' | 'amber' | 'purple' | 'rose';
-  description?: string;
+  accent?: Accent;
+  description?: ReactNode;
+  /** Inline sparkline data */
+  sparkline?: number[];
+  footer?: ReactNode;
+  onClick?: () => void;
 }
 
-const ACCENT_MAP = {
-  emerald: { text: 'text-emerald-400', bg: 'bg-emerald-500/10', glow: 'bg-emerald-500' },
-  blue:    { text: 'text-blue-400',    bg: 'bg-blue-500/10',    glow: 'bg-blue-500' },
-  amber:   { text: 'text-amber-400',   bg: 'bg-amber-500/10',   glow: 'bg-amber-500' },
-  purple:  { text: 'text-purple-400',  bg: 'bg-purple-500/10',  glow: 'bg-purple-500' },
-  rose:    { text: 'text-rose-400',    bg: 'bg-rose-500/10',    glow: 'bg-rose-500' },
-};
-
-export function KPICard({ label, value, suffix, prefix, decimals, trend, icon, accent = 'emerald', description }: KPICardProps) {
-  const accentStyle = ACCENT_MAP[accent];
+export function KPICard({
+  label,
+  value,
+  suffix,
+  prefix,
+  decimals,
+  delta,
+  deltaLabel,
+  icon,
+  accent = 'emerald',
+  description,
+  sparkline,
+  footer,
+  onClick,
+}: Props) {
+  const a = ACCENT[accent];
+  const dir = delta == null ? 'flat' : delta > 0 ? 'up' : delta < 0 ? 'down' : 'flat';
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-[var(--admin-border)] bg-gradient-to-br from-[var(--admin-card)] to-transparent p-5 hover:border-[var(--admin-border)]/80 transition-colors">
-      {/* 装饰光斑 */}
-      <div className={`absolute top-0 right-0 w-32 h-32 rounded-full ${accentStyle.glow} opacity-[0.04] -translate-y-1/2 translate-x-1/2 blur-2xl`} />
-
-      <div className="flex items-start justify-between mb-3">
-        <div className="text-[11px] text-zinc-500 uppercase tracking-widest font-medium">{label}</div>
+    <div
+      onClick={onClick}
+      className={cn(
+        'kpi-tile',
+        onClick && 'cursor-pointer hover:border-zinc-700 transition-colors'
+      )}
+      style={{ ['--accent-soft' as string]: a.glow }}
+    >
+      <div className="flex items-start justify-between gap-2">
+        <div className="kpi-tile-label">{label}</div>
         {icon && (
-          <div className={`w-9 h-9 rounded-lg ${accentStyle.bg} flex items-center justify-center ${accentStyle.text}`}>
+          <div className={cn('w-9 h-9 rounded-lg flex items-center justify-center', a.bg, a.text)}>
             {icon}
           </div>
         )}
       </div>
 
-      <div className="flex items-baseline gap-2">
-        <div className={`text-3xl font-bold ${accentStyle.text} tracking-tight`}>
+      <div className="flex items-baseline gap-2 mt-2">
+        <div className={cn('kpi-tile-value', a.text)}>
           <AnimatedNumber value={value} prefix={prefix} suffix={suffix} decimals={decimals} />
         </div>
-        {trend !== undefined && (
-          <div className={`flex items-center gap-0.5 text-xs font-medium px-2 py-0.5 rounded-md ${
-            trend > 0 ? 'text-emerald-400 bg-emerald-500/10' : trend < 0 ? 'text-red-400 bg-red-500/10' : 'text-zinc-400 bg-zinc-500/10'
-          }`}>
-            {trend > 0 ? <TrendingUp size={11} /> : trend < 0 ? <TrendingDown size={11} /> : null}
-            {Math.abs(trend).toFixed(1)}%
-          </div>
+        {delta != null && (
+          <span className={cn('kpi-tile-delta', dir)}>
+            {dir === 'up' && <TrendingUp size={11} />}
+            {dir === 'down' && <TrendingDown size={11} />}
+            {dir === 'flat' && <Minus size={11} />}
+            {Math.abs(delta).toFixed(1)}%
+          </span>
         )}
       </div>
 
       {description && (
-        <p className="text-xs text-zinc-500 mt-2">{description}</p>
+        <div className="text-[11.5px] text-zinc-500 mt-1.5">{description}</div>
       )}
+
+      {sparkline && sparkline.length > 1 && (
+        <Sparkline data={sparkline} color={a.glow.replace(/rgba\((.*),\s*0\.18\)/, 'rgb($1)')} />
+      )}
+
+      {footer && <div className="mt-3 pt-3 border-t border-zinc-800/60">{footer}</div>}
     </div>
   );
 }
+
+function Sparkline({ data, color }: { data: number[]; color: string }) {
+  const w = 220;
+  const h = 36;
+  const min = Math.min(...data);
+  const max = Math.max(...data);
+  const range = max - min || 1;
+  const step = w / Math.max(1, data.length - 1);
+  const points = data.map((v, i) => {
+    const x = i * step;
+    const y = h - ((v - min) / range) * h;
+    return `${x},${y}`;
+  });
+  const last = data[data.length - 1];
+  const lastY = h - ((last - min) / range) * h;
+
+  return (
+    <svg width="100%" height={h} viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" className="mt-3">
+      <defs>
+        <linearGradient id="spark-fill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={color} stopOpacity="0.4" />
+          <stop offset="100%" stopColor={color} stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <polyline
+        points={`0,${h} ${points.join(' ')} ${w},${h}`}
+        fill="url(#spark-fill)"
+        stroke="none"
+      />
+      <polyline
+        points={points.join(' ')}
+        fill="none"
+        stroke={color}
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
+      <circle cx={w} cy={lastY} r="2.5" fill={color} />
+    </svg>
+  );
+}
+
+export default KPICard;

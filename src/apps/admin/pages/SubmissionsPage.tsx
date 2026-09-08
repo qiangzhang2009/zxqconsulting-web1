@@ -1,11 +1,10 @@
-// Submissions Page - Lead Management with Kanban View
+// Submissions Page — World-class Lead Management with Kanban & Table Views
 import { useState, useMemo } from 'react';
 import {
-  Inbox, MessageSquare, Globe2, Search, Filter, Download,
-  LayoutGrid, List, ChevronDown, ChevronRight, Clock, User,
+  Inbox, MessageSquare, Globe2, Search, Download,
+  LayoutGrid, List, Clock, User,
   Mail, Phone, Building, MapPin, Calendar, ArrowRight,
-  MoreHorizontal, Eye, Edit, Trash2, CheckCircle, Circle,
-  GripVertical,
+  MoreHorizontal, CheckCircle, Circle,
 } from 'lucide-react';
 import { PageHeader } from '../components/ui/PageHeader';
 import { StatusBadge, SUBMISSION_STATUSES } from '../components/ui/StatusBadge';
@@ -15,7 +14,9 @@ import { useSubmissions, updateSubmission } from '../hooks/useAdminData';
 import type { Submission } from '../types/admin';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
+import { fmtRelative, countryFlag, initials } from '../lib/format';
 
+// ── Reference constants ──────────────────────────────────────────────────────
 const STAGE_LABEL: Record<string, string> = {
   idea: '构思阶段', pilot: '试点阶段', launch: '上市阶段', scale: '规模化',
   exploring: '探索中', committed: '已立项', testing: '测试中', expanding: '扩张中',
@@ -29,164 +30,161 @@ const VALIDATION_LABEL: Record<string, string> = {
   none: '无', 'domestic-only': '仅国内', 'some-testing': '部分测试', 'existing-overseas': '已有海外',
 };
 
-const COUNTRY_FLAG: Record<string, string> = {
-  CN: '🇨🇳', HK: '🇭🇰', TW: '🇹🇼', SG: '🇸🇬', US: '🇺🇸', GB: '🇬🇧', DE: '🇩🇪',
-  JP: '🇯🇵', KR: '🇰🇷', AU: '🇦🇺', FR: '🇫🇷', MY: '🇲🇾', TH: '🇹🇭', IN: '🇮🇳',
-  AE: '🇦🇪', CA: '🇨🇦', NL: '🇳🇱', CH: '🇨🇭', BR: '🇧🇷', MX: '🇲🇽', ID: '🇮🇩',
-};
-
 const STATUS_CONFIG = {
-  new: { label: '新线索', color: 'blue', bg: 'bg-blue-500/10', border: 'border-blue-500/30', icon: Circle },
-  contacted: { label: '已联系', color: 'amber', bg: 'bg-amber-500/10', border: 'border-amber-500/30', icon: Clock },
-  qualified: { label: '已合格', color: 'emerald', bg: 'bg-emerald-500/10', border: 'border-emerald-500/30', icon: CheckCircle },
-  closed: { label: '已关闭', color: 'zinc', bg: 'bg-zinc-500/10', border: 'border-zinc-500/30', icon: CheckCircle },
+  new:        { label: '新线索',   color: 'blue'    as const, accent: 'blue'    as const },
+  contacted:  { label: '已联系',   color: 'amber'   as const, accent: 'amber'   as const },
+  qualified:  { label: '已合格',   color: 'emerald' as const, accent: 'emerald' as const },
+  closed:     { label: '已关闭',   color: 'zinc'   as const, accent: 'cyan'    as const },
 };
 
-function fmtDateTime(iso: string) {
-  return new Date(iso).toLocaleString('zh-CN', {
-    month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit',
-  });
-}
-
-function fmtRelative(iso: string) {
-  const diff = Date.now() - new Date(iso).getTime();
-  const m = Math.floor(diff / 60000);
-  if (m < 1) return '刚刚';
-  if (m < 60) return `${m}分钟前`;
-  const h = Math.floor(m / 60);
-  if (h < 24) return `${h}小时前`;
-  const d = Math.floor(h / 24);
-  if (d < 7) return `${d}天前`;
-  return fmtDateTime(iso);
-}
-
-// Kanban Card Component
+// ── Kanban Card ─────────────────────────────────────────────────────────────
 function KanbanCard({ submission, onClick }: {
   submission: Submission;
   onClick: () => void;
 }) {
   const isNew = submission.status === 'new';
-  
+  const flag  = countryFlag(submission.country);
+
   return (
     <div
       onClick={onClick}
       className={cn(
-        'group rounded-xl border bg-gradient-to-br p-4 cursor-pointer transition-all duration-200',
-        'hover:scale-[1.01] hover:shadow-lg hover:shadow-black/20',
-        isNew
-          ? 'bg-blue-500/5 border-blue-500/20 hover:border-blue-500/40'
-          : 'bg-zinc-900/50 border-zinc-800/50 hover:border-zinc-700/50'
+        'group relative rounded-xl border cursor-pointer transition-all duration-200',
+        'hover:scale-[1.01] hover:shadow-xl hover:shadow-black/30',
+        'bg-[var(--admin-card)] border-[var(--admin-border)]',
+        'hover:border-[var(--admin-border-strong)]',
+        isNew && 'border-blue-500/30 hover:border-blue-500/50',
       )}
     >
-      {/* Header */}
-      <div className="flex items-start justify-between gap-2 mb-3">
-        <div className="flex items-center gap-2 min-w-0">
-          <div className={cn(
-            'w-8 h-8 rounded-lg flex items-center justify-center text-sm font-medium',
-            isNew ? 'bg-blue-500/20 text-blue-400' : 'bg-zinc-800 text-zinc-400'
-          )}>
-            {(submission.name || 'A')[0].toUpperCase()}
-          </div>
-          <div className="min-w-0">
-            <p className="text-sm font-medium text-white truncate">
-              {submission.name || '匿名访客'}
-            </p>
-            <p className="text-xs text-zinc-500 truncate">
-              {submission.email || '—'}
-            </p>
-          </div>
-        </div>
-        {isNew && (
-          <span className="shrink-0 px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-medium">
-            NEW
-          </span>
-        )}
-      </div>
-
-      {/* Company */}
-      {submission.company && (
-        <div className="flex items-center gap-1.5 mb-2 text-xs text-zinc-400">
-          <Building size={12} />
-          <span className="truncate">{submission.company}</span>
-        </div>
+      {/* Subtle top accent line for new */}
+      {isNew && (
+        <div className="absolute top-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-blue-500/60 to-transparent rounded-full" />
       )}
 
-      {/* Tags */}
-      <div className="flex flex-wrap gap-1.5 mb-3">
-        {submission.product_stage && (
-          <span className="px-2 py-0.5 rounded bg-zinc-800/50 text-zinc-400 text-[10px]">
-            {STAGE_LABEL[submission.product_stage] || submission.product_stage}
-          </span>
-        )}
-        {submission.target_markets && (
-          <span className="px-2 py-0.5 rounded bg-zinc-800/50 text-zinc-400 text-[10px]">
-            {submission.target_markets}
-          </span>
-        )}
-      </div>
-
-      {/* Footer */}
-      <div className="flex items-center justify-between pt-2 border-t border-zinc-800/50">
-        <div className="flex items-center gap-1 text-xs text-zinc-500">
-          <MapPin size={12} />
-          <span>{submission.country ? COUNTRY_FLAG[submission.country] : '🌐'}</span>
+      <div className="p-4">
+        {/* Header */}
+        <div className="flex items-start justify-between gap-2 mb-3">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div className={cn(
+              'w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold shrink-0',
+              'border border-white/10',
+              isNew
+                ? 'bg-blue-500/15 text-blue-400'
+                : 'bg-[var(--admin-elev)] text-zinc-400',
+            )}>
+              {initials(submission.name)}
+            </div>
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-white truncate">
+                {submission.name || '匿名访客'}
+              </p>
+              <p className="text-xs text-zinc-500 truncate">
+                {submission.email || '—'}
+              </p>
+            </div>
+          </div>
+          {isNew && (
+            <span className="shrink-0 px-2 py-0.5 rounded-full bg-blue-500/15 text-blue-400 text-[10px] font-bold tracking-wide">
+              NEW
+            </span>
+          )}
         </div>
-        <span className="text-xs text-zinc-500">{fmtRelative(submission.created_at)}</span>
+
+        {/* Company */}
+        {submission.company && (
+          <div className="flex items-center gap-1.5 mb-3 text-xs text-zinc-400">
+            <Building size={12} className="shrink-0 text-zinc-600" />
+            <span className="truncate">{submission.company}</span>
+          </div>
+        )}
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5 mb-3">
+          {submission.product_stage && (
+            <span className="px-2 py-0.5 rounded-lg bg-[var(--admin-elev)] text-zinc-400 text-[10px] font-medium border border-[var(--admin-border)]">
+              {STAGE_LABEL[submission.product_stage] || submission.product_stage}
+            </span>
+          )}
+          {submission.target_markets && (
+            <span className="px-2 py-0.5 rounded-lg bg-[var(--admin-elev)] text-zinc-400 text-[10px] font-medium border border-[var(--admin-border)]">
+              {submission.target_markets}
+            </span>
+          )}
+        </div>
+
+        {/* Footer */}
+        <div className="flex items-center justify-between pt-2.5 border-t border-[var(--admin-divider)]">
+          <div className="flex items-center gap-1.5 text-xs text-zinc-500">
+            <span className="text-base leading-none">{flag}</span>
+            <span className="hidden sm:inline text-[10px]">{submission.country || '未知'}</span>
+          </div>
+          <span className="text-xs text-zinc-600">{fmtRelative(submission.created_at)}</span>
+        </div>
       </div>
     </div>
   );
 }
 
-// Kanban Column Component
+// ── Kanban Column ────────────────────────────────────────────────────────────
 function KanbanColumn({ status, submissions, onCardClick }: {
   status: 'new' | 'contacted' | 'qualified' | 'closed';
   submissions: Submission[];
   onCardClick: (s: Submission) => void;
 }) {
   const config = STATUS_CONFIG[status];
-  const Icon = config.icon;
-  const colorMap = {
-    blue: 'text-blue-400 bg-blue-500/10 border-blue-500/20',
-    amber: 'text-amber-400 bg-amber-500/10 border-amber-500/20',
-    emerald: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20',
-    zinc: 'text-zinc-400 bg-zinc-500/10 border-zinc-500/20',
+
+  const headerColorMap = {
+    blue:    'border-t-blue-500/50 bg-blue-500/5',
+    amber:   'border-t-amber-500/50 bg-amber-500/5',
+    emerald: 'border-t-emerald-500/50 bg-emerald-500/5',
+    zinc:    'border-t-zinc-500/50 bg-zinc-500/5',
+  };
+
+  const dotColorMap = {
+    blue:    'bg-blue-400',
+    amber:   'bg-amber-400',
+    emerald: 'bg-emerald-400',
+    zinc:    'bg-zinc-400',
   };
 
   return (
-    <div className="flex-1 min-w-[300px] max-w-[350px]">
+    <div className="flex-1 min-w-[280px] max-w-[340px] flex flex-col">
       {/* Column Header */}
       <div className={cn(
-        'flex items-center justify-between px-3 py-2.5 rounded-t-xl border-t-2 mb-0',
-        colorMap[config.color as keyof typeof colorMap]
+        'flex items-center justify-between px-4 py-3 rounded-t-xl border-t-2 mb-0',
+        'border border-b-0 border-[var(--admin-border)]',
+        headerColorMap[config.color],
       )}>
         <div className="flex items-center gap-2">
-          <Icon size={14} className={config.color === 'blue' ? 'text-blue-400' : config.color === 'amber' ? 'text-amber-400' : config.color === 'emerald' ? 'text-emerald-400' : 'text-zinc-400'} />
+          <span className={cn('w-2 h-2 rounded-full', dotColorMap[config.color])} />
           <span className="text-sm font-semibold text-white">{config.label}</span>
-          <span className="px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400 text-xs">
+          <span className="px-2 py-0.5 rounded-full bg-[var(--admin-elev)] border border-[var(--admin-border)] text-zinc-500 text-xs font-medium">
             {submissions.length}
           </span>
         </div>
-        <button className="p-1 rounded hover:bg-white/5 text-zinc-500 hover:text-white transition-colors">
-          <MoreHorizontal size={16} />
+        <button className="p-1 rounded-lg hover:bg-white/5 text-zinc-600 hover:text-white transition-colors">
+          <MoreHorizontal size={15} />
         </button>
       </div>
 
-      {/* Cards */}
+      {/* Cards container */}
       <div className={cn(
-        'p-2 rounded-b-xl border border-t-0 min-h-[400px] space-y-2',
-        'bg-zinc-900/30 border-zinc-800/50'
+        'flex-1 p-2.5 rounded-b-xl border border-t-0 min-h-[440px]',
+        'border-[var(--admin-border)] bg-[var(--admin-bg-soft)]',
+        'flex flex-col gap-2',
       )}>
-        {submissions.map((submission) => (
-          <KanbanCard
-            key={submission.id}
-            submission={submission}
-            onClick={() => onCardClick(submission)}
-          />
-        ))}
-        {submissions.length === 0 && (
-          <div className="flex flex-col items-center justify-center py-12 text-center">
-            <div className="w-10 h-10 rounded-xl bg-zinc-800/50 flex items-center justify-center mb-2">
-              <Icon size={18} className="text-zinc-600" />
+        {submissions.length > 0 ? (
+          submissions.map((s) => (
+            <KanbanCard
+              key={s.id}
+              submission={s}
+              onClick={() => onCardClick(s)}
+            />
+          ))
+        ) : (
+          <div className="flex flex-col items-center justify-center flex-1 py-12 text-center">
+            <div className="w-10 h-10 rounded-xl bg-[var(--admin-card)] border border-[var(--admin-border)] flex items-center justify-center mb-3">
+              <div className={cn('w-2 h-2 rounded-full opacity-30', dotColorMap[config.color])} />
             </div>
             <p className="text-xs text-zinc-600">暂无{config.label}</p>
           </div>
@@ -196,44 +194,54 @@ function KanbanColumn({ status, submissions, onCardClick }: {
   );
 }
 
+// ── Main Page ────────────────────────────────────────────────────────────────
 export function SubmissionsPage() {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
   const [selected, setSelected] = useState<Submission | null>(null);
   const [editingNotes, setEditingNotes] = useState('');
-  const [editingStatus, setEditingStatus] = useState('');
+  const [editingStatus, setEditingStatus] = useState<Submission['status']>('new');
   const [editingAssignedTo, setEditingAssignedTo] = useState('');
   const [saving, setSaving] = useState(false);
   const [viewMode, setViewMode] = useState<'table' | 'kanban'>('table');
 
   const { data, loading, refetch } = useSubmissions({
     page,
-    limit: 100, // More items for kanban
+    limit: 100,
     search: search || undefined,
     status: statusFilter || undefined,
   });
 
-  // Group submissions by status for kanban view
+  // Group by status for kanban
   const groupedSubmissions = useMemo(() => {
     if (!data?.data) return { new: [], contacted: [], qualified: [], closed: [] };
     return {
-      new: data.data.filter((s) => s.status === 'new'),
-      contacted: data.data.filter((s) => s.status === 'contacted'),
-      qualified: data.data.filter((s) => s.status === 'qualified'),
-      closed: data.data.filter((s) => s.status === 'closed'),
+      new:        data.data.filter((s) => s.status === 'new'),
+      contacted:  data.data.filter((s) => s.status === 'contacted'),
+      qualified:  data.data.filter((s) => s.status === 'qualified'),
+      closed:     data.data.filter((s) => s.status === 'closed'),
     };
   }, [data]);
 
+  // KPI stats
+  const stats = useMemo(() => ({
+    total:      data?.total || 0,
+    newCount:    groupedSubmissions.new.length,
+    contacted:   groupedSubmissions.contacted.length,
+    qualified:   groupedSubmissions.qualified.length,
+  }), [data, groupedSubmissions]);
+
+  // Table columns
   const columns: Column<Submission>[] = useMemo(() => [
     {
       key: 'name',
       header: '联系人',
       render: (row) => (
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-slate-700/60 to-slate-800/40 border border-white/[0.06] flex items-center justify-center shrink-0">
-            <span className="text-xs font-medium text-slate-300">
-              {(row.name || 'A')[0].toUpperCase()}
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-slate-700/60 to-slate-800/40 border border-white/[0.06] flex items-center justify-center shrink-0">
+            <span className="text-xs font-semibold text-slate-300">
+              {initials(row.name)}
             </span>
           </div>
           <div className="min-w-0">
@@ -267,9 +275,7 @@ export function SubmissionsPage() {
           <div className="text-xs text-zinc-300">
             {STAGE_LABEL[row.product_stage || ''] || '—'}
           </div>
-          <div className="text-xs text-zinc-600">
-            {row.target_markets || ''}
-          </div>
+          <div className="text-xs text-zinc-600">{row.target_markets || ''}</div>
         </div>
       ),
     },
@@ -277,8 +283,9 @@ export function SubmissionsPage() {
       key: 'country',
       header: '地区',
       render: (row) => (
-        <span className="text-xs text-zinc-400">
-          {COUNTRY_FLAG[row.country || ''] || '🌐'} {row.country || '—'}
+        <span className="inline-flex items-center gap-1 text-xs text-zinc-400">
+          <span>{countryFlag(row.country)}</span>
+          <span>{row.country || '—'}</span>
         </span>
       ),
     },
@@ -292,16 +299,6 @@ export function SubmissionsPage() {
     },
   ], []);
 
-  const handleStatusChange = async (row: Submission, newStatus: string) => {
-    try {
-      await updateSubmission(row.id, { status: newStatus as Submission['status'] });
-      toast.success('状态已更新');
-      refetch();
-    } catch (err) {
-      toast.error('更新失败');
-    }
-  };
-
   const openDetail = (row: Submission) => {
     setSelected(row);
     setEditingStatus(row.status);
@@ -314,14 +311,14 @@ export function SubmissionsPage() {
     setSaving(true);
     try {
       await updateSubmission(selected.id, {
-        status: editingStatus as Submission['status'],
+        status: editingStatus,
         notes: editingNotes,
         assigned_to: editingAssignedTo || null,
       });
       toast.success('已保存');
       setSelected(null);
       refetch();
-    } catch (err) {
+    } catch {
       toast.error('保存失败');
     } finally {
       setSaving(false);
@@ -329,14 +326,16 @@ export function SubmissionsPage() {
   };
 
   const exportCSV = () => {
-    if (!data?.data.length) return;
+    if (!data?.data?.length) return;
     const headers = ['姓名', '邮箱', '电话', '公司', '状态', '项目阶段', '目标市场', '时间'];
-    const rows = data.data.map(s => [
+    const rows = data.data.map((s) => [
       s.name || '', s.email || '', s.phone || '', s.company || '',
       s.status, STAGE_LABEL[s.product_stage || ''] || '',
       s.target_markets || '', s.created_at,
     ]);
-    const csv = [headers, ...rows].map(r => r.map(c => `"${String(c).replace(/"/g, '""')}"`).join(',')).join('\n');
+    const csv = [headers, ...rows]
+      .map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(','))
+      .join('\n');
     const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -347,80 +346,69 @@ export function SubmissionsPage() {
     toast.success('已导出 CSV');
   };
 
-  // Stats for header
-  const stats = useMemo(() => ({
-    total: data?.total || 0,
-    new: groupedSubmissions.new.length,
-    contacted: groupedSubmissions.contacted.length,
-    qualified: groupedSubmissions.qualified.length,
-  }), [data, groupedSubmissions]);
-
   return (
     <>
       <PageHeader
-        title="线索管理"
-        description={`${stats.total} 条线索 · ${stats.new} 条待处理`}
-        icon={<Inbox size={18} className="text-blue-400" />}
+        eyebrow="线索管理"
+        title="客户线索"
+        description={`${stats.total} 条线索 · ${stats.newCount} 条待处理`}
+        icon={<Inbox size={18} className="text-emerald-400" />}
+        metrics={[
+          { label: '全部线索',  value: stats.total.toLocaleString(),     accent: 'emerald' },
+          { label: '新线索',    value: stats.newCount.toLocaleString(),  accent: 'blue'    },
+          { label: '已联系',    value: stats.contacted.toLocaleString(), accent: 'amber'   },
+          { label: '已合格',    value: stats.qualified.toLocaleString(), accent: 'emerald' },
+        ]}
         actions={
           <div className="flex items-center gap-2">
             {/* View Toggle */}
-            <div className="flex items-center gap-1 p-1 rounded-xl bg-zinc-900/50 border border-zinc-800/50">
+            <div className="admin-tabs">
               <button
                 onClick={() => setViewMode('table')}
-                className={cn(
-                  'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all',
-                  viewMode === 'table'
-                    ? 'bg-emerald-500/15 text-emerald-400'
-                    : 'text-zinc-500 hover:text-white'
-                )}
+                className={cn('admin-tab', viewMode === 'table' && 'active')}
               >
-                <List size={14} />
+                <List size={13} />
                 表格
               </button>
               <button
                 onClick={() => setViewMode('kanban')}
-                className={cn(
-                  'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all',
-                  viewMode === 'kanban'
-                    ? 'bg-emerald-500/15 text-emerald-400'
-                    : 'text-zinc-500 hover:text-white'
-                )}
+                className={cn('admin-tab', viewMode === 'kanban' && 'active')}
               >
-                <LayoutGrid size={14} />
+                <LayoutGrid size={13} />
                 看板
               </button>
             </div>
 
             <button
               onClick={exportCSV}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl border border-zinc-700 hover:border-zinc-600 text-zinc-400 hover:text-white text-sm transition-colors"
+              className="admin-btn primary"
             >
-              <Download size={16} />
-              导出
+              <Download size={14} />
+              导出 CSV
             </button>
           </div>
         }
       />
 
-      {/* Kanban View */}
+      {/* ── Kanban View ─────────────────────────────────────────────── */}
       {viewMode === 'kanban' && (
-        <div className="mb-4">
-          {/* Filters */}
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            <div className="relative flex-1 min-w-[200px] max-w-md">
-              <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" />
+        <div>
+          {/* Kanban toolbar */}
+          <div className="flex flex-wrap items-center gap-3 mb-5">
+            <div className="relative flex-1 min-w-[200px] max-w-sm">
+              <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" />
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="搜索姓名、邮箱、公司..."
-                className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-zinc-900/50 border border-zinc-800/50 text-sm text-white placeholder-zinc-500 outline-none focus:border-emerald-500/40 transition-colors"
+                className="admin-input pl-9"
               />
             </div>
           </div>
 
-          {/* Kanban Board */}
-          <div className="flex gap-4 overflow-x-auto pb-4">
+          {/* Board */}
+          <div className="flex gap-4 overflow-x-auto pb-4 admin-scroll">
             {(['new', 'contacted', 'qualified', 'closed'] as const).map((status) => (
               <KanbanColumn
                 key={status}
@@ -433,38 +421,40 @@ export function SubmissionsPage() {
         </div>
       )}
 
-      {/* Table View */}
+      {/* ── Table View ──────────────────────────────────────────────── */}
       {viewMode === 'table' && (
         <DataTable
           data={data?.data || []}
           columns={columns}
           loading={loading}
-          pagination={
-            data ? {
-              page: data.page,
-              limit: data.limit,
-              total: data.total,
-              onPageChange: setPage,
-            } : undefined
-          }
-          onRowClick={openDetail}
-          onSearchChange={setSearch}
           searchValue={search}
+          onSearchChange={(v) => { setSearch(v); setPage(1); }}
           searchPlaceholder="搜索姓名、邮箱、公司..."
+          onRowClick={openDetail}
           onExport={exportCSV}
           toolbar={
             <select
               value={statusFilter}
               onChange={(e) => { setStatusFilter(e.target.value); setPage(1); }}
-              className="px-3 py-2 rounded-lg bg-zinc-900/50 border border-zinc-800/50 text-xs text-zinc-300 outline-none focus:border-emerald-500/40 transition-colors"
+              className="admin-select text-xs min-w-[120px]"
             >
               <option value="">全部状态</option>
-              {SUBMISSION_STATUSES.map(s => (
+              {SUBMISSION_STATUSES.map((s) => (
                 <option key={s} value={s}>
-                  {({ new: '新线索', contacted: '已联系', qualified: '已合格', closed: '已关闭' } as any)[s]}
+                  {STATUS_CONFIG[s as keyof typeof STATUS_CONFIG]?.label ?? s}
                 </option>
               ))}
             </select>
+          }
+          pagination={
+            data
+              ? {
+                  page: data.page,
+                  limit: data.limit,
+                  total: data.total,
+                  onPageChange: setPage,
+                }
+              : undefined
           }
           emptyTitle="暂无线索"
           emptyDescription={search ? '没有匹配的线索记录' : '客户提交后会自动出现在这里'}
@@ -472,25 +462,29 @@ export function SubmissionsPage() {
         />
       )}
 
-      {/* Detail Modal */}
+      {/* ── Detail Modal ────────────────────────────────────────────── */}
       <Modal
         open={!!selected}
         onClose={() => setSelected(null)}
         title={selected?.name || '匿名访客'}
-        description={selected ? `${selected.company || '—'} · ${fmtDateTime(selected.created_at)}` : ''}
+        description={
+          selected
+            ? `${selected.company || '—'} · ${fmtRelative(selected.created_at)}`
+            : ''
+        }
         size="lg"
         footer={
           <>
             <button
               onClick={() => setSelected(null)}
-              className="px-4 py-2 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-white/5 transition-colors"
+              className="admin-btn ghost"
             >
               取消
             </button>
             <button
               onClick={handleSave}
               disabled={saving}
-              className="px-4 py-2 rounded-lg text-sm font-medium bg-emerald-500 hover:bg-emerald-400 text-slate-950 disabled:opacity-50 transition-colors"
+              className="admin-btn primary"
             >
               {saving ? '保存中...' : '保存更新'}
             </button>
@@ -498,16 +492,17 @@ export function SubmissionsPage() {
         }
       >
         {selected && (
-          <div className="p-6 space-y-5">
-            {/* Contact Info */}
+          <div className="space-y-6">
+
+            {/* Contact Info Grid */}
             <div className="grid grid-cols-3 gap-3">
               {[
-                { label: '邮箱', value: selected.email, icon: Mail },
-                { label: '电话', value: selected.phone, icon: Phone },
-                { label: '公司', value: selected.company, icon: Building },
-              ].map(item => (
-                <div key={item.label} className="rounded-xl bg-zinc-900/50 border border-zinc-800/50 p-3">
-                  <div className="flex items-center gap-1.5 text-[10px] text-zinc-500 uppercase tracking-widest mb-1">
+                { label: '邮箱',   value: selected.email,   icon: Mail    },
+                { label: '电话',   value: selected.phone,   icon: Phone   },
+                { label: '公司',   value: selected.company, icon: Building },
+              ].map((item) => (
+                <div key={item.label} className="admin-card p-3 rounded-xl">
+                  <div className="flex items-center gap-1.5 text-[10px] text-zinc-600 uppercase tracking-widest font-semibold mb-1">
                     <item.icon size={10} />
                     {item.label}
                   </div>
@@ -518,22 +513,24 @@ export function SubmissionsPage() {
 
             {/* Project Info */}
             <div>
-              <div className="text-[10px] text-zinc-500 uppercase tracking-widest mb-3 font-medium flex items-center gap-1">
-                <Calendar size={10} />
+              <div className="admin-section-title">
+                <Calendar size={12} />
                 项目信息
               </div>
               <div className="grid grid-cols-2 gap-2">
                 {[
-                  { label: '项目阶段', value: STAGE_LABEL[selected.product_stage || ''] || '—' },
-                  { label: '目标市场', value: selected.target_markets || '—' },
-                  { label: '时间线', value: selected.timeline || '—' },
-                  { label: '预算范围', value: BUDGET_LABEL[selected.budget || ''] || '—' },
-                  { label: '已有认证', value: VALIDATION_LABEL[selected.has_validation || ''] || '—' },
-                  { label: '来源页面', value: selected.source_page || '/' },
-                ].map(item => (
-                  <div key={item.label} className="rounded-xl bg-zinc-900/50 border border-zinc-800/50 p-3">
-                    <div className="text-[10px] text-zinc-500 uppercase tracking-widest mb-1">{item.label}</div>
-                    <div className="text-sm text-white">{item.value}</div>
+                  { label: '项目阶段',   value: STAGE_LABEL[selected.product_stage || ''] || '—'     },
+                  { label: '目标市场',   value: selected.target_markets || '—'                        },
+                  { label: '时间线',     value: selected.timeline || '—'                             },
+                  { label: '预算范围',   value: BUDGET_LABEL[selected.budget || ''] || '—'          },
+                  { label: '已有认证',   value: VALIDATION_LABEL[selected.has_validation || ''] || '—'},
+                  { label: '来源页面',   value: selected.source_page || '/'                          },
+                ].map((item) => (
+                  <div key={item.label} className="admin-card p-3 rounded-xl">
+                    <div className="text-[10px] text-zinc-600 uppercase tracking-widest font-semibold mb-1">
+                      {item.label}
+                    </div>
+                    <div className="text-sm text-white truncate">{item.value}</div>
                   </div>
                 ))}
               </div>
@@ -542,9 +539,14 @@ export function SubmissionsPage() {
             {/* Message */}
             {selected.message && (
               <div>
-                <div className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2 font-medium">留言内容</div>
-                <div className="rounded-xl bg-zinc-900/50 border border-zinc-800/50 p-4">
-                  <p className="text-sm text-zinc-300 whitespace-pre-wrap leading-relaxed">{selected.message}</p>
+                <div className="admin-section-title">
+                  <MessageSquare size={12} />
+                  留言内容
+                </div>
+                <div className="admin-card p-4 rounded-xl">
+                  <p className="text-sm text-zinc-300 whitespace-pre-wrap leading-relaxed">
+                    {selected.message}
+                  </p>
                 </div>
               </div>
             )}
@@ -552,50 +554,62 @@ export function SubmissionsPage() {
             {/* Status & Notes */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <div className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2 font-medium">处理状态</div>
+                <label className="admin-section-title">
+                  <CheckCircle size={12} />
+                  处理状态
+                </label>
                 <select
                   value={editingStatus}
-                  onChange={(e) => setEditingStatus(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-900/50 border border-zinc-800/50 text-sm text-white outline-none focus:border-emerald-500/40 transition-colors"
+                  onChange={(e) => setEditingStatus(e.target.value as Submission['status'])}
+                  className="admin-select"
                 >
-                  {SUBMISSION_STATUSES.map(s => (
+                  {SUBMISSION_STATUSES.map((s) => (
                     <option key={s} value={s}>
-                      {({ new: '新线索', contacted: '已联系', qualified: '已合格', closed: '已关闭' } as any)[s]}
+                      {STATUS_CONFIG[s as keyof typeof STATUS_CONFIG]?.label ?? s}
                     </option>
                   ))}
                 </select>
               </div>
               <div>
-                <div className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2 font-medium">负责人</div>
+                <label className="admin-section-title">
+                  <User size={12} />
+                  负责人
+                </label>
                 <input
+                  type="text"
                   value={editingAssignedTo}
                   onChange={(e) => setEditingAssignedTo(e.target.value)}
                   placeholder="分配给..."
-                  className="w-full px-4 py-2.5 rounded-xl bg-zinc-900/50 border border-zinc-800/50 text-sm text-white placeholder-zinc-600 outline-none focus:border-emerald-500/40 transition-colors"
+                  className="admin-input"
                 />
               </div>
             </div>
 
             <div>
-              <div className="text-[10px] text-zinc-500 uppercase tracking-widest mb-2 font-medium">内部备注</div>
+              <label className="admin-section-title">
+                <ArrowRight size={12} />
+                内部备注
+              </label>
               <textarea
                 value={editingNotes}
                 onChange={(e) => setEditingNotes(e.target.value)}
                 rows={3}
                 placeholder="添加处理备注..."
-                className="w-full px-4 py-3 rounded-xl bg-zinc-900/50 border border-zinc-800/50 text-sm text-white placeholder-zinc-600 outline-none focus:border-emerald-500/40 transition-colors resize-none"
+                className="admin-textarea"
               />
             </div>
 
             {/* Location */}
-            <div className="flex gap-2 text-xs text-zinc-500 items-center">
-              <Globe2 size={12} />
+            <div className="flex items-center gap-2 text-xs text-zinc-600 border-t border-[var(--admin-divider)] pt-4">
+              <Globe2 size={13} />
+              <span>{countryFlag(selected.country)}</span>
               <span>{selected.country || '—'}</span>
-              <span>·</span>
+              <span className="text-zinc-800">·</span>
               <span>{selected.region || '—'}</span>
-              <span>·</span>
+              <span className="text-zinc-800">·</span>
               <span>{selected.city || '—'}</span>
             </div>
+
           </div>
         )}
       </Modal>

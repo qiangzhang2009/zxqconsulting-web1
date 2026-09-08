@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe2, Languages, ArrowRight, Bot, LayoutGrid, BriefcaseBusiness, FileSearch, Shield } from 'lucide-react';
+import {
+  Menu, X, Globe2, Languages, ArrowRight, ShieldCheck,
+} from 'lucide-react';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 import { tracking } from '../lib/tracking';
 import i18n from '../i18n';
@@ -13,10 +15,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 32);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -26,208 +25,188 @@ const Navbar = () => {
   }, [location.pathname]);
 
   const navLinks = [
-    { name: t('nav2.product', 'Product'), to: '/', icon: Bot },
-    { name: t('nav2.diagnosisEngine', 'Diagnosis Engine'), to: '/diagnose', icon: LayoutGrid },
-    { name: t('nav2.useCases', 'Use Cases'), to: '/markets', icon: BriefcaseBusiness },
-    { name: t('nav2.caseProof', 'Case Proof'), to: '/cases', icon: FileSearch },
-    { name: t('nav2.expertUpgrade', 'Expert Upgrade'), to: '/expert', icon: ArrowRight },
-    { name: t('nav2.research', 'Research'), to: '/research', icon: FileSearch },
+    { name: t('nav2.how', '如何工作'), to: '/method', note: '方法' },
+    { name: t('nav2.cases', '过往判断'), to: '/cases', note: '案例' },
+    { name: t('nav2.markets', '35 国'), to: '/markets', note: '市场' },
+    { name: t('nav2.research', '研究'), to: '/research', note: '报告' },
+    { name: t('nav2.expert', '专家顾问'), to: '/expert', note: '顾问', highlight: true },
   ];
 
-  const affiliatedPlatforms = [
-    { label: 'AfricaZero', href: 'https://africa.zxqconsulting.com/', trackingLabel: 'navbar_africa' },
-    { label: 'Global2China', href: 'https://global2china.zxqconsulting.com/', trackingLabel: 'navbar_global2china' },
-  ];
-
-  const isActive = (to: string) => location.pathname === to;
+  const isActive = (to: string) =>
+    to === '/' ? location.pathname === '/' : location.pathname.startsWith(to);
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-spring ${
         isScrolled
-          ? 'border-b border-white/10 bg-[#07111a]/88 py-3 shadow-[0_12px_32px_rgba(0,0,0,0.28)] backdrop-blur-xl'
-          : 'bg-transparent py-5'
+          ? 'border-b border-[#2F5D57]/10 bg-[#FAF8F3]/92 py-2.5 shadow-[0_4px_20px_rgba(31,42,32,0.06)] backdrop-blur-xl'
+          : 'bg-[#FAF8F3]/70 backdrop-blur-sm py-4'
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-5">
         <div className="flex items-center justify-between gap-6">
+          {/* 品牌 */}
           <Link
             to="/"
             onClick={() => tracking.click('brand_home', 'navigation')}
-            className="group flex items-center gap-3"
+            className="group flex items-center gap-2.5"
           >
-            <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl border border-emerald-400/20 bg-gradient-to-br from-emerald-500 to-teal-400 text-white shadow-[0_10px_24px_rgba(16,185,129,0.28)] transition-transform duration-300 group-hover:scale-105">
-              <Globe2 className="h-5 w-5" />
+            {/* 墨青圆形徽章 */}
+            <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#2F5D57]/25 bg-[#2F5D57] text-white shadow-sm">
+              <Globe2 className="h-[18px] w-[18px]" />
+              {/* 右上角朱砂点 */}
+              <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-[#C2473B] animate-ink-pulse" />
             </div>
-            <div>
-              <div className="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-300/80">{t('brand.name')}</div>
-              <div className="text-base font-semibold text-white sm:text-lg">
-                {t('brand.tagline', 'TCM Global Decision OS')}
+            <div className="leading-tight">
+              <div className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#2F5D57]/60">
+                {t('brand.name', '岐黄四海')}
+              </div>
+              <div className="text-sm font-semibold tracking-tight text-[#1B2520]">
+                {t('brand.tagline', '出海决策伙伴')}
               </div>
             </div>
           </Link>
 
-          <div className="hidden items-center gap-5 lg:flex">
-            <LanguageSwitcher />
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.to}
-                onClick={() => tracking.click(link.name, 'navigation')}
-                className={`text-sm font-medium transition-colors duration-300 ${
-                  isActive(link.to)
-                    ? 'text-emerald-300'
-                    : 'text-slate-200 hover:text-emerald-300'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+          {/* 主导航 */}
+          <div className="hidden items-center gap-0.5 xl:flex">
+            {navLinks.map((link) => {
+              const active = isActive(link.to);
+              return (
+                <Link
+                  key={link.name}
+                  to={link.to}
+                  onClick={() => tracking.click(link.name, 'navigation')}
+                  className={`relative rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 ${
+                    active
+                      ? 'text-[#2F5D57] bg-[#2F5D57]/8 font-semibold'
+                      : link.highlight
+                      ? 'text-[#C2473B] hover:text-[#A93B30] hover:bg-[#C2473B]/5'
+                      : 'text-[#5b6661] hover:text-[#1B2520] hover:bg-[#2F5D57]/5'
+                  }`}
+                >
+                  {link.name}
+                  {active && (
+                    <span className="absolute -bottom-px left-4 right-4 h-[2px] rounded-full bg-[#2F5D57]" />
+                  )}
+                </Link>
+              );
+            })}
           </div>
 
-          <div className="hidden items-center gap-4 md:flex">
-            <div className="hidden items-center gap-3 xl:flex">
-              {affiliatedPlatforms.map((platform) => (
-                <a
-                  key={platform.href}
-                  href={platform.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => tracking.click(platform.trackingLabel, 'affiliated_platform')}
-                  className="text-xs uppercase tracking-[0.18em] text-slate-400 transition-colors hover:text-slate-200"
-                >
-                  {platform.label}
-                </a>
-              ))}
-              <a
-                href="/admin"
-                onClick={() => tracking.click('navbar_admin', 'navigation')}
-                className="flex items-center gap-1.5 text-xs uppercase tracking-[0.18em] text-slate-500 transition-colors hover:text-emerald-400"
-                title="管理后台"
-              >
-                <Shield className="h-3.5 w-3.5" />
-                <span className="hidden xl:inline">管理后台</span>
-              </a>
-            </div>
+          {/* 右侧动作组 */}
+          <div className="hidden items-center gap-2 xl:flex">
+            <LanguageSwitcher />
 
+            {/* 管理后台入口（低调） */}
+            <Link
+              to="/admin/login"
+              onClick={() => tracking.click('header_admin_entry', 'navigation')}
+              title="管理后台"
+              aria-label="管理后台"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#2F5D57]/15 bg-white/60 text-[#2F5D57]/70 transition-all duration-200 hover:border-[#2F5D57]/40 hover:bg-[#2F5D57]/5 hover:text-[#2F5D57]"
+            >
+              <ShieldCheck className="h-4 w-4" />
+            </Link>
+
+            {/* 精致版 CTA */}
             <Link
               to="/diagnose"
               onClick={() => tracking.click('header_start_diagnosis', 'cta')}
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition-all hover:-translate-y-0.5 hover:bg-emerald-50"
+              className="inline-flex items-center gap-2 rounded-full border border-[#C2473B]/40 bg-[#C2473B] px-5 py-2 text-sm font-semibold text-white shadow-[0_2px_12px_rgba(194,71,59,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#A93B30] hover:border-[#A93B30]/60 hover:shadow-[0_4px_16px_rgba(194,71,59,0.25)] active:translate-y-0"
             >
-              {t('hero2.ctaStart', 'Start diagnosis')}
-              <ArrowRight className="h-4 w-4" />
+              {t('hero2.ctaStart', '3 分钟 AI 诊断')}
+              <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
 
+          {/* 移动端汉堡 */}
           <button
-            className="md:hidden rounded-xl border border-white/10 bg-white/5 p-2.5 text-white"
+            className="rounded-xl border border-[#2F5D57]/15 bg-white/80 p-2.5 text-[#1B2520] backdrop-blur-sm transition-colors hover:bg-white xl:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
 
+        {/* 移动端菜单 */}
         {isMobileMenuOpen && (
-          <div className="mt-4 rounded-2xl border border-white/10 bg-[#0c1722]/95 p-4 backdrop-blur-xl md:hidden">
-            <div className="flex flex-col gap-2">
-              {navLinks.map((link) => {
-                const Icon = link.icon;
-                return (
-                  <Link
-                    key={link.name}
-                    to={link.to}
-                    onClick={() => tracking.click(`mobile_${link.name}`, 'navigation')}
-                    className={`flex items-center gap-3 rounded-xl px-3 py-3 transition-colors hover:bg-white/5 ${
-                      isActive(link.to) ? 'bg-white/5 text-emerald-300' : 'text-white hover:text-emerald-300'
+          <div className="mt-3 rounded-2xl border border-[#2F5D57]/12 bg-[#FAF8F3] p-5 shadow-[0_8px_30px_rgba(31,42,32,0.1)] xl:hidden">
+            {/* 导航链接 */}
+            <div className="flex flex-col gap-0.5">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.to}
+                  onClick={() => tracking.click(`mobile_${link.name}`, 'navigation')}
+                  className={`rounded-xl px-4 py-3 text-sm font-medium transition-colors ${
+                    isActive(link.to)
+                      ? 'bg-[#2F5D57]/8 text-[#2F5D57] font-semibold'
+                      : link.highlight
+                      ? 'text-[#C2473B] hover:bg-[#C2473B]/5'
+                      : 'text-[#3a4540] hover:bg-[#2F5D57]/5 hover:text-[#1B2520]'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* 语言选择区 */}
+            <div className="mt-4 border-t border-[#2F5D57]/10 pt-4">
+              <div className="mb-3 flex items-center gap-2 px-2 text-xs font-bold uppercase tracking-widest text-[#2F5D57]/60">
+                <Languages className="h-3.5 w-3.5" />
+                <span>语言</span>
+              </div>
+              <div className="grid grid-cols-5 gap-1.5">
+                {[
+                  { code: 'en', name: 'EN' },
+                  { code: 'zh', name: '中文' },
+                  { code: 'ja', name: '日本語' },
+                  { code: 'ko', name: '한국어' },
+                  { code: 'de', name: 'DE' },
+                  { code: 'fr', name: 'FR' },
+                  { code: 'es', name: 'ES' },
+                  { code: 'pt', name: 'PT' },
+                  { code: 'ar', name: 'AR' },
+                  { code: 'id', name: 'ID' },
+                ].map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      i18nInstance.changeLanguage(lang.code);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`rounded-lg border py-2 text-xs font-medium transition-colors ${
+                      i18nInstance.language === lang.code
+                        ? 'border-[#2F5D57]/40 bg-[#2F5D57]/8 text-[#2F5D57] font-semibold'
+                        : 'border-[#2F5D57]/10 bg-white text-[#5b6661] hover:border-[#2F5D57]/25 hover:text-[#1B2520]'
                     }`}
                   >
-                    <Icon className="h-4 w-4 text-emerald-300" />
-                    {link.name}
-                  </Link>
-                );
-              })}
-
-              <div className="mt-3 border-t border-white/10 pt-4">
-                <div className="mb-3 flex items-center gap-2 px-2 text-sm font-medium text-white">
-                  <Languages className="h-4 w-4 text-emerald-300" />
-                  <span>{t('nav2.selectLang', 'Choose language')}</span>
-                </div>
-                <div className="grid grid-cols-3 gap-2">
-                  {[
-                    { code: 'en', name: 'English', flag: '🇺🇸' },
-                    { code: 'zh', name: '中文', flag: '🇨🇳' },
-                    { code: 'es', name: 'Español', flag: '🇪🇸' },
-                    { code: 'ja', name: '日本語', flag: '🇯🇵' },
-                    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-                    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-                    { code: 'pt', name: 'Português', flag: '🇧🇷' },
-                    { code: 'ar', name: 'العربية', flag: '🇸🇦' },
-                    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-                    { code: 'ko', name: '한국어', flag: '🇰🇷' },
-                    { code: 'id', name: 'Bahasa', flag: '🇮🇩' },
-                    { code: 'it', name: 'Italiano', flag: '🇮🇹' },
-                    { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' },
-                    { code: 'ms', name: 'Bahasa', flag: '🇲🇾' },
-                    { code: 'lo', name: 'Lao', flag: '🇱🇦' },
-                    { code: 'th', name: 'ไทย', flag: '🇹🇭' },
-                  ].map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => {
-                        i18nInstance.changeLanguage(lang.code);
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className={`flex flex-col items-center justify-center rounded-xl border px-2 py-2 text-xs transition-colors ${
-                        i18nInstance.language === lang.code
-                          ? 'border-emerald-400/50 bg-emerald-400/10 text-white'
-                          : 'border-white/10 bg-white/5 text-slate-300 hover:bg-white/10'
-                      }`}
-                    >
-                      <span className="text-lg">{lang.flag}</span>
-                      <span className="mt-1">{lang.name}</span>
-                    </button>
-                  ))}
-                </div>
+                    {lang.name}
+                  </button>
+                ))}
               </div>
-
-              <div className="mt-4 border-t border-white/10 pt-4">
-                <div className="mb-3 text-xs uppercase tracking-[0.18em] text-slate-500">
-                  {i18nInstance.language === 'zh' ? '关联平台' : 'Affiliated platforms'}
-                </div>
-                <div className="flex flex-col gap-2">
-                  {affiliatedPlatforms.map((platform) => (
-                    <a
-                      key={platform.href}
-                      href={platform.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => tracking.click(platform.trackingLabel, 'mobile_affiliated_platform')}
-                      className="rounded-xl border border-white/10 px-3 py-3 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
-                    >
-                      {platform.label}
-                    </a>
-                  ))}
-                  <a
-                    href="/admin"
-                    onClick={() => tracking.click('mobile_admin', 'navigation')}
-                    className="flex items-center gap-2 rounded-xl border border-white/10 px-3 py-3 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-emerald-400"
-                  >
-                    <Shield className="h-4 w-4" />
-                    {i18nInstance.language === 'zh' ? '管理后台' : 'Admin'}
-                  </a>
-                </div>
-              </div>
-
-              <Link
-                to="/diagnose"
-                onClick={() => tracking.click('mobile_start_diagnosis', 'cta')}
-                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900"
-              >
-                {t('hero2.ctaStart', 'Start diagnosis')}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
+
+            {/* 主 CTA */}
+            <Link
+              to="/diagnose"
+              onClick={() => tracking.click('mobile_start_diagnosis', 'cta')}
+              className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-[#C2473B]/40 bg-[#C2473B] px-5 py-3 text-sm font-semibold text-white"
+            >
+              {t('hero2.ctaStart', '3 分钟 AI 诊断')}
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+
+            {/* 管理后台入口（移动端） */}
+            <Link
+              to="/admin/login"
+              onClick={() => tracking.click('mobile_admin_entry', 'navigation')}
+              className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl border border-[#2F5D57]/25 bg-white px-5 py-3 text-sm font-semibold text-[#2F5D57] transition-colors hover:bg-[#2F5D57]/5"
+            >
+              <ShieldCheck className="h-4 w-4" />
+              管理后台
+            </Link>
           </div>
         )}
       </div>
