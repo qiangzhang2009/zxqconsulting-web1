@@ -132,14 +132,21 @@ fi
 # ---------- 5. 顺便验证报告数据 ----------
 echo ""
 info "顺便验证研究报告数据是否在 bundle 里"
-for id in bencao-cultural-revival-2026 japan-kampo-hegemony-2026 tcm-global-2026; do
-  count=$(curl -sS "$PROD_URL/assets/researchReports-B7Dtvn1a.js" 2>/dev/null | grep -c "$id" || echo 0)
-  if [ "$count" -gt 0 ]; then
-    ok "  $id ✓"
-  else
-    warn "  $id 未在 live bundle 里(可能 hash 不同或被 tree-shake)"
-  fi
-done
+
+# 动态从 dist 取当前 bundle hash,避免 build 后 hash 变了脚本失效
+RESEARCH_BUNDLE=$(ls -1 dist/assets/researchReports-*.js 2>/dev/null | head -1 | xargs -I{} basename {})
+if [ -z "$RESEARCH_BUNDLE" ]; then
+  warn "  未找到 dist/assets/researchReports-*.js,跳过验证"
+else
+  for id in bencao-cultural-revival-2026 japan-kampo-hegemony-2026 tcm-global-2026; do
+    count=$(curl -sS "$PROD_URL/assets/$RESEARCH_BUNDLE" 2>/dev/null | grep -c "$id" || echo 0)
+    if [ "$count" -gt 0 ]; then
+      ok "  $id ✓"
+    else
+      warn "  $id 未在 live bundle 里(可能被 tree-shake)"
+    fi
+  done
+fi
 
 echo ""
 ok "全部完成!打开 $PROD_URL/research 验证"
