@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
-  ArrowRight, BookOpen, Clock, Layers, MapPin, Tag, Sparkles, FileSearch,
+  ArrowRight, BookOpen, Clock, Layers, MapPin, Tag, Sparkles, FileSearch, Lock,
   ArrowDownAZ, Filter, X, ChevronDown,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -368,9 +368,20 @@ export default function ResearchHub() {
                     <div className="text-xs text-slate-500">{r.date}</div>
                   </div>
 
-                  <h2 className="mt-5 text-2xl font-semibold text-white transition-colors group-hover:text-emerald-300">
-                    {r.title}
-                  </h2>
+                  <div className="flex items-start gap-2">
+                    <h2 className="flex-1 text-2xl font-semibold text-white transition-colors group-hover:text-emerald-300">
+                      {r.title}
+                    </h2>
+                    {r.passwordHash && (
+                      <span
+                        title="此报告需要输入密码才能查看"
+                        className="mt-1 inline-flex shrink-0 items-center gap-1 rounded-full border border-amber-400/30 bg-amber-400/10 px-2 py-1 text-[10px] font-medium text-amber-300"
+                      >
+                        <Lock className="h-3 w-3" />
+                        密码
+                      </span>
+                    )}
+                  </div>
                   <p className="mt-3 text-sm text-slate-300">{r.subtitle}</p>
 
                   {/* Metrics */}

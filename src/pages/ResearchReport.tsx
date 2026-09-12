@@ -1,13 +1,23 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import {
-  ArrowLeft, ChevronUp, Loader2, RefreshCw, ExternalLink, Download,
+  ArrowLeft, ChevronUp, Loader2, Lock, RefreshCw, ExternalLink, Download,
   ThumbsUp, MessageCircle, X, Send,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { tracking } from '../lib/tracking';
 import { RESEARCH_REPORTS } from '../data/researchReports';
 import { reportInteractions } from '../lib/reportInteractions';
+
+// 客户端比对密码:SHA-256(input) === report.passwordHash
+// 这只是访问门槛,密码校验在浏览器完成;真正严密的保护需要后端签名/水印。
+async function sha256(text: string): Promise<string> {
+  const enc = new TextEncoder().encode(text);
+  const buf = await crypto.subtle.digest('SHA-256', enc);
+  return Array.from(new Uint8Array(buf))
+    .map((b) => b.toString(16).padStart(2, '0'))
+    .join('');
+}
 
 export default function ResearchReport() {
   const params = useParams<{ reportId?: string; id?: string }>();
@@ -28,13 +38,23 @@ export default function ResearchReport() {
   const [commentContent, setCommentContent] = useState('');
   const [commentSending, setCommentSending] = useState(false);
   const [commentError, setCommentError] = useState<string | null>(null);
+  const [passwordUnlocked, setPasswordUnlocked] = useState(false);
+  const [passwordInput, setPasswordInput] = useState('');
+  const [passwordErrorMsg, setPasswordErrorMsg] = useState<string | null>(null);
+  const [passwordChecking, setPasswordChecking] = useState(false);
   const report = useMemo(() => RESEARCH_REPORTS.find((r) => r.id === id), [id]);
+  const needsPassword = !!report?.passwordHash;
 
   // 切到 iframe 模式时锁定 body 滚动，归还时恢复
   useEffect(() => {
     if (!report) return;
     document.title = `${report.title} · Qihuang Sihai`;
     tracking.pageView({ page_title: document.title });
+
+    // 切换报告时,重置密码解锁态(每份报告都要重新输密码)
+    setPasswordUnlocked(false);
+    setPasswordInput('');
+    setPasswordErrorMsg(null);
 
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -66,6 +86,7 @@ export default function ResearchReport() {
   //         iframe 内的报告 header 不再被遮挡，因此不再需要 padding-top 注入。
   useEffect(() => {
     if (!report) return;
+    if (needsPassword && !passwordUnlocked) return; // 密码未解锁前不下载报告内容
     let aborted = false;
     setLoading(true);
     setIframeError(false);
@@ -88,7 +109,7 @@ export default function ResearchReport() {
     return () => {
       aborted = true;
     };
-  }, [report, nonce]);
+  }, [report, nonce, needsPassword, passwordUnlocked]);
 
   // 监听 iframe 内部滚动 → 控制返回顶部按钮
   useEffect(() => {
@@ -130,6 +151,87 @@ export default function ResearchReport() {
             <ArrowLeft className="h-4 w-4" />
             {t('research.backToHub', '回到报告库')}
           </Link>
+        </div>
+      </main>
+    );
+  }
+
+  const handlePasswordSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!report?.passwordHash) return;
+    setPasswordChecking(true);
+    setPasswordErrorMsg(null);
+    try {
+      const hash = await sha256(passwordInput);
+      if (hash === report.passwordHash) {
+        setPasswordUnlocked(true);
+        setPasswordErrorMsg(null);
+        tracking.click(`research_password_unlock_${id}`, 'research_report');
+      } else {
+        setPasswordErrorMsg('密码错误,请重试');
+        setPasswordInput('');
+      }
+    } catch {
+      setPasswordErrorMsg('浏览器不支持密码校验,请升级浏览器');
+    } finally {
+      setPasswordChecking(false);
+    }
+  };
+
+  // 密码门:输入正确密码之前,只显示锁屏 UI,绝对不下载报告内容
+  if (needsPassword && !passwordUnlocked) {
+    return (
+      <main className="fixed inset-0 z-[60] flex items-center justify-center overflow-hidden bg-[#07111a] text-slate-100">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/10 blur-[140px]" />
+        </div>
+        <div className="relative w-full max-w-md px-4">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-10 text-center backdrop-blur-xl">
+            <div className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-400/10 text-emerald-300">
+              <Lock className="h-7 w-7" />
+            </div>
+            <h1 className="mt-6 text-2xl font-semibold text-white">受密码保护</h1>
+            <p className="mt-2 text-sm text-slate-400">请输入阅读密码以查看此报告</p>
+            <div className="mt-3 text-xs text-slate-500">
+              {report.title}
+            </div>
+
+            <form onSubmit={handlePasswordSubmit} className="mt-8 space-y-4">
+              <input
+                type="password"
+                value={passwordInput}
+                onChange={(e) => setPasswordInput(e.target.value)}
+                placeholder="阅读密码"
+                autoFocus
+                disabled={passwordChecking}
+                className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-center text-sm text-white placeholder:text-slate-500 focus:border-emerald-400/60 focus:outline-none disabled:opacity-50"
+              />
+              {passwordErrorMsg && (
+                <div className="text-xs text-rose-300">{passwordErrorMsg}</div>
+              )}
+              <button
+                type="submit"
+                disabled={passwordChecking || !passwordInput}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-emerald-300 disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-slate-500"
+              >
+                {passwordChecking ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Lock className="h-4 w-4" />
+                )}
+                解锁报告
+              </button>
+            </form>
+
+            <Link
+              to="/research"
+              onClick={() => tracking.click(`research_back_${id}`, 'research_report')}
+              className="mt-6 inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-slate-200"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+              返回报告库
+            </Link>
+          </div>
         </div>
       </main>
     );

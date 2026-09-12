@@ -22,6 +22,7 @@ export type ResearchReport = {
   highlights: string[]; // 报告亮点，3-5 条
   metrics?: { label: string; value: string }[]; // KPI 数字
   cover?: string; // 列表卡片缩略图（可选）
+  passwordHash?: string; // 阅读密码 SHA-256(明文). 设置后,详情页需输入密码才能查看内容
 };
 
 export const RESEARCH_REPORTS: ResearchReport[] = [
@@ -457,6 +458,7 @@ export const RESEARCH_REPORTS: ResearchReport[] = [
     readMinutes: 50,
     chapters: 10,
     href: '/_reports/insitro-physical-ai-2026.html',
+    passwordHash: 'eb9e5c2a708dd6c4b57088c96553de8303cf431b5e42a0630625fa08d8dd6d6b',
     highlights: [
       '公司全景 · 创始团队 / 融资历程 / 估值演化',
       '核心战略 · Physical AI 与因果生物学的方法论',
@@ -469,6 +471,31 @@ export const RESEARCH_REPORTS: ResearchReport[] = [
       { label: '核心管线', value: '3 大' },
       { label: '技术栈', value: '三层' },
       { label: '对标公司', value: '4 家' },
+    ],
+  },
+  {
+    id: 'yisaiteng-bio-2026',
+    title: '宁波易赛腾生物（ECYTON）· 神经退行性疾病上游 AI 药研全栈领跑者',
+    subtitle: '2026 Q3 顶级研究尽调报告 · AI 驱动神经退行性疾病药物发现 · 技术平台、管线进展与战略价值评估',
+    date: '2026-09-13',
+    region: '中国',
+    category: '尽调',
+    readMinutes: 60,
+    chapters: 12,
+    href: '/_reports/yisaiteng-bio-2026.html',
+    passwordHash: 'eb9e5c2a708dd6c4b57088c96553de8303cf431b5e42a0630625fa08d8dd6d6b',
+    highlights: [
+      '公司全景 · 宁波易赛腾生物（ECYTON）神经退行性疾病上游 AI 药研定位',
+      '核心战略 · AI 驱动神经退行性疾病药物发现全栈平台',
+      '技术栈 · 多组学整合 + 机器学习 + 干湿实验闭环',
+      '管线分析 · 阿尔茨海默 / 帕金森 / 渐冻症等神经退行性疾病方向',
+      '战略价值 · 中国 AI 药研上游稀缺标的与全球竞争力评估',
+    ],
+    metrics: [
+      { label: '核心方向', value: '神经退行' },
+      { label: 'AI 平台', value: '全栈' },
+      { label: '管线深度', value: '多项目' },
+      { label: '战略价值', value: '稀缺标的' },
     ],
   },
 ];
