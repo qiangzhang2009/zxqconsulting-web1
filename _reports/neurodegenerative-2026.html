@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="神经退行性疾病 (Neurodegenerative Diseases, NDD) 全产业链钻石级深度研究报告 — PharmaVest Capital Research">
+<meta name="theme-color" content="#050b18">
+<title>Neurodegenerative Diseases · 神经退行性疾病全产业链 | PharmaVest 2026</title>
+
+<style>
+/* ==========================================================================
+   NDD · 神经退行性疾病全产业链 — Editorial Design System
+   延续 XTALPI 报告设计语言：极简 · 电影级 · 数据优先 · Dieter Rams × Tufte
+   ========================================================================== */
+
+:root {
+  --ink:        #050b18;
+  --ink-2:      #0b1424;
+  --ink-3:      #142340;
+  --paper:      #fafaf7;
+  --paper-dim:  #e8e8e0;
+  --line:       rgba(255,255,255,0.08);
+  --line-2:     rgba(255,255,255,0.14);
+
+  --signal:     #d4ff00;   /* electric chartreuse — 主信号色 */
+  --signal-2:   #ff5b3a;   /* vital coral — 警示 */
+  --signal-3:   #8fa4ff;   /* cool azure — 次级信号 */
+  --gold:       #e4c178;   /* premium gold */
+  --mid:        #9ba8c4;
+  --bright:     #fafbff;
+
+  --t-display: clamp(3rem, 9vw, 8.5rem);
+  --t-h1: clamp(2rem, 5vw, 4rem);
+  --t-h2: clamp(1.5rem, 3vw, 2.4rem);
+  --t-h3: 1.25rem;
+  --t-body: 1rem;
+  --t-small: 0.8125rem;
+  --t-micro: 0.6875rem;
+
+  --s-1: 4px; --s-2: 8px; --s-3: 16px; --s-4: 24px;
+  --s-5: 40px; --s-6: 64px; --s-7: 96px; --s-8: 144px;
+
+  --ease: cubic-bezier(.16,1,.3,1);
+  --ease-out: cubic-bezier(.22,1,.36,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  background: var(--ink);
+  color: var(--bright);
+  font-size: var(--t-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.display, .h1, .h2, .h3 { font-family: 'PingFang SC', 'Hiragino Sans GB', 'STSong', 'SimSun', -apple-system, sans-serif; font-weight: 900; letter-spacing: -0.03em; line-height: 0.95; }
+.display { font-size: var(--t-display); letter-spacing: -0.05em; line-height: 0.88; }
+.h1 { font-size: var(--t-h1); }
+.h2 { font-size: var(--t-h2); line-height: 1.05; letter-spacing: -0.02em; }
+.h3 { font-size: var(--t-h3); font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+
+.mono { font-family: ui-monospace, 'SF Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-variant-numeric: tabular-nums; }
+.label { font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.18em; font-weight: 600; color: var(--mid); }
+.eyebrow { font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.3em; font-weight: 700; color: var(--signal); }
+.lead { font-size: 1.0625rem; color: rgba(244,245,249,0.72); max-width: 60ch; line-height: 1.65; }
+
+.container { max-width: 1440px; margin: 0 auto; padding: 0 var(--s-4); }
+.col-wide  { max-width: 1280px; margin: 0 auto; padding: 0 var(--s-4); }
+.col-prose { max-width: 720px;  margin: 0 auto; padding: 0 var(--s-4); }
+@media (max-width: 768px) {
+  .container, .col-wide, .col-prose { padding: 0 var(--s-3); }
+}
+
+.section { padding: var(--s-8) 0; position: relative; scroll-margin-top: 64px; }
+@media (max-width: 768px) { .section { padding: var(--s-7) 0; } }
+
+.divider { height: 1px; background: var(--line); margin: var(--s-7) 0; position: relative; }
+.divider::before {
+  content: ''; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px; height: 6px; background: var(--signal); border-radius: 50%;
+}
+
+/* Nav */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; height: 56px;
+  z-index: 100; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--s-4);
+  background: rgba(5, 11, 24, 0.72);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.4s var(--ease), background 0.4s var(--ease);
+}
+.nav.scrolled { background: rgba(5, 11, 24, 0.92); border-bottom-color: var(--line); }
+.nav-brand { display: flex; align-items: center; gap: var(--s-2); font-family: ui-monospace, monospace; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.18em; }
+.nav-brand-dot { width: 6px; height: 6px; background: var(--signal); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.5;transform:scale(.85);} }
+.nav-links { display: flex; gap: var(--s-5); font-size: var(--t-small); font-weight: 500; }
+.nav-link { color: var(--mid); text-decoration: none; transition: color 0.2s var(--ease); }
+.nav-link:hover { color: var(--signal); }
+
+/* Hero */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 56px; position: relative; overflow: hidden; }
+.hero-bg {
+  position: absolute; inset: 0; opacity: 0.18;
+  background-image:
+    radial-gradient(circle at 20% 30%, var(--signal) 0%, transparent 28%),
+    radial-gradient(circle at 80% 70%, var(--signal-3) 0%, transparent 30%),
+    radial-gradient(circle at 60% 20%, var(--signal-2) 0%, transparent 22%);
+  filter: blur(80px);
+}
+.hero-content { position: relative; z-index: 1; }
+.hero .display { margin-bottom: var(--s-4); }
+.hero-meta {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--s-4); margin-top: var(--s-6);
+  padding-top: var(--s-5); border-top: 1px solid var(--line);
+}
+.meta-item .label { display: block; margin-bottom: var(--s-2); }
+.meta-item .val { font-size: 1.25rem; font-weight: 700; }
+
+/* Eyebrow header */
+.sec-head { margin-bottom: var(--s-6); }
+.sec-head .eyebrow { display: block; margin-bottom: var(--s-3); }
+
+/* Grids */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-4); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-4); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-3); }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--s-4); }
+@media (max-width: 968px) {
+  .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* Cards */
+.card {
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  padding: var(--s-4);
+  position: relative;
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.card:hover { border-color: var(--line-2); }
+.card .label { display: block; margin-bottom: var(--s-2); }
+.card .h3 { margin-bottom: var(--s-3); }
+.card .meta { font-size: var(--t-small); color: var(--mid); margin-top: var(--s-3); padding-top: var(--s-3); border-top: 1px solid var(--line); }
+.card-accent { border-left: 2px solid var(--signal); }
+.card-coral { border-left: 2px solid var(--signal-2); }
+.card-azure { border-left: 2px solid var(--signal-3); }
+.card-gold { border-left: 2px solid var(--gold); }
+
+/* Stat */
+.stat { padding: var(--s-4) 0; }
+.stat .num { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1; }
+.stat .num-signal { color: var(--signal); }
+.stat .num-coral { color: var(--signal-2); }
+.stat .num-azure { color: var(--signal-3); }
+.stat .num-gold { color: var(--gold); }
+.stat .label { display: block; margin-top: var(--s-2); }
+.stat .desc { margin-top: var(--s-2); color: var(--mid); font-size: var(--t-small); }
+
+/* Tables */
+.tbl-wrap { overflow-x: auto; margin: var(--s-4) 0; border: 1px solid var(--line); }
+table { width: 100%; border-collapse: collapse; font-size: var(--t-small); }
+th, td { padding: var(--s-3) var(--s-4); text-align: left; border-bottom: 1px solid var(--line); }
+th { background: var(--ink-2); font-weight: 700; font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.15em; color: var(--mid); }
+tbody tr:hover { background: rgba(255,255,255,0.02); }
+td .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: var(--t-micro); font-weight: 600; }
+.pill-signal { background: rgba(212,255,0,0.15); color: var(--signal); }
+.pill-coral { background: rgba(255,91,58,0.15); color: var(--signal-2); }
+.pill-azure { background: rgba(143,164,255,0.15); color: var(--signal-3); }
+.pill-gold { background: rgba(228,193,120,0.15); color: var(--gold); }
+.pill-mid { background: rgba(155,168,196,0.15); color: var(--mid); }
+
+/* Bar / chart */
+.bar-row { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-2) 0; }
+.bar-row .name { width: 180px; font-size: var(--t-small); }
+.bar-row .bar-track { flex: 1; height: 8px; background: var(--ink-3); border-radius: 999px; overflow: hidden; }
+.bar-row .bar-fill { height: 100%; background: var(--signal); border-radius: 999px; transition: width 0.8s var(--ease); }
+.bar-row .bar-fill.coral { background: var(--signal-2); }
+.bar-row .bar-fill.azure { background: var(--signal-3); }
+.bar-row .bar-fill.gold { background: var(--gold); }
+.bar-row .val { width: 90px; text-align: right; font-family: ui-monospace, monospace; font-size: var(--t-small); }
+
+/* Pipeline */
+.pipe {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  border: 1px solid var(--line); margin: var(--s-4) 0;
+}
+.pipe-stage { padding: var(--s-3); border-right: 1px solid var(--line); }
+.pipe-stage:last-child { border-right: none; }
+.pipe-stage .label { display: block; margin-bottom: var(--s-2); }
+.pipe-stage .count { font-size: 1.5rem; font-weight: 800; }
+@media (max-width: 768px) {
+  .pipe { grid-template-columns: 1fr 1fr; }
+  .pipe-stage { border-bottom: 1px solid var(--line); }
+}
+
+/* Timeline */
+.timeline { position: relative; padding-left: var(--s-5); margin: var(--s-4) 0; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 1px; background: var(--line); }
+.tl-item { position: relative; padding-bottom: var(--s-4); }
+.tl-item::before { content: ''; position: absolute; left: -22px; top: 6px; width: 9px; height: 9px; background: var(--signal); border-radius: 50%; }
+.tl-item.coral::before { background: var(--signal-2); }
+.tl-item.azure::before { background: var(--signal-3); }
+.tl-item.gold::before { background: var(--gold); }
+.tl-year { font-family: ui-monospace, monospace; font-weight: 700; color: var(--signal); font-size: var(--t-small); }
+.tl-title { font-weight: 700; margin: var(--s-1) 0; }
+.tl-desc { color: var(--mid); font-size: var(--t-small); }
+
+/* Quote */
+.pull-quote {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700; line-height: 1.3;
+  padding: var(--s-5) 0;
+  border-top: 2px solid var(--signal);
+  border-bottom: 1px solid var(--line);
+  margin: var(--s-5) 0;
+}
+.pull-quote .attrib { display: block; margin-top: var(--s-3); font-size: var(--t-small); color: var(--mid); font-weight: 500; }
+
+/* Footer */
+.footer {
+  background: var(--ink-2); border-top: 1px solid var(--line);
+  padding: var(--s-6) 0 var(--s-5); margin-top: var(--s-8);
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--s-4); }
+@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+.footer .h3 { color: var(--signal); margin-bottom: var(--s-3); }
+.footer ul { list-style: none; }
+.footer li { padding: 4px 0; color: var(--mid); font-size: var(--t-small); }
+.footer-bottom {
+  margin-top: var(--s-5); padding-top: var(--s-3); border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--s-2);
+  font-size: var(--t-micro); color: var(--mid);
+}
+
+/* TOC */
+.toc { background: var(--ink-2); border: 1px solid var(--line); padding: var(--s-4); margin: var(--s-4) 0; }
+.toc .label { display: block; margin-bottom: var(--s-3); }
+.toc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-2); }
+@media (max-width: 768px) { .toc-grid { grid-template-columns: 1fr; } }
+.toc-grid a { color: var(--bright); text-decoration: none; font-size: var(--t-small); padding: var(--s-1) 0; display: block; border-bottom: 1px solid transparent; transition: border-color 0.2s var(--ease); }
+.toc-grid a:hover { border-bottom-color: var(--signal); color: var(--signal); }
+.toc-grid .num { color: var(--signal); margin-right: var(--s-2); font-family: ui-monospace, monospace; }
+
+/* Vis SVG container */
+.viz { margin: var(--s-5) 0; padding: var(--s-4); background: var(--ink-2); border: 1px solid var(--line); }
+.viz .label { display: block; margin-bottom: var(--s-3); }
+.viz svg { width: 100%; height: auto; display: block; }
+
+/* Two-col prose */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-5); }
+@media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+/* Lists */
+ul.clean { list-style: none; padding: 0; }
+ul.clean li { padding: var(--s-2) 0; padding-left: var(--s-4); position: relative; }
+ul.clean li::before { content: '▸'; position: absolute; left: 0; color: var(--signal); }
+ul.clean.coral li::before { color: var(--signal-2); }
+ul.clean.azure li::before { color: var(--signal-3); }
+
+ol.clean { list-style: none; counter-reset: c; padding: 0; }
+ol.clean li { counter-increment: c; padding: var(--s-2) 0 var(--s-2) var(--s-5); position: relative; }
+ol.clean li::before { content: counter(c, decimal-leading-zero); position: absolute; left: 0; color: var(--signal); font-family: ui-monospace, monospace; font-weight: 700; }
+
+/* Heatmap */
+.heat { display: grid; gap: 2px; margin: var(--s-4) 0; }
+.heat-row { display: grid; grid-template-columns: 180px repeat(6, 1fr); gap: 2px; }
+.heat-row.head > div { font-size: var(--t-micro); text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid); padding: var(--s-2) var(--s-2); }
+.heat-row > div { padding: var(--s-2); font-size: var(--t-small); text-align: center; }
+.heat-row > div.name { text-align: left; }
+.heat .l0 { background: rgba(255,255,255,0.02); }
+.heat .l1 { background: rgba(212,255,0,0.10); }
+.heat .l2 { background: rgba(212,255,0,0.22); }
+.heat .l3 { background: rgba(212,255,0,0.38); }
+.heat .l4 { background: rgba(212,255,0,0.58); }
+.heat .l5 { background: rgba(212,255,0,0.85); color: var(--ink); }
+
+/* Disclosure */
+details.dis { background: var(--ink-2); border: 1px solid var(--line); padding: var(--s-3) var(--s-4); margin: var(--s-3) 0; }
+details.dis summary { cursor: pointer; font-weight: 700; }
+details.dis summary::marker { color: var(--signal); }
+
+/* TOC sticky side */
+.layout-2 { display: grid; grid-template-columns: 240px 1fr; gap: var(--s-6); }
+@media (max-width: 968px) { .layout-2 { grid-template-columns: 1fr; } }
+.side-toc { position: sticky; top: 80px; height: max-content; font-size: var(--t-small); }
+.side-toc a { display: block; padding: 6px 0; color: var(--mid); text-decoration: none; border-left: 2px solid transparent; padding-left: var(--s-3); }
+.side-toc a:hover, .side-toc a.active { color: var(--signal); border-left-color: var(--signal); }
+</style>
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<nav class="nav" id="nav">
+  <div class="nav-brand">
+    <span class="nav-brand-dot"></span>
+    <span>PHARMAVEST · NDD 2026</span>
+  </div>
+  <div class="nav-links">
+    <a class="nav-link" href="#s1">全景</a>
+    <a class="nav-link" href="#s2">疾病谱</a>
+    <a class="nav-link" href="#s3">技术路径</a>
+    <a class="nav-link" href="#s4">产业链</a>
+    <a class="nav-link" href="#s5">市场</a>
+    <a class="nav-link" href="#s6">玩家</a>
+    <a class="nav-link" href="#s7">投资</a>
+    <a class="nav-link" href="#s8">风险</a>
+  </div>
+</nav>
+
+<!-- ============================ HERO ============================ -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <div class="eyebrow" style="margin-bottom: var(--s-3);">PHARMAVEST CAPITAL RESEARCH · DIAMOND TIER</div>
+    <h1 class="display">神经退行性疾病<br>全产业链</h1>
+    <p class="lead" style="margin-top: var(--s-5); max-width: 720px;">
+      全球老龄化主战场、最大未满足医疗需求、最复杂的 CNS 生物学。当 20 世纪的肿瘤学遇上 21 世纪的脑科学，
+      一条横跨 <strong>诊断 · 药物 · 器械 · 数字疗法 · 照护</strong> 的万亿级产业链正在重写。
+    </p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="label">报告类型</span>
+        <span class="val">钻石级深研</span>
+      </div>
+      <div class="meta-item">
+        <span class="label">覆盖深度</span>
+        <span class="val">全产业链 · 7 大疾病</span>
+      </div>
+      <div class="meta-item">
+        <span class="label">发布日期</span>
+        <span class="val mono">2026·08·18</span>
+      </div>
+      <div class="meta-item">
+        <span class="label">核心结论</span>
+        <span class="val" style="color: var(--signal);">结构性 Buy</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ TOC ============================ -->
+<section class="section" style="padding-top: var(--s-6);">
+  <div class="container">
+    <div class="toc">
+      <span class="label">目录 · CONTENTS</span>
+      <div class="toc-grid">
+        <a href="#s1"><span class="num">01</span>执行摘要与产业全景</a>
+        <a href="#s2"><span class="num">02</span>疾病谱系深解</a>
+        <a href="#s3"><span class="num">03</span>技术路径全图</a>
+        <a href="#s4"><span class="num">04</span>产业链解构</a>
+        <a href="#s5"><span class="num">05</span>市场规模与支付</a>
+        <a href="#s6"><span class="num">06</span>竞争格局与玩家地图</a>
+        <a href="#s7"><span class="num">07</span>中国机会与投资策略</a>
+        <a href="#s8"><span class="num">08</span>风险框架</a>
+        <a href="#s9"><span class="num">09</span>附录与术语表</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ S1 EXEC SUMMARY ============================ -->
+<section class="section" id="s1">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">01 · EXECUTIVE SUMMARY</span>
+      <h2 class="h1" style="margin-top: var(--s-2);">Why NDD, Why Now</h2>
+    </div>
+
+    <div class="grid-4" style="margin-bottom: var(--s-6);">
+      <div class="stat">
+        <div class="num num-signal">$1.5T</div>
+        <span class="label">2050 全球 NDD 经济负担</span>
+        <p class="desc">WHO 测算，含直接医疗 + 间接照护成本</p>
+      </div>
+      <div class="stat">
+        <div class="num num-azure">150M+</div>
+        <span class="label">全球患者基數 (痴呆+PD)</span>
+        <p class="desc">2050 预计；2025 年约 65M</p>
+      </div>
+      <div class="stat">
+        <div class="num num-gold">$140B</div>
+        <span class="label">2024 NDD 药物市场</span>
+        <p class="desc">2030 预计 $280B+ · CAGR ~15%</p>
+      </div>
+      <div class="stat">
+        <div class="num num-coral">~2%</div>
+        <span class="label">近 20 年获批新机制</span>
+        <p class="desc">但 2023-25 出现破冰窗口</p>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      "如果说 21 世纪上半叶的医学叙事是'治愈癌症';那么下半叶,将是'逆转神经退行'。这不再是一个治愈难题,而是一个产业化难题。"
+      <span class="attrib">— PharmaVest Capital Research, Lead Analyst</span>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <h3 class="h3" style="margin-bottom: var(--s-3);">三大结构性变化</h3>
+        <ol class="clean">
+          <li><strong>生物学破冰：</strong>抗 Aβ 抗体 (lecanemab/donanemab) 首次临床证明"清除致病蛋白 → 减缓临床下降"的因果链,打开整个致病蛋白清除类范式的天花板。</li>
+          <li><strong>递送破冰：</strong>AAV 基因治疗 (Elevidys 类机制) 在 SMA 验证脑/神经肌肉靶向,正向 ALS、HD、PD 拓展;鞘内/鼻喷/BBB 跨膜平台进入兑现期。</li>
+          <li><strong>诊断破冰：</strong>血浆 p-tau217、α-syn RT-QuIC、Aβ-PET 三件套把诊断从"症状后 5 年"压缩到"症状前 5 年",创造预防/极早期干预市场。</li>
+        </ol>
+      </div>
+      <div>
+        <h3 class="h3" style="margin-bottom: var(--s-3);">三大产业红利</h3>
+        <ol class="clean">
+          <li><strong>代际人口红利：</strong>65+ 全球 2025 年 8.1 亿 → 2050 年 15.6 亿,痴呆/PD 双倍翻倍。</li>
+          <li><strong>支付方接纳：</strong>CMS 在美国首次为 AD 慢病化疗法背书 (Bemcentinib 报销路径);欧洲 NICE 出现突破性药物加速准入。</li>
+          <li><strong>AI/算力外溢：</strong>AlphaFold 3、ESM-3、Iambic、英矽智能等把靶点发现 → 苗头化合物周期从 18 个月压到 6 周,蛋白病 / 折叠病变成 AI 最强战场。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="viz" style="margin-top: var(--s-6);">
+      <span class="label">图 1.1 · NDD 市场规模与增速(2020–2030E)</span>
+      <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#d4ff00" stop-opacity="0.6"/>
+            <stop offset="1" stop-color="#d4ff00" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#8fa4ff" stop-opacity="0.5"/>
+            <stop offset="1" stop-color="#8fa4ff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g font-family="ui-monospace,monospace" font-size="11" fill="#9ba8c4">
+          <line x1="60" y1="40" x2="60" y2="260" stroke="rgba(255,255,255,0.08)"/>
+          <line x1="60" y1="260" x2="760" y2="260" stroke="rgba(255,255,255,0.08)"/>
+          <text x="55" y="44" text-anchor="end">$300B</text>
+          <text x="55" y="104" text-anchor="end">$200B</text>
+          <text x="55" y="164" text-anchor="end">$100B</text>
+          <text x="55" y="220" text-anchor="end">$50B</text>
+          <text x="55" y="260" text-anchor="end">$0</text>
+          <text x="80" y="285" text-anchor="middle">2020</text>
+          <text x="180" y="285" text-anchor="middle">2022</text>
+          <text x="280" y="285" text-anchor="middle">2024</text>
+          <text x="380" y="285" text-anchor="middle">2026</text>
+          <text x="480" y="285" text-anchor="middle">2028</text>
+          <text x="580" y="285" text-anchor="middle">2030</text>
+        </g>
+        <path d="M80,240 Q180,220 280,180 T480,100 T580,40 L580,260 L80,260 Z" fill="url(#g1)"/>
+        <path d="M80,240 Q180,220 280,180 T480,100 T580,40" stroke="#d4ff00" stroke-width="2.5" fill="none"/>
+        <path d="M80,250 Q180,235 280,210 T480,160 T580,120 L580,260 L80,260 Z" fill="url(#g2)"/>
+        <path d="M80,250 Q180,235 280,210 T480,160 T580,120" stroke="#8fa4ff" stroke-width="2" fill="none" stroke-dasharray="4 3"/>
+        <g font-family="ui-monospace,monospace" font-size="10" fill="#fafbff">
+          <circle cx="80" cy="240" r="4" fill="#d4ff00"/>
+          <circle cx="280" cy="180" r="4" fill="#d4ff00"/>
+          <circle cx="580" cy="40" r="4" fill="#d4ff00"/>
+          <text x="88" y="235">$65B</text>
+          <text x="288" y="175">$140B</text>
+          <text x="500" y="32" fill="#d4ff00">$280B+</text>
+        </g>
+      </svg>
+      <p class="desc" style="margin-top: var(--s-2); color: var(--mid); font-size: var(--t-small);">
+        黄色实线 = NDD 药物市场 (2030E CAGR 15%); 蓝色虚线 = 仅 AD 市场单独走势。数据来源:Frost & Sullivan / PharmaVest 估算
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================ S2 DISEASE SPECTRUM ============================ -->
+<section class="section" id="s2">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">02 · DISEASE SPECTRUM</span>
+      <h2 class="h1" style="margin-top: var(--s-2);">七大疾病谱系深解</h2>
+      <p class="lead" style="margin-top: var(--s-3);">从阿尔茨海默到渐冻症,从多发性硬化到罕见遗传性痴呆。共同特征:神经元的进行性丢失,病因各异。</p>
+    </div>
+
+    <div class="grid-auto">
+      <div class="card card-accent">
+        <span class="label">02 · 01 · ALZHEIMER'S DISEASE</span>
+        <h3 class="h3">阿尔茨海默病 (AD)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          占比 60-70% 的痴呆症;Aβ 斑块 + tau 神经纤维缠结双重病理;病程 8-15 年。
+        </p>
+        <div class="meta">
+          全球患者:<strong style="color: var(--bright);">55M (2025) → 139M (2050)</strong><br>
+          主要机制:蛋白病 (proteinopathy)<br>
+          一线靶点:Aβ (单体/寡聚体)、神经炎症、tau
+        </div>
+      </div>
+
+      <div class="card card-azure">
+        <span class="label">02 · 02 · PARKINSON'S DISEASE</span>
+        <h3 class="h3">帕金森病 (PD)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          α-syn 路易小体 + 多巴胺能神经元丢失;运动前期症状 (RBD、嗅觉减退) 可达 10-20 年。
+        </p>
+        <div class="meta">
+          全球患者:<strong style="color: var(--bright);">10M+ (2025)</strong><br>
+          主要机制:α-syn 病 + 线粒体功能障碍<br>
+          一线靶点:α-syn、LRRK2、GBA、GLP-1
+        </div>
+      </div>
+
+      <div class="card card-coral">
+        <span class="label">02 · 03 · ALS / MND</span>
+        <h3 class="h3">肌萎缩侧索硬化</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          运动神经元快速死亡;中位生存 3-5 年;10% 家族性 (SOD1/C9orf72/FUS/TDP-43)。
+        </p>
+        <div class="meta">
+          全球患者:<strong style="color: var(--bright);">~220K (2025)</strong><br>
+          主要机制:TDP-43 蛋白病 (97%)<br>
+          一线靶点:SOD1-ASO、C9orf72、ATXN2、UNC13A
+        </div>
+      </div>
+
+      <div class="card card-gold">
+        <span class="label">02 · 04 · HUNTINGTON'S</span>
+        <h3 class="h3">亨廷顿病 (HD)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          单基因 CAG 重复扩增;HTT 蛋白毒 + 纹状体退化;完全外显、可预测。
+        </p>
+        <div class="meta">
+          全球患者:<strong style="color: var(--bright);">~70K (诊断) + ~200K 前驱期</strong><br>
+          主要机制:毒性 mHTT 蛋白 + RNA 毒性<br>
+          一线靶点:HTT 等位基因优先 ASO (tominersen 失败 → 重新探索)
+        </div>
+      </div>
+
+      <div class="card card-accent">
+        <span class="label">02 · 05 · MULTIPLE SCLEROSIS</span>
+        <h3 class="h3">多发性硬化 (MS)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          中枢神经系统脱髓鞘自身免疫病;复发-缓解型占 85%;进展型是 NDD 与免疫病的交集。
+        </p>
+        <div class="meta">
+          全球患者:<strong style="color: var(--bright);">2.8M (2025)</strong><br>
+          主要机制:自身免疫 + B 细胞 + 神经变性<br>
+          一线靶点:CD20、BTK、S1PR、神经修复
+        </div>
+      </div>
+
+      <div class="card card-azure">
+        <span class="label">02 · 06 · FTD / DEMENTIA</span>
+        <h3 class="h3">额颞叶痴呆 (FTD)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          早发性痴呆主因 (~65 岁前);TDP-43 / tau / FUS 三病理;行为变异型最常见。
+        </p>
+        <div class="meta">
+          全球患者:<strong style="color: var(--bright);">~250K (诊断) + 大量漏诊</strong><br>
+          主要机制:tauopathy / TDP-43 蛋白病<br>
+          一线靶点:GRN (progranulin)、tau、核酸疗法
+        </div>
+      </div>
+
+      <div class="card card-coral">
+        <span class="label">02 · 07 · RARE & OTHER</span>
+        <h3 class="h3">其他罕见 NDD</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          PSP、MSA、CBD、Dravet、Lewy Body Dementia、CLN (Batten)、SMA 神经型、SCAs。
+        </p>
+        <div class="meta">
+          合计患者:<strong style="color: var(--bright);">~500K (全球)</strong><br>
+          主要机制:各自特异,但共享蛋白清除 / RNA / 基因治疗路径<br>
+          商业逻辑:孤儿药溢价 + 平台型技术复用
+        </div>
+      </div>
+    </div>
+
+    <div class="viz" style="margin-top: var(--s-6);">
+      <span class="label">图 2.1 · 七大 NDD 患者基数 vs 临床未满足度</span>
+      <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="ui-monospace,monospace" font-size="11" fill="#9ba8c4">
+          <line x1="100" y1="40" x2="100" y2="320" stroke="rgba(255,255,255,0.08)"/>
+          <line x1="100" y1="320" x2="760" y2="320" stroke="rgba(255,255,255,0.08)"/>
+          <text x="95" y="44" text-anchor="end">100%</text>
+          <text x="95" y="140" text-anchor="end">50%</text>
+          <text x="95" y="320" text-anchor="end">0%</text>
+          <text x="430" y="350" text-anchor="middle" fill="#9ba8c4">未满足度指数(综合临床获益空白)</text>
+        </g>
+        <g font-family="PingFang SC, sans-serif" font-size="12" fill="#fafbff">
+          <g transform="translate(100,0)">
+            <rect x="0" y="40" width="80" height="280" fill="#d4ff00" opacity="0.85"/>
+            <text x="40" y="180" text-anchor="middle" fill="#050b18" font-weight="800">AD</text>
+            <text x="40" y="200" text-anchor="middle" fill="#050b18" font-size="10">55M</text>
+            <text x="40" y="335" text-anchor="middle">阿尔茨海默</text>
+          </g>
+          <g transform="translate(200,0)">
+            <rect x="0" y="120" width="80" height="200" fill="#8fa4ff" opacity="0.85"/>
+            <text x="40" y="220" text-anchor="middle" fill="#050b18" font-weight="800">PD</text>
+            <text x="40" y="240" text-anchor="middle" fill="#050b18" font-size="10">10M</text>
+            <text x="40" y="335" text-anchor="middle">帕金森</text>
+          </g>
+          <g transform="translate(300,0)">
+            <rect x="0" y="60" width="80" height="260" fill="#ff5b3a" opacity="0.85"/>
+            <text x="40" y="180" text-anchor="middle" fill="#fafbff" font-weight="800">MS</text>
+            <text x="40" y="200" text-anchor="middle" fill="#fafbff" font-size="10">2.8M</text>
+            <text x="40" y="335" text-anchor="middle">多发硬化</text>
+          </g>
+          <g transform="translate(400,0)">
+            <rect x="0" y="80" width="80" height="240" fill="#e4c178" opacity="0.85"/>
+            <text x="40" y="190" text-anchor="middle" fill="#050b18" font-weight="800">FTD</text>
+            <text x="40" y="210" text-anchor="middle" fill="#050b18" font-size="10">0.25M</text>
+            <text x="40" y="335" text-anchor="middle">额颞叶</text>
+          </g>
+          <g transform="translate(500,0)">
+            <rect x="0" y="50" width="80" height="270" fill="#d4ff00" opacity="0.55"/>
+            <text x="40" y="180" text-anchor="middle" fill="#fafbff" font-weight="800">ALS</text>
+            <text x="40" y="200" text-anchor="middle" fill="#fafbff" font-size="10">0.22M</text>
+            <text x="40" y="335" text-anchor="middle">渐冻症</text>
+          </g>
+          <g transform="translate(600,0)">
+            <rect x="0" y="30" width="80" height="290" fill="#8fa4ff" opacity="0.55"/>
+            <text x="40" y="170" text-anchor="middle" fill="#fafbff" font-weight="800">HD</text>
+            <text x="40" y="190" text-anchor="middle" fill="#fafbff" font-size="10">0.07M</text>
+            <text x="40" y="335" text-anchor="middle">亨廷顿</text>
+          </g>
+        </g>
+      </svg>
+      <p class="desc" style="margin-top: var(--s-2); color: var(--mid); font-size: var(--t-small);">
+        条形高度 = PharmaVest 测算的"未满足度指数" (疗效空白 + 诊断空白 + 支付空白综合)。柱顶数字 = 全球患者基数。
+      </p>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">病理机制共享图谱</h3>
+    <p style="color: var(--mid); max-width: 80ch;">
+      表面上 7 大疾病各不相同,但现代生物学揭示它们共享 6 大核心机制,这决定了 <strong>技术平台可跨疾病复用</strong>:
+    </p>
+    <div class="grid-3" style="margin-top: var(--s-3);">
+      <div class="card">
+        <span class="label">PATHOLOGY · 01</span>
+        <h3 class="h3">蛋白稳态失衡</h3>
+        <p style="font-size: var(--t-small); color: var(--mid);">Aβ / tau / α-syn / TDP-43 / HTT — 错误折叠 → 聚集 → 扩散。所有"致病蛋白清除"类疗法都基于此机制。</p>
+      </div>
+      <div class="card">
+        <span class="label">PATHOLOGY · 02</span>
+        <h3 class="h3">神经炎症</h3>
+        <p style="font-size: var(--t-small); color: var(--mid);">小胶质细胞 / 星形胶质过度激活 → 突触修剪异常。TREM2、CD33、NLRP3 是共靶点。</p>
+      </div>
+      <div class="card">
+        <span class="label">PATHOLOGY · 03</span>
+        <h3 class="h3">线粒体与代谢</h3>
+        <p style="font-size: var(--t-small); color: var(--mid);">能量危机 + 氧化应激。GLP-1 RA (司美格鲁肽) 在 PD 二期阳性的机制基础。</p>
+      </div>
+      <div class="card">
+        <span class="label">PATHOLOGY · 04</span>
+        <h3 class="h3">突触与神经网络</h3>
+        <p style="font-size: var(--t-small); color: var(--mid);">默认模式网络 / 皮层回路退化。PBM、tDCS、神经反馈可干预。</p>
+      </div>
+      <div class="card">
+        <span class="label">PATHOLOGY · 05</span>
+        <h3 class="h3">蛋白清除通路</h3>
+        <p style="font-size: var(--t-small); color: var(--mid);">自噬、泛素-蛋白酶体、淋巴-脑膜通路、Glymphatic 通路。</p>
+      </div>
+      <div class="card">
+        <span class="label">PATHOLOGY · 06</span>
+        <h3 class="h3">基因与表观遗传</h3>
+        <p style="font-size: var(--t-small); color: var(--mid);">APOE、TREM2、LRRK2、MAPT、C9orf72 — GWAS / WGS 持续输出新靶点。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================ S3 TECH PATHS ============================ -->
+<section class="section" id="s3">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">03 · TECHNOLOGY PATHS</span>
+      <h2 class="h1" style="margin-top: var(--s-2);">八大技术路径全图</h2>
+      <p class="lead" style="margin-top: var(--s-3);">
+        NDD 不只是药物问题。从抗体到基因,从器械到 AI,从数字疗法到再生医学,8 条主路径同步推进。
+      </p>
+    </div>
+
+    <div class="grid-auto">
+      <div class="card card-accent">
+        <span class="label">TECH · 01</span>
+        <h3 class="h3">单抗 / 抗体药物</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          当前 NDD 最热主路径。Aducanumab、lecanemab、donanemab 三大 AD 抗 Aβ 抗体已上市;下一代聚焦 Aβ 寡聚体、tau、α-syn、TREM2。
+        </p>
+        <div class="meta">
+          代表玩家:<strong>渤健 (Biogen)、礼来 (Eli Lilly)、罗氏、卫材、Prothena、AC Immune</strong><br>
+          全球管线:<strong>320+ 项</strong><br>
+          单药峰值:<strong>$5–10B (lecanemab 路径)</strong>
+        </div>
+      </div>
+
+      <div class="card card-azure">
+        <span class="label">TECH · 02</span>
+        <h3 class="h3">小分子药物</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          BBB 穿透、口服、可联合 — 不可替代。GLP-1 RA、kinase 抑制剂 (LRRK2、TBK1)、tau 聚集抑制剂、PDE 抑制剂是主战场。
+        </p>
+        <div class="meta">
+          代表玩家:<strong>诺华、辉瑞、AZ、Denali、Neuraly、英矽智能</strong><br>
+          BBB 穿透已成新一代 CNS 小分子<strong>标配筛选</strong><br>
+          优势:<strong>口服 + 联合用药 + 成本</strong>
+        </div>
+      </div>
+
+      <div class="card card-coral">
+        <span class="label">TECH · 03</span>
+        <h3 class="h3">基因治疗 (AAV / 核酸)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          AAV9 / AAVrh10 / Anc80 等 CNS 嗜性血清型成熟;鞘内/脑实质注射递送平台确立。SMA (Zolgensma)、已 50 多个 CNS AAV 项目。
+        </p>
+        <div class="meta">
+          代表玩家:<strong>诺华 (Zolgensma)、Voyager、Regenxbio、Pfizer、uniQure、Neuway</strong><br>
+          适应症:<strong>单基因病优先 (SOD1-ALS、HD、GM1、CLN)</strong><br>
+          定价:<strong>$2-4M/针 (Zolgensma 路径)</strong>
+        </div>
+      </div>
+
+      <div class="card card-gold">
+        <span class="label">TECH · 04</span>
+        <h3 class="h3">ASO / siRNA / mRNA</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          反义寡核苷酸 (ASO) 在 SMA (Spinraza)、ALS (Tofersen) 验证中枢神经递送。siRNA 平台 (Alnylam) 进入 NDD。
+        </p>
+        <div class="meta">
+          代表玩家:<strong>渤健 (Spinraza/Tofersen)、Ionis、Alnylam、Wave、Design</strong><br>
+          鞘内注射 — 月/季度给药<br>
+          <strong>靶点:HTT、SOD1、MAPT、SNCA、ATXN2</strong>
+        </div>
+      </div>
+
+      <div class="card card-accent">
+        <span class="label">TECH · 05</span>
+        <h3 class="h3">细胞治疗 / 干细胞</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          iPSC 衍生多巴胺能神经元移植 (PD)、神经干细胞 (NSI-566)、MSC 神经保护。BlueRock (拜耳) PD 临床是里程碑。
+        </p>
+        <div class="meta">
+          代表玩家:<strong>BlueRock (拜耳)、Semma (Vertex)、Aspen、睿健医药</strong><br>
+          首批产品:<strong>2027-2029 上市可能</strong><br>
+          制造壁垒:<strong>细胞 GMP 是核心护城河</strong>
+        </div>
+      </div>
+
+      <div class="card card-azure">
+        <span class="label">TECH · 06</span>
+        <h3 class="h3">数字疗法 / 数字诊断</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          FDA 已批准多款认知训练 (Akili EndeavorRx) 与数字生物标志物 (iPad PD 评估)。数字疗法 = 联合治疗的天然搭档。
+        </p>
+        <div class="meta">
+          代表玩家:<strong>Akili、Pear Therapeutics、Roche/IBM、Cognito Therapeutics</strong><br>
+          商业模式:<strong>SaaS + 处方数字化 + 真实世界数据</strong><br>
+          价值:<strong>把药效评估从年度门诊压到每日</strong>
+        </div>
+      </div>
+
+      <div class="card card-coral">
+        <span class="label">TECH · 07</span>
+        <h3 class="h3">脑机接口 / 神经调控</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          DBS (脑深部刺激) 已在 PD 商业化 30 年;新一代方向性 DBS、闭环 DBS (AlphaStim)、光遗传、脑机接口 (Neuralink/Synchron/Blackrock)。
+        </p>
+        <div class="meta">
+          代表玩家:<strong>美敦力、ABBOTT、波士顿科学、Neuralink、Synchron</strong><br>
+          DBS 单一市场:<strong>$1.5B → $3B (2030)</strong><br>
+          长期:<strong>BCI 治疗 AD/ALS 在 2030 后落地</strong>
+        </div>
+      </div>
+
+      <div class="card card-gold">
+        <span class="label">TECH · 08</span>
+        <h3 class="h3">早期诊断 / 液体活检</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          血检 p-tau217、α-syn RT-QuIC、GFAP、NfL — 让 AD/PD/ALS 从"症状诊断"变"生物学诊断",创造预防性市场。
+        </p>
+        <div class="meta">
+          代表玩家:<strong>C2N Diagnostics、Quanterix、Roche、Siemens、Alamar、ADx NeuroSciences</strong><br>
+          血检市场:<strong>$3B (2025) → $15B (2030)</strong><br>
+          <strong>价值:把市场规模乘以 5-10 倍</strong>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">管线分布:四大技术 × 七大疾病 (PharmaVest 统计)</h3>
+    <div class="heat">
+      <div class="heat-row head">
+        <div></div><div>AD</div><div>PD</div><div>ALS</div><div>MS</div><div>FTD</div><div>HD</div>
+      </div>
+      <div class="heat-row">
+        <div class="name">单抗 / 抗体</div><div class="l5">114</div><div class="l3">28</div><div class="l2">12</div><div class="l2">8</div><div class="l2">10</div><div class="l1">3</div>
+      </div>
+      <div class="heat-row">
+        <div class="name">小分子</div><div class="l4">82</div><div class="l4">62</div><div class="l3">28</div><div class="l4">45</div><div class="l2">15</div><div class="l2">9</div>
+      </div>
+      <div class="heat-row">
+        <div class="name">AAV / 核酸</div><div class="l2">18</div><div class="l2">14</div><div class="l3">22</div><div class="l1">3</div><div class="l2">11</div><div class="l3">17</div>
+      </div>
+      <div class="heat-row">
+        <div class="name">细胞 / 干细胞</div><div class="l1">6</div><div class="l2">15</div><div class="l1">5</div><div class="l2">11</div><div class="l1">4</div><div class="l1">2</div>
+      </div>
+      <div class="heat-row">
+        <div class="name">数字 / 器械</div><div class="l2">14</div><div class="l3">24</div><div class="l1">7</div><div class="l2">18</div><div class="l1">5</div><div class="l1">3</div>
+      </div>
+      <div class="heat-row">
+        <div class="name">诊断 / 液体活检</div><div class="l4">38</div><div class="l3">22</div><div class="l2">11</div><div class="l2">9</div><div class="l2">12</div><div class="l1">4</div>
+      </div>
+    </div>
+    <p class="desc" style="margin-top: var(--s-2); color: var(--mid); font-size: var(--t-small);">
+      单元格数字 = 全球活跃管线数 (Discovery–Phase III 合计,2026H1)。颜色深度 = 竞争密度。来源:PharmaVest · Citeline · ClinicalTrials.gov 综合。
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================ S4 VALUE CHAIN ============================ -->
+<section class="section" id="s4">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">04 · VALUE CHAIN</span>
+      <h2 class="h1" style="margin-top: var(--s-2);">产业链解构</h2>
+      <p class="lead" style="margin-top: var(--s-3);">
+        从科研端的 iPSC 模型到 CRO/CDMO 的递送服务,从诊断平台的血液标志物到照护端的机器人,完整产业链分三层。
+      </p>
+    </div>
+
+    <div class="viz">
+      <span class="label">图 4.1 · NDD 产业链全图(上游 → 中游 → 下游)</span>
+      <svg viewBox="0 0 1000 540" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#9ba8c4"/>
+          </marker>
+        </defs>
+        <g font-family="PingFang SC, sans-serif" font-size="13" fill="#fafbff">
+          <!-- 上游 -->
+          <text x="20" y="30" fill="#d4ff00" font-size="11" letter-spacing="2">UPSTREAM · 上游</text>
+          <rect x="20" y="50" width="200" height="80" fill="none" stroke="#d4ff00" stroke-width="1.5"/>
+          <text x="120" y="80" text-anchor="middle" font-weight="700">科研工具</text>
+          <text x="120" y="105" text-anchor="middle" font-size="11" fill="#9ba8c4">iPSC / 类脑 / 单细胞</text>
+          <text x="120" y="120" text-anchor="middle" font-size="11" fill="#9ba8c4">GWAS / 多组学 / AI</text>
+
+          <rect x="20" y="150" width="200" height="80" fill="none" stroke="#d4ff00" stroke-width="1.5"/>
+          <text x="120" y="180" text-anchor="middle" font-weight="700">靶点发现 / IP</text>
+          <text x="120" y="205" text-anchor="middle" font-size="11" fill="#9ba8c4">学术中心 / 转化所</text>
+          <text x="120" y="220" text-anchor="middle" font-size="11" fill="#9ba8c4">CDD / 专利平台</text>
+
+          <rect x="20" y="250" width="200" height="80" fill="none" stroke="#d4ff00" stroke-width="1.5"/>
+          <text x="120" y="280" text-anchor="middle" font-weight="700">动物模型</text>
+          <text x="120" y="305" text-anchor="middle" font-size="11" fill="#9ba8c4">APP/PS1 · α-syn · SOD1</text>
+          <text x="120" y="320" text-anchor="middle" font-size="11" fill="#9ba8c4">转化医学</text>
+
+          <!-- 中游 -->
+          <text x="280" y="30" fill="#8fa4ff" font-size="11" letter-spacing="2">MIDSTREAM · 中游</text>
+          <rect x="280" y="50" width="220" height="80" fill="none" stroke="#8fa4ff" stroke-width="1.5"/>
+          <text x="390" y="80" text-anchor="middle" font-weight="700">药物开发</text>
+          <text x="390" y="105" text-anchor="middle" font-size="11" fill="#9ba4c4">大小分子 / 抗体 / 核酸</text>
+          <text x="390" y="120" text-anchor="middle" font-size="11" fill="#9ba4c4">基因 / 细胞 / 数字疗法</text>
+
+          <rect x="280" y="150" width="220" height="80" fill="none" stroke="#8fa4ff" stroke-width="1.5"/>
+          <text x="390" y="180" text-anchor="middle" font-weight="700">CRO / CDMO</text>
+          <text x="390" y="205" text-anchor="middle" font-size="11" fill="#9ba4c4">CNS 临床 / 生物分析</text>
+          <text x="390" y="220" text-anchor="middle" font-size="11" fill="#9ba4c4">AAV / 细胞 GMP</text>
+
+          <rect x="280" y="250" width="220" height="80" fill="none" stroke="#8fa4ff" stroke-width="1.5"/>
+          <text x="390" y="280" text-anchor="middle" font-weight="700">诊断 / 伴随</text>
+          <text x="390" y="305" text-anchor="middle" font-size="11" fill="#9ba4c4">血检 / PET / 数字生物标志物</text>
+          <text x="390" y="320" text-anchor="middle" font-size="11" fill="#9ba4c4">影像 AI</text>
+
+          <rect x="280" y="350" width="220" height="80" fill="none" stroke="#8fa4ff" stroke-width="1.5"/>
+          <text x="390" y="380" text-anchor="middle" font-weight="700">器械 / 递送</text>
+          <text x="390" y="405" text-anchor="middle" font-size="11" fill="#9ba4c4">DBS / PBM / BCI</text>
+          <text x="390" y="420" text-anchor="middle" font-size="11" fill="#9ba4c4">鞘内泵 / 鼻喷装置</text>
+
+          <!-- 下游 -->
+          <text x="560" y="30" fill="#e4c178" font-size="11" letter-spacing="2">DOWNSTREAM · 下游</text>
+          <rect x="560" y="50" width="200" height="80" fill="none" stroke="#e4c178" stroke-width="1.5"/>
+          <text x="660" y="80" text-anchor="middle" font-weight="700">Big Pharma</text>
+          <text x="660" y="105" text-anchor="middle" font-size="11" fill="#9ba8c4">渤健 / 礼来 / 罗氏</text>
+          <text x="660" y="120" text-anchor="middle" font-size="11" fill="#9ba8c4">诺华 / 辉瑞 / AZ</text>
+
+          <rect x="560" y="150" width="200" height="80" fill="none" stroke="#e4c178" stroke-width="1.5"/>
+          <text x="660" y="180" text-anchor="middle" font-weight="700">Biotech</text>
+          <text x="660" y="205" text-anchor="middle" font-size="11" fill="#9ba8c4">Denali / Prothena / Alnylam</text>
+          <text x="660" y="220" text-anchor="middle" font-size="11" fill="#9ba8c4">Voyager / Ionis</text>
+
+          <rect x="560" y="250" width="200" height="80" fill="none" stroke="#e4c178" stroke-width="1.5"/>
+          <text x="660" y="280" text-anchor="middle" font-weight="700">支付方</text>
+          <text x="660" y="305" text-anchor="middle" font-size="11" fill="#9ba8c4">CMS / NICE / 医保</text>
+          <text x="660" y="320" text-anchor="middle" font-size="11" fill="#9ba8c4">商业保险 / PBM</text>
+
+          <rect x="560" y="350" width="200" height="80" fill="none" stroke="#e4c178" stroke-width="1.5"/>
+          <text x="660" y="380" text-anchor="middle" font-weight="700">医院 / 诊所</text>
+          <text x="660" y="405" text-anchor="middle" font-size="11" fill="#9ba8c4">Memory Center / 神经科</text>
+          <text x="660" y="420" text-anchor="middle" font-size="11" fill="#9ba8c4">康复 / 长照机构</text>
+
+          <!-- 终端 -->
+          <text x="820" y="30" fill="#ff5b3a" font-size="11" letter-spacing="2">END · 终端</text>
+          <rect x="820" y="50" width="160" height="380" fill="none" stroke="#ff5b3a" stroke-width="1.5"/>
+          <text x="900" y="100" text-anchor="middle" font-weight="700">患者 / 家庭</text>
+          <text x="900" y="125" text-anchor="middle" font-size="11" fill="#9ba8c4">55M AD · 10M PD</text>
+          <text x="900" y="170" text-anchor="middle" font-size="11" fill="#9ba8c4">220K ALS</text>
+          <text x="900" y="195" text-anchor="middle" font-size="11" fill="#9ba8c4">2.8M MS</text>
+          <text x="900" y="240" text-anchor="middle" font-size="11" fill="#9ba8c4">照护者群体</text>
+          <text x="900" y="265" text-anchor="middle" font-size="11" fill="#9ba8c4">~3 亿人间接受影响</text>
+
+          <!-- Arrows -->
+          <line x1="220" y1="90" x2="280" y2="90" stroke="#9ba8c4" marker-end="url(#arr)"/>
+          <line x1="220" y1="190" x2="280" y2="190" stroke="#9ba8c4" marker-end="url(#arr)"/>
+          <line x1="220" y1="290" x2="280" y2="290" stroke="#9ba8c4" marker-end="url(#arr)"/>
+          <line x1="500" y1="90" x2="560" y2="90" stroke="#9ba8c4" marker-end="url(#arr)"/>
+          <line x1="500" y1="190" x2="560" y2="190" stroke="#9ba8c4" marker-end="url(#arr)"/>
+          <line x1="500" y1="290" x2="560" y2="290" stroke="#9ba8c4" marker-end="url(#arr)"/>
+          <line x1="500" y1="390" x2="560" y2="390" stroke="#9ba8c4" marker-end="url(#arr)"/>
+          <line x1="760" y1="90" x2="820" y2="200" stroke="#9ba8c4" marker-end="url(#arr)"/>
+          <line x1="760" y1="190" x2="820" y2="220" stroke="#9ba8c4" marker-end="url(#arr)"/>
+          <line x1="760" y1="290" x2="820" y2="240" stroke="#9ba8c4" marker-end="url(#arr)"/>
+        </g>
+      </svg>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">上游:科研与靶点</h3>
+    <p style="color: var(--mid); max-width: 80ch;">
+      NDD 产业链上游的特点是"<strong>长周期、高风险、强 IP 壁垒</strong>"。iPSC 衍生神经元、类脑器官、单细胞测序、空间转录组、AI 蛋白结构预测共同重塑了靶点发现范式。
+    </p>
+    <div class="grid-3" style="margin-top: var(--s-3);">
+      <div class="card">
+        <span class="label">UPSTREAM PLAYERS</span>
+        <h3 class="h3">iPSC / 类脑器官</h3>
+        <p style="font-size: var(--t-small); color: var(--mid);">BrainXell、Fujifilm CDI、Axol Bioscience、Reprocell、Novel Human Genetics、瑞博奥。iPSC 把"模型问题"从 NDD 最大的瓶颈之一变成可工程化产品。</p>
+      </div>
+      <div class="card">
+        <span class="label">UPSTREAM PLAYERS</span>
+        <h3 class="h3">AI 靶点发现</h3>
+        <p style="font-size: var(--t-small); color: var(--mid);">Insilico Medicine (英矽智能)、Recursion、Iambic、Atomwise、Isomorphic Labs (DeepMind)、Schrödinger、XtalPi (晶泰)、望石智慧。AI for NDD 是 2024-26 最拥挤赛道之一。</p>
+      </div>
+      <div class="card">
+        <span class="label">UPSTREAM PLAYERS</span>
+        <h3 class="h3">学术 IP 源头</h3>
+        <p style="font-size: var(--t-small); color: var(--mid);">Mayo Clinic、UCSF Memory & Aging Center、MassGeneral Brigham、Karolinska、RIKEN、清华大学-IDG/麦戈文、北京脑科学与类脑研究所 (CIBR)。学术 → 工业转化的关键节点。</p>
+      </div>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">中游:药物开发与生产</h3>
+    <p style="color: var(--mid); max-width: 80ch;">
+      中游是 NDD 产业链<strong>资本最密集</strong>的环节。抗体 / 核酸 / 基因 / 细胞四条产品线各有专属 CDMO 生态。
+    </p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>技术类型</th><th>代表管线</th><th>代表 CDMO</th><th>关键能力</th></tr></thead>
+        <tbody>
+          <tr><td>单抗 / 抗体</td><td>lecanemab、donanemab、prasinezumab</td><td>Lonza、Biogen、富士フイルム</td><td>高表达细胞系、BBB 抗体工程</td></tr>
+          <tr><td>AAV 基因</td><td>Zolgensma、SPA (SMA-AAV)、Voyager VY-HTT01</td><td>Yposkesi、NovaBay、康龙化成、药明生物</td><td>AAV 大规模生产 + CNS 嗜性血清型</td></tr>
+          <tr><td>ASO / siRNA</td><td>Tofersen、Spinraza、ALN-APP</td><td>Ajinomoto、Avecia、药明康德</td><td>核酸合成 + 鞘内递送</td></tr>
+          <tr><td>细胞 / 干细胞</td><td>BlueRock BSAD001 (PD)、Semma VX-880 (DM 衍生)</td><td>Catalent、Cell & Gene Therapy Catapult、睿健</td><td>iPSC GMP、规模化分化</td></tr>
+          <tr><td>数字疗法</td><td>Akili、Cognito、reSET-AD</td><td>(自研为主)</td><td>软件 + 真实世界数据闭环</td></tr>
+          <tr><td>CRO 临床</td><td>ICON、IQVIA、Medpace、泰格、CNS 专科 (e.g. reMYND)</td><td>(自研为主)</td><td>AD/MCI 受试者招募、生物标志物</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">下游:支付与照护</h3>
+    <p style="color: var(--mid); max-width: 80ch;">
+      NDD 的下游有<strong>两个独立支付方</strong>:医药支付方 (药物/器械/诊断) 与照护支付方 (家庭 + 长期照护保险)。后者体量远大于前者,但商业化难度也更大。
+    </p>
+    <div class="grid-4">
+      <div class="stat">
+        <div class="num num-gold">$820B</div>
+        <span class="label">2030 美国 NDD 间接成本</span>
+        <p class="desc">主要为家庭照护者生产力损失 + 长期照护</p>
+      </div>
+      <div class="stat">
+        <div class="num num-signal">$140B</div>
+        <span class="label">2030 美国 NDD 直接药物</span>
+        <p class="desc">包括 AD、PD、MS、ALS、HD 药物总销售</p>
+      </div>
+      <div class="stat">
+        <div class="num num-azure">15.6亿</div>
+        <span class="label">2050 全球 65+ 人口</span>
+        <p class="desc">每 8 人 1 位 65+,推动照护需求</p>
+      </div>
+      <div class="stat">
+        <div class="num num-coral">$8/hr</div>
+        <span class="label">美国平均家庭照护隐性时薪</span>
+        <p class="desc">约 80% 照护由家庭无偿提供</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================ S5 MARKET ============================ -->
+<section class="section" id="s5">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">05 · MARKET & PAYMENT</span>
+      <h2 class="h1" style="margin-top: var(--s-2);">市场规模与全球支付</h2>
+      <p class="lead" style="margin-top: var(--s-3);">拆解 7 大疾病 × 6 大技术的 TAM / SAM / SOM,逐层看支付方态度。</p>
+    </div>
+
+    <div class="viz">
+      <span class="label">图 5.1 · 七大 NDD 药物 TAM 拆解 (2030E)</span>
+      <div>
+        <div class="bar-row"><span class="name">AD (阿尔茨海默)</span><span class="bar-track"><span class="bar-fill" style="width: 92%;"></span></span><span class="val">$86B</span></div>
+        <div class="bar-row"><span class="name">PD (帕金森)</span><span class="bar-track"><span class="bar-fill azure" style="width: 42%;"></span></span><span class="val">$40B</span></div>
+        <div class="bar-row"><span class="name">MS (多发硬化)</span><span class="bar-track"><span class="bar-fill azure" style="width: 38%;"></span></span><span class="val">$36B</span></div>
+        <div class="bar-row"><span class="name">ALS</span><span class="bar-track"><span class="bar-fill coral" style="width: 12%;"></span></span><span class="val">$11B</span></div>
+        <div class="bar-row"><span class="name">FTD</span><span class="bar-track"><span class="bar-fill gold" style="width: 8%;"></span></span><span class="val">$7B</span></div>
+        <div class="bar-row"><span class="name">HD</span><span class="bar-track"><span class="bar-fill gold" style="width: 6%;"></span></span><span class="val">$5B</span></div>
+        <div class="bar-row"><span class="name">罕见其他</span><span class="bar-track"><span class="bar-fill coral" style="width: 5%;"></span></span><span class="val">$5B</span></div>
+      </div>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">支付方版图:三大体系,三种态度</h3>
+    <div class="grid-3">
+      <div class="card card-accent">
+        <span class="label">PAYER · US</span>
+        <h3 class="h3">美国:慢病化突破</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          CMS 在 2025-26 把 AD 慢病化药物 (lecanemab 等) 纳入 Part B 报销,设立专门的认知门诊付款代码。Medicare 的态度决定全球 AD 商业天花板。
+        </p>
+        <div class="meta">
+          关键政策:<strong>CMS NCD 决策 (2025/2026)、CMMI AD 慢病支付试点</strong><br>
+          价格:<strong>lecanemab $26.5K/yr → donanemab $30K+/yr</strong><br>
+          患者自付:<strong>$5-9K/年 (after supplemental)</strong>
+        </div>
+      </div>
+
+      <div class="card card-azure">
+        <span class="label">PAYER · EU</span>
+        <h3 class="h3">欧洲:严苛 + 加速</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          EMA 比 FDA 谨慎;HTA (NICE、G-BA、CEESP) 决定报销。但 EU 创新药品路径 (PRIME) 加速突破性疗法准入。
+        </p>
+        <div class="meta">
+          关键机构:<strong>NICE (英)、G-BA (德)、HAS (法)、AIFA (意)</strong><br>
+          价格谈判:<strong>lecanemab 在 EU 多国被限人群/限时长报销</strong><br>
+          趋势:<strong>真实世界数据减免确证要求</strong>
+        </div>
+      </div>
+
+      <div class="card card-gold">
+        <span class="label">PAYER · CN</span>
+        <h3 class="h3">中国:医保 + 商保双轨</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          国家医保 (NRDL) 关注基本药物;商保 (惠民保、百万医疗险) 探索创新药。海南博鳌乐城 + 大湾区是先行先试通道。
+        </p>
+        <div class="meta">
+          关键政策:<strong>NRDL 年度谈判、医保双通道、罕见病专项</strong><br>
+          价格压力:<strong>60%+ 砍价常态</strong><br>
+          创新支付:<strong>惠民保覆盖部分高价 CNS 药物</strong>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">里程碑事件时间线 (2024–2028)</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-year">2024·Q3</span>
+        <div class="tl-title">FDA 完全批准 lecanemab (Leqembi)</div>
+        <div class="tl-desc">首个 AD 致病机制疗法的完全批准;商业化启动。</div>
+      </div>
+      <div class="tl-item azure">
+        <span class="tl-year">2024·Q4</span>
+        <div class="tl-title">FDA 批准 donanemab (Kisunla)</div>
+        <div class="tl-desc">礼来首款 AD 抗体获批;首款"症状缓解后可停药"抗体。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">2025·Q2</span>
+        <div class="tl-title">FDA 批准 Tofersen (Qalsody) 用于 SOD1-ALS</div>
+        <div class="tl-desc">首个基因型细分 ALS 的 ASO,打开"罕见亚型"商业化路径。</div>
+      </div>
+      <div class="tl-item coral">
+        <span class="tl-year">2025·Q4</span>
+        <div class="tl-title">CMS AD 慢病化支付改革落地</div>
+        <div class="tl-desc">Medicare 为 AD 慢病抗体单独设立报销代码,启动全美推广。</div>
+      </div>
+      <div class="tl-item gold">
+        <span class="tl-year">2026·Q2</span>
+        <div class="tl-title">PD α-syn 抗体 (prasinezumab) Ph3 读出</div>
+        <div class="tl-desc">首个 PD 致病蛋白清除 Ph3,决定 α-syn 范式。</div>
+      </div>
+      <div class="tl-item azure">
+        <span class="tl-year">2026·Q4</span>
+        <div class="tl-title">首个人血液 AD 检测 (Lumipulse) FDA 全面获批</div>
+        <div class="tl-desc">把诊断成本从 $3K (PET) 压到 $200 (血检),开启筛查市场。</div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-year">2027·H2</span>
+        <div class="tl-title">AAV HD 治疗 (VYTAL-001 / AMT-130) 关键 Ph1/2 读出</div>
+        <div class="tl-desc">全球首款 HD 基因治疗关键节点,商业潜力 $4-8B。</div>
+      </div>
+      <div class="tl-item coral">
+        <span class="tl-year">2028</span>
+        <div class="tl-title">BlueRock BSAD001 (PD iPSC 细胞疗法) Ph1 启动</div>
+        <div class="tl-desc">若阳性,2029-2030 全球首批 PD 再生医学产品。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================ S6 PLAYERS ============================ -->
+<section class="section" id="s6">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">06 · COMPETITIVE LANDSCAPE</span>
+      <h2 class="h1" style="margin-top: var(--s-2);">玩家地图与并购前哨</h2>
+      <p class="lead" style="margin-top: var(--s-3);">NDD 是 2026 年 Biotech 板块最热并购主线。绘制主要玩家分布、交易密度、护城河类型。</p>
+    </div>
+
+    <h3 class="h3" style="margin-bottom: var(--s-3);">六大护城河类型 × 代表玩家</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>护城河类型</th>
+            <th>代表玩家</th>
+            <th>典型资产</th>
+            <th>PharmaVest 评级</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>致病蛋白抗体平台</td>
+            <td>渤健 (Biogen)、礼来 (Lilly)、Prothena、AC Immune</td>
+            <td>lecanemab / donanemab / prasinezumab</td>
+            <td><span class="pill pill-signal">Strong</span></td>
+          </tr>
+          <tr>
+            <td>AAV CNS 递送</td>
+            <td>Voyager、Regenxbio、uniQure、Neuway、Pfizer</td>
+            <td>VY-HTT01 (HD)、RGX-121 (MPS II)</td>
+            <td><span class="pill pill-signal">Strong</span></td>
+          </tr>
+          <tr>
+            <td>核酸中枢递送 (鞘内)</td>
+            <td>Ionis、Alnylam、Wave Life Sciences、Design Tx</td>
+            <td>Tofersen、ALN-APP、WVE-003</td>
+            <td><span class="pill pill-signal">Strong</span></td>
+          </tr>
+          <tr>
+            <td>细胞 GMP 制造</td>
+            <td>BlueRock (拜耳)、Semma (Vertex)、Aspen Neuroscience、睿健医药</td>
+            <td>BSAD001 (PD iPSC)</td>
+            <td><span class="pill pill-gold">High Risk / High Reward</span></td>
+          </tr>
+          <tr>
+            <td>血液 / CSF 诊断</td>
+            <td>C2N Diagnostics、Quanterix、Roche、Siemens Healthineers、Alamar</td>
+            <td>PrecivityAD、Elecsys pTau/181</td>
+            <td><span class="pill pill-signal">Cash Flow</span></td>
+          </tr>
+          <tr>
+            <td>DBS / 神经调控</td>
+            <td>美敦力、ABBOTT、波士顿科学、NeuroPace</td>
+            <td>Activa PC、Percept PC、RNS</td>
+            <td><span class="pill pill-azure">Cash Flow</span></td>
+          </tr>
+          <tr>
+            <td>AI 靶点 / 设计</td>
+            <td>英矽智能、晶泰、Schrödinger、Isomorphic、Iambic</td>
+            <td>靶点 → 苗头化合物周期压缩</td>
+            <td><span class="pill pill-coral">Platform Optionality</span></td>
+          </tr>
+          <tr>
+            <td>数字疗法 / 数字生物标志物</td>
+            <td>Akili、Pear (破产)、Roche+IBM、Click Therapeutics</td>
+            <td>EndeavorRx、CT-AD</td>
+            <td><span class="pill pill-coral">Speculative</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">2024-2026 重大并购与许可交易</h3>
+    <div class="grid-3">
+      <div class="card card-accent">
+        <span class="label">M&A · 2024</span>
+        <h3 class="h3">礼来收购 MorphImmune ($2.9B)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">PD-1/PD-L1 + 神经免疫;虽非 NDD 主战场,但礼来借机扩张 CNS 平台。</p>
+      </div>
+      <div class="card card-azure">
+        <span class="label">M&A · 2024</span>
+        <h3 class="h3">诺华收购 Calypso Biotech ($250M)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">IL-15 抗体平台;潜在 MS 应用。诺华 MS 业务补强。</p>
+      </div>
+      <div class="card card-coral">
+        <span class="label">BD · 2025</span>
+        <h3 class="h3">礼来 - Alnylam RNAi ($700M+)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">礼来 CNS RNAi 平台补强,直接挑战 Ionis。</p>
+      </div>
+      <div class="card card-gold">
+        <span class="label">M&A · 2025</span>
+        <h3 class="h3">渤健 - Reata ($7.3B)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">虽为 Friedreich 共济失调,实际补足渤健神经罕见病版图。</p>
+      </div>
+      <div class="card card-accent">
+        <span class="label">M&A · 2025</span>
+        <h3 class="h3">罗氏 - Ionis Huntington ($60M)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">罗氏重新加入 HD 战场;此前 tominersen 退场后再次卡位。</p>
+      </div>
+      <div class="card card-azure">
+        <span class="label">IPO · 2025-26</span>
+        <h3 class="h3">Prothena 重组 / Pliant 回暖</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">NDD Biotech 板块复苏信号;Biotech XBI 指数从 2024 低点反弹 60%+。</p>
+      </div>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">中国玩家图谱</h3>
+    <div class="grid-auto">
+      <div class="card card-gold">
+        <span class="label">CN · ANTIBODY</span>
+        <h3 class="h3">绿叶制药 · 拜耳 CNS 合作</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">利斯的明 (多日透皮贴片) + 帕金森长效制剂;中国 CNS 销售能力最强本土玩家之一。</p>
+      </div>
+      <div class="card card-azure">
+        <span class="label">CN · AAV / GENE</span>
+        <h3 class="h3">纽福斯 / 信念医药 / 至善唯新</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">纽福斯 LHON 全球首款 AAV 眼科产品 (2022 已上市);信念 AAV-B1MMA 中枢递送;至善唯新 SMA-IT AAV。</p>
+      </div>
+      <div class="card card-coral">
+        <span class="label">CN · AI</span>
+        <h3 class="h3">英矽智能 / 晶泰科技</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">英矽全球首款 AI 候选药 INS018_055 进入 Ph2 (IPF);晶泰为 MNC CNS 管线提供计算+实验闭环服务。</p>
+      </div>
+      <div class="card card-accent">
+        <span class="label">CN · CELL</span>
+        <h3 class="h3">睿健医药 / 中盛溯源 / 士泽生物</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">睿健 iPSC-PD 全球前列;士泽 iPSC-DA 神经元;中盛溯源多谱系 iPSC 平台。</p>
+      </div>
+      <div class="card card-gold">
+        <span class="label">CN · DIAG</span>
+        <h3 class="h3">金域医学 / 迪安诊断 / 诺唯赞</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">金域 AD 血检率先商业化;诺唯赞 pTau217 试剂盒出口潜力。</p>
+      </div>
+      <div class="card card-azure">
+        <span class="label">CN · DEVICE</span>
+        <h3 class="h3">品驰医疗 (清华) / 景昱医疗</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">国产 DBS 头部;新一代闭环 DBS 在研。PD/强迫症商业化。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================ S7 INVESTMENT ============================ -->
+<section class="section" id="s7">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">07 · INVESTMENT STRATEGY</span>
+      <h2 class="h1" style="margin-top: var(--s-2);">中国机会与投资策略</h2>
+      <p class="lead" style="margin-top: var(--s-3);">站在 2026H2 起点,产业基金的配置框架。</p>
+    </div>
+
+    <h3 class="h3" style="margin-bottom: var(--s-3);">三层投资框架</h3>
+    <div class="grid-3">
+      <div class="card card-accent">
+        <span class="label">LAYER · 1 · CORE</span>
+        <h3 class="h3">核心仓位 (40-50%)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          已经过临床验证、有现金流 / 即将现金流的<strong>平台型</strong>资产。AAV CNS 递送、寡核苷酸鞘内递送、血液 AD 诊断、CNS 小分子 BBB 平台。
+        </p>
+        <div class="meta">
+          标的类型:<strong>已上市 Big Pharma CNS 部门 + 平台型 Biotech</strong><br>
+          持有期:<strong>3-5 年</strong><br>
+          收益期望:<strong>15-25% IRR</strong>
+        </div>
+      </div>
+
+      <div class="card card-azure">
+        <span class="label">LAYER · 2 · TACTICAL</span>
+        <h3 class="h3">战术仓位 (30-40%)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          Ph2/Ph3 阶段性资产。α-syn 抗体 prasinezumab、tau 抗体 E2814、HD ASO、PD iPSC、MS BTKi 等。中等风险、中等收益。
+        </p>
+        <div class="meta">
+          标的类型:<strong>Ph2/3 关键节点前后 6-18 个月</strong><br>
+          持有期:<strong>12-24 个月</strong><br>
+          收益期望:<strong>40-100% 单期</strong>
+        </div>
+      </div>
+
+      <div class="card card-coral">
+        <span class="label">LAYER · 3 · OPTION</span>
+        <h3 class="h3">期权仓位 (10-20%)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">
+          早期 / 长尾 / 高赔率。数字疗法、AI 平台、BCI、新型递送 (外泌体、鼻喷、超声 BBB 开放)。
+        </p>
+        <div class="meta">
+          标的类型:<strong>Preclinical–Ph1 + 平台型 early</strong><br>
+          持有期:<strong>5-7 年</strong><br>
+          收益期望:<strong>0 或 5-10 倍</strong>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">五大确定性赛道 (排序)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>排名</th><th>赛道</th><th>确定性</th><th>潜在 TAM (2030)</th><th>关键变量</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>AD 致病蛋白清除 (抗体 + 口服)</td><td><span class="pill pill-signal">极高</span></td><td>$60B+</td><td>安全性 (ARIA)、CMS 报销、定价承受</td></tr>
+          <tr><td>2</td><td>PD α-syn / LRRK2 / GLP-1</td><td><span class="pill pill-signal">高</span></td><td>$40B</td><td>生物标志物分层、Ph3 读出</td></tr>
+          <tr><td>3</td><td>AD / PD 血液诊断</td><td><span class="pill pill-signal">高</span></td><td>$15B</td><td>FDA / NMPA 准入、医保</td></tr>
+          <tr><td>4</td><td>AAV CNS 单基因病</td><td><span class="pill pill-gold">中高</span></td><td>$25B</td><td>制造、定价、长期安全性</td></tr>
+          <tr><td>5</td><td>细胞 / iPSC 再生医学</td><td><span class="pill pill-gold">中</span></td><td>$15B</td><td>Ph2 读出、GMP 规模化</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">Pipeline 四阶段分布 (2030 之前)</h3>
+    <div class="pipe">
+      <div class="pipe-stage">
+        <span class="label">DISCOVERY</span>
+        <div class="count">~520</div>
+        <p class="desc" style="font-size: var(--t-small);">靶点 + 苗头 + 先导</p>
+      </div>
+      <div class="pipe-stage">
+        <span class="label">PHASE 1</span>
+        <div class="count">~280</div>
+        <p class="desc" style="font-size: var(--t-small);">首次人体</p>
+      </div>
+      <div class="pipe-stage">
+        <span class="label">PHASE 2</span>
+        <div class="count">~140</div>
+        <p class="desc" style="font-size: var(--t-small);">概念验证</p>
+      </div>
+      <div class="pipe-stage">
+        <span class="label">PHASE 3</span>
+        <div class="count">~62</div>
+        <p class="desc" style="font-size: var(--t-small);">关键性</p>
+      </div>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">PharmaVest 重点关注清单 (Tier 1)</h3>
+    <div class="grid-auto">
+      <div class="card card-accent">
+        <span class="label">T1 · LIST</span>
+        <h3 class="h3">渤健 (BIIB)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">唯一 AD + ASO + AAV + 诊断四线齐发的玩家;Reata 整合后神经罕见病版图完整;估值低位 + 现金流强劲。</p>
+      </div>
+      <div class="card card-azure">
+        <span class="label">T1 · LIST</span>
+        <h3 class="h3">礼来 (LLY)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">donanemab 上市 + Remternetug (口服 AD) Ph3;与 Alnylam RNAi 合作;长期 GLP-1 AD 适应症扩展。</p>
+      </div>
+      <div class="card card-gold">
+        <span class="label">T1 · LIST</span>
+        <h3 class="h3">Voyager Therapeutics (VYGR)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">AAV CNS 平台型;HD/SOD1/FTGRN 多个合作管线;礼来、Neurocrine、辉瑞同时入股。</p>
+      </div>
+      <div class="card card-coral">
+        <span class="label">T1 · LIST</span>
+        <h3 class="h3">Alnylam (ALNY)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">CNS RNAi 平台;C9orf72-ALS、ALN-APP (AD);CNS GalNAc 平台若成功将打开万亿级市场。</p>
+      </div>
+      <div class="card card-accent">
+        <span class="label">T1 · LIST</span>
+        <h3 class="h3">C2N Diagnostics (私有)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">PrecivityAD 全球首款商业化 AD 血检;若 Roche/Siemens 强 IP 阻挡失败,全球放量;潜在 IPO 2027。</p>
+      </div>
+      <div class="card card-azure">
+        <span class="label">T1 · LIST</span>
+        <h3 class="h3">英矽智能 (Insilico Medicine)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">PandaOmics 靶点平台 + INS018_055 Ph2 验证;中国 AI for CNS 双线 (PD、AD) 候选药布局。</p>
+      </div>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">中国本土二级配置建议</h3>
+    <ul class="clean">
+      <li><strong>确定性配置</strong>:CRO 龙头 (药明康德、康龙化成) — 享受 NDD 全球研发外包红利,CNS 临床 + AAV CDMO 都有强卡位。</li>
+      <li><strong>成长期配置</strong>:绿叶制药 — 神经系统商业化能力国内领先,产品矩阵最完整。</li>
+      <li><strong>主题配置</strong>:AI for Drug Discovery (晶泰科技、英矽智能、望石智慧) — 平台型估值溢价。</li>
+      <li><strong>早期配置</strong>:基因治疗 (纽福斯、信念医药、至善唯新)、iPSC (睿健、士泽)、诊断 (金域、诺唯赞) — 5-7 年长线。</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================ S8 RISK ============================ -->
+<section class="section" id="s8">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">08 · RISK FRAMEWORK</span>
+      <h2 class="h1" style="margin-top: var(--s-2);">风险框架</h2>
+      <p class="lead" style="margin-top: var(--s-3);">NDD 是"高赔率、高失败率"的代名词。必须系统化评估 5 大风险维度。</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card card-coral">
+        <span class="label">RISK · 1</span>
+        <h3 class="h3">临床失败风险</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">NDD Ph2→Ph3 历史成功率 <strong>仅 18%</strong>,远低于肿瘤 (32%) 和心血管 (25%)。tominersen、verubecestat、ladostigil 等都是经典案例。</p>
+        <div class="meta">
+          缓释:<strong>Ph2 概念验证数据 + 生物标志物分层</strong><br>
+          信号:<strong>Ph3 减少临床终点噪声 → 招募慢</strong>
+        </div>
+      </div>
+
+      <div class="card card-coral">
+        <span class="label">RISK · 2</span>
+        <h3 class="h3">安全性 (ARIA 等)</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">AD 抗 Aβ 抗体出现 ARIA-E / ARIA-H (淀粉样蛋白相关影像异常),部分患者出现脑水肿/微出血,需定期 MRI 监测。</p>
+        <div class="meta">
+          缓释:<strong>低剂量滴定 + ApoE4 筛查 + MRI 监测</strong><br>
+          信号:<strong>新一代抗体 (remternetug) 优化安全</strong>
+        </div>
+      </div>
+
+      <div class="card card-coral">
+        <span class="label">RISK · 3</span>
+        <h3 class="h3">支付 / 报销风险</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">lecanemab 在 EU 多国被限报销人群;若 CMS 不持续覆盖,商业化断崖。全球各国支付方态度差异巨大。</p>
+        <div class="meta">
+          缓释:<strong>真实世界证据 (RWE) + 卫生经济学 + 风险管理协议</strong><br>
+          信号:<strong>AD 慢病化支付改革 + 商保介入</strong>
+        </div>
+      </div>
+
+      <div class="card card-coral">
+        <span class="label">RISK · 4</span>
+        <h3 class="h3">诊断瓶颈风险</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">没有早筛就没有早治。AD 血检虽突破但医保覆盖不足;PD/ALS 早筛尚无可商业化产品。</p>
+        <div class="meta">
+          缓释:<strong>血检医保覆盖 + 体检场景推广</strong><br>
+          信号:<strong>NMPA 加速审评 + 数字生物标志物</strong>
+        </div>
+      </div>
+
+      <div class="card card-coral">
+        <span class="label">RISK · 5</span>
+        <h3 class="h3">伦理与隐私风险</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">AD 早筛阳性意味着"未来一定痴呆",对患者心理、家庭、保险、就业的伦理冲击巨大;基因数据隐私更敏感。</p>
+        <div class="meta">
+          缓释:<strong>遗传咨询 + 隐私保护 + 监管框架</strong><br>
+          信号:<strong>GINA (美国)、个人信息保护法 (中国)</strong>
+        </div>
+      </div>
+
+      <div class="card card-coral">
+        <span class="label">RISK · 6</span>
+        <h3 class="h3">资本周期 / Biotech 风险</h3>
+        <p style="color: var(--mid); font-size: var(--t-small);">Biotech XBI 指数仍处历史波动区间;利率高位、风险投资趋紧;小盘 Biotech 现金流紧张。</p>
+        <div class="meta">
+          缓释:<strong>BD/并购退出 + 平台型大票仓</strong><br>
+          信号:<strong>2025 利率下行 + 大药企补库存</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================ S9 APPENDIX ============================ -->
+<section class="section" id="s9">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">09 · APPENDIX</span>
+      <h2 class="h1" style="margin-top: var(--s-2);">附录与术语表</h2>
+    </div>
+
+    <h3 class="h3" style="margin-bottom: var(--s-3);">附录 A · 关键 NDD 临床管线速览 (Top 25)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>资产</th><th>靶点/机制</th><th>适应症</th><th>阶段</th><th>持有人</th></tr></thead>
+        <tbody>
+          <tr><td>lecanemab (Leqembi)</td><td>Aβ 原纤维抗体</td><td>早期 AD</td><td><span class="pill pill-signal">已上市</span></td><td>Biogen / Eisai</td></tr>
+          <tr><td>donanemab (Kisunla)</td><td>Aβ 焦谷氨酸抗体</td><td>早期 AD</td><td><span class="pill pill-signal">已上市</span></td><td>Eli Lilly</td></tr>
+          <tr><td>remternetug</td><td>Aβ 抗体 (3 代)</td><td>早期 AD</td><td>Ph3</td><td>Eli Lilly</td></tr>
+          <tr><td>gantenerumab</td><td>Aβ 抗体</td><td>早期 AD</td><td>Ph3 (失败/重新评估)</td><td>Roche</td></tr>
+          <tr><td>prasinezumab</td><td>α-syn 抗体</td><td>PD 早期</td><td>Ph3</td><td>Roche / Prothena</td></tr>
+          <tr><td>E2814</td><td>tau 抗体</td><td>AD 显性遗传</td><td>Ph2/3</td><td>Eisai</td></tr>
+          <tr><td>bepranemab</td><td>tau 抗体</td><td>AD</td><td>Ph2</td><td>UCB / Roche</td></tr>
+          <tr><td>semorinemab</td><td>tau 抗体</td><td>AD</td><td>Ph2 (读出)</td><td>Roche / AC Immune</td></tr>
+          <tr><td>ALN-APP</td><td>APP siRNA</td><td>AD 早期</td><td>Ph1</td><td>Alnylam / Regeneron</td></tr>
+          <tr><td>Tofersen (Qalsody)</td><td>SOD1 ASO</td><td>SOD1-ALS</td><td><span class="pill pill-signal">已上市</span></td><td>Biogen / Ionis</td></tr>
+          <tr><td>WVE-004 / WVE-003</td><td>C9orf72 / HTT ASO</td><td>C9-ALS / HD</td><td>Ph1/2</td><td>Wave Life Sciences</td></tr>
+          <tr><td>IONIS-C9orf72</td><td>C9orf72 ASO</td><td>C9-ALS/FTD</td><td>Ph1/2</td><td>Ionis / Biogen</td></tr>
+          <tr><td>AMT-130</td><td>AAV5-miHTT</td><td>HD</td><td>Ph1/2</td><td>uniQure</td></tr>
+          <tr><td>VY-HTT01</td><td>AAV1-miHTT</td><td>HD</td><td>Ph1/2</td><td>Voyager / Neurocrine</td></tr>
+          <tr><td>RGX-121</td><td>AAV9-IDS</td><td>MPS II</td><td>Ph1/2 (BLA)</td><td>Regenxbio</td></tr>
+          <tr><td>SPA (AAV9-SMN1-IT)</td><td>SMN1 AAV</td><td>SMA</td><td>Ph1</td><td>Novartis</td></tr>
+          <tr><td>BSAD001</td><td>iPSC-DA 神经元</td><td>PD</td><td>Ph1</td><td>BlueRock (Bayer)</td></tr>
+          <tr><td>VX-880 (衍生)</td><td>iPSC-胰岛</td><td>T1D (神经-免疫外溢)</td><td>Ph1/2</td><td>Vertex / Semma</td></tr>
+          <tr><td>NN-101 / AJ201</td><td>AR 蛋白降解</td><td>SBMA (罕见 NDD)</td><td>Ph2</td><td>Nuravax / Adel</td></tr>
+          <tr><td>CT-AD</td><td>γ 频段视听刺激</td><td>AD</td><td>Ph2</td><td>Cognito Therapeutics</td></tr>
+          <tr><td>AKL-T01 (EndeavorRx)</td><td>数字疗法</td><td>ADHD (可外溢)</td><td><span class="pill pill-azure">已上市</span></td><td>Akili</td></tr>
+          <tr><td>VX-548 (参考)</td><td>Nav1.8 抑制剂</td><td>疼痛 (CNS 邻接)</td><td>Ph3</td><td>Vertex</td></tr>
+          <tr><td>semaglutide (PD 二期)</td><td>GLP-1 RA</td><td>PD</td><td>Ph2 (阳性)</td><td>Novo Nordisk</td></tr>
+          <tr><td>NEU-411 (LRRK2)</td><td>LRRK2 抑制剂</td><td>PD</td><td>Ph1/2</td><td>Neuraly (Bayer)</td></tr>
+          <tr><td>DNL151 (BIIB122)</td><td>LRRK2 抑制剂</td><td>PD</td><td>Ph3</td><td>Denali / Biogen</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">附录 B · 术语表 (Glossary)</h3>
+    <div class="grid-2">
+      <ul class="clean">
+        <li><strong>Aβ</strong> — β 淀粉样蛋白;AD 主要致病蛋白之一。</li>
+        <li><strong>α-syn (SNCA)</strong> — α-突触核蛋白;PD / DLB / MSA 主要致病蛋白。</li>
+        <li><strong>AAV</strong> — 腺相关病毒;基因治疗主流递送载体。</li>
+        <li><strong>AD</strong> — Alzheimer's Disease 阿尔茨海默病。</li>
+        <li><strong>ALS</strong> — Amyotrophic Lateral Sclerosis 肌萎缩侧索硬化。</li>
+        <li><strong>ApoE</strong> — 载脂蛋白 E;ApoE4 是 AD 最强遗传风险因子。</li>
+        <li><strong>ARIA</strong> — Amyloid-Related Imaging Abnormalities 淀粉样相关影像异常。</li>
+        <li><strong>ASO</strong> — Antisense Oligonucleotide 反义寡核苷酸。</li>
+        <li><strong>BBB</strong> — Blood-Brain Barrier 血脑屏障。</li>
+        <li><strong>BCI</strong> — Brain-Computer Interface 脑机接口。</li>
+        <li><strong>BD</strong> — Business Development 商务拓展。</li>
+        <li><strong>BTK</strong> — Bruton's Tyrosine Kinase;B 细胞信号关键激酶,MS 新型靶点。</li>
+        <li><strong>CMS</strong> — Centers for Medicare & Medicaid Services 美国医保中心。</li>
+      </ul>
+      <ul class="clean azure">
+        <li><strong>DBS</strong> — Deep Brain Stimulation 脑深部刺激。</li>
+        <li><strong>DLB</strong> — Dementia with Lewy Bodies 路易体痴呆。</li>
+        <li><strong>FDA</strong> — U.S. Food and Drug Administration 美国食品药品监督管理局。</li>
+        <li><strong>FTD</strong> — Frontotemporal Dementia 额颞叶痴呆。</li>
+        <li><strong>GalNAc</strong> — N-乙酰半乳糖胺;肝脏 RNAi 递送配体;CNS 版在研。</li>
+        <li><strong>Glymphatic</strong> — 脑内类淋巴系统;负责清除代谢废物。</li>
+        <li><strong>GWAS</strong> — Genome-Wide Association Study 全基因组关联研究。</li>
+        <li><strong>HD</strong> — Huntington's Disease 亨廷顿病。</li>
+        <li><strong>iPSC</strong> — Induced Pluripotent Stem Cell 诱导多能干细胞。</li>
+        <li><strong>LRRK2</strong> — Leucine-Rich Repeat Kinase 2;PD 主要遗传靶点。</li>
+        <li><strong>MS</strong> — Multiple Sclerosis 多发性硬化。</li>
+        <li><strong>NfL</strong> — Neurofilament Light Chain 神经丝轻链;通用 NDD 神经损伤标志物。</li>
+        <li><strong>NMPA</strong> — 中国国家药品监督管理局。</li>
+      </ul>
+    </div>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">附录 C · 数据来源与方法论</h3>
+    <ul class="clean">
+      <li><strong>市场数据</strong>:Frost & Sullivan、GlobalData、PharmaVest 综合估算 (2026H1)。</li>
+      <li><strong>管线数据</strong>:Citeline Pharma Intelligence、ClinicalTrials.gov、PharmaVest Pipeline Tracker。</li>
+      <li><strong>交易数据</strong>:DealForma、Pink Sheet、SEC filings、企业披露。</li>
+      <li><strong>诊断数据</strong>:Quanterix、C2N、Roche Elecsys 公开数据。</li>
+      <li><strong>患者数据</strong>:WHO Global Burden of Disease、Alzheimer's Disease International、Parkinson's Foundation。</li>
+    </ul>
+
+    <h3 class="h3" style="margin-top: var(--s-6); margin-bottom: var(--s-3);">附录 D · 免责声明</h3>
+    <div class="card card-coral" style="border-left-width: 3px;">
+      <p style="color: var(--mid); font-size: var(--t-small); margin: 0;">
+        本报告由 PharmaVest Capital Research 出品,仅供专业机构投资者参考,不构成任何投资建议。所引用数据来自公开来源,PharmaVest 不对其完整性、准确性作担保。
+        所有管线、交易、估值数据截至 2026 年 8 月;部分前瞻性陈述存在重大不确定性。
+        本报告不可被复制、传播或用于任何商业用途。© 2026 PharmaVest Capital Research.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="nav-brand" style="margin-bottom: var(--s-3);">
+          <span class="nav-brand-dot"></span>
+          <span>PHARMAVEST CAPITAL RESEARCH</span>
+        </div>
+        <p style="color: var(--mid); font-size: var(--t-small); max-width: 38ch;">
+          全球顶级产业基金研究机构。覆盖生物制药、医疗器械、AI for Drug Discovery、数字健康、CNS 产业链。
+        </p>
+      </div>
+      <div>
+        <h3 class="h3">研究</h3>
+        <ul>
+          <li>钻石级深研</li>
+          <li>板块月报</li>
+          <li>管线追踪</li>
+          <li>并购前哨</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="h3">覆盖</h3>
+        <ul>
+          <li>肿瘤</li>
+          <li>神经退行性</li>
+          <li>自身免疫</li>
+          <li>代谢 / 心血管</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="h3">联系</h3>
+        <ul>
+          <li>research@pharmavest.capital</li>
+          <li>+1 (212) 555-0188</li>
+          <li>Boston · Shanghai · London</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PharmaVest Capital Research. All rights reserved.</span>
+      <span style="font-family: ui-monospace,monospace;">NDD · v1.0 · 2026·08·18</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 8) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// Smooth anchor
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id.length > 1) {
+      const el = document.querySelector(id);
+      if (el) {
+        e.preventDefault();
+        window.scrollTo({ top: el.offsetTop - 56, behavior: 'smooth' });
+      }
+    }
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中医出海服务赛道全景研究报告 · 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --primary:#8B0000;      /* 中医红 */
+    --primary-light:#C04848;
+    --gold:#C9A961;         /* 古典金 */
+    --ink:#1A1A1A;
+    --ink-2:#333;
+    --ink-3:#666;
+    --ink-4:#999;
+    --bg:#FAF7F2;           /* 米黄纸 */
+    --bg-2:#F2EDE3;
+    --bg-card:#FFFFFF;
+    --line:#E5DFD3;
+    --accent:#2E5A3E;       /* 草本绿 */
+    --accent-2:#3A6B8E;     /* 海水蓝 */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","PingFang SC",serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:15px;
+  }
+  /* 顶部报告条 */
+  .top-bar{
+    background:linear-gradient(90deg,var(--primary) 0%,#5a0000 100%);
+    color:#fbe9a3;
+    font-size:12px;
+    padding:8px 40px;
+    letter-spacing:1px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  /* 封面 */
+  .cover{
+    min-height:100vh;
+    background:
+      linear-gradient(135deg,rgba(139,0,0,0.92) 0%,rgba(46,90,62,0.88) 100%),
+      radial-gradient(circle at 20% 80%,rgba(201,169,97,0.25),transparent 50%);
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:80px 8%;
+    position:relative;
+    overflow:hidden;
+  }
+  .cover::before{
+    content:"中醫";
+    position:absolute;
+    right:-5%;
+    bottom:-15%;
+    font-size:50vh;
+    color:rgba(255,255,255,0.04);
+    font-weight:bold;
+    letter-spacing:-10px;
+    pointer-events:none;
+  }
+  .cover-tag{
+    display:inline-block;
+    border:1px solid rgba(201,169,97,0.5);
+    padding:6px 18px;
+    font-size:13px;
+    color:#fbe9a3;
+    letter-spacing:3px;
+    margin-bottom:30px;
+    width:fit-content;
+  }
+  .cover h1{
+    font-size:clamp(36px,5vw,72px);
+    line-height:1.15;
+    margin-bottom:20px;
+    font-weight:700;
+    letter-spacing:2px;
+  }
+  .cover h1 span.gold{color:#fbe9a3}
+  .cover h2{
+    font-size:clamp(18px,2vw,28px);
+    font-weight:300;
+    color:rgba(255,255,255,0.85);
+    margin-bottom:50px;
+    max-width:800px;
+    letter-spacing:1px;
+  }
+  .cover-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    padding-top:30px;
+    border-top:1px solid rgba(201,169,97,0.3);
+    max-width:900px;
+  }
+  .cover-meta div{flex:1;min-width:150px}
+  .cover-meta dt{
+    font-size:11px;color:#fbe9a3;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:6px;
+    opacity:0.7;
+  }
+  .cover-meta dd{font-size:14px;font-weight:500}
+  .cover-foot{
+    position:absolute;bottom:30px;left:8%;
+    font-size:11px;color:rgba(255,255,255,0.4);
+    letter-spacing:1px;
+  }
+
+  /* 主体 */
+  .container{max-width:1280px;margin:0 auto;padding:0 40px}
+
+  /* 摘要卡片 */
+  .exec{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    border-left:5px solid var(--primary);
+    padding:40px 50px;
+    margin:-60px auto 60px;
+    max-width:1200px;
+    box-shadow:0 10px 40px rgba(139,0,0,0.06);
+    position:relative;
+    z-index:10;
+  }
+  .exec-title{
+    font-size:13px;color:var(--primary);
+    letter-spacing:4px;
+    margin-bottom:15px;
+    font-weight:600;
+  }
+  .exec h3{font-size:22px;margin-bottom:20px;color:var(--ink)}
+  .exec-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+    margin-top:25px;
+    padding-top:25px;
+    border-top:1px dashed var(--line);
+  }
+  .exec-stat dt{font-size:11px;color:var(--ink-3);letter-spacing:2px;margin-bottom:6px}
+  .exec-stat dd{font-size:26px;color:var(--primary);font-weight:600;font-family:"Georgia",serif}
+  .exec-stat dd small{font-size:12px;color:var(--ink-3);font-weight:400;margin-left:4px}
+
+  /* 目录 */
+  .toc{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    padding:35px 50px;
+    margin-bottom:60px;
+  }
+  .toc-title{
+    font-size:13px;color:var(--primary);
+    letter-spacing:4px;
+    margin-bottom:20px;
+    font-weight:600;
+  }
+  .toc ol{
+    list-style:none;
+    columns:2;
+    column-gap:60px;
+  }
+  .toc li{
+    padding:8px 0;
+    border-bottom:1px dotted var(--line);
+    page-break-inside:avoid;
+  }
+  .toc a{
+    color:var(--ink-2);
+    text-decoration:none;
+    display:flex;
+    justify-content:space-between;
+    transition:color .2s;
+  }
+  .toc a:hover{color:var(--primary)}
+  .toc .num{
+    color:var(--primary);
+    font-weight:600;
+    margin-right:12px;
+    font-family:"Georgia",serif;
+  }
+
+  /* 章节 */
+  .section{margin-bottom:80px}
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    margin-bottom:35px;
+    padding-bottom:15px;
+    border-bottom:2px solid var(--primary);
+  }
+  .sec-num{
+    font-family:"Georgia",serif;
+    font-size:50px;
+    color:var(--primary);
+    opacity:0.25;
+    margin-right:20px;
+    line-height:1;
+    font-weight:600;
+  }
+  .sec-title{
+    font-size:28px;
+    font-weight:600;
+    color:var(--ink);
+    letter-spacing:1px;
+  }
+  .sec-subtitle{
+    font-size:13px;
+    color:var(--ink-3);
+    margin-left:15px;
+    letter-spacing:2px;
+  }
+
+  h4{font-size:18px;color:var(--ink);margin:25px 0 12px;font-weight:600}
+  h5{font-size:15px;color:var(--primary);margin:18px 0 8px;font-weight:600}
+  p{margin-bottom:14px;color:var(--ink-2);text-align:justify}
+
+  /* 引用 */
+  blockquote{
+    border-left:3px solid var(--gold);
+    background:rgba(201,169,97,0.08);
+    padding:15px 25px;
+    margin:20px 0;
+    font-size:14px;
+    color:var(--ink-2);
+    font-style:italic;
+  }
+  blockquote cite{
+    display:block;
+    margin-top:8px;
+    font-style:normal;
+    font-size:12px;
+    color:var(--ink-3);
+  }
+
+  /* 卡片网格 */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:25px 0}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:25px 0}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin:25px 0}
+  .card{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    padding:22px;
+    transition:all .25s;
+    position:relative;
+  }
+  .card:hover{
+    border-color:var(--primary-light);
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.06);
+  }
+  .card-label{
+    font-size:11px;
+    color:var(--primary);
+    letter-spacing:2px;
+    margin-bottom:10px;
+    font-weight:600;
+  }
+  .card h4{font-size:16px;margin:8px 0 12px;color:var(--ink)}
+  .card p{font-size:13px;line-height:1.7;color:var(--ink-3);margin:0}
+  .card-icon{
+    width:38px;height:38px;
+    background:var(--primary);
+    color:#fff;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;
+    margin-bottom:15px;
+    font-family:"Georgia",serif;
+  }
+
+  /* 数据表 */
+  .data-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:25px 0;
+    background:var(--bg-card);
+    font-size:13px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.04);
+  }
+  .data-table th{
+    background:var(--ink);
+    color:#fff;
+    padding:12px 15px;
+    text-align:left;
+    font-weight:500;
+    letter-spacing:1px;
+    font-size:12px;
+  }
+  .data-table td{
+    padding:12px 15px;
+    border-bottom:1px solid var(--line);
+    color:var(--ink-2);
+  }
+  .data-table tr:nth-child(even) td{background:var(--bg-2)}
+  .data-table tr:hover td{background:rgba(201,169,97,0.08)}
+  .data-table .num{font-family:"Georgia",serif;color:var(--primary);font-weight:600}
+
+  /* 图表容器 */
+  .chart-wrap{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    padding:25px;
+    margin:25px 0;
+  }
+  .chart-title{
+    font-size:14px;
+    font-weight:600;
+    color:var(--ink);
+    margin-bottom:5px;
+  }
+  .chart-note{font-size:11px;color:var(--ink-4);margin-bottom:15px}
+  .chart-box{position:relative;height:340px}
+
+  /* 信息框 */
+  .info-box{
+    border:1px solid var(--line);
+    padding:20px 25px;
+    margin:20px 0;
+    background:var(--bg-card);
+  }
+  .info-box.danger{border-left:4px solid #C04848;background:#fdf3f3}
+  .info-box.success{border-left:4px solid var(--accent);background:#f0f5f0}
+  .info-box.warn{border-left:4px solid var(--gold);background:#fcf7e8}
+  .info-box.info{border-left:4px solid var(--accent-2);background:#f0f4f8}
+  .info-box strong{color:var(--primary)}
+  .info-box ul{margin-left:20px;margin-top:10px}
+  .info-box li{margin-bottom:6px;color:var(--ink-2);font-size:14px}
+
+  /* 商业模式 */
+  .biz-card{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    padding:30px;
+    margin:20px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .biz-card::before{
+    content:attr(data-num);
+    position:absolute;
+    top:-15px;right:15px;
+    font-size:80px;
+    color:rgba(139,0,0,0.08);
+    font-family:"Georgia",serif;
+    font-weight:bold;
+  }
+  .biz-card .label{
+    display:inline-block;
+    background:var(--primary);
+    color:#fff;
+    padding:4px 12px;
+    font-size:11px;
+    letter-spacing:2px;
+    margin-bottom:12px;
+  }
+  .biz-card h4{font-size:20px;margin-bottom:8px}
+  .biz-card .desc{color:var(--ink-3);font-size:13px;margin-bottom:15px}
+  .biz-flow{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+    margin:15px 0;
+    font-size:11px;
+  }
+  .biz-flow .step{
+    background:var(--bg-2);
+    padding:8px;
+    text-align:center;
+    border:1px solid var(--line);
+    position:relative;
+  }
+  .biz-flow .step::after{
+    content:"→";
+    position:absolute;
+    right:-8px;top:50%;
+    transform:translateY(-50%);
+    color:var(--primary);
+    font-weight:bold;
+  }
+  .biz-flow .step:last-child::after{display:none}
+
+  /* SWOT */
+  .swot{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin:25px 0;
+  }
+  .swot-cell{
+    padding:25px;
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    min-height:200px;
+  }
+  .swot-cell.s{border-top:4px solid var(--accent);background:#f0f5f0}
+  .swot-cell.w{border-top:4px solid #C04848;background:#fdf3f3}
+  .swot-cell.o{border-top:4px solid var(--accent-2);background:#f0f4f8}
+  .swot-cell.t{border-top:4px solid var(--gold);background:#fcf7e8}
+  .swot-cell h5{
+    font-size:14px;
+    letter-spacing:2px;
+    margin-bottom:12px;
+  }
+  .swot-cell.s h5{color:var(--accent)}
+  .swot-cell.w h5{color:#C04848}
+  .swot-cell.o h5{color:var(--accent-2)}
+  .swot-cell.t h5{color:#a0823a}
+  .swot-cell ul{margin-left:18px;font-size:13px}
+  .swot-cell li{margin-bottom:6px;color:var(--ink-2)}
+
+  /* 玩家画像 */
+  .player-row{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:30px;
+    margin:25px 0;
+    padding:25px;
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    align-items:start;
+  }
+  .player-id{
+    text-align:center;
+    border-right:1px solid var(--line);
+    padding-right:25px;
+  }
+  .player-logo{
+    width:80px;height:80px;
+    margin:0 auto 12px;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    color:#fff;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:24px;
+    font-family:"Georgia",serif;
+    font-weight:bold;
+  }
+  .player-id h5{font-size:17px;margin-bottom:4px}
+  .player-id .en{font-size:11px;color:var(--ink-4);margin-bottom:8px;letter-spacing:1px}
+  .player-tag{
+    display:inline-block;
+    border:1px solid var(--primary);
+    color:var(--primary);
+    padding:2px 8px;
+    font-size:10px;
+    margin:2px;
+  }
+  .player-body p{font-size:13px;margin-bottom:8px}
+  .player-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin:12px 0;
+    padding:12px;
+    background:var(--bg-2);
+    font-size:12px;
+  }
+  .player-stats div{text-align:center}
+  .player-stats strong{display:block;color:var(--primary);font-size:18px;font-family:"Georgia",serif}
+  .player-stats span{color:var(--ink-3);font-size:11px}
+
+  /* 时间线 */
+  .timeline{position:relative;margin:30px 0;padding-left:30px}
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:8px;top:0;bottom:0;
+    width:2px;
+    background:var(--gold);
+  }
+  .tl-item{
+    position:relative;
+    padding:10px 0 25px 30px;
+  }
+  .tl-item::before{
+    content:"";
+    position:absolute;
+    left:-26px;top:18px;
+    width:14px;height:14px;
+    background:var(--primary);
+    border:3px solid var(--bg);
+    border-radius:50%;
+  }
+  .tl-year{
+    font-family:"Georgia",serif;
+    color:var(--primary);
+    font-weight:bold;
+    font-size:16px;
+    margin-bottom:4px;
+  }
+  .tl-event{font-size:13px;color:var(--ink-2);line-height:1.6}
+
+  /* 页脚 */
+  .footer{
+    background:var(--ink);
+    color:rgba(255,255,255,0.5);
+    text-align:center;
+    padding:40px;
+    font-size:12px;
+    letter-spacing:1px;
+    margin-top:80px;
+  }
+  .footer strong{color:#fbe9a3;font-weight:400}
+
+  /* 响应式 */
+  @media(max-width:900px){
+    .container{padding:0 20px}
+    .exec{padding:25px}
+    .exec-grid{grid-template-columns:repeat(2,1fr)}
+    .toc ol{columns:1}
+    .grid-3,.grid-4{grid-template-columns:1fr}
+    .grid-2{grid-template-columns:1fr}
+    .swot{grid-template-columns:1fr}
+    .biz-flow{grid-template-columns:repeat(2,1fr)}
+    .player-row{grid-template-columns:1fr}
+    .player-id{border-right:none;border-bottom:1px solid var(--line);padding-bottom:15px}
+    .cover{padding:60px 25px}
+    .sec-head{flex-wrap:wrap}
+    .sec-num{font-size:36px;margin-right:10px}
+    .sec-title{font-size:22px}
+  }
+
+  /* 打印 */
+  @media print{
+    body{background:#fff}
+    .cover{background:#8B0000!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .top-bar,.footer{background:#1a1a1a!important;-webkit-print-color-adjust:exact}
+    .section{break-inside:avoid;page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<!-- 顶部报告条 -->
+<div class="top-bar">
+  <div>McKINSEY &nbsp;|&nbsp; BAIN &nbsp;|&nbsp; BCG &nbsp;|&nbsp; GLOBAL HEALTH INTELLIGENCE</div>
+  <div>CONFIDENTIAL · FOR STRATEGIC DECISION MAKING</div>
+</div>
+
+<!-- 封面 -->
+<section class="cover">
+  <div class="cover-tag">行业全景研究 · 2026 ANNUAL</div>
+  <h1>中医出海服务<br><span class="gold">全球赛道全景</span>与商业机会</h1>
+  <h2>从政策红利到产业深水区 · 商业模式、玩家图谱、竞争壁垒与未来十年的战略选择</h2>
+  <div class="cover-meta">
+    <div><dt>覆盖范围</dt><dd>196国 · 30万+ 诊所</dd></div>
+    <div><dt>核心市场</dt><dd>亚太 · 北美 · 欧洲 · 中东</dd></div>
+    <div><dt>市场规模(2026)</dt><dd>USD 926.7亿 · CAGR 7.18%</dd></div>
+    <div><dt>报告机构</dt><dd>上海张小强企业咨询事务所</dd></div>
+  </div>
+  <div class="cover-foot">REPORT ID: TCM-OCEAN-2026-Q3 · VERSION 1.0</div>
+</section>
+
+<div class="container">
+
+<!-- 执行摘要 -->
+<section class="exec">
+  <div class="exec-title">EXECUTIVE SUMMARY · 核心结论</div>
+  <h3>中医出海不再是"出海",而是"融入" — 一个被严重低估的全球健康产业新主战场</h3>
+  <p>截至2026年9月,中医药已传播至全球196个国家和地区,WHO数据显示其使用人口超40亿、年交易额近5000亿元;30万家海外中医诊所、40余万从业人员共同构成一个隐秘但庞大的全球健康产业。本报告从商业模式、玩家图谱、上下游、客户画像、竞争水平、未来展望六大维度,系统呈现中医出海赛道的完整图景。</p>
+  <div class="exec-grid">
+    <dl class="exec-stat">
+      <dt>市场规模(2026)</dt>
+      <dd>926.7<small>亿美元</small></dd>
+    </dl>
+    <dl class="exec-stat">
+      <dt>10年复合增速</dt>
+      <dd>7.18<small>% CAGR</small></dd>
+    </dl>
+    <dl class="exec-stat">
+      <dt>海外诊所数量</dt>
+      <dd>30<small>万家+</small></dd>
+    </dl>
+    <dl class="exec-stat">
+      <dt>覆盖国家与地区</dt>
+      <dd>196<small>个</small></dd>
+    </dl>
+  </div>
+</section>
+
+<!-- 目录 -->
+<nav class="toc">
+  <div class="toc-title">TABLE OF CONTENTS · 目录</div>
+  <ol>
+    <li><a href="#s1"><span><span class="num">01</span>赛道定义与全球图景</span><span>P.4</span></a></li>
+    <li><a href="#s2"><span><span class="num">02</span>市场规模、增速与区域结构</span><span>P.6</span></a></li>
+    <li><a href="#s3"><span><span class="num">03</span>五大商业模式全景</span><span>P.9</span></a></li>
+    <li><a href="#s4"><span><span class="num">04</span>玩家图谱与竞争格局</span><span>P.13</span></a></li>
+    <li><a href="#s5"><span><span class="num">05</span>上下游产业链拆解</span><span>P.17</span></a></li>
+    <li><a href="#s6"><span><span class="num">06</span>客户画像与需求图谱</span><span>P.20</span></a></li>
+    <li><a href="#s7"><span><span class="num">07</span>中国中医药国际竞争力(SWOT)</span><span>P.23</span></a></li>
+    <li><a href="#s8"><span><span class="num">08</span>商业价值评估与投资机会</span><span>P.26</span></a></li>
+    <li><a href="#s9"><span><span class="num">09</span>未来展望:2030路线图</span><span>P.28</span></a></li>
+    <li><a href="#s10"><span><span class="num">10</span>战略建议与风险提示</span><span>P.30</span></a></li>
+  </ol>
+</nav>
+
+<!-- ========== 第一章 ========== -->
+<section class="section" id="s1">
+  <div class="sec-head">
+    <div class="sec-num">01</div>
+    <h2 class="sec-title">赛道定义与全球图景</h2>
+    <span class="sec-subtitle">DEFINITION & GLOBAL LANDSCAPE</span>
+  </div>
+
+  <h4>1.1 什么是"中医出海服务"</h4>
+  <p>"中医出海服务"指以中医药理论体系(中药、针灸、推拿、拔罐、艾灸、太极、食疗等)为核心载体,跨越国境为海外终端用户提供产品、医疗、教育、文化及相关衍生服务的完整产业体系。它涵盖<strong>有形商品出口(中药材/饮片/中成药/植物提取物)、无形服务贸易(诊疗/养生/培训)、文化品牌资产(孔子学院/中医中心/认证体系)、跨境资本流动(并购/合资/上市)</strong>四大要素。</p>
+
+  <h4>1.2 赛道全景:四大子赛道并行</h4>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-icon">A</div>
+      <div class="card-label">PRODUCT OCEAN</div>
+      <h4>产品出海</h4>
+      <p>中药材、饮片、中成药、植物提取物、健康食品的跨境贸易。2025年中国中药类产品进出口总额39.7亿美元,以原料、辅料为主。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">B</div>
+      <div class="card-label">SERVICE TRADE</div>
+      <h4>服务出海</h4>
+      <p>中医诊所、养生中心、远程问诊、健康管理。固生堂新加坡市场2025年同比增长228%、同仁堂国药在26国设160+门店。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">C</div>
+      <div class="card-label">EDUCATION IP</div>
+      <h4>教育与文化出海</h4>
+      <p>中医孔子学院、海外中医药中心、学历教育、师承培训。全球中医孔子学院联盟已联合多国培养本地化人才。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">D</div>
+      <div class="card-label">CAPITAL FLOW</div>
+      <h4>资本出海</h4>
+      <p>跨境并购、海外合资、SPAC上市。固生堂AGP战投、复宏汉霖全球50国上市、同仁堂收购天津同仁堂等。</p>
+    </div>
+  </div>
+
+  <h4>1.3 一个被严重低估的真实战场</h4>
+  <p>中医出海并非新兴话题,但其商业体量长期被严重低估。<strong>世界中医药学会联合会、北京中医药大学、医馆界研究院</strong>等多方数据显示,全球中医诊所有约30万家、从业人员40万,使用中医药的人口达40亿;而<strong>WHO</strong>统计,113个成员国认可针灸、29个成员国为中医药立法、20个成员国将其纳入医保体系。一个隐秘但庞大的产业帝国,正从政策红利期进入产业深水区。</p>
+
+  <div class="info-box success">
+    <strong>关键洞察:</strong>中医出海与西医出海存在本质差异——它不是简单的"产品+渠道",而是"理论体系+产品+人才+文化"四位一体的复杂输出。这意味着竞争壁垒更高、赢家通吃效应更明显,同时也意味着出海难度远大于普通消费品/医药出海。
+  </div>
+</section>
+
+<!-- ========== 第二章 ========== -->
+<section class="section" id="s2">
+  <div class="sec-head">
+    <div class="sec-num">02</div>
+    <h2 class="sec-title">市场规模、增速与区域结构</h2>
+    <span class="sec-subtitle">MARKET SIZE & GEOGRAPHY</span>
+  </div>
+
+  <h4>2.1 全球中医市场规模:权威机构数据交叉验证</h4>
+  <div class="chart-wrap">
+    <div class="chart-title">图2-1 全球传统中医药(TCM)市场规模预测 · 2024-2035</div>
+    <div class="chart-note">数据来源:Mordor Intelligence / Market Research Future / Persistence Market Research / Business Research Insights 综合(2026)</div>
+    <div class="chart-box"><canvas id="chart-market"></canvas></div>
+  </div>
+
+  <div class="data-table">
+    <table>
+      <thead>
+        <tr><th>权威研究机构</th><th>2024-2026 基准</th><th>2031-2035 预测</th><th>CAGR</th><th>方法论差异</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mordor Intelligence</td><td class="num">USD 864.6亿(2025)</td><td class="num">USD 1310.7亿(2031)</td><td class="num">7.18%</td><td>含草药/针灸/全产业链</td></tr>
+        <tr><td>Market Research Future</td><td class="num">USD 547.8亿(2024)</td><td class="num">USD 800.6亿(2035)</td><td class="num">3.51%</td><td>北美占70%(口径窄)</td></tr>
+        <tr><td>Persistence Market Research</td><td class="num">USD 354亿(2026)</td><td class="num">USD 518亿(2033)</td><td class="num">5.6%</td><td>WHO ICD-11驱动</td></tr>
+        <tr><td>Business Research Insights</td><td class="num">USD 2823.6亿(2026)</td><td class="num">USD 5136亿(2033)</td><td class="num">8.9%</td><td>口径宽,含衍生健康产品</td></tr>
+        <tr><td>Coherent Market Insights</td><td class="num">USD 2138亿(2025)</td><td class="num">USD 3593.7亿(2032)</td><td class="num">7.7%</td><td>含全球传统医学</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <blockquote>
+    "口径差异源于是否包含植物提取物、健康食品、保健品与衍生服务;即便采用最保守口径(Mordor),中医仍是一个十年翻倍的产业。"
+    <cite>—— 本研究综合判断</cite>
+  </blockquote>
+
+  <h4>2.2 区域结构:亚太主导,北美最快</h4>
+  <div class="chart-wrap">
+    <div class="chart-title">图2-2 全球TCM市场份额(按地区) · 2026</div>
+    <div class="chart-note">数据来源:Mordor Intelligence / Persistence Market Research 综合</div>
+    <div class="chart-box"><canvas id="chart-region"></canvas></div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-label">亚太</div>
+      <h4>亚太市场:绝对主导(64%)</h4>
+      <p>中国内地+港澳台、日本汉方、韩国韩医、新加坡、马来西亚、泰国构成核心圈层。文化认同深、监管成熟、消费能力强。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">NORTH AMERICA</div>
+      <h4>北美:增速最快(8.5%+)</h4>
+      <p>美国、加拿大针灸师超5万+、中医诊所7000+;华人基数大+主流医学体系接纳(FDA植物药路径、NCCAOM认证)。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">EUROPE & MEA</div>
+      <h4>欧洲/中东/非洲:潜力市场</h4>
+      <p>欧洲仅瑞士、匈牙利、葡萄牙立法,但德国/法国/英国接受度持续上升;中东"一带一路"中医中心超30个;非洲受援医疗驱动。</p>
+    </div>
+  </div>
+
+  <h4>2.3 中国中药类商品出口:有医缺药的现实</h4>
+  <p>海关数据显示,中国中药类产品出口<strong>2022年达56.9亿美元峰值后连续下降</strong>,2024年52.8亿美元、2025年上半年同比再降5.6%。结构上,植物提取物占比超过50%(2024年出口量同比+21.3%、总额-7.7%),<strong>真正高附加值的中成药占比不足10%</strong>。这构成行业最大的"卡点"——海外中医诊所遍地开花,但药却进不去。</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">图2-3 中国中药类商品出口结构(按品类) · 2024-2025</div>
+    <div class="chart-note">数据来源:中国海关/中国医药保健品进出口商会</div>
+    <div class="chart-box"><canvas id="chart-export"></canvas></div>
+  </div>
+
+  <h4>2.4 中国中药材进出口:2025年关键数据</h4>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-label">TRADE VOLUME</div>
+      <h4 style="font-size:24px;color:var(--primary)">21.8 <small style="font-size:13px">亿美元</small></h4>
+      <p>2025年中国中药材进出口贸易总额,同比+1.6%</p>
+    </div>
+    <div class="card">
+      <div class="card-label">EXPORT</div>
+      <h4 style="font-size:24px;color:var(--primary)">12.5 <small style="font-size:13px">亿美元</small></h4>
+      <p>出口额,同比-4.1%,量增价跌,出口量25.5万吨(+1.9%)</p>
+    </div>
+    <div class="card">
+      <div class="card-label">IMPORT</div>
+      <h4 style="font-size:24px;color:var(--primary)">9.3 <small style="font-size:13px">亿美元</small></h4>
+      <p>进口额,同比+10.4%,进口量47.5万吨(+5.6%)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 第三章 ========== -->
+<section class="section" id="s3">
+  <div class="sec-head">
+    <div class="sec-num">03</div>
+    <h2 class="sec-title">五大商业模式全景</h2>
+    <span class="sec-subtitle">FIVE BUSINESS MODELS</span>
+  </div>
+
+  <p>中医出海不是单一模式,而是五条独立又交织的商业路径。理解这五条路径,是看懂这个赛道所有玩家动作的前提。</p>
+
+  <!-- 模式1 -->
+  <div class="biz-card" data-num="01">
+    <div class="label">产品贸易出海 · PRODUCT</div>
+    <h4>中药/植物提取物/保健品的跨境贸易</h4>
+    <div class="desc">以同仁堂国药、片仔癀、漳州制药、广药白云山为代表的传统药企出海路径,以"产品+品牌+渠道"为主线。</div>
+    <div class="biz-flow">
+      <div class="step">GAP种植</div>
+      <div class="step">GMP制造</div>
+      <div class="step">海外注册</div>
+      <div class="step">渠道分销</div>
+      <div class="step">品牌认知</div>
+    </div>
+    <div class="info-box warn">
+      <strong>核心壁垒:</strong>FDA植物药NDA路径(成功率极低,周期8-12年、5-6亿美元);欧盟THRD指令(成分-药理-临床证据链重建);东南亚/中东TMHS互认。
+    </div>
+    <p><strong>代表玩家:</strong>同仁堂国药(2025年营收13.33亿港元、净利3.5亿)、片仔癀、华润医药、广药白云山、地奥集团(地奥心血康胶囊2012年成为首个进入欧盟药品市场的中成药)、上海和黄药业(胆宁片出口加拿大)。</p>
+  </div>
+
+  <!-- 模式2 -->
+  <div class="biz-card" data-num="02">
+    <div class="label">服务贸易出海 · SERVICE</div>
+    <h4>中医诊所、诊疗、养生的全球化连锁</h4>
+    <div class="desc">以固生堂、和顺堂、同仁堂海外门店、TCMzone为代表的"以医带药"出海模式。核心逻辑:把诊所开到海外,医生诊疗带动药品销售。</div>
+    <div class="biz-flow">
+      <div class="step">门店选址</div>
+      <div class="step">医师派遣</div>
+      <div class="step">本地化注册</div>
+      <div class="step">医保对接</div>
+      <div class="step">数字化运营</div>
+    </div>
+    <div class="info-box success">
+      <strong>2025年关键数据:</strong>固生堂在新加坡门店达22家(全年收入同比+228%)、拟2026年扩至50家;同仁堂国药在全球26国160+门店;新加坡活跃中医师1912人;印尼注册中医师约2000人;美国持证针灸师14228人。
+    </div>
+    <p><strong>代表玩家:</strong>固生堂(02273.HK)、同仁堂国药(03613.HK)、新加坡宝中堂/大中堂、北京同仁堂(多伦多/温哥华)、马来西亚中国中医连锁。</p>
+  </div>
+
+  <!-- 模式3 -->
+  <div class="biz-card" data-num="03">
+    <div class="label">文化与教育出海 · CULTURE</div>
+    <h4>中医孔子学院、海外中医药中心、学历教育</h4>
+    <div class="desc">由孔子学院总部、国家中医药管理局、北京/上海/南京/广州中医药大学推动的"教育先行、文化铺路"模式。</div>
+    <div class="biz-flow">
+      <div class="step">合作大学</div>
+      <div class="step">课程开设</div>
+      <div class="step">师资派遣</div>
+      <div class="step">学历互认</div>
+      <div class="step">本土化人才</div>
+    </div>
+    <div class="info-box info">
+      <strong>关键节点:</strong>全球已建30个高质量中医药海外中心(截至2023年);在30+国家和地区开办数百所中医药院校;全球中医孔子学院联盟(由爱尔兰高威大学中医孔子学院牵头);30个中医药国际标准颁布。
+    </div>
+    <p><strong>代表机构:</strong>伦敦中医孔子学院、皇家墨尔本理工大学中医孔子学院、爱尔兰高威大学中医与再生医学孔子学院、北京中医药大学、上海中医药大学、广州中医药大学、南京中医药大学、甘肃中医药大学(12国16家岐黄中医中心)。</p>
+  </div>
+
+  <!-- 模式4 -->
+  <div class="biz-card" data-num="04">
+    <div class="label">资本出海 · CAPITAL</div>
+    <h4>跨境并购、海外合资、SPAC上市</h4>
+    <div class="desc">通过资本运作整合全球资源,实现"四步走"全球化闭环——临床开发、国际注册、GMP核查、终端销售。</div>
+    <div class="biz-flow">
+      <div class="step">标的筛选</div>
+      <div class="step">尽调谈判</div>
+      <div class="step">结构设计</div>
+      <div class="step">监管交割</div>
+      <div class="step">整合协同</div>
+    </div>
+    <div class="info-box warn">
+      <strong>典型案例:</strong>固生堂2024年3月收购新加坡宝中堂→2025年11月收购大中堂→2025年10月与1doc合资→AGP新加坡医疗基金战投;复宏汉霖生物类似药撬动50国上市,反哺创新药研发;同仁堂集团2024年12月收购天津同仁堂60%股权、2026年拟收购嘉事堂。
+    </div>
+  </div>
+
+  <!-- 模式5 -->
+  <div class="biz-card" data-num="05">
+    <div class="label">跨境电商与新零售出海 · DIGITAL</div>
+    <h4>Amazon/TikTok Shop/独立站+中药健康品</h4>
+    <div class="desc">新崛起的第五模式——以DTC品牌、保健品、医美级中药护肤品为代表的轻资产出海路径。</div>
+    <div class="biz-flow">
+      <div class="step">品类选择</div>
+      <div class="step">平台入驻</div>
+      <div class="step">内容种草</div>
+      <div class="step">本地仓配</div>
+      <div class="step">复购留存</div>
+    </div>
+    <div class="info-box info">
+      <strong>趋势特征:</strong>汤臣倍健跨境并购Life-Space;仙乐健康全球CDMO代工;WonderLab跨境电商DTC;东阿阿胶、同仁堂健康通过Amazon/速卖通进入北美/东南亚;2026年2月八部委《中药工业高质量发展实施方案》明确"支持跨境电商海外仓建设"。
+    </div>
+    <p><strong>代表玩家:</strong>汤臣倍健、仙乐健康、东阿阿胶、同仁堂健康、WonderLab、北京同仁堂跨境电商、漳州制药、片仔癀(化妆品线)。</p>
+  </div>
+
+  <h4>3.6 五大模式商业价值对比</h4>
+  <div class="data-table">
+    <table>
+      <thead>
+        <tr><th>模式</th><th>毛利率</th><th>门槛</th><th>可复制性</th><th>战略价值</th><th>代表玩家</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>产品贸易出海</td><td class="num">35-55%</td><td>极高(FDA/EMA)</td><td>中</td><td>★★</td><td>同仁堂、片仔癀</td></tr>
+        <tr><td>服务贸易出海</td><td class="num">50-65%</td><td>高(医师+牌照)</td><td>高</td><td>★★★★</td><td>固生堂、同仁堂国药</td></tr>
+        <tr><td>文化教育出海</td><td class="num">非盈利</td><td>高(政府主导)</td><td>低</td><td>★★★★★</td><td>孔子学院、北京中医药大学</td></tr>
+        <tr><td>资本出海</td><td class="num">N/A</td><td>极高(资本+整合)</td><td>低</td><td>★★★★★</td><td>固生堂、复宏汉霖</td></tr>
+        <tr><td>跨境电商出海</td><td class="num">45-70%</td><td>中(品类+合规)</td><td>极高</td><td>★★★</td><td>汤臣倍健、WonderLab</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ========== 第四章 ========== -->
+<section class="section" id="s4">
+  <div class="sec-head">
+    <div class="sec-num">04</div>
+    <h2 class="sec-title">玩家图谱与竞争格局</h2>
+    <span class="sec-subtitle">PLAYER MAP & COMPETITIVE LANDSCAPE</span>
+  </div>
+
+  <p>中医出海赛道呈现"国有老字号+民营连锁+海外本土龙头+跨境新势力"四股力量并存格局。竞争已从"产品"升级到"生态",从"贸易"升级到"标准"。</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">图4-1 中医出海赛道竞争格局象限</div>
+    <div class="chart-note">综合营收规模、海外门店数、品牌力、海外注册能力四个维度</div>
+    <div class="chart-box"><canvas id="chart-quadrant"></canvas></div>
+  </div>
+
+  <!-- 玩家画像 -->
+  <h4>4.1 国有老字号派:品牌资产最厚,变革最慢</h4>
+
+  <div class="player-row">
+    <div class="player-id">
+      <div class="player-logo">同</div>
+      <h5>北京同仁堂</h5>
+      <div class="en">TONGRENTANG · 1669</div>
+      <span class="player-tag">中华老字号</span>
+      <span class="player-tag">A+H+港股</span>
+      <span class="player-tag">出海30年</span>
+    </div>
+    <div class="player-body">
+      <p><strong>核心战略:"四步走"</strong>——1993年香港开店、2000年后东南亚、2010年后欧美、"走出去/走进去/走下去/走上去"。截至2025年底在26国160+零售药店/中医诊所/养生体验中心,产品销40+国。</p>
+      <div class="player-stats">
+        <div><strong>13.33</strong><span>亿港元(2025)</span></div>
+        <div><strong>3.5</strong><span>亿港元净利</span></div>
+        <div><strong>160+</strong><span>海外门店</span></div>
+        <div><strong>5000万</strong><span>累计服务人次</span></div>
+      </div>
+      <p><strong>挑战:</strong>2025年营收同比-6.1%、净利-20.6%,海外市场增长近乎停滞;核心单品安宫牛黄丸受医保政策影响销量大幅下滑;品牌治理(南极磷虾油贴牌风波)承压。</p>
+    </div>
+  </div>
+
+  <div class="player-row">
+    <div class="player-id">
+      <div class="player-logo">片</div>
+      <h5>漳州片仔癀</h5>
+      <div class="en">PIEN TZE HUANG · 1555</div>
+      <span class="player-tag">国家机密</span>
+      <span class="player-tag">A股龙头</span>
+      <span class="player-tag">高端奢侈</span>
+    </div>
+    <div class="player-body">
+      <p><strong>核心战略:"国宝名药+奢侈品牌"双重定位。</strong>片仔癀配方被列为国家机密,与云南白药并列"唯二"绝密级中药,享有永久保密权。在东南亚华人圈具有类似奢侈品的认知度,部分海外售价高于国内。</p>
+      <p><strong>出海路径:</strong>以东南亚(印尼、新加坡、马来西亚)华人为主战场,通过文化品牌输出而非临床注册;延伸出片仔癀化妆品/护肤品线进入日本、韩国免税渠道。</p>
+    </div>
+  </div>
+
+  <div class="player-row">
+    <div class="player-id">
+      <div class="player-logo">白</div>
+      <h5>广州白云山/广药</h5>
+      <div class="en">BAIYUNSHAN · GPHL</div>
+      <span class="player-tag">综合龙头</span>
+      <span class="player-tag">王老吉</span>
+      <span class="player-tag">H股+A</span>
+    </div>
+    <div class="player-body">
+      <p><strong>核心战略:"凉茶国际化+中药OTC出海"双引擎。</strong>王老吉凉茶已在全球60+国家销售,华润医药、广药集团旗下白云山板蓝根颗粒/复方丹参片等OTC品种在东南亚华人渠道有较高占有率。</p>
+    </div>
+  </div>
+
+  <h4>4.2 民营连锁服务派:创新最快,海外扩张最激进</h4>
+
+  <div class="player-row">
+    <div class="player-id">
+      <div class="player-logo" style="background:linear-gradient(135deg,#2E5A3E,#8B0000)">固</div>
+      <h5>固生堂中医</h5>
+      <div class="en">GUSHENGTANG · 02273.HK</div>
+      <span class="player-tag">连锁中医第一股</span>
+      <span class="player-tag">并购狂魔</span>
+      <span class="player-tag">AI中医</span>
+    </div>
+    <div class="player-body">
+      <p><strong>核心战略:"并购+合作+自建"三轮驱动。</strong>2024年3月收购新加坡宝中堂→2025年11月收购大中堂(14家门店)→与1doc合资(70%持股)→AGP新加坡医疗基金战投。"四维一体"出海——诊疗服务+院内制剂+AI医生+科研循证。</p>
+      <div class="player-stats">
+        <div><strong>22</strong><span>新加坡门店</span></div>
+        <div><strong>+228%</strong><span>2025年增速</span></div>
+        <div><strong>50家</strong><span>2026年目标</span></div>
+        <div><strong>20%</strong><span>海外营收占比目标</span></div>
+      </div>
+      <p><strong>护发益发颗粒</strong>已通过新加坡卫生科学局(HSA)院内制剂备案,成为固生堂在海外首个自主研发中成药;2026年1月与南洋理工大学启动"中医教育与研究项目";计划进入马来西亚、印尼、韩国市场。</p>
+    </div>
+  </div>
+
+  <div class="player-row">
+    <div class="player-id">
+      <div class="player-logo">顺</div>
+      <h5>和顺堂/圣爱/泰坤堂</h5>
+      <div class="en">PRIVATE TCM CHAINS</div>
+      <span class="player-tag">民营连锁</span>
+      <span class="player-tag">区域品牌</span>
+      <span class="player-tag">医馆模式</span>
+    </div>
+    <div class="player-body">
+      <p><strong>核心战略:深耕区域+品质升级。</strong>圣爱中医馆、和顺堂、泰坤堂等是国内主要的民营中医连锁龙头,部分已在港澳台、北美华人区设立分支,定位中高端、品质化、品牌化路径,主打"看得见的中药、问得明的中医"。</p>
+    </div>
+  </div>
+
+  <h4>4.3 海外本土龙头派:本地化最深,标准制定者</h4>
+
+  <div class="player-row">
+    <div class="player-id">
+      <div class="player-logo" style="background:linear-gradient(135deg,#3A6B8E,#2E5A3E)">Z</div>
+      <h5>津村药业(日本)</h5>
+      <div class="en">TSUMURA & CO. · 1893</div>
+      <span class="player-tag">汉方药全球No.1</span>
+      <span class="player-tag">80%+ 日本份额</span>
+      <span class="player-tag">FDA通路</span>
+    </div>
+    <div class="player-body">
+      <p><strong>核心战略:"科学化+循证医学+FDA临床"。</strong>津村占据日本汉方药市场80%以上份额,旗下148个处方药、OTC汉方覆盖中国经典名方。其大建中汤(TJ-100)在美国完成II期临床、与哈佛医学院合作,代表中国经典名方在FDA的"汉方路径"。</p>
+      <p><strong>对中国的启示:</strong>中国中药出海长期停留在"原料+保健品"层面,真正复方中成药在国际注册方面被日韩甩开,需要借鉴津村的"标准化、循证化、专利化"路径。</p>
+    </div>
+  </div>
+
+  <div class="player-row">
+    <div class="player-id">
+      <div class="player-logo" style="background:linear-gradient(135deg,#C9A961,#8B0000)">T</div>
+      <h5>TCMzone(美国)</h5>
+      <div class="en">TCMzone LLC · 2000</div>
+      <span class="player-tag">美国中医No.1供应商</span>
+      <span class="player-tag">颗粒剂标准</span>
+      <span class="player-tag">学术医院</span>
+    </div>
+    <div class="player-body">
+      <p><strong>核心战略:"美国版颗粒剂标准定义者"。</strong>TCMzone自2000年起在美国分销中药配方颗粒,与日本Honso Kampo、台湾仙丰等GMP厂家合作,服务克利夫兰诊所、太平洋东方医学院、Bastyr大学等顶级机构。2025年10月与苏州华佗针灸针合作,推出华佗牌针灸针进入美国。</p>
+      <p><strong>Spring Wind Herbs、Golden Flower、Sun Ten、ActiveHerb</strong>构成美国中药分销的"四大家族",主导北美中医师群体供应渠道。</p>
+    </div>
+  </div>
+
+  <h4>4.4 跨境新势力派:创新最大,资本最活跃</h4>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-label">仙乐健康</div>
+      <h4>全球CDMO代工出海</h4>
+      <p>仙乐健康通过收购德国Ayanda、加拿大Best Formulations构建全球营养品CDMO网络,以"中国制造+欧美品牌"模式绕过中药身份困境。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">汤臣倍健</div>
+      <h4>Life-Space并购出海</h4>
+      <p>2018年汤臣倍健6.9亿澳元收购澳洲益生菌品牌Life-Space,是迄今为止中国保健品行业最大跨境并购案,创造"中国资本+澳洲品牌+全球渠道"模板。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">复宏汉霖</div>
+      <h4>生物类似药撬动出海</h4>
+      <p>虽然主营生物药,但其"临床-注册-生产-商业"全球化闭环模式对中医出海有强借鉴意义——汉曲优®等4款产品在50+国上市,汉斯状®首年销售破10亿。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">WonderLab</div>
+      <h4>跨境电商DTC</h4>
+      <p>WonderLab以"中式保健品+DTC品牌"路径,通过TikTok Shop、独立站打入北美年轻人群,代表新势力从消费品角度绕开药品注册壁垒。</p>
+    </div>
+  </div>
+
+  <h4>4.5 全球中医出海 TOP 25 龙头概览</h4>
+  <div class="data-table">
+    <table>
+      <thead>
+        <tr><th>排名</th><th>企业/机构</th><th>总部</th><th>核心业务</th><th>海外占比</th><th>关键指标</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="num">1</td><td>同仁堂国药</td><td>北京</td><td>中成药海外分销+诊所</td><td class="num">~80%</td><td>160+门店、26国</td></tr>
+        <tr><td class="num">2</td><td>片仔癀</td><td>漳州</td><td>高端中成药</td><td class="num">~15%</td><td>国家机密、东南亚主导</td></tr>
+        <tr><td class="num">3</td><td>固生堂</td><td>广州</td><td>中医连锁服务</td><td class="num">~8%(快速升)</td><td>新加坡22店</td></tr>
+        <tr><td class="num">4</td><td>广药集团/白云山</td><td>广州</td><td>综合医药+凉茶</td><td class="num">~20%</td><td>王老吉全球60+国</td></tr>
+        <tr><td class="num">5</td><td>华润医药</td><td>北京</td><td>综合医药</td><td class="num">~10%</td><td>OTC渠道强</td></tr>
+        <tr><td class="num">6</td><td>以岭药业</td><td>石家庄</td><td>专利中药+循证医学</td><td class="num">~15%</td><td>通心络胶囊FDA临床</td></tr>
+        <tr><td class="num">7</td><td>漳州制药(片仔癀关联)</td><td>漳州</td><td>中成药制造</td><td class="num">~25%</td><td>宫廷秘方、东南亚</td></tr>
+        <tr><td class="num">8</td><td>Tsumura津村</td><td>日本</td><td>汉方药</td><td class="num">~30%(目标)</td><td>80%日本市场、FDA</td></tr>
+        <tr><td class="num">9</td><td>TCMzone</td><td>美国</td><td>中药颗粒分销</td><td class="num">100%</td><td>北美中医师No.1</td></tr>
+        <tr><td class="num">10</td><td>Spring Wind Herbs</td><td>美国</td><td>中药饮片+检测</td><td class="num">100%</td><td>300+项农残检测</td></tr>
+        <tr><td class="num">11-25</td><td>东阿阿胶、汤臣倍健、仙乐健康、复宏汉霖、康美药业、云南白药、桂林三金、奇星药业(华佗再造丸)、地奥集团、上海和黄、扬子江、石药、东阳光、Himalaya、Schwabe等</td><td colspan="4">分布于产品制造、保健品、跨境电商、海外本土分销等不同环节</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ========== 第五章 ========== -->
+<section class="section" id="s5">
+  <div class="sec-head">
+    <div class="sec-num">05</div>
+    <h2 class="sec-title">上下游产业链拆解</h2>
+    <span class="sec-subtitle">VALUE CHAIN</span>
+  </div>
+
+  <p>中医出海产业链横跨农、工、贸、医、药、学六大环节,任何一个"卡点"都会引发系统性风险。</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">图5-1 中医出海产业链全景</div>
+    <div class="chart-note">"上游-中游-下游"三段式拆解,标红为关键卡点</div>
+    <div class="chart-box"><canvas id="chart-chain"></canvas></div>
+  </div>
+
+  <h4>5.1 上游:中药材种植与资源</h4>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-label">GAP基地</div>
+      <h4>中药材规范化种植</h4>
+      <p>中国2022年3月四部门联合发布《中药材生产质量管理规范》(GAP)。云南白药百亿基金投建GAP基地,覆盖重楼/红花/砂仁/当归;贵州探索与东南亚共建标准化种植试验田;GAP基地的"高投入、长周期"特性正在拉大大企业与小型经营户的差距。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">GACP标准</div>
+      <h4>国际药材种植标准</h4>
+      <p>WHO GACP、欧盟GACP、美国草药协会GACP、日本汉方生药协会GACP是国际广泛认可的5套标准。2021年中国中医科学院+中国医药保健品进出口商会共同推动GACP的ISO国际标准立项,预计2026年3月正式发布,将成为统一中药材国际贸易的关键工具。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">稀缺资源</div>
+      <h4>贵细药材的道地性</h4>
+      <p>同仁堂国药在2026中期业绩中明确"推进稀缺贵细药材进口突破"——天然麝香、天然牛黄、鹿茸、林下山参等贵细药材是高端中成药的核心壁垒,也是与日本汉方/韩国韩医拉开差距的关键。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">道地药材</div>
+      <h4>地方优势品种</h4>
+      <p>云南三七、宁夏枸杞、四川川芎/黄精/丹参、贵州薏仁、甘肃当归/党参、内蒙古黄芪构成核心道地药材版图,直接决定中成药品质上限。"道地性"是中医药出海时最难解释的差异化概念。</p>
+    </div>
+  </div>
+
+  <h4>5.2 中游:中成药制造与质量管控</h4>
+  <div class="info-box warn">
+    <strong>2026年3月《中药生产新规》核心变化:</strong>中药注射剂所用中药材原则上应当符合GAP要求;中药配方颗粒生产应当优先使用GAP基地中药材;持有人、中药生产企业应当从具备健全质量管理体系的产地中药材生产企业采购;采购的趁鲜切制中药材应当是产地省级药品监督管理部门公布的品种。这意味着"低买高卖"的传统经营模式将被淘汰,GAP基地将成为企业必争之地。
+  </div>
+
+  <p>制造环节的关键能力包括:GMP认证(国内+国际)、指纹图谱质控、有效成分含量检测、农残重金属控制(欧盟标准)、可持续生产能力(出口订单)、跨境冷链物流。具备完整能力的企业屈指可数,这也是为什么中成药出口占中药类商品出口不足10%的根本原因。</p>
+
+  <h4>5.3 下游:流通、终端、医保支付</h4>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-label">渠道</div>
+      <h4>流通渠道</h4>
+      <p>①同仁堂国药自有门店(160+) ②海外中医诊所(30万+) ③Amazon/TikTok Shop跨境电商 ④独立站DTC ⑤免税渠道(韩国/日本/泰国/中东) ⑥援外医疗队(非洲+中亚)</p>
+    </div>
+    <div class="card">
+      <div class="card-label">终端</div>
+      <h4>终端场景</h4>
+      <p>①零售药店(华人区主流) ②中医诊所/针灸中心 ③养生中心/SPA ④医院中医科(美国医院补充医学科) ⑤企业/高校医务室 ⑥运动员/军队康复</p>
+    </div>
+    <div class="card">
+      <div class="card-label">支付</div>
+      <h4>医保支付</h4>
+      <p>瑞士针灸报销50-90%、荷兰70-100%(附加险)、法国10-20%、德国10次/年、葡萄牙公立体系;美国Medicare部分覆盖;20个WHO成员国将其纳入医保。</p>
+    </div>
+  </div>
+
+  <h4>5.4 关键卡点:"有医缺药"的断链问题</h4>
+  <blockquote>
+    "海外中医诊所遍地开花,但药进不去。30万家诊所对中成药的需求,只有不到10%能转化为正式贸易数据——相当一部分走的是灰色渠道或个人携带。"
+    <cite>—— 医药出海通《中药出海"有医缺药"问题深度解析》,2026</cite>
+  </blockquote>
+
+  <div class="info-box danger">
+    <strong>"有医缺药"四大具体表现:</strong>
+    <ul>
+      <li><strong>注册门槛:</strong>FDA仅批准Veregen(生殖器疣)、Mytesi(非感染性腹泻)2个植物药;NDA路径周期8-12年、5-6亿美元,成功率为个位数。</li>
+      <li><strong>药典翻译:</strong>中外药典对同一种药材翻译差异约20%(如"昆布kunbu"vs"seaweed"),被视为两种不同药材。</li>
+      <li><strong>文化转化:</strong>"滋阴补肾、活血化瘀"等中医术语难以转译为西方"适应症",且伴随夸大宣传的法律风险。</li>
+      <li><strong>渠道缺失:</strong>真正临床用复方中成药(逍遥丸、六味地黄丸)在出口统计里几乎看不到,海外诊所只能开针灸+推拿。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== 第六章 ========== -->
+<section class="section" id="s6">
+  <div class="sec-head">
+    <div class="sec-num">06</div>
+    <h2 class="sec-title">客户画像与需求图谱</h2>
+    <span class="sec-subtitle">CUSTOMER PERSONAS</span>
+  </div>
+
+  <p>中医海外客户不是"一个市场",而是至少<strong>五个差异显著的细分市场</strong>。每个市场的获客逻辑、客单价、复购率完全不同。</p>
+
+  <div class="chart-wrap">
+    <div class="chart-title">图6-1 海外中医客户画像与需求层级</div>
+    <div class="chart-note">基于WHO数据、各国中医诊所访谈、消费行为调研综合绘制</div>
+    <div class="chart-box"><canvas id="chart-persona"></canvas></div>
+  </div>
+
+  <h4>6.1 客户画像一:海外华人(基本盘)</h4>
+  <div class="info-box info">
+    <strong>画像:</strong>全球华侨华人超6000万,主要集中在美国(540万)、东南亚(约3500万)、加拿大、澳大利亚、新西兰、日本、韩国。特征是文化认同强、对中医信任度高、客单价中等、复购稳定。
+    <br><br>
+    <strong>痛点:</strong>对中成药品质有要求、对国内品牌有认知、但海外可获得渠道少且价格高。
+    <br><br>
+    <strong>客单价:</strong>$50-$300/次(诊费+药费);年消费$500-$3000。
+    <br><br>
+    <strong>代表需求:</strong>慢性病调理(月经不调/失眠/肠胃)、亚健康调理、产后恢复、儿童增高、老人养生。
+  </div>
+
+  <h4>6.2 客户画像二:西方主流高端保健人群</h4>
+  <div class="info-box success">
+    <strong>画像:</strong>40-65岁高净值人群、女性为主、受过高等教育,关注预防医学、自然疗法、抗衰老、慢性疼痛管理。
+    <br><br>
+    <strong>典型场景:</strong>硅谷科技高管、好莱坞明星(拔罐)、欧美中产慢性疼痛患者(腰颈椎/偏头痛/纤维肌痛)、女性生育力调理、运动员(菲尔普斯效应)。
+    <br><br>
+    <strong>客单价:</strong>$80-$500/次(诊费+针灸);年消费$2000-$15000。
+    <br><br>
+    <strong>获客渠道:</strong>口碑推荐、名人示范、Yelp/Google评价、TikTok内容种草、瑜伽/Pilots/Wellness社群。
+  </div>
+
+  <h4>6.3 客户画像三:政府/医院采购(B端)</h4>
+  <div class="info-box warn">
+    <strong>画像:</strong>"一带一路"沿线国家政府、当地医院、军队医疗体系、援外医疗队合作。
+    <br><br>
+    <strong>典型案例:</strong>
+    <ul>
+      <li>智利:针灸纳入国家公共健康体系和监管框架</li>
+      <li>古巴:针灸、草药、艾灸在各级医疗机构广泛应用</li>
+      <li>巴基斯坦:与中国建立中医药研究中心、草药联合实验室</li>
+      <li>印尼:中国-印尼北苏门答腊药用植物联合保护与创新基地</li>
+      <li>捷克:中医中心针灸纳入当地医保(四川推动)</li>
+      <li>加纳、坦桑尼亚:中医药生产、加工合作</li>
+    </ul>
+    <strong>客单价:</strong>合同制,$100万-$5000万/项目,周期3-10年。
+  </div>
+
+  <h4>6.4 客户画像四:运动员与高强度职业群体</h4>
+  <div class="info-box success">
+    <strong>画像:</strong>职业运动员、特种兵、宇航员、IT高压人群。
+    <br><br>
+    <strong>关键事件:</strong>
+    <ul>
+      <li>2008/2016奥运会:菲尔普斯"拔罐印"引爆全球关注</li>
+      <li>2022神舟十三号:中国航天员首次使用"太空针灸"——便携式穴位电刺激装置</li>
+      <li>中医四诊仪进入中国空间站,实现"望闻问切"太空应用</li>
+      <li>NBA/NFL球员中的针灸、拔罐、理疗师</li>
+    </ul>
+    <strong>商业价值:</strong>品牌背书效应巨大,可撬动全球健康产业的高净值消费决策。
+  </div>
+
+  <h4>6.5 客户画像五:跨境新中产与Z世代</h4>
+  <div class="info-box info">
+    <strong>画像:</strong>18-35岁、跨境电商重度用户、关注颜值经济、心理健康、轻养生。
+    <br><br>
+    <strong>典型需求:</strong>
+    <ul>
+      <li>中式保健品:枸杞原浆、阿胶糕、黑芝麻丸、人参饮、燕窝、即食中药</li>
+      <li>中式美妆:片仔癀珍珠霜、相宜本草、百雀羚、薇诺娜</li>
+      <li>心理健康:中医冥想APP、芳疗、艾灸贴、足浴包</li>
+      <li>医美级:针灸美容、刮痧、拔罐减肥</li>
+    </ul>
+    <strong>获客渠道:</strong>TikTok/小红书/Instagram种草、Amazon/Shopee/Lazada电商、独立站DTC、网红KOL合作。
+    <br><br>
+    <strong>客单价:</strong>$10-$100/单,复购率25-45%。
+  </div>
+
+  <h4>6.6 客户规模与市场分布</h4>
+  <div class="data-table">
+    <table>
+      <thead>
+        <tr><th>客户群体</th><th>全球规模</th><th>主要分布</th><th>客单价</th><th>复购率</th><th>增长动力</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>海外华人</td><td class="num">6000万+</td><td>美/加/澳/东南亚</td><td>中</td><td>高</td><td>移民人口增长</td></tr>
+        <tr><td>西方高端保健</td><td class="num">5000万+(潜在)</td><td>北美/欧洲/澳洲</td><td>高</td><td>中</td><td>抗衰老/预防医学</td></tr>
+        <tr><td>B端政府/医院</td><td class="num">50+国家</td><td>"一带一路"+援外</td><td>极高</td><td>N/A</td><td>政策驱动</td></tr>
+        <tr><td>运动员/特种职业</td><td class="num">百万级</td><td>全球</td><td>高</td><td>中</td><td>名人示范效应</td></tr>
+        <tr><td>Z世代跨境</td><td class="num">2亿+(潜在)</td><td>北美/欧洲/东南亚</td><td>低</td><td>极高</td><td>电商+社媒</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ========== 第七章 ========== -->
+<section class="section" id="s7">
+  <div class="sec-head">
+    <div class="sec-num">07</div>
+    <h2 class="sec-title">中国中医药国际竞争力评估</h2>
+    <span class="sec-subtitle">SWOT ANALYSIS</span>
+  </div>
+
+  <p>本节基于行业专家深度访谈、机构数据交叉分析、政策趋势研判,从<strong>优势、劣势、机会、威胁</strong>四个维度系统评估中国中医药在国际市场的竞争水平。</p>
+
+  <div class="swot">
+    <div class="swot-cell s">
+      <h5>STRENGTHS · 核心优势</h5>
+      <ul>
+        <li><strong>理论体系完整</strong>:5000年历史积淀,《黄帝内经》《伤寒杂病论》等经典完整传承,辨证论治理论体系完整度全球唯一。</li>
+        <li><strong>产业链最全</strong>:从GAP种植到GMP制造到临床服务到文化教育,全产业链覆盖度最高。</li>
+        <li><strong>经典名方资源</strong>:100首古代经典名方目录+大批国家非物质文化遗产。</li>
+        <li><strong>国家品牌力</strong>":中华老字号"同仁堂、片仔癀、东阿阿胶等品牌资产价值超千亿。</li>
+        <li><strong>政策支持力度</strong>:从《中医药法》到"一带一路"到《中药工业高质量发展实施方案(2026-2030)》,顶层设计最完善。</li>
+        <li><strong>人才储备</strong>:全国30+所中医药高等院校、年毕业生超10万;中医执业医师超60万。</li>
+      </ul>
+    </div>
+    <div class="swot-cell w">
+      <h5>WEAKNESSES · 核心劣势</h5>
+      <ul>
+        <li><strong>循证医学证据不足</strong>:复方成分复杂、机制不清,与FDA"单一成分、明确靶点"理念根本冲突;除少数品种(地奥心血康、威麦宁)外,NDA注册几乎为零。</li>
+        <li><strong>标准化滞后</strong>:中药材同名异物、同物异名现象普遍;重金属/农残控制标准与欧盟存在差距。</li>
+        <li><strong>专利布局弱</strong>:海外专利申请量远低于日韩(日本汉方占全球中药专利70%+)。</li>
+        <li><strong>文化转译能力弱</strong>:中医术语翻译"滋阴补肾、活血化瘀"难以被西方理解。</li>
+        <li><strong>研发投入低</strong>:头部药企研发占营收比普遍<5%,国际巨头辉瑞、罗氏均在15-20%。</li>
+        <li><strong>国际化人才匮乏</strong>:既懂中医又懂FDA/EMA的复合型人才稀缺。</li>
+      </ul>
+    </div>
+    <div class="swot-cell o">
+      <h5>OPPORTUNITIES · 战略机会</h5>
+      <ul>
+        <li><strong>WHO ICD-11纳入</strong>:2019年WHO将传统医学纳入ICD-11第26章,赋予中医"国际身份";Module 2将纳入阿育吠陀等。</li>
+        <li><strong>后疫情时代健康消费升级</strong>:全球天然药物、预防医学需求井喷,中医药契合"治未病"理念。</li>
+        <li><strong>老龄化加速</strong>:全球60+人口2025年达10亿,慢性疼痛、痴呆、骨关节疾病正是中医优势病种。</li>
+        <li><strong>一带一路深化</strong>:30个中医药海外中心+16个自贸协定纳入中医药。</li>
+        <li><strong>AI+中医</strong>:固生堂国医AI分身、AI辅助辨证、智能舌诊、远程问诊带来弯道超车机会。</li>
+        <li><strong>资本工具丰富</strong>:港股18A、A股科创板、北交所、SPAC等为中国中药企业提供多元融资渠道。</li>
+        <li><strong>本地化运营成熟</strong>:固生堂新加坡模式已验证"以医带药"路径可复制。</li>
+      </ul>
+    </div>
+    <div class="swot-cell t">
+      <h5>THREATS · 主要威胁</h5>
+      <ul>
+        <li><strong>日韩抢跑</strong>:日本津村占汉方药80%+、汉方在FDA临床领先;韩国韩医以高丽参为核心抢占高端市场。</li>
+        <li><strong>印度阿育吠陀崛起</strong>:Patanjali Ayurved等品牌借助瑜伽文化全球化。</li>
+        <li><strong>欧美本土替代</strong>:Weleda、Schwabe、Nature's Way、Himalaya等本土草本品牌占据主流。</li>
+        <li><strong>贸易保护主义</strong>:欧盟传统草药注册指令(THRD)设置高门槛,美国FDA植物药指南保守。</li>
+        <li><strong>地缘政治风险</strong>:中美贸易摩擦可能波及中药,FDA审查趋严。</li>
+        <li><strong>信任危机</strong>:农残超标、马兜铃酸事件、贴牌乱象等损害行业声誉。</li>
+        <li><strong>国内龙头增长乏力</strong>:同仁堂系2025年集体业绩下滑,资本对中医出海故事信心动摇。</li>
+        <li><strong>汇率与原材料波动</strong>:天然麝香、天然牛黄等贵细药材价格剧烈波动。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h4>7.1 中国中医药国际竞争力的"五个全球第一/唯一"</h4>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-label">理论体系</div>
+      <h4>理论完整性 · 全球唯一</h4>
+      <p>5000年不间断传承、完整的辨证论治体系,是任何其他传统医学(印度阿育吠陀/欧洲顺势疗法)都难以匹敌的。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">产业链</div>
+      <h4>全产业链覆盖度 · 全球第一</h4>
+      <p>从道地药材种植(GAP)、GMP制造、临床服务、文化教育到跨境电商,没有任何国家具备完整产业链。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">政策支持</div>
+      <h4>政策力度 · 全球第一</h4>
+      <p>《中医药法》、"一带一路"、《"十四五"中医药发展规划》、GACP ISO国际标准,顶层设计最系统。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">经典名方</div>
+      <h4>经典名方资源 · 全球第一</h4>
+      <p>《古代经典名方目录》100首+大批国家非遗项目,日本汉方、韩国韩医均源于中国经典。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">临床数据</div>
+      <h4>临床数据量 · 全球第一</h4>
+      <p>中医执业医师60万+、年门诊量超10亿人次,积累的临床数据量远超任何国家。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">劣势</div>
+      <h4>FDA注册 · 几乎为零</h4>
+      <p>中药NDA注册仅2例(威麦宁、Veregen);日本汉方临床进度反超中国;韩国高丽参FDA注册进度领先。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 第八章 ========== -->
+<section class="section" id="s8">
+  <div class="sec-head">
+    <div class="sec-num">08</div>
+    <h2 class="sec-title">商业价值评估与投资机会</h2>
+    <span class="sec-subtitle">COMMERCIAL VALUE & INVESTMENT</span>
+  </div>
+
+  <h4>8.1 商业价值三层评估</h4>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-label">LAYER 1</div>
+      <h4>直接经济价值</h4>
+      <p>全球TCM市场2026年<strong>USD 926.7亿</strong>,2031年达<strong>USD 1310.7亿</strong>;<br>中国中药出口2024年<strong>52.8亿美元</strong>;<br>海外中医诊所诊疗年收入<strong>估算USD 80-150亿</strong>。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">LAYER 2</div>
+      <h4>间接经济价值</h4>
+      <p>中药材种植带动农业产值;<br>制造端GMP工厂就业;<br>跨境电商物流/支付/平台收益;<br>中医教育与培训服务;<br>中医药康养旅游。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">LAYER 3</div>
+      <h4>战略价值</h4>
+      <p>中国软实力输出的核心载体;<br>"一带一路"民心相通的关键工具;<br>中华文化全球化的最重要IP;<br>应对老龄化全球方案的中国贡献。</p>
+    </div>
+  </div>
+
+  <h4>8.2 投资机会:四大黄金赛道</h4>
+
+  <div class="info-box success">
+    <strong>机会一:中医连锁服务全球化(★★★★★)</strong>
+    <p>固生堂新加坡模式已验证,"以医带药"+本地化运营+资本整合是新出海最优路径。预计未来5年,中国头部中医连锁将在新加坡、马来西亚、印尼、泰国、中东、欧洲布局2000+海外门店。</p>
+    <p><strong>代表标的:</strong>固生堂(02273.HK)、同仁堂国药(03613.HK)、和顺堂、圣爱中医馆。</p>
+  </div>
+
+  <div class="info-box info">
+    <strong>机会二:中药大健康跨境电商(★★★★)</strong>
+    <p>中式保健品、医美级中药护肤品、即食中药将率先通过Amazon/TikTok Shop/独立站规模化出海。具备品牌力、产品力、合规力的企业将赢得Z世代跨境消费者。</p>
+    <p><strong>代表标的:</strong>汤臣倍健(300146)、仙乐健康(300791)、东阿阿胶(000423)、片仔癀(600436)、同仁堂健康、云南白药(000538)。</p>
+  </div>
+
+  <div class="info-box warn">
+    <strong>机会三:中药创新药与植物药NDA(★★★★)</strong>
+    <p>虽然壁垒极高,但一旦突破,单产品可撬动数十亿美元市场。复方丹参滴丸(天士力)、威麦宁(华颐药业)、胆宁片(上海和黄)等的FDA临床进展,以及更多经典名方的现代化研究将是未来5-10年最大看点。</p>
+    <p><strong>代表标的:</strong>天士力(600535)、以岭药业(002603)、华颐药业、上海和黄药业、康缘药业(600557)。</p>
+  </div>
+
+  <div class="info-box danger">
+    <strong>机会四:中医药康养+健康旅游(★★★)</strong>
+    <p>"中医康养旅游"将成新蓝海,海南、广西、云南、甘肃等"一带一路"中医药康养目的地,配合中医药海外中心,有望形成"医疗+旅游+文化"复合变现模式。</p>
+    <p><strong>代表方向:</strong>博鳌乐城国际医疗旅游先行区、海南中医药康养、广西-东盟中医药合作、马来西亚-中国中医康养小镇。</p>
+  </div>
+
+  <h4>8.3 估值与回报预期</h4>
+  <div class="data-table">
+    <table>
+      <thead>
+        <tr><th>投资类别</th><th>回报周期</th><th>预期IRR</th><th>风险等级</th><th>适合资本</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>中医连锁海外并购</td><td>3-7年</td><td class="num">20-35%</td><td>中</td><td>产业资本/PE</td></tr>
+        <tr><td>中药保健品跨境DTC</td><td>1-3年</td><td class="num">30-50%</td><td>中</td><td>VC/PE/产业</td></tr>
+        <tr><td>中药创新药NDA</td><td>8-12年</td><td class="num">15-25%(成功后)</td><td>极高</td><td>耐心资本/产业</td></tr>
+        <tr><td>中药材GAP基地</td><td>5-10年</td><td class="num">10-18%</td><td>中</td><td>产业资本/政府基金</td></tr>
+        <tr><td>中医教育与文化IP</td><td>5-15年</td><td class="num">社会回报为主</td><td>高</td><td>政府/基金会</td></tr>
+        <tr><td>中医AI与数字化</td><td>2-5年</td><td class="num">40-80%</td><td>中</td><td>VC/PE</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ========== 第九章 ========== -->
+<section class="section" id="s9">
+  <div class="sec-head">
+    <div class="sec-num">09</div>
+    <h2 class="sec-title">未来展望:2030 路线图</h2>
+    <span class="sec-subtitle">FUTURE OUTLOOK</span>
+  </div>
+
+  <h4>9.1 2030 关键里程碑预测</h4>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">2026 · 政策落地年</div>
+      <div class="tl-event">《中药工业高质量发展实施方案(2026-2030)》全面实施;GACP ISO国际标准发布;30个中医药海外中心全面运营。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2027 · 标准化突破年</div>
+      <div class="tl-event">50项中医药国际标准颁布;10个中医药文化海外传播品牌项目落地;中药NDA在FDA/EMA预计新增2-3个获批品种。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2028 · 数字化拐点年</div>
+      <div class="tl-event">AI中医辅助诊断在5+国家获监管认可;中医远程问诊市场规模破USD 50亿;跨境电商中药保健品种植规模破千亿。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2029 · 全球化深耕年</div>
+      <div class="tl-event">中国头部中医连锁海外门店预计突破2000家;中医孔子学院数量预计达100所;WHO ICD-11 Module 2(阿育吠陀)发布。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2030 · 产业深水区</div>
+      <div class="tl-event">全球TCM市场规模预计达<strong>USD 1300亿+</strong>;中国中药类商品出口预计恢复增长至<strong>USD 80亿+</strong>;中医药成为全球预防医学体系的重要组成部分。</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2035 · 主流医学融合</div>
+      <div class="tl-event">中医药融入更多共建"一带一路"国家主流医学体系;50+国家将中医药纳入医保;国际传统医学领域话语权显著提升。</div>
+    </div>
+  </div>
+
+  <h4>9.2 五大趋势预测</h4>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-label">TREND 1</div>
+      <h4>从"贸易出海"到"生态出海"</h4>
+      <p>未来赢家不是卖产品最多的人,而是构建"理论+人才+产品+文化"生态最深的人。固生堂、同仁堂国药、复宏汉霖等已显现端倪。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">TREND 2</div>
+      <h4>从"华人市场"到"主流市场"</h4>
+      <p>30万海外中医诊所中,非华人占比将从当前约30%提升至2030年的60%+;白人主流消费者将成为新增量核心来源。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">TREND 3</div>
+      <h4>从"原料出口"到"复方制剂出海"</h4>
+      <p>中成药出口占比从<10%提升至30%+;FDA/EMA/THRD注册路径打通后,真正的临床级复方中成药将批量进入欧美市场。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">TREND 4</div>
+      <h4>从"老字号"到"新势力"</h4>
+      <p>固生堂、汤臣倍健、复宏汉霖、东阿阿胶健康线等将成为新一代出海标杆;传统老字号需要改革才能保持竞争力(同仁堂2025年业绩下滑已是警示)。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">TREND 5</div>
+      <h4>从"政府推动"到"市场驱动"</h4>
+      <p>未来5-10年,真正的赢家将由市场选择而非政府指定;竞争将围绕客户体验、产品力、品牌力展开,而非政策资源。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">TREND 6</div>
+      <h4>从"线下"到"线上+线下融合"</h4>
+      <p>中医远程问诊、AI辅助辨证、智能舌诊、舌象图像识别等技术将打破中医"必须把脉"的传统边界,带来规模化出海新机会。</p>
+    </div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">图9-1 中医出海市场未来5年预测 · 2026-2030</div>
+    <div class="chart-note">基于Mordor Intelligence CAGR 7.18%与固生堂等同仁堂系实际增速综合推算</div>
+    <div class="chart-box"><canvas id="chart-future"></canvas></div>
+  </div>
+</section>
+
+<!-- ========== 第十章 ========== -->
+<section class="section" id="s10">
+  <div class="sec-head">
+    <div class="sec-num">10</div>
+    <h2 class="sec-title">战略建议与风险提示</h2>
+    <span class="sec-subtitle">RECOMMENDATIONS & RISKS</span>
+  </div>
+
+  <h4>10.1 给中国头部中药企业的战略建议</h4>
+  <div class="info-box success">
+    <strong>1. 抛弃"保健品出海"路径依赖</strong>
+    <p>中国中药出口长期停留在植物提取物、原料、保健品层面,这等同于把微笑曲线的低附加值环节让出去。必须向FDA植物药NDA、欧盟THRD等"药品身份"路径发起冲击。</p>
+  </div>
+  <div class="info-box info">
+    <strong>2. 借鉴津村模式,加大循证医学投入</strong>
+    <p>日本津村药业投入20%+营收用于科研,与哈佛医学院等顶级机构合作,是中国中药企业未来5-10年最该补的课。复方丹参滴丸FDA临床做了20年仍未完成,需要更系统的顶层设计。</p>
+  </div>
+  <div class="info-box warn">
+    <strong>3. "以医带药"是当下最优解</strong>
+    <p>固生堂新加坡模式已经验证:诊所+医师+医保对接+中成药销售的闭环,可在3年内实现规模化盈利。建议有资源的中药企业优先与连锁诊所深度绑定,而非自建渠道。</p>
+  </div>
+  <div class="info-box success">
+    <strong>4. AI+中医是弯道超车机会</strong>
+    <p>中国在AI、互联网医疗上的领先优势可与中医结合,打造"全球可复制的数字化中医方案"。固生堂国医AI分身、AI辅助辨证、智能舌诊是值得重点关注的方向。</p>
+  </div>
+  <div class="info-box info">
+    <strong>5. 本地化是必修课</strong>
+    <p>同仁堂坚持"入乡随俗"30年才实现160+门店;片仔癀用"奢侈品牌"打法;固生堂用"中西医融合"路线——单一复制中国模式必死,深度本地化才能活。</p>
+  </div>
+
+  <h4>10.2 给投资机构的建议</h4>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-label">机会</div>
+      <h4>中医连锁服务出海</h4>
+      <p>未来5年最确定的赛道,固生堂模式可复制性强,PE/产业资本重点关注。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">机会</div>
+      <h4>中药DTC跨境品牌</h4>
+      <p>Z世代+颜值经济+电商红利,TikTok Shop、独立站品牌存在"小而美"机会。</p>
+    </div>
+    <div class="card">
+      <div class="card-label">机会</div>
+      <h4>中医AI与SaaS</h4>
+      <p>AI辅助辨证、舌诊、智能针灸机器人、医生培训SaaS是高估值潜力赛道。</p>
+    </div>
+  </div>
+
+  <h4>10.3 主要风险与应对</h4>
+  <div class="data-table">
+    <table>
+      <thead>
+        <tr><th>风险类别</th><th>具体风险</th><th>应对策略</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>政策风险</td><td>FDA/EMA审查趋严、地缘政治</td><td>多市场分散、本地化运营、合资架构</td></tr>
+        <tr><td>合规风险</td><td>中药身份界定、农残超标、夸大宣传</td><td>GAP/GMP全链条、可追溯体系、合规培训</td></tr>
+        <tr><td>文化风险</td><td>中医术语转译失败、负面舆论</td><td>跨文化团队、本地KOL、循证证据</td></tr>
+        <tr><td>供应链风险</td><td>贵细药材稀缺、汇率波动</td><td>海外GAP基地、多元采购、套期保值</td></tr>
+        <tr><td>竞争风险</td><td>日韩抢跑、印度阿育吠陀、欧美本土替代</td><td>差异化产品、技术专利、品牌IP</td></tr>
+        <tr><td>资本风险</td><td>同仁堂式业绩下滑、估值回调</td><td>耐心资本、长期主义、组合投资</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>10.4 决策框架:谁适合进入这个赛道?</h4>
+  <blockquote>
+    "中医出海不是所有玩家都能赢的赛道。它需要至少5-10年的耐心资本、跨文化整合能力、本地化运营经验、循证医学投入。对于缺乏这些能力的企业,做产品出口商或品牌经销商比直接出海更现实。"
+    <cite>—— 本研究结论</cite>
+  </blockquote>
+
+  <div class="grid-3">
+    <div class="card" style="border-top:4px solid var(--accent)">
+      <div class="card-label">适合进入</div>
+      <h4>三类玩家最适合</h4>
+      <p>①已具备国内连锁规模的中医服务集团 ②具备GMP+FDA双重能力的头部中药企业 ③具备跨境电商运营经验的保健品/消费品集团</p>
+    </div>
+    <div class="card" style="border-top:4px solid var(--gold)">
+      <div class="card-label">谨慎进入</div>
+      <h4>三类玩家需要谨慎</h4>
+      <p>①缺乏海外团队的纯国内中药企业 ②缺乏循证医学能力的传统老字号 ③缺乏耐心资本的短期投资机构</p>
+    </div>
+    <div class="card" style="border-top:4px solid #C04848">
+      <div class="card-label">不建议进入</div>
+      <h4>两类玩家不建议</h4>
+      <p>①无任何国际化经验的纯中医诊所 ②仅做原料药材出口、缺乏品牌力的贸易商</p>
+    </div>
+  </div>
+
+  <h4>10.5 终极结论:中医出海不是风口,而是时代的必然</h4>
+  <p>中医出海不是简单的"商业机会",而是<strong>中国应对全球老龄化、贡献预防医学方案、输出文化软实力的战略级命题</strong>。它需要<strong>耐心资本、长期主义、系统能力</strong>——这恰恰是当前浮躁的资本市场最稀缺的资源。</p>
+
+  <p>展望2030年,中医出海将呈现"5+3"格局——5家头部综合龙头(同仁堂国药/固生堂/广药/以岭/片仔癀)+3类特色玩家(海外本土龙头如TCMzone、跨境新势力如仙乐健康、中医AI创新者)。届时全球TCM市场将突破<strong>USD 1300亿</strong>,中国有望成为全球传统医学产业的<strong>"规则制定者"</strong>而非"产品输出方"。</p>
+
+  <div class="info-box success">
+    <strong>给所有读者的最后一句话:</strong>中医出海不是一个赛道,而是一个时代。它不是2026年的风口,而是2026-2035年最确定的长坡厚雪。理解它的人会获得超额回报,错过它的人将见证中国在传统医学领域从"原料供应方"蜕变为"标准制定者"的历史进程。
+  </div>
+</section>
+
+<!-- 数据来源与方法论 -->
+<section class="section">
+  <div class="sec-head">
+    <div class="sec-num">A</div>
+    <h2 class="sec-title">数据来源与方法论</h2>
+    <span class="sec-subtitle">METHODOLOGY</span>
+  </div>
+  <h4>主要数据来源</h4>
+  <ul style="margin-left:25px;color:var(--ink-2);line-height:1.9">
+    <li>Mordor Intelligence《Traditional Chinese Medicine Market Growth Report 2031》</li>
+    <li>Market Research Future《Traditional Chinese Medicine Market Size Report 2035》</li>
+    <li>Persistence Market Research《Traditional Chinese Medicine Market 2026-2033》</li>
+    <li>Coherent Market Insights《Traditional Medicine Market 2025-2032》</li>
+    <li>WHO《Global Traditional Medicine Strategy 2025-2034》、ICD-11 第26章</li>
+    <li>中国海关总署、中国医药保健品进出口商会《2025年我国中药材进出口分析》</li>
+    <li>国家中医药管理局、商务部、推进"一带一路"建设工作领导小组办公室公开数据</li>
+    <li>同仁堂国药(03613.HK)2024年报、2025年报、2026年中报</li>
+    <li>固生堂(02273.HK)公开公告与官方新闻</li>
+    <li>新华网、人民日报、瞭望、证券时报、人民网、中国食品药品网、医馆界、医药出海通等专业媒体深度报道</li>
+    <li>TCMzone、Spring Wind Herbs 等北美分销商官网及商务合作披露</li>
+  </ul>
+
+  <h4>研究方法</h4>
+  <p>本报告综合运用桌面研究(Desk Research)、二手数据分析、行业专家访谈、上市公司财报分析、政策文件解读、竞争格局模型等多种方法,对中医出海赛道进行系统化梳理。受研究边界限制,部分细分数据(如海外中医诊所诊疗收入估算)为基于多源数据的合理推算,实际数字可能存在偏差,建议读者结合具体场景进一步验证。</p>
+
+  <h4>免责声明</h4>
+  <p>本报告仅作为行业研究参考,不构成任何投资建议、法律建议或医疗建议。投资决策需结合具体场景和最新信息。报告引用的数据来自公开渠道,部分信息可能存在时效性问题。读者应自行判断信息准确性并独立做出决策。</p>
+</section>
+
+</div>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div><strong>中医出海服务赛道全景研究报告</strong> · 2026 Q3</div>
+  <div style="margin-top:8px">REPORT ID: TCM-OCEAN-2026-Q3 · VERSION 1.0</div>
+  <div style="margin-top:8px">© 2026 · 上海张小强企业咨询事务所 www.zxqconsulting.com 公众号/视频号：张小强出海 · 微信号：3740977</div>
+</footer>
+
+<script>
+/* ============ Chart 1: Market Size ============ */
+new Chart(document.getElementById('chart-market'), {
+  type:'bar',
+  data:{
+    labels:['2024','2025','2026','2028','2031','2033','2035'],
+    datasets:[
+      {label:'Mordor Intelligence(USD亿)',data:[780,864.6,926.7,1100,1310.7,1380,1450],backgroundColor:'rgba(139,0,0,0.85)',borderColor:'#8B0000',borderWidth:1},
+      {label:'Persistence Market Research(USD亿)',data:[320,338,354,425,490,518,540],backgroundColor:'rgba(46,90,62,0.85)',borderColor:'#2E5A3E',borderWidth:1},
+      {label:'Market Research Future(USD亿)',data:[547.8,567,595,680,750,780,800.6],backgroundColor:'rgba(201,169,97,0.85)',borderColor:'#C9A961',borderWidth:1}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{font:{size:11}}}},
+    scales:{y:{beginAtZero:true,title:{display:true,text:'USD Billion',font:{size:11}}},x:{ticks:{font:{size:11}}}}}
+});
+
+/* ============ Chart 2: Region ============ */
+new Chart(document.getElementById('chart-region'), {
+  type:'doughnut',
+  data:{
+    labels:['亚太','北美','欧洲','中东与非洲','拉美'],
+    datasets:[{
+      data:[64,18,10,5,3],
+      backgroundColor:['#8B0000','#C04848','#C9A961','#2E5A3E','#3A6B8E'],
+      borderWidth:2,borderColor:'#fff'
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'right',labels:{font:{size:12}}},tooltip:{callbacks:{label:c=>c.label+': '+c.parsed+'%'}}}
+  }
+});
+
+/* ============ Chart 3: Export Structure ============ */
+new Chart(document.getElementById('chart-export'), {
+  type:'pie',
+  data:{
+    labels:['植物提取物(50%+)','中药材饮片(35%)','中成药(<10%)','保健品(其它)'],
+    datasets:[{
+      data:[52,35,8,5],
+      backgroundColor:['#8B0000','#C9A961','#2E5A3E','#999'],
+      borderWidth:2,borderColor:'#fff'
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{font:{size:11}}}}
+  }
+});
+
+/* ============ Chart 4: Quadrant (Bubble) ============ */
+new Chart(document.getElementById('chart-quadrant'), {
+  type:'bubble',
+  data:{
+    datasets:[
+      {label:'国有老字号',data:[{x:75,y:80,r:25,name:'同仁堂国药'},{x:70,y:75,r:22,name:'片仔癀'},{x:60,y:65,r:20,name:'广药白云山'},{x:55,y:60,r:18,name:'华润医药'}],backgroundColor:'rgba(139,0,0,0.7)'},
+      {label:'民营连锁服务',data:[{x:85,y:70,r:18,name:'固生堂'},{x:65,y:55,r:15,name:'和顺堂'},{x:60,y:50,r:12,name:'圣爱'}],backgroundColor:'rgba(46,90,62,0.7)'},
+      {label:'海外本土',data:[{x:80,y:85,r:20,name:'Tsumura-日本'},{x:75,y:70,r:18,name:'TCMzone-美国'},{x:65,y:65,r:15,name:'Spring Wind'},{x:55,y:60,r:12,name:'Himalaya'}],backgroundColor:'rgba(58,107,142,0.7)'},
+      {label:'跨境新势力',data:[{x:70,y:75,r:15,name:'汤臣倍健'},{x:65,y:70,r:14,name:'仙乐健康'},{x:60,y:65,r:12,name:'复宏汉霖'},{x:55,y:60,r:10,name:'WonderLab'}],backgroundColor:'rgba(201,169,97,0.8)'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{font:{size:11}}}},
+    scales:{
+      x:{title:{display:true,text:'海外营收占比',font:{size:12}},min:0,max:100},
+      y:{title:{display:true,text:'品牌力/综合实力',font:{size:12}},min:0,max:100}
+    }
+  }
+});
+
+/* ============ Chart 5: Value Chain ============ */
+new Chart(document.getElementById('chart-chain'), {
+  type:'bar',
+  data:{
+    labels:['上游:药材GAP种植','中游:中成药GMP制造','中游:质量检测','下游:分销流通','下游:诊所终端','下游:跨境电商','支付:医保/自费'],
+    datasets:[{
+      label:'关键卡点强度(0-10)',
+      data:[6,9,7,8,4,5,8],
+      backgroundColor:['#C9A961','#8B0000','#C04848','#8B0000','#2E5A3E','#3A6B8E','#8B0000']
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,indexAxis:'y',
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'卡点强度: '+c.parsed.x+'/10'}}},
+    scales:{x:{beginAtZero:true,max:10,title:{display:true,text:'卡点强度',font:{size:12}}},y:{ticks:{font:{size:11}}}}
+  }
+});
+
+/* ============ Chart 6: Persona Radar ============ */
+new Chart(document.getElementById('chart-persona'), {
+  type:'radar',
+  data:{
+    labels:['规模','客单价','复购率','获客难度','毛利空间','文化门槛'],
+    datasets:[
+      {label:'海外华人',data:[80,50,75,30,55,20],backgroundColor:'rgba(139,0,0,0.2)',borderColor:'#8B0000'},
+      {label:'西方高端保健',data:[40,85,65,70,80,90],backgroundColor:'rgba(46,90,62,0.2)',borderColor:'#2E5A3E'},
+      {label:'B端政府医院',data:[20,90,85,90,40,60],backgroundColor:'rgba(58,107,142,0.2)',borderColor:'#3A6B8E'},
+      {label:'运动员职业',data:[10,90,70,80,75,50],backgroundColor:'rgba(201,169,97,0.3)',borderColor:'#C9A961'},
+      {label:'Z世代跨境',data:[70,30,80,40,75,30],backgroundColor:'rgba(192,72,72,0.2)',borderColor:'#C04848'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{font:{size:11}}}},
+    scales:{r:{beginAtZero:true,max:100,ticks:{stepSize:25}}}
+  }
+});
+
+/* ============ Chart 7: Future ============ */
+new Chart(document.getElementById('chart-future'), {
+  type:'line',
+  data:{
+    labels:['2026','2027','2028','2029','2030'],
+    datasets:[
+      {label:'全球TCM市场(USD亿)',data:[926.7,993,1063,1137,1215],borderColor:'#8B0000',backgroundColor:'rgba(139,0,0,0.1)',fill:true,tension:0.3},
+      {label:'中药类出口(USD亿)',data:[52.8,55,60,68,80],borderColor:'#2E5A3E',backgroundColor:'rgba(46,90,62,0.1)',fill:true,tension:0.3},
+      {label:'海外中医连锁营收(USD亿)',data:[120,150,190,240,300],borderColor:'#C9A961',backgroundColor:'rgba(201,169,97,0.1)',fill:true,tension:0.3}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{font:{size:11}}}},
+    scales:{y:{beginAtZero:true},x:{ticks:{font:{size:11}}}}
+  }
+});
+</script>
+
+</body>
+</html>
