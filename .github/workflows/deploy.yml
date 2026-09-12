@@ -29,6 +29,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Bundle sanity check
+        run: node scripts/verify-bundle.mjs
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -36,6 +39,8 @@ jobs:
           publish_dir: ./dist
 
       - name: Deploy to Cloudflare Pages
+        if: ${{ always() }}
+        continue-on-error: true
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
