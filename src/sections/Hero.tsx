@@ -169,7 +169,8 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 pt-14 pb-10 md:pt-20 md:pb-16">
         <div className="mx-auto max-w-[1440px]">
           {/* ========== 上:三列结构(文案 + 吉祥物 + 漏斗) ========== */}
-          <div className="grid gap-8 lg:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,340px)_minmax(0,440px)] items-center">
+          {/* 响应:<lg 单列堆叠,lg-xl 两列(文 + 漏斗),xl+ 三列(中间插入吉祥物) */}
+          <div className="grid gap-10 lg:gap-8 lg:grid-cols-2 xl:grid-cols-[minmax(0,1fr)_360px_minmax(0,440px)] items-center">
             {/* ============ 左:文案主轴 ============ */}
             <div>
               {/* 顶部 tag */}
@@ -239,8 +240,8 @@ const Hero = () => {
             </div>
 
             {/* ============ 中:羊驼吉祥物 ============ */}
-            <div className="hidden lg:flex justify-center animate-float-slow">
-              <div className="relative w-full max-w-[320px] rounded-3xl bg-gradient-to-br from-[#0a1612] via-[#0d1f1a] to-[#11281f] border border-amber-400/35 shadow-[0_25px_60px_-20px_rgba(252,211,77,0.35)] overflow-hidden">
+            <div className="hidden xl:flex justify-center animate-float-slow">
+              <div className="relative w-full max-w-[360px] rounded-3xl bg-gradient-to-br from-[#0a1612] via-[#0d1f1a] to-[#11281f] border border-amber-400/35 shadow-[0_25px_60px_-20px_rgba(252,211,77,0.35)] overflow-hidden">
                 {/* 顶部装饰条 */}
                 <div className="flex items-center justify-between px-3.5 pt-3">
                   <div className="flex items-center gap-1.5">
