@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import { tracking } from '../lib/tracking';
 import { InteractiveAvatar } from '@/components/InteractiveAvatar';
+import { FunnelAlgorithm } from './FunnelAlgorithm';
 
 interface FunnelStage {
   key: string;
@@ -325,52 +326,8 @@ const Hero = () => {
                     </h3>
                   </div>
 
-                  {/* 漏斗 4 阶 */}
-                  <div className="space-y-3">
-                    {funnelStages.map((stage) => (
-                      <div
-                        key={stage.key}
-                        className={`relative rounded-xl border bg-white/[0.03] p-3 transition-all ${stage.ringClass}`}
-                      >
-                        {/* 顶部:数字 + 标签 */}
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-2">
-                            <span
-                              className={`flex h-6 w-6 items-center justify-center rounded-md border bg-white/[0.04] ${stage.ringClass} ${stage.accent}`}
-                            >
-                              {stage.icon}
-                            </span>
-                            <span className="text-sm font-medium text-white">
-                              {stage.stageLabel}
-                            </span>
-                          </div>
-                          <div className="flex items-baseline gap-1">
-                            <span
-                              className={`funnel-counter-${stage.key} text-base font-bold tabular-nums ${stage.accent}`}
-                            >
-                              0
-                            </span>
-                            <span className={`text-xs ${stage.accent}`}>
-                              {stage.countLabel}
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* 进度条 */}
-                        <div className="relative h-2 w-full rounded-full bg-white/[0.05] overflow-hidden">
-                          <div
-                            className={`funnel-bar funnel-bar-${stage.key} h-full rounded-full ${stage.barClass} transition-all`}
-                            style={{ width: '0%' }}
-                          />
-                        </div>
-
-                        {/* 底部:辅助描述 */}
-                        <div className="mt-1.5 text-[10px] text-amber-50/60">
-                          {stage.desc}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  {/* 算法漏斗 4 阶 — 注解版,bar 下方带 breakdown chips */}
+                  <FunnelAlgorithm />
 
                   {/* 底部签名条 */}
                   <div className="mt-5 pt-4 border-t border-amber-400/15 flex items-center justify-between">
