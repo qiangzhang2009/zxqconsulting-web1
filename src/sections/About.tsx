@@ -123,7 +123,85 @@ const About = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-6">
-        {/* 顶部:我们是谁 */}
+        {/* 顶部:品牌金句 + 创始人独白(品牌起源故事) */}
+        <div className="mx-auto max-w-3xl text-center mb-14 about-header">
+          {/* 品牌金句 — 朱砂线 + 小字 */}
+          <div className="inline-flex items-center gap-3 mb-7">
+            <span className="h-px w-10 bg-[#C2473B]" />
+            <span
+              className="text-[12px] font-bold uppercase tracking-[0.28em] text-[#C2473B]"
+              style={{ fontFamily: 'var(--font-serif)' }}
+            >
+              一脉岐黄 · 四海安康
+            </span>
+            <span className="h-px w-10 bg-[#C2473B]" />
+          </div>
+        </div>
+
+        {/* 创始人独白 / 品牌起源 — 200 字 */}
+        <div className="mx-auto max-w-3xl mb-10 about-header">
+          <div className="rounded-3xl border border-[#2F5D57]/15 bg-[#FAF8F3] p-8 md:p-12 shadow-sm">
+            <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#C2473B] mb-4">
+              为什么做岐黄四海
+            </div>
+            <p className="text-lg md:text-xl leading-[1.95] text-[#1B2520] font-medium mb-5" style={{ fontFamily: 'var(--font-serif)' }}>
+              我们看过一家中药老字号,把 800 万扔进日本市场,两年颗粒无收。
+            </p>
+            <p className="text-lg md:text-xl leading-[1.95] text-[#1B2520] font-medium mb-5" style={{ fontFamily: 'var(--font-serif)' }}>
+              我们也陪过另一个老字号,7 天找到 32 家日本合伙人,3 家签 MOU,稳定出货 14 个月。
+            </p>
+            <p className="text-base leading-[1.9] text-[#3a4540]">
+              差别不在资源,在路径。<br />
+              这就是我们做岐黄四海的原因。<span className="text-[#C2473B]">让每一家想出海的中医药品牌,都拿到一份敢交给董事会的判断书。</span>
+            </p>
+          </div>
+        </div>
+
+        {/* 主理人说卡 — v2 PRD:独白下方的第一人称锚点 */}
+        <div className="mx-auto max-w-3xl mb-20 about-header">
+          <div className="relative rounded-2xl border border-[#C2473B]/25 bg-gradient-to-br from-white via-[#FAF8F3] to-[#F5F0E8] p-6 md:p-8 shadow-md">
+            {/* 大引号装饰 */}
+            <div
+              className="absolute -top-3 left-6 flex h-7 w-7 items-center justify-center rounded-full bg-[#C2473B] text-white text-lg font-serif shadow-md"
+              aria-hidden
+            >
+              「
+            </div>
+
+            <div className="flex items-start gap-4 md:gap-5">
+              {/* 主理人头像占位(后期替换为实拍照片) */}
+              <div className="shrink-0">
+                <div
+                  className="h-14 w-14 md:h-16 md:w-16 rounded-full bg-gradient-to-br from-[#2F5D57] via-[#1B2520] to-[#0a1612] flex items-center justify-center text-white text-xl md:text-2xl font-semibold shadow-md border-2 border-[#FAF8F3]"
+                  aria-label="主理人头像占位"
+                >
+                  张
+                </div>
+                <div className="mt-1.5 text-center text-[9px] font-bold uppercase tracking-widest text-[#C2473B]">
+                  主理人
+                </div>
+              </div>
+
+              {/* 引言主体 */}
+              <div className="flex-1 min-w-0">
+                <p
+                  className="text-base md:text-lg leading-[1.85] text-[#1B2520] font-medium mb-3"
+                  style={{ fontFamily: 'var(--font-serif)' }}
+                >
+                  我们做这件事,不是要给行业多一个选择,而是要让每一个想出海的中医药人,<span className="text-[#C2473B]">都敢迈出下一步。</span>
+                </p>
+                <div className="flex items-center gap-2 text-sm text-[#5b6661]">
+                  <span className="h-px w-6 bg-[#2F5D57]/30" />
+                  <span className="font-medium text-[#1B2520]">张小强</span>
+                  <span className="text-[#C2473B]">·</span>
+                  <span>岐黄四海 主理人</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 我们是谁 — 双栏 */}
         <div className="grid gap-12 lg:grid-cols-2 items-start mb-20">
           {/* 左侧:引言 */}
           <div className="about-header">
@@ -210,7 +288,7 @@ const About = () => {
             ].map((item) => (
               <div
                 key={item.title}
-                className="rounded-xl border border-[#2F5D57]/15 bg-[#FAF8F3] p-6 text-center"
+                className="rounded-xl border border-[#2F5D57]/15 bg-[#FAF8F3] p-6 text-center hover:border-[#C2473B]/30 hover:shadow-md transition-all duration-300"
               >
                 <h4 className="text-lg font-semibold text-[#1B2520] mb-2">{item.title}</h4>
                 <p className="text-sm text-[#5b6661] mb-4">{item.desc}</p>
@@ -223,15 +301,15 @@ const About = () => {
           </div>
         </div>
 
-        {/* CTA */}
+        {/* CTA 三层分级 */}
         <div className="mt-16 text-center about-header">
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
             <Link
               to="/diagnose"
               className="inline-flex items-center gap-3 rounded-2xl bg-[#C2473B] hover:bg-[#A93B30] px-7 py-4 text-base font-semibold text-white shadow-[0_10px_30px_rgba(194,71,59,0.25)] transition-all hover:-translate-y-0.5"
             >
               <Users className="h-5 w-5" />
-              开始智能诊断
+              开始 7 天陪跑
               <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
@@ -239,7 +317,16 @@ const About = () => {
               className="inline-flex items-center gap-3 rounded-2xl border-2 border-[#2F5D57] bg-white px-7 py-4 text-base font-semibold text-[#2F5D57] transition-all hover:bg-[#2F5D57] hover:text-white hover:-translate-y-0.5"
             >
               <Globe2 className="h-5 w-5" />
-              预约顾问咨询
+              看 32 个真实陪跑档案
+            </Link>
+            {/* Tertiary — 订阅《出海判断周报》 */}
+            <Link
+              to="/research"
+              className="group inline-flex items-center gap-2 rounded-xl border border-[#2F5D57]/20 bg-white/60 px-4 py-3 text-sm font-medium text-[#2F5D57] transition-all hover:bg-white hover:border-[#C2473B]/40 hover:text-[#C2473B]"
+            >
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#C2473B] group-hover:animate-pulse" />
+              订阅《出海判断周报》
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>

@@ -49,12 +49,12 @@ const Services = () => {
     {
       step: '壹',
       icon: <Bot className="h-7 w-7" />,
-      title: '智能诊断',
-      titleEn: 'AI Diagnosis',
-      description: '通过 AI 诊断引擎,快速分析您的产品特点、市场定位和资源禀赋,形成初步出海判断。',
+      title: '先帮你看清',
+      titleEn: 'See Clearly First',
+      description: 'AI 诊断引擎先把你的项目、品类、市场选项结构化 — 先回答"该不该走",再讨论"怎么走"。',
       deliverables: [
-        '35 国市场优先级评估 (A/B/C/D 四档)',
-        '产品合规性初步评估',
+        '35 国市场优先级排序(A/B/C/D 四档)',
+        '产品合规性前置评估',
         '预算与时间线建议',
         '主要风险点识别',
       ],
@@ -62,9 +62,9 @@ const Services = () => {
     {
       step: '贰',
       icon: <Search className="h-7 w-7" />,
-      title: '资源发现',
-      titleEn: 'Resource Discovery',
-      description: '用专属订制算法精准发现:下游客户、上游供应商、投资金主和竞争对手。',
+      title: '再看清楚谁会陪你',
+      titleEn: 'See Who Walks With You',
+      description: '用专属算法精准发现:谁会买、谁会供、谁会投、谁在跟你抢 — 4 类关键资源一次性扫清。',
       deliverables: [
         '目标市场潜在客户名单及画像',
         '优质供应商推荐及评估',
@@ -75,9 +75,9 @@ const Services = () => {
     {
       step: '叁',
       icon: <Handshake className="h-7 w-7" />,
-      title: '顾问陪跑',
-      titleEn: 'Expert Guidance',
-      description: '资深顾问全程陪跑,从诊断到落地,每一步都有真人指导。',
+      title: '然后陪你走到能签',
+      titleEn: 'Walk With You to Signature',
+      description: '资深顾问全程陪跑,从诊断到落地,每一步都有人 — 不止是给一份报告。',
       deliverables: [
         '60-90 分钟深度复盘咨询',
         '合规路径定制方案',
@@ -88,9 +88,9 @@ const Services = () => {
     {
       step: '肆',
       icon: <TrendingUp className="h-7 w-7" />,
-      title: '持续支持',
-      titleEn: 'Ongoing Support',
-      description: '出海后持续跟踪,及时调整策略,确保出海之路行稳致远。',
+      title: '最后送你一程',
+      titleEn: 'Hand Off Until It Stands',
+      description: '出海后持续跟踪,直到它自己长起来 — 我们不交付项目,我们交付能力。',
       deliverables: [
         '市场动态定期推送',
         '策略调整建议',
@@ -166,11 +166,12 @@ const Services = () => {
             <span className="font-medium">四步走服务流程</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.15] tracking-tight text-[#1B2520]">
-            从诊断到落地
-            <span className="block text-[#2F5D57] mt-2">全程陪伴每一步</span>
+            陪你的出海,
+            <span className="block text-[#2F5D57] mt-2">从一次判断到一段陪跑</span>
           </h2>
           <p className="mt-6 text-lg leading-[1.8] text-[#5b6661] max-w-2xl mx-auto">
-            算法发现机会,顾问陪跑落地。不是给一份报告就走,而是陪您走完出海的每一步。
+            我们不交付报告 — 我们交付的是:
+            <span className="text-[#C2473B] font-medium">敢拍板的判断、敢走出去的路径、敢托付的陪跑</span>。
           </p>
         </div>
 
@@ -222,13 +223,13 @@ const Services = () => {
 
         {/* CTA 按钮 */}
         <div className="mt-16 text-center service-header">
-          <div className="inline-flex flex-wrap items-center justify-center gap-4">
+          <div className="inline-flex flex-wrap items-center justify-center gap-3 md:gap-4">
             <Link
               to="/diagnose"
               className="inline-flex items-center gap-3 rounded-2xl bg-[#C2473B] hover:bg-[#A93B30] px-7 py-4 text-base font-semibold text-white shadow-[0_10px_30px_rgba(194,71,59,0.25)] transition-all hover:-translate-y-0.5"
             >
               <Sparkles className="h-5 w-5" />
-              开始第一步:智能诊断
+              开始 7 天陪跑
               <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
@@ -236,7 +237,16 @@ const Services = () => {
               className="inline-flex items-center gap-3 rounded-2xl border-2 border-[#2F5D57] bg-white px-7 py-4 text-base font-semibold text-[#2F5D57] transition-all hover:bg-[#2F5D57] hover:text-white hover:-translate-y-0.5"
             >
               <FileBarChart className="h-5 w-5" />
-              了解更多服务详情
+              看 32 个真实陪跑档案
+            </Link>
+            {/* Tertiary — 订阅《出海判断周报》 */}
+            <Link
+              to="/research"
+              className="group inline-flex items-center gap-2 rounded-xl border border-[#2F5D57]/20 bg-white/60 px-4 py-3 text-sm font-medium text-[#2F5D57] transition-all hover:bg-white hover:border-[#C2473B]/40 hover:text-[#C2473B]"
+            >
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#C2473B] group-hover:animate-pulse" />
+              订阅《出海判断周报》
+              <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
           <p className="mt-4 text-sm text-[#5b6661]">

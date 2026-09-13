@@ -9,6 +9,7 @@ import MethodPage from './pages/MethodPage';
 import MarketsPage from './pages/MarketsPage';
 import AdminApp from './apps/admin/AdminApp';
 import DownloadGuidePage from './pages/DownloadGuidePage';
+import NotFoundPage from './pages/NotFoundPage';
 const CaseDetailPage = lazy(() => import('./pages/CaseDetailPage'));
 
 const ResearchHub = lazy(() => import('./pages/ResearchHub'));
@@ -39,7 +40,6 @@ export const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: <Layout />,
-    children: [{ index: true, element: <HomePage /> }],
+    element: <NotFoundPage />,
   },
 ]);

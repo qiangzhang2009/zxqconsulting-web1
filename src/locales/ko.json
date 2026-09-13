@@ -3,7 +3,8 @@
     "name": "한국어",
     "fullName": "Shanghai Zhang Xiaoqiang Enterprise Consulting Firm",
     "tagline": "Your Loyal and Reliable Global Partner",
-    "slogan": "AI-Powered · Resource-Driven · Professional Global Expansion"
+    "slogan": "기황의 한 맥, 사해에 안강을.",
+    "nameEn": "QihuangSihai"
   },
   "nav": {
     "home": "Home",
@@ -226,9 +227,9 @@
     "description": "Real feedback from clients, witnessing our ability to help businesses successfully expand globally",
     "items": {
       "wang": {
-        "quote": "The Zhang Xiaoqiang team helped us successfully enter the Japanese market. Their localized expertise and AI-driven market insights are invaluable. From compliance to operations, their one-stop service made our overseas journey smooth and seamless.",
-        "name": "Wang Xiaoming",
-        "position": "CEO, Medical Device Company"
+        "quote": "해외 진출을 시작하기 전, 우리는 가장 어려운 부분이 컴플라이언스라고 생각했습니다. 하지만 여정을 마친 지금, 가장 어려운 것은 판단이라는 것을 알게 되었습니다. 기황사해는 우리를 빠르게 만들어 준 것이 아니라, 「나아갈 용기」를 주었습니다. 일본에서 3곳과 MOU를 체결했고, 14개월간 안정적으로 출하했습니다. 두 차례의 규제 변화도 그들이 우리보다 먼저 포착했습니다.",
+        "name": "상하이 100년 전통 중성약 제조사 책임자",
+        "position": "일본 진출 · 드럭스토어 · 한방 약국 채널"
       }
     }
   },
