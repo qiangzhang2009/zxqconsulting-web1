@@ -20,7 +20,20 @@ const AVATAR_CONFIGS: Record<string, AvatarConfig> = {
 
 const AVATAR_CHUNK_PATH = '/avatars/synapse-spritesheet-part';
 
-export const InteractiveAvatar = () => {
+interface InteractiveAvatarProps {
+  /** 紧凑模式:隐藏帧号/进度条(用于吉祥物嵌入) */
+  compact?: boolean;
+  /** 加载占位背景色,适配深色容器 */
+  loadingBg?: string;
+  /** 紧凑模式下的可选小标签 */
+  label?: string;
+}
+
+export const InteractiveAvatar = ({
+  compact = false,
+  loadingBg = '#FAF8F3',
+  label,
+}: InteractiveAvatarProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const spritesheetRef = useRef<HTMLImageElement | HTMLCanvasElement | null>(null);
@@ -200,8 +213,16 @@ export const InteractiveAvatar = () => {
     >
       {/* 加载状态 */}
       {!isLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-[#FAF8F3]">
-          <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#2F5D57]/20 border-t-[#2F5D57]" />
+        <div
+          className="absolute inset-0 flex items-center justify-center"
+          style={{ background: loadingBg }}
+        >
+          <div
+            className={`h-8 w-8 animate-spin rounded-full border-2 border-t-current ${
+              compact ? 'border-amber-400/30' : 'border-[#2F5D57]/20'
+            }`}
+            style={{ color: compact ? '#fcd34d' : '#2F5D57' }}
+          />
         </div>
       )}
 
@@ -211,21 +232,39 @@ export const InteractiveAvatar = () => {
         style={{ objectFit: 'contain' }}
       />
 
-      {/* 帧号指示器 */}
-      <div className="absolute top-2 right-2 inline-flex items-center gap-1.5 rounded-full bg-black/40 px-2.5 py-1 text-[10px] font-medium text-white backdrop-blur-sm z-10">
-        <span className="h-1 w-1 rounded-full bg-[#C2473B] animate-ink-pulse" />
-        {Math.round(frameIndexRef.current) + 1}/{config.totalFrames}
-      </div>
+      {/* 紧凑模式:小 live 指示 + 可选标签 */}
+      {compact ? (
+        <>
+          <div className="absolute top-1.5 right-1.5 inline-flex items-center gap-1 rounded-full bg-black/40 px-1.5 py-0.5 backdrop-blur-sm z-10">
+            <span className="h-1 w-1 rounded-full bg-amber-400 animate-ink-pulse" />
+          </div>
+          {label && (
+            <div className="absolute bottom-1.5 left-1.5 right-1.5 text-center z-10">
+              <span className="text-[8px] font-bold uppercase tracking-widest text-amber-200/90">
+                {label}
+              </span>
+            </div>
+          )}
+        </>
+      ) : (
+        <>
+          {/* 帧号指示器 */}
+          <div className="absolute top-2 right-2 inline-flex items-center gap-1.5 rounded-full bg-black/40 px-2.5 py-1 text-[10px] font-medium text-white backdrop-blur-sm z-10">
+            <span className="h-1 w-1 rounded-full bg-[#C2473B] animate-ink-pulse" />
+            {Math.round(frameIndexRef.current) + 1}/{config.totalFrames}
+          </div>
 
-      {/* 底部进度条 */}
-      <div className="absolute bottom-2 left-2 right-2 z-10">
-        <div className="h-1 overflow-hidden rounded-full bg-black/30">
-          <div
-            className="h-full bg-[#C2473B] transition-all duration-100"
-            style={{ width: `${((Math.round(frameIndexRef.current) + 1) / config.totalFrames) * 100}%` }}
-          />
-        </div>
-      </div>
+          {/* 底部进度条 */}
+          <div className="absolute bottom-2 left-2 right-2 z-10">
+            <div className="h-1 overflow-hidden rounded-full bg-black/30">
+              <div
+                className="h-full bg-[#C2473B] transition-all duration-100"
+                style={{ width: `${((Math.round(frameIndexRef.current) + 1) / config.totalFrames) * 100}%` }}
+              />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

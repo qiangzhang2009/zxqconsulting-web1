@@ -21,6 +21,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { tracking } from '../lib/tracking';
+import { InteractiveAvatar } from '@/components/InteractiveAvatar';
 
 interface FunnelStage {
   key: string;
@@ -165,6 +166,30 @@ const Hero = () => {
         />
       </div>
 
+      {/* ========== 吉祥物:驼驼(羊驼)互动动画 ========== */}
+      <div className="absolute top-3 right-3 md:top-6 md:right-6 z-30 hidden md:block pointer-events-auto">
+        <div className="animate-float-slow">
+          <div className="w-32 lg:w-36 rounded-2xl bg-gradient-to-br from-[#0a1612] via-[#0d1f1a] to-[#11281f] border border-amber-400/35 shadow-[0_15px_40px_-10px_rgba(252,211,77,0.35)] overflow-hidden backdrop-blur-sm">
+            <div className="relative aspect-[16/9] cursor-pointer">
+              <InteractiveAvatar compact loadingBg="#0d1f1a" />
+              {/* live 角标 */}
+              <div className="absolute top-1.5 left-1.5 inline-flex items-center gap-1 rounded-full bg-black/50 px-1.5 py-0.5 backdrop-blur-sm z-20">
+                <span className="h-1 w-1 rounded-full bg-amber-400 animate-pulse" />
+                <span className="text-[8px] font-bold uppercase tracking-wider text-amber-200">
+                  LIVE
+                </span>
+              </div>
+            </div>
+            {/* 底部标签 */}
+            <div className="bg-amber-400/[0.08] border-t border-amber-400/25 px-2 py-1.5 text-center">
+              <div className="text-[9px] font-bold uppercase tracking-[0.18em] text-amber-200">
+                AI · 算法小驼驼
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="relative z-10 container mx-auto px-6 pt-14 pb-10 md:pt-20 md:pb-16">
         <div className="mx-auto max-w-[1440px]">
           {/* ========== 上:左右结构(文案 + 漏斗) ========== */}
@@ -172,10 +197,10 @@ const Hero = () => {
             {/* ============ 左:文案主轴 ============ */}
             <div>
               {/* 顶部 tag */}
-              <div className="hero-fade inline-flex items-center gap-2.5 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm text-amber-200 backdrop-blur-md shadow-sm">
+              <div className="hero-fade inline-flex items-center gap-2.5 rounded-full border border-amber-300 bg-amber-50 px-4 py-2 text-sm text-amber-800 shadow-sm">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-70" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-400" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-500 opacity-70" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
                 </span>
                 <Globe2 className="h-3.5 w-3.5" />
                 <span className="font-medium">海外业务 · 算法驱动</span>
