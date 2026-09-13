@@ -3,7 +3,8 @@
     "name": "日本語",
     "fullName": "上海Zhang Xiaoqiangエンタープライズコンサルティングファーム",
     "tagline": "あなたの忠実で信頼できるグローバルパートナー",
-    "slogan": "AI-Powered · Resource-Driven · Professional Global Expansion"
+    "slogan": "岐黄の一脈、四海に安康を。",
+    "nameEn": "QihuangSihai"
   },
   "nav": {
     "home": "ホーム",
@@ -228,9 +229,9 @@
     "description": "お客様からの実際のフィードバック。ビジネスのグローバルな拡大を支援する当社の能力を目の当たりにします",
     "items": {
       "wang": {
-        "quote": "Zhang Xiaoqiangチームは、日本市場への参入を成功させました。ローカライズされた専門知識とAI主導の市場洞察は非常に貴重です。コンプライアンスから運用まで、ワンストップサービスでスムーズでスムーズな海外旅行を実現しました。",
-        "name": "王暁明",
-        "position": "最高経営責任者（ CEO ）、医療機器会社"
+        "quote": "海外に出る前は、コンプライアンスが一番難しいと思っていました。走り終えて分かったのは、本当の難所は「判断」だということです。岐黄四海は私たちを速く走らせたのではなく、「踏み出す勇気」をくれました。日本で 3 社と MOU を締結、14 か月安定出荷。2 回の規制変更も、彼らは私たちより先に察知していました。",
+        "name": "上海の百年中成薬メーカー責任者",
+        "position": "日本進出 · ドラッグストア・漢方薬局チャネル"
       }
     }
   },
@@ -284,7 +285,7 @@
     "quickLinks": "クイックリンク",
     "markets": "市場地域",
     "services": "プロフェッショナルサービス",
-    "copyright": "Copyright 2026 ZXQ Consulting. 無断複写・転載を禁じます。",
+    "copyright": "Copyright 2026 Qihuang Sihai. 無断複写・転載を禁じます。",
     "nav": "ナビゲーション",
     "priorityMarkets": "重点市場",
     "platformCapabilities": "プラットフォーム機能",
@@ -416,7 +417,7 @@
     "subtitle": "グローバル展開インテリジェンスプラットフォーム",
     "titlePart1": "AIで判断する",
     "titlePart2Gradient": "中医製品は海賊版に向かうべきか",
-    "description": "ZXQは、市場の優先順位、エントリーの複雑さ、チャネルの適合性、プロジェクトのリスクを1つのAI意思決定フローに変換するため、TCM、サプリメント、Hanfangスキンケア、ヘルスケア製品チームは、真剣なリソースを確保する前に機会を評価できます。",
+    "description": "Qihuang Sihaiは、市場の優先順位、エントリーの複雑さ、チャネルの適合性、プロジェクトのリスクを1つのAI意思決定フローに変換するため、TCM、サプリメント、Hanfangスキンケア、ヘルスケア製品チームは、真剣なリソースを確保する前に機会を評価できます。",
     "q1": "どの市場が最も先に進むべきですか？",
     "q2": "コンプライアンスと准入はどれほど難しいですか？",
     "q3": "この機会は資金調達に見合いますか？",
@@ -468,7 +469,7 @@
     "nextAction": "次のアクション",
     "nextActionDesc": "Continue self-serve diagnosis and low-cost validation; request deeper expert evaluation once the key assumptions are clearer.",
     "viewExpertEntry": "View expert evaluation entry",
-    "expertReviewTitle": "ZXQ 専門家レビュー",
+    "expertReviewTitle": "Qihuang Sihai 専門家レビュー",
     "expertReviewSection": "Deeper expert evaluation",
     "expertReviewH": "Let the platform complete the first judgment; experts step in for complex projects that need deeper evaluation.",
     "expertReviewDesc": "これは一般的なお問い合わせフォームではありません。これは、より明確な市場仮説、予算範囲、または障害のある問題を抱え、より深い経路判断を必要とするチームを対象としています。",
@@ -579,14 +580,15 @@
     "useCases": "ユースケース",
     "caseProof": "ケース証明",
     "expertUpgrade": "Expert Evaluation",
-    "selectLang": "言語を選択"
+    "selectLang": "言語を選択",
+    "research": "研究ライブラリ"
   },
   "expertReview": {
     "title": "Let the platform complete the first judgment; experts step in for complex projects that need deeper evaluation.",
     "subtitle": "Let the platform complete the first judgment; experts step in for complex projects that need deeper evaluation.",
     "desc": "これは一般的な問い合わせフォームではありません。より明確な市場仮説、予算範囲、ブロック問題を抱え、より深い経路判断を必要とするチーム向けです。",
     "notGeneric": "これは一般的なお問い合わせフォームではありません。これは、より明確な市場仮説、予算範囲、または障害となる問題を持ち、より詳細な経路判断が必要なチームを対象としています。",
-    "expertReviewTitle": "ZXQ エキスパートのレビュー",
+    "expertReviewTitle": "Qihuang Sihai エキスパートのレビュー",
     "expertReviewCardTitle": "複雑で障壁が高く、コミットメントの高いグローバリゼーション プロジェクト向け",
     "expertReviewCardDesc": "The platform handles the first pass; deeper expert evaluation is offered for projects that genuinely need it.",
     "recommendComplete": "We recommend completing the AI diagnosis before requesting a deeper expert evaluation. The platform clarifies the facts and options; experts help with the truly complex questions.",
