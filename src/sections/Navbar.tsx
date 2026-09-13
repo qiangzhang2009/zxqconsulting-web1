@@ -62,7 +62,7 @@ const Navbar = () => {
                 {t('brand.name', '岐黄四海')}
               </div>
               <div className="text-sm font-semibold tracking-tight text-[#1B2520]">
-                {t('brand.tagline', '出海决策伙伴')}
+                {t('brand.tagline', '中医出海 一站式服务 全程陪伴')}
               </div>
             </div>
           </Link>
@@ -114,7 +114,7 @@ const Navbar = () => {
               onClick={() => tracking.click('header_start_diagnosis', 'cta')}
               className="inline-flex items-center gap-2 rounded-full border border-[#C2473B]/40 bg-[#C2473B] px-5 py-2 text-sm font-semibold text-white shadow-[0_2px_12px_rgba(194,71,59,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#A93B30] hover:border-[#A93B30]/60 hover:shadow-[0_4px_16px_rgba(194,71,59,0.25)] active:translate-y-0"
             >
-              {t('hero2.ctaStart', '3 分钟 AI 诊断')}
+              {t('hero2.ctaStart', '开始智能诊断')}
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -194,7 +194,7 @@ const Navbar = () => {
               onClick={() => tracking.click('mobile_start_diagnosis', 'cta')}
               className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-[#C2473B]/40 bg-[#C2473B] px-5 py-3 text-sm font-semibold text-white"
             >
-              {t('hero2.ctaStart', '3 分钟 AI 诊断')}
+              {t('hero2.ctaStart', '开始智能诊断')}
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
 

@@ -22,9 +22,9 @@ const SEO_BY_LANGUAGE: Record<string, SeoEntry> = {
   en: DEFAULT_SEO,
   zh: {
     lang: 'zh-CN',
-    title: '岐黄四海 | 中医出海决策操作系统',
+    title: '岐黄四海 | 中医出海 一站式服务 全程陪伴',
     description:
-      '岐黄四海是面向中医、保健食品、汉方护肤与健康产品的出海决策操作系统。帮助企业在进入全球市场前，先完成市场优先级、准入合规、成本ROI、渠道匹配与项目风险的AI判断。',
+      '岐黄四海是面向中医、保健食品、汉方护肤与健康产品的出海陪跑伙伴。帮助企业在进入全球市场前，先完成市场优先级、准入合规、成本ROI、渠道匹配与项目风险的AI判断，并由资深顾问全程陪伴落地。',
     ogLocale: 'zh_CN',
     siteName: '岐黄四海 QihuangSihai',
   },

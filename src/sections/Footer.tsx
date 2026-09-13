@@ -11,10 +11,19 @@ const Footer = () => {
       title: '导航',
       links: [
         { name: t('nav2.how', '如何工作'), to: '/method' },
-        { name: t('nav2.cases', '过往判断'), to: '/cases' },
-        { name: t('nav2.markets', '35 国'), to: '/markets' },
-        { name: t('nav2.research', '研究'), to: '/research' },
+        { name: t('nav2.cases', '算法案例'), to: '/cases' },
+        { name: t('nav2.markets', '目标市场'), to: '/markets' },
+        { name: t('nav2.research', '研究报告'), to: '/research' },
         { name: '管理后台', to: '/admin/login', isAdmin: true },
+      ],
+    },
+    {
+      title: '核心服务',
+      links: [
+        { name: '发现下游客户', to: '/method' },
+        { name: '发现上游供应商', to: '/method' },
+        { name: '发现投资金主', to: '/method' },
+        { name: '发现竞争对手', to: '/method' },
       ],
     },
     {
@@ -27,12 +36,12 @@ const Footer = () => {
       ],
     },
     {
-      title: '平台能力',
+      title: '服务阶段',
       links: [
         { name: '市场进入判断', to: '/method' },
         { name: '合规路径评估', to: '/method' },
-        { name: '渠道与增长指引', to: '/method' },
-        { name: '诊断后续专家复盘', to: '/diagnose' },
+        { name: '智能诊断', to: '/diagnose' },
+        { name: '专家顾问陪跑', to: '/expert' },
       ],
     },
   ];
@@ -71,12 +80,12 @@ const Footer = () => {
             {/* 大字引言 */}
             <h2 className="text-3xl md:text-4xl font-semibold leading-[1.2] text-[#1B2520] tracking-tight max-w-2xl">
               让中医药、保健食品、汉方品牌,<br />
-              <span className="text-[#2F5D57]">以更清晰的判断走出国门。</span>
+              <span className="text-[#2F5D57]">以专属算法驱动出海的每一步。</span>
             </h2>
 
             <p className="mt-5 text-base leading-[1.8] text-[#5b6661] max-w-xl">
-              覆盖市场选择、注册路径、渠道合作、品牌本地化与 AI 诊断,
-              为预算明确、合规要求高、周期较长的出海项目提供战略判断与执行指引。
+              我们用算法发现机会,用经验判断路径。专属订制算法帮助您精准找到下游客户、
+              上游供应商、投资金主和竞争对手——让出海决策不再是盲人摸象,而是胸有成竹。
             </p>
 
             {/* 目标读者 */}
@@ -146,14 +155,15 @@ const Footer = () => {
                   {t('brand.name', '岐黄四海')}
                 </div>
                 <div className="text-sm font-semibold tracking-tight text-[#1B2520]">
-                  {t('brand.tagline', '出海决策伙伴')}
+                  {t('brand.tagline', '中医出海 一站式服务 全程陪伴')}
                 </div>
               </div>
             </Link>
 
             <p className="text-sm leading-[1.75] text-[#5b6661]">
               专注于中医药与汉方品牌的全球增长,
-              帮助团队做出市场进入决策、设计合规路径、构建渠道与本地化品牌叙事。
+              提供专属订制算法精准发现下游客户、上游供应商、投资金主和竞争对手,
+              搭配资深顾问全程陪跑,让每一步都有据可依。
             </p>
 
             <div className="mt-5 space-y-2 text-sm text-[#5b6661]">
