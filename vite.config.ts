@@ -30,6 +30,7 @@ const manualChunks = (id: string): string | undefined => {
   if (id.includes('clsx') || id.includes('tailwind-merge') || id.includes('class-variance-authority')) {
     return 'vendor-utils';
   }
+  if (id.includes('matter-js')) return 'vendor-matter';
   return undefined;
 };
 

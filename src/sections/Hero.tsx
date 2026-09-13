@@ -23,6 +23,7 @@ import {
 import { tracking } from '../lib/tracking';
 import { InteractiveAvatar } from '@/components/InteractiveAvatar';
 import { FunnelAlgorithm } from './FunnelAlgorithm';
+import { IndustryNetworkGraph } from './industry-network/IndustryNetworkGraph';
 
 interface FunnelStage {
   key: string;
@@ -437,6 +438,42 @@ const Hero = () => {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            {/* ========== 本地预览:产业网络拓扑 ========== */}
+            <div className="mt-10 md:mt-14 rounded-2xl border border-[#2F5D57]/12 bg-white/70 backdrop-blur-sm p-5 md:p-7 shadow-sm">
+              <div className="flex flex-wrap items-end justify-between gap-3 mb-5">
+                <div>
+                  <div className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.28em] text-amber-300">
+                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    本地预览 · Local Preview
+                  </div>
+                  <h4 className="mt-2 text-lg md:text-xl font-semibold text-[#1B2520] leading-snug">
+                    产业网络拓扑 · insitro × ECYTON
+                  </h4>
+                  <p className="mt-1.5 text-xs md:text-sm text-[#5b6661]">
+                    实时映射资本 · 客户 · 供应 · 合作 · 竞对 5 类关系,focal 节点脉冲提示动态监测
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 text-[10px] font-mono text-[#5b6661]">
+                  <span className="inline-flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+                    FOCAL
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    CAPITAL
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                    SUPPLIER
+                  </span>
+                </div>
+              </div>
+
+              <div className="rounded-xl bg-[#FAF8F3] border border-[#2F5D57]/8 overflow-hidden">
+                <IndustryNetworkGraph />
+              </div>
             </div>
           </div>
         </div>
