@@ -166,34 +166,10 @@ const Hero = () => {
         />
       </div>
 
-      {/* ========== 吉祥物:驼驼(羊驼)互动动画 ========== */}
-      <div className="absolute top-3 right-3 md:top-6 md:right-6 z-30 hidden md:block pointer-events-auto">
-        <div className="animate-float-slow">
-          <div className="w-32 lg:w-36 rounded-2xl bg-gradient-to-br from-[#0a1612] via-[#0d1f1a] to-[#11281f] border border-amber-400/35 shadow-[0_15px_40px_-10px_rgba(252,211,77,0.35)] overflow-hidden backdrop-blur-sm">
-            <div className="relative aspect-[16/9] cursor-pointer">
-              <InteractiveAvatar compact loadingBg="#0d1f1a" />
-              {/* live 角标 */}
-              <div className="absolute top-1.5 left-1.5 inline-flex items-center gap-1 rounded-full bg-black/50 px-1.5 py-0.5 backdrop-blur-sm z-20">
-                <span className="h-1 w-1 rounded-full bg-amber-400 animate-pulse" />
-                <span className="text-[8px] font-bold uppercase tracking-wider text-amber-200">
-                  LIVE
-                </span>
-              </div>
-            </div>
-            {/* 底部标签 */}
-            <div className="bg-amber-400/[0.08] border-t border-amber-400/25 px-2 py-1.5 text-center">
-              <div className="text-[9px] font-bold uppercase tracking-[0.18em] text-amber-200">
-                AI · 算法小驼驼
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="relative z-10 container mx-auto px-6 pt-14 pb-10 md:pt-20 md:pb-16">
         <div className="mx-auto max-w-[1440px]">
-          {/* ========== 上:左右结构(文案 + 漏斗) ========== */}
-          <div className="grid gap-10 lg:gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-center">
+          {/* ========== 上:三列结构(文案 + 吉祥物 + 漏斗) ========== */}
+          <div className="grid gap-8 lg:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,340px)_minmax(0,440px)] items-center">
             {/* ============ 左:文案主轴 ============ */}
             <div>
               {/* 顶部 tag */}
@@ -259,6 +235,61 @@ const Hero = () => {
                     <span>{item}</span>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* ============ 中:羊驼吉祥物 ============ */}
+            <div className="hidden lg:flex justify-center animate-float-slow">
+              <div className="relative w-full max-w-[320px] rounded-3xl bg-gradient-to-br from-[#0a1612] via-[#0d1f1a] to-[#11281f] border border-amber-400/35 shadow-[0_25px_60px_-20px_rgba(252,211,77,0.35)] overflow-hidden">
+                {/* 顶部装饰条 */}
+                <div className="flex items-center justify-between px-3.5 pt-3">
+                  <div className="flex items-center gap-1.5">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-70" />
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-amber-400" />
+                    </span>
+                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-amber-200">
+                      LIVE
+                    </span>
+                  </div>
+                  <span className="text-[9px] font-mono text-amber-200/60">
+                    AI · 24h
+                  </span>
+                </div>
+
+                {/* 主区域:羊驼 canvas + 浮动装饰 */}
+                <div className="relative aspect-[16/10] mt-1">
+                  <InteractiveAvatar compact loadingBg="#0d1f1a" />
+
+                  {/* 浮动:数据点 1 */}
+                  <div
+                    className="absolute top-2 right-2 rounded-full bg-amber-400/15 border border-amber-400/30 px-1.5 py-0.5 backdrop-blur-sm"
+                    aria-hidden
+                  >
+                    <span className="text-[8px] font-bold text-amber-200 tabular-nums">
+                      10,000+
+                    </span>
+                  </div>
+                  {/* 浮动:数据点 2 */}
+                  <div
+                    className="absolute bottom-8 left-2 rounded-full bg-amber-300/20 border border-amber-300/40 px-1.5 py-0.5 backdrop-blur-sm"
+                    aria-hidden
+                  >
+                    <span className="text-[8px] font-bold text-amber-100 tabular-nums">
+                      7 天交付
+                    </span>
+                  </div>
+                </div>
+
+                {/* 底部标签 */}
+                <div className="bg-amber-400/[0.08] border-t border-amber-400/25 px-3 py-2.5 text-center">
+                  <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-amber-200">
+                    AI · 算法小驼驼
+                  </div>
+                  <div className="text-[9px] text-amber-50/60 mt-0.5">
+                    实时监控海外BD数据流
+                  </div>
+                </div>
               </div>
             </div>
 
