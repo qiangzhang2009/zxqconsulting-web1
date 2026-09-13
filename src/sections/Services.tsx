@@ -1,3 +1,13 @@
+/**
+ * Services Section — 服务版块
+ * 
+ * 展示四步服务流程:
+ * 1. 智能诊断 - 用算法发现问题
+ * 2. 资源发现 - 用算法发现四大资源
+ * 3. 顾问陪跑 - 真人顾问全程指导
+ * 4. 持续支持 - 出海后持续跟踪
+ */
+
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -5,131 +15,107 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ArrowRight,
+  Bot,
   Brain,
   CheckCircle2,
   Compass,
   FileBarChart,
+  Handshake,
   LayoutTemplate,
-  ShieldCheck,
-  UserRoundSearch,
+  Search,
+  Sparkles,
+  Target,
+  TrendingUp,
+  Users,
+  Building2,
 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface Capability {
-  id: string;
+interface ServiceStep {
+  step: string;
   icon: React.ReactNode;
-  titleKey: string;
-  descKey: string;
-  categoryKey: string;
-  outputs: string[];
-  isSealed?: boolean;
+  title: string;
+  titleEn: string;
+  description: string;
+  deliverables: string[];
 }
 
 const Services = () => {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
-  const capabilitiesRef = useRef<HTMLDivElement>(null);
-  const methodRef = useRef<HTMLDivElement>(null);
 
-  const capabilities: Capability[] = [
-    {
-      id: 'market-priority',
-      icon: <Compass className="h-5 w-5" />,
-      titleKey: 'services.cap_market_priority',
-      descKey: 'services.cap_market_priority_desc',
-      categoryKey: 'services.category_strategy',
-      outputs: [
-        t('services.cap_market_priority_out1'),
-        t('services.cap_market_priority_out2'),
-        t('services.cap_market_priority_out3'),
-      ],
-      isSealed: true,
-    },
-    {
-      id: 'entry-complexity',
-      icon: <ShieldCheck className="h-5 w-5" />,
-      titleKey: 'services.cap_entry_complexity',
-      descKey: 'services.cap_entry_complexity_desc',
-      categoryKey: 'services.category_risk',
-      outputs: [
-        t('services.cap_entry_complexity_out1'),
-        t('services.cap_entry_complexity_out2'),
-        t('services.cap_entry_complexity_out3'),
-      ],
-    },
-    {
-      id: 'diagnosis-summary',
-      icon: <FileBarChart className="h-5 w-5" />,
-      titleKey: 'services.cap_diagnosis_summary',
-      descKey: 'services.cap_diagnosis_summary_desc',
-      categoryKey: 'services.category_analysis',
-      outputs: [
-        t('services.cap_diagnosis_summary_out1'),
-        t('services.cap_diagnosis_summary_out2'),
-        t('services.cap_diagnosis_summary_out3'),
-      ],
-    },
-    {
-      id: 'follow-up',
-      icon: <Brain className="h-5 w-5" />,
-      titleKey: 'services.cap_followup',
-      descKey: 'services.cap_followup_desc',
-      categoryKey: 'services.category_intelligence',
-      outputs: [
-        t('services.cap_followup_out1'),
-        t('services.cap_followup_out2'),
-        t('services.cap_followup_out3'),
-      ],
-    },
-    {
-      id: 'sample-proof',
-      icon: <LayoutTemplate className="h-5 w-5" />,
-      titleKey: 'services.cap_sample_proof',
-      descKey: 'services.cap_sample_proof_desc',
-      categoryKey: 'services.category_case',
-      outputs: [
-        t('services.cap_sample_proof_out1'),
-        t('services.cap_sample_proof_out2'),
-        t('services.cap_sample_proof_out3'),
-      ],
-    },
-    {
-      id: 'expert-upgrade',
-      icon: <UserRoundSearch className="h-5 w-5" />,
-      titleKey: 'services.cap_expert_upgrade',
-      descKey: 'services.cap_expert_upgrade_desc',
-      categoryKey: 'services.category_expert',
-      outputs: [
-        t('services.cap_expert_upgrade_out1'),
-        t('services.cap_expert_upgrade_out2'),
-        t('services.cap_expert_upgrade_out3'),
-      ],
-    },
-  ];
-
-  const methodSteps = [
+  const serviceSteps: ServiceStep[] = [
     {
       step: '壹',
-      title: t('about.step1Title'),
-      description: t('about.step1Desc'),
+      icon: <Bot className="h-7 w-7" />,
+      title: '智能诊断',
+      titleEn: 'AI Diagnosis',
+      description: '通过 AI 诊断引擎,快速分析您的产品特点、市场定位和资源禀赋,形成初步出海判断。',
+      deliverables: [
+        '35 国市场优先级评估 (A/B/C/D 四档)',
+        '产品合规性初步评估',
+        '预算与时间线建议',
+        '主要风险点识别',
+      ],
     },
     {
       step: '贰',
-      title: t('about.step2Title'),
-      description: t('about.step2Desc'),
+      icon: <Search className="h-7 w-7" />,
+      title: '资源发现',
+      titleEn: 'Resource Discovery',
+      description: '用专属订制算法精准发现:下游客户、上游供应商、投资金主和竞争对手。',
+      deliverables: [
+        '目标市场潜在客户名单及画像',
+        '优质供应商推荐及评估',
+        '对该领域感兴趣的投资机构',
+        '竞争格局分析与差异化建议',
+      ],
     },
     {
       step: '叁',
-      title: t('about.step3Title'),
-      description: t('about.step3Desc'),
+      icon: <Handshake className="h-7 w-7" />,
+      title: '顾问陪跑',
+      titleEn: 'Expert Guidance',
+      description: '资深顾问全程陪跑,从诊断到落地,每一步都有真人指导。',
+      deliverables: [
+        '60-90 分钟深度复盘咨询',
+        '合规路径定制方案',
+        '本地渠道对接指导',
+        '品牌本地化策略建议',
+      ],
+    },
+    {
+      step: '肆',
+      icon: <TrendingUp className="h-7 w-7" />,
+      title: '持续支持',
+      titleEn: 'Ongoing Support',
+      description: '出海后持续跟踪,及时调整策略,确保出海之路行稳致远。',
+      deliverables: [
+        '市场动态定期推送',
+        '策略调整建议',
+        '新机会持续发现',
+        '问题快速响应',
+      ],
     },
   ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        '.pub-card',
+        '.service-header',
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
+        }
+      );
+
+      gsap.fromTo(
+        '.service-card',
         { y: 40, opacity: 0 },
         {
           y: 0,
@@ -137,22 +123,11 @@ const Services = () => {
           duration: 0.7,
           stagger: 0.1,
           ease: 'power3.out',
-          scrollTrigger: { trigger: capabilitiesRef.current, start: 'top 75%' },
-        }
-      );
-      gsap.fromTo(
-        '.method-card',
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.65,
-          stagger: 0.12,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: methodRef.current, start: 'top 75%' },
+          scrollTrigger: { trigger: '.service-steps', start: 'top 80%' },
         }
       );
     }, sectionRef);
+
     return () => ctx.revert();
   }, []);
 
@@ -160,10 +135,13 @@ const Services = () => {
     <section
       id="services"
       ref={sectionRef}
-      className="section-services relative py-24 md:py-32 overflow-hidden"
+      className="relative py-24 md:py-32 overflow-hidden"
+      style={{
+        background: 'linear-gradient(180deg, #F5F0E8 0%, #FAF8F3 50%, #F5F0E8 100%)',
+      }}
     >
       {/* 装饰性背景 */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <div
           className="absolute inset-0 opacity-30"
           style={{
@@ -182,146 +160,88 @@ const Services = () => {
 
       <div className="relative z-10 container mx-auto px-6">
         {/* 章节标题 */}
-        <div className="mx-auto max-w-3xl text-center mb-16">
-          <div className="volume-mark justify-center text-base mb-4">
-            <span>卷叁</span>
+        <div className="mx-auto max-w-3xl text-center mb-16 service-header">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#2F5D57]/20 bg-white/80 px-4 py-2 text-sm text-[#2F5D57] shadow-sm mb-6">
+            <Compass className="h-4 w-4" />
+            <span className="font-medium">四步走服务流程</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.15] tracking-tight text-[#1B2520]">
-            {t('about.sixLayersSubtitle', '6 个能力,撑起一个出海判断')}
+            从诊断到落地
+            <span className="block text-[#2F5D57] mt-2">全程陪伴每一步</span>
           </h2>
-          <p className="mt-6 text-lg leading-[1.8] text-[#3a4540] max-w-2xl mx-auto">
-            {t('about.sixLayersSubtitleEn', '不是 6 个工具,是 6 项具体能交付的能力 — 每项背后都有可执行步骤与可衡量结果。')}
+          <p className="mt-6 text-lg leading-[1.8] text-[#5b6661] max-w-2xl mx-auto">
+            算法发现机会,顾问陪跑落地。不是给一份报告就走,而是陪您走完出海的每一步。
           </p>
         </div>
 
-        {/* 服务卡片网格 */}
-        <div ref={capabilitiesRef} className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {capabilities.map((capability) => (
+        {/* 四步服务卡片 */}
+        <div className="service-steps grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {serviceSteps.map((step, index) => (
             <article
-              key={capability.id}
-              className="pub-card card-seal card-hover rounded-xl bg-white p-7 relative"
+              key={step.step}
+              className="service-card group relative rounded-[1.5rem] bg-white border border-[#2F5D57]/10 p-6 hover:shadow-xl hover:border-[#2F5D57]/25 transition-all duration-300"
             >
-              {/* 类别标签 */}
-              <span className="badge badge-primary mb-4">
-                <span className="badge-dot badge-dot-primary" />
-                {t(capability.categoryKey)}
-              </span>
+              {/* 步骤序号 */}
+              <div className="absolute -top-3 -left-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#C2473B] text-white font-bold text-lg shadow-lg">
+                {step.step}
+              </div>
 
-              {/* 图标圆圈 */}
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#2F5D57]/10 text-[#2F5D57] mb-5">
-                {capability.icon}
+              {/* 图标 */}
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[#2F5D57]/10 text-[#2F5D57] mb-4">
+                {step.icon}
               </div>
 
               {/* 标题 */}
-              <h3 className="text-xl font-semibold text-[#1B2520] tracking-tight mb-3" style={{ fontFamily: 'var(--font-serif)' }}>
-                {t(capability.titleKey)}
+              <h3 className="text-xl font-semibold text-[#1B2520] tracking-tight mb-1" style={{ fontFamily: 'var(--font-serif)' }}>
+                {step.title}
               </h3>
+              <div className="text-xs text-[#2F5D57]/60 mb-3">{step.titleEn}</div>
 
               {/* 描述 */}
-              <p className="text-sm leading-relaxed text-[#5b6661] mb-5">
-                {t(capability.descKey)}
+              <p className="text-sm leading-relaxed text-[#5b6661] mb-4">
+                {step.description}
               </p>
 
-              {/* 输出列表 */}
-              <div className="space-y-2.5 mb-6">
-                {capability.outputs.map((item) => (
-                  <div key={item} className="flex items-start gap-2.5 text-sm text-[#3a4540]">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#C2473B]" />
+              {/* 交付物 */}
+              <ul className="space-y-2">
+                {step.deliverables.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-xs text-[#3a4540]">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[#C2473B] mt-0.5 shrink-0" />
                     <span>{item}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
-              {/* 印章装饰 */}
-              {capability.isSealed && (
-                <div className="absolute top-4 right-4">
-                  <div className="seal-stamp">
-                    <span>重点</span>
-                    <span>推荐</span>
-                  </div>
-                </div>
+              {/* 步骤连接线 */}
+              {index < serviceSteps.length - 1 && (
+                <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-[#2F5D57]/20" />
               )}
-
-              {/* Learn more 链接 */}
-              <Link
-                to="/expert"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-[#C2473B] hover:text-[#a33a30] transition-colors group"
-              >
-                <span>了解更多</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
             </article>
           ))}
         </div>
 
-        {/* 陪跑方法论 */}
-        <div
-          ref={methodRef}
-          className="mt-20 rounded-[1.5rem] border border-[#2F5D57]/15 bg-white p-8 md:p-12 shadow-sm relative overflow-hidden"
-        >
-          {/* 装饰性印章 */}
-          <div
-            aria-hidden
-            className="absolute -top-8 -right-8 w-32 h-32 opacity-5"
-          >
-            <div className="seal-stamp-lg">
-              <span>方法</span>
-              <span>论</span>
-            </div>
-          </div>
-
-          {/* 装饰渐变 */}
-          <div
-            aria-hidden
-            className="absolute -top-20 -right-20 h-48 w-48 rounded-full bg-[#C2473B]/5 blur-3xl"
-          />
-
-          <div className="relative">
-            <div className="volume-mark mb-3">
-              <span>陪跑思路</span>
-            </div>
-            <h3 className="text-3xl md:text-4xl font-semibold text-[#1B2520] tracking-tight" style={{ fontFamily: 'var(--font-serif)' }}>
-              {t('about.approachTitle', '陪跑的思路')}
-            </h3>
-            <p className="mt-3 text-base text-[#5b6661]">
-              {t('services.howItWorksDesc', '三步走，从诊断到落地')}
-            </p>
-          </div>
-
-          {/* 步骤卡片 */}
-          <div className="relative mt-10 grid gap-6 lg:grid-cols-3">
-            {methodSteps.map((step, i) => (
-              <div
-                key={step.step}
-                className="method-card pub-card rounded-xl bg-[#FAF8F3] p-6 relative"
-              >
-                {/* 朱砂序号 */}
-                <div className="absolute -top-4 left-6 flex items-center justify-center w-12 h-12 rounded-xl bg-[#C2473B] text-white font-bold text-lg shadow-md" style={{ fontFamily: 'var(--font-serif)' }}>
-                  {step.step}
-                </div>
-                <h4 className="mt-6 text-lg font-semibold text-[#1B2520] mb-2" style={{ fontFamily: 'var(--font-serif)' }}>
-                  {step.title}
-                </h4>
-                <p className="text-sm leading-relaxed text-[#5b6661]">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA 按钮 */}
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+        {/* CTA 按钮 */}
+        <div className="mt-16 text-center service-header">
+          <div className="inline-flex flex-wrap items-center justify-center gap-4">
             <Link
-              to="/expert"
-              className="btn btn-primary"
+              to="/diagnose"
+              className="inline-flex items-center gap-3 rounded-2xl bg-[#C2473B] hover:bg-[#A93B30] px-7 py-4 text-base font-semibold text-white shadow-[0_10px_30px_rgba(194,71,59,0.25)] transition-all hover:-translate-y-0.5"
             >
-              {t('about.viewExpertPath', '查看顾问团')}
-              <ArrowRight className="h-4 w-4" />
+              <Sparkles className="h-5 w-5" />
+              开始第一步:智能诊断
+              <ArrowRight className="h-5 w-5" />
             </Link>
-            <span className="text-sm text-[#8a938e]">
-              {t('services.ctaNote', '每项能力都附有可执行的步骤清单')}
-            </span>
+            <Link
+              to="/method"
+              className="inline-flex items-center gap-3 rounded-2xl border-2 border-[#2F5D57] bg-white px-7 py-4 text-base font-semibold text-[#2F5D57] transition-all hover:bg-[#2F5D57] hover:text-white hover:-translate-y-0.5"
+            >
+              <FileBarChart className="h-5 w-5" />
+              了解更多服务详情
+            </Link>
           </div>
+          <p className="mt-4 text-sm text-[#5b6661]">
+            诊断后可获得初步判断,决定是否需要进一步资源发现或顾问陪跑
+          </p>
         </div>
       </div>
     </section>

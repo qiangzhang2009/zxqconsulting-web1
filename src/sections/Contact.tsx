@@ -1,3 +1,12 @@
+/**
+ * Contact Section — 联系版块 (简化版)
+ * 
+ * 简洁展示联系方式:
+ * - 简洁的联系表单
+ * - 联系方式
+ * - 期待您的联系
+ */
+
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
@@ -14,6 +23,7 @@ import {
   Phone,
   Send,
   ShieldCheck,
+  Sparkles,
   User,
 } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -22,12 +32,8 @@ import { useMarket } from '@/sections/aiTools/context';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const STAGE_OPTIONS = ['exploring', 'committed', 'testing', 'expanding'];
-const BUDGET_OPTIONS = ['below500k', '500k2m', '2m5m', 'above5m'];
-const VALIDATION_OPTIONS = ['idea', 'domestic', 'overseas', 'business'];
-
 const Contact = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -42,25 +48,20 @@ const Contact = () => {
     targetMarkets: '',
     timeline: '',
     challenge: '',
-    budget: '',
-    hasValidation: '',
     message: '',
   });
-  const { selectedMarket, selectedCategory, diagnosisInput, diagnosisReport, qualificationDecision } = useMarket();
+  const { selectedMarket, diagnosisReport, qualificationDecision } = useMarket();
 
   useEffect(() => {
     setFormData((current) => ({
       ...current,
-      projectStage: diagnosisInput.projectStage || current.projectStage,
       targetMarkets: selectedMarket?.name || current.targetMarkets,
-      challenge: diagnosisReport?.primaryBlocker || diagnosisInput.keyQuestion || current.challenge,
-      budget: diagnosisInput.budget || current.budget,
-      hasValidation: diagnosisInput.validationStatus || current.hasValidation,
+      challenge: diagnosisReport?.primaryBlocker || current.challenge,
       message: qualificationDecision
         ? `${diagnosisReport?.recommendation || ''}\n${qualificationDecision.escalationReason}`.trim()
         : current.message,
     }));
-  }, [diagnosisInput, diagnosisReport?.primaryBlocker, diagnosisReport?.recommendation, qualificationDecision, selectedMarket?.name]);
+  }, [diagnosisReport?.primaryBlocker, diagnosisReport?.recommendation, qualificationDecision, selectedMarket?.name]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -105,8 +106,6 @@ const Contact = () => {
       targetMarkets: fd.get('targetMarkets') as string,
       timeline: fd.get('timeline') as string,
       challenge: fd.get('challenge') as string,
-      budget: fd.get('budget') as string,
-      hasValidation: fd.get('hasValidation') as string,
       message: fd.get('message') as string,
       source_page: window.location.pathname,
     };
@@ -120,12 +119,6 @@ const Contact = () => {
       outboundForm.append('message', [
         `${t('expertReview.projectStage')}: ${data.projectStage}`,
         `${t('expertReview.targetMarkets')}: ${data.targetMarkets}`,
-        `${t('expertReview.diagnosisRec')}: ${diagnosisReport?.recommendedPath || ''}`,
-        `${t('expertReview.qualificationDecision')}: ${qualificationDecision?.escalationReason || ''}`,
-        `${t('expertReview.expectedTimeline')}: ${data.timeline}`,
-        `${t('expertReview.budgetRange')}: ${data.budget}`,
-        `${t('expertReview.existingValidation')}: ${data.hasValidation}`,
-        `${t('expertReview.productCategory')}: ${selectedCategory || ''}`,
         `${t('expertReview.mostImportantProblem')}: ${data.challenge}`,
         `${t('expertReview.additionalNotes')}: ${data.message}`,
       ].join('\n'));
@@ -136,13 +129,13 @@ const Contact = () => {
         fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }),
       ]);
       if (!primary.ok && !backup.ok && !api.ok) throw new Error('All contact submission channels failed.');
-      tracking.formSubmit('expert_review_form', true, data);
+      tracking.formSubmit('contact_form', true, data);
       setShowDialog(true);
       form.reset();
-      setFormData({ name: '', email: '', phone: '', company: '', projectStage: '', targetMarkets: '', timeline: '', challenge: '', budget: '', hasValidation: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', company: '', projectStage: '', targetMarkets: '', timeline: '', challenge: '', message: '' });
     } catch (error) {
       console.error(t('expertReview.submitError'), error);
-      tracking.formSubmit('expert_review_form', false, data);
+      tracking.formSubmit('contact_form', false, data);
       alert(t('expertReview.submitError'));
     } finally {
       setIsSubmitting(false);
@@ -153,50 +146,45 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const label = (key: string, fallback: string) => t(`expertReview.${key}`, fallback);
-  const optLabel = (prefix: string, value: string) => t(`expertReview.${prefix}_${value}`, value);
-
   return (
     <section id="contact" ref={sectionRef} className="bg-[#07111a] py-24">
       <div className="container mx-auto px-6">
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-300">
-            <ClipboardList className="h-4 w-4" />
-            {t('diagnosis.expertReviewSection')}
+            <MessageSquare className="h-4 w-4" />
+            联系我们
           </div>
           <h2 className="mt-5 text-3xl font-semibold text-white md:text-5xl">
-            {t('expertReview.title')}
+            开始您的出海之旅
           </h2>
           <p className="mt-5 text-lg leading-8 text-slate-400">
-            {t('expertReview.desc')}
+            用算法发现机会,用顾问陪跑落地。无论您处于出海的哪个阶段,我们都愿意倾听并提供帮助。
           </p>
         </div>
 
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          {/* 左侧:联系方式 */}
           <div>
             <div ref={imageRef} className="relative mb-6 overflow-hidden rounded-[2rem] border border-white/10 shadow-xl">
               <img src="/contact-bg.jpg" alt="Contact" className="h-[280px] w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#07111a] via-[#07111a]/20 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <div className="text-sm uppercase tracking-[0.2em] text-emerald-300/80">{t('diagnosis.expertReviewTitle')}</div>
-                <h3 className="mt-2 text-2xl font-semibold">{t('expertReview.expertReviewCardTitle')}</h3>
+                <div className="text-sm uppercase tracking-[0.2em] text-emerald-300/80">岐黄四海</div>
+                <h3 className="mt-2 text-2xl font-semibold">中医出海 一站式服务</h3>
               </div>
             </div>
 
             <div className="space-y-4">
+              {/* 顾问团队 */}
               <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
                 <div className="flex items-start gap-4">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-400/10 text-emerald-300">
                     <Bot className="h-5 w-5" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="text-lg font-semibold text-white">{t('expertReview.expertDesk')}</div>
-                    <div className="mt-1 text-sm text-slate-400">{t('expertReview.expertDeskRole')}</div>
-                    <div className="mt-2 flex items-start gap-2 text-sm text-slate-400">
-                      <Globe2 className="mt-0.5 h-4 w-4 text-emerald-300" />
-                      <span>{t('expertReview.expertDeskMarkets')}</span>
-                    </div>
-                    <div className="mt-3 space-y-2 text-sm">
+                    <div className="text-lg font-semibold text-white">顾问团队</div>
+                    <div className="mt-1 text-sm text-slate-400">资深顾问全程陪跑您的出海之路</div>
+                    <div className="mt-2 space-y-2 text-sm">
                       <a href="mailto:customer@zxqconsulting.com" className="flex items-center gap-2 text-slate-300 transition-colors hover:text-white">
                         <Mail className="h-4 w-4 text-emerald-300" /> customer@zxqconsulting.com
                       </a>
@@ -204,64 +192,76 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div className="mt-4 rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-sm text-slate-400">
-              <div className="flex items-start gap-3">
-                <ShieldCheck className="mt-0.5 h-4 w-4 text-emerald-300" />
-                <span>{t('diagnosis.recommendComplete')}</span>
+              {/* 承诺 */}
+              <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
+                <div className="flex items-start gap-3">
+                  <ShieldCheck className="mt-0.5 h-5 w-5 text-emerald-300" />
+                  <div className="space-y-2 text-sm text-slate-400">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="h-3.5 w-3.5 text-emerald-300" />
+                      <span>专属订制算法精准匹配</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MessageSquare className="h-3.5 w-3.5 text-emerald-300" />
+                      <span>24小时内回复</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Globe2 className="h-3.5 w-3.5 text-emerald-300" />
+                      <span>35国法规框架支持</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
+          {/* 右侧:简洁表单 */}
           <form ref={formRef} onSubmit={handleSubmit} className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-xl backdrop-blur-sm md:p-8">
-            <div>
-              <div className="text-sm uppercase tracking-[0.18em] text-emerald-300/80">
-                {t('diagnosis.highValueForm')}
-              </div>
-              <h3 className="mt-2 text-2xl font-semibold text-white">
-                {t('expertReview.submitBtn')}
+            <div className="mb-6">
+              <h3 className="text-2xl font-semibold text-white mb-2">
+                留下您的信息
               </h3>
-              <p className="mt-3 text-sm leading-7 text-slate-400">
-                {t('expertReview.formDesc')}
+              <p className="text-sm leading-7 text-slate-400">
+                我们会尽快与您联系,了解您的需求并提供初步建议。
               </p>
             </div>
 
-            <div className="mt-6 space-y-4">
+            <div className="space-y-4">
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                     <User className="h-4 w-4 text-emerald-300" />
-                    {t('expertReview.contactName')}
+                    姓名 <span className="text-red-400">*</span>
                   </label>
                   <input type="text" name="name" value={formData.name} onChange={handleChange} required
-                    className="mac-input focus-ring" placeholder={t('expertReview.contactNamePlaceholder')} />
+                    className="mac-input focus-ring" placeholder="您的姓名" />
                 </div>
                 <div>
                   <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                     <Building className="h-4 w-4 text-emerald-300" />
-                    {t('expertReview.companyBrand')}
+                    公司/品牌
                   </label>
                   <input type="text" name="company" value={formData.company} onChange={handleChange}
-                    className="mac-input focus-ring" placeholder={t('expertReview.companyPlaceholder')} />
+                    className="mac-input focus-ring" placeholder="您的公司或品牌名称" />
                 </div>
               </div>
 
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
-                    <Mail className="h-4 w-4 text-emerald-300" /> Email
+                    <Mail className="h-4 w-4 text-emerald-300" /> Email <span className="text-red-400">*</span>
                   </label>
                   <input type="email" name="email" value={formData.email} onChange={handleChange} required
-                    className="mac-input focus-ring" placeholder={t('expertReview.emailPlaceholder')} />
+                    className="mac-input focus-ring" placeholder="your@email.com" />
                 </div>
                 <div>
                   <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                     <Phone className="h-4 w-4 text-emerald-300" />
-                    {t('expertReview.phone')}
+                    电话
                   </label>
                   <input type="tel" name="phone" value={formData.phone} onChange={handleChange}
-                    className="mac-input focus-ring" placeholder={t('expertReview.phonePlaceholder')} />
+                    className="mac-input focus-ring" placeholder="+86 xxx xxxx xxxx" />
                 </div>
               </div>
 
@@ -269,76 +269,54 @@ const Contact = () => {
                 <div>
                   <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                     <ClipboardList className="h-4 w-4 text-emerald-300" />
-                    {t('expertReview.projectStage')}
+                    出海阶段
                   </label>
                   <select name="projectStage" value={formData.projectStage} onChange={handleChange}
                     className="mac-input focus-ring">
-                    <option value="">{t('diagnosis.selectPlease')}</option>
-                    {STAGE_OPTIONS.map(o => <option key={o} value={o}>{optLabel('stage', o)}</option>)}
+                    <option value="">请选择</option>
+                    <option value="idea">初步想法</option>
+                    <option value="pilot">小规模试水</option>
+                    <option value="launch">正式进入</option>
+                    <option value="scale">规模化扩展</option>
                   </select>
                 </div>
-                <div>
-                  <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
-                    <CalendarRange className="h-4 w-4 text-emerald-300" />
-                    {t('expertReview.expectedTimeline')}
-                  </label>
-                  <input type="text" name="timeline" value={formData.timeline} onChange={handleChange}
-                    className="mac-input focus-ring" placeholder={t('expertReview.timelinePlaceholder')} />
-                </div>
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                     <Globe2 className="h-4 w-4 text-emerald-300" />
-                    {t('expertReview.targetMarkets')}
+                    目标市场
                   </label>
                   <input type="text" name="targetMarkets" value={formData.targetMarkets} onChange={handleChange}
-                    className="mac-input focus-ring" placeholder={t('expertReview.marketsPlaceholder')} />
+                    className="mac-input focus-ring" placeholder="如:日本、欧盟、东南亚" />
                 </div>
-                <div>
-                  <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
-                    <ClipboardList className="h-4 w-4 text-emerald-300" />
-                    {t('expertReview.budgetRange')}
-                  </label>
-                  <select name="budget" value={formData.budget} onChange={handleChange}
-                    className="mac-input focus-ring">
-                    <option value="">{t('diagnosis.selectPlease')}</option>
-                    {BUDGET_OPTIONS.map(o => <option key={o} value={o}>{optLabel('budget', o)}</option>)}
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
-                  <ShieldCheck className="h-4 w-4 text-emerald-300" />
-                  {t('expertReview.existingValidation')}
-                </label>
-                <select name="hasValidation" value={formData.hasValidation} onChange={handleChange}
-                  className="mac-input focus-ring">
-                  <option value="">{t('diagnosis.selectPlease')}</option>
-                  {VALIDATION_OPTIONS.map(o => <option key={o} value={o}>{optLabel('validation', o)}</option>)}
-                </select>
               </div>
 
               <div>
                 <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                   <MessageSquare className="h-4 w-4 text-emerald-300" />
-                  {t('expertReview.mostImportantProblem')}
+                  您的需求或问题
                 </label>
                 <textarea name="challenge" value={formData.challenge} onChange={handleChange} rows={3}
                   className="mac-input focus-ring resize-none"
-                  placeholder={t('expertReview.problemPlaceholder')} />
+                  placeholder="请简要描述您的出海需求或面临的问题..." />
+              </div>
+
+              <div>
+                <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
+                  <CalendarRange className="h-4 w-4 text-emerald-300" />
+                  时间线
+                </label>
+                <input type="text" name="timeline" value={formData.timeline} onChange={handleChange}
+                  className="mac-input focus-ring" placeholder="如:6个月内、1年内、无明确时间" />
               </div>
 
               <div>
                 <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                   <MessageSquare className="h-4 w-4 text-emerald-300" />
-                  {t('expertReview.additionalNotes')}
+                  补充说明
                 </label>
-                <textarea name="message" value={formData.message} onChange={handleChange} rows={4}
+                <textarea name="message" value={formData.message} onChange={handleChange} rows={3}
                   className="mac-input focus-ring resize-none"
-                  placeholder={t('expertReview.notesPlaceholder')} />
+                  placeholder="任何其他您想让我们了解的信息..." />
               </div>
 
               <button
@@ -347,7 +325,7 @@ const Contact = () => {
                 className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 transition-all hover:-translate-y-0.5 hover:bg-emerald-50 disabled:opacity-50"
               >
                 <Send className="h-4 w-4" />
-                {isSubmitting ? t('expertReview.submitting') : t('expertReview.submitBtn')}
+                {isSubmitting ? '提交中...' : '提交咨询'}
               </button>
             </div>
           </form>
@@ -357,9 +335,9 @@ const Contact = () => {
       <Dialog open={showDialog} onOpenChange={setShowDialog}>
         <DialogContent className="border-white/10 bg-[#0b1620] text-white">
           <DialogHeader>
-            <DialogTitle>{t('expertReview.requestSubmitted')}</DialogTitle>
+            <DialogTitle>提交成功!</DialogTitle>
             <DialogDescription className="text-slate-400">
-              {t('expertReview.requestSubmittedMsg')}
+              感谢您的咨询。我们的顾问团队会在24小时内与您联系,请留意您的邮箱。
             </DialogDescription>
           </DialogHeader>
         </DialogContent>
