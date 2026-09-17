@@ -231,28 +231,6 @@
     "loading": "Loading...",
     "noArticles": "No articles available"
   },
-  "testimonials": {
-    "title": "Client Testimonials",
-    "subtitle": "What They Say",
-    "description": "Real feedback from clients, witnessing our ability to help businesses successfully expand globally",
-    "items": {
-      "wang": {
-        "quote": "Before going overseas we thought the hardest part was compliance. After the journey we learned the hardest part is judgment. QihuangSihai didn't make us move fast — they made us dare to move. We signed 3 MOUs in Japan and have shipped steadily for 14 months. They saw two regulatory shifts before we did.",
-        "name": "Founder, century-old Shanghai TCM maker",
-        "position": "Japan · drugstore & kampō retail channels"
-      },
-      "li": {
-        "quote": "We wanted to enter Europe and the US, with no idea where to start. In 30 minutes QihuangSihai showed us that Hanfang skincare in Germany and the UK are two completely different stories. We followed their path: a German DTC site first, hitting $8K monthly with 28% repeat purchase in 9 months.",
-        "name": "Founder, emerging Hanfang skincare brand",
-        "position": "EU/US · Germany DTC-first"
-      },
-      "zhang": {
-        "quote": "We had been doing OTC and wanted to move into functional food, but couldn't pick the right category. The algorithm gave 3 judgments first, then a senior consultant walked us through 60 minutes of review. We chose the health-supplement path instead of TCM, saving at least 18 months of compliance time.",
-        "name": "CMO, Bencao-food startup",
-        "position": "Southeast Asia · category-path selection"
-      }
-    }
-  },
   "contact": {
     "title": "Contact Us",
     "subtitle": "Start Your Global Journey",
@@ -684,27 +662,6 @@
     "requestSubmitted": "Request submitted",
     "requestSubmittedMsg": "We will review the project context you submitted and decide whether a deeper expert evaluation is appropriate, then follow up shortly.",
     "submitting": "Submitting..."
-  },
-  "cases": {
-    "badge": "Real cases, decision evidence",
-    "badgeTitle": "Cases are not brand decoration. They are real-world proof of the decision logic.",
-    "badgeTitleEn": "Cases are not brand decoration. They are evidence for the diagnosis logic.",
-    "desc": "We structure each case as problem, pathway, outcome and takeaway so users can see why different markets and product categories require different routes.",
-    "descEn": "We structure each case as problem, pathway, outcome and takeaway so users can see why different markets and product categories require different routes.",
-    "searchPlaceholder": "Search case, market or category",
-    "showCount": "Showing {{n}}/4 cases",
-    "proofCase": "Proof case",
-    "allCases": "All Cases",
-    "industry": "Problem",
-    "pathway": "Pathway",
-    "outcome": "Outcome",
-    "insight": "What this means for your project",
-    "cat_all": "All Cases",
-    "cat_market": "Market Selection",
-    "cat_compliance": "Compliance & Entry",
-    "cat_channel": "Channel Building",
-    "cat_resource": "Resource Matching",
-    "applyCase": "Request a deeper expert evaluation"
   },
   "footer2": {
     "highTrust": "AI decision platform you can trust",

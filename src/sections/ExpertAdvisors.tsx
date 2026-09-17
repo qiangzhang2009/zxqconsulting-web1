@@ -142,9 +142,9 @@ const ExpertAdvisors = () => {
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             {[
               isZh ? '12+ 年出海实战' : '12+ Years Practice',
-              isZh ? '120+ 服务案例' : '120+ Cases Served',
               isZh ? '35 国监管框架' : '35 Country Frameworks',
               isZh ? '全流程陪跑' : 'End-to-End Coaching',
+              isZh ? '算法 + 真人顾问' : 'AI + Senior Advisors',
             ].map((tag) => (
               <div
                 key={tag}

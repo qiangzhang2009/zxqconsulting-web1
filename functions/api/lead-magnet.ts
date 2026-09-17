@@ -166,7 +166,7 @@ function buildDay0Email(name: string, downloadUrl: string): string {
   <ul style="color: #cbd5e1; line-height: 1.8;">
     <li><strong>Day 3:</strong> 路径决策树详解 —— 药品 / 食品 / 化妆品该如何选择</li>
     <li><strong>Day 7:</strong> 重点 5 国进入策略深度分析</li>
-    <li><strong>Day 14:</strong> 出海实战案例集 —— 真实项目的路径与结果</li>
+    <li><strong>Day 14:</strong> 算法框架与陪跑流程精讲 —— 把判断做到能签</li>
   </ul>
   <p style="font-size: 16px; line-height: 1.6; color: #cbd5e1; margin-top: 32px;">
     如果您希望跳过阅读阶段,直接进入决策环节,可以<a href="https://zxqconsulting.com/diagnose" style="color: #10b981;">点击这里开始 AI 诊断</a>。

@@ -22,7 +22,6 @@ const Footer = () => {
       title: '陪你的',
       links: [
         { name: t('nav2.how', '我们怎么陪你'), to: '/method' },
-        { name: t('nav2.cases', '被陪过的出海人'), to: '/cases' },
         { name: t('nav2.markets', '35 个目的地'), to: '/markets' },
         { name: t('nav2.research', '陪跑档案'), to: '/research' },
         { name: '管理后台', to: '/admin/login', isAdmin: true },

@@ -193,11 +193,10 @@ const About = () => {
               className="text-lg md:text-xl leading-[1.95] text-[#2A1F18] font-medium mb-5"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              我也见过另一个团队,7 天里我们陪着他拆开"做日本"三个字,
-              陪着他找到 32 家合伙人,陪着他坐到第一张谈判桌前 —— 14 个月了,他还在出货。
+              我们做的,就是把那个「该问谁」变成一个你能找到、24h 在线的人 —— 小驼扫数据,真人顾问陪你做判断,你只管出海路上那件你最该做的事。
             </p>
             <p className="text-base leading-[1.9] text-[#5A4A3C]">
-              差别不在资源,<span className="text-[#C2473B]">在于你有没有人在你身后。</span>
+              <span className="text-[#C2473B]">差别不在资源，在于你有没有人在你身后。</span>
               <br />
               这就是我们做岐黄四海的原因 —— 让你出海时,<span className="text-[#2A1F18]">身后有人,身边有驼。</span>
             </p>
@@ -415,11 +414,11 @@ const About = () => {
               <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
-              to="/expert"
+              to="/method"
               className="inline-flex items-center gap-3 rounded-2xl border-2 border-[#2F5D57] bg-white px-7 py-4 text-base font-semibold text-[#2F5D57] transition-all hover:bg-[#2F5D57] hover:text-white hover:-translate-y-0.5"
             >
               <Users className="h-5 w-5" />
-              看 32 个被陪过的出海人
+              看我们的方法论
             </Link>
             <Link
               to="/research"

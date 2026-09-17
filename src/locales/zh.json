@@ -238,29 +238,6 @@
     "loading": "加载中...",
     "noArticles": "没有可用的文章"
   },
-  "testimonials": {
-    "title": "客户评价",
-    "subtitle": "他们说什么",
-    "description": "客户的真实反馈，见证我们帮助企业成功拓展全球的能力",
-    "header": "我们的客户怎么说",
-    "items": {
-      "wang": {
-        "quote": "出海前我们以为最难的是合规。走完才知道，最难的是判断。岐黄四海做的不是让我们走得快，是让我们敢走。我们在日本签约 3 家 MOU，稳定出货 14 个月，中间遇到 2 次政策调整，他们都比我们先看到。",
-        "name": "某沪上百年中成药厂负责人",
-        "position": "出海日本 · 药妆与汉方药店渠道"
-      },
-      "li": {
-        "quote": "我们想进入欧美，一开始完全不知道从哪里切。岐黄四海用 30 分钟帮我们看清：汉方护肤在德国和英国是两个完全不同的故事。后来我们按他们的路径，先德国 DTC 站，9 个月做到月销 8K 美元，复购率 28%。",
-        "name": "某汉方护肤新锐创始人",
-        "position": "出海欧美 · 德国 DTC 站先行"
-      },
-      "zhang": {
-        "quote": "我们一直做 OTC，想做功能性食品，品类定位不知道选哪个。算法先给了 3 个判断，真人顾问再陪我们复盘了 60 分钟。最后我们选了保健食品路径，而不是中成药，省下了至少 18 个月的合规时间。",
-        "name": "某本草食品初创 CMO",
-        "position": "出海东南亚 · 品类路径选择"
-      }
-    }
-  },
   "contact": {
     "title": "联系我们",
     "subtitle": "开始您的全球之旅",
@@ -748,27 +725,6 @@
     "requestSubmitted": "申请已提交",
     "requestSubmittedMsg": "我们会基于你提交的项目信息判断是否安排专家进一步评估，并尽快与你联系。",
     "submitting": "提交中..."
-  },
-  "cases": {
-    "badge": "真实案例，决策证据",
-    "badgeTitle": "案例不是品牌装饰，而是决策逻辑的实战验证。",
-    "badgeTitleEn": "Cases are not brand decoration. They are evidence for the diagnosis logic.",
-    "desc": "我们把案例重写为\"问题—路径—结果—启发\"的结构，让用户看到不同市场与不同品类为何要采用不同进入方式。",
-    "descEn": "We structure each case as problem, pathway, outcome and takeaway so users can see why different markets and product categories require different routes.",
-    "searchPlaceholder": "搜索案例、市场或品类",
-    "showCount": "显示 {{n}}/4 个案例",
-    "proofCase": "案例证明",
-    "allCases": "全部案例",
-    "industry": "初始问题",
-    "pathway": "采取路径",
-    "outcome": "最终结果",
-    "insight": "对今天用户的启发",
-    "cat_all": "全部案例",
-    "cat_market": "选市场型",
-    "cat_compliance": "解准入型",
-    "cat_channel": "搭渠道型",
-    "cat_resource": "找资源型",
-    "applyCase": "申请专家深度评估"
   },
   "footer2": {
     "highTrust": "值得信任的 AI 决策平台",

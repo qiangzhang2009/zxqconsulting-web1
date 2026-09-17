@@ -3,7 +3,7 @@
  *
  * 调整：
  * - 品牌名旁加「陪你走完出海每一步」tagline
- * - 导航名改为「我们怎么陪你」「被陪过的出海人」「陪你去的 35 国」「陪跑档案」「陪你的人」
+ * - 导航名改为「我们怎么陪你」「陪你去的 35 国」「陪跑档案」「陪你的人」
  * - CTA 改为「让小驼陪我走第一步」
  */
 
@@ -35,7 +35,6 @@ const Navbar = () => {
 
   const navLinks = [
     { name: t('nav2.how', '我们怎么陪你'), to: '/method', note: '方法' },
-    { name: t('nav2.cases', '被陪过的出海人'), to: '/cases', note: '档案' },
     { name: t('nav2.markets', '陪你去的 35 国'), to: '/markets', note: '目的地' },
     { name: t('nav2.research', '陪跑档案'), to: '/research', note: '故事' },
     { name: t('nav2.expert', '陪你的人'), to: '/expert', note: '顾问', highlight: true },

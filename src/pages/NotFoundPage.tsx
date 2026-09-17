@@ -2,7 +2,7 @@
  * NotFoundPage — 404 占位页
  *
  * 品牌金句第 5 处露出:把"迷路"也变成一次品牌接触
- * 视觉:墨青底 + 朱砂点缀,与 Testimonials 风格一致
+ * 视觉:墨青底 + 朱砂点缀
  * 不依赖 i18n(无 key 暴露),纯文案 + 视觉
  */
 
@@ -70,7 +70,7 @@ const NotFoundPage = () => {
           </h1>
 
           <p className="mt-6 text-sm md:text-base text-amber-50/60 max-w-lg mx-auto leading-relaxed">
-            这条路径没有出口,但 32 个真实陪跑档案有。
+            这条路径没有出口,但 35 个市场的算法 + 顾问可以重新给你指一条。
             <br />
             让算法 + 顾问陪你的项目,走一条能落地的路。
           </p>
@@ -86,11 +86,11 @@ const NotFoundPage = () => {
               <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" />
             </Link>
             <Link
-              to="/research"
+              to="/method"
               className="inline-flex items-center gap-2 rounded-2xl border-2 border-amber-50/30 bg-transparent px-6 py-3.5 text-base font-semibold text-amber-50 transition-all hover:bg-amber-50/10 hover:border-[#C2473B]/60 hover:text-white"
             >
               <Compass className="h-5 w-5" />
-              看 32 个真实陪跑档案
+              看我们的方法论
             </Link>
             <a
               href="mailto:zxq@zxqconsulting.com"

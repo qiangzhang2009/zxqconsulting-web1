@@ -223,18 +223,6 @@
     "loading": "読み込み中...",
     "noArticles": "利用可能な記事はありません"
   },
-  "testimonials": {
-    "title": "お客様の声",
-    "subtitle": "お客様の声",
-    "description": "お客様からの実際のフィードバック。ビジネスのグローバルな拡大を支援する当社の能力を目の当たりにします",
-    "items": {
-      "wang": {
-        "quote": "海外に出る前は、コンプライアンスが一番難しいと思っていました。走り終えて分かったのは、本当の難所は「判断」だということです。岐黄四海は私たちを速く走らせたのではなく、「踏み出す勇気」をくれました。日本で 3 社と MOU を締結、14 か月安定出荷。2 回の規制変更も、彼らは私たちより先に察知していました。",
-        "name": "上海の百年中成薬メーカー責任者",
-        "position": "日本進出 · ドラッグストア・漢方薬局チャネル"
-      }
-    }
-  },
   "contact": {
     "title": "お問合せ",
     "subtitle": "グローバルな旅を始める",
@@ -645,27 +633,6 @@
     "requestSubmitted": "リクエストが送信されました",
     "requestSubmittedMsg": "We will review the project context you submitted and decide whether a deeper expert evaluation is appropriate, then follow up shortly.",
     "submitting": "送信中..."
-  },
-  "cases": {
-    "badge": "サンプルレポートとケース証明",
-    "badgeTitle": "ケースはブランドの装飾ではなく、診断ロジックの証拠です。",
-    "badgeTitleEn": "ケースはブランドの装飾品ではありません。それらは診断ロジックの証拠となります。",
-    "desc": "各ケースを問題、経路、結果、要点として構造化しているため、市場や製品カテゴリが異なると異なるルートが必要な理由をユーザーが理解できるようになります。",
-    "descEn": "各ケースを問題、経路、結果、要点として構造化しているため、市場や製品カテゴリが異なると異なるルートが必要な理由をユーザーが理解できるようになります。",
-    "searchPlaceholder": "ケース、市場、カテゴリを検索",
-    "showCount": "{{n}}/4 ケースを表示",
-    "proofCase": "ケース証明",
-    "allCases": "すべてのケース",
-    "industry": "問題",
-    "pathway": "経路",
-    "outcome": "結果",
-    "insight": "今日のプロジェクトに意味着什么",
-    "cat_all": "すべてのケース",
-    "cat_supplement": "保健品",
-    "cat_tcm": "中医薬",
-    "cat_cosmetic": "スキンケア",
-    "cat_medical": "医療機器",
-    "applyCase": "Request a deeper expert evaluation"
   },
   "footer2": {
     "highTrust": "AI decision platform you can trust",

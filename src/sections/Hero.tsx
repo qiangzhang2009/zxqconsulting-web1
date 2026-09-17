@@ -8,7 +8,7 @@
  * - 顶部 tag：算法即世界 · 我们陪你落地
  * - 视觉中心：羊驼吉祥物（240px+），周围散落「陪跑节点」对话气泡
  * - 配色：暖米色主调（#F7EFE0），朱砂 + 墨青点缀
- * - CTA 三层：主菜「让小驼陪我走第一步」/ 沙拉「看 32 个被陪过的出海人」/ 点心「订阅《算法出海周报》」
+ * - CTA 三层：主菜「让小驼陪我走第一步」/ 沙拉「看我们的方法论」/ 点心「订阅《算法出海周报》」
  * - 算法视角金句暗线：在每处文案开篇体现「算法即世界」的世界观
  */
 
@@ -108,20 +108,6 @@ const Hero = () => {
           delay: 0.85,
         }
       );
-
-      // 底部信任条
-      gsap.fromTo(
-        '.hero-strip-fade',
-        { opacity: 0, y: 18 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          stagger: 0.1,
-          ease: 'power3.out',
-          delay: 1.25,
-        }
-      );
     }, heroRef);
 
     return () => ctx.revert();
@@ -217,12 +203,12 @@ const Hero = () => {
                 </Link>
 
                 <Link
-                  to="/research"
-                  onClick={() => tracking.click('hero_view_accompany_stories', 'cta')}
+                  to="/method"
+                  onClick={() => tracking.click('hero_view_methodology', 'cta')}
                   className="inline-flex items-center gap-3 rounded-2xl border-2 border-[#2F5D57] bg-white px-7 py-4 text-base font-semibold text-[#2F5D57] transition-all hover:bg-[#2F5D57] hover:text-white hover:-translate-y-0.5"
                 >
                   <Sparkles className="h-5 w-5" />
-                  看 32 个被陪过的出海人
+                  看我们的方法论
                 </Link>
 
                 <Link
@@ -241,7 +227,7 @@ const Hero = () => {
                 {[
                   '算法先看 · 真人陪跑',
                   '7 天走到 3 张敢签的判断书',
-                  '32 个真实陪跑档案',
+                  '35 国监管框架',
                   '签约后继续陪你 14 个月',
                 ].map((item) => (
                   <div key={item} className="inline-flex items-center gap-2">
@@ -368,86 +354,10 @@ const Hero = () => {
                     小驼 · 用算法替你扫世界，用陪跑替你走世界
                   </div>
                   <div className="text-[9px] text-[#5A4A3C] mt-0.5">
-                    24h 在线 · 点击看陪跑档案
+                    24h 在线 · 点击看方法论
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ========== 底部条：陪跑档案叙事（情感化） ========== */}
-      <div className="relative z-10 border-t border-[#C2473B]/10 bg-[#F7EFE0]/60 backdrop-blur-sm">
-        <div className="container mx-auto px-6 py-10 md:py-12">
-          <div className="mx-auto max-w-[1440px]">
-            <div className="grid gap-6 md:gap-10 md:grid-cols-[280px_1fr] items-start">
-              {/* 标题区 */}
-              <div>
-                <div
-                  className="hero-strip-fade text-xs font-semibold uppercase tracking-[0.28em] text-[#C2473B]"
-                  style={{ fontFamily: 'var(--font-serif)' }}
-                >
-                  算法即世界 · 一个真实的陪跑档案
-                </div>
-                <h3
-                  className="hero-strip-fade mt-2 text-2xl md:text-[1.7rem] font-semibold text-[#2A1F18] leading-snug"
-                  style={{ fontFamily: 'var(--font-serif)' }}
-                >
-                  7 天,我们陪一家百年老字号找到了日本合伙人
-                </h3>
-                <p className="hero-strip-fade mt-3 text-sm text-[#5A4A3C] leading-relaxed">
-                  不是一份报告,是一段陪跑 —— 从「我们该不该做日本」一直陪到「签了三家 MOU、稳定出货 14 个月」。
-                </p>
-                <Link
-                  to="/research"
-                  onClick={() => tracking.click('hero_strip_story', 'strip')}
-                  className="group hero-strip-fade mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[#C2473B] hover:text-[#A93B30] transition"
-                >
-                  看完整的陪跑档案
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </Link>
-              </div>
-
-              {/* 4 段陪跑节点 — 故事化时间轴 */}
-              <ul className="grid gap-3 sm:grid-cols-2">
-                {[
-                  { label: 'Day 1-2', title: '陪他想清楚', desc: '我们陪创始人在 60 分钟里拆开「做日本」三个字', color: 'bg-[#C2473B]' },
-                  { label: 'Day 3-4', title: '陪他找队友', desc: '小驼扫了 12,000+ 候选,挑出 32 家最合适', color: 'bg-[#D9A66B]' },
-                  { label: 'Day 5-6', title: '陪他核验证', desc: '逐家核完资质、合作、财务,过滤 90% 风险', color: 'bg-[#7B9E8A]' },
-                  { label: 'Day 7+', title: '陪他签约', desc: '走到 3 家签约,我们又陪了 14 个月', color: 'bg-[#2F5D57]' },
-                ].map((item) => (
-                  <li
-                    key={item.title}
-                    className="hero-strip-fade flex items-center gap-3 rounded-xl border border-[#C2473B]/15 bg-white px-4 py-3 hover:border-[#C2473B]/40 hover:shadow-sm transition"
-                  >
-                    <span
-                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${item.color} text-white`}
-                    >
-                      <Heart className="h-4 w-4 fill-white" />
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span
-                          className="text-[10px] font-mono font-bold text-[#C2473B]/70"
-                          style={{ fontFamily: 'var(--font-serif)' }}
-                        >
-                          {item.label}
-                        </span>
-                        <div
-                          className="text-sm font-semibold text-[#2A1F18]"
-                          style={{ fontFamily: 'var(--font-serif)' }}
-                        >
-                          {item.title}
-                        </div>
-                      </div>
-                      <div className="mt-0.5 text-xs text-[#5A4A3C] truncate">
-                        {item.desc}
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>

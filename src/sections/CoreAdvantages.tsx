@@ -36,10 +36,6 @@ interface CompanionItem {
   subtitle: string;
   desc: string;
   features: string[];
-  caseStudy?: {
-    company: string;
-    result: string;
-  };
   color: string;
   bg: string;
 }
@@ -62,10 +58,6 @@ const CoreAdvantages = () => {
         '预算 / 团队 / 合规,我们陪你掂量',
         '如果不该走,我们直接告诉你',
       ],
-      caseStudy: {
-        company: '某沪上百年中成药厂',
-        result: '陪他想清楚「做日本」是否真的是第一步',
-      },
       color: 'text-[#C2473B]',
       bg: 'bg-[#C2473B]/10',
     },
@@ -81,10 +73,6 @@ const CoreAdvantages = () => {
         '第一次邮件怎么写,我们陪你改',
         '谁适合先接触,我们陪你想',
       ],
-      caseStudy: {
-        company: '某沪上百年中成药厂',
-        result: '7 天匹配 32 家日本合伙人,3 家签 MOU',
-      },
       color: 'text-[#D9A66B]',
       bg: 'bg-[#D9A66B]/15',
     },
@@ -100,10 +88,6 @@ const CoreAdvantages = () => {
         '注册方案,我们陪你排时间表',
         '政策变了,我们比你先看到',
       ],
-      caseStudy: {
-        company: '某华东保健食品集团',
-        result: '德国欧盟认证 3 家原料供应商,合规先打通',
-      },
       color: 'text-[#7B9E8A]',
       bg: 'bg-[#7B9E8A]/15',
     },
@@ -119,10 +103,6 @@ const CoreAdvantages = () => {
         '新机会来了,我们继续陪你看',
         '深夜出问题,你打电话有人接',
       ],
-      caseStudy: {
-        company: '某汉方护肤新锐品牌',
-        result: '日本市场签约后,继续陪 14 个月稳定出货',
-      },
       color: 'text-[#2F5D57]',
       bg: 'bg-[#2F5D57]/15',
     },
@@ -256,21 +236,6 @@ const CoreAdvantages = () => {
                   </li>
                 ))}
               </ul>
-
-              {/* 案例 */}
-              {item.caseStudy && (
-                <div className="rounded-xl bg-[#FFFCF5] p-4 border-l-4 border-[#C2473B]">
-                  <div className="text-xs font-semibold text-[#C2473B] mb-1 flex items-center gap-1">
-                    <Sparkles className="h-3.5 w-3.5" />
-                    一个真实的陪跑 · 经客户授权化名
-                  </div>
-                  <div className="text-xs text-[#5A4A3C]">
-                    <span className="font-medium text-[#2A1F18]">{item.caseStudy.company}</span>
-                    <span className="mx-1">—</span>
-                    {item.caseStudy.result}
-                  </div>
-                </div>
-              )}
             </article>
           ))}
         </div>
@@ -311,11 +276,11 @@ const CoreAdvantages = () => {
               <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
-              to="/expert"
+              to="/method"
               className="inline-flex items-center gap-3 rounded-2xl border-2 border-[#2F5D57] bg-white px-7 py-4 text-base font-semibold text-[#2F5D57] transition-all hover:bg-[#2F5D57] hover:text-white hover:-translate-y-0.5"
             >
               <Users className="h-5 w-5" />
-              看 32 个被陪过的出海人
+              看我们的方法论
             </Link>
             <Link
               to="/research"

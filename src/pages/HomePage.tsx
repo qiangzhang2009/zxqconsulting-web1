@@ -1,8 +1,6 @@
 import { lazy, Suspense } from 'react';
 import Hero from '../sections/Hero';
 import CoreAdvantages from '../sections/CoreAdvantages';
-import AlgorithmCases from '../sections/AlgorithmCases';
-import OverseasBD from '../sections/OverseasBD';
 import Services from '../sections/Services';
 import ReviewComments from '../sections/ReviewComments';
 
@@ -16,8 +14,6 @@ export default function HomePage() {
     <main>
       <Hero />
       <CoreAdvantages />
-      <AlgorithmCases />
-      <OverseasBD />
       <Services />
       <Suspense fallback={null}>
         <About />

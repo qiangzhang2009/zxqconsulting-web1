@@ -263,7 +263,7 @@ const Services = () => {
               className="inline-flex items-center gap-3 rounded-2xl border-2 border-[#2F5D57] bg-white px-7 py-4 text-base font-semibold text-[#2F5D57] transition-all hover:bg-[#2F5D57] hover:text-white hover:-translate-y-0.5"
             >
               <Users className="h-5 w-5" />
-              看 32 个被陪过的出海人
+              看我们的方法论
             </Link>
             <Link
               to="/research"
