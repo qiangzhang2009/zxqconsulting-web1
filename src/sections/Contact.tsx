@@ -147,17 +147,17 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="bg-[#07111a] py-24">
+    <section id="contact" ref={sectionRef} className="bg-[#0a1612] py-24">
       <div className="container mx-auto px-6">
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-300">
-            <MessageSquare className="h-4 w-4" />
-            联系我们
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#C2473B]/30 bg-[#C2473B]/10 px-4 py-2 text-sm text-[#C2473B]">
+            <Sparkles className="h-4 w-4" />
+            算法即世界 · 我们陪你走到
           </div>
           <h2 className="mt-5 text-3xl font-semibold text-white md:text-5xl">
-            开始您的出海之旅
+            算法给你方向，我们陪你落地
           </h2>
-          <p className="mt-5 text-lg leading-8 text-slate-400">
+          <p className="mt-5 text-lg leading-8 text-amber-50/70">
             用算法发现机会,用顾问陪跑落地。无论您处于出海的哪个阶段,我们都愿意倾听并提供帮助。
           </p>
         </div>
@@ -165,28 +165,28 @@ const Contact = () => {
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           {/* 左侧:联系方式 */}
           <div>
-            <div ref={imageRef} className="relative mb-6 overflow-hidden rounded-[2rem] border border-white/10 shadow-xl">
+            <div ref={imageRef} className="relative mb-6 overflow-hidden rounded-[2rem] border border-[#C2473B]/25 shadow-xl">
               <img src="/contact-bg.jpg" alt="Contact" className="h-[280px] w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#07111a] via-[#07111a]/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a1612] via-[#0a1612]/20 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <div className="text-sm uppercase tracking-[0.2em] text-emerald-300/80">岐黄四海</div>
+                <div className="text-sm uppercase tracking-[0.2em] text-[#C2473B]/85">岐黄四海</div>
                 <h3 className="mt-2 text-2xl font-semibold">中医出海 一站式服务</h3>
               </div>
             </div>
 
             <div className="space-y-4">
               {/* 顾问团队 */}
-              <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
+              <div className="rounded-3xl border border-[#C2473B]/20 bg-[#0d1f1a] p-5">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-400/10 text-emerald-300">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#C2473B]/15 text-[#C2473B]">
                     <Bot className="h-5 w-5" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="text-lg font-semibold text-white">顾问团队</div>
-                    <div className="mt-1 text-sm text-slate-400">资深顾问全程陪跑您的出海之路</div>
+                    <div className="mt-1 text-sm text-amber-50/70">资深顾问全程陪跑您的出海之路</div>
                     <div className="mt-2 space-y-2 text-sm">
-                      <a href="mailto:customer@zxqconsulting.com" className="flex items-center gap-2 text-slate-300 transition-colors hover:text-white">
-                        <Mail className="h-4 w-4 text-emerald-300" /> customer@zxqconsulting.com
+                      <a href="mailto:customer@zxqconsulting.com" className="flex items-center gap-2 text-amber-50/80 transition-colors hover:text-white">
+                        <Mail className="h-4 w-4 text-[#C2473B]" /> customer@zxqconsulting.com
                       </a>
                     </div>
                   </div>
@@ -194,20 +194,20 @@ const Contact = () => {
               </div>
 
               {/* 承诺 */}
-              <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
+              <div className="rounded-3xl border border-[#C2473B]/20 bg-[#0d1f1a] p-5">
                 <div className="flex items-start gap-3">
-                  <ShieldCheck className="mt-0.5 h-5 w-5 text-emerald-300" />
-                  <div className="space-y-2 text-sm text-slate-400">
+                  <ShieldCheck className="mt-0.5 h-5 w-5 text-[#C2473B]" />
+                  <div className="space-y-2 text-sm text-amber-50/70">
                     <div className="flex items-center gap-2">
-                      <Sparkles className="h-3.5 w-3.5 text-emerald-300" />
+                      <Sparkles className="h-3.5 w-3.5 text-[#C2473B]" />
                       <span>专属订制算法精准匹配</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <MessageSquare className="h-3.5 w-3.5 text-emerald-300" />
+                      <MessageSquare className="h-3.5 w-3.5 text-[#C2473B]" />
                       <span>24小时内回复</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Globe2 className="h-3.5 w-3.5 text-emerald-300" />
+                      <Globe2 className="h-3.5 w-3.5 text-[#C2473B]" />
                       <span>35国法规框架支持</span>
                     </div>
                   </div>
@@ -217,7 +217,7 @@ const Contact = () => {
           </div>
 
           {/* 右侧:简洁表单 */}
-          <form ref={formRef} onSubmit={handleSubmit} className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-xl backdrop-blur-sm md:p-8">
+          <form ref={formRef} onSubmit={handleSubmit} className="rounded-[2rem] border border-[#C2473B]/20 bg-[#0d1f1a] p-6 shadow-xl backdrop-blur-sm md:p-8">
             <div className="mb-6">
               <h3 className="text-2xl font-semibold text-white mb-2">
                 留下您的信息

@@ -1,10 +1,10 @@
 /**
- * Overseas BD Section — 海外市场 BD 业务版块
+ * Overseas BD Section — 小驼陪一个真实故事走过的 7 天（陪跑者版）
  *
- * 中医出海场景下的专属订制算法 BD 服务:
- * - 4 步流程:市场全景扫描 → 合伙人智能发现 → 多维资质核验 → 定制化触达陪跑
- * - 1 个真实案例:某中药老字号 → 日本市场
- * - 关键指标:平均 7 天交付,扫描 10,000+ 候选池
+ * 强化"陪跑档案"叙事：
+ * - 主标：「7 天,我们怎么陪一家百年老字号找到日本合伙人」
+ * - 每个步骤改为「陪他 X」/ 「陪他 Y」
+ * - 情感化叙事：「客户想...但...我们陪他...」
  */
 
 import { useEffect, useRef } from 'react';
@@ -13,7 +13,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ArrowRight,
-  Globe2,
+  Heart,
   Compass,
   Search,
   ShieldCheck,
@@ -27,6 +27,7 @@ interface Step {
   num: string;
   icon: React.ReactNode;
   title: string;
+  emotion: string;
   desc: string;
 }
 
@@ -34,34 +35,38 @@ const steps: Step[] = [
   {
     num: '01',
     icon: <Compass className="h-5 w-5" />,
-    title: '市场全景扫描',
-    desc: 'Day 1-2 — 算法扫描日本电商 SKU、行业展会、专利、协会、媒体,绘制当地分销生态全景图。',
+    title: '陪他想清楚',
+    emotion: '他一开始只想做日本',
+    desc: 'Day 1-2 — 客户只看到日本。我们陪他聊 60 分钟,拆开"做日本"三个字 —— 哪些品类适合、哪些不适合、第一步到底该迈向哪里。',
   },
   {
     num: '02',
     icon: <Search className="h-5 w-5" />,
-    title: '合伙人智能发现',
-    desc: 'Day 3-4 — 从 12,000+ 候选分销/代理/零售/IP 合作方中,筛出与百年字号品类、价位、规模最匹配的 50 家。',
+    title: '陪他找队友',
+    emotion: '他不知道日本分销生态长什么样',
+    desc: 'Day 3-4 — 小驼扫了 12,000+ 日本分销 / 零售 / IP 候选。真人顾问陪他从中挑出 50 家,再一起缩到 32 家「值得见」的合伙人。',
   },
   {
     num: '03',
     icon: <ShieldCheck className="h-5 w-5" />,
-    title: '多维资质核验',
-    desc: 'Day 5-6 — 交叉验证注册信息、历史合作、合规记录、财务健康度,过滤掉 90% 表面好看但不靠谱的候选。',
+    title: '陪他核验证',
+    emotion: '他怕挑错人,签了被坑',
+    desc: 'Day 5-6 — 我们陪他逐家核完注册、合作、合规、财务。过滤掉 90% 表面好看但不靠谱的,留下 12 家可以坐下来谈的。',
   },
   {
     num: '04',
     icon: <Send className="h-5 w-5" />,
-    title: '定制化触达陪跑',
-    desc: 'Day 7 — 算法生成每个候选方的个性化触达话术与渠道建议,顾问陪同走进第一次会谈,签约 3 家 MOU。',
+    title: '陪他走到签约',
+    emotion: '他第一次坐到谈判桌前',
+    desc: 'Day 7+ — 我们陪他飞到日本,坐到第一张谈判桌前。冷场时给提示,价格博弈时给底线。最后 3 家签了 MOU,后续 14 个月我们继续陪。',
   },
 ];
 
 const metrics = [
-  { label: '平均匹配时长', value: '7 天' },
-  { label: '扫描候选池', value: '10,000+' },
-  { label: 'Top 50 入选率', value: '92%' },
-  { label: '进入谈判比例', value: '24%' },
+  { label: '陪跑时长', value: '7 天' },
+  { label: '扫描候选', value: '12,000+' },
+  { label: '陪挑合伙人', value: '32 家' },
+  { label: '签约至今', value: '14 月' },
 ];
 
 const OverseasBD = () => {
@@ -165,20 +170,23 @@ const OverseasBD = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-6">
-        {/* 章节标题 — 重写为单一客户叙事特写 */}
+        {/* 章节标题 — 陪跑档案叙事 + 算法世界观 */}
         <div className="mx-auto max-w-3xl text-center mb-14 obd-header">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#C2473B]/30 bg-[#C2473B]/10 px-4 py-2 text-sm text-[#C2473B] mb-6">
-            <Globe2 className="h-4 w-4" />
-            <span className="font-medium">陪跑档案 · 2026.06</span>
+            <Sparkles className="h-4 w-4" />
+            <span className="font-medium">算法即世界 · 陪跑档案 · 2026.06</span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.15] tracking-tight">
-            <span className="text-[#C2473B]">7 天,我们怎么陪</span>
+          <h2
+            className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.15] tracking-tight"
+            style={{ fontFamily: 'var(--font-serif)' }}
+          >
+            <span className="text-[#C2473B]">7 天,算法 + 陪跑</span>
             <span className="block text-white mt-2">一家百年老字号找到日本合伙人</span>
           </h2>
-          <p className="mt-6 text-lg leading-[1.8] text-amber-50/80 max-w-2xl mx-auto">
+          <p className="mt-6 text-lg leading-[1.85] text-amber-50/80 max-w-2xl mx-auto">
             一家想做日本药妆连锁与汉方药店渠道的百年中成药厂,
-            算法 <span className="font-semibold text-[#C2473B]">7 天</span> 扫描 12,000+ 候选,
-            锁定 <span className="font-semibold text-[#C2473B]">32 家</span> 合伙人,3 家签 MOU。
+            <span className="font-semibold text-[#C2473B]">小驼 7 天</span> 扫了 12,000+ 候选,
+            真人顾问陪他挑了 <span className="font-semibold text-[#C2473B]">32 家</span> 合伙人,3 家签 MOU —— 我们又陪了 14 个月。
           </p>
         </div>
 
@@ -192,7 +200,7 @@ const OverseasBD = () => {
               key={m.label}
               className="obd-metric rounded-xl border border-[#C2473B]/25 bg-[#C2473B]/[0.04] px-5 py-4 text-center"
             >
-              <div className="text-2xl md:text-3xl font-bold text-[#C2473B] mb-1">
+              <div className="text-2xl md:text-3xl font-bold text-[#C2473B] mb-1" style={{ fontFamily: 'var(--font-serif)' }}>
                 {m.value}
               </div>
               <div className="text-xs text-amber-50/70">{m.label}</div>
@@ -200,7 +208,7 @@ const OverseasBD = () => {
           ))}
         </div>
 
-        {/* 4 步陪跑过程 — 从「通用流程」改为「这次陪跑的具体 4 天」 */}
+        {/* 4 步陪跑过程 — 故事化 */}
         <div ref={stepsRef} className="relative">
           {/* 连接线 (桌面端 lg+ 显示) */}
           <div
@@ -220,11 +228,15 @@ const OverseasBD = () => {
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#C2473B]/15 text-[#C2473B] border border-[#C2473B]/30">
                     {step.icon}
                   </div>
-                  <div className="text-xs font-mono font-bold text-[#C2473B]/70 tracking-wider">
+                  <div className="text-xs font-mono font-bold text-[#C2473B]/70 tracking-wider" style={{ fontFamily: 'var(--font-serif)' }}>
                     Day {step.num}
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">
+                {/* 情感化副标题 */}
+                <div className="text-xs text-amber-50/55 italic mb-2" style={{ fontFamily: 'var(--font-serif)' }}>
+                  {step.emotion}
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2" style={{ fontFamily: 'var(--font-serif)' }}>
                   {step.title}
                 </h3>
                 <p className="text-sm leading-relaxed text-amber-50/75">
@@ -244,29 +256,29 @@ const OverseasBD = () => {
             <div className="md:col-span-3">
               <div className="text-xs font-semibold text-[#C2473B] mb-2 flex items-center gap-2">
                 <Sparkles className="h-3.5 w-3.5" />
-                真实陪跑 · 中药出海日本
+                一个真实的陪跑 · 中药出海日本 · 经客户授权化名
               </div>
-              <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">
+              <h3 className="text-xl md:text-2xl font-semibold text-white mb-3" style={{ fontFamily: 'var(--font-serif)' }}>
                 某沪上百年中成药厂 → 日本药妆与汉方药店渠道
               </h3>
               <p className="text-sm leading-relaxed text-amber-50/80">
                 客户想进入日本药妆连锁与汉方药店渠道,但对当地分销结构不熟悉。
-                算法 7 天内扫描了 12,000+ 日本分销/零售/IP 服务候选,
-                最终匹配 32 家优质合伙人,12 家进入深度谈判,3 家已签 MOU。
-                客户续约 2 次,目前在日本已稳定出货 14 个月。
+                小驼 7 天扫了 12,000+ 日本分销/零售/IP 服务候选,顾问陪他挑 32 家优质合伙人,
+                12 家进入深度谈判,<span className="text-[#C2473B] font-medium">3 家已签 MOU</span>。
+                后续 14 个月,我们继续陪 —— 政策变了我们比他先看到,新机会我们继续陪他挖。
               </p>
             </div>
             <div className="md:col-span-2 grid grid-cols-3 md:grid-cols-1 gap-3">
               <div className="rounded-xl bg-white/[0.04] border border-[#C2473B]/25 p-4 text-center">
-                <div className="text-2xl md:text-3xl font-bold text-[#C2473B] mb-1">32</div>
-                <div className="text-xs text-amber-50/70">匹配合伙人</div>
+                <div className="text-2xl md:text-3xl font-bold text-[#C2473B] mb-1" style={{ fontFamily: 'var(--font-serif)' }}>32</div>
+                <div className="text-xs text-amber-50/70">陪挑合伙人</div>
               </div>
               <div className="rounded-xl bg-white/[0.04] border border-[#C2473B]/25 p-4 text-center">
-                <div className="text-2xl md:text-3xl font-bold text-[#C2473B] mb-1">12</div>
+                <div className="text-2xl md:text-3xl font-bold text-[#C2473B] mb-1" style={{ fontFamily: 'var(--font-serif)' }}>12</div>
                 <div className="text-xs text-amber-50/70">深度谈判</div>
               </div>
               <div className="rounded-xl bg-white/[0.04] border border-[#C2473B]/25 p-4 text-center">
-                <div className="text-2xl md:text-3xl font-bold text-[#C2473B] mb-1">3</div>
+                <div className="text-2xl md:text-3xl font-bold text-[#C2473B] mb-1" style={{ fontFamily: 'var(--font-serif)' }}>3</div>
                 <div className="text-xs text-amber-50/70">已签 MOU</div>
               </div>
             </div>
@@ -276,31 +288,31 @@ const OverseasBD = () => {
         {/* 底部 CTA */}
         <div className="mt-16 text-center obd-header">
           <p className="text-base text-amber-50/80 mb-6">
-            想让算法陪您的项目走一次这样的 7 天?
+            想让小驼陪你的项目走一次这样的 7 天?
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
             <Link
               to="/diagnose"
               className="inline-flex items-center gap-3 rounded-2xl bg-[#C2473B] hover:bg-[#A93B30] px-7 py-4 text-base font-semibold text-white shadow-[0_10px_30px_rgba(194,71,59,0.4)] transition-all hover:-translate-y-0.5"
             >
-              <Compass className="h-5 w-5" />
-              开始 7 天陪跑
+              <Heart className="h-5 w-5 fill-white" />
+              让小驼陪我走第一步
               <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
               to="/research"
               className="inline-flex items-center gap-3 rounded-2xl border-2 border-[#C2473B]/40 bg-transparent px-7 py-4 text-base font-semibold text-[#C2473B] transition-all hover:bg-[#C2473B]/10 hover:-translate-y-0.5"
             >
-              <Globe2 className="h-5 w-5" />
-              看 32 个真实陪跑档案
+              <Sparkles className="h-5 w-5" />
+              看 32 个被陪过的出海人
             </Link>
-            {/* Tertiary — 订阅《出海判断周报》(暗色背景下用朱砂描边) */}
+            {/* Tertiary */}
             <Link
               to="/research"
               className="group inline-flex items-center gap-2 rounded-xl border border-amber-50/20 bg-transparent px-4 py-3 text-sm font-medium text-amber-50/80 transition-all hover:bg-amber-50/10 hover:border-[#C2473B]/60 hover:text-[#C2473B]"
             >
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#C2473B] group-hover:animate-pulse" />
-              订阅《出海判断周报》
+              订阅《出海陪跑周报》
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
