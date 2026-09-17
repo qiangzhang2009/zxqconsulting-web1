@@ -79,11 +79,11 @@
     "cap_followup_out1": "結果の解釈",
     "cap_followup_out2": "経路比較",
     "cap_followup_out3": "予算シナリオのシフト",
-    "cap_sample_proof": "サンプルレポートとケース証明",
-    "cap_sample_proof_desc": "代理店スタイルの請求に頼るのではなく、実際のエンゲージメントと再現可能なケースを使用してロジックを証明します。",
-    "cap_sample_proof_out1": "ケースロジックの内訳",
+    "cap_sample_proof": "サンプルレポートとアルゴリズム診断",
+    "cap_sample_proof_desc": "アルゴリズムが生成した診断サンプルを使用して、評価ロジックが透明で検証可能であることを証明します。",
+    "cap_sample_proof_out1": "アルゴリズムロジックの内訳",
     "cap_sample_proof_out2": "パスウェイの例",
-    "cap_sample_proof_out3": "結果の証明",
+    "cap_sample_proof_out3": "スコアリング基準",
     "cap_expert_upgrade": "Deeper expert evaluation",
     "cap_expert_upgrade_desc": "For complex, high-stakes or high-uncertainty projects, a deeper expert evaluation is offered instead of sending every visitor to the same generic form.",
     "cap_expert_upgrade_out1": "Project-fit assessment",
@@ -183,7 +183,7 @@
     "badges": {
       "response": "24時間対応",
       "consultant": "1対1のエキスパートコンサルタント",
-      "cases": "豊富な成功事例",
+      "cases": "アルゴリズム診断驱动",
       "support": "安心のアフターセールス"
     },
     "items": {
@@ -566,7 +566,7 @@
     "product": "製品",
     "diagnosisEngine": "診断エンジン",
     "useCases": "ユースケース",
-    "caseProof": "ケース証明",
+    "caseProof": "アルゴリズムサンプル",
     "expertUpgrade": "Expert Evaluation",
     "selectLang": "言語を選択",
     "research": "研究ライブラリ"
