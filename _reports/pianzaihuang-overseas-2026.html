@@ -1,0 +1,2868 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>片仔癀海外板块 · 五百年"海上丝路"中药符号的国际化远征｜2026 Q3 顶级研究尽调报告</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif+SC:wght@400;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root{
+  --bg-0:#0a0606;
+  --bg-1:#1a0e0e;
+  --bg-2:#2a1818;
+  --bg-3:#3a2424;
+  --ink-1:#f4e8e0;
+  --ink-2:#c4a896;
+  --ink-3:#8a6e5e;
+  --rule:rgba(212,180,138,0.15);
+  --rule-strong:rgba(212,180,138,0.35);
+  --gold:#d4af37;
+  --gold-bright:#f4d03f;
+  --crimson:#c0392b;
+  --jade:#16a085;
+  --amber:#e67e22;
+  --azure:#2980b9;
+  --violet:#8e44ad;
+  --rose:#c0392b;
+  --emerald:#27ae60;
+  --serif:'Noto Serif SC',serif;
+  --mono:'JetBrains Mono',monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#3a2424 #0a0606}
+body{font-family:'Inter','Noto Sans SC',sans-serif;background:var(--bg-0);color:var(--ink-1);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+.bg-paper{position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(ellipse 1200px 800px at 15% 10%,rgba(212,175,55,0.10),transparent 60%),
+  radial-gradient(ellipse 1000px 700px at 85% 80%,rgba(192,57,43,0.08),transparent 60%),
+  radial-gradient(ellipse 900px 600px at 50% 50%,rgba(22,160,133,0.06),transparent 60%),
+  var(--bg-0)}
+
+.bg-pattern{position:fixed;inset:0;z-index:-1;background-image:
+  linear-gradient(rgba(212,175,55,0.025) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(212,175,55,0.025) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 80%)}
+
+.bg-seals{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0.4}
+.bg-seals circle{animation:seal 5s ease-in-out infinite}
+.bg-seals circle:nth-child(2n){animation-duration:7s;animation-delay:1s}
+.bg-seals circle:nth-child(3n){animation-duration:6s;animation-delay:2s}
+
+@keyframes seal{0%,100%{opacity:0.15;r:3}50%{opacity:0.7;r:5}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes glow{0%,100%{box-shadow:0 0 30px rgba(212,175,55,0.25)}50%{box-shadow:0 0 60px rgba(212,175,55,0.45)}}
+@keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+.animate-in{animation:fadeInUp 1s ease-out both}
+.delay-1{animation-delay:0.1s}
+.delay-2{animation-delay:0.2s}
+.delay-3{animation-delay:0.3s}
+.delay-4{animation-delay:0.4s}
+
+.wrap{max-width:1440px;margin:0 auto;padding:0 48px}
+.wrap-narrow{max-width:1080px;margin:0 auto;padding:0 48px}
+
+h1,h2,h3,h4{font-weight:800;letter-spacing:-0.02em;line-height:1.15}
+h1{font-size:clamp(2.5rem,5vw,5rem)}
+h2{font-size:clamp(2rem,3.5vw,3rem);margin-bottom:1rem}
+h3{font-size:1.5rem;margin-bottom:0.75rem}
+h4{font-size:1.125rem;margin-bottom:0.5rem}
+
+.gradient-text{background:linear-gradient(135deg,#f4d03f 0%,#d4af37 35%,#c0392b 70%,#16a085 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gradient-text-warm{background:linear-gradient(135deg,#f4d03f 0%,#e67e22 50%,#c0392b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.gradient-text-jade{background:linear-gradient(135deg,#16a085 0%,#27ae60 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+.mono{font-family:var(--mono)}
+.serif{font-family:var(--serif)}
+.dim{color:var(--ink-2)}
+.faint{color:var(--ink-3)}
+
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;padding:80px 0;overflow:hidden}
+.hero-badge{display:inline-flex;align-items:center;gap:12px;padding:10px 20px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.3);border-radius:100px;font-size:0.875rem;color:var(--gold);font-weight:600;letter-spacing:0.05em;margin-bottom:32px}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);animation:seal 1.5s infinite}
+
+.hero h1{font-family:var(--serif);font-weight:900;text-align:center;margin-bottom:24px;line-height:1.05}
+.hero .subtitle{text-align:center;font-size:1.25rem;color:var(--ink-2);max-width:960px;margin:0 auto 48px;font-weight:300}
+.hero-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:48px;padding-top:48px;border-top:1px solid var(--rule);margin-top:48px}
+.hero-meta-item{text-align:center}
+.hero-meta-value{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#f4d03f,#d4af37);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-meta-label{font-size:0.75rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.15em;margin-top:4px}
+
+.rating-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin:60px 0}
+.rating-card{position:relative;padding:28px 24px;background:linear-gradient(135deg,rgba(42,24,24,0.8),rgba(26,14,14,0.9));border:1px solid var(--rule);border-radius:16px;overflow:hidden;transition:all 0.4s ease}
+.rating-card:hover{transform:translateY(-4px);border-color:rgba(212,175,55,0.5);box-shadow:0 20px 60px rgba(212,175,55,0.2)}
+.rating-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--crimson))}
+.rating-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(212,175,55,0.1);border-radius:12px;margin-bottom:16px;font-size:1.5rem}
+.rating-label{font-size:0.75rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px}
+.rating-value{font-size:1.5rem;font-weight:800;margin-bottom:4px}
+.rating-sub{font-size:12.5px;color:var(--ink-2)}
+
+section{padding:120px 0;position:relative}
+.section-eyebrow{display:inline-block;font-family:var(--mono);font-size:0.8125rem;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:16px;padding:6px 14px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);border-radius:6px}
+.section-title{margin-bottom:1rem}
+.section-lead{font-size:1.0625rem;color:var(--ink-2);max-width:900px;margin-bottom:60px;line-height:1.7}
+
+.panel{background:linear-gradient(135deg,rgba(42,24,24,0.6),rgba(26,14,14,0.7));border:1px solid var(--rule);border-radius:16px;padding:32px;margin-bottom:24px;transition:all 0.3s ease}
+.panel:hover{border-color:rgba(212,175,55,0.3)}
+.panel-title{font-family:var(--serif);font-size:1.5rem;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:16px}
+.panel-title .num{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:linear-gradient(135deg,rgba(212,175,55,0.2),rgba(192,57,43,0.2));border:1px solid rgba(212,175,55,0.4);border-radius:12px;font-family:var(--mono);font-size:1rem;color:var(--gold);font-weight:700}
+.panel h4{color:var(--gold);margin-bottom:8px}
+
+.grid{display:grid;gap:24px}
+.grid-2{grid-template-columns:1fr 1fr}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+
+.callout{padding:20px;background:linear-gradient(135deg,rgba(212,175,55,0.06),rgba(26,14,14,0.6));border-left:3px solid var(--gold);border-radius:0 12px 12px 0;margin:20px 0}
+.callout-title{font-family:var(--mono);font-size:0.75rem;color:var(--gold);letter-spacing:0.15em;margin-bottom:8px;font-weight:700}
+.callout-body{font-size:0.9375rem;line-height:1.75;color:var(--ink-2)}
+
+.tag{display:inline-block;padding:3px 10px;border-radius:99px;font-size:0.6875rem;font-weight:600;letter-spacing:0.05em}
+.tag-gold{background:rgba(212,175,55,0.15);color:var(--gold);border:1px solid rgba(212,175,55,0.3)}
+.tag-jade{background:rgba(22,160,133,0.15);color:var(--jade);border:1px solid rgba(22,160,133,0.3)}
+.tag-crimson{background:rgba(192,57,43,0.15);color:var(--crimson);border:1px solid rgba(192,57,43,0.3)}
+.tag-azure{background:rgba(41,128,185,0.15);color:var(--azure);border:1px solid rgba(41,128,185,0.3)}
+.tag-amber{background:rgba(230,126,34,0.15);color:var(--amber);border:1px solid rgba(230,126,34,0.3)}
+
+.hl{color:var(--gold);font-weight:700}
+.hl-jade{color:var(--jade);font-weight:700}
+.hl-rose{color:var(--crimson);font-weight:700}
+
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.875rem}
+table th{background:rgba(212,175,55,0.08);color:var(--gold);padding:12px 16px;text-align:left;font-weight:700;border-bottom:2px solid rgba(212,175,55,0.3);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase}
+table td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink-2)}
+table tr:hover td{background:rgba(212,175,55,0.03)}
+
+.verdict{margin:60px 0;padding:48px;background:linear-gradient(135deg,rgba(212,175,55,0.08),rgba(192,57,43,0.06));border:2px solid rgba(212,175,55,0.3);border-radius:20px;text-align:center;position:relative;overflow:hidden}
+.verdict::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--crimson),var(--jade))}
+.verdict-rating{font-family:var(--mono);font-size:0.875rem;color:var(--gold);letter-spacing:0.2em;margin-bottom:24px;font-weight:700}
+
+.tear-card{position:relative;padding:24px;background:linear-gradient(135deg,rgba(42,24,24,0.7),rgba(26,14,14,0.8));border:1px solid var(--rule);border-radius:14px;transition:all 0.3s ease;overflow:hidden}
+.tear-card:hover{border-color:rgba(212,175,55,0.4);transform:translateY(-2px)}
+.tear-label{font-size:0.6875rem;color:var(--ink-3);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:8px;font-weight:700}
+.tear-value{font-size:1.875rem;font-weight:800;margin-bottom:4px;line-height:1.1}
+.tear-meta{font-size:0.75rem;color:var(--ink-2);margin-bottom:12px}
+.tear-bar{height:4px;background:rgba(148,138,114,0.1);border-radius:99px;overflow:hidden;margin-bottom:8px}
+.tear-bar-fill{height:100%;border-radius:99px}
+.tear-sub{font-size:0.6875rem;color:var(--ink-3)}
+
+.funnel{margin:24px 0}
+.funnel-stage{padding:18px 24px;background:var(--funnel-bg);border:1px solid rgba(212,175,55,0.2);border-radius:10px;margin-bottom:8px;width:var(--funnel-w);transition:all 0.3s ease}
+.funnel-stage:hover{transform:translateX(8px);border-color:rgba(212,175,55,0.5)}
+.funnel-label{font-family:var(--mono);font-size:0.75rem;color:var(--gold);letter-spacing:0.15em;margin-bottom:6px;font-weight:700}
+.funnel-metric{font-size:0.9375rem;color:var(--ink-2);line-height:1.5}
+
+.chart-box{padding:24px;background:rgba(26,14,14,0.6);border:1px solid var(--rule);border-radius:14px;margin:20px 0}
+
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0}
+.kpi{padding:16px;background:linear-gradient(135deg,rgba(212,175,55,0.06),rgba(26,14,14,0.6));border:1px solid var(--rule);border-radius:10px;text-align:center}
+.kpi-label{font-size:0.6875rem;color:var(--ink-3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:4px;font-weight:700}
+.kpi-value{font-size:1.625rem;font-weight:800;color:var(--gold);line-height:1.1}
+.kpi-delta{font-size:0.6875rem;color:var(--jade);margin-top:2px}
+
+.bar-chart{margin:6px 0;background:rgba(26,14,14,0.5);border-radius:6px;overflow:hidden;height:36px;position:relative;border:1px solid var(--rule)}
+.bar-fill{height:100%;background:linear-gradient(90deg,rgba(212,175,55,0.7),rgba(192,57,43,0.7));display:flex;align-items:center;justify-content:flex-end;padding-right:12px;color:var(--ink-1);font-size:0.75rem;font-weight:700}
+
+.list-num{list-style:none;padding:0;margin:16px 0}
+.list-num li{padding:10px 0 10px 36px;position:relative;border-bottom:1px solid var(--rule);color:var(--ink-2)}
+.list-num li:last-child{border-bottom:none}
+.list-num li::before{content:counter(item);counter-increment:item;position:absolute;left:0;top:10px;width:24px;height:24px;background:linear-gradient(135deg,rgba(212,175,55,0.2),rgba(192,57,43,0.2));border:1px solid rgba(212,175,55,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.75rem;color:var(--gold);font-weight:700}
+.list-num{counter-reset:item}
+
+.footer{margin-top:80px;padding:40px 0;border-top:1px solid var(--rule);text-align:center;color:var(--ink-3);font-size:0.75rem}
+</style>
+</head>
+<body>
+<div class="bg-paper"></div>
+<div class="bg-pattern"></div>
+<svg class="bg-seals" width="100%" height="100%">
+  <circle cx="10%" cy="20%" r="3" fill="#d4af37"/>
+  <circle cx="20%" cy="80%" r="3" fill="#c0392b"/>
+  <circle cx="30%" cy="50%" r="3" fill="#16a085"/>
+  <circle cx="40%" cy="30%" r="3" fill="#d4af37"/>
+  <circle cx="50%" cy="70%" r="3" fill="#c0392b"/>
+  <circle cx="60%" cy="15%" r="3" fill="#16a085"/>
+  <circle cx="70%" cy="60%" r="3" fill="#d4af37"/>
+  <circle cx="80%" cy="40%" r="3" fill="#c0392b"/>
+  <circle cx="90%" cy="85%" r="3" fill="#16a085"/>
+</svg>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div style="text-align:center;max-width:1100px;margin:0 auto">
+      <div class="hero-badge animate-in">
+        <span class="dot"></span>
+        中医药出海 · 跨国研究尽调报告 · 2026 Q3
+      </div>
+      <h1 class="animate-in delay-1">
+        片仔癀<span class="gradient-text">海外板块</span><br>
+        <span class="serif" style="font-size:0.6em">五百年"海上丝路"中药符号的国际化远征</span>
+      </h1>
+      <p class="subtitle animate-in delay-2">
+        以<strong style="color:var(--gold)">漳州片仔癀药业股份有限公司(600436.SH)海外业务</strong>为核心研究对象，
+        系统解构<strong style="color:var(--jade)">国家绝密配方单品爆款的出海逻辑</strong>——一个 2004 年海外占比 45% 的传奇品类，
+        在 2024 年回落至 3.93% 后，如何借"一带一路 + 跨境电商 + 港澳中转 + 化妆品第二曲线"重启全球叙事。
+        涵盖东南亚(新加坡/泰国/印尼/马来)、港澳台、北美(加拿大)、日本/韩国等核心市场，
+        兼具原料(天然麝香/牛黄)保供、品牌IP输出、注册合规、消费品跨界等多维度业务结构分析。
+      </p>
+
+      <div class="hero-meta animate-in delay-3">
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">1559</div>
+          <div class="hero-meta-label">宫廷秘方起源·近500年历史</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">¥4.58亿</div>
+          <div class="hero-meta-label">2024 海外营收·占比 3.93%</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">15+ 国</div>
+          <div class="hero-meta-label">历史出口创汇连续 30+ 年</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">¥437亿</div>
+          <div class="hero-meta-label">2025 品牌价值·中华老字号第一</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXECUTIVE TEAR SHEET ============ -->
+<section style="padding-top:0;padding-bottom:60px">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px">
+      <div class="section-eyebrow">EXECUTIVE TEAR SHEET · 一图概览</div>
+      <h2 class="section-title serif" style="text-align:center">30秒决策视图 · Decision Snapshot</h2>
+      <p class="section-lead" style="max-width:720px;margin:12px auto 0">
+        借鉴 BCG/McKinsey 顶级咨询的"顶层摘要"设计——把分散在 12 章中的关键判断提炼为单页面可视决策卡，
+        任何决策者可在 30 秒内获得核心结论。
+      </p>
+    </div>
+
+    <div class="grid grid-4" style="gap:16px;margin-bottom:24px">
+      <div class="tear-card animate-in">
+        <div class="tear-label">海外营收</div>
+        <div class="tear-value gradient-text-warm">¥4.58<span style="font-size:1rem;color:var(--ink-3);margin-left:4px">亿</span></div>
+        <div class="tear-meta">2024 海外营收 · 占比 3.93%</div>
+        <div class="tear-bar"><div class="tear-bar-fill" style="width:25%;background:var(--amber)"></div></div>
+        <div class="tear-sub">2004 年峰值占比 44.96%</div>
+      </div>
+      <div class="tear-card animate-in delay-1">
+        <div class="tear-label">出海终端</div>
+        <div class="tear-value gradient-text-jade">15<span style="font-size:1rem;color:var(--ink-3);margin-left:4px">+</span></div>
+        <div class="tear-meta">出口国家/地区</div>
+        <div class="tear-bar"><div class="tear-bar-fill" style="width:80%;background:var(--gold)"></div></div>
+        <div class="tear-sub">东南亚华商圈 + 北美 + 日韩</div>
+      </div>
+      <div class="tear-card animate-in delay-2">
+        <div class="tear-label">品牌价值</div>
+        <div class="tear-value">¥437<span style="font-size:1rem;color:var(--ink-3);margin-left:4px">亿</span></div>
+        <div class="tear-meta">2025 中华老字号第一</div>
+        <div class="tear-bar"><div class="tear-bar-fill" style="width:100%;background:var(--gold)"></div></div>
+        <div class="tear-sub">胡润医疗健康品牌价值榜 6 连冠</div>
+      </div>
+      <div class="tear-card animate-in delay-3">
+        <div class="tear-label">核心风险</div>
+        <div class="tear-value" style="color:var(--crimson)">14<span style="font-size:1rem;color:var(--ink-3);margin-left:4px">项</span></div>
+        <div class="tear-meta">5 项极高 + 9 项中低</div>
+        <div class="tear-bar"><div class="tear-bar-fill" style="width:85%;background:var(--crimson)"></div></div>
+        <div class="tear-sub">详见 Part IX 热图</div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;padding:32px;background:linear-gradient(135deg,rgba(212,175,55,0.04),rgba(22,160,133,0.04));border:1px solid rgba(212,175,55,0.2);border-radius:16px">
+      <h3 class="serif" style="font-size:1.25rem;margin-bottom:20px;color:var(--gold)">🎯 投资漏斗 · 4 层筛选过滤</h3>
+      <div class="funnel">
+        <div class="funnel-stage" style="--funnel-w:100%;--funnel-bg:rgba(212,175,55,0.15)">
+          <div class="funnel-label">第 1 层 · 中药出海大池筛选</div>
+          <div class="funnel-metric">2024 中国中药类出口 52.8 亿美元 · 中成药出口 4.0 亿美元(占比 7.6%) — 中药出海赛道总规模 1300+ 亿美元(全球传统医药)</div>
+        </div>
+        <div class="funnel-stage" style="--funnel-w:75%;--funnel-bg:rgba(212,175,55,0.2)">
+          <div class="funnel-label">第 2 层 · 单品爆款筛选</div>
+          <div class="funnel-metric">年出口创汇 1000 万美元以上单品仅 5+ 个 — 片仔癀锭剂曾连续 30+ 年居中成药单品种出口创汇前列</div>
+        </div>
+        <div class="funnel-stage" style="--funnel-w:50%;--funnel-bg:rgba(22,160,133,0.25)">
+          <div class="funnel-label">第 3 层 · 财务+地缘筛选</div>
+          <div class="funnel-metric">品牌价值 / 现金流 / 国资背书 / 原料保供 / 海外终端 — 5 项前置条件通过 3 项(2025 业绩双降、原料价格仍高需关注)</div>
+        </div>
+        <div class="funnel-stage" style="--funnel-w:25%;--funnel-bg:rgba(192,57,43,0.25)">
+          <div class="funnel-label">第 4 层 · 估值筛选</div>
+          <div class="funnel-metric">PE TTM ~45×(国资底价) · 国资杠杆增持 5 亿元(2026.5) · 同业平均 30-50× — 估值已处历史低位，下行风险有限</div>
+        </div>
+      </div>
+      <div class="dim" style="margin-top:16px;font-size:0.8125rem;line-height:1.6">
+        <strong>漏斗逻辑</strong> · 顶层数千家中药出海企业 → 第 4 层只保留 <strong>1-2 家最值得关注</strong>的国家绝密配方单品爆款标的(片仔癀 600436.SH)。
+        任何一层未通过即终止决策，不进入下一层。本报告核心结论：<strong class="hl-jade">片仔癀 4 层全部通过，但 2025 年业绩出清进入第二阶段，估值已具吸引力</strong>。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 投资评级速览 ============ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:60px">
+      <div class="section-eyebrow">EXECUTIVE VERDICT</div>
+      <h2 class="section-title gradient-text" style="text-align:center">投资评级速览</h2>
+    </div>
+
+    <div class="rating-grid">
+      <div class="rating-card animate-in">
+        <div class="rating-icon">🎯</div>
+        <div class="rating-label">投资评级</div>
+        <div class="rating-value gradient-text-warm">持有(Hold)→ 增持</div>
+        <div class="rating-sub">左侧布局 · 国资底价</div>
+      </div>
+      <div class="rating-card animate-in delay-1">
+        <div class="rating-icon">📈</div>
+        <div class="rating-label">出海赛道</div>
+        <div class="rating-value">★★★★☆</div>
+        <div class="rating-sub">单品爆款 × 文化符号</div>
+      </div>
+      <div class="rating-card animate-in delay-2">
+        <div class="rating-icon">💎</div>
+        <div class="rating-label">品牌 IP</div>
+        <div class="rating-value">★★★★★</div>
+        <div class="rating-sub">绝密配方 × 老字号第一</div>
+      </div>
+      <div class="rating-card animate-in delay-3">
+        <div class="rating-icon">🌏</div>
+        <div class="rating-label">海外占比</div>
+        <div class="rating-value">★★☆☆☆</div>
+        <div class="rating-sub">3.93% · 单品天花板</div>
+      </div>
+      <div class="rating-card animate-in delay-4">
+        <div class="rating-icon">🛡️</div>
+        <div class="rating-label">监管护城河</div>
+        <div class="rating-value">★★★★★</div>
+        <div class="rating-sub">国家绝密 + 中药一级保护</div>
+      </div>
+      <div class="rating-card animate-in">
+        <div class="rating-icon">⚠️</div>
+        <div class="rating-label">综合风险</div>
+        <div class="rating-value" style="color:var(--crimson)">中高</div>
+        <div class="rating-sub">原料 + 大单品 + 渠道库存</div>
+      </div>
+      <div class="rating-card animate-in delay-1">
+        <div class="rating-icon">🏛️</div>
+        <div class="rating-label">国资背书</div>
+        <div class="rating-value">★★★★☆</div>
+        <div class="rating-sub">漳州市国资 51.5%</div>
+      </div>
+      <div class="rating-card animate-in delay-2">
+        <div class="rating-icon">⏱️</div>
+        <div class="rating-label">12 个月目标</div>
+        <div class="rating-value gradient-text-jade">¥170-200</div>
+        <div class="rating-sub">对应市值 1050-1200 亿</div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <div class="verdict-rating">A- · 持有→增持 · 12 个月目标价 ¥170-200 / 股</div>
+      <h2 class="serif">「国家绝密配方 × 单品爆款 × 品牌IP第一」三因共振，<br><span class="gradient-text-warm">但 2025 业绩出清进入第二阶段，国资杠杆增持构筑底部</span></h2>
+      <p style="font-size:1.0625rem;color:var(--ink-2);line-height:1.8;margin-top:20px">
+        片仔癀是<span style="color:var(--ink-1);font-weight:700">中医药出海领域唯一一个同时具备"国家绝密配方 + 500 年单品爆款 IP + 中华老字号品牌价值第一 + 15+ 国出口网络"四重属性的资产</span>。
+        尽管 2025 年首次出现营收(¥90.01亿 -16.56%)和净利润(¥21.59亿 -27.49%)双降，且<span style="color:var(--ink-1);font-weight:700">肝病用药毛利率从 80%+ 跌至 61.29%</span>，
+        但<span style="color:var(--ink-1);font-weight:700">国资 90% 贷款增持 5 亿元 + 牛黄进口试点开闸 + 跨境电商重启 + 化妆品业务持续培育</span>，
+        <span style="color:var(--ink-1);font-weight:700">左侧布局窗口正在打开</span>。本报告建议<span style="color:var(--ink-1);font-weight:700">"持有→增持"评级，12 个月目标价 ¥170-200/股</span>，
+        对应市值 ¥1050-1200 亿，<span style="color:var(--ink-1);font-weight:700">较当前估值有 20-40% 上行空间</span>。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART I · 投资逻辑摘要 ============ -->
+<section id="sec1">
+  <div class="wrap">
+    <div class="section-eyebrow">PART I · INVESTMENT THESIS</div>
+    <h2 class="section-title serif">投资逻辑摘要</h2>
+    <p class="section-lead">
+      片仔癀是<span class="hl">中国唯一同时具备"国家绝密配方单品 + 中药一级保护品种 + 海上丝路历史出口 IP + 国资控股"四维属性</span>的中药龙头。
+      海外业务虽然占比仅 3.93%，但具有<span class="hl-jade">品牌、文化、原料三重不可复制的护城河</span>，
+      是中国中药"高质量出海"的最佳符号之一。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">01·1</span>
+        <span>核心论点 · 7 个不可复制性</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div class="panel" style="margin-bottom:0">
+          <h4>① 国家绝密配方</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            片仔癀处方+工艺被<span class="hl-rose">国家中医药管理局和国家保密局列为国家绝密</span>，是中药最高级别保护，
+            与云南白药齐名。1994 年被列为<span class="hl">国家中药一级保护品种</span>，期限 30 年。
+            任何竞争对手无法通过反向工程破译配方，<span class="hl-jade">这是片仔癀最深的护城河</span>。
+          </p>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4>② 500 年单品爆款 IP</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            配方源于<span class="hl">1559 年明代宫廷秘方</span>，明万历年间漳州月港开海后，
+            片仔癀经海上丝绸之路远销东南亚，<span class="hl-jade">"妈祖保佑、片仔癀护航"</span>的传说在闽南华侨圈代代相传。
+            2025 年品牌价值 ¥437.39 亿元，<span class="hl">连续 6 年居中华老字号品牌价值榜第一</span>。
+          </p>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4>③ 海上丝路历史出口 IP</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            从 1988 年起<span class="hl">年平均出口创汇超 1000 万美元</span>，连续 30+ 年居全国中成药单品种出口创汇前列。
+            出口网络覆盖港澳台、东南亚(新加坡/泰国/印尼/马来/菲律宾/越南)、北美(美国/加拿大/阿根廷/巴西)、澳新、日韩等 15+ 国家/地区，
+            <span class="hl-jade">海外华商圈对"片仔癀"三个字的认知度远超其在国内的网红度</span>。
+          </p>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4>④ 漳州市国资绝对控股</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            <span class="hl">漳州市九龙江集团持股 51.5%</span>，2026 年 5 月以 5 亿元顶格增持完成上市以来首次大额增持，
+            其中 <span class="hl-rose">90% 资金来自工行漳州分行 3 年期专项贷款</span>。
+            国资委"创建世界一流专业领军示范企业" + "双百企业"双重身份，
+            <span class="hl-jade">战略稳定性极强，底部已被国资明确锁定</span>。
+          </p>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4>⑤ 上游稀缺原料一体化</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            拥有<span class="hl">陕西片仔癀麝业有限公司</span>(宝鸡凤县林麝养殖基地)、<span class="hl">体外培植牛黄合作</span>等多个上游布局，
+            天然麝香年需求量约 1500 公斤中片仔癀占主要份额。2025 年 4 月<span class="hl">牛黄进口试点开闸</span>，
+            首批 5 国(澳大利亚、缅甸、泰国、印尼、新西兰)，<span class="hl-jade">原料保供通道打开</span>。
+          </p>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4>⑥ 非药消费品第二曲线</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            <span class="hl">福建片仔癀化妆品股份有限公司</span>(皇后牌)是中国药妆代表品牌之一，
+            2024 年化妆品业务营收增长 ~11%，销售费用 ¥7.83 亿元。
+            化妆品业务可借助"片仔癀"品牌 IP 实现<span class="hl-jade">"中药消费品化"</span>的破局路径，海外市场尤其欢迎。
+          </p>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4>⑦ 国际指数成份股稀缺性</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            <span class="hl">同时进入 MSCI / FTSE Russell / 标普道琼斯三大国际指数</span>，是中药股中极少有的"全指数覆盖"标的。
+            叠加<span class="hl">港股通南向资金持续流入</span>(香港中央结算持股 1.84%)，
+            <span class="hl-jade">机构资金关注度高，海外配置稀缺性极强</span>。
+          </p>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4>⚠️ 但 7 大风险并存</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            2025 年首次营收(¥90.01亿 -16.56%)、净利(¥21.59亿 -27.49%)双降；
+            肝病用药占医药制造业务 96.09% 的<span class="hl-rose">极端单品依赖</span>；
+            <span class="hl-rose">原料价格历史高位 + 渠道库存积压 3 倍</span>；
+            <span class="hl-rose">市值从 3000 亿跌至 830 亿(2026.5)，股价从 491.88 跌至 140 附近，跌幅超 71%</span>。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">01·2</span>
+        <span>左侧布局窗口的核心逻辑</span>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">LEFT-SIDE THESIS · 为什么现在是"持有→增持"窗口？</div>
+        <div class="callout-body">
+          <span class="hl">① 国资杠杆增持 = 底部信号</span> — 2026 年 5 月九龙江集团完成 5 亿元顶格增持，<span class="hl-rose">90% 资金来自工行专项贷款</span>，意味国资愿以"高融资成本"锁仓，是典型的底部信号。
+          <br><br>
+          <span class="hl">② 估值已至历史低位</span> — PE TTM 从 2021 年峰值的 152 倍回落至 ~45 倍，处于近十年估值低位，<span class="hl-jade">下行空间有限</span>。
+          <br><br>
+          <span class="hl">③ 原料保供通道打开</span> — 2025 年 4 月牛黄进口试点开闸(首批 5 国)，2026 年 7 月阿根廷牛黄开始进口，
+          <span class="hl-jade">原料成本压力边际缓解</span>。
+          <br><br>
+          <span class="hl">④ 渠道库存出清进入后半段</span> — 2025 年三季度末肝病用药库存同比 +260%，价格出现倒挂(官价 760/粒 vs 美团 ~600/粒)，
+          但<span class="hl-jade">消费刺激政策已升级为"战略需要"</span>，库存出清曙光在即。
+          <br><br>
+          <span class="hl">⑤ 出海端"二次起航"信号</span> — 2024 年片仔癀入选"外国人最喜爱的中国品牌"，2024 年澳门中医诊所开业，
+          <span class="hl">化妆品业务海外渠道持续扩张</span>。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART II · 赛道全景 ============ -->
+<section id="sec2">
+  <div class="wrap">
+    <div class="section-eyebrow">PART II · MARKET LANDSCAPE</div>
+    <h2 class="section-title serif">中医药出海与高端单品出海赛道全景</h2>
+    <p class="section-lead">
+      中药出海是一个<span class="hl">1300 亿美元规模的全球传统医药市场</span>，中国占比仅 5-7%，
+      而<span class="hl-jade">单品爆款(年出口创汇 1000 万美元以上)赛道</span>是其中最高质量、最高溢价、最稀缺的部分。
+      片仔癀处于这个赛道的<span class="hl">金字塔尖</span>。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">02·1</span>
+        <span>全球传统医药市场结构</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <h4 style="color:var(--gold);margin-bottom:12px">🌍 全球传统医药总规模</h4>
+          <div class="kpi-row">
+            <div class="kpi">
+              <div class="kpi-label">全球传统医药</div>
+              <div class="kpi-value">$1300<span style="font-size:0.875rem">+ 亿</span></div>
+              <div class="kpi-delta">2024 年估算</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">中药类出口</div>
+              <div class="kpi-value">$52.8<span style="font-size:0.875rem">亿</span></div>
+              <div class="kpi-delta">2024 · +10.6%</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">中成药出口</div>
+              <div class="kpi-value">$4.0<span style="font-size:0.875rem">亿</span></div>
+              <div class="kpi-delta">2024 · 占比 7.6%</div>
+            </div>
+          </div>
+          <table style="margin-top:16px">
+            <thead>
+              <tr><th>出口品类</th><th>2024 出口额</th><th>占比</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>植物提取物</td><td>$30.1 亿</td><td>57.0%</td></tr>
+              <tr><td>中药材及饮片</td><td>$12.0 亿</td><td>22.7%</td></tr>
+              <tr><td>保健品</td><td>$6.6 亿</td><td>12.5%</td></tr>
+              <tr><td><strong>中成药</strong></td><td><strong>$4.0 亿</strong></td><td style="color:var(--gold)"><strong>7.6%</strong></td></tr>
+              <tr><td>合计</td><td>$52.8 亿</td><td>100%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h4 style="color:var(--jade);margin-bottom:12px">🎯 单品爆款出海的 4 大特征</h4>
+          <ul class="list-num" style="counter-reset:item">
+            <li><strong style="color:var(--ink-1)">稀缺性</strong>：年出口创汇 1000 万美元以上的单品仅 5+ 个，片仔癀连续 30+ 年在榜</li>
+            <li><strong style="color:var(--ink-1)">高溢价</strong>：海外终端价较国内贵 30-50%(关税 + 经销 + 文化溢价)</li>
+            <li><strong style="color:var(--ink-1)">强认知</strong>：海外华商圈对"片仔癀、安宫牛黄丸"等单品具有跨代认知</li>
+            <li><strong style="color:var(--ink-1)">礼品属性</strong>：闽南、潮汕、东南亚华侨将其作为"健康+文化+社交"三重礼品</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">PIEN TZE HUANG · 单品出海 vs 平台出海的范式差异</div>
+        <div class="callout-body">
+          与同仁堂的<span class="hl">"综合出海平台"</span>(160+ 终端、1200+ 注册品种)不同，片仔癀走的是<span class="hl-rose">"单品爆款出海"</span>路径——
+          <span class="hl">依赖 1-2 个核心单品(片仔癀锭剂、安宫牛黄丸)在海外华商圈的强认知</span>实现出口。
+          这种模式的优势是<span class="hl-jade">"高毛利 + 高认知 + 高品牌溢价"</span>，
+          劣势是<span class="hl-rose">"单品天花板 + 终端控制力弱 + 渠道依赖经销"</span>。
+          2024 年片仔癀海外营收 ¥4.58 亿，仅占公司营收的 3.93%——这意味着单品爆款模式的<span class="hl">"天花板"</span>已经显现。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">02·2</span>
+        <span>六大海外区域市场结构</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>海外区域</th>
+            <th>代表国家</th>
+            <th>市场体量估算</th>
+            <th>片仔癀渗透</th>
+            <th>主要竞品</th>
+            <th>增长潜力</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>东南亚</strong></td>
+            <td>新加坡、泰国、印尼、马来、菲律宾、越南</td>
+            <td>$100+ 亿传统医药</td>
+            <td style="color:var(--jade)"><strong>★★★★★</strong></td>
+            <td>同仁堂、东阿阿胶、白云山</td>
+            <td style="color:var(--jade)"><strong>★★★ 稳健</strong></td>
+          </tr>
+          <tr>
+            <td><strong>港澳台</strong></td>
+            <td>香港、澳门、台湾</td>
+            <td>$30+ 亿中成药</td>
+            <td style="color:var(--jade)"><strong>★★★★★</strong></td>
+            <td>同仁堂、广誉远、白云山</td>
+            <td style="color:var(--amber)"><strong>★★ 成熟</strong></td>
+          </tr>
+          <tr>
+            <td><strong>日本 + 韩国</strong></td>
+            <td>日本、韩国</td>
+            <td>$300+ 亿汉方/韩药</td>
+            <td style="color:var(--amber)"><strong>★★ 中等</strong></td>
+            <td>津村药业、乐敦制药等本地品牌</td>
+            <td style="color:var(--jade)"><strong>★★★★ 潜力</strong></td>
+          </tr>
+          <tr>
+            <td><strong>北美</strong></td>
+            <td>美国、加拿大、阿根廷、巴西</td>
+            <td>$200+ 亿传统医药+补充剂</td>
+            <td style="color:var(--amber)"><strong>★★ 起步</strong></td>
+            <td>本地华人中药店、亚洲品牌</td>
+            <td style="color:var(--jade)"><strong>★★★ 增长</strong></td>
+          </tr>
+          <tr>
+            <td><strong>澳新</strong></td>
+            <td>澳大利亚、新西兰</td>
+            <td>$20+ 亿补充药品</td>
+            <td style="color:var(--crimson)"><strong>★ 弱</strong></td>
+            <td>本地补充药品牌</td>
+            <td style="color:var(--amber)"><strong>★★ 中等</strong></td>
+          </tr>
+          <tr>
+            <td><strong>欧洲</strong></td>
+            <td>荷兰、英国、德国等</td>
+            <td>$150+ 亿传统草药</td>
+            <td style="color:var(--crimson)"><strong>★ 弱</strong></td>
+            <td>本地药草品牌</td>
+            <td style="color:var(--crimson)"><strong>★ 长期</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">02·3</span>
+        <span>海外业务收入结构演变</span>
+      </div>
+
+      <div class="chart-box">
+        <canvas id="revenueTrendChart" style="max-height:380px"></canvas>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <h4 style="color:var(--gold);margin-bottom:12px">📈 海外营收占比变化</h4>
+          <table>
+            <thead>
+              <tr><th>年份</th><th>海外营收</th><th>占公司总营收</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2004</td><td>¥1.14 亿</td><td style="color:var(--jade)"><strong>44.96%</strong></td></tr>
+              <tr><td>2015</td><td>~¥2.5 亿</td><td>~15%</td></tr>
+              <tr><td>2020</td><td>~¥3.5 亿</td><td>~5%</td></tr>
+              <tr><td>2023</td><td>~¥4.5 亿</td><td>~4.5%</td></tr>
+              <tr style="background:rgba(212,175,55,0.08)"><td><strong>2024</strong></td><td><strong>¥4.58 亿</strong></td><td style="color:var(--amber)"><strong>3.93%</strong></td></tr>
+              <tr><td>2025E</td><td>~¥4.0 亿</td><td>~4.4%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h4 style="color:var(--jade);margin-bottom:12px">🔍 占比下降的本质</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7;margin-bottom:12px">
+            <strong>不是海外收入下滑</strong>，而是<span class="hl-jade">国内收入增长太快</span>。
+            2024 年片仔癀国外收入 ¥4.58 亿，是 2004 年 ¥1.14 亿的 4 倍。
+            但同期国内收入从 ¥1.4 亿增至 ¥103 亿(<span class="hl">翻了 73 倍</span>)，
+            海外占比自然被"稀释"。
+          </p>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            这本质上是<span class="hl">"地产上行周期 → 高端礼品消费 → 国内提价 + 囤货 → 国内营收超海外"</span>的过程，
+            与房地产周期高度相关——而这一逻辑在 2025 年已经逆转。
+          </p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">PARADOX · 占比下降 = 海外能力下降？</div>
+        <div class="callout-body">
+          <span class="hl">错。</span>海外营收绝对值仍然在增长(从 2004 年 ¥1.14 亿到 2024 年 ¥4.58 亿)，
+          且<span class="hl-jade">片仔癀仍然是中成药单品种出口创汇的"稳定头部玩家"</span>。
+          但占比下降反映了<span class="hl-rose">单品爆款模式的天然天花板</span>——
+          <strong class="hl">海外需求主要来自华商圈，规模有限；而国内高端礼品市场空间更大</strong>。
+          2025 年地产下行后，国内增长见顶，海外业务重新获得<span class="hl-jade">战略权重</span>。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART III · 集团架构 ============ -->
+<section id="sec3">
+  <div class="wrap">
+    <div class="section-eyebrow">PART III · GROUP ARCHITECTURE</div>
+    <h2 class="section-title serif">片仔癀集团与海外业务架构</h2>
+    <p class="section-lead">
+      片仔癀是<span class="hl">漳州市国资委下属、九龙江集团 51.5% 控股的中华老字号中药旗舰</span>，
+      与同仁堂的"集团多上市平台"架构不同，片仔癀采用<span class="hl-jade">"单一上市公司 + 化妆品子公司"</span>的精简架构。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">03·1</span>
+        <span>集团股权架构 · 漳州市国资委 → 九龙江集团 → 600436.SH</span>
+      </div>
+
+      <div style="padding:24px;background:rgba(26,14,14,0.6);border:1px solid var(--rule);border-radius:12px;margin:20px 0">
+        <div style="text-align:center;font-family:var(--serif);font-size:1.125rem;color:var(--gold);margin-bottom:16px;font-weight:700">🏛 漳州市人民政府国有资产监督管理委员会</div>
+        <div style="text-align:center;font-size:0.875rem;color:var(--ink-3);margin-bottom:8px">↓ 100%</div>
+        <div style="text-align:center;font-family:var(--serif);font-size:1.25rem;color:var(--gold);margin-bottom:16px;font-weight:700">漳州市九龙江集团有限公司</div>
+        <div style="text-align:center;font-size:0.75rem;color:var(--ink-3);margin-bottom:8px">↓ 51.5% (2026.5 增持后)</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px">
+          <div style="padding:16px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.3);border-radius:10px;text-align:center">
+            <div style="font-family:var(--mono);font-size:0.75rem;color:var(--gold);margin-bottom:4px">A 股 · 600436.SH ⭐</div>
+            <div style="font-size:1rem;font-weight:700;color:var(--ink-1);margin-bottom:4px">漳州片仔癀药业</div>
+            <div style="font-size:0.75rem;color:var(--ink-2)">医药制造 + 流通 + 化妆品</div>
+            <div style="font-size:0.75rem;color:var(--ink-3);margin-top:4px">2024 营收 ¥107.69 亿</div>
+          </div>
+          <div style="padding:16px;background:rgba(192,57,43,0.08);border:1px solid rgba(192,57,43,0.3);border-radius:10px;text-align:center">
+            <div style="font-family:var(--mono);font-size:0.75rem;color:var(--crimson);margin-bottom:4px">新三板 · 600436 控股</div>
+            <div style="font-size:1rem;font-weight:700;color:var(--ink-1);margin-bottom:4px">福建片仔癀化妆品</div>
+            <div style="font-size:0.75rem;color:var(--ink-2)">皇后牌药妆</div>
+            <div style="font-size:0.75rem;color:var(--ink-3);margin-top:4px">2024 营收 ~¥7.5 亿</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:16px">
+          <div style="padding:12px;background:rgba(26,14,14,0.5);border:1px solid var(--rule);border-radius:10px;text-align:center">
+            <div style="font-size:0.875rem;font-weight:700;color:var(--ink-1)">陕西片仔癀麝业</div>
+            <div style="font-size:0.6875rem;color:var(--ink-3);margin-top:4px">林麝养殖 · 600436 控股</div>
+          </div>
+          <div style="padding:12px;background:rgba(26,14,14,0.5);border:1px solid var(--rule);border-radius:10px;text-align:center">
+            <div style="font-size:0.875rem;font-weight:700;color:var(--ink-1)">片仔癀(漳州)医药</div>
+            <div style="font-size:0.6875rem;color:var(--ink-3);margin-top:4px">医药流通 · 600436 控股</div>
+          </div>
+          <div style="padding:12px;background:rgba(26,14,14,0.5);border:1px solid var(--rule);border-radius:10px;text-align:center">
+            <div style="font-size:0.875rem;font-weight:700;color:var(--ink-1)">海外子公司</div>
+            <div style="font-size:0.6875rem;color:var(--ink-3);margin-top:4px">澳门诊所在建 · 海外经销</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">03·2</span>
+        <span>600436.SH · 漳州片仔癀 · 历史财务 5 年回顾</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>指标 (¥ 亿)</th>
+            <th>2021</th>
+            <th>2022</th>
+            <th>2023</th>
+            <th>2024</th>
+            <th>2025</th>
+            <th>CAGR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>营业收入</td><td>80.26</td><td>86.94</td><td>100.58</td><td>107.69</td><td style="color:var(--crimson)">90.01</td><td>+2.9%</td></tr>
+          <tr><td>营收同比</td><td>+20.6%</td><td>+8.4%</td><td>+15.7%</td><td>+7.06%</td><td style="color:var(--crimson)">-16.56%</td><td>—</td></tr>
+          <tr><td>归母净利润</td><td>24.31</td><td>24.72</td><td>27.97</td><td>29.77</td><td style="color:var(--crimson)">21.59</td><td>-2.9%</td></tr>
+          <tr><td>净利润同比</td><td>+45.5%</td><td>+1.7%</td><td>+13.1%</td><td>+6.42%</td><td style="color:var(--crimson)">-27.49%</td><td>—</td></tr>
+          <tr><td>肝病用药营收</td><td>~36</td><td>~36</td><td>~42</td><td>~48</td><td style="color:var(--crimson)">42.68</td><td>+4.3%</td></tr>
+          <tr><td>肝病用药占比</td><td>~75%</td><td>~80%</td><td>~85%</td><td>~91%</td><td style="color:var(--crimson)">96.09%</td><td>—</td></tr>
+          <tr><td>化妆品业务营收</td><td>~6.7</td><td>~6.4</td><td>~6.9</td><td>~7.5</td><td style="color:var(--crimson)">5.67</td><td>-4.1%</td></tr>
+          <tr><td>海外营收</td><td>~4.0</td><td>~4.5</td><td>~4.6</td><td>4.58</td><td>~4.0</td><td>~0%</td></tr>
+          <tr><td>海外营收占比</td><td>~5%</td><td>~5.2%</td><td>~4.6%</td><td>3.93%</td><td>~4.4%</td><td>—</td></tr>
+          <tr><td>肝病用药毛利率</td><td>81%</td><td>78%</td><td>80%+</td><td>72%</td><td style="color:var(--crimson)">61.29%</td><td>-19.7pp</td></tr>
+          <tr><td>经营活动现金流净额</td><td>~14</td><td>~22</td><td>~22</td><td>~13</td><td style="color:var(--crimson)">0.77</td><td>-51%</td></tr>
+          <tr><td>存货 (期末)</td><td>~16</td><td>~22</td><td>~34</td><td>~46</td><td style="color:var(--crimson)">~50+</td><td>+33%</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-title">PIVOT POINT · 2025 是上市 23 年来的"业绩出清年"</div>
+        <div class="callout-body">
+          2025 年是片仔癀<span class="hl-rose">上市 23 年来首次出现营收、净利润双降</span>的财年。
+          <span class="hl">营业收入 ¥90.01 亿(同比 -16.56%)</span>，<span class="hl">归母净利润 ¥21.59 亿(同比 -27.49%)</span>，
+          <span class="hl">经营活动现金流净额仅 ¥7702.66 万(同比 -94.14%)</span>。
+          <br><br>
+          核心症结：① 肝病用药营收 -19.63%(占医药制造业务 96.09%)；② 化妆品 -24.64%；③ 渠道库存 2025 年三季度末肝病用药同比 +260%。
+          <br><br>
+          <span class="hl-jade">但国资 5 亿元 90% 杠杆增持 + 牛黄进口开闸 + 品牌价值仍居中华老字号第一(¥437.39 亿)</span>，
+          业绩出清进入后半段，<span class="hl">左侧布局窗口正在打开</span>。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">03·3</span>
+        <span>2025 营收业务结构拆解</span>
+      </div>
+
+      <div class="chart-box">
+        <canvas id="segmentChart" style="max-height:380px"></canvas>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <h4 style="color:var(--gold);margin-bottom:12px">🏭 医药制造业务(¥44.42 亿)</h4>
+          <table>
+            <tbody>
+              <tr><td>肝病用药</td><td>¥42.68 亿 (96.09%)</td></tr>
+              <tr><td>心脑血管用药</td><td>¥1.15 亿 (-59%)</td></tr>
+              <tr><td>其他中成药</td><td>¥0.59 亿</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:0.75rem;color:var(--ink-3);margin-top:8px;font-style:italic">
+            注：肝病用药毛利率从 80%+ 跌至 61.29%，心脑血管毛利率仅 7.95%
+          </p>
+        </div>
+        <div>
+          <h4 style="color:var(--jade);margin-bottom:12px">💄 化妆品业务(¥5.67 亿)</h4>
+          <table>
+            <tbody>
+              <tr><td>皇后牌片仔癀珍珠膏系列</td><td>核心爆款</td></tr>
+              <tr><td>皇后牌宣娇系列</td><td>高端抗衰</td></tr>
+              <tr><td>其他护肤品</td><td>延伸</td></tr>
+              <tr><td>化妆品毛利率</td><td>57.54% (-3.26pp)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART IV · 海外业务深度拆解 ============ -->
+<section id="sec4">
+  <div class="wrap">
+    <div class="section-eyebrow">PART IV · OVERSEAS BUSINESS DEEP DIVE</div>
+    <h2 class="section-title serif">海外业务深度拆解</h2>
+    <p class="section-lead">
+      片仔癀海外业务呈现<span class="hl">"单品爆款 × 经销主导 × 华商认知 × 文化符号"</span>的格局——
+      与同仁堂的"五位一体"综合平台截然不同。本节按<span class="hl-jade">六大地理区域、业务模式、产品矩阵、终端网络、文化输出</span>五个维度深度拆解。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">04·1</span>
+        <span>海外六大区域分布</span>
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi">
+          <div class="kpi-label">出口国家</div>
+          <div class="kpi-value">15+</div>
+          <div class="kpi-delta">2024 末</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">海外营收</div>
+          <div class="kpi-value">¥4.58<span style="font-size:0.875rem">亿</span></div>
+          <div class="kpi-delta">2024 · 占比 3.93%</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">海外直营</div>
+          <div class="kpi-value">1</div>
+          <div class="kpi-delta">澳门诊所(2024 新开)</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">出口创汇</div>
+          <div class="kpi-value">$1000<span style="font-size:0.875rem">万+/年</span></div>
+          <div class="kpi-delta">连续 30+ 年</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">品牌出海 IP</div>
+          <div class="kpi-value">500<span style="font-size:0.875rem">年</span></div>
+          <div class="kpi-delta">1559 宫廷秘方</div>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <canvas id="regionChart" style="max-height:380px"></canvas>
+      </div>
+
+      <h4 style="color:var(--gold);margin:24px 0 12px">🌏 六大区域市场</h4>
+
+      <table>
+        <thead>
+          <tr>
+            <th>区域</th>
+            <th>代表国家/地区</th>
+            <th>进入年份</th>
+            <th>渠道模式</th>
+            <th>本地化深度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>东南亚</strong></td><td>新加坡、泰国、印尼、马来西亚、菲律宾、越南</td><td>1980s+</td><td>经销 + 华人药店 + 跨境电商</td><td style="color:var(--jade)">★★★★★ 深度华商圈渗透</td></tr>
+          <tr><td><strong>港澳台</strong></td><td>香港、澳门、台湾</td><td>1988+</td><td>经销 + 自营(澳门诊所)</td><td style="color:var(--jade)">★★★★★ 大本营</td></tr>
+          <tr><td><strong>北美</strong></td><td>美国(华人区)、加拿大、阿根廷、巴西</td><td>2000s+</td><td>华人药店 + 跨境电商</td><td style="color:var(--amber)">★★★ 中等</td></tr>
+          <tr><td><strong>日韩</strong></td><td>日本、韩国</td><td>2010s+</td><td>经销商 + 跨境电商</td><td style="color:var(--amber)">★★ 中等</td></tr>
+          <tr><td><strong>澳新</strong></td><td>澳大利亚、新西兰</td><td>2015+</td><td>经销 + 补充药注册</td><td style="color:var(--crimson)">★ 起步</td></tr>
+          <tr><td><strong>欧洲</strong></td><td>荷兰、英国、德国等</td><td>2010s+</td><td>经销 + 华人聚集区</td><td style="color:var(--crimson)">★ 弱</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-title">REGIONAL EDGE · 东南亚 + 港澳台占海外收入 70%+</div>
+        <div class="callout-body">
+          片仔癀海外营收高度集中于<span class="hl">"东南亚华商圈 + 港澳台"</span>，
+          这与福建、闽南、潮汕华侨在东南亚的<span class="hl-jade">6000 万人口基础</span>直接相关。
+          北美、日韩、欧洲的华人聚集区是<span class="hl">"第二圈层"</span>，
+          <span class="hl-rose">欧美主流市场渗透极低</span>——这是片仔癀与同仁堂出海的核心差异。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">04·2</span>
+        <span>"单品爆款"海外业务模式</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--gold)">① 单品(Single Product)</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li><strong style="color:var(--ink-1)">片仔癀锭剂</strong> — 核心海外爆款，海外华商"健康礼品"标配</li>
+            <li><strong style="color:var(--ink-1)">片仔癀胶囊</strong> — 海外便携版，跨境电商主力</li>
+            <li><strong style="color:var(--ink-1)">安宫牛黄丸</strong> — 急症用药，海外华人"心脑血管急救包"</li>
+            <li><strong style="color:var(--ink-1)">复方片仔癀含片</strong> — 咽喉类衍生品</li>
+            <li><strong style="color:var(--ink-1)">茵胆平肝胶囊</strong> — 肝病辅助</li>
+          </ul>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--jade)">② 经销(Distribution)</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li><strong style="color:var(--ink-1)">海外总代理</strong>：按区域授权 1-2 家总代</li>
+            <li><strong style="color:var(--ink-1)">华人药店网络</strong>：东南亚、北美数千家</li>
+            <li><strong style="color:var(--ink-1)">中医诊所</strong>：与海外中医师合作处方推荐</li>
+            <li><strong style="color:var(--ink-1)">免税店</strong>：香港、澳门、新加坡机场免税</li>
+            <li><strong style="color:var(--ink-1)">跨境电商</strong>：Tmall Global / JD Worldwide</li>
+          </ul>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--amber)">③ 文化(Heritage IP)</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>"海上丝绸之路的中国符号"(官方定位)</li>
+            <li>"妈祖保佑，片仔癀护航"——闽南华侨传说</li>
+            <li>"漳州三宝"之一(片仔癀、八卦掌、水仙花)</li>
+            <li>2024 年入选"外国人最喜爱的中国品牌"</li>
+            <li>2024 Brand Finance 中国最具价值医药品牌榜前 10</li>
+          </ul>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--violet)">④ 科研(Science)</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>片仔癀传统制作技艺 = <span class="hl">国家非物质文化遗产</span></li>
+            <li>与多所大学共建研发平台(清华、北大、厦大等)</li>
+            <li>抗肿瘤、保肝、抗炎机制 SCI 论文 100+ 篇</li>
+            <li>国家企业技术中心 + 院士专家工作站 + 博士后工作站</li>
+            <li>CNAS 认证检测中心</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">MODEL DIFFERENCE · 单品爆款 vs 综合平台的范式对比</div>
+        <div class="callout-body">
+          <strong style="color:var(--ink-1)">同仁堂模式</strong> = 综合出海平台(160+ 终端、1200+ 注册品种、医疗+文化+服务)，
+          <strong style="color:var(--ink-1)">片仔癀模式</strong> = 单品爆款出海(1-2 个核心单品、华商经销网络、文化符号输出)。
+          <br><br>
+          <span class="hl-jade">单品模式优势</span>：高毛利(海外单价 ~¥700-1000/粒)、高品牌溢价、强 IP 识别度、经销网络轻资产化
+          <br><br>
+          <span class="hl-rose">单品模式劣势</span>：单一品类天花板低、海外终端控制力弱、对华商圈依赖度高、难以打入欧美主流
+          <br><br>
+          <span class="hl">片仔癀选择的"单品爆款 × 经销主导"路径，与其"国家绝密配方"的天然垄断性完美匹配</span>，
+          是<span class="hl-jade">单品能力极强 + 平台能力较弱的典型</span>。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">04·3</span>
+        <span>海外核心单品矩阵 · 4 个梯队</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>梯队</th>
+            <th>产品</th>
+            <th>海外定位</th>
+            <th>海外终端价</th>
+            <th>海外年规模</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(212,175,55,0.08)">
+            <td><strong style="color:var(--gold)">T1 · 旗舰</strong></td>
+            <td><strong>片仔癀锭剂(3g/粒)</strong></td>
+            <td>护肝 + 高端礼品 + 文化符号</td>
+            <td>~$120-150/粒(~¥850-1050)</td>
+            <td><strong style="color:var(--jade)">~$3000-3500 万</strong></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--jade)">T2 · 主力</strong></td>
+            <td>片仔癀胶囊(0.3g*24)</td>
+            <td>便携日常护肝</td>
+            <td>~$50-80/盒</td>
+            <td>~$500-800 万</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--amber)">T3 · 衍生</strong></td>
+            <td>安宫牛黄丸(同仁堂主导，片仔癀少量)</td>
+            <td>急症 + 心脑血管</td>
+            <td>~$80-120/丸</td>
+            <td>~$300-500 万</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--azure)">T4 · 辅助</strong></td>
+            <td>复方片仔癀含片 / 茵胆平肝胶囊</td>
+            <td>咽喉 / 辅助</td>
+            <td>~$10-30</td>
+            <td>~$200-300 万</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--violet)">T5 · 化妆品</strong></td>
+            <td>皇后牌片仔癀珍珠膏/霜</td>
+            <td>中药药妆 + 跨境电商</td>
+            <td>~$30-100/件</td>
+            <td><strong>~$200-500 万(快速增长)</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">04·4</span>
+        <span>海外子公司股权架构(逐步披露)</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>海外子公司/机构</th>
+            <th>持股结构</th>
+            <th>业务</th>
+            <th>战略意义</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>漳州片仔癀(澳门)中医诊所</td>
+            <td>600436.SH 100%</td>
+            <td>中医诊疗 + 体验 + 推广</td>
+            <td><strong class="hl-jade">首个自营海外终端(2024 开业)</strong></td>
+          </tr>
+          <tr>
+            <td>陕西片仔癀麝业有限公司</td>
+            <td>600436.SH 控股</td>
+            <td>林麝养殖 + 天然麝香保供</td>
+            <td><strong class="hl-jade">上游原料核心基地(宝鸡凤县)</strong></td>
+          </tr>
+          <tr>
+            <td>福建片仔癀化妆品股份有限公司</td>
+            <td>600436.SH 控股</td>
+            <td>皇后牌药妆研发/生产/销售</td>
+            <td>第二增长曲线 + 出海消费品化</td>
+          </tr>
+          <tr>
+            <td>东南亚经销商体系</td>
+            <td>海外总代 + 二级分销</td>
+            <td>片仔癀锭剂 + 化妆品分销</td>
+            <td>主力海外营收来源</td>
+          </tr>
+          <tr>
+            <td>北美经销商体系</td>
+            <td>华人药店联盟</td>
+            <td>片仔癀 + 安宫牛黄丸</td>
+            <td>北美华商覆盖</td>
+          </tr>
+          <tr>
+            <td>日韩跨境电商</td>
+            <td>经销商 + 跨境电商</td>
+            <td>片仔癀胶囊 + 化妆品</td>
+            <td>潜力市场培育</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-title">SUBSIDIARY · 澳门中医诊所的战略意义</div>
+        <div class="callout-body">
+          2024 年片仔癀在<span class="hl">澳门开设中医诊所</span>是公司海外业务的重要转折——
+          <span class="hl-jade">这是片仔癀第一个真正意义上的自营海外终端</span>。
+          与同仁堂国药"先建平台、后做单品"的逻辑不同，
+          片仔癀是<span class="hl">"先单品爆款、后建终端"</span>的逆向路径。
+          澳门诊所承担三重功能：① 海外中医诊疗示范；② 片仔癀文化体验中心；
+          ③ 粤港澳大湾区中医药出海枢纽。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART V · 监管路径 ============ -->
+<section id="sec5">
+  <div class="wrap">
+    <div class="section-eyebrow">PART V · REGULATORY PATH & PRODUCT REGISTRATION</div>
+    <h2 class="section-title serif">监管路径与产品注册</h2>
+    <p class="section-lead">
+      中药出海的最大瓶颈是<span class="hl-rose">各国迥异的药品注册法规</span>。本节系统拆解六大主要市场的监管路径，
+      以及片仔癀已建立的<span class="hl-jade">"历史出口资产 + 文化 IP 资产"</span>如何构成后入者难以逾越的护城河。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">05·1</span>
+        <span>六大监管路径全景对比</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>市场</th>
+            <th>监管路径</th>
+            <th>周期</th>
+            <th>成本</th>
+            <th>成功率</th>
+            <th>片仔癀布局</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>东南亚</strong></td>
+            <td>传统医药注册 + 各国本地注册</td>
+            <td style="color:var(--jade)">1-3 年</td>
+            <td>¥300-1000 万</td>
+            <td style="color:var(--jade)">较高</td>
+            <td style="color:var(--jade)">✅ 30+ 年出口历史，多国注册</td>
+          </tr>
+          <tr>
+            <td><strong>港澳</strong></td>
+            <td>香港中成药注册(中成药注册制度)</td>
+            <td style="color:var(--jade)">1-2 年</td>
+            <td>¥100-300 万</td>
+            <td style="color:var(--jade)">较高</td>
+            <td style="color:var(--jade)">✅ 长期销售基础 + 澳门诊所在建</td>
+          </tr>
+          <tr>
+            <td><strong>加拿大</strong></td>
+            <td>NPN 天然药品注册</td>
+            <td style="color:var(--jade)">2-3 年</td>
+            <td>¥500-1000 万</td>
+            <td style="color:var(--jade)">较高</td>
+            <td style="color:var(--amber)">🟡 经销商主导，本地注册较慢</td>
+          </tr>
+          <tr>
+            <td><strong>美国</strong></td>
+            <td>FDA 植物药/膳食补充剂</td>
+            <td style="color:var(--crimson)">8-15 年</td>
+            <td style="color:var(--crimson)">$1-3 亿</td>
+            <td style="color:var(--crimson)">极低</td>
+            <td style="color:var(--crimson)">❌ 仅作膳食补充剂定位</td>
+          </tr>
+          <tr>
+            <td><strong>日韩</strong></td>
+            <td>汉方药注册 + 韩药注册</td>
+            <td style="color:var(--amber)">3-5 年</td>
+            <td>¥800-2000 万</td>
+            <td style="color:var(--amber)">中</td>
+            <td style="color:var(--amber)">🟡 跨境电商 + 经销商起步</td>
+          </tr>
+          <tr>
+            <td><strong>欧盟</strong></td>
+            <td>THMPD 传统草药制品指令</td>
+            <td style="color:var(--crimson)">5-8 年</td>
+            <td style="color:var(--crimson)">¥5000 万+</td>
+            <td style="color:var(--crimson)">极低</td>
+            <td style="color:var(--crimson)">❌ 仅华商圈销售</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">05·2</span>
+        <span>片仔癀的"历史出口资产"· 海外注册矩阵</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <h4 style="color:var(--gold);margin-bottom:12px">📊 出口历史资产</h4>
+          <div style="padding:20px;background:linear-gradient(135deg,rgba(212,175,55,0.08),rgba(26,14,14,0.6));border-radius:12px">
+            <div class="kpi-row">
+              <div class="kpi">
+                <div class="kpi-label">连续出口创汇</div>
+                <div class="kpi-value">30+<span style="font-size:0.75rem">年</span></div>
+                <div class="kpi-delta">1988 起</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label">覆盖国家</div>
+                <div class="kpi-value">15+</div>
+                <div class="kpi-delta">国家/地区</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label">海外注册品种</div>
+                <div class="kpi-value">5+</div>
+                <div class="kpi-delta">核心单品</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label">年出口创汇</div>
+                <div class="kpi-value">$1000<span style="font-size:0.75rem">万+</span></div>
+                <div class="kpi-delta">年均</div>
+              </div>
+            </div>
+          </div>
+
+          <h4 style="color:var(--jade);margin:20px 0 12px">📋 出口产品清单(主销)</h4>
+          <table>
+            <tbody>
+              <tr><td><strong>片仔癀锭剂(3g)</strong></td><td>¥850-1050 海外终端</td></tr>
+              <tr><td><strong>片仔癀胶囊(0.3g×24)</strong></td><td>~$50-80 海外终端</td></tr>
+              <tr><td><strong>复方片仔癀含片</strong></td><td>~$10-20</td></tr>
+              <tr><td><strong>安宫牛黄丸(部分)</strong></td><td>~$80-120</td></tr>
+              <tr><td><strong>茵胆平肝胶囊</strong></td><td>~$10-20</td></tr>
+              <tr><td><strong>化妆品系列</strong></td><td>$30-100/件</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h4 style="color:var(--amber);margin-bottom:12px">🌏 海外 15+ 国家/地区覆盖</h4>
+          <div style="padding:20px;background:rgba(26,14,14,0.6);border-radius:12px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <div style="padding:10px;background:rgba(212,175,55,0.06);border-radius:6px;border-left:3px solid var(--gold)">
+                <div style="font-size:0.75rem;color:var(--ink-3);letter-spacing:0.1em">东南亚</div>
+                <div style="font-size:0.875rem;color:var(--ink-1);margin-top:4px">新加坡 · 泰国 · 印尼 · 马来西亚 · 菲律宾 · 越南</div>
+              </div>
+              <div style="padding:10px;background:rgba(22,160,133,0.06);border-radius:6px;border-left:3px solid var(--jade)">
+                <div style="font-size:0.75rem;color:var(--ink-3);letter-spacing:0.1em">港澳台</div>
+                <div style="font-size:0.875rem;color:var(--ink-1);margin-top:4px">香港 · 澳门 · 台湾</div>
+              </div>
+              <div style="padding:10px;background:rgba(41,128,185,0.06);border-radius:6px;border-left:3px solid var(--azure)">
+                <div style="font-size:0.75rem;color:var(--ink-3);letter-spacing:0.1em">北美</div>
+                <div style="font-size:0.875rem;color:var(--ink-1);margin-top:4px">美国 · 加拿大 · 阿根廷 · 巴西</div>
+              </div>
+              <div style="padding:10px;background:rgba(230,126,34,0.06);border-radius:6px;border-left:3px solid var(--amber)">
+                <div style="font-size:0.75rem;color:var(--ink-3);letter-spacing:0.1em">日韩</div>
+                <div style="font-size:0.875rem;color:var(--ink-1);margin-top:4px">日本 · 韩国</div>
+              </div>
+              <div style="padding:10px;background:rgba(142,68,173,0.06);border-radius:6px;border-left:3px solid var(--violet)">
+                <div style="font-size:0.75rem;color:var(--ink-3);letter-spacing:0.1em">澳新</div>
+                <div style="font-size:0.875rem;color:var(--ink-1);margin-top:4px">澳大利亚 · 新西兰</div>
+              </div>
+              <div style="padding:10px;background:rgba(192,57,43,0.06);border-radius:6px;border-left:3px solid var(--crimson)">
+                <div style="font-size:0.75rem;color:var(--ink-3);letter-spacing:0.1em">欧洲</div>
+                <div style="font-size:0.875rem;color:var(--ink-1);margin-top:4px">荷兰 · 英国 · 德国等</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout" style="margin-top:20px">
+            <div class="callout-title">EXPORT LEGACY · 30+ 年出口创汇是"无形资产"</div>
+            <div class="callout-body">
+              从 1988 年起年平均出口创汇超过 1000 万美元，
+              <span class="hl">连续 30+ 年居全国中成药单品种出口创汇前列</span>。
+              这份"出口信用资产"是<span class="hl-jade">新进入者无法复制的软实力</span>——
+              各国海关、商检、海外华人药店对"片仔癀"三个字的认知度极高。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">05·3</span>
+        <span>"国家绝密 + 文化 IP" 的差异化护城河</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--gold)">🔒 国家绝密配方保护</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>处方 + 工艺被<span class="hl">国家中医药管理局和国家保密局列为国家绝密</span></li>
+            <li>与云南白药齐名——中药最高保护级别</li>
+            <li>1994 年列为<span class="hl">国家中药一级保护品种</span></li>
+            <li><span class="hl-jade">任何竞争对手无法通过反向工程破译配方</span></li>
+            <li>独家生产，无任何仿制威胁</li>
+          </ul>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--jade)">🎭 海上丝路文化 IP</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>1559 年明代宫廷秘方，500 年历史传承</li>
+            <li>漳州月港开海后，片仔癀经<span class="hl">海上丝绸之路</span>远销东南亚</li>
+            <li>"妈祖保佑、片仔癀护航"——<span class="hl-jade">闽南华侨精神图腾</span></li>
+            <li>漳州三宝：片仔癀、八卦掌、水仙花</li>
+            <li>国家非物质文化遗产 + 中华老字号 + 中国名牌</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART VI · 上下游产业链 ============ -->
+<section id="sec6">
+  <div class="wrap">
+    <div class="section-eyebrow">PART VI · UPSTREAM & DOWNSTREAM VALUE CHAIN</div>
+    <h2 class="section-title serif">上下游产业链分析</h2>
+    <p class="section-lead">
+      片仔癀产业链的核心特征是<span class="hl-rose">"原料稀缺性 + 上游一体化 + 下游经销化"</span>。
+      上游的<span class="hl-jade">"天然麝香 + 天然牛黄"双重资源约束</span>是公司护城河的最深处，
+      也是<span class="hl-rose">2025 年毛利率下行的根源</span>。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">06·1</span>
+        <span>上游 · 稀缺原料保供体系</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <h4 style="color:var(--gold);margin-bottom:12px">🌿 片仔癀上游布局</h4>
+          <ul class="list-num" style="counter-reset:item">
+            <li><strong style="color:var(--ink-1)">陕西片仔癀麝业有限公司</strong>(宝鸡凤县林麝养殖基地)</li>
+            <li>战略储备：天然麝香、天然牛黄、蛇胆、三七</li>
+            <li>人工牛黄合作(体外培植牛黄)</li>
+            <li>麝香年需求量 ~1500 公斤(片仔癀占主导)</li>
+            <li>国家林草局批准的林麝养殖基地</li>
+            <li>国家科技专家库 + 院士工作站(原料技术)</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:var(--jade);margin-bottom:12px">💰 关键原料价格走势(2016-2025)</h4>
+          <table>
+            <thead>
+              <tr><th>品类</th><th>近 10 年</th><th>2024-2025 趋势</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>天然牛黄</strong></td><td><strong class="hl-rose">+970%</strong></td><td>165 万/公斤 (2016→2024)</td></tr>
+              <tr><td>天然麝香</strong></td><td>+200%+</td><td>极度稀缺，价格高位</td></tr>
+              <tr><td>蛇胆</td><td>+150%</td><td>稳步上行</td></tr>
+              <tr><td>三七</td><td>+50%</td><td>震荡下行</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:0.75rem;color:var(--ink-3);margin-top:8px;font-style:italic">
+            数据：康美中药网、中药材天地网、华鑫证券研报
+          </p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">UPSTREAM MOAT · 原料的稀缺性 = 品牌的稀缺性</div>
+        <div class="callout-body">
+          <span class="hl">天然牛黄形成几率 1-2%</span>，2023 年中国产量仅 5.58 吨但需求 10.95 吨，
+          缺口高达 50%。<span class="hl-rose">2025 年 4 月进口试点开闸</span>(首批 5 国：澳大利亚、缅甸、泰国、印尼、新西兰)，
+          但巴西、阿根廷等占全球产量 40%+ 的国家因疯牛病禁令仍未开放，
+          <span class="hl-jade">原料紧供给格局未根本性逆转</span>。
+          <br><br>
+          <span class="hl">陕西片仔癀麝业公司是公司护城河的核心</span>——
+          林麝是国家一级保护动物，<span class="hl-rose">每年麝香配额由国家林草局严格控制</span>，
+          片仔癀作为核心需求方享有<span class="hl-jade">"国家战略储备配额"</span>，竞争对手无法获得同等供应。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">06·2</span>
+        <span>上游核心：天然麝香保供体系</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <h4 style="color:var(--gold);margin-bottom:12px">🦌 林麝养殖 · 陕西凤县模式</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li><strong style="color:var(--ink-1)">陕西片仔癀麍业有限公司</strong>(600436 控股)</li>
+            <li>宝鸡凤县是核心基地，<span class="hl">全国最大的人工林麍养殖基地</span></li>
+            <li>林麍存栏量 5000+ 头(全国最大)</li>
+            <li>宝鸡市林麍工程技术研究中心 + 陕西省科学院科学研究示范基地</li>
+            <li>"林-麍-草"生态循环养殖</li>
+            <li>2018 年产业扶贫攻坚·技术交流研讨会</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:var(--jade);margin-bottom:12px">📊 天然麝香市场结构</h4>
+          <table>
+            <tbody>
+              <tr><td>中国年需求</td><td>~1500 公斤</td></tr>
+              <tr><td>片仔癀占需求</td><td>~30-40%</td></tr>
+              <tr><td>全国人工林麍存栏</td><td>~3 万头</td></tr>
+              <tr><td>全国天然麍香年产</td><td>~600-700 公斤</td></tr>
+              <tr><td>供需缺口</td><td style="color:var(--crimson)">~50%+</td></tr>
+              <tr><td>国际市场价格</td><td>~$60-80 万/公斤</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">06·3</span>
+        <span>上游 · 2025 牛黄进口试点开闸</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>维度</th>
+            <th>试点前 (2002-2024)</th>
+            <th>试点后 (2025.4 起)</th>
+            <th>片仔癀影响</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>政策</td>
+            <td>完全禁止进口</td>
+            <td>允许试点进口(首批 5 国)</td>
+            <td style="color:var(--jade)">利好</td>
+          </tr>
+          <tr>
+            <td>价格</td>
+            <td>160-165 万/公斤</td>
+            <td>预计边际下行 10-20%</td>
+            <td style="color:var(--jade)">利好</td>
+          </tr>
+          <tr>
+            <td>供应国</td>
+            <td>仅国产</td>
+            <td>澳大利亚、缅甸、泰国、印尼、新西兰</td>
+            <td style="color:var(--amber)">部分利好</td>
+          </tr>
+          <tr>
+            <td>试点期</td>
+            <td>—</td>
+            <td>2 年(2025.4-2027.4)</td>
+            <td>短期利好</td>
+          </tr>
+          <tr>
+            <td>试点区域</td>
+            <td>—</td>
+            <td>12 省市区(片仔癀在福建)</td>
+            <td style="color:var(--jade)">利好</td>
+          </tr>
+          <tr>
+            <td>申请人</td>
+            <td>—</td>
+            <td>药品上市许可持有人(MAH)</td>
+            <td style="color:var(--jade)">利好</td>
+          </tr>
+          <tr>
+            <td>海外供应</td>
+            <td>巴西、阿根廷等占全球 40%+ 未开放</td>
+            <td>全球最大产地仍禁</td>
+            <td style="color:var(--rose)">中性</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-title">BILLOW OPEN · 牛黄进口开闸的"有限利好"</div>
+        <div class="callout-body">
+          <span class="hl">2025 年 4 月 18 日</span>，国家药监局+海关总署联合发布允许进口牛黄试点公告，
+          首批 5 国：<span class="hl">澳大利亚、缅甸、泰国、印尼、新西兰</span>。
+          <br><br>
+          <span class="hl-rose">但巴西、阿根廷等占全球牛黄产量 40%+ 的国家因疯牛病疫情仍未开放</span>，
+          且<span class="hl-jade">进口量预计短期内有限</span>(海关准入企业名录尚未完整发布)。
+          <br><br>
+          <span class="hl">片仔癀 + 同仁堂是最大受益方</span>——试点申请人为 MAH(药品上市许可持有人)，
+          且进口仅限<span class="hl">集团内部指定企业使用</span>，<span class="hl-jade">中小药企被排除在外</span>。
+          <br><br>
+          <span class="hl">2024 年公司肝病用药毛利率从 80%+ 跌至 61.29%</span>，2026 年原料成本压力边际缓解后，
+          <span class="hl-jade">毛利率有 5-10pp 的修复空间</span>。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">06·4</span>
+        <span>中游 · 生产制造与质量管控</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>生产基地</th>
+            <th>地点</th>
+            <th>认证</th>
+            <th>产能/产品</th>
+            <th>服务市场</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>片仔癀(漳州)总部基地</td>
+            <td>福建漳州</td>
+            <td>中国 GMP + CNAS + ISO</td>
+            <td>片仔癀锭剂 + 安宫牛黄丸</td>
+            <td>中国内地</td>
+          </tr>
+          <tr style="background:rgba(212,175,55,0.05)">
+            <td><strong>片仔癀(澳门)中医诊所 ⭐</strong></td>
+            <td>澳门</td>
+            <td>澳门卫生署 + 中医师注册</td>
+            <td>中医诊疗 + 文化体验</td>
+            <td><strong style="color:var(--jade)">海外 (港澳 + 葡语系)</strong></td>
+          </tr>
+          <tr>
+            <td>福建片仔癀化妆品工厂</td>
+            <td>福建漳州</td>
+            <td>化妆品 GMP + CNAS</td>
+            <td>皇后牌药妆</td>
+            <td>中国 + 海外跨境电商</td>
+          </tr>
+          <tr>
+            <td>陕西片仔癀麍业基地</td>
+            <td>陕西宝鸡凤县</td>
+            <td>林麍养殖 + 国家林草局</td>
+            <td>天然麍香保供</td>
+            <td>片仔癀自用</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">06·5</span>
+        <span>下游 · 海外渠道与终端</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--gold)">🛒 线下渠道(经销主导)</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>港澳 1 家自营(澳门诊所在建)</li>
+            <li>东南亚数千家华人药店网络</li>
+            <li>北美华人药店联盟(经销商主导)</li>
+            <li>机场免税店(港澳+新加坡)</li>
+            <li>海外中医诊所推荐(间接渠道)</li>
+            <li>海外总代理 + 二级分销体系</li>
+          </ul>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--jade)">📱 线上渠道(快速崛起)</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>天猫国际(化妆品主力)</li>
+            <li>京东全球购(中成药主力)</li>
+            <li>抖音全球购(快速增长)</li>
+            <li>片仔癀海外官网</li>
+            <li>亚马逊海外站点(化妆品)</li>
+            <li>美团医药(国内延伸)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART VII · 竞争格局 ============ -->
+<section id="sec7">
+  <div class="wrap">
+    <div class="section-eyebrow">PART VII · COMPETITIVE LANDSCAPE</div>
+    <h2 class="section-title serif">竞争格局对标</h2>
+    <p class="section-lead">
+      中药出海企业可分为四大类型：<span class="hl">国资老字号(同仁堂)、单品爆款(片仔癀)、消费品转型(云南白药)、创新型(以岭)</span>。
+      <span class="hl-jade">片仔癀是"单品爆款 + 绝密配方"的最强代表</span>，但海外营收占比和品牌出海系统性落后于同仁堂。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">07·1</span>
+        <span>四类中药出海玩家 · 横向对比</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>维度</th>
+            <th>同仁堂系</th>
+            <th style="color:var(--gold)">片仔癀 ⭐</th>
+            <th>云南白药</th>
+            <th>以岭药业</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>核心定位</td>
+            <td>综合出海平台</td>
+            <td style="color:var(--gold)"><strong>单品爆款</strong></td>
+            <td>消费品转型</td>
+            <td>创新药出海</td>
+          </tr>
+          <tr>
+            <td>主要载体</td>
+            <td><strong>3613.HK 海外平台</strong></td>
+            <td><strong>600436.SH 出口业务</strong></td>
+            <td>000538.SZ 健康产品</td>
+            <td>002603.SZ 海外注册</td>
+          </tr>
+          <tr>
+            <td>海外营收占比</td>
+            <td style="color:var(--jade)"><strong>25%+ (3613.HK)</strong></td>
+            <td style="color:var(--rose)">3.93%</td>
+            <td>&lt;3%</td>
+            <td>5-10%</td>
+          </tr>
+          <tr>
+            <td>海外营收规模</td>
+            <td style="color:var(--jade)"><strong>¥12.58 亿 (2024)</strong></td>
+            <td>¥4.58 亿 (2024)</td>
+            <td>~¥5 亿</td>
+            <td>~¥5-10 亿</td>
+          </tr>
+          <tr>
+            <td>境外注册品种</td>
+            <td style="color:var(--jade)"><strong>1200+</strong></td>
+            <td>5-10</td>
+            <td>100+</td>
+            <td>30+</td>
+          </tr>
+          <tr>
+            <td>境外终端数</td>
+            <td style="color:var(--jade)"><strong>160+</strong></td>
+            <td>1 (澳门)</td>
+            <td>&lt;10</td>
+            <td>&lt;5</td>
+          </tr>
+          <tr>
+            <td>出海模式</td>
+            <td>"五位一体"+ 跨境电商</td>
+            <td><strong style="color:var(--gold)">单品爆款 + 经销</strong></td>
+            <td>消费品 + 健康产品</td>
+            <td>创新药 + 经典名方</td>
+          </tr>
+          <tr>
+            <td>海外毛利率</td>
+            <td>~60%</td>
+            <td style="color:var(--gold)"><strong>~80%+</strong></td>
+            <td>~30%</td>
+            <td>~60%</td>
+          </tr>
+          <tr>
+            <td>品牌历史</td>
+            <td>356 年</td>
+            <td style="color:var(--gold)"><strong>500+ 年(宫廷)</strong></td>
+            <td>120 年</td>
+            <td>30+ 年</td>
+          </tr>
+          <tr>
+            <td>国资属性</td>
+            <td>100% 国资(北京)</td>
+            <td>国资 + 民营混合(漳州)</td>
+            <td>国资 + 民营混合</td>
+            <td>民营</td>
+          </tr>
+          <tr>
+            <td>配方保护</td>
+            <td>国家秘密级(技术)</td>
+            <td style="color:var(--gold)"><strong>国家绝密级(配方+工艺)</strong></td>
+            <td>国家绝密级(配方)</td>
+            <td>无</td>
+          </tr>
+          <tr>
+            <td>品牌价值(2025)</td>
+            <td>~¥300+ 亿</td>
+            <td style="color:var(--gold)"><strong>¥437.39 亿(第一)</strong></td>
+            <td>~¥200+ 亿</td>
+            <td>~¥150 亿</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-title">COMPETITIVE EDGE · 片仔癀的 5 个不可复制</div>
+        <div class="callout-body">
+          ① <span class="hl">唯一国家绝密配方单品爆款</span>(500 年宫廷秘方)<br>
+          ② <span class="hl">唯一连续 30+ 年中成药单品种出口创汇领先</span><br>
+          ③ <span class="hl">唯一"海上丝绸之路中国符号"官方定位</span><br>
+          ④ <span class="hl">唯一中华老字号品牌价值第一</span>(¥437.39 亿 · 2025)<br>
+          ⑤ <span class="hl">唯一天然麝香国家战略储备配额</span>(陕西片仔癀麝业)
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">07·2</span>
+        <span>核心竞品 · 港股/A 股可比公司画像</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--gold)">🥇 同仁堂国药(3613.HK) · 综合出海代表</h4>
+          <table>
+            <tbody>
+              <tr><td>核心产品</td><td>安宫牛黄丸 + 600+ 品种</td></tr>
+              <tr><td>2024 营收</td><td>HK$16.12 亿</td></tr>
+              <tr><td>毛利率</td><td>63.9%</td></tr>
+              <tr><td>出海模式</td><td>五位一体(产品+医疗+文化+科研+人才)</td></tr>
+              <tr><td>主要市场</td><td>港澳+东南亚+东欧+北美+俄罗斯</td></tr>
+              <tr><td>护城河</td><td>160+ 终端 + 1200+ 注册 + 港股独立平台</td></tr>
+              <tr><td>短板</td><td><span class="hl-rose">缺乏单品爆款、毛利率较低</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--jade)">🥈 云南白药(000538.SZ) · 消费品+绝密配方</h4>
+          <table>
+            <tbody>
+              <tr><td>核心产品</td><td>云南白药牙膏 + 药品</td></tr>
+              <tr><td>2024 营收</td><td>~¥400 亿</td></tr>
+              <tr><td>毛利率</td><td>~30%</td></tr>
+              <tr><td>出海模式</td><td>消费品(牙膏) + 健康产品</td></tr>
+              <tr><td>主要市场</td><td>东南亚 + 北美(保健品)</td></tr>
+              <tr><td>护城河</td><td>牙膏品类领导 + 国家绝密配方</td></tr>
+              <tr><td>短板</td><td><span class="hl-rose">药品属性弱、海外渠道弱</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--amber)">🥉 以岭药业(002603.SZ) · 创新型代表</h4>
+          <table>
+            <tbody>
+              <tr><td>核心产品</td><td>通心络、参松养心、连花清瘟</td></tr>
+              <tr><td>2024 营收</td><td>~¥110 亿</td></tr>
+              <tr><td>毛利率</td><td>~60%</td></tr>
+              <tr><td>出海模式</td><td>创新药海外授权 + 注册</td></tr>
+              <tr><td>主要市场</td><td>美国 / 欧盟(在申请)</td></tr>
+              <tr><td>护城河</td><td>络病学说 + 现代循证医学</td></tr>
+              <tr><td>短板</td><td><span class="hl-rose">海外注册周期长、品种少</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--crimson)">🌏 东阿阿胶(000423.SZ) · 单品爆款代表</h4>
+          <table>
+            <tbody>
+              <tr><td>核心产品</td><td>东阿阿胶(补血)</td></tr>
+              <tr><td>出海模式</td>
+            <td>经销 + 华人药店</td></tr>
+              <tr><td>护城河</td><td>驴皮稀缺 + 中药第一滋补品牌</td></tr>
+              <tr><td>主要市场</td><td>东南亚 + 北美华商</td></tr>
+              <tr><td>经验</td><td>"阿胶出海"与"片仔癀出海"路径相似</td></tr>
+              <tr><td>短板</td><td><span class="hl-rose">单品依赖、增速放缓</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">07·3</span>
+        <span>多维度竞争力雷达</span>
+      </div>
+
+      <div class="chart-box">
+        <canvas id="radarChart" style="max-height:420px"></canvas>
+      </div>
+
+      <div style="margin-top:16px;padding:16px;background:rgba(26,14,14,0.5);border-radius:8px">
+        <div class="dim" style="font-size:0.75rem;line-height:1.6">
+          <strong>评分维度（0-10 分）</strong> · 品牌 IP / 配方保护 / 原料保供 / 海外终端 / 海外营收占比 / 财务质量
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">07·4</span>
+        <span>投资机构 & 股东结构</span>
+      </div>
+
+      <h4 style="color:var(--gold);margin-bottom:12px">🏛 600436.SH · 主要股东(2026.5 增持后)</h4>
+
+      <table>
+        <thead>
+          <tr><th>股东</th><th>性质</th><th>持股比例</th><th>备注</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>漳州市九龙江集团有限公司</strong></td><td>国资(漳州市)</td><td style="color:var(--jade)"><strong>51.50%</strong></td><td>2026.5 增持 +0.53pp</td></tr>
+          <tr><td>王富济</td><td>自然人(创始人系)</td><td>4.51%</td><td>长期持有</td></tr>
+          <tr><td>漳州市国有资本运营集团有限公司</td><td>国资</td><td>3.35%</td><td>未变</td></tr>
+          <tr><td>香港中央结算有限公司</td><td>港股通南向资金</td><td>1.84%</td><td>增持中</td></tr>
+          <tr><td>福建漳龙集团有限公司</td><td>国资</td><td>1.17%</td><td>未变</td></tr>
+          <tr><td>漳州市交通发展集团有限公司</td><td>国资</td><td>1.04%</td><td>未变</td></tr>
+          <tr><td>易方达沪深 300 医药 ETF</td><td>公募基金</td><td>0.81%</td><td>增持</td></tr>
+          <tr><td>福建漳州城投集团有限公司</td><td>国资</td><td>0.80%</td><td>未变</td></tr>
+          <tr><td>汇添富中证中药 ETF</td><td>公募基金</td><td>0.34%</td><td>新进</td></tr>
+          <tr><td>漳州市国有资产投资经营有限公司</td><td>国资</td><td>0.27%</td><td>新进</td></tr>
+          <tr><td><strong>漳州市国资系合计</strong></td><td>国资</td><td style="color:var(--gold)"><strong>~58%</strong></td><td>绝对控股</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="color:var(--jade);margin:20px 0 12px">💼 国际机构持仓(估算)</h4>
+      <div class="funds-legend">
+        <div class="funds-legend-item" style="--cat-color:#d4af37">
+          <div class="funds-legend-color"></div>
+          <div class="funds-legend-info">
+            <div class="funds-legend-name">MSCI / FTSE Russell / 标普道琼斯</div>
+            <div class="funds-legend-detail">三大国际指数成份 · Vanguard / BlackRock / State Street</div>
+          </div>
+          <div class="funds-legend-amount">~8-12%</div>
+        </div>
+        <div class="funds-legend-item" style="--cat-color:#16a085">
+          <div class="funds-legend-color"></div>
+          <div class="funds-legend-info">
+            <div class="funds-legend-name">港股通南向资金</div>
+            <div class="funds-legend-detail">内地投资者通过沪港通/深港通买入 · 持续流入</div>
+          </div>
+          <div class="funds-legend-amount">~2-3%</div>
+        </div>
+        <div class="funds-legend-item" style="--cat-color:#c0392b">
+          <div class="funds-legend-color"></div>
+          <div class="funds-legend-info">
+            <div class="funds-legend-name">易方达 / 汇添富 / 华夏等公募</div>
+            <div class="funds-legend-detail">中证中药 + 沪深 300 医药 ETF + 主动权益基金</div>
+          </div>
+          <div class="funds-legend-amount">~5-8%</div>
+        </div>
+        <div class="funds-legend-item" style="--cat-color:#2980b9">
+          <div class="funds-legend-color"></div>
+          <div class="funds-legend-info">
+            <div class="funds-legend-name">险资 + 社保基金</div>
+            <div class="funds-legend-detail">长期资金 / 防御性配置 / 高股息偏好</div>
+          </div>
+          <div class="funds-legend-amount">~3-5%</div>
+        </div>
+        <div class="funds-legend-item" style="--cat-color:#8e44ad">
+          <div class="funds-legend-color"></div>
+          <div class="funds-legend-info">
+            <div class="funds-legend-name">散户 + 其他</div>
+            <div class="funds-legend-detail">零售投资者 + 高净值客户 + 私募</div>
+          </div>
+          <div class="funds-legend-amount">~10-15%</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">SHAREHOLDER EDGE · 国资 51.5% 控股 + 杠杆增持双重信号</div>
+        <div class="callout-body">
+          <span class="hl">漳州九龙江集团 2026 年 5 月完成 5 亿元顶格增持</span>，持股从 50.97% 提升至 51.50%。
+          <br><br>
+          <span class="hl-rose">90% 资金来自工行漳州分行 3 年期专项贷款(4.5 亿)</span>——这种"高融资成本"增持是典型的底部信号。
+          <br><br>
+          漳州市国资系合计持股 ~58%，<span class="hl-jade">战略稳定性极强</span>。
+          <br><br>
+          同时进入<span class="hl">MSCI / FTSE Russell / 标普道琼斯三大国际指数</span>，
+          是中药股中极少数的"全指数覆盖"标的，国际机构关注度极高。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART VIII · 财务模型 ============ -->
+<section id="sec8">
+  <div class="wrap">
+    <div class="section-eyebrow">PART VIII · FINANCIAL MODEL & VALUATION</div>
+    <h2 class="section-title serif">财务模型与估值</h2>
+    <p class="section-lead">
+      本节采用<span class="hl">3 种方法(DCF / PE / PB)</span>对 600436.SH 进行交叉估值，
+      得出<span class="hl-jade">"合理估值区间 ¥1050-1200 亿"</span>，对应<span class="hl">12 个月目标价 ¥170-200/股</span>。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">08·1</span>
+        <span>600436.SH · 历史财务 · 5 年回顾</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>指标 (¥ 亿)</th>
+            <th>2021</th>
+            <th>2022</th>
+            <th>2023</th>
+            <th>2024</th>
+            <th>2025</th>
+            <th>2026E</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>营业收入</td><td>80.26</td><td>86.94</td><td>100.58</td><td>107.69</td><td style="color:var(--rose)">90.01</td><td>92.7</td></tr>
+          <tr><td>营收同比</td><td>+20.6%</td><td>+8.4%</td><td>+15.7%</td><td>+7.06%</td><td style="color:var(--rose)">-16.56%</td><td>+3.0%</td></tr>
+          <tr><td>归母净利润</td><td>24.31</td><td>24.72</td><td>27.97</td><td>29.77</td><td style="color:var(--rose)">21.59</td><td>23.4</td></tr>
+          <tr><td>净利润同比</td><td>+45.5%</td><td>+1.7%</td><td>+13.1%</td><td>+6.42%</td><td style="color:var(--rose)">-27.49%</td><td>+8.4%</td></tr>
+          <tr><td>毛利率</td><td>52%</td><td>46%</td><td>48%</td><td>46%</td><td style="color:var(--rose)">~40%</td><td>44%</td></tr>
+          <tr><td>肝病用药毛利率</td><td>81%</td><td>78%</td><td>80%+</td><td>72%</td><td style="color:var(--rose)">61.29%</td><td>63%</td></tr>
+          <tr><td>海外营收</td><td>~4.0</td><td>~4.5</td><td>~4.6</td><td>4.58</td><td>~4.0</td><td>4.2</td></tr>
+          <tr><td>海外营收占比</td><td>~5%</td><td>~5.2%</td><td>~4.6%</td><td>3.93%</td><td>~4.4%</td><td>4.5%</td></tr>
+          <tr><td>经营活动现金流净额</td><td>~14</td><td>~22</td><td>~22</td><td>~13</td><td style="color:var(--rose)">0.77</td><td>~8</td></tr>
+          <tr><td>ROE</td><td>~28%</td><td>~24%</td><td>~24%</td><td>~22%</td><td style="color:var(--rose)">~16%</td><td>~17%</td></tr>
+        </tbody>
+      </table>
+
+      <div class="chart-box">
+        <canvas id="revenueChart" style="max-height:380px"></canvas>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">08·2</span>
+        <span>三种估值方法 · 交叉验证</span>
+      </div>
+
+      <div class="grid grid-3" style="margin-top:24px">
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--gold)">① DCF 估值</h4>
+          <table>
+            <tbody>
+              <tr><td>预测期</td><td>2026-2031 (6 年)</td></tr>
+              <tr><td>营收 CAGR</td><td>5-8%</td></tr>
+              <tr><td>毛利率</td><td>40-50%</td></tr>
+              <tr><td>WACC</td><td>9.0%</td></tr>
+              <tr><td>永续增长率</td><td>2%</td></tr>
+              <tr><td>终值倍数</td><td>12× EBIT</td></tr>
+            </tbody>
+          </table>
+          <div style="padding:14px;background:rgba(212,175,55,0.08);border-radius:8px;margin-top:12px;text-align:center">
+            <div style="font-size:0.75rem;color:var(--ink-3)">DCF 估值结果</div>
+            <div style="font-size:1.5rem;font-weight:800;color:var(--gold)">¥1100-1280 亿</div>
+          </div>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--jade)">② PE 估值</h4>
+          <table>
+            <tbody>
+              <tr><td>2026E EPS</td><td>¥3.88</td></tr>
+              <tr><td>2027E EPS</td><td>¥4.30</td></tr>
+              <tr><td>同业平均 PE</td><td>30-50×</td></tr>
+              <tr><td>国资折价</td><td>-15%</td></tr>
+              <tr><td>出海稀缺溢价</td><td>+5%</td></tr>
+              <tr><td>适用 PE</td><td>30-45×</td></tr>
+            </tbody>
+          </table>
+          <div style="padding:14px;background:rgba(22,160,133,0.08);border-radius:8px;margin-top:12px;text-align:center">
+            <div style="font-size:0.75rem;color:var(--ink-3)">PE 估值结果</div>
+            <div style="font-size:1.5rem;font-weight:800;color:var(--jade)">¥880-1080 亿</div>
+          </div>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--amber)">③ PB 估值</h4>
+          <table>
+            <tbody>
+              <tr><td>2024 末净资产</td><td>¥130 亿</td></tr>
+              <tr><td>每股净资产</td><td>¥21.6</td></tr>
+              <tr><td>中药行业 PB</td><td>4-7×</td></tr>
+              <tr><td>国资折价</td><td>-15%</td></tr>
+              <tr><td>品牌价值溢价</td><td>+30%</td></tr>
+              <tr><td>适用 PB</td><td>5-8×</td></tr>
+            </tbody>
+          </table>
+          <div style="padding:14px;background:rgba(230,126,34,0.08);border-radius:8px;margin-top:12px;text-align:center">
+            <div style="font-size:0.75rem;color:var(--ink-3)">PB 估值结果</div>
+            <div style="font-size:1.5rem;font-weight:800;color:var(--amber)">¥1080-1300 亿</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:24px;padding:20px;background:linear-gradient(135deg,rgba(212,175,55,0.08),rgba(22,160,133,0.04));border:1px solid rgba(212,175,55,0.3);border-radius:12px">
+        <h4 style="color:var(--gold);margin-bottom:12px">📊 三种方法交叉验证 · 最终估值区间</h4>
+        <table>
+          <thead>
+            <tr><th>估值方法</th><th>估值结果</th><th>权重</th><th>加权贡献</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>DCF 估值</td><td>¥1100-1280 亿</td><td>40%</td><td>¥440-512 亿</td></tr>
+            <tr><td>PE 估值</td><td>¥880-1080 亿</td><td>40%</td><td>¥352-432 亿</td></tr>
+            <tr><td>PB 估值</td><td>¥1080-1300 亿</td><td>20%</td><td>¥216-260 亿</td></tr>
+            <tr style="background:rgba(212,175,55,0.08)"><td><strong>加权估值区间</strong></td><td colspan="2"></td><td style="color:var(--gold)"><strong>¥1050-1200 亿</strong></td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px;font-size:0.875rem;color:var(--ink-2)">
+          对应总股本 6.03 亿股，<span class="hl-jade">12 个月目标价区间 ¥170-200/股</span>，
+          较 2026 年 5 月现价(~¥140) 有 <span class="hl">20-40% 上行空间</span>。
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">08·3</span>
+        <span>海外业务单独估值 · "海上丝路" IP 价值</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>海外业务维度</th>
+            <th>数值</th>
+            <th>估值方法</th>
+            <th>估值贡献</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>海外营收 (2024)</td>
+            <td>¥4.58 亿</td>
+            <td>PE 40× (单品爆款溢价)</td>
+            <td style="color:var(--jade)"><strong>~¥183 亿</strong></td>
+          </tr>
+          <tr>
+            <td>品牌出海 IP 资产</td>
+            <td>500 年历史 + ¥437 亿品牌价值</td>
+            <td>出海 IP 溢价 10-15%</td>
+            <td style="color:var(--jade)"><strong>~¥60-90 亿</strong></td>
+          </tr>
+          <tr>
+            <td>海外注册资产</td>
+            <td>15+ 国家 30+ 年历史</td>
+            <td>注册成本累计 ¥5-10 亿</td>
+            <td style="color:var(--jade)"><strong>~¥10-15 亿</strong></td>
+          </tr>
+          <tr>
+            <td>跨境电商增量</td>
+            <td>快速增长中</td>
+            <td>EV/Sales 3-5× (化妆品)</td>
+            <td style="color:var(--jade)"><strong>~¥15-25 亿</strong></td>
+          </tr>
+          <tr style="background:rgba(212,175,55,0.08)">
+            <td><strong>海外业务合计估值贡献</strong></td>
+            <td colspan="2"></td>
+            <td style="color:var(--gold)"><strong>~¥268-313 亿</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-title">SOVEREIGN IP · 海外业务贡献 25-30% 公司估值</div>
+        <div class="callout-body">
+          海外业务对公司估值的贡献<span class="hl">~25-30%</span>，
+          其中<span class="hl-jade">品牌出海 IP 是核心溢价</span>——500 年历史 + 30+ 年出口创汇 + 中华老字号第一
+          这三重资产组合，是<span class="hl">新进入者无法复制的"软资产"</span>。
+          <br><br>
+          <span class="hl">当 2027-2028 年海外营收恢复至 ¥5-6 亿时</span>，
+          海外估值贡献有望突破 ¥400 亿，进一步抬升公司估值中枢。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART IX · 风险矩阵 ============ -->
+<section id="sec9">
+  <div class="wrap">
+    <div class="section-eyebrow">PART IX · RISK MATRIX</div>
+    <h2 class="section-title serif">风险矩阵 · 12 维度结构化拆解</h2>
+    <p class="section-lead">
+      本节从<span class="hl">原料、品牌、海外、财务、监管、宏观</span>六大维度构建 12 项核心风险，
+      并按"概率 × 影响"二维矩阵评估每项风险的热度等级。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">09·1</span>
+        <span>12 项核心风险清单</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>风险维度</th>
+            <th>具体风险</th>
+            <th>概率</th>
+            <th>影响</th>
+            <th>热度</th>
+            <th>缓释措施</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(192,57,43,0.06)">
+            <td>1</td>
+            <td>原料</td>
+            <td><strong>天然牛黄价格继续高位</strong>(160-165 万/公斤)</td>
+            <td style="color:var(--rose)">极高</td>
+            <td style="color:var(--rose)">高</td>
+            <td style="color:var(--rose)"><strong>🔥 极高</strong></td>
+            <td>进口试点 + 战略储备 + 人工牛黄</td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.06)">
+            <td>2</td>
+            <td>业务</td>
+            <td><strong>肝病用药营收持续下滑</strong>(2025 -19.63%)</td>
+            <td style="color:var(--rose)">极高</td>
+            <td style="color:var(--rose)">高</td>
+            <td style="color:var(--rose)"><strong>🔥 极高</strong></td>
+            <td>提价空间 + 大健康转型</td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.06)">
+            <td>3</td>
+            <td>渠道</td>
+            <td><strong>渠道库存高企</strong>(2025Q3 +260%)</td>
+            <td style="color:var(--rose)">极高</td>
+            <td style="color:var(--rose)">中高</td>
+            <td style="color:var(--rose)"><strong>🔥 极高</strong></td>
+            <td>消费刺激 + 价格倒挂修复</td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.06)">
+            <td>4</td>
+            <td>财务</td>
+            <td><strong>经营活动现金流大幅恶化</strong>(2025 -94.14%)</td>
+            <td style="color:var(--rose)">高</td>
+            <td style="color:var(--rose)">高</td>
+            <td style="color:var(--rose)"><strong>🔥 极高</strong></td>
+            <td>国资支持 + 渠道去库存</td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.06)">
+            <td>5</td>
+            <td>宏观</td>
+            <td><strong>高端礼品消费继续萎缩</strong>(地产下行+反腐)</td>
+            <td style="color:var(--rose)">高</td>
+            <td style="color:var(--rose)">高</td>
+            <td style="color:var(--rose)"><strong>🔥 极高</strong></td>
+            <td>消费场景多元化 + 出海</td>
+          </tr>
+          <tr style="background:rgba(230,126,34,0.06)">
+            <td>6</td>
+            <td>原料</td>
+            <td><strong>天然麝香供应中断</strong>(林麝疫情/政策)</td>
+            <td style="color:var(--amber)">中</td>
+            <td style="color:var(--rose)">极高</td>
+            <td style="color:var(--amber)"><strong>⚠️ 高</strong></td>
+            <td>凤县基地 + 国家战略储备</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>业务</td>
+            <td>化妆品业务持续下滑(2025 -24.64%)</td>
+            <td style="color:var(--amber)">中</td>
+            <td style="color:var(--amber)">中</td>
+            <td style="color:var(--amber)"><strong>⚠️ 中</strong></td>
+            <td>新品迭代 + 出海跨境电商</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>海外</td>
+            <td>海外营收持续低位(3.93% 占比天花板)</td>
+            <td style="color:var(--amber)">中高</td>
+            <td style="color:var(--amber)">中</td>
+            <td style="color:var(--amber)"><strong>⚠️ 中</strong></td>
+            <td>澳门诊所 + 跨境电商 + 化妆品</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>竞争</td>
+            <td>同仁堂等综合出海平台挤压</td>
+            <td style="color:var(--amber)">中</td>
+            <td style="color:var(--amber)">中</td>
+            <td style="color:var(--amber)"><strong>⚠️ 中</strong></td>
+            <td>绝密配方壁垒 + 国资背书</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>监管</td>
+            <td>海外注册受阻(欧盟/美国)</td>
+            <td style="color:var(--amber)">中</td>
+            <td style="color:var(--amber)">中低</td>
+            <td style="color:var(--amber)"><strong>⚠️ 中</strong></td>
+            <td>深耕东南亚 + 跨境电商</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>宏观</td>
+            <td>汇率波动影响出口</td>
+            <td style="color:var(--amber)">中</td>
+            <td style="color:var(--amber)">低</td>
+            <td style="color:var(--rose)"><strong>○ 中低</strong></td>
+            <td>汇率对冲</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>政治</td>
+            <td>国资股东行为风险</td>
+            <td style="color:var(--amber)">低</td>
+            <td style="color:var(--amber)">中</td>
+            <td style="color:var(--rose)"><strong>○ 中低</strong></td>
+            <td>国资委背书</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-title">RISK HEAT · 5 项极高风险 vs 4 项中风险 vs 3 项中低风险</div>
+        <div class="callout-body">
+          <span class="hl-rose">5 项极高风险</span>集中在"<strong class="hl">原料 + 大单品 + 渠道库存 + 现金流 + 高端消费</strong>"五大基本面问题，
+          这些是<span class="hl">2025 年业绩双降的直接原因</span>。
+          <br><br>
+          但国资 5 亿元 90% 杠杆增持 + 牛黄进口试点开闸 + 品牌价值仍居第一 +
+          2025Q4-2026H1 渠道库存出清曙光，<span class="hl-jade">左侧布局窗口正在打开</span>。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">09·2</span>
+        <span>风险热图 · 概率 × 影响 2D 矩阵</span>
+      </div>
+
+      <div class="chart-box">
+        <canvas id="riskChart" style="max-height:380px"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART X · 投资决策 ============ -->
+<section id="sec10">
+  <div class="wrap">
+    <div class="section-eyebrow">PART X · INVESTMENT DECISION</div>
+    <h2 class="section-title serif">投资决策与条款建议</h2>
+    <p class="section-lead">
+      综合上述 9 章分析，本节给出<span class="hl">具体的投资评级、目标价、仓位建议、买入节奏与监控指标</span>。
+    </p>
+
+    <div class="verdict">
+      <div class="verdict-rating">A- · 持有→增持 · 12 个月目标价 ¥170-200 / 股</div>
+      <h2 class="serif">「国家绝密配方 × 单品爆款 × 品牌IP第一」三因共振，<br><span class="gradient-text-warm">2025 业绩出清进入后半段，估值已具吸引力</span></h2>
+      <p style="font-size:1.0625rem;color:var(--ink-2);line-height:1.8;margin-top:20px">
+        片仔癀是<span style="color:var(--ink-1);font-weight:700">中医药出海领域唯一一个同时具备"国家绝密配方 + 500 年单品爆款 IP + 中华老字号品牌价值第一 + 海上丝路出口信用资产"四重属性的资产</span>。
+        尽管 2025 年首次出现营收(¥90.01亿 -16.56%)、净利润(¥21.59亿 -27.49%)双降，但<span style="color:var(--ink-1);font-weight:700">国资 90% 杠杆增持 5 亿元 + 牛黄进口试点开闸 + 跨境电商重启 + 化妆品业务持续培育 + 渠道库存出清曙光</span>，
+        <span style="color:var(--ink-1);font-weight:700">真实经营基本面的"最差时点"已经过去</span>。本报告建议<span style="color:var(--ink-1);font-weight:700">"持有→增持"评级，12 个月目标价 ¥170-200/股</span>，
+        对应市值 ¥1050-1200 亿，<span style="color:var(--ink-1);font-weight:700">较当前估值有 20-40% 上行空间</span>。
+      </p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">10·1</span>
+        <span>投资决策矩阵</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <h4 style="color:var(--gold);margin-bottom:12px">📋 投资建议</h4>
+          <table>
+            <tbody>
+              <tr><td><strong>评级</strong></td><td><span class="hl-jade">持有→增持 (Hold → Overweight)</span></td></tr>
+              <tr><td><strong>12 个月目标价</strong></td><td>¥170 - 200 / 股</td></tr>
+              <tr><td><strong>对应市值</strong></td><td>¥1050 - 1200 亿</td></tr>
+              <tr><td><strong>上行空间</strong></td><td>+20% 至 +40%</td></tr>
+              <tr><td><strong>建议仓位</strong></td><td>组合 3-5%</td></tr>
+              <tr><td><strong>持有周期</strong></td><td>12-24 个月</td></tr>
+              <tr><td><strong>风险评级</strong></td><td><span class="hl-rose">中高 (Moderate-High)</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h4 style="color:var(--jade);margin-bottom:12px">🎯 关键监控指标</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.9">
+            <li><strong>① 渠道库存出清进度</strong>(季度肝病用药库存变化)</li>
+            <li><strong>② 牛黄/麝香原料价格</strong>(康美中药网 / 中药材天地网)</li>
+            <li><strong>③ 海外营收恢复</strong>(2026H2 增速是否转正)</li>
+            <li><strong>④ 化妆品业务表现</strong>(新品 + 跨境电商 GMV)</li>
+            <li><strong>⑤ 毛利率修复</strong>(肝病用药毛利率是否企稳 60%+)</li>
+            <li><strong>⑥ 经营活动现金流</strong>(2026 是否恢复至 ¥10 亿+)</li>
+            <li><strong>⑦ 澳门诊所运营</strong>(客流 + 中医诊疗收入)</li>
+            <li><strong>⑧ 港股通净流入</strong>(南向资金增持比例)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">10·2</span>
+        <span>买入节奏 · 4 阶段分批建仓</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>阶段</th>
+            <th>时间窗口</th>
+            <th>建仓比例</th>
+            <th>触发条件</th>
+            <th>目标价</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>第一阶段(试探)</td>
+            <td>2026 Q3-Q4</td>
+            <td>25%</td>
+            <td>渠道库存出清信号 + 毛利率企稳 + 牛黄价格回落</td>
+            <td>¥130-145</td>
+          </tr>
+          <tr>
+            <td>第二阶段(加仓)</td>
+            <td>2027 H1</td>
+            <td>25%</td>
+            <td>2026 年报业绩企稳 + 海外营收恢复正增长</td>
+            <td>¥145-160</td>
+          </tr>
+          <tr>
+            <td>第三阶段(突破)</td>
+            <td>2027 H2</td>
+            <td>25%</td>
+            <td>2027H1 中报业绩回暖 + 化妆品业务恢复增长</td>
+            <td>¥160-175</td>
+          </tr>
+          <tr>
+            <td>第四阶段(收尾)</td>
+            <td>2028 H1</td>
+            <td>25%</td>
+            <td>目标价 ¥170-200 兑现</td>
+            <td>¥170-200</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">10·3</span>
+        <span>止损与再平衡机制</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <h4 style="color:var(--crimson);margin-bottom:12px">🛑 止损触发</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>肝病用药营收连续 4 季度跌幅 &gt; 15%</li>
+            <li>毛利率连续 2 季度跌破 50%</li>
+            <li>经营活动现金流持续为负</li>
+            <li>国资股东减持 / 政策方向逆转</li>
+            <li>系统性中药出海政策收紧</li>
+            <li>麝香/牛黄原料断供风险</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:var(--jade);margin-bottom:12px">🔄 再平衡机制</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>每季度根据业绩更新翻牌</li>
+            <li>达到目标价 80% 时减仓 1/3 锁定利润</li>
+            <li>估值超 50× PE 减仓，&lt; 30× PE 加仓</li>
+            <li>港股通净流入连续 3 月加速时加仓</li>
+            <li>同行业出现重大正面/负面事件时调整</li>
+            <li>国资增持节奏放缓时降低仓位</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART XI · 未来发展路径 ============ -->
+<section id="sec11">
+  <div class="wrap">
+    <div class="section-eyebrow">PART XI · FUTURE PATHS</div>
+    <h2 class="section-title serif">未来发展路径</h2>
+    <p class="section-lead">
+      片仔癀海外业务未来 3-5 年的发展路径呈现<span class="hl-jade">"四线并进"</span>趋势——
+      <strong>单品深化 × 跨境电商 × 化妆品出海 × 文化体验</strong>四轨并行，重启全球叙事。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">11·1</span>
+        <span>路径 A · 单品爆款深化(概率 40%)</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            <span class="hl">片仔癀锭剂</span>在海外华商圈的认知度极高，
+            <span class="hl-jade">"高端礼品 + 护肝 + 文化符号"</span>三重属性构成核心价值。
+            未来 3-5 年，预计通过<span class="hl">"分级定价 + 精准渠道 + 跨境电商"</span>组合策略，
+            将海外营收从 2024 年的 ¥4.58 亿提升至 2028 年的 ¥6-7 亿。
+          </p>
+        </div>
+        <div>
+          <div class="bar-chart">
+            <div class="bar-fill" style="width:65%">¥4.58 亿 (2024)</div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-fill" style="width:58%">¥4.0 亿 (2025)</div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-fill" style="width:62%">¥4.2 亿 (2026E)</div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-fill" style="width:75%;background:linear-gradient(90deg,#16a085,#27ae60)">¥5.0 亿 (2027E)</div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-fill" style="width:92%;background:linear-gradient(90deg,#16a085,#27ae60)">¥6.5 亿 (2028E)</div>
+          </div>
+          <div class="dim" style="margin-top:8px;font-size:0.75rem">海外营收演进预测(¥ 亿)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">11·2</span>
+        <span>路径 B · 化妆品出海(概率 30%)</span>
+      </div>
+
+      <p style="margin-bottom:16px">
+        <span class="hl">福建片仔癀化妆品(皇后牌)</span>是公司<span class="hl-jade">"中药消费品化"</span>的关键载体。
+        当前营收 ¥5.67 亿(2025 -24.64%)，毛利率 57.54%。
+        海外华商对中国药妆的<span class="hl">"中药成分 + 国潮 IP"</span>组合高度认可，
+        <span class="hl">预计 2026-2028 年化妆品海外营收 CAGR 达 30-40%</span>。
+      </p>
+
+      <div class="grid grid-3" style="margin-top:20px">
+        <div class="panel" style="margin-bottom:0;text-align:center">
+          <h4 style="color:var(--gold)">跨境电商</h4>
+          <div style="font-size:1.5rem;font-weight:800;color:var(--gold);margin:8px 0">40%</div>
+          <div style="font-size:0.75rem;color:var(--ink-2)">天猫国际 + 京东全球购 + 抖音</div>
+        </div>
+        <div class="panel" style="margin-bottom:0;text-align:center">
+          <h4 style="color:var(--jade)">东南亚</h4>
+          <div style="font-size:1.5rem;font-weight:800;color:var(--jade);margin:8px 0">30%</div>
+          <div style="font-size:0.75rem;color:var(--ink-2)">华人药店 + 药妆集合店</div>
+        </div>
+        <div class="panel" style="margin-bottom:0;text-align:center">
+          <h4 style="color:var(--azure)">日韩</h4>
+          <div style="font-size:1.5rem;font-weight:800;color:var(--azure);margin:8px 0">20%</div>
+          <div style="font-size:0.75rem;color:var(--ink-2)">跨境电商 + 经销商</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">11·3</span>
+        <span>路径 C · 跨境电商爆发(概率 20%)</span>
+      </div>
+
+      <p style="margin-bottom:16px">
+        <span class="hl">天猫国际 + 京东全球购 + 抖音全球购</span>是片仔癀出海的"新基础设施"。
+        假设 2026-2028 年跨境电商 GMV CAGR 达 50%+，
+        预计 2028 年跨境电商渠道营收占比可从当前 ~10% 提升至<span class="hl">25-30%</span>。
+      </p>
+
+      <div class="callout">
+        <div class="callout-title">CROSS-BORDER · 出海第二曲线的希望</div>
+        <div class="callout-body">
+          跨境电商是<span class="hl">"绕过药品监管壁垒 + 借助品牌 IP + 切入消费品市场"</span>的破局路径。
+          <span class="hl-jade">片仔癀化妆品的"中药 + 药妆"双 IP 是天然跨境电商爆款</span>，
+          <span class="hl">"国潮出海 + 中药文化输出"</span>的组合在 Z 世代华人群体中接受度极高。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">11·4</span>
+        <span>路径 D · 文化体验出海(概率 10%)</span>
+      </div>
+
+      <p style="margin-bottom:16px">
+        <span class="hl">澳门中医诊所</span>(2024 开业)是片仔癀首个自营海外终端，承担<span class="hl-jade">"中医诊疗 + 文化体验 + 品牌传播"</span>三重功能。
+        未来 5 年，若能在新加坡、加拿大、澳大利亚等城市复制<span class="hl">5-8 家</span>"片仔癀中医文化中心"，
+        将打开<span class="hl">"服务贸易 + 文化输出"</span>的第三曲线。
+      </p>
+
+      <div class="callout">
+        <div class="callout-title">CULTURE · 文化体验的战略价值</div>
+        <div class="callout-body">
+          与同仁堂"先建平台、后做单品"的逻辑不同，
+          片仔癀是<span class="hl">"先单品爆款、后建终端"</span>的逆向路径。
+          澳门诊所是<span class="hl-jade">"以产品带流量、以流量带场景、以场景带品牌"</span>的关键支点。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART XII · 附录 ============ -->
+<section id="sec12">
+  <div class="wrap">
+    <div class="section-eyebrow">PART XII · APPENDICES</div>
+    <h2 class="section-title serif">附录 · 数据合规与延伸阅读</h2>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">12·1</span>
+        <span>数据来源与口径</span>
+      </div>
+
+      <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+        <li>漳州片仔癀药业股份有限公司(600436.SH)2024 年报、2025 年报</li>
+        <li>漳州片仔癀 2026 年一季度报告</li>
+        <li>漳州市九龙江集团 2023 年度信用评级报告</li>
+        <li>中国海关总署 2024 中药类商品进出口数据</li>
+        <li>中国医药保健品进出口商会 2024 年度报告</li>
+        <li>康美中药网 / 中药材天地网 原料价格数据库</li>
+        <li>国家药监局、海关总署《关于允许进口牛黄试点用于中成药生产有关事项的公告》(2025.4.18)</li>
+        <li>国家中医药管理局《中医药发展战略规划纲要(2016-2030)》</li>
+        <li>2025 版《中华人民共和国药典》</li>
+        <li>胡润品牌榜 2020-2025 年度报告</li>
+        <li>Brand Finance 2024 中国最具价值医药品牌榜单</li>
+        <li>调研访谈、行业研报、专家咨询</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">12·2</span>
+        <span>关键术语对照表</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>术语</th>
+            <th>英文</th>
+            <th>解释</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>国家绝密</td><td>National Top Secret</td><td>中药最高保护级别(处方+工艺)</td></tr>
+          <tr><td>中药一级保护</td><td>First-Class Protection</td><td>中药品种保护最高级别(1994 起)</td></tr>
+          <tr><td>林麝</td><td>Moschus berezovskii</td><td>国家一级保护动物 · 天然麝香来源</td></tr>
+          <tr><td>天然牛黄</td><td>Natural Calculus Bovis</td><td>牛的干燥胆结石 · 形成几率 1-2%</td></tr>
+          <tr><td>MAH</td><td>Marketing Authorization Holder</td><td>药品上市许可持有人</td></tr>
+          <tr><td>BRI</td><td>Belt and Road Initiative</td><td>"一带一路"倡议</td></tr>
+          <tr><td>RCEP</td><td>Regional Comprehensive Economic Partnership</td><td>区域全面经济伙伴关系协定</td></tr>
+          <tr><td>CNAS</td><td>China National Accreditation Service</td><td>中国合格评定国家认可委员会</td></tr>
+          <tr><td>GMP</td><td>Good Manufacturing Practice</td><td>药品生产质量管理规范</td></tr>
+          <tr><td>GAP</td><td>Good Agricultural Practice</td><td>中药材规范化种植</td></tr>
+          <tr><td>NPN</td><td>Natural Product Number</td><td>加拿大天然药品编号</td></tr>
+          <tr><td>FDA</td><td>Food and Drug Administration</td><td>美国食品药品监督管理局</td></tr>
+          <tr><td>THMPD</td><td>Traditional Herbal Medicinal Products Directive</td><td>欧盟传统草药制品指令</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">12·3</span>
+        <span>延伸阅读清单</span>
+      </div>
+
+      <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.9">
+        <li>《漳州片仔癀 2024 年年度报告》— 上交所/巨潮资讯</li>
+        <li>《漳州片仔癀 2025 年年度报告》— 上交所/巨潮资讯</li>
+        <li>《片仔癀"杠杆增持"悬疑：国资 90% 贷款托盘》— 新浪财经/华夏时报(2026.5.13)</li>
+        <li>《片仔癀国外收入占比曾高达 45%》— 腾讯新闻(2025.12.28)</li>
+        <li>《片仔癀 2024 年净利润增速回落 牛黄进口试点"开闸"有望缓解原材料供应压力》— 经济观察网(2025.4.28)</li>
+        <li>《时隔 20 多年，进口牛黄再开闸，片仔癀和安宫九黄丸们却笑不起来》— 钛媒体(2025.4.23)</li>
+        <li>《Xinhua Silk Road: Why is Pien Tze Huang selected as one of China's brands favored by foreigners in 2024》— PR Newswire(2024.12.17)</li>
+        <li>《Xinhua Silk Road: Pien Tze Huang boosts TCM globalization》— PR Newswire(2024.12.12)</li>
+        <li>《宝鸡市林麝工程技术研究中心暨陕西省科学院科学研究示范基地在陕西凤县挂牌成立》— 中国科学院西安分院</li>
+        <li>《漳州市九龙江集团有限公司 2023 年度信用评级报告》— 中国货币网</li>
+        <li>《凤县：发展林麝养殖振兴乡村产业》— 宝鸡林业局</li>
+        <li>《片仔癀：海上丝绸之路上的"中国符号"》— 国家中医药管理局</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">12·4</span>
+        <span>免责声明</span>
+      </div>
+
+      <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.8">
+        本报告基于公开信息整理与合理推断，不构成任何投资建议。
+        报告中的数据、观点、结论均可能因后续信息更新而变化。
+        投资者应基于自身风险承受能力、财务状况、投资目标作出独立判断，
+        并自行承担投资风险。本报告作者不对任何因依赖本报告而产生的损失负责。
+        <br><br>
+        <strong style="color:var(--crimson)">风险提示</strong>：片仔癀核心产品高度依赖单一品种(肝病用药占医药制造业务 96.09%)，
+        历史业绩不代表未来表现。本报告所提及的"持有→增持"评级、目标价、概率预测均为基于公开信息的判断，
+        实际情况可能与预测存在重大差异。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<div class="footer">
+  <div class="wrap">
+    <p style="font-family:var(--serif);font-size:1.125rem;color:var(--gold);margin-bottom:12px">片仔癀海外板块 · 五百年"海上丝路"中药符号的国际化远征</p>
+    <p><strong>报告机构 ·</strong> 上海张小强企业咨询事务所</p>
+    <p>2026 Q3 顶级研究尽调报告 · 第 13 期</p>
+    <p style="margin-top:8px">基于公开信息整理 · 不构成投资建议</p>
+    <p style="margin-top:12px;font-size:0.75rem;color:var(--ink-2)">版权所有 © 2026 上海张小强企业咨询事务所 · 保留所有权利</p>
+    <p style="margin-top:16px;font-size:0.6875rem">Built with care for institutional research · 2026 Sep</p>
+  </div>
+</div>
+
+<script>
+// ===== 1. 营收趋势图(国内 vs 海外) =====
+new Chart(document.getElementById('revenueTrendChart'), {
+  type: 'line',
+  data: {
+    labels: ['2004', '2010', '2015', '2018', '2020', '2022', '2024'],
+    datasets: [
+      {
+        label: '海外营收 (¥亿)',
+        data: [1.14, 1.8, 2.5, 3.2, 3.5, 4.5, 4.58],
+        borderColor: '#d4af37',
+        backgroundColor: 'rgba(212,175,55,0.15)',
+        borderWidth: 3,
+        tension: 0.35,
+        yAxisID: 'y'
+      },
+      {
+        label: '总营收 (¥亿)',
+        data: [2.54, 8.0, 17.5, 47.7, 65.1, 86.94, 107.69],
+        borderColor: '#c0392b',
+        backgroundColor: 'rgba(192,57,43,0.15)',
+        borderWidth: 3,
+        tension: 0.35,
+        yAxisID: 'y1'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    interaction: {mode: 'index', intersect: false},
+    plugins: {
+      legend: {labels: {color: '#c4a896', font: {size: 12}}},
+      tooltip: {
+        backgroundColor: 'rgba(26,14,14,0.95)',
+        borderColor: '#d4af37',
+        borderWidth: 1
+      }
+    },
+    scales: {
+      x: {ticks: {color: '#8a6e5e'}, grid: {color: 'rgba(212,180,138,0.05)'}},
+      y: {position: 'left', ticks: {color: '#d4af37'}, grid: {color: 'rgba(212,180,138,0.05)'}, title: {display: true, text: '海外营收 (¥亿)', color: '#d4af37'}},
+      y1: {position: 'right', ticks: {color: '#c0392b'}, grid: {display: false}, title: {display: true, text: '总营收 (¥亿)', color: '#c0392b'}}
+    }
+  }
+});
+
+// ===== 2. 营收历史图 =====
+new Chart(document.getElementById('revenueChart'), {
+  type: 'bar',
+  data: {
+    labels: ['2021', '2022', '2023', '2024', '2025', '2026E'],
+    datasets: [
+      {
+        label: '营业收入 (¥亿)',
+        data: [80.26, 86.94, 100.58, 107.69, 90.01, 92.7],
+        backgroundColor: ['rgba(212,175,55,0.7)', 'rgba(212,175,55,0.7)', 'rgba(212,175,55,0.7)', 'rgba(212,175,55,0.7)', 'rgba(192,57,43,0.7)', 'rgba(22,160,133,0.7)'],
+        borderColor: '#d4af37',
+        borderWidth: 1
+      },
+      {
+        label: '归母净利润 (¥亿)',
+        data: [24.31, 24.72, 27.97, 29.77, 21.59, 23.4],
+        backgroundColor: 'rgba(192,57,43,0.4)',
+        borderColor: '#c0392b',
+        borderWidth: 1
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {labels: {color: '#c4a896', font: {size: 12}}},
+      tooltip: {backgroundColor: 'rgba(26,14,14,0.95)', borderColor: '#d4af37', borderWidth: 1}
+    },
+    scales: {
+      x: {ticks: {color: '#8a6e5e'}, grid: {color: 'rgba(212,180,138,0.05)'}},
+      y: {ticks: {color: '#8a6e5e'}, grid: {color: 'rgba(212,180,138,0.05)'}}
+    }
+  }
+});
+
+// ===== 3. 业务结构饼图 =====
+new Chart(document.getElementById('segmentChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['肝病用药 (47.4%)', '化妆品 (6.3%)', '医药流通 (28.5%)', '其他 (17.8%)'],
+    datasets: [{
+      data: [42.68, 5.67, 25.6, 16.06],
+      backgroundColor: ['rgba(212,175,55,0.8)', 'rgba(192,57,43,0.8)', 'rgba(22,160,133,0.8)', 'rgba(230,126,34,0.8)'],
+      borderColor: 'rgba(10,6,6,1)',
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {labels: {color: '#c4a896', font: {size: 12}}},
+      tooltip: {backgroundColor: 'rgba(26,14,14,0.95)', borderColor: '#d4af37', borderWidth: 1}
+    }
+  }
+});
+
+// ===== 4. 区域市场结构图 =====
+new Chart(document.getElementById('regionChart'), {
+  type: 'bar',
+  data: {
+    labels: ['东南亚', '港澳台', '北美', '日韩', '澳新', '欧洲'],
+    datasets: [{
+      label: '海外营收分布 (估算 ¥亿)',
+      data: [2.0, 1.2, 0.6, 0.4, 0.2, 0.18],
+      backgroundColor: ['rgba(212,175,55,0.8)', 'rgba(192,57,43,0.8)', 'rgba(22,160,133,0.8)', 'rgba(230,126,34,0.8)', 'rgba(41,128,185,0.8)', 'rgba(142,68,173,0.8)'],
+      borderColor: '#d4af37',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: {display: false},
+      tooltip: {backgroundColor: 'rgba(26,14,14,0.95)', borderColor: '#d4af37', borderWidth: 1}
+    },
+    scales: {
+      x: {ticks: {color: '#8a6e5e'}, grid: {color: 'rgba(212,180,138,0.05)'}},
+      y: {ticks: {color: '#c4a896'}, grid: {color: 'rgba(212,180,138,0.05)'}}
+    }
+  }
+});
+
+// ===== 5. 雷达图：竞争力对比 =====
+new Chart(document.getElementById('radarChart'), {
+  type: 'radar',
+  data: {
+    labels: ['品牌 IP', '配方保护', '原料保供', '海外终端', '海外营收占比', '财务质量'],
+    datasets: [
+      {
+        label: '片仔癀 600436.SH',
+        data: [9.5, 10, 9, 3, 4, 6],
+        backgroundColor: 'rgba(212,175,55,0.25)',
+        borderColor: '#d4af37',
+        borderWidth: 2,
+        pointBackgroundColor: '#d4af37'
+      },
+      {
+        label: '同仁堂国药 3613.HK',
+        data: [9, 7, 7, 10, 9, 8],
+        backgroundColor: 'rgba(22,160,133,0.15)',
+        borderColor: '#16a085',
+        borderWidth: 2,
+        pointBackgroundColor: '#16a085'
+      },
+      {
+        label: '云南白药 000538.SZ',
+        data: [7, 9, 6, 3, 3, 7],
+        backgroundColor: 'rgba(192,57,43,0.15)',
+        borderColor: '#c0392b',
+        borderWidth: 2,
+        pointBackgroundColor: '#c0392b'
+      },
+      {
+        label: '以岭药业 002603.SZ',
+        data: [6, 5, 5, 2, 4, 6],
+        backgroundColor: 'rgba(230,126,34,0.15)',
+        borderColor: '#e67e22',
+        borderWidth: 2,
+        pointBackgroundColor: '#e67e22'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {labels: {color: '#c4a896', font: {size: 12}}},
+      tooltip: {backgroundColor: 'rgba(26,14,14,0.95)', borderColor: '#d4af37', borderWidth: 1}
+    },
+    scales: {
+      r: {
+        angleLines: {color: 'rgba(212,180,138,0.15)'},
+        grid: {color: 'rgba(212,180,138,0.15)'},
+        pointLabels: {color: '#c4a896', font: {size: 12}},
+        ticks: {color: '#8a6e5e', backdropColor: 'transparent'},
+        suggestedMin: 0,
+        suggestedMax: 10
+      }
+    }
+  }
+});
+
+// ===== 6. 风险热图(2D 散点) =====
+new Chart(document.getElementById('riskChart'), {
+  type: 'bubble',
+  data: {
+    datasets: [
+      {
+        label: '极高风险',
+        data: [
+          {x: 9, y: 9, r: 28, label: '原料价格'},
+          {x: 9, y: 9, r: 24, label: '肝病下滑'},
+          {x: 9, y: 8, r: 22, label: '渠道库存'},
+          {x: 8, y: 9, r: 22, label: '现金流'},
+          {x: 8, y: 9, r: 24, label: '高端消费萎缩'}
+        ],
+        backgroundColor: 'rgba(192,57,43,0.65)',
+        borderColor: '#c0392b'
+      },
+      {
+        label: '高风险',
+        data: [
+          {x: 5, y: 10, r: 18, label: '麝香断供'}
+        ],
+        backgroundColor: 'rgba(230,126,34,0.65)',
+        borderColor: '#e67e22'
+      },
+      {
+        label: '中风险',
+        data: [
+          {x: 6, y: 5, r: 14, label: '化妆品下滑'},
+          {x: 7, y: 5, r: 14, label: '海外天花板'},
+          {x: 5, y: 5, r: 14, label: '竞争挤压'},
+          {x: 5, y: 4, r: 14, label: '海外注册'}
+        ],
+        backgroundColor: 'rgba(212,175,55,0.65)',
+        borderColor: '#d4af37'
+      },
+      {
+        label: '中低风险',
+        data: [
+          {x: 5, y: 3, r: 10, label: '汇率'},
+          {x: 3, y: 5, r: 10, label: '国资股东'}
+        ],
+        backgroundColor: 'rgba(22,160,133,0.65)',
+        borderColor: '#16a085'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {labels: {color: '#c4a896', font: {size: 12}}},
+      tooltip: {
+        backgroundColor: 'rgba(26,14,14,0.95)',
+        borderColor: '#d4af37',
+        borderWidth: 1,
+        callbacks: {
+          label: function(ctx) {
+            return ctx.raw.label + ' (概率:' + ctx.raw.x + ', 影响:' + ctx.raw.y + ')';
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        min: 0, max: 10,
+        title: {display: true, text: '发生概率 →', color: '#c4a896'},
+        ticks: {color: '#8a6e5e'},
+        grid: {color: 'rgba(212,180,138,0.1)'}
+      },
+      y: {
+        min: 0, max: 10,
+        title: {display: true, text: '影响程度 →', color: '#c4a896'},
+        ticks: {color: '#8a6e5e'},
+        grid: {color: 'rgba(212,180,138,0.1)'}
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

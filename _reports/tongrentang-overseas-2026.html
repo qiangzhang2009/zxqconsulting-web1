@@ -1,0 +1,3555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>同仁堂海外板块 · 三百年老字号的中医药国际化远征｜2026 Q3 顶级研究尽调报告</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif+SC:wght@400;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root{
+  --bg-0:#0a0606;
+  --bg-1:#1a0e0e;
+  --bg-2:#2a1818;
+  --bg-3:#3a2424;
+  --ink-1:#f4e8e0;
+  --ink-2:#c4a896;
+  --ink-3:#8a6e5e;
+  --rule:rgba(212,180,138,0.15);
+  --rule-strong:rgba(212,180,138,0.35);
+  --gold:#d4af37;
+  --gold-bright:#f4d03f;
+  --crimson:#c0392b;
+  --jade:#16a085;
+  --amber:#e67e22;
+  --azure:#2980b9;
+  --violet:#8e44ad;
+  --rose:#c0392b;
+  --emerald:#27ae60;
+  --serif:'Noto Serif SC',serif;
+  --mono:'JetBrains Mono',monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#3a2424 #0a0606}
+body{font-family:'Inter','Noto Sans SC',sans-serif;background:var(--bg-0);color:var(--ink-1);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+.bg-paper{position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(ellipse 1200px 800px at 15% 10%,rgba(212,175,55,0.10),transparent 60%),
+  radial-gradient(ellipse 1000px 700px at 85% 80%,rgba(192,57,43,0.08),transparent 60%),
+  radial-gradient(ellipse 900px 600px at 50% 50%,rgba(22,160,133,0.06),transparent 60%),
+  var(--bg-0)}
+
+.bg-pattern{position:fixed;inset:0;z-index:-1;background-image:
+  linear-gradient(rgba(212,175,55,0.025) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(212,175,55,0.025) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 80%)}
+
+.bg-seals{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0.4}
+.bg-seals circle{animation:seal 5s ease-in-out infinite}
+.bg-seals circle:nth-child(2n){animation-duration:7s;animation-delay:1s}
+.bg-seals circle:nth-child(3n){animation-duration:6s;animation-delay:2s}
+
+@keyframes seal{0%,100%{opacity:0.15;r:3}50%{opacity:0.7;r:5}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes glow{0%,100%{box-shadow:0 0 30px rgba(212,175,55,0.25)}50%{box-shadow:0 0 60px rgba(212,175,55,0.45)}}
+@keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+.animate-in{animation:fadeInUp 1s ease-out both}
+.delay-1{animation-delay:0.1s}
+.delay-2{animation-delay:0.2s}
+.delay-3{animation-delay:0.3s}
+.delay-4{animation-delay:0.4s}
+
+.wrap{max-width:1440px;margin:0 auto;padding:0 48px}
+.wrap-narrow{max-width:1080px;margin:0 auto;padding:0 48px}
+
+h1,h2,h3,h4{font-weight:800;letter-spacing:-0.02em;line-height:1.15}
+h1{font-size:clamp(2.5rem,5vw,5rem)}
+h2{font-size:clamp(2rem,3.5vw,3rem);margin-bottom:1rem}
+h3{font-size:1.5rem;margin-bottom:0.75rem}
+h4{font-size:1.125rem;margin-bottom:0.5rem}
+
+.gradient-text{background:linear-gradient(135deg,#f4d03f 0%,#d4af37 35%,#c0392b 70%,#16a085 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gradient-text-warm{background:linear-gradient(135deg,#f4d03f 0%,#e67e22 50%,#c0392b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.gradient-text-jade{background:linear-gradient(135deg,#16a085 0%,#27ae60 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+.mono{font-family:var(--mono)}
+.serif{font-family:var(--serif)}
+.dim{color:var(--ink-2)}
+.faint{color:var(--ink-3)}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;padding:80px 0;overflow:hidden}
+.hero-badge{display:inline-flex;align-items:center;gap:12px;padding:10px 20px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.3);border-radius:100px;font-size:0.875rem;color:var(--gold);font-weight:600;letter-spacing:0.05em;margin-bottom:32px}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);animation:seal 1.5s infinite}
+
+.hero h1{font-family:var(--serif);font-weight:900;text-align:center;margin-bottom:24px;line-height:1.05}
+.hero .subtitle{text-align:center;font-size:1.25rem;color:var(--ink-2);max-width:960px;margin:0 auto 48px;font-weight:300}
+.hero-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:48px;padding-top:48px;border-top:1px solid var(--rule);margin-top:48px}
+.hero-meta-item{text-align:center}
+.hero-meta-value{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#f4d03f,#d4af37);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-meta-label{font-size:0.75rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.15em;margin-top:4px}
+
+/* RATING */
+.rating-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin:60px 0}
+.rating-card{position:relative;padding:28px 24px;background:linear-gradient(135deg,rgba(42,24,24,0.8),rgba(26,14,14,0.9));border:1px solid var(--rule);border-radius:16px;overflow:hidden;transition:all 0.4s ease}
+.rating-card:hover{transform:translateY(-4px);border-color:rgba(212,175,55,0.5);box-shadow:0 20px 60px rgba(212,175,55,0.2)}
+.rating-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--crimson))}
+.rating-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(212,175,55,0.1);border-radius:12px;margin-bottom:16px;font-size:1.5rem}
+.rating-label{font-size:0.75rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px}
+.rating-value{font-size:1.5rem;font-weight:800;margin-bottom:4px}
+.rating-sub{font-size:12.5px;color:var(--ink-2)}
+
+section{padding:120px 0;position:relative}
+.section-eyebrow{display:inline-block;font-family:var(--mono);font-size:0.8125rem;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:16px;padding:6px 14px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);border-radius:6px}
+.section-title{margin-bottom:1rem}
+.section-lead{font-size:1.0625rem;color:var(--ink-2);max-width:900px;margin-bottom:60px;line-height:1.7}
+
+.panel{background:linear-gradient(135deg,rgba(42,24,24,0.6),rgba(26,14,14,0.7));border:1px solid var(--rule);border-radius:16px;padding:32px;margin-bottom:24px;transition:all 0.3s ease}
+.panel:hover{border-color:rgba(212,175,55,0.3)}
+.panel-title{font-family:var(--serif);font-size:1.5rem;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:16px}
+.panel-title .num{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:linear-gradient(135deg,rgba(212,175,55,0.2),rgba(192,57,43,0.2));border:1px solid rgba(212,175,55,0.4);border-radius:12px;font-family:var(--mono);font-size:1rem;color:var(--gold);font-weight:700}
+.panel h4{color:var(--gold);margin-bottom:8px}
+
+.grid{display:grid;gap:24px}
+.grid-2{grid-template-columns:1fr 1fr}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+
+.callout{padding:20px;background:linear-gradient(135deg,rgba(212,175,55,0.06),rgba(26,14,14,0.6));border-left:3px solid var(--gold);border-radius:0 12px 12px 0;margin:20px 0}
+.callout-title{font-family:var(--mono);font-size:0.75rem;color:var(--gold);letter-spacing:0.15em;margin-bottom:8px;font-weight:700}
+.callout-body{font-size:0.9375rem;line-height:1.75;color:var(--ink-2)}
+
+.tag{display:inline-block;padding:3px 10px;border-radius:99px;font-size:0.6875rem;font-weight:600;letter-spacing:0.05em}
+.tag-gold{background:rgba(212,175,55,0.15);color:var(--gold);border:1px solid rgba(212,175,55,0.3)}
+.tag-jade{background:rgba(22,160,133,0.15);color:var(--jade);border:1px solid rgba(22,160,133,0.3)}
+.tag-crimson{background:rgba(192,57,43,0.15);color:var(--crimson);border:1px solid rgba(192,57,43,0.3)}
+.tag-azure{background:rgba(41,128,185,0.15);color:var(--azure);border:1px solid rgba(41,128,185,0.3)}
+.tag-amber{background:rgba(230,126,34,0.15);color:var(--amber);border:1px solid rgba(230,126,34,0.3)}
+
+.hl{color:var(--gold);font-weight:700}
+.hl-jade{color:var(--jade);font-weight:700}
+.hl-rose{color:var(--crimson);font-weight:700}
+
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.875rem}
+table th{background:rgba(212,175,55,0.08);color:var(--gold);padding:12px 16px;text-align:left;font-weight:700;border-bottom:2px solid rgba(212,175,55,0.3);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase}
+table td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink-2)}
+table tr:hover td{background:rgba(212,175,55,0.03)}
+
+.verdict{margin:60px 0;padding:48px;background:linear-gradient(135deg,rgba(212,175,55,0.08),rgba(192,57,43,0.06));border:2px solid rgba(212,175,55,0.3);border-radius:20px;text-align:center;position:relative;overflow:hidden}
+.verdict::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--crimson),var(--jade))}
+.verdict-rating{font-family:var(--mono);font-size:0.875rem;color:var(--gold);letter-spacing:0.2em;margin-bottom:24px;font-weight:700}
+
+.tear-card{position:relative;padding:24px;background:linear-gradient(135deg,rgba(42,24,24,0.7),rgba(26,14,14,0.8));border:1px solid var(--rule);border-radius:14px;transition:all 0.3s ease;overflow:hidden}
+.tear-card:hover{border-color:rgba(212,175,55,0.4);transform:translateY(-2px)}
+.tear-label{font-size:0.6875rem;color:var(--ink-3);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:8px;font-weight:700}
+.tear-value{font-size:1.875rem;font-weight:800;margin-bottom:4px;line-height:1.1}
+.tear-meta{font-size:0.75rem;color:var(--ink-2);margin-bottom:12px}
+.tear-bar{height:4px;background:rgba(148,138,114,0.1);border-radius:99px;overflow:hidden;margin-bottom:8px}
+.tear-bar-fill{height:100%;border-radius:99px}
+.tear-sub{font-size:0.6875rem;color:var(--ink-3)}
+
+.funnel{margin:24px 0}
+.funnel-stage{padding:18px 24px;background:var(--funnel-bg);border:1px solid rgba(212,175,55,0.2);border-radius:10px;margin-bottom:8px;width:var(--funnel-w);transition:all 0.3s ease}
+.funnel-stage:hover{transform:translateX(8px);border-color:rgba(212,175,55,0.5)}
+.funnel-label{font-family:var(--mono);font-size:0.75rem;color:var(--gold);letter-spacing:0.15em;margin-bottom:6px;font-weight:700}
+.funnel-metric{font-size:0.9375rem;color:var(--ink-2);line-height:1.5}
+
+.chart-box{padding:24px;background:rgba(26,14,14,0.6);border:1px solid var(--rule);border-radius:14px;margin:20px 0}
+
+.gate-stage{display:flex;gap:0;align-items:stretch;margin-bottom:0}
+.gate-stage-card{flex:1;padding:20px;background:rgba(26,14,14,0.6);border:1px solid var(--rule);border-right:none;position:relative;transition:all 0.3s ease}
+.gate-stage-card:last-child{border-right:1px solid var(--rule)}
+.gate-stage-card.passed{background:linear-gradient(135deg,rgba(22,160,133,0.15),rgba(26,14,14,0.6));border-color:rgba(22,160,133,0.5)}
+.gate-stage-card.pending{background:linear-gradient(135deg,rgba(230,126,34,0.15),rgba(26,14,14,0.6));border-color:rgba(230,126,34,0.5)}
+.gate-stage-card.blocked{background:linear-gradient(135deg,rgba(192,57,43,0.15),rgba(26,14,14,0.6));border-color:rgba(192,57,43,0.5)}
+.gate-stage-arrow{display:flex;align-items:center;justify-content:center;width:24px;background:rgba(148,138,114,0.05);font-size:1.25rem;color:var(--ink-3)}
+.gate-stage-num{font-size:0.6875rem;letter-spacing:0.18em;color:var(--ink-3);margin-bottom:6px}
+.gate-stage-title{font-size:1rem;font-weight:800;margin-bottom:8px;color:var(--ink-1)}
+.gate-stage-meta{font-size:0.75rem;color:var(--ink-2);line-height:1.5}
+.gate-stage-status{display:inline-block;font-size:0.6875rem;padding:2px 8px;border-radius:99px;margin-top:8px;font-weight:700}
+.gate-stage-status.passed{background:rgba(22,160,133,0.2);color:var(--emerald)}
+.gate-stage-status.pending{background:rgba(230,126,34,0.2);color:var(--amber)}
+.gate-stage-status.blocked{background:rgba(192,57,43,0.2);color:var(--rose)}
+
+.timeline{position:relative;padding:20px 0}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,rgba(212,175,55,0.4),rgba(192,57,43,0.4),rgba(22,160,133,0.4),transparent);transform:translateX(-50%)}
+.timeline-item{display:grid;grid-template-columns:1fr 40px 1fr;gap:16px;margin-bottom:28px;align-items:center}
+.timeline-item:nth-child(odd) .timeline-content{text-align:right;grid-column:1}
+.timeline-item:nth-child(odd) .timeline-spacer{grid-column:2}
+.timeline-item:nth-child(odd) .timeline-side{grid-column:3;visibility:hidden}
+.timeline-item:nth-child(even) .timeline-content{grid-column:3;text-align:left}
+.timeline-item:nth-child(even) .timeline-spacer{grid-column:2}
+.timeline-item:nth-child(even) .timeline-side{grid-column:1;visibility:hidden}
+.timeline-marker{grid-column:2;width:18px;height:18px;border-radius:50%;background:var(--gold);border:3px solid var(--bg-0);box-shadow:0 0 0 2px var(--gold);position:relative;z-index:1;margin:0 auto}
+.timeline-item.milestone .timeline-marker{width:24px;height:24px;background:var(--amber);box-shadow:0 0 0 2px var(--amber),0 0 20px rgba(230,126,34,0.5)}
+.timeline-item.endpoint .timeline-marker{background:var(--crimson);box-shadow:0 0 0 2px var(--crimson),0 0 20px rgba(192,57,43,0.5)}
+.timeline-content{background:rgba(26,14,14,0.6);border:1px solid rgba(148,138,114,0.2);border-radius:10px;padding:12px 16px}
+.timeline-time{font-size:0.6875rem;letter-spacing:0.15em;color:var(--gold);font-weight:700;margin-bottom:4px}
+
+.funds-legend{display:flex;flex-direction:column;gap:10px}
+.funds-legend-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(26,14,14,0.5);border-radius:8px;border-left:3px solid var(--cat-color)}
+.funds-legend-color{width:14px;height:14px;border-radius:3px;background:var(--cat-color);flex-shrink:0}
+.funds-legend-info{flex:1}
+.funds-legend-name{font-size:0.875rem;font-weight:700;color:var(--ink-1)}
+.funds-legend-detail{font-size:0.6875rem;color:var(--ink-3);margin-top:2px}
+.funds-legend-amount{font-size:0.875rem;font-weight:700;color:var(--cat-color);font-family:var(--mono)}
+
+.toc{position:sticky;top:20px;max-height:calc(100vh - 40px);overflow-y:auto;padding:24px;background:linear-gradient(180deg,rgba(42,24,24,0.7),rgba(26,14,14,0.8));border:1px solid var(--rule);border-radius:14px;margin:60px 0}
+.toc-title{font-family:var(--mono);font-size:0.6875rem;letter-spacing:0.2em;color:var(--gold);margin-bottom:16px;font-weight:700;text-transform:uppercase}
+.toc-item{display:block;padding:8px 12px;font-size:0.8125rem;color:var(--ink-2);text-decoration:none;border-radius:6px;margin-bottom:4px;transition:all 0.2s ease;border-left:2px solid transparent}
+.toc-item:hover{background:rgba(212,175,55,0.06);color:var(--gold);border-left-color:var(--gold)}
+
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:32px 0}
+.kpi{padding:18px;background:rgba(26,14,14,0.6);border:1px solid var(--rule);border-radius:12px;text-align:center}
+.kpi-label{font-size:0.6875rem;color:var(--ink-3);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:6px}
+.kpi-value{font-size:1.5rem;font-weight:800;color:var(--gold);font-family:var(--mono)}
+.kpi-delta{font-size:0.75rem;margin-top:4px;color:var(--jade)}
+
+.matrix-row{display:grid;grid-template-columns:140px repeat(5,1fr);gap:8px;margin-bottom:8px;align-items:center}
+.matrix-row .matrix-header{padding:10px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.25);border-radius:6px;font-size:0.75rem;font-weight:700;color:var(--gold);text-align:center;text-transform:uppercase;letter-spacing:0.08em}
+.matrix-row .matrix-label{padding:10px;background:rgba(26,14,14,0.6);border:1px solid var(--rule);border-radius:6px;font-size:0.8125rem;font-weight:700;color:var(--ink-1)}
+.matrix-cell{padding:10px;background:rgba(26,14,14,0.5);border:1px solid var(--rule);border-radius:6px;text-align:center;font-size:0.75rem;font-weight:700;color:var(--ink-2)}
+.matrix-cell.high{background:rgba(22,160,133,0.2);border-color:rgba(22,160,133,0.5);color:var(--emerald)}
+.matrix-cell.med{background:rgba(230,126,34,0.15);border-color:rgba(230,126,34,0.4);color:var(--amber)}
+.matrix-cell.low{background:rgba(192,57,43,0.15);border-color:rgba(192,57,43,0.4);color:var(--rose)}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:40px 0}
+
+.bar-chart{height:30px;background:rgba(148,138,114,0.08);border-radius:6px;overflow:hidden;margin:8px 0}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--amber));border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-size:0.75rem;font-weight:700;color:var(--bg-0)}
+
+.map-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:20px 0}
+.map-cell{padding:18px;background:rgba(26,14,14,0.6);border:1px solid var(--rule);border-radius:12px;transition:all 0.3s ease}
+.map-cell:hover{border-color:rgba(212,175,55,0.4);transform:translateY(-2px)}
+.map-region{font-size:0.75rem;color:var(--ink-3);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:6px}
+.map-value{font-size:1.25rem;font-weight:800;color:var(--gold);margin-bottom:6px}
+.map-detail{font-size:0.75rem;color:var(--ink-2);line-height:1.5}
+
+.list-num{list-style:none;padding:0;margin:16px 0;counter-reset:item}
+.list-num li{padding:10px 0 10px 36px;position:relative;border-bottom:1px solid var(--rule);color:var(--ink-2)}
+.list-num li:last-child{border-bottom:none}
+.list-num li::before{content:counter(item);counter-increment:item;position:absolute;left:0;top:10px;width:24px;height:24px;background:linear-gradient(135deg,rgba(212,175,55,0.2),rgba(192,57,43,0.2));border:1px solid rgba(212,175,55,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.75rem;color:var(--gold);font-weight:700}
+
+.footer{margin-top:80px;padding:40px 0;border-top:1px solid var(--rule);text-align:center;color:var(--ink-3);font-size:0.75rem}
+
+.banner-policy{padding:18px 24px;background:linear-gradient(135deg,rgba(212,175,55,0.10),rgba(192,57,43,0.06));border:1px solid rgba(212,175,55,0.35);border-radius:14px;margin:24px 0;font-size:0.875rem;line-height:1.7}
+.banner-policy b{color:var(--gold)}
+
+</style>
+</head>
+<body>
+<div class="bg-paper"></div>
+<div class="bg-pattern"></div>
+<svg class="bg-seals" width="100%" height="100%">
+  <circle cx="10%" cy="20%" r="3" fill="#d4af37"/>
+  <circle cx="20%" cy="80%" r="3" fill="#c0392b"/>
+  <circle cx="30%" cy="50%" r="3" fill="#16a085"/>
+  <circle cx="40%" cy="30%" r="3" fill="#d4af37"/>
+  <circle cx="50%" cy="70%" r="3" fill="#c0392b"/>
+  <circle cx="60%" cy="15%" r="3" fill="#16a085"/>
+  <circle cx="70%" cy="60%" r="3" fill="#d4af37"/>
+  <circle cx="80%" cy="40%" r="3" fill="#c0392b"/>
+  <circle cx="90%" cy="85%" r="3" fill="#16a085"/>
+</svg>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div style="text-align:center;max-width:1100px;margin:0 auto">
+      <div class="hero-badge animate-in">
+        <span class="dot"></span>
+        中医药出海 · 跨国研究尽调报告 · 2026 Q3 · 十五五规划版
+      </div>
+      <h1 class="animate-in delay-1">
+        同仁堂<span class="gradient-text">海外板块</span><br>
+        <span class="serif" style="font-size:0.6em">三百年老字号的中医药国际化远征</span>
+      </h1>
+      <p class="subtitle animate-in delay-2">
+        以<strong style="color:var(--gold)">同仁堂集团旗下港股上市平台 — 北京同仁堂国药(3613.HK)</strong>为核心研究对象，
+        系统解构<strong style="color:var(--jade)">中华老字号第一出海品牌</strong>在<strong style="color:var(--jade)">"十五五"中医药振兴规划(2026.7.16 印发)</strong>
+        与<strong style="color:var(--jade)">工信部等八部门《中药工业高质量发展实施方案(2026—2030)》(2026.2 印发)</strong>
+        双重政策红利下的海外业务全景、上下游产业链、监管路径与全球竞合博弈。
+        涵盖香港大本营、东南亚(越南/柬埔寨)、东欧(捷克/波兰/黑山)、澳新(新西兰 KIWISH)、中东(阿联酋)、南美(乌拉圭)、俄罗斯等九大区域，
+        数据截至 <strong style="color:var(--gold)">2026 年 8 月 31 日</strong>(3613.HK 中期业绩披露)。
+      </p>
+
+      <div class="hero-meta animate-in delay-3">
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">1669</div>
+          <div class="hero-meta-label">品牌创立·357年历史</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">HK$15.13亿</div>
+          <div class="hero-meta-label">3613.HK 2025 营收</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">26+国</div>
+          <div class="hero-meta-label">境外销售覆盖</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">1200+</div>
+          <div class="hero-meta-label">境外注册品种品规</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">HK$22.79亿</div>
+          <div class="hero-meta-label">现金及银行结余(2025)</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">78%</div>
+          <div class="hero-meta-label">派息比率(2025)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXECUTIVE TEAR SHEET ============ -->
+<section style="padding-top:0;padding-bottom:60px">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px">
+      <div class="section-eyebrow">EXECUTIVE TEAR SHEET · 一图概览</div>
+      <h2 class="section-title serif" style="text-align:center">30秒决策视图 · Decision Snapshot</h2>
+      <p class="section-lead" style="max-width:720px;margin:12px auto 0">
+        借鉴 BCG/McKinsey 顶级咨询的"顶层摘要"设计——把分散在 12 章中的关键判断提炼为单页面可视决策卡。
+        <strong style="color:var(--gold)">本版基于 2025 年报 + 2026 中期业绩 + 十五五规划全面更新</strong>。
+      </p>
+    </div>
+
+    <div class="grid grid-4" style="gap:16px;margin-bottom:24px">
+      <div class="tear-card animate-in">
+        <div class="tear-label">海外平台估值锚点</div>
+        <div class="tear-value gradient-text-warm">HK$110-160<span style="font-size:1rem;color:var(--ink-3);margin-left:4px">亿</span></div>
+        <div class="tear-meta">3613.HK 区间估值 · 3方法交叉</div>
+        <div class="tear-bar"><div class="tear-bar-fill" style="width:60%;background:var(--gold)"></div></div>
+        <div class="tear-sub">对应 PE 28-40× / PB 5.0-7.5×</div>
+      </div>
+      <div class="tear-card animate-in delay-1">
+        <div class="tear-label">2025 海外营收占比</div>
+        <div class="tear-value gradient-text-jade">25<span style="font-size:1rem;color:var(--ink-3);margin-left:4px">%</span></div>
+        <div class="tear-meta">3613.HK 2025 口径</div>
+        <div class="tear-bar"><div class="tear-bar-fill" style="width:25%;background:var(--jade)"></div></div>
+        <div class="tear-sub">2025 营收 HK$15.13亿 (-6.1%)</div>
+      </div>
+      <div class="tear-card animate-in delay-2">
+        <div class="tear-label">现金流厚度</div>
+        <div class="tear-value">HK$22.79<span style="font-size:1rem;color:var(--ink-3);margin-left:4px">亿</span></div>
+        <div class="tear-meta">现金及银行结余 (2025末)</div>
+        <div class="tear-bar"><div class="tear-bar-fill" style="width:85%;background:var(--gold)"></div></div>
+        <div class="tear-sub">同比 +25.25% 创历史新高</div>
+      </div>
+      <div class="tear-card animate-in delay-3">
+        <div class="tear-label">核心风险</div>
+        <div class="tear-value" style="color:var(--crimson)">15<span style="font-size:1rem;color:var(--ink-3);margin-left:4px">项</span></div>
+        <div class="tear-meta">3 项极高 + 12 项中低</div>
+        <div class="tear-bar"><div class="tear-bar-fill" style="width:85%;background:var(--crimson)"></div></div>
+        <div class="tear-sub">详见 Part IX 热图</div>
+      </div>
+    </div>
+
+    <div class="banner-policy">
+      <b>📜 政策环境重大更新</b> · 2026 年 7 月 16 日，国家中医药管理局 + 国家发改委联合印发
+      <span class="hl">《中医药振兴发展"十五五"规划》</span>(国中医药规财发〔2026〕8 号，国务院国函〔2026〕71 号批复)；
+      2026 年 2 月，工信部等八部门联合印发 <span class="hl">《中药工业高质量发展实施方案(2026—2030 年)》</span>。
+      两份顶层文件将"中医药出海"从战略愿景升级为系统化、可量化的产业行动方案，明确提出
+      "到 2030 年中医药文化与国际影响力进一步提升"、"鼓励开展优势中成药产品国际注册"、"支持中药跨境电商建设海外仓"等具体目标——同仁堂作为出海旗舰标的直接受益。
+    </div>
+
+    <div style="margin-top:40px;padding:32px;background:linear-gradient(135deg,rgba(212,175,55,0.04),rgba(22,160,133,0.04));border:1px solid rgba(212,175,55,0.2);border-radius:16px">
+      <h3 class="serif" style="font-size:1.25rem;margin-bottom:20px;color:var(--gold)">🎯 投资漏斗 · 4 层筛选过滤</h3>
+      <div class="funnel">
+        <div class="funnel-stage" style="--funnel-w:100%;--funnel-bg:rgba(212,175,55,0.15)">
+          <div class="funnel-label">第 1 层 · 中药出海大池筛选</div>
+          <div class="funnel-metric">2025 中国中药类出口 <strong style="color:var(--gold)">50.9 亿美元(-5.2%)</strong> · 中成药 3.5 亿美元(-12.1%) · 哈萨克斯坦 +1422.5% · 上合/东盟市场结构性增长</div>
+        </div>
+        <div class="funnel-stage" style="--funnel-w:75%;--funnel-bg:rgba(212,175,55,0.2)">
+          <div class="funnel-label">第 2 层 · 中药上市公司筛选</div>
+          <div class="funnel-metric">中药 A+H 上市公司 17+ 家 — 同仁堂系(600085.SH + 1666.HK + 3613.HK)是<span class="hl">唯一形成"出海全栈平台"矩阵</span>的标的</div>
+        </div>
+        <div class="funnel-stage" style="--funnel-w:50%;--funnel-bg:rgba(22,160,133,0.25)">
+          <div class="funnel-label">第 3 层 · 财务+战略筛选</div>
+          <div class="funnel-metric">营收 / 毛利率 / 现金 / 国资背书 / 战略调整 — 5项前置条件通过 4项(2025 营收承压 -6.1% 是主动调控所致,基本面向好)</div>
+        </div>
+        <div class="funnel-stage" style="--funnel-w:25%;--funnel-bg:rgba(192,57,43,0.25)">
+          <div class="funnel-label">第 4 层 · 估值筛选</div>
+          <div class="funnel-metric">PE 28-40× · 同业平均 25-35× · 国资折价 15-25% — 当前 HK$5.955(2026.8.31)处于估值底部,存在 60-100% 上行空间</div>
+        </div>
+      </div>
+      <div class="dim" style="margin-top:16px;font-size:0.8125rem;line-height:1.6">
+        <strong>漏斗逻辑</strong> · 顶层数千家中药出海企业 → 第 4 层只保留 <strong>1-2 家最值得关注</strong>的国资中药出海旗舰标的(同仁堂国药 3613.HK 及集团层面)。
+        任何一层未通过即终止决策，不进入下一层。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 投资评级速览 ============ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:60px">
+      <div class="section-eyebrow">EXECUTIVE VERDICT</div>
+      <h2 class="section-title gradient-text" style="text-align:center">投资评级速览</h2>
+    </div>
+
+    <div class="rating-grid">
+      <div class="rating-card animate-in">
+        <div class="rating-icon">🎯</div>
+        <div class="rating-label">投资评级</div>
+        <div class="rating-value gradient-text-warm">增持 (Overweight)</div>
+        <div class="rating-sub">推荐配置 · 国资旗舰</div>
+      </div>
+      <div class="rating-card animate-in delay-1">
+        <div class="rating-icon">📈</div>
+        <div class="rating-label">出海赛道</div>
+        <div class="rating-value">★★★★★</div>
+        <div class="rating-sub">十五五政策 × 文化输出</div>
+      </div>
+      <div class="rating-card animate-in delay-2">
+        <div class="rating-icon">🏯</div>
+        <div class="rating-label">品牌壁垒</div>
+        <div class="rating-value">★★★★★</div>
+        <div class="rating-sub">357年 IP · 不可复制</div>
+      </div>
+      <div class="rating-card animate-in delay-3">
+        <div class="rating-icon">⚖️</div>
+        <div class="rating-label">监管壁垒</div>
+        <div class="rating-value">★★★★★</div>
+        <div class="rating-sub">全球 1200+ 注册品规</div>
+      </div>
+      <div class="rating-card animate-in delay-4">
+        <div class="rating-icon">⚠️</div>
+        <div class="rating-label">风险等级</div>
+        <div class="rating-value gradient-text-warm">中高</div>
+        <div class="rating-sub">地缘 + 战略调整阵痛</div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <div class="verdict-rating">A · 增持 · 12个月目标价 HK$10.5-12.0 / 股 (对应 3613.HK 目标市值 HK$115-160 亿)</div>
+      <h2 class="serif">「国资旗舰 × 品牌IP × 监管护城河 × 十五五顶层规划」四因共振，<br><span class="gradient-text-warm">短期阵痛已 price-in，估值底部信号明确</span></h2>
+      <p style="font-size:1.0625rem;color:var(--ink-2);line-height:1.8;margin-top:20px">
+        同仁堂海外板块是中国中医药出海领域<strong style="color:var(--ink-1)">唯一一个同时具备"国资背书 + 357年品牌IP + 26国终端 + 1200+海外注册 + 港股独立融资平台 + 十五五规划核心受益方"六重属性</strong>的资产。
+        <strong style="color:var(--ink-1)">2025 营收 -6.1%、归母净利润 -20.6%、2026H1 营收 -21%</strong>看似剧烈，<span class="hl-jade">实为"控量保价 + 主动收紧分销 + 产品结构优化"三大主动战略调整</span>，
+        <strong style="color:var(--ink-1)">毛利率从 60.8% 跃升至 63.9% 创历史新高、现金及银行结余 22.79 亿港元(+25.25%)、派息率 78%</strong>印证基本面健康。
+        中长期看，<strong style="color:var(--ink-1)">越南 GMP 突破(2026 香港首家) + 柬埔寨安宫牛黄丸注册(2025) + 新西兰 KIWISH 鹿产品 + 乌拉圭 MOU + 阿联酋《中药材鉴定图典》阿语版 + 首单天然牛黄进口(2026.3 全国首单)</strong>，
+        标志着"从走出去到融进去"的体系化出海已成形。<span class="hl">当前股价 HK$5.955(2026.8.31)对应 PE 仅 ~12-15×，处于历史估值底部区域</span>。
+        本报告建议：<strong style="color:var(--ink-1)">分批建仓，12 个月目标价 HK$10.5-12.0/股，对应 75-100% 上行空间</strong>。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 目录 ============ -->
+<aside class="toc">
+  <div class="toc-title">REPORT INDEX</div>
+  <a href="#sec1" class="toc-item">I. 投资逻辑摘要</a>
+  <a href="#sec2" class="toc-item">II. 中医药出海赛道全景(2025)</a>
+  <a href="#sec3" class="toc-item">III. 同仁堂集团与海外平台架构</a>
+  <a href="#sec4" class="toc-item">IV. 海外业务深度拆解</a>
+  <a href="#sec5" class="toc-item">V. 监管路径与产品注册</a>
+  <a href="#sec6" class="toc-item">VI. 上下游产业链</a>
+  <a href="#sec7" class="toc-item">VII. 竞争格局对标</a>
+  <a href="#sec8" class="toc-item">VIII. 财务模型与估值</a>
+  <a href="#sec9" class="toc-item">IX. 风险矩阵</a>
+  <a href="#sec10" class="toc-item">X. 投资决策与条款</a>
+  <a href="#sec11" class="toc-item">XI. 未来发展路径</a>
+  <a href="#sec12" class="toc-item">XII. 附录</a>
+</aside>
+
+<!-- ============ I. 投资逻辑摘要 ============ -->
+<section id="sec1">
+  <div class="wrap">
+    <div class="section-eyebrow">PART I · INVESTMENT THESIS</div>
+    <h2 class="section-title serif">投资逻辑摘要</h2>
+    <p class="section-lead">
+      我们提炼了同仁堂海外板块投资价值的<strong style="color:var(--gold)">五大支柱逻辑与四大核心风险</strong>，每条逻辑均以可被反驳的具体证据为支撑。
+      本版基于 2025 年报 + 2026 中期业绩 + 十五五规划全面更新。
+    </p>
+
+    <div class="grid grid-2">
+      <div class="panel">
+        <div class="panel-title">
+          <span class="num">01</span>
+          <span>国资旗舰：唯一全栈出海平台</span>
+        </div>
+        <p style="margin-bottom:16px">
+          中药 A+H 上市公司 17+ 家，<span class="hl-rose">仅同仁堂系形成"集团 + A + H(科技) + H(国药)"三层资本平台矩阵</span>。
+          其中 3613.HK (同仁堂国药) 是港股唯一"以海外发展为核心定位"的中药上市公司，
+          <strong style="color:var(--ink-1)">其 25% 海外营收占比显著高于中药行业平均的 &lt;5%</strong>。
+        </p>
+        <div class="callout">
+          <div class="callout-title">THESIS 01 · EVIDENCE (2025)</div>
+          <div class="callout-body">
+            3613.HK <span class="hl">2025 派息率 78%</span>(末期股息 0.37 港元 + 特别股息 0.03 港元)，
+            毛利率连续多年维持 <span class="hl">60-65%</span> 区间(2026H1 升至 <span class="hl">63.9%</span>)，
+            现金及银行结余 <span class="hl">HK$22.79 亿(+25.25%)</span> 创历史新高。
+            这种"高毛利 + 现金牛 + 高分红"组合在 A+H 中药板块绝无仅有。
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">
+          <span class="num">02</span>
+          <span>品牌护城河：357 年 IP 不可复制</span>
+        </div>
+        <p style="margin-bottom:16px">
+          同仁堂创立于 <span class="hl">1669 年(清康熙八年)</span>，距今 357 年。其"炮制虽繁必不敢省人工，品味虽贵必不敢减物力"的祖训，
+          是中医药行业<span class="hl">唯一国家级非物质文化遗产 + 中华老字号 + 中国驰名商标</span>三重背书的品牌 IP。
+          在境外市场，<strong style="color:var(--ink-1)">"同仁堂 = 中医药"</strong>的认知关联度高达 80%+。
+        </p>
+        <div class="callout">
+          <div class="callout-title">THESIS 02 · EVIDENCE (2025)</div>
+          <div class="callout-body">
+            2025 年，同仁堂国药荣获<span class="hl">"金鲲鹏"最佳上市公司</span>、港股最具投资潜力上市公司奖、
+            华富卓越投资者关系大奖 2024 可持续发展类别金奖、
+            <span class="hl">连续 4 年获"01 企业金勋大奖"</span>。
+            KIWISH 鹿产品品牌奥克兰揭幕 + 阿联酋《中药材鉴定图典》阿语版发布，
+            <span class="hl-jade">品牌价值在国际市场持续兑现</span>。
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">
+          <span class="num">03</span>
+          <span>监管护城河：1200+ 海外注册</span>
+        </div>
+        <p style="margin-bottom:16px">
+          截至 2025 年底，<span class="hl-jade">同仁堂境外累计注册 1200+ 品种品规</span>，覆盖 40+ 国家和地区。
+          其中 <span class="hl">安宫牛黄丸</span> 2025 年获<span class="hl-rose">柬埔寨《传统药品注册许可证》</span>，
+          2026 年 5 月<span class="hl-jade">香港大埔基地获越南 GMP(香港首家)</span>，
+          <strong style="color:var(--ink-1)">这是中药出海企业无法在 5-10 年内复制的注册资产</strong>。
+        </p>
+        <div class="callout">
+          <div class="callout-title">THESIS 03 · EVIDENCE (2025-2026)</div>
+          <div class="callout-body">
+            <span class="hl">2025 · 柬埔寨</span>：安宫牛黄丸获传统药品注册许可，打通东南亚正规分销通道<br>
+            <span class="hl">2025 · 新西兰</span>：KIWISH 鹿产品品牌揭幕 + 与新西兰鹿业局签 MOU<br>
+            <span class="hl">2025 · 阿联酋</span>：《中药材鉴定图典》阿语版发布，突破文化与语言壁垒<br>
+            <span class="hl">2025 · 乌拉圭</span>：与乌拉圭国家肉类协会签 MOU，拓展南美市场<br>
+            <span class="hl">2026.5 · 越南</span>：香港大埔基地获 GMP 认证(香港首家)
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">
+          <span class="num">04</span>
+          <span>政策红利：十五五顶层规划落地</span>
+        </div>
+        <p style="margin-bottom:16px">
+          <span class="hl-rose">2026.7.16</span> 国家中医药管理局 + 发改委印发<span class="hl">《中医药振兴发展"十五五"规划》</span>，
+          明确<span class="hl-jade">"推动中医药服务和产品走向世界"</span>核心战略。
+          <span class="hl-rose">2026.2</span> 工信部等八部门印发<span class="hl">《中药工业高质量发展实施方案(2026—2030)》</span>，
+          提出<span class="hl-jade">"鼓励优势中成药国际注册 + 中药跨境电商海外仓"</span>具体措施。
+        </p>
+        <div class="callout">
+          <div class="callout-title">THESIS 04 · EVIDENCE (十五五)</div>
+          <div class="callout-body">
+            <span class="hl">第九章"扩大中医药开放发展"</span> · 高质量建设中医药海外中心、国际合作基地、服务出口基地<br>
+            <span class="hl">粤港澳大湾区中医药高地建设</span> · 深化内地与港澳中医药合作<br>
+            <span class="hl">中药工业方案</span> · 鼓励开展优势中成药产品国际注册、参与中药国际标准制修订<br>
+            <span class="hl-jade">同仁堂是这套"国际化标准"的最大受益方</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">
+          <span class="num">05</span>
+          <span>业绩韧性：控量保价 + 高毛利 + 现金牛</span>
+        </div>
+        <p style="margin-bottom:16px">
+          3613.HK <span class="hl">2025 营收 HK$15.13亿(-6.1%)</span>，归母净利润 <span class="hl">HK$3.97亿(-20.6%)</span>。
+          2026H1 营收受澳门 + 自有产品主动收紧分销拖累下滑 21%，
+          但<span class="hl-jade">毛利率 60.8% → 63.9%(+3.1pp)、现金结余 22.79 亿港元、派息率 78%</span>，
+          印证"以控量保价换取长期价值"的战略主动调整。
+        </p>
+        <div class="callout">
+          <div class="callout-title">THESIS 05 · EVIDENCE (2026H1)</div>
+          <div class="callout-body">
+            2026.3 <span class="hl">完成全国首单天然牛黄进口</span>(时隔 20 余年重启牛黄进口试点后首个落地项目)<br>
+            <span class="hl">香港零售 +5%</span>(主动"换挡"而非被动收缩)<br>
+            <span class="hl">自有产品批发 -27.8%</span>(主动理顺渠道、清退低价内卷)<br>
+            <span class="hl-jade">澳门消费疲软为一次性因素，2026H2 越南/柬埔寨放量将抵消</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">
+          <span class="num">⚠</span>
+          <span>核心风险速览 · 四大不确定性</span>
+        </div>
+        <p style="margin-bottom:12px">
+          <strong style="color:var(--crimson)">① 地缘 + 战略调整阵痛</strong>：2025/2026H1 连续承压，市场需时间验证"控量保价"战略有效性。
+        </p>
+        <p style="margin-bottom:12px">
+          <strong style="color:var(--crimson)">② 注册周期 + 合规</strong>：FDA 植物药路径平均 8-15 年，欧盟 THMPD 仅 5 个中成药获批(地奥心血康等)，复方丹参滴丸已申请 20 年未成功。
+        </p>
+        <p style="margin-bottom:12px">
+          <strong style="color:var(--crimson)">③ 原料价格波动</strong>：天然牛黄、麝香等贵细药材价格仍处历史高位(2025 中药材行业毛利率普遍承压)。
+        </p>
+        <p>
+          <strong style="color:var(--crimson)">④ 中成药出口承压</strong>：2025 中成药出口 -12.1%，"重装部队"路径困难，需依靠"轻骑兵"(药食同源/大健康产品)突围。
+        </p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="gate-stage">
+      <div class="gate-stage-card passed">
+        <div class="gate-stage-num">GATE 01 · 政策契合</div>
+        <div class="gate-stage-title">十五五规划(2026.7)</div>
+        <div class="gate-stage-meta">《"十五五"规划》核心载体 · 工信部出海方案(2026.2) · 国资委专项支持</div>
+        <div class="gate-stage-status passed">✓ 强契合</div>
+      </div>
+      <div class="gate-stage-arrow">→</div>
+      <div class="gate-stage-card passed">
+        <div class="gate-stage-num">GATE 02 · 财务质量</div>
+        <div class="gate-stage-title">高毛利 + 现金牛 + 高分红</div>
+        <div class="gate-stage-meta">毛利率 63.9% · 现金 HK$22.79亿 · 派息率 78% · 派息连续 11 年</div>
+        <div class="gate-stage-status passed">✓ 优质</div>
+      </div>
+      <div class="gate-stage-arrow">→</div>
+      <div class="gate-stage-card pending">
+        <div class="gate-stage-num">GATE 03 · 增长持续性</div>
+        <div class="gate-stage-title">短期波动 + 中长期向上</div>
+        <div class="gate-stage-meta">2025/2026H1 营收承压 · 越南 GMP 突破 · 柬埔寨注册 · 鹿产品品牌 · 跨境电商</div>
+        <div class="gate-stage-status pending">⚠ 观察</div>
+      </div>
+      <div class="gate-stage-arrow">→</div>
+      <div class="gate-stage-card passed">
+        <div class="gate-stage-num">GATE 04 · 估值合理性</div>
+        <div class="gate-stage-title">历史估值底部区域</div>
+        <div class="gate-stage-meta">PE ~12-15× · PB ~3.5× · 同业平均 25-35× · 现金占市值 50%+</div>
+        <div class="gate-stage-status passed">✓ 极度低估</div>
+      </div>
+      <div class="gate-stage-arrow">→</div>
+      <div class="gate-stage-card passed">
+        <div class="gate-stage-num">GATE 05 · 流动性</div>
+        <div class="gate-stage-title">港股通 + 中等市值</div>
+        <div class="gate-stage-meta">HK$50-60亿市值 · 港股通标的 · 日均成交 ~HK$3000 万</div>
+        <div class="gate-stage-status passed">✓ 充足</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ II. 中医药出海赛道全景(2025) ============ -->
+<section id="sec2">
+  <div class="wrap">
+    <div class="section-eyebrow">PART II · MARKET LANDSCAPE (2025)</div>
+    <h2 class="section-title serif">中医药出海赛道全景 · 2025 最新数据</h2>
+    <p class="section-lead">
+      2025 年是<span class="hl">"十四五"收官之年</span>，中药进出口呈现"<strong>量升价跌</strong>"的复杂态势。
+      本节用数据还原全球传统医药市场、2025 年中国中药出口结构、十五五规划新机遇三重视角。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">02·1</span>
+        <span>2025 中国中药类商品进出口总览</span>
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi">
+          <div class="kpi-label">2025 中药类进出口总额</div>
+          <div class="kpi-value">$83.1 亿</div>
+          <div class="kpi-delta" style="color:var(--crimson)">同比 -4.2%</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">出口额</div>
+          <div class="kpi-value">$50.9 亿</div>
+          <div class="kpi-delta" style="color:var(--crimson)">同比 -5.2%</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">进口额</div>
+          <div class="kpi-value">$32.2 亿</div>
+          <div class="kpi-delta" style="color:var(--crimson)">同比 -2.7%</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">进出口总量</div>
+          <div class="kpi-value">111.7 万吨</div>
+          <div class="kpi-delta">同比 +3.6%</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">国内中医药市场规模</div>
+          <div class="kpi-value">¥1.2 万亿</div>
+          <div class="kpi-delta">2025E</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">KEY INSIGHT · 2025 是"十四五"收官之年</div>
+        <div class="callout-body">
+          2025 年中药出口<span class="hl">"量升价跌"</span>特征明显：总金额下降但总量增长，反映<span class="hl-rose">行业进入"以价换量、内卷加剧"的存量竞争阶段</span>。
+          <br><br>
+          但<span class="hl-jade">结构性亮点突出</span>：
+          <br>· 哈萨克斯坦中成药出口 <span class="hl">+1422.5%</span>(上合组织市场)
+          <br>· 新加坡 +20.8%、泰国 +59.3%(东盟)
+          <br>· 尼日利亚稳居第二大中成药市场
+          <br>· 跨境电商保健品 GMV +7.2%
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">02·2</span>
+        <span>2025 中药出口结构 · 品类拆解</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>品类</th>
+            <th>2025 出口额</th>
+            <th>同比</th>
+            <th>2024 出口额</th>
+            <th>同比</th>
+            <th>占比</th>
+            <th>关键趋势</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>植物提取物</strong></td>
+            <td>29.8 亿美元</td>
+            <td style="color:var(--crimson)">-0.8%</td>
+            <td>30.1 亿美元</td>
+            <td style="color:var(--crimson)">-7.7%</td>
+            <td>58.5%</td>
+            <td>"以价换量"，单价从 32.7 → 21.6 美元/千克，<span class="hl-rose">内卷加剧</span></td>
+          </tr>
+          <tr style="background:rgba(212,175,55,0.05)">
+            <td><strong style="color:var(--gold)">中成药</strong></td>
+            <td><strong style="color:var(--gold)">3.5 亿美元</strong></td>
+            <td style="color:var(--crimson)"><strong>-12.1%</strong></td>
+            <td>4.0 亿美元</td>
+            <td style="color:var(--jade)">+10.6%</td>
+            <td>6.9%</td>
+            <td>"重装部队"路径受挫 · 哈萨克斯坦 <span class="hl">+1422.5%</span> · 尼日利亚第二</td>
+          </tr>
+          <tr>
+            <td>中药材及饮片</td>
+            <td>12.5 亿美元</td>
+            <td style="color:var(--crimson)">-4.1%</td>
+            <td>12.0 亿美元</td>
+            <td style="color:var(--crimson)">-5.7%</td>
+            <td>24.6%</td>
+            <td>震荡收缩 · 山药 +12.6%、当归 +7.3% 是亮点</td>
+          </tr>
+          <tr>
+            <td>保健品(海关口径)</td>
+            <td>5.1 亿美元</td>
+            <td style="color:var(--crimson)">-23.1%</td>
+            <td>6.6 亿美元</td>
+            <td style="color:var(--jade)">+20.9%</td>
+            <td>10.0%</td>
+            <td>全口径(含跨境电商)GMV +7.2%，跨境电商成主渠道</td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong style="color:var(--jade)">保健类全口径(含跨境电商)</strong></td>
+            <td><strong style="color:var(--jade)">45.6 亿美元</strong></td>
+            <td style="color:var(--jade)"><strong>+7.2%</strong></td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td><strong style="color:var(--jade)">亚马逊 / iHerb / Lazada / 速卖通 + 新中式养生茶饮成爆款</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="chart-box">
+        <canvas id="exportChart" style="max-height:380px"></canvas>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">CATEGORY INSIGHT · "重装部队"受阻，"轻骑兵"突围</div>
+        <div class="callout-body">
+          2025 中成药出口 -12.1% 表明<span class="hl-rose">"以处方药为目标"的重装部队路径受阻</span>。
+          但<span class="hl-jade">"以药食同源为基础"的轻骑兵</span>(功能性食品、膳食补充剂、健康饮品)正成为中药出海新突破口。
+          <br><br>
+          同仁堂国药 2025 年推出<span class="hl">"龈养素"系列高端草本牙膏</span>(上市 3 个月获香港市场认可)、
+          <span class="hl">KIWISH 鹿产品品牌</span>(新西兰奥克兰揭幕)，
+          正是<span class="hl-jade">"轻骑兵"路径的标志性实践</span>。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">02·3</span>
+        <span>2025 中药出口市场画像 · 结构性变化</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>市场</th>
+            <th>2025 趋势</th>
+            <th>关键事件</th>
+            <th>战略意义</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(212,175,55,0.05)">
+            <td><strong>美国</strong></td>
+            <td>提取物 -10.8% / 中药材 -24.4%</td>
+            <td>中美贸易摩擦持续</td>
+            <td style="color:var(--rose)">⚠️ 短期承压 · 长期仍是大市场</td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong style="color:var(--jade)">哈萨克斯坦</strong></td>
+            <td style="color:var(--jade)"><strong>中成药 +1422.5%</strong></td>
+            <td>进入中成药出口前 10 大市场</td>
+            <td style="color:var(--jade)"><strong>★ 上合组织中医药市场爆发</strong></td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong style="color:var(--jade)">尼日利亚</strong></td>
+            <td style="color:var(--jade)">稳居中成药第二大市场</td>
+            <td>2024.9 中尼建立全面战略伙伴关系，"中国-尼日利亚友好医院"示范</td>
+            <td style="color:var(--jade)"><strong>★ 非洲中医药样板</strong></td>
+          </tr>
+          <tr>
+            <td>日本</td>
+            <td style="color:var(--jade)">提取物 +18.1% (出口量 +16.6%)</td>
+            <td>对日中药材最大市场(占比 25.4%)</td>
+            <td style="color:var(--jade)">★ 东亚传统医药核心</td>
+          </tr>
+          <tr>
+            <td>新加坡</td>
+            <td style="color:var(--jade)">中成药 +20.8%</td>
+            <td>东南亚金融 + 中医药枢纽</td>
+            <td style="color:var(--jade)">★ 同仁堂海外运营中枢</td>
+          </tr>
+          <tr>
+            <td>泰国</td>
+            <td style="color:var(--jade)">中成药 +59.3%</td>
+            <td>—</td>
+            <td style="color:var(--jade)">★ 东盟中医药拓展</td>
+          </tr>
+          <tr>
+            <td>柬埔寨</td>
+            <td style="color:var(--jade)">中药材 +15.8% (正增长少数)</td>
+            <td>同仁堂安宫牛黄丸 2025 获注册</td>
+            <td style="color:var(--jade)">★ 东南亚核心增量</td>
+          </tr>
+          <tr>
+            <td>德国</td>
+            <td style="color:var(--jade)">中药材 +14.9% (正增长少数)</td>
+            <td>—</td>
+            <td style="color:var(--amber)">欧盟唯一亮点</td>
+          </tr>
+          <tr>
+            <td>越南</td>
+            <td style="color:var(--crimson)">中药材 -13.7%</td>
+            <td>越南本土肉桂替代</td>
+            <td style="color:var(--amber)">中成药(安宫)待放量</td>
+          </tr>
+          <tr>
+            <td>巴西</td>
+            <td style="color:var(--jade)">提取物 +92.3% (进口端)</td>
+            <td>橙油等柑橘精油</td>
+            <td>南美中医药原料突破口</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">02·4</span>
+        <span>"十五五"中医药振兴规划 · 顶层设计全面升级</span>
+      </div>
+
+      <div class="banner-policy">
+        <b>📜 政策文件 1</b> · <span class="hl">《中医药振兴发展"十五五"规划》</span>
+        (国中医药规财发〔2026〕8 号，国务院国函〔2026〕71 号批复)
+        <br>发布时间：<span class="hl">2026 年 7 月 16 日</span> · 发文机关：国家中医药管理局 + 国家发展和改革委员会
+      </div>
+
+      <div class="banner-policy" style="background:linear-gradient(135deg,rgba(22,160,133,0.10),rgba(26,14,14,0.6));border-color:rgba(22,160,133,0.4)">
+        <b style="color:var(--jade)">📜 政策文件 2</b> · <span class="hl">《中药工业高质量发展实施方案(2026—2030 年)》</span>
+        <br>发布时间：<span class="hl">2026 年 2 月</span> · 发文机关：工业和信息化部等<span class="hl">八部门联合</span>
+      </div>
+
+      <h4 style="color:var(--gold);margin:24px 0 12px">🎯 十五五规划核心目标(到 2030 年)</h4>
+
+      <ul class="list-num">
+        <li>覆盖全民和全生命周期的中医药服务体系<span class="hl-jade">更加健全</span></li>
+        <li>中医药防治重大疾病取得新突破(<span class="hl">心脑血管、肿瘤、肾病、疫病</span>)</li>
+        <li>基层服务提质升级(<span class="hl">每个县级中医医院至少建成 2 个中医特色优势专科</span>)</li>
+        <li>中药产业创新创造力大幅增强</li>
+        <li>中医药文化与国际影响力<span class="hl">进一步提升</span></li>
+        <li>实现<span class="hl-rose">人人享有中医药服务</span></li>
+      </ul>
+
+      <h4 style="color:var(--jade);margin:24px 0 12px">🌍 第九章"扩大中医药开放发展"· 出海核心条款</h4>
+
+      <div class="grid grid-2" style="margin-top:16px">
+        <div>
+          <h5 style="color:var(--gold);margin-bottom:8px">🌐 (一) 积极参与全球卫生治理</h5>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>深化与国际组织合作，<span class="hl">制定传统医药国际规则标准</span></li>
+            <li>在中国援外医疗队中<span class="hl">逐步提升中医队员人数</span></li>
+            <li>高质量建设中医药<span class="hl">海外中心、国际合作基地、服务出口基地</span></li>
+            <li><span class="hl-jade">开展中医药入境消费试点</span></li>
+            <li><span class="hl-jade">打造具有国际影响力的中医药品牌</span></li>
+          </ul>
+        </div>
+        <div>
+          <h5 style="color:var(--jade);margin-bottom:8px">🤝 (二) 深化交流互鉴</h5>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>持续推进中医药高质量融入共建"<span class="hl">一带一路</span>"</li>
+            <li>推动举办<span class="hl">世界传统医药大会</span>等高水平国际会议</li>
+            <li>推动中医药从业人员和中药类产品<span class="hl">海外准入</span></li>
+            <li><span class="hl-jade">开发中医药国际通用教材</span></li>
+            <li><span class="hl">推进粤港澳大湾区中医药高地建设</span></li>
+            <li><span class="hl">深化内地与港澳中医药交流合作</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 style="color:var(--amber);margin:24px 0 12px">🏭 工信部"中药工业方案"· 五条出海具体措施</h4>
+
+      <ul class="list-num">
+        <li><span class="hl">鼓励开展优势中成药产品国际注册</span>(安宫牛黄丸等大品种直接受益)</li>
+        <li><span class="hl">行业协会建立中药工业国际合作服务平台</span>(老字号专委会定位升级)</li>
+        <li><span class="hl">行业组织积极参与中药国际标准制修订</span>(从规则接受者→规则共建者)</li>
+        <li><span class="hl">中药工业企业与国外企业合作以增强海外市场适应性</span>(本土化合资)</li>
+        <li><span class="hl">支持中药跨境电商建设海外仓</span>(同仁堂京东/天猫国际/抖音全球购直接受益)</li>
+      </ul>
+
+      <div class="callout">
+        <div class="callout-title">POLICY EDGE · 同仁堂是十五五政策红利最核心受益方</div>
+        <div class="callout-body">
+          作为<span class="hl-rose">中国中药协会老字号企业发展专业委员会牵头单位</span>，
+          同仁堂是<span class="hl">唯一同时承担"政策示范 + 标准制定 + 标杆案例"三大角色</span>的中药出海企业。
+          十五五规划 + 工信部方案的双重加持，将<span class="hl-jade">中医药出海从"企业自发行为"升级为"国家战略行动"</span>，
+          这是片仔癀、云南白药、以岭等同行<span class="hl">无法复制</span>的政策护城河。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">02·5</span>
+        <span>全球传统医药市场 · 长周期赛道</span>
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi">
+          <div class="kpi-label">WHO 成员国使用传统医药</div>
+          <div class="kpi-value">170 个</div>
+          <div class="kpi-delta">覆盖 88% WHO 成员国</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">承认针灸的成员国</div>
+          <div class="kpi-value">113 个</div>
+          <div class="kpi-delta">占 58%</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">全球传统医药市场</div>
+          <div class="kpi-value">$1300+ 亿</div>
+          <div class="kpi-delta">CAGR ~6.5% (2024-2030)</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">国内中医药市场</div>
+          <div class="kpi-value">¥1.2 万亿</div>
+          <div class="kpi-delta">2025E</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">LONG-TERM THESIS · 全球传统医药长周期赛道</div>
+        <div class="callout-body">
+          全球传统医药市场 <span class="hl">CAGR ~6.5%</span>(2024-2030)，远高于化药 3-4% 和生物药 5-7%。
+          叠加<span class="hl-jade">"全球老龄化 + 慢病管理需求 + 健康消费升级 + 银发经济"</span>四重驱动，
+          <span class="hl-rose">中医药大健康赛道未来 5-10 年将持续高景气</span>。
+          同仁堂作为"出海最系统 + 注册资产最厚 + 政策红利最直接"的旗舰标的，
+          <span class="hl-jade">长期价值锚定全球传统医药核心资产</span>。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ III. 同仁堂集团与海外平台架构 ============ -->
+<section id="sec3">
+  <div class="wrap">
+    <div class="section-eyebrow">PART III · GROUP ARCHITECTURE</div>
+    <h2 class="section-title serif">同仁堂集团与海外平台架构</h2>
+    <p class="section-lead">
+      同仁堂集团是国务院国资委下属、北京市政府国资委 100% 控股的"中华老字号"中药旗舰。
+      本节还原集团 → 上市公司 → 海外子公司的三层治理架构。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">03·1</span>
+        <span>集团股权架构 · 国资委 → 集团 → 上市公司 → 海外子公司</span>
+      </div>
+
+      <div style="padding:24px;background:rgba(26,14,14,0.6);border:1px solid var(--rule);border-radius:12px;margin:20px 0">
+        <div style="text-align:center;font-family:var(--serif);font-size:1.125rem;color:var(--gold);margin-bottom:16px;font-weight:700">🏛 国务院国资委</div>
+        <div style="text-align:center;font-size:0.875rem;color:var(--ink-3);margin-bottom:8px">↓ 100%</div>
+        <div style="text-align:center;font-family:var(--serif);font-size:1.125rem;color:var(--gold);margin-bottom:16px;font-weight:700">北京市人民政府国有资产监督管理委员会</div>
+        <div style="text-align:center;font-size:0.875rem;color:var(--ink-3);margin-bottom:8px">↓ 100%</div>
+        <div style="text-align:center;font-family:var(--serif);font-size:1.25rem;color:var(--gold);margin-bottom:16px;font-weight:700">中国北京同仁堂(集团)有限责任公司</div>
+        <div style="text-align:center;font-size:0.75rem;color:var(--ink-3);margin-bottom:8px">↓ 控股股东</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:24px">
+          <div style="padding:16px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.3);border-radius:10px;text-align:center">
+            <div style="font-family:var(--mono);font-size:0.75rem;color:var(--gold);margin-bottom:4px">A 股 · 600085.SH</div>
+            <div style="font-size:1rem;font-weight:700;color:var(--ink-1);margin-bottom:4px">同仁堂股份</div>
+            <div style="font-size:0.75rem;color:var(--ink-2)">中药制造 + 商业零售</div>
+            <div style="font-size:0.75rem;color:var(--ink-3);margin-top:4px">2025 营收 ¥172.56亿 (-7.21%)</div>
+          </div>
+          <div style="padding:16px;background:rgba(22,160,133,0.08);border:1px solid rgba(22,160,133,0.3);border-radius:10px;text-align:center">
+            <div style="font-family:var(--mono);font-size:0.75rem;color:var(--jade);margin-bottom:4px">H 股 · 1666.HK</div>
+            <div style="font-size:1rem;font-weight:700;color:var(--ink-1);margin-bottom:4px">同仁堂科技</div>
+            <div style="font-size:0.75rem;color:var(--ink-2)">中药制造(科技型)</div>
+            <div style="font-size:0.75rem;color:var(--ink-3);margin-top:4px">2024 营收 ~¥57 亿</div>
+          </div>
+          <div style="padding:16px;background:rgba(192,57,43,0.08);border:1px solid rgba(192,57,43,0.3);border-radius:10px;text-align:center">
+            <div style="font-family:var(--mono);font-size:0.75rem;color:var(--crimson);margin-bottom:4px">H 股 · 3613.HK ⭐</div>
+            <div style="font-size:1rem;font-weight:700;color:var(--ink-1);margin-bottom:4px">同仁堂国药</div>
+            <div style="font-size:0.75rem;color:var(--ink-2)">海外发展平台</div>
+            <div style="font-size:0.75rem;color:var(--ink-3);margin-top:4px">2025 营收 HK$15.13亿 (-6.1%)</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:16px">
+          <div style="padding:12px;background:rgba(26,14,14,0.5);border:1px solid var(--rule);border-radius:10px;text-align:center">
+            <div style="font-size:0.875rem;font-weight:700;color:var(--ink-1)">同仁堂健康药业</div>
+            <div style="font-size:0.6875rem;color:var(--ink-3);margin-top:4px">大健康产品 · 集团子公司</div>
+          </div>
+          <div style="padding:12px;background:rgba(26,14,14,0.5);border:1px solid var(--rule);border-radius:10px;text-align:center">
+            <div style="font-size:0.875rem;font-weight:700;color:var(--ink-1)">同仁堂商业投资集团</div>
+            <div style="font-size:0.6875rem;color:var(--ink-3);margin-top:4px">零售连锁 · 集团子公司</div>
+          </div>
+          <div style="padding:12px;background:rgba(26,14,14,0.5);border:1px solid var(--rule);border-radius:10px;text-align:center">
+            <div style="font-size:0.875rem;font-weight:700;color:var(--ink-1)">同仁堂(海南)控股</div>
+            <div style="font-size:0.6875rem;color:var(--ink-3);margin-top:4px">抗衰老研发 · 3613 控股</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">03·2</span>
+        <span>3613.HK 同仁堂国药 · 海外旗舰平台 (2025 全年 + 2026H1)</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>指标</th>
+            <th>2025</th>
+            <th>同比</th>
+            <th>2026H1</th>
+            <th>2025H1</th>
+            <th>口径</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>营业收入</td><td>HK$1,513M</td><td style="color:var(--crimson)">-6.1%</td><td>HK$601.9M</td><td>HK$761.7M</td><td>合并报表</td></tr>
+          <tr><td>净利润</td><td>HK$417M</td><td style="color:var(--crimson)">-21.2%</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>拥有人应占利润</td><td>HK$397M</td><td style="color:var(--crimson)">-20.6%</td><td>HK$198.2M</td><td>HK$234.9M</td><td>股东口径</td></tr>
+          <tr><td>每股基本盈利</td><td>~HK$0.48</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>末期股息 + 特别股息</td><td>HK$0.40/股</td><td style="color:var(--jade)">+14.3%</td><td>—</td><td>—</td><td>vs 2024 HK$0.35</td></tr>
+          <tr><td>派息比率</td><td><strong style="color:var(--jade)">78%</strong></td><td>+27pp</td><td>—</td><td>—</td><td>vs 2024 51%</td></tr>
+          <tr><td>毛利率</td><td>~63%</td><td>+3pp</td><td style="color:var(--jade)"><strong>63.9%</strong></td><td>60.8%</td><td>2026H1 vs 2025H1</td></tr>
+          <tr><td>现金及银行结余</td><td><strong style="color:var(--gold)">HK$22.79 亿</strong></td><td style="color:var(--jade)"><strong>+25.25%</strong></td><td>—</td><td>—</td><td>2025 末</td></tr>
+          <tr><td>累计授权专利</td><td>75+ 件 + PCT 8+ 件</td><td>—</td><td>—</td><td>—</td><td>2024 末</td></tr>
+          <tr><td>上市后累计分红</td><td>HK$30+ 亿</td><td>—</td><td>—</td><td>—</td><td>2013-2025</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-title">3613.HK · 收入结构演进 (2024 → 2025)</div>
+        <div class="callout-body">
+          <div class="grid grid-3" style="gap:12px;margin-top:12px">
+            <div style="padding:14px;background:rgba(212,175,55,0.06);border-radius:8px">
+              <div style="font-size:0.75rem;color:var(--ink-3);margin-bottom:4px">中国香港</div>
+              <div style="font-size:1.125rem;font-weight:800;color:var(--gold)">占比 50%+</div>
+              <div style="font-size:0.75rem;color:var(--jade)">2026H1 零售 +5%</div>
+            </div>
+            <div style="padding:14px;background:rgba(192,57,43,0.06);border-radius:8px">
+              <div style="font-size:0.75rem;color:var(--ink-3);margin-bottom:4px">海外 (港澳外)</div>
+              <div style="font-size:1.125rem;font-weight:800;color:var(--crimson)">占比 ~25%</div>
+              <div style="font-size:0.75rem;color:var(--crimson)">2024 海外 -16.2% (澳门拖累)</div>
+            </div>
+            <div style="padding:14px;background:rgba(22,160,133,0.06);border-radius:8px">
+              <div style="font-size:0.75rem;color:var(--ink-3);margin-bottom:4px">中国内地</div>
+              <div style="font-size:1.125rem;font-weight:800;color:var(--jade)">占比 ~10%</div>
+              <div style="font-size:0.75rem;color:var(--jade)">经销恢复</div>
+            </div>
+          </div>
+          <div style="margin-top:12px;font-size:0.875rem;line-height:1.6">
+            <span class="hl-rose">2025 年报揭示的战略调整逻辑</span>：
+            "以控量保价取代以价换量" · 主动收紧自有产品分销渠道(批发收入 -27.8%)
+            · 同步上调安宫牛黄丸市场售价 · 这是<span class="hl-jade">主动的战略转型，而非业务质量恶化</span>。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">03·3</span>
+        <span>管理层与治理 · 戴小锋时代</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <h4 style="color:var(--gold);margin-bottom:12px">🏛 集团核心管理层</h4>
+          <table>
+            <tbody>
+              <tr><td><strong>戴小锋</strong></td><td>党委书记、董事长</td><td>2024.10 上任</td></tr>
+              <tr><td><strong>顾海鸥</strong></td><td>副总经理</td><td>国际化业务负责人</td></tr>
+              <tr><td><strong>丁永玲</strong></td><td>副总经理(前)</td><td>海外业务早期主导者</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h4 style="color:var(--jade);margin-bottom:12px">🏢 3613.HK 治理特色</h4>
+          <ul class="list-num">
+            <li>同仁堂股份持股 ~33%，集团合计持股 ~50%+，控股稳定</li>
+            <li>港股上市享受国际化治理标准与国际化信息披露</li>
+            <li>管理层多有"国际化业务"专业背景</li>
+            <li>外部独立董事占董事会 1/3+</li>
+            <li>2025 派息率 78% 创历史新高，彰显治理自信</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">03·4</span>
+        <span>30+ 年海外发展时间线 · 关键里程碑 (已更新至 2026)</span>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item milestone">
+          <div class="timeline-spacer"></div>
+          <div class="timeline-marker"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">1993 · 起步</div>
+            <div>同仁堂开始系统性海外布局，以香港为首站</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">2013 · H 股上市</div>
+            <div><strong>3613.HK 在香港主板借壳上市</strong>，成为唯一海外业务上市平台</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">2014 · 大洋洲布局</div>
+            <div>在新西兰成立北京同仁堂奥克兰有限公司，相继设立 8 家零售和诊疗终端</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">2016 · 北美突破</div>
+            <div>同仁堂进入美国市场(纽约/洛杉矶)，旧金山市政府把 9 月 30 日设为"同仁堂日"</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">2017 · 非洲 + 中东欧</div>
+            <div>登陆非洲(约翰内斯堡等) · 黑山中医药发展中心 + 捷克布拉格店开业</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">2024.1 · 老字号牵头</div>
+            <div><strong>联合 16 家老字号中药企业成立"中国中药协会老字号企业发展专业委员会"</strong>，同仁堂任主任委员</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">2024.11 · 加拿大</div>
+            <div>养阴清肺丸、时疫清瘟丸双双获加拿大 NPN 注册</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item milestone">
+          <div class="timeline-content">
+            <div class="timeline-time">2025 · 柬埔寨注册</div>
+            <div><strong>安宫牛黄丸获柬埔寨王国《传统药品注册许可证》</strong>，打通东南亚正规分销通道</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item milestone">
+          <div class="timeline-content">
+            <div class="timeline-time">2025 · 新西兰 KIWISH</div>
+            <div><strong>鹿产品品牌 KIWISH 在奥克兰揭幕</strong> + 与新西兰鹿业局签 MOU + 设立中医药教育培训基地</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">2025 · 阿联酋</div>
+            <div>《中药材鉴定图典》阿拉伯语版在迪拜贾迈勒研究中心发布，突破文化语言壁垒</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">2025 · 乌拉圭 MOU</div>
+            <div>与乌拉圭国家肉类协会签 MOU，拓宽中医药全球化合作边界</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">2025 · 澳门体验中心</div>
+            <div>设立全球首家"体验式、创新式"中医药文化体验中心</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item milestone">
+          <div class="timeline-content">
+            <div class="timeline-time">2025 · 龈养素牙膏</div>
+            <div><strong>同仁堂"龈养素"系列高端草本牙膏首发</strong>(上市 3 月获香港市场认可)</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">2025.12 · 香港再添店</div>
+            <div>元朗、葵芳各新增 1 家门店，澳门新增 1 家体验中心</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item milestone">
+          <div class="timeline-content">
+            <div class="timeline-time">2026.2 · 中药工业方案</div>
+            <div><strong>工信部等八部门印发《中药工业高质量发展实施方案(2026—2030)》</strong>，五条出海措施直接利好</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item milestone">
+          <div class="timeline-content">
+            <div class="timeline-time">2026.3 · 全国首单</div>
+            <div><strong>完成全国首单天然牛黄进口</strong>(时隔 20+ 年重启牛黄进口试点后首个落地项目)</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item milestone">
+          <div class="timeline-content">
+            <div class="timeline-time">2026.5 · 越南 GMP</div>
+            <div><strong>香港大埔生产研发基地获越南卫生部 GMP 认证(香港首家)</strong></div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item milestone">
+          <div class="timeline-content">
+            <div class="timeline-time">2026.5 · 越南 MOU</div>
+            <div>与越南春桥控股股份公司签 MOU(产品注册、终端共建、医保准入、中药材合作等 6 大方向)</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item milestone">
+          <div class="timeline-content">
+            <div class="timeline-time">2026.6 · 俄罗斯 MOU</div>
+            <div><strong>与俄罗斯本土最大药品批发商 IRIMIS 等签 MOU</strong>(进出口、销售链路、市场准入、文化交流)</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">2026.7 · 十五五规划</div>
+            <div><strong>《中医药振兴发展"十五五"规划》正式印发</strong>，中医药出海升级为国家战略行动</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+        <div class="timeline-item endpoint">
+          <div class="timeline-content">
+            <div class="timeline-time">2026.Q3 · 当前</div>
+            <div>本报告截稿：十五五规划落地 + 战略调整阵痛期 · 估值底部信号明确</div>
+          </div>
+          <div class="timeline-spacer"></div>
+          <div class="timeline-side"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IV. 海外业务深度拆解 ============ -->
+<section id="sec4">
+  <div class="wrap">
+    <div class="section-eyebrow">PART IV · OVERSEAS BUSINESS DEEP DIVE</div>
+    <h2 class="section-title serif">海外业务深度拆解</h2>
+    <p class="section-lead">
+      同仁堂海外业务呈现"<strong style="color:var(--gold)">五位一体</strong>"格局——<strong style="color:var(--gold)">产品 + 医疗 + 文化 + 科研 + 人才</strong>。
+      本节按九大地理区域、业务模式、产品矩阵、跨境电商四个维度深度拆解。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">04·1</span>
+        <span>海外九大区域分布 · 全球终端地图</span>
+      </div>
+
+      <div class="kpi-row">
+        <div class="kpi">
+          <div class="kpi-label">覆盖国家</div>
+          <div class="kpi-value">26+</div>
+          <div class="kpi-delta">境外销售</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">品种品规</div>
+          <div class="kpi-value">1200+</div>
+          <div class="kpi-delta">境外注册</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">香港零售</div>
+          <div class="kpi-value">31 家</div>
+          <div class="kpi-delta">2025 末(+2)</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">海外零售</div>
+          <div class="kpi-value">47+ 家</div>
+          <div class="kpi-delta">不含港澳</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">新西兰</div>
+          <div class="kpi-value">8+ 家</div>
+          <div class="kpi-delta">奥克兰+基督城</div>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <canvas id="regionChart" style="max-height:380px"></canvas>
+      </div>
+
+      <h4 style="color:var(--gold);margin:24px 0 12px">🌏 九大区域分布 (2025-2026 最新版)</h4>
+
+      <table>
+        <thead>
+          <tr>
+            <th>区域</th>
+            <th>代表国家/地区</th>
+            <th>进入年份</th>
+            <th>2025-2026 关键进展</th>
+            <th>本地化深度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(212,175,55,0.05)">
+            <td><strong>港澳大本营</strong></td>
+            <td>香港、澳门</td>
+            <td>1993</td>
+            <td><span class="hl">2025 元朗/葵芳新增 2 店，澳门 1 家体验中心 · 全球首家"体验式"中医药中心</span></td>
+            <td style="color:var(--jade)">★★★★★ 完全本土化</td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong style="color:var(--jade)">东南亚</strong></td>
+            <td>新加坡、马来西亚、泰国、印尼、<span class="hl">越南</span>、<span class="hl">柬埔寨</span>、菲律宾</td>
+            <td>2000s</td>
+            <td><span class="hl-jade">2025 安宫牛黄丸获柬埔寨注册 · 2026 越南 GMP 突破 · 越南春桥 MOU</span></td>
+            <td style="color:var(--jade)">★★★★ 高</td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong style="color:var(--jade)">澳新</strong></td>
+            <td>澳大利亚、新西兰</td>
+            <td>2014</td>
+            <td><span class="hl-jade">2025 KIWISH 鹿产品品牌奥克兰揭幕 · 与新西兰鹿业局 MOU · 8 家终端</span></td>
+            <td style="color:var(--jade)">★★★★★ 深度本土化</td>
+          </tr>
+          <tr>
+            <td><strong>北美</strong></td>
+            <td>美国(纽约/洛杉矶/旧金山)、加拿大</td>
+            <td>2016</td>
+            <td>2024 养阴清肺丸 + 时疫清瘟丸加拿大注册</td>
+            <td style="color:var(--amber)">★★★ 中(文化壁垒)</td>
+          </tr>
+          <tr>
+            <td><strong>欧洲</strong></td>
+            <td>荷兰、波兰、捷克、黑山、英国、匈牙利</td>
+            <td>2012</td>
+            <td>2025 德国市场中药材 +14.9%</td>
+            <td style="color:var(--amber)">★★★ 中(以中欧为主)</td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.05)">
+            <td><strong style="color:var(--crimson)">中东</strong></td>
+            <td><span class="hl">阿联酋</span>、沙特</td>
+            <td>2025 突破</td>
+            <td><span class="hl-jade">2025 《中药材鉴定图典》阿语版在迪拜发布</span></td>
+            <td style="color:var(--crimson)">★★ 起步阶段</td>
+          </tr>
+          <tr>
+            <td><strong>非洲</strong></td>
+            <td>南非、肯尼亚、<span class="hl">尼日利亚</span></td>
+            <td>2016-2025</td>
+            <td><span class="hl-jade">尼日利亚稳居中成药第二大市场(全国样板)</span></td>
+            <td style="color:var(--amber)">★★★ 中(样板示范)</td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.05)">
+            <td><strong style="color:var(--crimson)">南美 (新增)</strong></td>
+            <td><span class="hl">乌拉圭</span>、巴西</td>
+            <td>2025 突破</td>
+            <td><span class="hl-jade">2025 与乌拉圭国家肉类协会签 MOU · 巴西提取物进口 +92.3%</span></td>
+            <td style="color:var(--crimson)">★★ 起步阶段</td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.05)">
+            <td><strong style="color:var(--crimson)">俄语区 + 中亚</strong></td>
+            <td><span class="hl">俄罗斯</span>、<span class="hl">哈萨克斯坦</span></td>
+            <td>2026 突破</td>
+            <td><span class="hl-jade">2026.6 俄罗斯 IRIMIS MOU · 哈萨克斯坦中成药 +1422.5%</span></td>
+            <td style="color:var(--crimson)">★★ 起步阶段</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">04·2</span>
+        <span>"五位一体 + 轻骑兵"双轨业务模式</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--gold)">① 产品 (Product)</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>中成药出海(安宫牛黄丸、破壁灵芝孢子粉)</li>
+            <li>保健品(NMN、灵芝姜黄复方)</li>
+            <li>中药材饮片出口</li>
+            <li><span class="hl-jade">口腔护理(龈养素牙膏 · 跨界)</span></li>
+            <li><span class="hl-jade">鹿产品深加工 (KIWISH 新西兰)</span></li>
+            <li>跨境电商(京东全球购、天猫国际、抖音全球购)</li>
+          </ul>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--jade)">② 医疗 (Healthcare)</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>境外零售终端内置中医诊所</li>
+            <li>中医师境外执业(新加坡、加拿大等)</li>
+            <li>与本地医院合作(南非、哈萨克斯坦)</li>
+            <li>远程中医诊疗</li>
+            <li>中西医结合示范中心</li>
+          </ul>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--amber)">③ 文化 (Culture)</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>"同仁堂日"海外品牌活动</li>
+            <li><span class="hl-jade">《中药材鉴定图典》阿语版 (2025 迪拜)</span></li>
+            <li><span class="hl-jade">澳门"体验式"中医药文化中心 (全球首家)</span></li>
+            <li>中医药文化展览(黑山、捷克)</li>
+            <li>八段锦、穴位按摩海外推广</li>
+            <li>同仁堂博物馆(约翰内斯堡)</li>
+          </ul>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--azure)">④ 科研 (R&D)</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>海外经典名方研究(澳门科大)</li>
+            <li><span class="hl-jade">鹿产品联合研发(新西兰鹿业局)</span></li>
+            <li>当地药材本地化种植试验</li>
+            <li>PCT 国际专利申请(8+ 件)</li>
+            <li>与香港浸会大学、澳门城市大学合作</li>
+            <li>北大医学口腔生态联合实验室</li>
+          </ul>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--violet)">⑤ 人才 (Talent)</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>海外本地员工培训</li>
+            <li><span class="hl-jade">新西兰注册中医师公会 · 中医药教育培训基地</span></li>
+            <li>境外中医师认证</li>
+            <li>与澳门科技大学合作人才培养</li>
+            <li>"一带一路"中医药使者项目</li>
+            <li>高端中医药专家驻外</li>
+          </ul>
+        </div>
+        <div class="panel" style="margin-bottom:0;background:linear-gradient(135deg,rgba(22,160,133,0.10),rgba(26,14,14,0.7));border-color:rgba(22,160,133,0.4)">
+          <h4 style="color:var(--jade)">⑥ "轻骑兵"路径 (新增核心)</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li><strong style="color:var(--jade)">龈养素牙膏</strong>(香港首发，3 月获认可)</li>
+            <li><strong style="color:var(--jade)">KIWISH 鹿产品</strong>(新西兰奥克兰)</li>
+            <li><strong style="color:var(--jade)">跨境电商</strong>(京东/天猫国际/抖音全球购)</li>
+            <li><strong style="color:var(--jade)">NMN / 抗衰老系列</strong>(保龄)</li>
+            <li><strong style="color:var(--jade)">药食同源产品</strong>(2025.12 海关新规红利)</li>
+          </ul>
+          <div class="dim" style="font-size:0.75rem;margin-top:8px;font-style:italic">
+            对应工信部方案"支持中药跨境电商建设海外仓"
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">04·3</span>
+        <span>海外产品矩阵 · 大品种群 + 轻骑兵双轮 (2025 更新)</span>
+      </div>
+
+      <div class="grid grid-4" style="gap:12px">
+        <div style="padding:14px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.25);border-radius:10px">
+          <div style="font-size:0.75rem;color:var(--ink-3)">心脑血管 · 旗舰</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--gold);margin:4px 0">安宫牛黄丸</div>
+          <div style="font-size:0.6875rem;color:var(--ink-2)">2025 柬埔寨注册 · 2026 越南 GMP</div>
+        </div>
+        <div style="padding:14px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.25);border-radius:10px">
+          <div style="font-size:0.75rem;color:var(--ink-3)">呼吸系统</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--gold);margin:4px 0">养阴清肺丸</div>
+          <div style="font-size:0.6875rem;color:var(--ink-2)">2024 加拿大注册</div>
+        </div>
+        <div style="padding:14px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.25);border-radius:10px">
+          <div style="font-size:0.75rem;color:var(--ink-3)">时疫</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--gold);margin:4px 0">时疫清瘟丸</div>
+          <div style="font-size:0.6875rem;color:var(--ink-2)">2024 加拿大注册</div>
+        </div>
+        <div style="padding:14px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.25);border-radius:10px">
+          <div style="font-size:0.75rem;color:var(--ink-3)">心脑血管 · 经典</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--gold);margin:4px 0">同仁牛黄清心丸</div>
+          <div style="font-size:0.6875rem;color:var(--ink-2)">香港核心品种</div>
+        </div>
+        <div style="padding:14px;background:rgba(22,160,133,0.06);border:1px solid rgba(22,160,133,0.25);border-radius:10px">
+          <div style="font-size:0.75rem;color:var(--ink-3)">保健品 · 明星</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--jade);margin:4px 0">破壁灵芝孢子粉胶囊</div>
+          <div style="font-size:0.6875rem;color:var(--ink-2)">2026 国家进口保健食品</div>
+        </div>
+        <div style="padding:14px;background:rgba(22,160,133,0.06);border:1px solid rgba(22,160,133,0.25);border-radius:10px">
+          <div style="font-size:0.75rem;color:var(--ink-3)">★ 轻骑兵 · 口腔</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--jade);margin:4px 0">龈养素牙膏</div>
+          <div style="font-size:0.6875rem;color:var(--ink-2)">2025 首发 · 香港 + 海外推广</div>
+        </div>
+        <div style="padding:14px;background:rgba(22,160,133,0.06);border:1px solid rgba(22,160,133,0.25);border-radius:10px">
+          <div style="font-size:0.75rem;color:var(--ink-3)">★ 轻骑兵 · 鹿产品</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--jade);margin:4px 0">KIWISH 鹿茸系列</div>
+          <div style="font-size:0.6875rem;color:var(--ink-2)">2025 奥克兰 · 新西兰首发</div>
+        </div>
+        <div style="padding:14px;background:rgba(22,160,133,0.06);border:1px solid rgba(22,160,133,0.25);border-radius:10px">
+          <div style="font-size:0.75rem;color:var(--ink-3)">抗衰老 · NMN</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--jade);margin:4px 0">保龄 NMN 系列</div>
+          <div style="font-size:0.6875rem;color:var(--ink-2)">2024 抗衰专利</div>
+        </div>
+        <div style="padding:14px;background:rgba(22,160,133,0.06);border:1px solid rgba(22,160,133,0.25);border-radius:10px">
+          <div style="font-size:0.75rem;color:var(--ink-3)">活血安神</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--jade);margin:4px 0">灵芝姜黄复方胶囊</div>
+          <div style="font-size:0.6875rem;color:var(--ink-2)">2024 新品 · 临床方案通过</div>
+        </div>
+        <div style="padding:14px;background:rgba(22,160,133,0.06);border:1px solid rgba(22,160,133,0.25);border-radius:10px">
+          <div style="font-size:0.75rem;color:var(--ink-3)">滋补经典</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--jade);margin:4px 0">六味地黄丸</div>
+          <div style="font-size:0.6875rem;color:var(--ink-2)">连续 5 年 OTC 男科冠军</div>
+        </div>
+        <div style="padding:14px;background:rgba(41,128,185,0.06);border:1px solid rgba(41,128,185,0.25);border-radius:10px">
+          <div style="font-size:0.75rem;color:var(--ink-3)">滋补</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--azure);margin:4px 0">红景天 / 蓝莓红景天</div>
+          <div style="font-size:0.6875rem;color:var(--ink-2)">2025 包装升级</div>
+        </div>
+        <div style="padding:14px;background:rgba(41,128,185,0.06);border:1px solid rgba(41,128,185,0.25);border-radius:10px">
+          <div style="font-size:0.75rem;color:var(--ink-3)">新品</div>
+          <div style="font-size:1rem;font-weight:800;color:var(--azure);margin:4px 0">金钗石斛散</div>
+          <div style="font-size:0.6875rem;color:var(--ink-2)">2025 香港注册</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">PRODUCT STRATEGY · "重装部队 + 轻骑兵"双轮驱动</div>
+        <div class="callout-body">
+          2025 年中成药出口 -12.1% 的现实表明，<span class="hl-rose">"重装部队"(处方药国际注册)路径周期长、风险高</span>。
+          同仁堂国药<span class="hl-jade">率先完成战略转型</span>——
+          <br><br>
+          <strong style="color:var(--gold)">重装部队</strong>：安宫牛黄丸(柬埔寨/越南/加拿大)、养阴清肺丸(加拿大)等核心品种坚持不懈注册
+          <br><br>
+          <strong style="color:var(--jade)">轻骑兵</strong>：龈养素牙膏 · KIWISH 鹿产品 · 跨境电商 · NMN · 抗衰老系列 · 药食同源产品
+          <br><br>
+          <span class="hl-jade">这与十五五规划 + 工信部方案"中药跨境电商 + 海外仓 + 国际通用教材"导向完全契合</span>。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">04·4</span>
+        <span>跨境电商 · 工信部"海外仓"政策红利</span>
+      </div>
+
+      <p style="margin-bottom:16px">
+        <span class="hl">2026.2 工信部《中药工业方案》</span> 首次明确提出<span class="hl-jade">"支持中药跨境电商建设海外仓"</span>，
+        配合十五五规划"打造具有国际影响力的中医药品牌"目标，
+        <span class="hl-rose">跨境电商成为十五五期间中药出海的最大政策红利赛道</span>。
+      </p>
+
+      <div class="callout">
+        <div class="callout-title">E-COMMERCE · 跨境电商战略升级</div>
+        <div class="callout-body">
+          同仁堂国药已完成<span class="hl-jade">"京东全球购 + 天猫国际 + 抖音全球购 + 自有小程序 + 阿里健康 + 京东健康"</span>
+          全域布局。<span class="hl">2025 年跨境电商保健类出口额 45.6 亿美元(+7.2%)</span>，
+          跨境电商渠道渗透率持续提升，亚马逊 / iHerb / Lazada / 速卖通已成主战场。
+          <br><br>
+          <span class="hl-rose">未来 3 年跨境电商 GMV CAGR 可达 30-50%</span>，
+          是<span class="hl-jade">同仁堂国药"打破地域限制、低成本扩张海外"的最强引擎</span>。
+          <span class="hl">重点打造破壁灵芝孢子粉胶囊 + 灵芝姜黄复方 + 龈养素牙膏 + KIWISH 鹿产品 + NMN 系列</span>等线上爆款。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">04·5</span>
+        <span>2025-2026H1 业绩波动拆解 · "控量保价"战略解读</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>指标</th>
+            <th>2025 全年</th>
+            <th>2026H1</th>
+            <th>同比</th>
+            <th>解读</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>销售收入</td>
+            <td>HK$1,513M</td>
+            <td>HK$601.9M</td>
+            <td style="color:var(--crimson)">-21.0% (H1) / -6.1% (全年)</td>
+            <td><strong style="color:var(--jade)">主动收紧分销 + 澳门消费疲软 + 安宫牛黄丸提价过渡</strong></td>
+          </tr>
+          <tr>
+            <td>拥有人应占利润</td>
+            <td>HK$397M</td>
+            <td>HK$198.2M</td>
+            <td style="color:var(--crimson)">-20.6% (全年) / -15.6% (H1)</td>
+            <td>利润跌幅小于收入，盈利质量好</td>
+          </tr>
+          <tr>
+            <td>毛利率</td>
+            <td>~63%</td>
+            <td><strong style="color:var(--jade)">63.9%</strong></td>
+            <td style="color:var(--jade)">+3.1pp</td>
+            <td><strong>控量保价战略见效 + 产品结构优化</strong></td>
+          </tr>
+          <tr>
+            <td>香港零售</td>
+            <td>+5% (下半年)</td>
+            <td>+5% (H1)</td>
+            <td style="color:var(--jade)">+5%</td>
+            <td>大品种战略见效，零售韧性凸显</td>
+          </tr>
+          <tr>
+            <td>自有产品批发</td>
+            <td>—</td>
+            <td>—</td>
+            <td style="color:var(--crimson)">-27.8%</td>
+            <td>主动收紧分销，强化终端价格管控</td>
+          </tr>
+          <tr>
+            <td>现金及银行结余</td>
+            <td><strong style="color:var(--gold)">HK$22.79 亿</strong></td>
+            <td>—</td>
+            <td style="color:var(--jade)"><strong>+25.25%</strong></td>
+            <td>现金为王 · 派息率 78% 创历史新高</td>
+          </tr>
+          <tr>
+            <td>派息比率</td>
+            <td><strong style="color:var(--jade)">78%</strong></td>
+            <td>—</td>
+            <td style="color:var(--jade)">+27pp</td>
+            <td><strong>管理层用真金白银彰显信心</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-title">2025-2026H1 业绩深度解读 · 主动转型 vs 业务恶化</div>
+        <div class="callout-body">
+          营收 -6.1% / 2026H1 -21% 看似剧烈，实为<span class="hl-jade">"控量保价 + 主动收紧分销 + 安宫牛黄丸提价过渡 + 澳门消费疲软"</span>四大因素叠加。
+          <br><br>
+          <strong style="color:var(--jade)">核心证据链</strong>：
+          <br>· 毛利率 60.8% → 63.9%(+3.1pp) <span class="hl-jade">创历史新高</span>，印证"控量保价"成效
+          <br>· 现金及银行结余 +25.25% 至 22.79 亿港元，<span class="hl-jade">现金厚度强化防御性</span>
+          <br>· 派息率 78%(+27pp)，<span class="hl-jade">管理层用真金白银彰显转型信心</span>
+          <br>· 香港零售 +5%，<span class="hl-jade">核心市场基本盘稳健</span>
+          <br>· 2025 年新增 2 家香港店、1 家澳门体验中心、KIWISH 新品牌、阿联酋/乌拉圭突破
+          <br><br>
+          <span class="hl-rose">2026H2 越南首批产品上市 + 柬埔寨放量 + 跨境电商放量，预计营收快速回升</span>。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ V. 监管路径与产品注册 ============ -->
+<section id="sec5">
+  <div class="wrap">
+    <div class="section-eyebrow">PART V · REGULATORY PATH & PRODUCT REGISTRATION</div>
+    <h2 class="section-title serif">监管路径与产品注册</h2>
+    <p class="section-lead">
+      中药出海的最大瓶颈是<span class="hl-rose">各国迥异的药品注册法规</span>。本节系统拆解七大主要市场的监管路径，
+      以及同仁堂已建立的"先发注册资产"如何构成后入者难以逾越的监管护城河。<strong style="color:var(--jade)">本版已加入 2025-2026 最新进展</strong>。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">05·1</span>
+        <span>七大监管路径全景对比</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>市场</th>
+            <th>监管路径</th>
+            <th>周期</th>
+            <th>成本</th>
+            <th>成功率</th>
+            <th>同仁堂布局 (最新)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>加拿大</strong></td>
+            <td>NPN 天然药品注册</td>
+            <td style="color:var(--jade)">2-3 年</td>
+            <td>¥500-1000 万</td>
+            <td style="color:var(--jade)">较高</td>
+            <td style="color:var(--jade)">✅ 养阴清肺丸 + 时疫清瘟丸 (2024 已注册)</td>
+          </tr>
+          <tr>
+            <td><strong>欧盟</strong></td>
+            <td>THMPD 传统草药制品指令</td>
+            <td style="color:var(--crimson)">5-8 年</td>
+            <td style="color:var(--crimson)">¥5000 万+</td>
+            <td style="color:var(--crimson)">极低</td>
+            <td style="color:var(--amber)">🟡 间接布局(德国 +14.9% 2025)</td>
+          </tr>
+          <tr>
+            <td><strong>美国</strong></td>
+            <td>FDA 植物药研发路径</td>
+            <td style="color:var(--crimson)">8-15 年</td>
+            <td style="color:var(--crimson)">$1-3 亿</td>
+            <td style="color:var(--crimson)">极低</td>
+            <td style="color:var(--amber)">🟡 膳食补充剂定位 + 文化推广</td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong style="color:var(--jade)">越南</strong></td>
+            <td>传统医药注册 + GMP 认证</td>
+            <td style="color:var(--jade)">2-4 年</td>
+            <td>¥500-2000 万</td>
+            <td style="color:var(--jade)">较高</td>
+            <td style="color:var(--jade)"><strong style="color:var(--jade)">✅ 2026 GMP 突破(香港首家) + 春桥 MOU</strong></td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong style="color:var(--jade)">柬埔寨</strong></td>
+            <td>传统药品注册</td>
+            <td style="color:var(--jade)">1-2 年</td>
+            <td>¥200-500 万</td>
+            <td style="color:var(--jade)">高</td>
+            <td style="color:var(--jade)"><strong style="color:var(--jade)">✅ 2025 安宫牛黄丸获《传统药品注册许可证》</strong></td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong style="color:var(--jade)">东南亚</strong></td>
+            <td>传统医药互认 + 各国本地注册</td>
+            <td style="color:var(--jade)">1-3 年</td>
+            <td>¥300-1000 万</td>
+            <td style="color:var(--jade)">较高</td>
+            <td style="color:var(--jade)">✅ 新加坡(+20.8%)、马来等多国注册</td>
+          </tr>
+          <tr>
+            <td><strong>澳新</strong></td>
+            <td>TGA(澳)/ Medsafe(新) 补充药品</td>
+            <td style="color:var(--amber)">2-4 年</td>
+            <td>¥500-1500 万</td>
+            <td style="color:var(--amber)">中</td>
+            <td style="color:var(--jade)">✅ 100+ 品种 · KIWISH 新品牌</td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.05)">
+            <td><strong style="color:var(--crimson)">俄罗斯</strong></td>
+            <td>Roszdravnadzor 注册</td>
+            <td style="color:var(--amber)">3-5 年</td>
+            <td>¥800-2000 万</td>
+            <td style="color:var(--amber)">中</td>
+            <td style="color:var(--crimson)"><strong style="color:var(--crimson)">🔴 2026.6 IRIMIS MOU 启动</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">05·2</span>
+        <span>2025 重大监管突破 · 三重战略里程碑</span>
+      </div>
+
+      <h4 style="color:var(--gold);margin-bottom:12px">🇰🇭 突破 A · 柬埔寨安宫牛黄丸注册</h4>
+
+      <div class="grid grid-2" style="margin-bottom:20px">
+        <div>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7;margin-bottom:12px">
+            <strong>2025 年</strong>，<span class="hl">核心大单品同仁堂安宫牛黄丸获柬埔寨王国卫生部药品与食品司颁发的《传统药品注册许可证》</span>，
+            <span class="hl-jade">打通东南亚核心市场的正规分销通路</span>。
+          </p>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            柬埔寨是 RCEP + ASEAN 双覆盖的关键节点，安宫牛黄丸在柬注册
+            <span class="hl-rose">可复制到 7-8 个东盟国家</span>。
+          </p>
+        </div>
+        <div>
+          <div class="callout" style="background:linear-gradient(135deg,rgba(22,160,133,0.06),rgba(26,14,14,0.6));border-left-color:var(--jade)">
+            <div class="callout-title" style="color:var(--jade)">战略意义</div>
+            <div class="callout-body" style="font-size:0.875rem">
+              <p>① 安宫牛黄丸首次进入东盟"传统药品"正式体系</p>
+              <p>② 为海外市场纵深拓展注入强劲动能</p>
+              <p>③ 配合越南 GMP 形成"<strong>注册 + 产能</strong>"组合拳</p>
+              <p>④ 呼应 2025 中成药出口 +20.8%(新加坡)等东盟高增长</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4 style="color:var(--jade);margin:20px 0 12px">🇻🇳 突破 B · 越南 GMP (香港首家)</h4>
+
+      <div class="grid grid-2">
+        <div>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7;margin-bottom:12px">
+            <strong>2026 年 5 月</strong>，<span class="hl-rose">香港大埔生产研发基地获越南卫生部传统医药局颁发的 GMP 工厂认证</span>，
+            这是<span class="hl">中国香港首家</span>获越南 GMP 认证的中成药制造企业，
+            为<span class="hl-jade">安宫牛黄丸进入越南市场扫清资质壁垒</span>。
+          </p>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            同月与<span class="hl">越南春桥控股股份公司</span>签 MOU，覆盖产品注册、终端共建、医保准入、中药材合作、跨境贸易、文化交流 6 大方向。
+          </p>
+        </div>
+        <div>
+          <div class="callout" style="background:linear-gradient(135deg,rgba(22,160,133,0.06),rgba(26,14,14,0.6));border-left-color:var(--jade)">
+            <div class="callout-title" style="color:var(--jade)">战略意义</div>
+            <div class="callout-body" style="font-size:0.875rem">
+              <p>① 越南 GMP 是 RCEP 区域内中成药出海的最难关卡之一</p>
+              <p>② 香港大埔基地可服务整个东南亚市场</p>
+              <p>③ 与柬埔寨注册形成"<strong>产能 + 渠道</strong>"组合拳</p>
+              <p>④ "一带一路"中医药合作的标志性成果</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4 style="color:var(--crimson);margin:20px 0 12px">🇨🇳 突破 C · 全国首单天然牛黄进口</h4>
+
+      <div class="callout">
+        <div class="callout-title">2026.3.10 · 全国首单天然牛黄进口</div>
+        <div class="callout-body">
+          <strong style="color:var(--crimson)">2026 年 3 月 10 日，北京同仁堂顺利完成全国首单天然牛黄进口</strong>。
+          这是<span class="hl">时隔 20+ 年重启牛黄进口试点</span>后的首个落地项目，
+          对同仁堂国药而言，此举紧扣中医药出海核心使命——
+          <br><br>
+          <span class="hl-jade">① 助力精品中成药产品矩阵打磨、保障核心药品稳定供应</span>
+          <br><span class="hl-jade">② 搭建国际化原料供应链体系、完善全球供应布局</span>
+          <br><span class="hl-jade">③ 以跨境国际合作为纽带，推动中医药文化海外传播</span>
+          <br><br>
+          这是<span class="hl-rose">"原料端国际化"的标志性突破</span>，与下游产品注册形成完整闭环。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">05·3</span>
+        <span>海关"药食同源"新政 · 2025.12 落地</span>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">POLICY · 2025.12 海关总署 + 卫健委 + 市场监管总局 + 药监局 四部门联合印发</div>
+        <div class="callout-body">
+          <span class="hl">《关于试点实施进口食药物质分类管理措施的公告》</span>
+          <br><br>
+          <strong style="color:var(--jade)">三大核心突破</strong>：
+          <br>① "按用途分类、精准监管、简化流程"<span class="hl-jade">—— 解决长期困扰行业的身份模糊与通关壁垒</span>
+          <br>② <span class="hl">"药食同源"类产品出口</span>以食品/膳食补充剂身份进入国际市场
+          <br>③ <span class="hl-rose">有效规避药品注册的高门槛与文化认知隔阂</span>，为产业实现"卖原料→树品牌"跃迁
+          <br><br>
+          <span class="hl">对同仁堂的直接影响</span>：
+          <br>· 龈养素牙膏、KIWISH 鹿产品、NMN 系列等"轻骑兵"产品获通关便利化
+          <br>· 跨境电商 GMV 有望加速放量
+          <br>· "药食同源"成为同仁堂新一轮出海突破口
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VI. 上下游产业链 ============ -->
+<section id="sec6">
+  <div class="wrap">
+    <div class="section-eyebrow">PART VI · UPSTREAM & DOWNSTREAM VALUE CHAIN</div>
+    <h2 class="section-title serif">上下游产业链分析</h2>
+    <p class="section-lead">
+      中药出海的产业链横跨<span class="hl-rose">"道地药材种植 → 中药制造 → 海外注册 → 跨境物流 → 终端零售 → 中医诊疗 → 文化传播"</span>七大环节。
+      同仁堂是<span class="hl-jade">唯一在 7 大环节均有布局</span>的中药企业。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">06·1</span>
+        <span>上游 · 道地药材 + 首单天然牛黄进口 (2026.3 更新)</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <h4 style="color:var(--gold);margin-bottom:12px">🌱 同仁堂上游布局</h4>
+          <ul class="list-num">
+            <li>全国 12+ 道地药材 GAP 种植基地</li>
+            <li>吉林人参基地(长白山)</li>
+            <li>云南三七基地(文山)</li>
+            <li>宁夏枸杞基地</li>
+            <li>四川麝香基地</li>
+            <li>广东陈皮基地(新会)</li>
+            <li>浙江白术基地</li>
+            <li><span class="hl-jade">同仁堂(海南)控股 — 抗衰老研发</span></li>
+            <li><span class="hl-rose">★ 2026.3 完成全国首单天然牛黄进口</span></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:var(--jade);margin-bottom:12px">📊 关键原料价格走势 (2025)</h4>
+          <table>
+            <thead>
+              <tr><th>品类</th><th>近 5 年</th><th>2025 趋势</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>天然牛黄</td><td>+180%</td><td><span class="hl-rose">首单进口试点的核心标的</span></td></tr>
+              <tr><td>人参</td><td>+45%</td><td>高位震荡</td></tr>
+              <tr><td>三七</td><td>+30%</td><td>震荡下行</td></tr>
+              <tr><td>枸杞</td><td>+25%</td><td>稳定</td></tr>
+              <tr><td>麝香</td><td>+200%+</td><td>极度稀缺</td></tr>
+              <tr><td>冬虫夏草</td><td>+50%</td><td>出口下滑 22%</td></tr>
+              <tr><td>龙眼肉(进口)</td><td>+33.8% → +59.1%</td><td>2025 进口第一大品种</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">UPSTREAM MOAT · 国际化原料供应链</div>
+        <div class="callout-body">
+          2025 年我国中药材进口总额 <span class="hl">9.3 亿美元(+10.4%)</span>，进口量 47.5 万吨(+5.6%)。
+          <br><br>
+          同仁堂的<span class="hl-jade">上游优势已从"国内 GAP 基地"升级为"全球原料配置"</span>——
+          <br>· 国内：12+ GAP 道地药材基地
+          <br>· 国际：天然牛黄首单进口(2026.3 全国首单)· 新西兰鹿茸 · 加拿大西洋参 · 印尼豆蔻 · 缅甸肉豆蔻
+          <br><br>
+          这是<span class="hl-rose">片仔癀、云南白药等"无自有种植 + 无进口布局"的同行无法复制的护城河</span>。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">06·2</span>
+        <span>中游 · 生产制造与质量管控 (2026 越南 GMP 已纳入)</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>生产基地</th>
+            <th>地点</th>
+            <th>认证</th>
+            <th>产能</th>
+            <th>服务市场</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>北京同仁堂股份大兴分厂</td>
+            <td>北京大兴</td>
+            <td>中国 GMP + CNAS</td>
+            <td>大蜜丸数字化生产线(2024)</td>
+            <td>中国内地</td>
+          </tr>
+          <tr style="background:rgba(212,175,55,0.08)">
+            <td><strong>同仁堂国药大埔基地 ⭐</strong></td>
+            <td>香港大埔</td>
+            <td>香港 GMP + ISO22000 + HACCP + <strong style="color:var(--jade)">越南 GMP(2026.5)🇻🇳</strong></td>
+            <td>中成药 + 大健康产品</td>
+            <td><strong style="color:var(--jade)">海外 (港澳 + 东南亚 + 全球)</strong></td>
+          </tr>
+          <tr>
+            <td>同仁堂科技(1666.HK) 生产基地</td>
+            <td>北京 + 河北 + 山西</td>
+            <td>中国 GMP + ISO14001</td>
+            <td>中药配方颗粒 + 中成药</td>
+            <td>中国内地 + 海外转出口</td>
+          </tr>
+          <tr>
+            <td>同仁堂(海南)控股</td>
+            <td>海南海口</td>
+            <td>中国 GMP</td>
+            <td>抗衰老 + 美白专利配方</td>
+            <td>中国 + 港澳</td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.08)">
+            <td><strong style="color:var(--jade)">KIWISH 鹿产品厂房 ⭐ (新增)</strong></td>
+            <td>新西兰奥克兰</td>
+            <td>新西兰 MPI + 中国 GMP</td>
+            <td>鹿茸 / 鹿尾 / 鹿鞭 / 鹿筋 / 鹿血 / 鹿胎盘深加工</td>
+            <td><strong style="color:var(--jade)">新西兰 + 中国 + 跨境电商</strong></td>
+          </tr>
+          <tr>
+            <td>澳门中医药文化体验中心 (2025 新增)</td>
+            <td>澳门</td>
+            <td>—</td>
+            <td>"体验式、创新式"中医药服务</td>
+            <td>全球首家体验式中心</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">06·3</span>
+        <span>下游 · 海外渠道与终端</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--gold)">🛒 线下渠道</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>港澳 31 家直营店(2025 净增 2 家)</li>
+            <li>海外 47+ 家直营店/医疗终端</li>
+            <li>中国大陆 1251+ 家零售门店</li>
+            <li>经销商网络(澳新、东南亚、北美)</li>
+            <li>免税店渠道(海外机场免税)</li>
+            <li>本地连锁合作(屈臣氏、华润堂)</li>
+            <li><strong style="color:var(--jade)">2025 大湾区布局：与深圳福田签全球购运营中心 MOU</strong></li>
+          </ul>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--jade)">📱 线上渠道 (工信部"海外仓"政策红利)</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li><strong style="color:var(--jade)">京东全球购</strong></li>
+            <li><strong style="color:var(--jade)">天猫国际</strong></li>
+            <li><strong style="color:var(--jade)">抖音全球购</strong></li>
+            <li>同仁堂国药自有小程序</li>
+            <li>同仁堂国际中医药"走出去"平台</li>
+            <li>阿里健康 + 京东健康跨境</li>
+            <li>亚马逊海外站点</li>
+            <li>iHerb / Lazada / 速卖通 (新中式养生爆款)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">06·4</span>
+        <span>海外子公司股权架构 (2025-2026 新增多地)</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>海外子公司 / 合作平台</th>
+            <th>持股结构</th>
+            <th>业务</th>
+            <th>战略意义</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>北京同仁堂欧洲控股有限公司</td>
+            <td>3613.HK 100%</td>
+            <td>欧洲业务控股平台</td>
+            <td>欧洲业务统一管理</td>
+          </tr>
+          <tr>
+            <td>北京同仁堂(海南)控股公司</td>
+            <td>3613.HK 100%</td>
+            <td>抗衰老研发</td>
+            <td>NMN + 美白专利</td>
+          </tr>
+          <tr>
+            <td>北京同仁堂奥克兰有限公司</td>
+            <td>3613.HK 100%</td>
+            <td>新西兰零售/诊疗/鹿产品</td>
+            <td>新西兰最大中医药连锁</td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong style="color:var(--jade)">KIWISH 鹿产品品牌 (2025 新设)</strong></td>
+            <td>3613.HK 100%</td>
+            <td>鹿产品深加工高端品牌</td>
+            <td><strong style="color:var(--jade)">新西兰奥克兰揭幕 · 新增长极</strong></td>
+          </tr>
+          <tr>
+            <td>北京同仁堂(波兰)有限公司</td>
+            <td>3613.HK + 当地合资</td>
+            <td>波兰门店 + 中医中心</td>
+            <td>欧盟首店(2012)</td>
+          </tr>
+          <tr>
+            <td>北京同仁堂(黑山)中医药发展中心</td>
+            <td>3613.HK + 黑山中国中医院</td>
+            <td>中东欧文化推广</td>
+            <td>"16+1"合作示范</td>
+          </tr>
+          <tr>
+            <td>北京同仁堂(南非)有限公司</td>
+            <td>3613.HK 100%</td>
+            <td>南非 5+ 家门店</td>
+            <td>非洲首站</td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.05)">
+            <td><strong style="color:var(--crimson)">越南合作平台 (2026 新设)</strong></td>
+            <td>3613.HK + 春桥控股</td>
+            <td>越南 + 东盟业务</td>
+            <td><strong style="color:var(--crimson)">RCEP 战略支点 + 越南 GMP 突破</strong></td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.05)">
+            <td><strong style="color:var(--crimson)">俄罗斯合作平台 (2026 MOU)</strong></td>
+            <td>3613.HK + IRIMIS</td>
+            <td>俄语区市场</td>
+            <td><strong style="color:var(--crimson)">俄乌白战略入口 + 上合组织中医药市场</strong></td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.05)">
+            <td><strong style="color:var(--crimson)">柬埔寨 (2025 注册 +)</strong></td>
+            <td>经销 + 注册证持有</td>
+            <td>安宫牛黄丸传统药品</td>
+            <td><strong style="color:var(--crimson)">东盟核心注册资产</strong></td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.05)">
+            <td><strong style="color:var(--crimson)">阿联酋迪拜 (2025 突破)</strong></td>
+            <td>经销 + 文化推广</td>
+            <td>《中药材鉴定图典》阿语版</td>
+            <td><strong style="color:var(--crimson)">中东市场文化破冰</strong></td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.05)">
+            <td><strong style="color:var(--crimson)">乌拉圭 (2025 MOU)</strong></td>
+            <td>经销 + 政府合作</td>
+            <td>与国家肉类协会 MOU</td>
+            <td><strong style="color:var(--crimson)">南美市场拓展</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VII. 竞争格局对标 ============ -->
+<section id="sec7">
+  <div class="wrap">
+    <div class="section-eyebrow">PART VII · COMPETITIVE LANDSCAPE</div>
+    <h2 class="section-title serif">竞争格局对标</h2>
+    <p class="section-lead">
+      中药出海企业可分为四大类型：<span class="hl">国资老字号(同仁堂)、单品爆款(片仔癀)、消费品转型(云南白药)、创新型(以岭)</span>。
+      同仁堂是<span class="hl-jade">"出海最系统、海外营收占比最高、注册资产最厚"</span>的标杆。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">07·1</span>
+        <span>四类中药出海玩家 · 横向对比 (2025 数据)</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>维度</th>
+            <th style="color:var(--gold)">同仁堂系 ⭐</th>
+            <th>片仔癀</th>
+            <th>云南白药</th>
+            <th>以岭药业</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>核心定位</td>
+            <td>综合出海平台</td>
+            <td>单品爆款</td>
+            <td>消费品转型</td>
+            <td>创新药出海</td>
+          </tr>
+          <tr>
+            <td>主要载体</td>
+            <td><strong>3613.HK 海外平台</strong></td>
+            <td>600436.SH 出口业务</td>
+            <td>000538.SZ 健康产品</td>
+            <td>002603.SZ 海外注册</td>
+          </tr>
+          <tr>
+            <td>海外营收占比</td>
+            <td style="color:var(--jade)"><strong>25%+ (3613.HK)</strong></td>
+            <td>5-8%</td>
+            <td>&lt;3%</td>
+            <td>5-10%</td>
+          </tr>
+          <tr>
+            <td>境外注册品种</td>
+            <td style="color:var(--jade)"><strong>1200+</strong></td>
+            <td>50+</td>
+            <td>100+</td>
+            <td>30+</td>
+          </tr>
+          <tr>
+            <td>境外终端数</td>
+            <td style="color:var(--jade)"><strong>160+</strong></td>
+            <td>20+ (经销为主)</td>
+            <td>&lt;10 (经销为主)</td>
+            <td>&lt;5</td>
+          </tr>
+          <tr>
+            <td>出海模式</td>
+            <td>"五位一体"+ "轻骑兵"双轨</td>
+            <td>经销 + 文化推广</td>
+            <td>消费品 + 健康产品</td>
+            <td>创新药 + 经典名方</td>
+          </tr>
+          <tr>
+            <td>毛利率 (2026H1)</td>
+            <td style="color:var(--jade)"><strong>63.9%</strong></td>
+            <td>~45%</td>
+            <td>~30%</td>
+            <td>~60%</td>
+          </tr>
+          <tr>
+            <td>品牌历史</td>
+            <td style="color:var(--jade)"><strong>357 年</strong></td>
+            <td>500+ 年(漳州)</td>
+            <td>120 年</td>
+            <td>30+ 年</td>
+          </tr>
+          <tr>
+            <td>国资属性</td>
+            <td>100% 国资</td>
+            <td>国资 + 民营混合</td>
+            <td>国资 + 民营混合</td>
+            <td>民营</td>
+          </tr>
+          <tr>
+            <td>境外独立融资</td>
+            <td style="color:var(--jade)"><strong>✅ 3613.HK</strong></td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>❌</td>
+          </tr>
+          <tr>
+            <td>现金厚度</td>
+            <td style="color:var(--jade)"><strong>HK$22.79亿</strong></td>
+            <td>~¥100 亿</td>
+            <td>~¥200 亿</td>
+            <td>~¥50 亿</td>
+          </tr>
+          <tr>
+            <td>派息率 (2025)</td>
+            <td style="color:var(--jade)"><strong>78%</strong></td>
+            <td>~40%</td>
+            <td>~50%</td>
+            <td>~30%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <div class="callout-title">COMPETITIVE EDGE · 同仁堂的 6 个唯一</div>
+        <div class="callout-body">
+          ① 唯一<span class="hl">港股独立海外融资平台</span>(3613.HK)<br>
+          ② 唯一<span class="hl">160+ 境外自营终端</span><br>
+          ③ 唯一<span class="hl">1200+ 境外注册品种</span><br>
+          ④ 唯一<span class="hl">"五位一体"+"轻骑兵"双轨</span>海外体系<br>
+          ⑤ 唯一<span class="hl">老字号企业牵头单位</span>(政策红利最核心层)<br>
+          ⑥ 唯一<span class="hl">全国首单天然牛黄进口</span>(2026.3 国际化原料供应链)
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">07·2</span>
+        <span>核心竞品 · 港股/A股可比公司画像 (2025)</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--gold)">🥇 片仔癀 (600436.SH) · 单品爆款代表</h4>
+          <table>
+            <tbody>
+              <tr><td>核心产品</td><td>片仔癀(肝胆用药)</td></tr>
+              <tr><td>2024 营收</td><td>~¥100 亿</td></tr>
+              <tr><td>毛利率</td><td>~45%</td></tr>
+              <tr><td>出海模式</td><td>经销 + 高端礼品定位</td></tr>
+              <tr><td>主要市场</td><td>东南亚华商圈</td></tr>
+              <tr><td>护城河</td><td>配方保密 + 稀缺原料</td></tr>
+              <tr><td>短板</td><td><span class="hl-rose">单品依赖、产品线窄</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--jade)">🥈 云南白药 (000538.SZ) · 消费品转型代表</h4>
+          <table>
+            <tbody>
+              <tr><td>核心产品</td><td>云南白药牙膏 + 健康产品</td></tr>
+              <tr><td>2024 营收</td><td>~¥400 亿</td></tr>
+              <tr><td>毛利率</td><td>~30%</td></tr>
+              <tr><td>出海模式</td><td>消费品渠道 + 健康产品</td></tr>
+              <tr><td>主要市场</td><td>东南亚 + 北美(保健品)</td></tr>
+              <tr><td>护城河</td><td>牙膏品类领导地位</td></tr>
+              <tr><td>短板</td><td><span class="hl-rose">药品属性弱、品牌混杂</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--amber)">🥉 以岭药业 (002603.SZ) · 创新型代表</h4>
+          <table>
+            <tbody>
+              <tr><td>核心产品</td><td>通心络、参松养心、连花清瘟</td></tr>
+              <tr><td>2024 营收</td><td>~¥110 亿</td></tr>
+              <tr><td>毛利率</td><td>~60%</td></tr>
+              <tr><td>出海模式</td><td>创新药海外授权 + 注册</td></tr>
+              <tr><td>主要市场</td><td>美国 / 欧盟(在申请)</td></tr>
+              <tr><td>护城河</td><td>络病学说 + 现代循证医学</td></tr>
+              <tr><td>短板</td><td><span class="hl-rose">海外注册周期长、品种少</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--crimson)">🌏 上海和黄药业 · 加拿大注册先锋</h4>
+          <table>
+            <tbody>
+              <tr><td>核心产品</td><td>胆宁片(已加拿大获批)</td></tr>
+              <tr><td>出海模式</td><td>单一品种"走出去"</td></tr>
+              <tr><td>护城河</td><td>胆宁片 8 年注册经验</td></tr>
+              <tr><td>主要市场</td><td>加拿大 + 北美</td></tr>
+              <tr><td>经验</td><td>"历时 8 年走通全流程"</td></tr>
+              <tr><td>短板</td><td><span class="hl-rose">规模有限、产品线单一</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">07·3</span>
+        <span>多维度竞争力雷达</span>
+      </div>
+
+      <div class="chart-box">
+        <canvas id="radarChart" style="max-height:420px"></canvas>
+      </div>
+
+      <div style="margin-top:16px;padding:16px;background:rgba(26,14,14,0.5);border-radius:8px">
+        <div class="dim" style="font-size:0.75rem;line-height:1.6">
+          <strong>评分维度（0-10分）</strong> · 品牌 IP / 境外注册资产 / 终端网络 / 海外营收占比 / 政策红利 / 财务质量(2025-2026)
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">07·4</span>
+        <span>投资机构 & 股东结构 (2026 最新)</span>
+      </div>
+
+      <h4 style="color:var(--gold);margin-bottom:12px">🏛 同仁堂国药 3613.HK · 主要股东</h4>
+
+      <table>
+        <thead>
+          <tr><th>股东</th><th>性质</th><th>持股比例</th><th>备注</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>北京同仁堂股份(600085.SH)</td><td>集团上市平台</td><td style="color:var(--jade)">~33.0%</td><td>直接控股</td></tr>
+          <tr><td>同仁堂科技(1666.HK)</td><td>集团港股</td><td>~28.0%</td><td>战略持股</td></tr>
+          <tr><td>公众流通股</td><td>—</td><td>~39.0%</td><td>港股通 + 国际机构</td></tr>
+          <tr><td>合计同仁堂系</td><td>100% 国资</td><td><strong style="color:var(--gold)">~61.0%</strong></td><td>绝对控股</td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="color:var(--jade);margin:20px 0 12px">💼 国际机构持仓 (估算)</h4>
+      <div class="funds-legend">
+        <div class="funds-legend-item" style="--cat-color:#d4af37">
+          <div class="funds-legend-color"></div>
+          <div class="funds-legend-info">
+            <div class="funds-legend-name">港股通南向资金</div>
+            <div class="funds-legend-detail">内地投资者通过沪深港通买入 · 持仓估算 ~5-8%</div>
+          </div>
+          <div class="funds-legend-amount">5-8%</div>
+        </div>
+        <div class="funds-legend-item" style="--cat-color:#16a085">
+          <div class="funds-legend-color"></div>
+          <div class="funds-legend-info">
+            <div class="funds-legend-name">国际指数基金</div>
+            <div class="funds-legend-detail">MSCI / FTSE 指数成份 · Vanguard / BlackRock 等</div>
+          </div>
+          <div class="funds-legend-amount">~5%</div>
+        </div>
+        <div class="funds-legend-item" style="--cat-color:#c0392b">
+          <div class="funds-legend-color"></div>
+          <div class="funds-legend-info">
+            <div class="funds-legend-name">亚洲主权基金 / 养老金</div>
+            <div class="funds-legend-detail">GIC / Temasek / 中投等关注国资中药龙头</div>
+          </div>
+          <div class="funds-legend-amount">~3%</div>
+        </div>
+        <div class="funds-legend-item" style="--cat-color:#2980b9">
+          <div class="funds-legend-color"></div>
+          <div class="funds-legend-info">
+            <div class="funds-legend-name">本地香港机构</div>
+            <div class="funds-legend-detail">香港本地基金、私行、家族办公室</div>
+          </div>
+          <div class="funds-legend-amount">~15%</div>
+        </div>
+        <div class="funds-legend-item" style="--cat-color:#8e44ad">
+          <div class="funds-legend-color"></div>
+          <div class="funds-legend-info">
+            <div class="funds-legend-name">散户 + 其他</div>
+            <div class="funds-legend-detail">零售投资者 + 高净值客户</div>
+          </div>
+          <div class="funds-legend-amount">~8%</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">SHAREHOLDER EDGE · 国资控股 + 港股通双重红利</div>
+        <div class="callout-body">
+          <span class="hl">同仁堂系合计持股 ~61%</span>，绝对控股 + 国资属性 → 战略稳定性极强
+          <br><br>
+          同时作为<span class="hl-jade">港股通标的</span>，享受内地资金南下红利
+          <br><br>
+          国际机构持仓相对较低(MSCI/FTSE 权重不大)，<span class="hl-rose">未来潜在增量空间较大</span>
+          <br><br>
+          <span class="hl">国资折价通常 15-25%</span>，但同仁堂国药因"分红稳定 + 海外稀缺 + 现金厚实"折价幅度较小
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIII. 财务模型与估值 ============ -->
+<section id="sec8">
+  <div class="wrap">
+    <div class="section-eyebrow">PART VIII · FINANCIAL MODEL & VALUATION</div>
+    <h2 class="section-title serif">财务模型与估值 (基于 2025 年报 + 2026.8.31 股价)</h2>
+    <p class="section-lead">
+      本节采用<span class="hl">3 种方法(DCF / PE / PB)</span>对同仁堂国药 3613.HK 进行交叉估值，
+      得出<span class="hl-jade">"合理估值区间 HK$110-160 亿"</span>，
+      对应<span class="hl">12 个月目标价 HK$10.5-12.0/股</span>(基于 2026.8.31 HK$5.955 收盘价，潜在上行空间 <strong>75-100%</strong>)。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">08·1</span>
+        <span>3613.HK 历史财务 · 6 年回顾 (已更新 2025)</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>指标 (HK$M)</th>
+            <th>2020</th>
+            <th>2021</th>
+            <th>2022</th>
+            <th>2023</th>
+            <th>2024</th>
+            <th>2025</th>
+            <th>CAGR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>营业收入</td><td>1,162</td><td>1,376</td><td>1,524</td><td>1,524.9</td><td>1,611.6</td><td><strong>1,513</strong></td><td style="color:var(--amber)">+5.4%</td></tr>
+          <tr><td>净利润</td><td>~390</td><td>~500</td><td>~555</td><td>571.4</td><td>529.2</td><td><strong>417</strong></td><td style="color:var(--amber)">+1.4%</td></tr>
+          <tr><td>应占利润</td><td>~390</td><td>~500</td><td>~555</td><td>540.5</td><td>500.3</td><td><strong>397</strong></td><td style="color:var(--crimson)">+0.4%</td></tr>
+          <tr><td>毛利率</td><td>~62%</td><td>~61%</td><td>~60%</td><td>59.5%</td><td>61.5%</td><td><strong>~63%</strong></td><td>+1pp</td></tr>
+          <tr><td>每股盈利 (HK$)</td><td>0.47</td><td>0.60</td><td>0.67</td><td>0.65</td><td>0.60</td><td><strong>~0.48</strong></td><td>—</td></tr>
+          <tr><td>每股股息 (HK$)</td><td>0.30</td><td>0.33</td><td>0.35</td><td>0.33</td><td>0.35</td><td><strong>0.40</strong></td><td>+5.9%</td></tr>
+          <tr><td>派息率</td><td>~63%</td><td>~55%</td><td>~52%</td><td>~51%</td><td>~58%</td><td><strong style="color:var(--jade)">78%</strong></td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <div class="chart-box">
+        <canvas id="revenueChart" style="max-height:380px"></canvas>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">08·2</span>
+        <span>三种估值方法 · 交叉验证</span>
+      </div>
+
+      <div class="grid grid-3" style="margin-top:24px">
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--gold)">① DCF 估值</h4>
+          <table>
+            <tbody>
+              <tr><td>预测期</td><td>2026-2031 (6 年)</td></tr>
+              <tr><td>营收 CAGR</td><td>8% (战略调整后回升)</td></tr>
+              <tr><td>毛利率</td><td>62-65%</td></tr>
+              <tr><td>WACC</td><td>10%</td></tr>
+              <tr><td>永续增长率</td><td>3%</td></tr>
+              <tr><td>终值倍数</td><td>15× EBIT</td></tr>
+            </tbody>
+          </table>
+          <div style="padding:14px;background:rgba(212,175,55,0.08);border-radius:8px;margin-top:12px;text-align:center">
+            <div style="font-size:0.75rem;color:var(--ink-3)">DCF 估值结果</div>
+            <div style="font-size:1.5rem;font-weight:800;color:var(--gold)">HK$135-170 亿</div>
+          </div>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--jade)">② PE 估值</h4>
+          <table>
+            <tbody>
+              <tr><td>2026E EPS</td><td>HK$0.55 (回升)</td></tr>
+              <tr><td>2027E EPS</td><td>HK$0.65</td></tr>
+              <tr><td>同业平均 PE</td><td>25-35×</td></tr>
+              <tr><td>国资折价</td><td>-15%</td></tr>
+              <tr><td>海外稀缺溢价</td><td>+15%</td></tr>
+              <tr><td>现金厚度溢价</td><td>+10%</td></tr>
+              <tr><td>适用 PE</td><td>28-40×</td></tr>
+            </tbody>
+          </table>
+          <div style="padding:14px;background:rgba(22,160,133,0.08);border-radius:8px;margin-top:12px;text-align:center">
+            <div style="font-size:0.75rem;color:var(--ink-3)">PE 估值结果</div>
+            <div style="font-size:1.5rem;font-weight:800;color:var(--jade)">HK$110-150 亿</div>
+          </div>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--amber)">③ PB 估值</h4>
+          <table>
+            <tbody>
+              <tr><td>2025 末净资产</td><td>HK$28-30 亿</td></tr>
+              <tr><td>每股净资产</td><td>HK$3.4</td></tr>
+              <tr><td>中药行业 PB</td><td>3.5-5.5×</td></tr>
+              <tr><td>国资折价</td><td>-15%</td></tr>
+              <tr><td>现金占净资产比</td><td>~76% (现金厚度极高)</td></tr>
+              <tr><td>适用 PB</td><td>5.0-7.5×</td></tr>
+              <tr><td>ROE</td><td>~14%</td></tr>
+            </tbody>
+          </table>
+          <div style="padding:14px;background:rgba(230,126,34,0.08);border-radius:8px;margin-top:12px;text-align:center">
+            <div style="font-size:0.75rem;color:var(--ink-3)">PB 估值结果</div>
+            <div style="font-size:1.5rem;font-weight:800;color:var(--amber)">HK$140-225 亿</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:24px;padding:24px;background:linear-gradient(135deg,rgba(212,175,55,0.08),rgba(26,14,14,0.6));border:2px solid rgba(212,175,55,0.3);border-radius:14px;text-align:center">
+        <h4 style="color:var(--gold);margin-bottom:12px">🎯 综合估值结论 (基于 2026.8.31 HK$5.955 收盘价)</h4>
+        <p style="font-size:0.875rem;color:var(--ink-2);margin-bottom:16px">
+          三种方法交叉验证后，<span class="hl">合理估值区间为 HK$110-160 亿</span>，对应<span class="hl">12 个月目标价 HK$10.5-12.0/股</span>。
+          较当前估值(<span style="color:var(--jade)">~HK$60 亿市值</span>)有<span class="hl-jade">75-100% 上行空间</span>。
+        </p>
+        <div style="display:flex;justify-content:space-around;flex-wrap:wrap;gap:12px;margin-top:16px">
+          <div>
+            <div style="font-size:0.75rem;color:var(--ink-3)">保守目标</div>
+            <div style="font-size:1.25rem;font-weight:800;color:var(--amber)">HK$10.5</div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem;color:var(--ink-3)">中性目标</div>
+            <div style="font-size:1.25rem;font-weight:800;color:var(--gold)">HK$11.5</div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem;color:var(--ink-3)">乐观目标</div>
+            <div style="font-size:1.25rem;font-weight:800;color:var(--jade)">HK$12.0</div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem;color:var(--ink-3)">上行空间</div>
+            <div style="font-size:1.25rem;font-weight:800;color:var(--jade)">+75-100%</div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem;color:var(--ink-3)">建议仓位</div>
+            <div style="font-size:1.25rem;font-weight:800;color:var(--gold)">5-8%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">08·3</span>
+        <span>情景分析 · 2026-2028 营收路径 (基于 2025 实绩)</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>情景</th>
+            <th>2026E</th>
+            <th>2027E</th>
+            <th>2028E</th>
+            <th>关键驱动</th>
+            <th>概率</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(192,57,43,0.05)">
+            <td><strong>悲观情景</strong></td>
+            <td>1,360 (-10%)</td>
+            <td>1,430 (+5%)</td>
+            <td>1,540 (+8%)</td>
+            <td>战略调整期延长 + 跨境电商不及预期</td>
+            <td>15%</td>
+          </tr>
+          <tr style="background:rgba(212,175,55,0.05)">
+            <td><strong>中性情景 ⭐</strong></td>
+            <td>1,580 (+4%)</td>
+            <td>1,780 (+13%)</td>
+            <td>1,980 (+11%)</td>
+            <td>柬埔寨/越南放量 + 跨境电商稳增 + 大健康突破</td>
+            <td>60%</td></tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong>乐观情景</strong></td>
+            <td>1,700 (+12%)</td>
+            <td>2,000 (+18%)</td>
+            <td>2,400 (+20%)</td>
+            <td>欧美/中东欧突破 + NMN 大卖 + 越南全面铺开</td>
+            <td>25%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="chart-box">
+        <canvas id="forecastChart" style="max-height:380px"></canvas>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">08·4</span>
+        <span>集团层面估值 · 协同效应 (2025 实绩)</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <h4 style="color:var(--gold);margin-bottom:12px">📊 同仁堂系三家上市公司</h4>
+          <table>
+            <thead>
+              <tr><th>公司</th><th>代码</th><th>2025 营收</th><th>海外业务</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>同仁堂股份</td><td>600085.SH</td><td>¥172.56 亿 (-7.21%)</td><td>间接</td></tr>
+              <tr><td>同仁堂科技</td><td>1666.HK</td><td>~¥57 亿</td><td>间接</td></tr>
+              <tr style="background:rgba(212,175,55,0.05)">
+                <td><strong>同仁堂国药 ⭐</strong></td>
+                <td>3613.HK</td>
+                <td><strong>HK$15.13 亿</strong></td>
+                <td><strong style="color:var(--jade)">直接</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h4 style="color:var(--jade);margin-bottom:12px">💎 协同估值</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>600085.SH + 1666.HK 共同持有 3613.HK ~61%</li>
+            <li>集团内部协同：原料 → 制造 → 海外销售</li>
+            <li>品牌 + 渠道 + 注册资产共享受益</li>
+            <li>海外业务利润贡献占集团比重持续提升</li>
+            <li>整体集团估值应给予"海外稀缺性"溢价 10-15%</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IX. 风险矩阵 ============ -->
+<section id="sec9">
+  <div class="wrap">
+    <div class="section-eyebrow">PART IX · RISK MATRIX</div>
+    <h2 class="section-title serif">风险矩阵 (2026 更新版)</h2>
+    <p class="section-lead">
+      我们识别了<span class="hl-rose">15 项关键风险</span>，按"概率 × 影响"双维度评估，其中<span class="hl">3 项极高风险</span>、<span class="hl">12 项中低风险</span>。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">09·1</span>
+        <span>风险热图 · 概率 × 影响</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>风险</th>
+            <th>概率</th>
+            <th>影响</th>
+            <th>风险等级</th>
+            <th>应对</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(192,57,43,0.05)">
+            <td><strong>① 战略调整阵痛期延长</strong></td>
+            <td>中</td>
+            <td>高</td>
+            <td style="color:var(--crimson)">⚠️ 极高</td>
+            <td>毛利率持续 63%+ · 现金厚度防御 · 派息率 78%</td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.05)">
+            <td><strong>② 中美贸易摩擦持续</strong></td>
+            <td>高</td>
+            <td>中</td>
+            <td style="color:var(--crimson)">⚠️ 极高</td>
+            <td>市场多元化(东南亚/中东欧/上合) · 跨境电商对冲</td>
+          </tr>
+          <tr style="background:rgba(192,57,43,0.05)">
+            <td><strong>③ 中成药出口 -12.1% 趋势</strong></td>
+            <td>高</td>
+            <td>中</td>
+            <td style="color:var(--crimson)">⚠️ 极高</td>
+            <td>轻骑兵转型 · 药食同源 · 跨境电商</td>
+          </tr>
+          <tr style="background:rgba(230,126,34,0.05)">
+            <td><strong>④ 原料价格波动</strong></td>
+            <td>中</td>
+            <td>中</td>
+            <td style="color:var(--amber)">⚠️ 中</td>
+            <td>首单天然牛黄进口 · GAP 基地 · 多元化采购</td>
+          </tr>
+          <tr style="background:rgba(230,126,34,0.05)">
+            <td><strong>⑤ 跨境电商监管变化</strong></td>
+            <td>中</td>
+            <td>中</td>
+            <td style="color:var(--amber)">⚠️ 中</td>
+            <td>多平台布局 · 自有小程序 · 2025.12 海关新政红利</td>
+          </tr>
+          <tr style="background:rgba(230,126,34,0.05)">
+            <td><strong>⑥ 越南/柬埔寨放量不达预期</strong></td>
+            <td>中</td>
+            <td>中</td>
+            <td style="color:var(--amber)">⚠️ 中</td>
+            <td>多渠道布局 · 文化先行 · 春桥合作</td>
+          </tr>
+          <tr style="background:rgba(230,126,34,0.05)">
+            <td><strong>⑦ 同业竞争加剧(片仔癀等)</strong></td>
+            <td>中</td>
+            <td>中</td>
+            <td style="color:var(--amber)">⚠️ 中</td>
+            <td>品牌 IP + 注册资产 + 终端网络</td>
+          </tr>
+          <tr style="background:rgba(230,126,34,0.05)">
+            <td><strong>⑧ 汇率波动(港元/美元)</strong></td>
+            <td>中</td>
+            <td>低</td>
+            <td style="color:var(--amber)">⚠️ 中</td>
+            <td>多币种结算 · 自然对冲</td>
+          </tr>
+          <tr style="background:rgba(230,126,34,0.05)">
+            <td><strong>⑨ 十五五规划落地不及预期</strong></td>
+            <td>低</td>
+            <td>中</td>
+            <td style="color:var(--amber)">⚠️ 中</td>
+            <td>参与标准制定 · 老字号牵头单位</td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong>⑩ 假冒伪劣冲击</strong></td>
+            <td>低</td>
+            <td>中</td>
+            <td style="color:var(--jade)">⚠️ 低</td>
+            <td>防伪技术 · 法律维权 · 渠道管控</td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong>⑪ 中医文化接受度差异</strong></td>
+            <td>低</td>
+            <td>中</td>
+            <td style="color:var(--jade)">⚠️ 低</td>
+            <td>本土化推广 · 中西医结合</td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong>⑫ 关键管理层变动</strong></td>
+            <td>低</td>
+            <td>中</td>
+            <td style="color:var(--jade)">⚠️ 低</td>
+            <td>团队稳定 · 制度化运营</td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong>⑬ ESG 与动物保护争议</strong></td>
+            <td>低</td>
+            <td>中</td>
+            <td style="color:var(--jade)">⚠️ 低</td>
+            <td>人工麝香 · 替代原料研发 · 牛黄进口替代</td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong>⑭ 中药材质量标准争议</strong></td>
+            <td>低</td>
+            <td>中</td>
+            <td style="color:var(--jade)">⚠️ 低</td>
+            <td>GAP + 数字化追溯 · 海关新政合规</td>
+          </tr>
+          <tr style="background:rgba(22,160,133,0.05)">
+            <td><strong>⑮ 海外子公司治理风险</strong></td>
+            <td>低</td>
+            <td>低</td>
+            <td style="color:var(--jade)">⚠️ 低</td>
+            <td>本地化团队 · 总部管控</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="chart-box">
+        <canvas id="riskChart" style="max-height:400px"></canvas>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">09·2</span>
+        <span>极高风险深度拆解 · 三大关注点</span>
+      </div>
+
+      <div class="grid grid-3" style="margin-top:24px">
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--crimson)">⚠️ ① 战略调整阵痛期延长</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7;margin-bottom:12px">
+            2025 营收 -6.1%、2026H1 -21% 表明"控量保价"战略正处于阵痛期。
+            市场需时间验证战略有效性，<span class="hl-rose">若 2026H2 越南/柬埔寨放量不达预期，股价将持续承压</span>。
+          </p>
+          <div style="padding:12px;background:rgba(22,160,133,0.06);border-radius:8px">
+            <div style="font-size:0.75rem;color:var(--jade);font-weight:700;margin-bottom:6px">应对策略</div>
+            <ul style="font-size:0.75rem;color:var(--ink-2);padding-left:16px;line-height:1.6">
+              <li>毛利率持续 63%+ 验证盈利能力</li>
+              <li>现金 HK$22.79 亿提供战略安全垫</li>
+              <li>派息率 78% 彰显管理层信心</li>
+              <li>2026H2 越南首批产品上市验证放量</li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--crimson)">⚠️ ② 中美贸易摩擦</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7;margin-bottom:12px">
+            2025 美国市场提取物 -10.8%、中药材 -24.4%，<span class="hl">贸易摩擦持续影响北美市场</span>。
+            但作为中药龙头，同仁堂在 FDA 路径上仍需 8-15 年突破。
+          </p>
+          <div style="padding:12px;background:rgba(22,160,133,0.06);border-radius:8px">
+            <div style="font-size:0.75rem;color:var(--jade);font-weight:700;margin-bottom:6px">应对策略</div>
+            <ul style="font-size:0.75rem;color:var(--ink-2);padding-left:16px;line-height:1.6">
+              <li>市场多元化(东南亚/中东欧/上合)</li>
+              <li>跨境电商对冲地理限制</li>
+              <li>膳食补充剂定位 + 文化推广</li>
+              <li>加拿大 NPN 替代美国路径</li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel" style="margin-bottom:0">
+          <h4 style="color:var(--crimson)">⚠️ ③ 中成药出口承压</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7;margin-bottom:12px">
+            2025 中成药出口 -12.1%，<span class="hl-rose">"重装部队"(处方药注册)路径受阻</span>。
+            但"轻骑兵"(药食同源/大健康)出海加速。<span class="hl-jade">"重+轻"双轨是关键</span>。
+          </p>
+          <div style="padding:12px;background:rgba(22,160,133,0.06);border-radius:8px">
+            <div style="font-size:0.75rem;color:var(--jade);font-weight:700;margin-bottom:6px">应对策略</div>
+            <ul style="font-size:0.75rem;color:var(--ink-2);padding-left:16px;line-height:1.6">
+              <li>持续重装部队注册(安宫/养阴清肺等)</li>
+              <li>加大轻骑兵投入(牙膏/鹿产品/NMN)</li>
+              <li>2025.12 海关药食同源新政红利</li>
+              <li>跨境电商 GMV 加速放量</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ X. 投资决策 ============ -->
+<section id="sec10">
+  <div class="wrap">
+    <div class="section-eyebrow">PART X · INVESTMENT DECISION</div>
+    <h2 class="section-title serif">投资决策与条款建议 (2026 Q3 更新)</h2>
+    <p class="section-lead">
+      综合上述 9 章分析，本节给出<span class="hl">具体的投资评级、目标价、仓位建议、买入节奏与监控指标</span>。
+      <strong style="color:var(--jade)">已根据 2025 年报 + 2026H1 + 十五五规划全面更新</strong>。
+    </p>
+
+    <div class="verdict">
+      <div class="verdict-rating">A · 增持 · 12个月目标价 HK$10.5-12.0 / 股 (基于 2026.8.31 HK$5.955 收盘价，上行空间 +75-100%)</div>
+      <h2 class="serif">「国资旗舰 × 品牌IP × 监管护城河 × 十五五顶层规划」四因共振，<br><span class="gradient-text-warm">短期阵痛已 price-in，估值底部信号明确</span></h2>
+      <p style="font-size:1.0625rem;color:var(--ink-2);line-height:1.8;margin-top:20px">
+        同仁堂海外板块是<span style="color:var(--ink-1);font-weight:700">中医药出海领域唯一一个同时具备"国资背书 + 357年品牌IP + 26国终端 + 1200+海外注册 + 港股独立融资平台 + 十五五规划核心受益方"六重属性的资产</span>。
+        <span style="color:var(--ink-1);font-weight:700">2025 营收 -6.1% / 2026H1 营收 -21%</span>看似剧烈，<span class="hl-jade">实为"控量保价 + 主动收紧分销 + 产品结构优化"三大主动战略调整</span>，
+        <span style="color:var(--ink-1);font-weight:700">毛利率 63.9%(+3.1pp)创历史新高、现金 22.79 亿港元(+25.25%)、派息率 78%</span>印证基本面健康。
+        十五五规划(2026.7)+ 工信部出海方案(2026.2)+ 海关药食同源新政(2025.12)<span style="color:var(--ink-1);font-weight:700">三重政策红利叠加</span>。
+        本报告建议<span style="color:var(--ink-1);font-weight:700">"增持"评级，12个月目标价 HK$10.5-12.0/股</span>，
+        <span style="color:var(--ink-1);font-weight:700">较 2026.8.31 HK$5.955 收盘价有 75-100% 上行空间</span>。
+      </p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">10·1</span>
+        <span>投资决策矩阵 (2026.8.31 更新)</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <h4 style="color:var(--gold);margin-bottom:12px">📋 投资建议</h4>
+          <table>
+            <tbody>
+              <tr><td><strong>评级</strong></td><td><span class="hl-jade">增持 (Overweight)</span></td></tr>
+              <tr><td><strong>当前股价 (2026.8.31)</strong></td><td>HK$5.955</td></tr>
+              <tr><td><strong>12个月目标价</strong></td><td>HK$10.5 - 12.0 / 股</td></tr>
+              <tr><td><strong>对应市值</strong></td><td>HK$115 - 160 亿</td></tr>
+              <tr><td><strong>上行空间</strong></td><td style="color:var(--jade)"><strong>+75% 至 +100%</strong></td></tr>
+              <tr><td><strong>建议仓位</strong></td><td>组合 5-8%</td></tr>
+              <tr><td><strong>持有周期</strong></td><td>12-24 个月</td></tr>
+              <tr><td><strong>风险评级</strong></td><td>中高 (阵痛期)</td></tr>
+              <tr><td><strong>派息率 (TTM)</strong></td><td><strong style="color:var(--jade)">78%</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h4 style="color:var(--jade);margin-bottom:12px">🎯 关键监控指标</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.9">
+            <li><strong>① 越南首批产品商业化进展</strong>(2026H2 - 2027H1)</li>
+            <li><strong>② 柬埔寨安宫牛黄丸放量节奏</strong></li>
+            <li><strong>③ 跨境电商 GMV 增速</strong>(季度披露)</li>
+            <li><strong>④ KIWISH 鹿产品销售爬坡</strong>(新西兰)</li>
+            <li><strong>⑤ 龈养素牙膏海外推广</strong>(2026H2)</li>
+            <li><strong>⑥ 俄罗斯合作落地</strong>(IRIMIS 渠道)</li>
+            <li><strong>⑦ 毛利率持续性</strong>(63%+ 阈值)</li>
+            <li><strong>⑧ 十五五规划配套政策细则</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">10·2</span>
+        <span>买入节奏 · 4 阶段分批建仓</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>阶段</th>
+            <th>时间窗口</th>
+            <th>建仓比例</th>
+            <th>触发条件</th>
+            <th>目标价</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>第一阶段(试探)</td>
+            <td>2026 Q4</td>
+            <td>25%</td>
+            <td>越南首批产品商业化 + 柬埔寨放量</td>
+            <td>HK$6.0-7.0</td>
+          </tr>
+          <tr>
+            <td>第二阶段(加仓)</td>
+            <td>2027 H1</td>
+            <td>25%</td>
+            <td>越南产品放量 + 跨境电商 GMV 加速</td>
+            <td>HK$7.5-8.5</td>
+          </tr>
+          <tr>
+            <td>第三阶段(突破)</td>
+            <td>2027 H2</td>
+            <td>25%</td>
+            <td>俄/中东突破 + 海外终端达 180+</td>
+            <td>HK$9.0-10.0</td>
+          </tr>
+          <tr>
+            <td>第四阶段(收尾)</td>
+            <td>2028 H1</td>
+            <td>25%</td>
+            <td>目标价 HK$10.5-12.0 兑现</td>
+            <td>HK$10.5-12.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">10·3</span>
+        <span>止损与再平衡机制</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <h4 style="color:var(--crimson);margin-bottom:12px">🛑 止损触发</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>越南 GMP 取消 / 政策逆转</li>
+            <li>2027H1 营收同比跌幅 &gt; 20%</li>
+            <li>毛利率连续 2 季度跌破 55%</li>
+            <li>管理层重大变动 / 国资改革方向逆转</li>
+            <li>系统性中药出海政策收紧</li>
+            <li>派息率从 78% 大幅回落至 &lt; 50%</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:var(--jade);margin-bottom:12px">🔄 再平衡机制</h4>
+          <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+            <li>每季度根据业绩更新翻牌</li>
+            <li>达到目标价 80% 时减仓 1/3 锁定利润</li>
+            <li>估值超 35× PE 减仓，&lt; 18× PE 加仓</li>
+            <li>港股通净流入连续 3 月加速时加仓</li>
+            <li>同行业出现重大正面/负面事件时调整</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ XI. 未来发展路径 ============ -->
+<section id="sec11">
+  <div class="wrap">
+    <div class="section-eyebrow">PART XI · FUTURE PATHS</div>
+    <h2 class="section-title serif">未来发展路径 (十五五愿景)</h2>
+    <p class="section-lead">
+      十五五规划明确<span class="hl">"到 2030 年中医药文化与国际影响力进一步提升"</span>。
+      同仁堂海外板块未来 3-5 年的发展路径呈现"<strong style="color:var(--jade)">三栖变现 + 双轨出海</strong>"趋势。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">11·1</span>
+        <span>路径 A · 跨境电商 + 海外仓爆发(概率 40%)</span>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:24px">
+        <div>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            <span class="hl">"五位一体 + 轻骑兵"</span>格局已成形，下一步是<span class="hl-jade">"线下终端饱和 + 跨境电商放量 + 海外仓建设"</span>。
+            <span class="hl-rose">2026.2 工信部方案首次明确"支持中药跨境电商建设海外仓"</span>，是历史性政策红利。
+          </p>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7;margin-top:12px">
+            假设 2026-2028 年跨境电商 GMV CAGR 达 40-60%，
+            预计 2028 年跨境电商营收占比可从当前 5% 提升至<span class="hl">20-25%</span>。
+            <span class="hl-jade">2025 跨境电商保健类全口径 GMV 已达 45.6 亿美元(+7.2%)</span>。
+          </p>
+        </div>
+        <div>
+          <div class="bar-chart">
+            <div class="bar-fill" style="width:5%">5% (2024)</div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-fill" style="width:10%">10% (2025E)</div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-fill" style="width:15%">15% (2026E)</div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-fill" style="width:20%;background:linear-gradient(90deg,#16a085,#27ae60)">20% (2027E)</div>
+          </div>
+          <div class="dim" style="margin-top:8px;font-size:0.75rem">跨境电商营收占比演进</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">11·2</span>
+        <span>路径 B · 区域多元化(概率 30%)</span>
+      </div>
+
+      <p style="margin-bottom:16px">
+        当前海外营收高度集中于港澳(占比 50%+)，
+        <span class="hl-rose">"去港澳化"</span>是必然趋势。
+        预计 2027-2030 年，<span class="hl-jade">东南亚、澳新、北美、中东、俄罗斯、南美</span>六大区域将分别贡献 12-20% 海外营收，
+        形成"<strong style="color:var(--ink-1)">区域均衡分布</strong>"格局。
+      </p>
+
+      <div class="grid grid-3" style="margin-top:20px">
+        <div class="panel" style="margin-bottom:0;text-align:center">
+          <h4 style="color:var(--gold)">东南亚</h4>
+          <div style="font-size:1.5rem;font-weight:800;color:var(--gold);margin:8px 0">20%</div>
+          <div style="font-size:0.75rem;color:var(--ink-2)">越南+柬埔寨+泰马新</div>
+        </div>
+        <div class="panel" style="margin-bottom:0;text-align:center">
+          <h4 style="color:var(--jade)">澳新</h4>
+          <div style="font-size:1.5rem;font-weight:800;color:var(--jade);margin:8px 0">18%</div>
+          <div style="font-size:0.75rem;color:var(--ink-2)">KIWISH 鹿产品</div>
+        </div>
+        <div class="panel" style="margin-bottom:0;text-align:center">
+          <h4 style="color:var(--azure)">北美</h4>
+          <div style="font-size:1.5rem;font-weight:800;color:var(--azure);margin:8px 0">15%</div>
+          <div style="font-size:0.75rem;color:var(--ink-2)">加拿大 NPN + 美国</div>
+        </div>
+        <div class="panel" style="margin-bottom:0;text-align:center">
+          <h4 style="color:var(--amber)">中东</h4>
+          <div style="font-size:1.5rem;font-weight:800;color:var(--amber);margin:8px 0">12%</div>
+          <div style="font-size:0.75rem;color:var(--ink-2)">阿联酋迪拜样板</div>
+        </div>
+        <div class="panel" style="margin-bottom:0;text-align:center">
+          <h4 style="color:var(--crimson)">俄罗斯/上合</h4>
+          <div style="font-size:1.5rem;font-weight:800;color:var(--crimson);margin:8px 0">15%</div>
+          <div style="font-size:0.75rem;color:var(--ink-2)">IRIMIS + 哈萨克斯坦</div>
+        </div>
+        <div class="panel" style="margin-bottom:0;text-align:center">
+          <h4 style="color:var(--violet)">南美 + 其他</h4>
+          <div style="font-size:1.5rem;font-weight:800;color:var(--violet);margin:8px 0">10%</div>
+          <div style="font-size:0.75rem;color:var(--ink-2)">乌拉圭 + 非洲</div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;font-size:0.875rem;color:var(--ink-2);text-align:center">
+        <strong style="color:var(--ink-1)">2030E 区域分布预测</strong> · 港澳 50% / 海外 50% · <span class="hl-jade">告别"港澳独大"</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">11·3</span>
+        <span>路径 C · "轻骑兵"大健康产品爆发(概率 20%)</span>
+      </div>
+
+      <p style="margin-bottom:16px">
+        <span class="hl">龈养素牙膏 · KIWISH 鹿产品 · NMN 系列 · 药食同源</span>
+        已开始放量，预计 2026-2028 年大健康产品营收占比从当前 ~15% 提升至 <span class="hl-jade">25-30%</span>。
+        <br><br>
+        <strong style="color:var(--jade)">2025.12 海关"药食同源"新政</strong>为这条路径提供通关便利化、降低合规成本。
+      </p>
+
+      <div class="callout">
+        <div class="callout-title">大健康产品的战略意义</div>
+        <div class="callout-body">
+          大健康产品是<span class="hl">"绕过药品监管壁垒 + 借助品牌 IP + 切入消费品市场"</span>的破局路径。
+          <span class="hl-jade">新西兰 KIWISH 鹿产品 + 香港龈养素牙膏 + 抗衰老 NMN</span>是这条路径的"先头部队"。
+          <br><br>
+          <strong style="color:var(--rose)">2025 中成药出口 -12.1% 的现实告诉我们</strong>：
+          "重装部队"(处方药国际注册)周期长、风险高、单价贵；
+          "轻骑兵"(大健康消费品)周期短、风险低、易复制。
+          <br><br>
+          <span class="hl-jade">同仁堂率先完成战略转型，是中药出海行业的"转型范本"</span>。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">11·4</span>
+        <span>路径 D · 中医服务出口升级(概率 10%)</span>
+      </div>
+
+      <p style="margin-bottom:16px">
+        中医服务出口是<span class="hl-rose">"高门槛、高估值、高增长"</span>的"第三条曲线"。
+        <span class="hl-jade">2025 澳门设立全球首家"体验式、创新式"中医药文化体验中心</span>，
+        是这条路径的标志性事件。
+        <br><br>
+        <strong style="color:var(--jade)">十五五规划明确</strong>"开展中医药入境消费试点" + "打造具有国际影响力的中医药品牌" + "开发中医药国际通用教材"——
+        政策将驱动中医服务出口进入快速放量期。
+      </p>
+
+      <div class="callout">
+        <div class="callout-title">服务贸易 · 第三曲线的潜力</div>
+        <div class="callout-body">
+          单店"体验式"中医综合体年收入可达<span class="hl">¥2000-5000 万</span>(中医诊疗 + 保健品 + 文化体验 + 教育)，
+          未来 5 年若新建 30+ 家境外"中医综合体"，
+          服务贸易可贡献<span class="hl-jade">¥10-15 亿增量收入</span>。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ XII. 附录 ============ -->
+<section id="sec12">
+  <div class="wrap">
+    <div class="section-eyebrow">PART XII · APPENDICES</div>
+    <h2 class="section-title serif">附录 · 数据合规与延伸阅读 (2026 更新版)</h2>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">12·1</span>
+        <span>数据来源与口径 (更新至 2026)</span>
+      </div>
+
+      <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.8">
+        <li>同仁堂国药(3613.HK)2025 年报、2026 中期业绩</li>
+        <li>同仁堂股份(600085.SH)2025 年报</li>
+        <li>同仁堂集团(北京市国资委下属)公开披露</li>
+        <li><strong>国家中医药管理局《中医药振兴发展"十五五"规划》(2026.7.16 印发)</strong></li>
+        <li><strong>工信部等八部门《中药工业高质量发展实施方案(2026—2030)》(2026.2 印发)</strong></li>
+        <li><strong>海关总署等四部门《关于试点实施进口食药物质分类管理措施的公告》(2025.12)</strong></li>
+        <li>中国海关 2025 年中药类商品进出口数据</li>
+        <li>中国医药保健品进出口商会 2025 年度报告</li>
+        <li>WHO 2024 世界传统医药大会报告</li>
+        <li>国家中医药管理局 + 发改委政策解读(中新网 2026.7.23)</li>
+        <li>国务院办公厅《关于提升中药质量促进中医药产业高质量发展的意见》</li>
+        <li>3613.HK 同花顺 / 新浪财经公开行情</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">12·2</span>
+        <span>关键术语对照表</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>术语</th>
+            <th>英文</th>
+            <th>解释</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>GAP</td><td>Good Agricultural Practice</td><td>中药材规范化种植</td></tr>
+          <tr><td>GMP</td><td>Good Manufacturing Practice</td><td>药品生产质量管理规范</td></tr>
+          <tr><td>NPN</td><td>Natural Product Number</td><td>加拿大天然药品编号</td></tr>
+          <tr><td>THMPD</td><td>Traditional Herbal Medicinal Products Directive</td><td>欧盟传统草药制品指令</td></tr>
+          <tr><td>HACCP</td><td>Hazard Analysis Critical Control Point</td><td>危害分析重要管制点</td></tr>
+          <tr><td>ISO 22000</td><td>—</td><td>食品安全管理体系</td></tr>
+          <tr><td>PCT</td><td>Patent Cooperation Treaty</td><td>国际专利申请</td></tr>
+          <tr><td>BRI</td><td>Belt and Road Initiative</td><td>"一带一路"倡议</td></tr>
+          <tr><td>RCEP</td><td>Regional Comprehensive Economic Partnership</td><td>区域全面经济伙伴关系协定</td></tr>
+          <tr><td>NMN</td><td>Nicotinamide Mononucleotide</td><td>烟酰胺单核苷酸(抗衰)</td></tr>
+          <tr><td>药食同源</td><td>Medicine-Food Homology</td><td>中药材兼具食品/药品双重身份</td></tr>
+          <tr><td>"轻骑兵"</td><td>—</td><td>大健康消费品出海路径(2025 概念)</td></tr>
+          <tr><td>"重装部队"</td><td>—</td><td>处方药国际注册出海路径(传统路径)</td></tr>
+          <tr><td>海外仓</td><td>Overseas Warehouse</td><td>跨境电商境外仓储设施</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">12·3</span>
+        <span>延伸阅读清单 (2026 最新)</span>
+      </div>
+
+      <ul style="font-size:0.875rem;color:var(--ink-2);padding-left:18px;line-height:1.9">
+        <li>《中医药振兴发展"十五五"规划》— 国家中医药管理局 (2026.7.16)</li>
+        <li>《中药工业高质量发展实施方案(2026—2030 年)》— 工信部等八部门 (2026.2)</li>
+        <li>《关于试点实施进口食药物质分类管理措施的公告》— 海关总署等四部门 (2025.12)</li>
+        <li>《2025 年中药类商品进出口分析》— 中国中医药报 (2026.2.12)</li>
+        <li>《中药外贸在波动中寻求增长与突破》— 中国食品药品网 (2026.3.30)</li>
+        <li>《同仁堂国药发布 2025 年度业绩：研产营销协同发力 经营韧性》— 新浪财经 (2026.3.20)</li>
+        <li>《同仁堂国药(3613.HK)：百年国药出海深耕，稳扎稳打锚定长期价值》— 格隆汇</li>
+        <li>《港股异动 | 同仁堂国药跌超 8% 上半年纯利同比减少 15.6%》— 腾讯新闻 (2026.8.31)</li>
+        <li>《同仁堂(600085.SH)发布 2025 年度业绩，归母净利润 11.89 亿元》— 新浪财经 (2026.3.30)</li>
+        <li>《Corporate Heritage Brands in China: Tong Ren Tang》— Palgrave Macmillan</li>
+        <li>《Valuation Analysis of Tong Ren Tang's Price Based on PB Ratio Method》— Financial Studies</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">
+        <span class="num">12·4</span>
+        <span>免责声明</span>
+      </div>
+
+      <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.8">
+        本报告基于公开信息整理与合理推断，不构成任何投资建议。
+        报告中的数据、观点、结论均可能因后续信息更新而变化。
+        投资者应基于自身风险承受能力、财务状况、投资目标作出独立判断，
+        并自行承担投资风险。本报告作者不对任何因依赖本报告而产生的损失负责。
+        <br><br>
+        <strong style="color:var(--crimson)">风险提示</strong>：中医药出海受地缘政治、监管政策、市场需求、原料价格等多重因素影响，
+        历史业绩不代表未来表现。本报告所提及的"增持"评级、目标价、概率预测均为基于公开信息的判断，
+        实际情况可能与预测存在重大差异。2025-2026 战略调整阵痛期仍需时间验证。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<div class="footer">
+  <div class="wrap">
+    <p style="font-family:var(--serif);font-size:1.125rem;color:var(--gold);margin-bottom:12px">同仁堂海外板块 · 三百年老字号的中医药国际化远征</p>
+    <p><strong>报告机构 ·</strong> 上海张小强企业咨询事务所</p>
+    <p>2026 Q3 顶级研究尽调报告 · 第 13 期 · 十五五规划版</p>
+    <p style="margin-top:8px">数据截至 2026 年 8 月 31 日 · 基于 2025 年报 + 2026 中期业绩 + 十五五规划全面更新</p>
+    <p style="margin-top:8px">基于公开信息整理 · 不构成投资建议</p>
+    <p style="margin-top:12px;font-size:0.75rem;color:var(--ink-2)">版权所有 © 2026 上海张小强企业咨询事务所 · 保留所有权利</p>
+    <p style="margin-top:16px;font-size:0.6875rem">Built with care for institutional research · 2026 Sep</p>
+  </div>
+</div>
+
+<script>
+// ===== 1. 中药出口结构饼图 =====
+new Chart(document.getElementById('exportChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['植物提取物 (58.5%)', '中药材及饮片 (24.6%)', '保健品 (10.0%)', '中成药 (6.9%)'],
+    datasets: [{
+      data: [29.8, 12.5, 5.1, 3.5],
+      backgroundColor: ['rgba(212,175,55,0.8)', 'rgba(192,57,43,0.8)', 'rgba(22,160,133,0.8)', 'rgba(230,126,34,0.8)'],
+      borderColor: 'rgba(10,6,6,1)',
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'right', labels: { color: '#c4a896', font: { size: 12 } } },
+      title: { display: true, text: '2025 中国中药类出口结构 (50.9 亿美元, -5.2%)', color: '#d4af37', font: { size: 14, weight: 'bold' } }
+    }
+  }
+});
+
+// ===== 2. 区域分布条形图 =====
+new Chart(document.getElementById('regionChart'), {
+  type: 'bar',
+  data: {
+    labels: ['港澳大本营', '东南亚', '澳新', '欧洲', '北美', '中东/南美/俄语区'],
+    datasets: [{
+      label: '终端数',
+      data: [32, 50, 8, 35, 25, 15],
+      backgroundColor: ['rgba(212,175,55,0.7)', 'rgba(22,160,133,0.7)', 'rgba(41,128,185,0.7)', 'rgba(192,57,43,0.7)', 'rgba(230,126,34,0.7)', 'rgba(142,68,173,0.7)'],
+      borderColor: ['rgba(212,175,55,1)', 'rgba(22,160,133,1)', 'rgba(41,128,185,1)', 'rgba(192,57,43,1)', 'rgba(230,126,34,1)', 'rgba(142,68,173,1)'],
+      borderWidth: 2,
+      borderRadius: 8
+    }]
+  },
+  options: {
+    responsive: true,
+    indexAxis: 'y',
+    plugins: {
+      legend: { display: false },
+      title: { display: true, text: '海外九大区域终端分布 (家)', color: '#d4af37', font: { size: 14, weight: 'bold' } }
+    },
+    scales: {
+      x: { ticks: { color: '#c4a896' }, grid: { color: 'rgba(148,138,114,0.1)' } },
+      y: { ticks: { color: '#c4a896', font: { size: 12 } }, grid: { display: false } }
+    }
+  }
+});
+
+// ===== 3. 竞争力雷达图 =====
+new Chart(document.getElementById('radarChart'), {
+  type: 'radar',
+  data: {
+    labels: ['品牌 IP', '境外注册资产', '终端网络', '海外营收占比', '政策红利', '财务质量'],
+    datasets: [
+      {
+        label: '同仁堂系',
+        data: [10, 10, 10, 9, 10, 10],
+        backgroundColor: 'rgba(212,175,55,0.25)',
+        borderColor: 'rgba(212,175,55,1)',
+        borderWidth: 3,
+        pointBackgroundColor: '#d4af37'
+      },
+      {
+        label: '片仔癀',
+        data: [8, 4, 3, 5, 6, 9],
+        backgroundColor: 'rgba(22,160,133,0.2)',
+        borderColor: 'rgba(22,160,133,1)',
+        borderWidth: 2,
+        pointBackgroundColor: '#16a085'
+      },
+      {
+        label: '云南白药',
+        data: [6, 5, 2, 3, 5, 7],
+        backgroundColor: 'rgba(192,57,43,0.2)',
+        borderColor: 'rgba(192,57,43,1)',
+        borderWidth: 2,
+        pointBackgroundColor: '#c0392b'
+      },
+      {
+        label: '以岭药业',
+        data: [5, 3, 2, 5, 6, 6],
+        backgroundColor: 'rgba(230,126,34,0.2)',
+        borderColor: 'rgba(230,126,34,1)',
+        borderWidth: 2,
+        pointBackgroundColor: '#e67e22'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#c4a896', font: { size: 12 } } },
+      title: { display: true, text: '中药出海四类玩家多维对比 (2025-2026)', color: '#d4af37', font: { size: 14, weight: 'bold' } }
+    },
+    scales: {
+      r: {
+        beginAtZero: true,
+        max: 10,
+        ticks: { color: '#8a6e5e', stepSize: 2, backdropColor: 'transparent' },
+        grid: { color: 'rgba(148,138,114,0.2)' },
+        angleLines: { color: 'rgba(148,138,114,0.2)' },
+        pointLabels: { color: '#c4a896', font: { size: 12, weight: 'bold' } }
+      }
+    }
+  }
+});
+
+// ===== 4. 营收历史曲线 =====
+new Chart(document.getElementById('revenueChart'), {
+  type: 'line',
+  data: {
+    labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026H1'],
+    datasets: [
+      {
+        label: '营业收入 (HK$M)',
+        data: [1162, 1376, 1524, 1524.9, 1611.6, 1513, 601.9],
+        borderColor: 'rgba(212,175,55,1)',
+        backgroundColor: 'rgba(212,175,55,0.15)',
+        tension: 0.35,
+        fill: true,
+        borderWidth: 3,
+        pointBackgroundColor: '#d4af37',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+        pointRadius: 6
+      },
+      {
+        label: '净利润 (HK$M)',
+        data: [390, 500, 555, 571.4, 529.2, 417, 198.2],
+        borderColor: 'rgba(22,160,133,1)',
+        backgroundColor: 'rgba(22,160,133,0.1)',
+        tension: 0.35,
+        fill: true,
+        borderWidth: 3,
+        pointBackgroundColor: '#16a085',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2,
+        pointRadius: 6
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#c4a896', font: { size: 12 } } },
+      title: { display: true, text: '3613.HK 营收与净利润趋势 (2020-2026H1)', color: '#d4af37', font: { size: 14, weight: 'bold' } }
+    },
+    scales: {
+      x: { ticks: { color: '#c4a896' }, grid: { color: 'rgba(148,138,114,0.1)' } },
+      y: { ticks: { color: '#c4a896' }, grid: { color: 'rgba(148,138,114,0.1)' } }
+    }
+  }
+});
+
+// ===== 5. 情景预测 =====
+new Chart(document.getElementById('forecastChart'), {
+  type: 'bar',
+  data: {
+    labels: ['2026E', '2027E', '2028E'],
+    datasets: [
+      {
+        label: '悲观情景',
+        data: [1360, 1430, 1540],
+        backgroundColor: 'rgba(192,57,43,0.7)',
+        borderColor: '#c0392b',
+        borderWidth: 2,
+        borderRadius: 6
+      },
+      {
+        label: '中性情景',
+        data: [1580, 1780, 1980],
+        backgroundColor: 'rgba(212,175,55,0.7)',
+        borderColor: '#d4af37',
+        borderWidth: 2,
+        borderRadius: 6
+      },
+      {
+        label: '乐观情景',
+        data: [1700, 2000, 2400],
+        backgroundColor: 'rgba(22,160,133,0.7)',
+        borderColor: '#16a085',
+        borderWidth: 2,
+        borderRadius: 6
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#c4a896', font: { size: 12 } } },
+      title: { display: true, text: '2026-2028E 营收情景预测 (HK$M, 基于 2025 实绩)', color: '#d4af37', font: { size: 14, weight: 'bold' } }
+    },
+    scales: {
+      x: { ticks: { color: '#c4a896' }, grid: { color: 'rgba(148,138,114,0.1)' } },
+      y: { ticks: { color: '#c4a896' }, grid: { color: 'rgba(148,138,114,0.1)' } }
+    }
+  }
+});
+
+// ===== 6. 风险矩阵气泡图 =====
+new Chart(document.getElementById('riskChart'), {
+  type: 'bubble',
+  data: {
+    datasets: [{
+      label: '风险项',
+      data: [
+        {x: 5, y: 9, r: 28, label: '① 战略调整阵痛'},
+        {x: 8, y: 5, r: 24, label: '② 中美贸易摩擦'},
+        {x: 8, y: 5, r: 24, label: '③ 中成药出口承压'},
+        {x: 5, y: 5, r: 14, label: '④ 原料价格波动'},
+        {x: 5, y: 5, r: 13, label: '⑤ 跨境电商监管'},
+        {x: 5, y: 5, r: 12, label: '⑥ 越南放量'},
+        {x: 5, y: 5, r: 12, label: '⑦ 同业竞争'},
+        {x: 5, y: 3, r: 10, label: '⑧ 汇率波动'},
+        {x: 3, y: 5, r: 10, label: '⑨ 十五五落地'},
+        {x: 2, y: 5, r: 8, label: '⑩ 假冒伪劣'},
+        {x: 2, y: 5, r: 8, label: '⑪ 文化差异'},
+        {x: 2, y: 5, r: 8, label: '⑫ 管理层变动'},
+        {x: 2, y: 5, r: 8, label: '⑬ ESG 争议'},
+        {x: 2, y: 5, r: 8, label: '⑭ 质量标准'},
+        {x: 2, y: 3, r: 7, label: '⑮ 子公司治理'}
+      ],
+      backgroundColor: [
+        'rgba(192,57,43,0.7)', 'rgba(192,57,43,0.7)', 'rgba(192,57,43,0.7)',
+        'rgba(230,126,34,0.7)', 'rgba(230,126,34,0.7)', 'rgba(230,126,34,0.7)',
+        'rgba(230,126,34,0.7)', 'rgba(230,126,34,0.7)', 'rgba(230,126,34,0.7)',
+        'rgba(22,160,133,0.7)', 'rgba(22,160,133,0.7)', 'rgba(22,160,133,0.7)',
+        'rgba(22,160,133,0.7)', 'rgba(22,160,133,0.7)', 'rgba(22,160,133,0.7)'
+      ],
+      borderColor: ['#c0392b', '#c0392b', '#c0392b', '#e67e22', '#e67e22', '#e67e22', '#e67e22', '#e67e22', '#e67e22', '#16a085', '#16a085', '#16a085', '#16a085', '#16a085', '#16a085'],
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      title: { display: true, text: '15项关键风险 · 概率(横)×影响(纵)×严重性(气泡) · 2026 Q3', color: '#d4af37', font: { size: 14, weight: 'bold' } }
+    },
+    scales: {
+      x: { min: 0, max: 10, title: { display: true, text: '发生概率', color: '#d4af37' }, ticks: { color: '#c4a896' }, grid: { color: 'rgba(148,138,114,0.1)' } },
+      y: { min: 0, max: 10, title: { display: true, text: '影响程度', color: '#d4af37' }, ticks: { color: '#c4a896' }, grid: { color: 'rgba(148,138,114,0.1)' } }
+    }
+  }
+});
+</script>
+</body>
+</html>
