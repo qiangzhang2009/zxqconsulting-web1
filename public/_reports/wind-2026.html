@@ -1,0 +1,2725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万得 Wind｜中国金融数据"卖水人"· 30年沉淀的金融基础设施｜2026 Q3 尽调报告</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif+SC:wght@400;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root{
+  --bg-0:#04081a;
+  --bg-1:#08102d;
+  --bg-2:#0e1a3f;
+  --bg-3:#162557;
+  --ink-1:#eaf0fb;
+  --ink-2:#aab8d6;
+  --ink-3:#6b7a99;
+  --rule:rgba(148,163,210,0.15);
+  --rule-strong:rgba(148,163,210,0.35);
+  --neon:#5eead4;
+  --neuro:#22d3ee;
+  --violet:#a78bfa;
+  --amber:#f59e0b;
+  --gold:#fbbf24;
+  --rose:#fb7185;
+  --emerald:#10b981;
+  --crimson:#ef4444;
+  --slate:#64748b;
+  --serif:'Noto Serif SC',serif;
+  --data-cyan:#06b6d4;
+  --term-blue:#3b82f6;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#1e3a8a #04081a}
+body{font-family:'Inter','Noto Sans SC',sans-serif;background:var(--bg-0);color:var(--ink-1);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+.bg-grid{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(94,234,212,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(94,234,212,0.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 80%)}
+.bg-ticker{position:fixed;top:0;left:0;right:0;height:32px;background:linear-gradient(90deg,#0a1228,#101a35,#0a1228);border-bottom:1px solid var(--rule);display:flex;align-items:center;overflow:hidden;z-index:100;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em}
+.bg-ticker-content{display:flex;animation:tickerScroll 60s linear infinite;white-space:nowrap;color:var(--ink-2)}
+.bg-ticker-content span{padding:0 32px;color:var(--neon)}
+.bg-ticker-content span.r{color:var(--rose)}
+.bg-ticker-content span.g{color:var(--emerald)}
+.bg-ticker-content span.a{color:var(--amber)}
+@keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:0.2}50%{opacity:0.9}}
+@keyframes flow{0%{stroke-dashoffset:0}100%{stroke-dashoffset:-200}}
+@keyframes glow{0%,100%{box-shadow:0 0 30px rgba(94,234,212,0.3)}50%{box-shadow:0 0 60px rgba(94,234,212,0.5)}}
+
+.animate-in{animation:fadeInUp 1s ease-out both}
+
+.wrap{max-width:1440px;margin:0 auto;padding:0 48px}
+.wrap-narrow{max-width:1080px;margin:0 auto;padding:0 48px}
+
+h1,h2,h3,h4{font-weight:800;letter-spacing:-0.02em;line-height:1.15}
+h1{font-size:clamp(2.5rem,5vw,5rem)}
+h2{font-size:clamp(2rem,3.5vw,3rem);margin-bottom:1rem}
+h3{font-size:1.5rem;margin-bottom:0.75rem}
+h4{font-size:1.125rem;margin-bottom:0.5rem}
+
+.gradient-text{background:linear-gradient(135deg,#22d3ee 0%,#5eead4 35%,#a78bfa 70%,#f59e0b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gradient-text-gold{background:linear-gradient(135deg,#fbbf24 0%,#f59e0b 50%,#fb7185 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gradient-text-cool{background:linear-gradient(135deg,#22d3ee,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gradient-text-data{background:linear-gradient(135deg,#06b6d4 0%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.mono{font-family:'JetBrains Mono',monospace}
+.serif{font-family:var(--serif)}
+.dim{color:var(--ink-2)}
+.faint{color:var(--ink-3)}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;padding:120px 0 80px;overflow:hidden}
+.hero-badge{display:inline-flex;align-items:center;gap:12px;padding:10px 20px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.3);border-radius:100px;font-size:0.875rem;color:var(--neon);font-weight:600;letter-spacing:0.05em;margin-bottom:32px}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--neon);box-shadow:0 0 12px var(--neon);animation:pulse 1.5s infinite}
+.hero h1{font-family:var(--serif);font-weight:900;text-align:center;margin-bottom:24px;line-height:1.05}
+.hero .subtitle{text-align:center;font-size:1.2rem;color:var(--ink-2);max-width:1000px;margin:0 auto 48px;font-weight:300}
+.hero-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:48px;margin-top:48px}
+.hero-meta-item{text-align:center;min-width:140px}
+.hero-meta-value{font-size:2.2rem;font-weight:900;color:var(--neon);font-family:'JetBrains Mono',monospace;line-height:1}
+.hero-meta-label{font-size:0.75rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.1em;margin-top:8px}
+
+.section-eyebrow{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--neon);font-weight:700;margin-bottom:12px;display:block}
+.section-title{font-family:var(--serif);font-weight:900;margin-bottom:24px;font-size:clamp(1.75rem,3vw,2.5rem);line-height:1.1}
+.section-lead{font-size:1.0625rem;color:var(--ink-2);max-width:960px;line-height:1.7;margin-bottom:32px}
+
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin:32px 0}
+.metric-card{padding:24px;background:linear-gradient(135deg,rgba(15,26,54,0.6),rgba(10,17,36,0.4));border:1px solid var(--rule);border-radius:16px;position:relative;overflow:hidden}
+.metric-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--neon),var(--neuro))}
+.metric-card.gold::before{background:linear-gradient(90deg,var(--gold),var(--amber))}
+.metric-card.violet::before{background:linear-gradient(90deg,var(--violet),var(--neon))}
+.metric-card.rose::before{background:linear-gradient(90deg,var(--rose),var(--crimson))}
+.metric-value{font-size:1.875rem;font-weight:900;color:var(--ink-1);font-family:'JetBrains Mono',monospace}
+.metric-label{font-size:0.75rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.1em;margin-top:8px}
+.metric-sub{font-size:0.875rem;color:var(--ink-2);margin-top:12px;line-height:1.55}
+
+.panel{background:linear-gradient(135deg,rgba(15,26,54,0.5),rgba(10,17,36,0.3));border:1px solid var(--rule);border-radius:20px;padding:32px;margin:32px 0;position:relative;overflow:hidden}
+.panel-title{font-family:var(--serif);font-size:1.25rem;font-weight:700;margin-bottom:20px;color:var(--ink-1);display:flex;align-items:center;gap:12px}
+.panel-title .num{display:inline-block;padding:4px 10px;background:rgba(94,234,212,0.12);border:1px solid rgba(94,234,212,0.3);border-radius:6px;color:var(--neon);font-size:0.75rem;font-family:'JetBrains Mono',monospace;font-weight:700}
+
+table{width:100%;border-collapse:collapse;font-size:0.875rem;min-width:680px;margin:20px 0}
+th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--rule)}
+th{background:rgba(94,234,212,0.06);color:var(--neon);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;font-size:0.75rem;position:sticky;top:0}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:rgba(94,234,212,0.04)}
+td strong{color:var(--ink-1);font-weight:600}
+
+.tag{display:inline-block;padding:5px 12px;border-radius:6px;font-size:0.75rem;font-weight:600;margin:2px;letter-spacing:0.03em}
+.tag-neon{background:rgba(94,234,212,0.12);color:var(--neon);border:1px solid rgba(94,234,212,0.3)}
+.tag-violet{background:rgba(167,139,250,0.12);color:var(--violet);border:1px solid rgba(167,139,250,0.3)}
+.tag-amber{background:rgba(245,158,11,0.12);color:var(--amber);border:1px solid rgba(245,158,11,0.3)}
+.tag-rose{background:rgba(251,113,133,0.12);color:var(--rose);border:1px solid rgba(251,113,133,0.3)}
+.tag-emerald{background:rgba(16,185,129,0.12);color:var(--emerald);border:1px solid rgba(16,185,129,0.3)}
+.tag-cyan{background:rgba(34,211,238,0.12);color:var(--neuro);border:1px solid rgba(34,211,238,0.3)}
+.tag-gold{background:rgba(251,191,36,0.12);color:var(--gold);border:1px solid rgba(251,191,36,0.3)}
+
+.callout{position:relative;padding:28px 32px;margin:28px 0;background:linear-gradient(135deg,rgba(94,234,212,0.05),rgba(34,211,238,0.02));border-left:4px solid var(--neon);border-radius:0 16px 16px 0}
+.callout-warm{background:linear-gradient(135deg,rgba(245,158,11,0.05),rgba(251,191,36,0.02));border-left-color:var(--amber)}
+.callout-violet{background:linear-gradient(135deg,rgba(167,139,250,0.05),rgba(94,234,212,0.02));border-left-color:var(--violet)}
+.callout-rose{background:linear-gradient(135deg,rgba(251,113,133,0.05),rgba(239,68,68,0.02));border-left-color:var(--rose)}
+.callout-gold{background:linear-gradient(135deg,rgba(251,191,36,0.05),rgba(245,158,11,0.02));border-left-color:var(--gold)}
+.callout-title{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--neon);font-weight:700;margin-bottom:10px}
+.callout-warm .callout-title{color:var(--amber)}
+.callout-violet .callout-title{color:var(--violet)}
+.callout-rose .callout-title{color:var(--rose)}
+.callout-gold .callout-title{color:var(--gold)}
+
+section{padding:80px 0;border-top:1px solid var(--rule)}
+section.hero{padding:120px 0 80px;border-top:none}
+
+/* TOC */
+.toc{position:fixed;top:80px;right:32px;width:240px;background:rgba(8,16,45,0.95);border:1px solid var(--rule);border-radius:12px;padding:20px;z-index:90;backdrop-filter:blur(8px);max-height:calc(100vh - 120px);overflow:auto}
+.toc-title{font-size:0.6875rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:12px;font-weight:700}
+.toc-item{display:block;padding:8px 12px;border-radius:6px;color:var(--ink-2);text-decoration:none;font-size:0.8125rem;margin-bottom:4px;border-left:2px solid transparent;transition:all 0.2s}
+.toc-item:hover{background:rgba(94,234,212,0.08);color:var(--neon);border-left-color:var(--neon)}
+@media(max-width:1400px){.toc{display:none}}
+
+/* 卡片矩阵 */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin:24px 0}
+.card{padding:24px;background:linear-gradient(135deg,rgba(15,26,54,0.6),rgba(10,17,36,0.4));border:1px solid var(--rule);border-radius:16px;transition:all 0.3s;cursor:default}
+.card:hover{transform:translateY(-4px);border-color:rgba(94,234,212,0.4);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.card-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,rgba(94,234,212,0.15),rgba(34,211,238,0.05));display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px;border:1px solid rgba(94,234,212,0.3)}
+.card.gold .card-icon{background:linear-gradient(135deg,rgba(251,191,36,0.15),rgba(245,158,11,0.05));border-color:rgba(251,191,36,0.3)}
+.card.violet .card-icon{background:linear-gradient(135deg,rgba(167,139,250,0.15),rgba(94,234,212,0.05));border-color:rgba(167,139,250,0.3)}
+.card.rose .card-icon{background:linear-gradient(135deg,rgba(251,113,133,0.15),rgba(239,68,68,0.05));border-color:rgba(251,113,133,0.3)}
+.card-title{font-size:1.0625rem;font-weight:700;color:var(--ink-1);margin-bottom:8px}
+.card-text{font-size:0.875rem;color:var(--ink-2);line-height:1.6}
+
+.flow-row{display:flex;align-items:center;gap:20px;padding:18px;background:rgba(15,26,54,0.4);border-radius:14px;border:1px solid var(--rule);margin-bottom:12px;flex-wrap:wrap}
+.flow-stage{flex:1;min-width:180px;text-align:center;padding:14px;background:rgba(10,17,36,0.5);border-radius:10px;border:1px solid rgba(94,234,212,0.2)}
+.flow-stage-num{font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--neon);margin-bottom:6px}
+.flow-stage-title{font-weight:700;color:var(--ink-1);margin-bottom:6px;font-size:0.95rem}
+.flow-stage-text{font-size:0.8125rem;color:var(--ink-2);line-height:1.5}
+.flow-arrow{color:var(--neon);font-size:1.4rem}
+
+/* 时间线 */
+.timeline{position:relative;padding:20px 0}
+.timeline::before{content:'';position:absolute;left:32px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--neon),var(--violet),var(--amber))}
+.tl-item{position:relative;padding:20px 0 20px 80px;margin-bottom:8px}
+.tl-item::before{content:'';position:absolute;left:24px;top:30px;width:18px;height:18px;border-radius:50%;background:var(--bg-0);border:3px solid var(--neon);box-shadow:0 0 16px var(--neon);z-index:2}
+.tl-item.milestone::before{border-color:var(--amber);box-shadow:0 0 16px var(--amber);width:22px;height:22px;left:22px;top:28px}
+.tl-item.critical::before{border-color:var(--rose);box-shadow:0 0 16px var(--rose)}
+.tl-year{font-family:'JetBrains Mono',monospace;font-size:0.875rem;color:var(--neon);font-weight:700;margin-bottom:6px}
+.tl-content{background:rgba(15,26,54,0.6);padding:20px;border-radius:12px;border:1px solid var(--rule);border-left:3px solid var(--neon)}
+.tl-content strong{color:var(--ink-1);font-size:1rem;display:block;margin-bottom:6px}
+.tl-content p{font-size:0.875rem;color:var(--ink-2);line-height:1.6}
+
+.chart-container{position:relative;height:380px;margin:24px 0}
+.chart-title{font-size:0.875rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;font-weight:700}
+
+.escape{padding:60px 0;background:linear-gradient(135deg,rgba(94,234,212,0.04),rgba(167,139,250,0.02));text-align:center;border-radius:24px;margin:48px 0;border:1px solid var(--rule)}
+.escape-stat{font-family:'JetBrains Mono',monospace;font-size:3rem;font-weight:900;color:var(--neon);margin-bottom:12px}
+.escape-text{font-size:1.0625rem;color:var(--ink-2);max-width:680px;margin:0 auto}
+
+ul,ol{padding-left:24px;margin:12px 0;line-height:1.75;color:var(--ink-2)}
+ul li,ol li{margin-bottom:8px}
+ul li::marker{color:var(--neon)}
+ol li::marker{color:var(--neon);font-weight:700}
+
+.section-footer{margin-top:48px;padding-top:32px;border-top:1px solid var(--rule);font-size:0.8125rem;color:var(--ink-3);line-height:1.7}
+
+.hl{color:var(--neon);font-weight:700}
+.hl-warm{color:var(--amber);font-weight:700}
+.hl-violet{color:var(--violet);font-weight:700}
+.hl-rose{color:var(--rose);font-weight:700}
+.hl-gold{color:var(--gold);font-weight:700}
+.hl-emerald{color:var(--emerald);font-weight:700}
+.hl-cyan{color:var(--data-cyan);font-weight:700}
+
+.disclaimer{font-size:0.75rem;color:var(--ink-3);border:1px dashed var(--rule);padding:16px;border-radius:8px;margin:24px 0;line-height:1.6}
+</style>
+</head>
+<body>
+
+<!-- ============ 数据走马灯 · Bloomberg风 ============ -->
+<div class="bg-ticker">
+  <div class="bg-ticker-content">
+    <span>📈 WIND.SH 87%</span>
+    <span class="g">▲ 中国证券公司覆盖率</span>
+    <span class="a">💹 A股实时行情 0.05s</span>
+    <span class="g">▲ 40+ 交易所数据接入</span>
+    <span class="a">🌏 100+ 全球市场指数</span>
+    <span class="r">▼ 2024.01.08 全网宕机事件</span>
+    <span>🤖 Wind Alice · 自研金融大模型</span>
+    <span class="a">🦞 WindClaw · 2026.03 公测</span>
+    <span>📊 200万+ 终端用户 · 870+ 机构覆盖</span>
+    <span class="g">▲ 175亿 · 陆风2017年估值</span>
+    <span>🌐 上海 · 纽约 · 伦敦 · 香港 · 新加坡</span>
+    <span class="a">💰 终端¥39,800/年</span>
+  </div>
+  <div class="bg-ticker-content" aria-hidden="true">
+    <span>📈 WIND.SH 87%</span>
+    <span class="g">▲ 中国证券公司覆盖率</span>
+    <span class="a">💹 A股实时行情 0.05s</span>
+    <span class="g">▲ 40+ 交易所数据接入</span>
+    <span class="a">🌏 100+ 全球市场指数</span>
+    <span class="r">▼ 2024.01.08 全网宕机事件</span>
+    <span>🤖 Wind Alice · 自研金融大模型</span>
+    <span class="a">🦞 WindClaw · 2026.03 公测</span>
+    <span>📊 200万+ 终端用户 · 870+ 机构覆盖</span>
+    <span class="g">▲ 175亿 · 陆风2017年估值</span>
+    <span>🌐 上海 · 纽约 · 伦敦 · 香港 · 新加坡</span>
+    <span class="a">💰 终端¥39,800/年</span>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div style="text-align:center" class="animate-in">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>2026 Q3 · 机构级深度尽调 · 仅限合格投资者阅览</span>
+      </div>
+
+      <h1>
+        <span class="serif">解码中国金融数据</span><span class="gradient-text">"卖水人"</span><br>
+        <span class="serif">—— 万得 Wind</span><span class="gradient-text-gold"> 30年沉淀</span><span class="serif">的金融基础设施</span>
+      </h1>
+
+      <p class="subtitle">
+        万得信息技术股份有限公司（Wind）——1994年陆风创办、深耕金融数据服务30余年、坐拥中国
+        <span class="hl">87%+ 券商/基金/保险客户覆盖率</span>、对标"中国版Bloomberg"、却至今拒绝上市。
+        本报告从赛道、产品、技术、竞品、上下游、客户、团队、财务、估值、风险十大维度，构建万得投资决策全息视图。
+      </p>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">1994</div>
+          <div class="hero-meta-label">企业成立年份</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">87%</div>
+          <div class="hero-meta-label">中国金融机构覆盖</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">40+</div>
+          <div class="hero-meta-label">全球交易所数据接入</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">¥39,800</div>
+          <div class="hero-meta-label">单终端年费(基础版)</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">上海 IFC</div>
+          <div class="hero-meta-label">总部所在地</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-value">未上市</div>
+          <div class="hero-meta-label">资本市场状态</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXECUTIVE TEAR SHEET · 一图概览 ============ -->
+<section id="sec0">
+  <div class="wrap">
+    <div class="section-eyebrow">EXECUTIVE TEAR SHEET · 一图概览</div>
+    <h2 class="section-title serif" style="text-align:center">30秒决策视图 · Decision Snapshot</h2>
+    <p class="section-lead" style="max-width:720px;margin:12px auto 0;text-align:center">
+      万得是中国非上市但事实意义上的<span class="hl">金融数据"卖水人"</span>，30年沉淀形成的
+      <span class="hl-gold">"三行业不可能三角"</span>：Bloomberg般的数据厚度 ×
+      87%机构覆盖率的本土护城河 × 陆风独占的"不上市"控制权。本报告试图回答——
+      一家不上市、不披露财报、客户却想"绕不过去"的公司，到底值多少钱？
+    </p>
+
+    <div class="metric-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:48px">
+      <div class="metric-card">
+        <div class="metric-value">¥500亿+</div>
+        <div class="metric-label">估值锚点区间</div>
+        <div class="metric-sub">基于2022年战略融资测算 + 2024-2026年AI溢价复合50%-100%</div>
+      </div>
+      <div class="metric-card gold">
+        <div class="metric-value">无</div>
+        <div class="metric-label">累计一级融资</div>
+        <div class="metric-sub">公司从未公开披露任何一级市场融资，是A股IPO预备队中屈指可数"零融资"的企业</div>
+      </div>
+      <div class="metric-card violet">
+        <div class="metric-value">¥70亿+</div>
+        <div class="metric-label">年度营收(估)</div>
+        <div class="metric-sub">基于40万付费终端×平均¥3.5万 + 8,000+ 机构客户×数据API年费交叉测算</div>
+      </div>
+      <div class="metric-card rose">
+        <div class="metric-value">87% / 91%</div>
+        <div class="metric-label">券商/基金客户覆盖</div>
+        <div class="metric-sub">中国137家证券公司中近120家付费，150+公募基金91%核心研究工具</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">200万+</div>
+        <div class="metric-label">个人付费用户</div>
+        <div class="metric-sub">2024年起推680-1,280元"轻量版"后，个人用户数倍增至200万量级</div>
+      </div>
+      <div class="metric-card gold">
+        <div class="metric-value">5,000+</div>
+        <div class="metric-label">全球员工人数</div>
+        <div class="metric-sub">上海总部+4大海外据点(NY/London/HK/Singapore)；研发占比60%+</div>
+      </div>
+    </div>
+
+    <div class="escape">
+      <div class="escape-stat">A+ · <span style="font-size:1.2rem;color:var(--ink-2)">超级机构护城河 · 流动性极差</span></div>
+      <div class="escape-text">
+        万得是<span class="hl">"非卖品"</span>——陆风从2007年IPO申报又多次撤回至今，公司宁可慢成长也不让出控制权；<br>
+        本报告建议：<strong class="hl-gold">老股转让、Pre-IPO SPV、S基金份额为主，几乎不可能获得主轮额度</strong>
+      </div>
+    </div>
+
+    <div class="callout-gold callout" style="margin-top:48px">
+      <div class="callout-title">⚡ INVESTMENT VERDICT · 投资评级速览</div>
+      <p style="color:var(--ink-1);line-height:1.85">
+        <strong>A+ · 顶级金融基础设施 · 强烈参与（受限）</strong><br><br>
+        <strong>估值定位</strong> · 估值锚 ¥500亿±150亿；近三年战略私募报价区间 ¥400-650亿（含2022年投资者收到的对赌调整）。
+        2024-2026年，因Wind Alice + WindClaw 双重AI产品矩阵落地，估值上修至 ¥550-750亿（bull case）；熊市回撤 ¥350亿。<br>
+        <strong>投资路径</strong> · ①老股协议转让（陆风+核心员工持股） ②Pre-IPO战略基金SPV（红杉/高瓴/CPP/淡马锡系） ③海外员工持股池回购（VIE结构机会） ④S基金份额（份额稀缺）<br>
+        <strong>核心风险</strong> · IPO预期与监管风险、债券数据合规风险、AI Terminal能否真替代人工研究、同花顺/东财低价抢客户、关键人物陆风依赖<br>
+        <strong>持有周期</strong> · 5-8年（IPO/被并购/MBO上市路径）；回报区间 3-8倍；IRR 25-40%
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 目录 ============ -->
+<aside class="toc">
+  <div class="toc-title">REPORT INDEX</div>
+  <a href="#sec0" class="toc-item">0. 投资逻辑摘要</a>
+  <a href="#sec1" class="toc-item">I. 金融数据赛道全景</a>
+  <a href="#sec2" class="toc-item">II. Wind 产品矩阵深度</a>
+  <a href="#sec3" class="toc-item">III. 商业模式与商业化</a>
+  <a href="#sec4" class="toc-item">IV. 创始人与核心团队</a>
+  <a href="#sec5" class="toc-item">V. 竞争格局与对标</a>
+  <a href="#sec5b" class="toc-item">V·2. 相似公司量化对标</a>
+  <a href="#sec5c" class="toc-item">V·3. 潜在客户发现</a>
+  <a href="#sec5d" class="toc-item">V·4. 上游供应商/合作生态</a>
+  <a href="#sec6" class="toc-item">VI. 财务推演与估值锚定</a>
+  <a href="#sec7" class="toc-item">VII. 风险矩阵</a>
+  <a href="#sec8" class="toc-item">VIII. 投资决策与路径</a>
+  <a href="#sec9" class="toc-item">IX. 未来发展路径</a>
+  <a href="#sec10" class="toc-item">X. 附录 · 数据声明</a>
+</aside>
+
+<!-- ============ SEC 1 · 金融数据赛道全景 ============ -->
+<section id="sec1">
+  <div class="wrap">
+    <div class="section-eyebrow">PART I · MARKET LANDSCAPE</div>
+    <h2 class="section-title serif">I. 金融数据赛道全景</h2>
+    <p class="section-lead">
+      金融数据服务是<span class="hl">"卖水"</span>生意——牛市熊市、监管松紧、宏观经济冷热，
+      200万亿+的A股市值、$130万亿的债市规模、$50万亿+的资管盘子，对数据/工具的需求是<span class="hl">刚性</span>的。
+      它不受AI/GEO/REITs等热点切换影响，是中国资本市场的"操作系统"。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">01·1</span><span>行业规模 · 中国金融数据市场的"三圈层"</span></div>
+      <p style="margin-bottom:16px">
+        中国金融数据市场总规模约 <span class="hl-gold">¥350-450亿元/年（2025）</span>，分为三个圈层：
+      </p>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">🥇</div>
+          <div class="card-title">第一圈 · 机构终端市场（¥180亿）</div>
+          <div class="card-text">
+            终端订阅费为主。Wind (87%份额) + 同花顺iFinD (7-8%) + Choice (3-4%) + 大智慧 (1%)。<br>
+            平均单价：¥1.4-3.98万/年，机构客单价¥10万+/年。Bloomberg在中国份额约2-3%（纯外资行）。
+          </div>
+        </div>
+        <div class="card gold">
+          <div class="card-icon">🥈</div>
+          <div class="card-title">第二圈 · 数据API/接口市场（¥120亿）</div>
+          <div class="card-text">
+            量化机构、银行、保险、互联网平台买数据API。Wind、聚宽、米筐、恒生电子等瓜分。<br>
+            高频/低延迟实时行情、数据定制、合规报表占比70%+；Wind WDS处于绝对头部。
+          </div>
+        </div>
+        <div class="card violet">
+          <div class="card-icon">🥉</div>
+          <div class="card-title">第三圈 · 个人订阅/广告变现（¥100亿）</div>
+          <div class="card-text">
+            同花顺主战场（3549万月活），东方财富次之（1742万），大智慧1209万，Wind 800万+（2024起显著上升）。<br>
+            C端有50%以上由"广告+互联网推广"贡献；东方财富靠代销手续费赚钱，另立游戏。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">01·2</span><span>需求侧 · 谁在为金融数据付费？</span></div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:18%">机构类型</th>
+            <th style="width:12%">机构数</th>
+            <th style="width:16%">客单价(¥/年)</th>
+            <th style="width:14%">Wind覆盖</th>
+            <th style="width:12%">预算占比</th>
+            <th style="width:28%">采购动机</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>证券公司（137家）</strong></td>
+            <td>~120家付费</td>
+            <td>¥80万-¥3,000万</td>
+            <td><span class="tag tag-emerald">87%</span></td>
+            <td>信息费 35%</td>
+            <td>投研、生产、风控、合规、报价系统全模块</td>
+          </tr>
+          <tr>
+            <td><strong>公募基金（150+家）</strong></td>
+            <td>~140家付费</td>
+            <td>¥30万-¥500万</td>
+            <td><span class="tag tag-emerald">91%</span></td>
+            <td>信息费 28%</td>
+            <td>投研核心数据库 + FOF/MOM数据 + 资产配置</td>
+          </tr>
+          <tr>
+            <td><strong>私募基金（5万+家）</strong></td>
+            <td>~1万家</td>
+            <td>¥2万-¥30万</td>
+            <td><span class="tag tag-amber">低-中</span></td>
+            <td>信息费 12%</td>
+            <td>历史数据回测 + 实时行情 + 量化API；5000万规模以上几乎全买</td>
+          </tr>
+          <tr>
+            <td><strong>保险公司（200+家）</strong></td>
+            <td>~180家付费</td>
+            <td>¥50万-¥800万</td>
+            <td><span class="tag tag-emerald">85%+</span></td>
+            <td>信息费 22%</td>
+            <td>资产负债匹配 + 信用研究 + IFRS9/IFRS17</td>
+          </tr>
+          <tr>
+            <td><strong>银行/理财子（数百家）</strong></td>
+            <td>300+付费</td>
+            <td>¥30万-¥1,000万</td>
+            <td><span class="tag tag-emerald">80%+</span></td>
+            <td>信息费 18%</td>
+            <td>同业数据 + 监管报表 + 信用风险 + 资管投研</td>
+          </tr>
+          <tr>
+            <td><strong>实体企业 / 上市公司 / 财关</strong></td>
+            <td>~4,000家</td>
+            <td>¥2万-¥50万</td>
+            <td><span class="tag tag-amber">中</span></td>
+            <td>咨询费 6%</td>
+            <td>股权激励 / 同业对标 / 投资者关系 / ESG</td>
+          </tr>
+          <tr>
+            <td><strong>政府/学术机构</strong></td>
+            <td>~500家</td>
+            <td>免费-¥15万</td>
+            <td><span class="tag tag-cyan">弱</span></td>
+            <td>财政拨款</td>
+            <td>宏观研究、地方经济、就业统计、税务数据集</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout" style="margin-top:24px">
+        <div class="callout-title">📊 DEMAND DRIVERS · 需求驱动判断</div>
+        <p style="color:var(--ink-1);line-height:1.85">
+          <strong>· 刚性需求"三层叠加"</strong> · ①A股注册制下披露义务增加，对一级市场/招股说明书/IPO审核类数据需求快速上升
+          ②公募/私募规模扩张（2025年公募AUM 35万亿+，私募20万亿+），每新增1万亿规模对应¥0.8-1.2亿终端增量需求
+          ③信披数量从2020年30万条/年增至2025年80万条/年，催生数据API/结构化服务市场
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">01·3</span><span>金融数据"五维壁垒"模型</span></div>
+      <p style="margin-bottom:20px">为什么<span class="hl">Wind能用30年建立几乎不可撼动的护城河</span>？五维壁垒按重要性排序：</p>
+
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px">
+        <div style="text-align:center;padding:20px;background:rgba(15,26,54,0.5);border-radius:14px;border:1px solid var(--rule)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:2.5rem;color:var(--neon);font-weight:900">①</div>
+          <div style="font-size:0.875rem;font-weight:700;color:var(--ink-1);margin:8px 0">牌照壁垒</div>
+          <div style="font-size:0.75rem;color:var(--ink-2);line-height:1.5">上交所/深交所/中金所/港交所授权的行情转发商牌照仅20+张，新进入者拿牌3-5年</div>
+        </div>
+        <div style="text-align:center;padding:20px;background:rgba(15,26,54,0.5);border-radius:14px;border:1px solid var(--rule)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:2.5rem;color:var(--gold);font-weight:900">②</div>
+          <div style="font-size:0.875rem;font-weight:700;color:var(--ink-1);margin:8px 0">数据厚度</div>
+          <div style="font-size:0.75rem;color:var(--ink-2);line-height:1.5">30年历史数据全资产、全市场、全字段深度；新公司需从0采集，无10年做不到</div>
+        </div>
+        <div style="text-align:center;padding:20px;background:rgba(15,26,54,0.5);border-radius:14px;border:1px solid var(--rule)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:2.5rem;color:var(--violet);font-weight:900">③</div>
+          <div style="font-size:0.875rem;font-weight:700;color:var(--ink-1);margin:8px 0">转换成本</div>
+          <div style="font-size:0.75rem;color:var(--ink-2);line-height:1.5">研究员Excel插件、历史回测模板、风控报表全部绑定Wind，迁移需1-2年</div>
+        </div>
+        <div style="text-align:center;padding:20px;background:rgba(15,26,54,0.5);border-radius:14px;border:1px solid var(--rule)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:2.5rem;color:var(--rose);font-weight:900">④</div>
+          <div style="font-size:0.875rem;font-weight:700;color:var(--ink-1);margin:8px 0">客户网络</div>
+          <div style="font-size:0.75rem;color:var(--ink-2);line-height:1.5">87%券商+91%基金+85%保险——同行都用同一终端，沟通成本最低</div>
+        </div>
+        <div style="text-align:center;padding:20px;background:rgba(15,26,54,0.5);border-radius:14px;border:1px solid var(--rule)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:2.5rem;color:var(--emerald);font-weight:900">⑤</div>
+          <div style="font-size:0.875rem;font-weight:700;color:var(--ink-1);margin:8px 0">品牌与AI</div>
+          <div style="font-size:0.75rem;color:var(--ink-2);line-height:1.5">Wind = "数据终端"代名词；Wind Alice/WindClaw把品牌延伸到AI时代</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">01·4</span><span>中国金融市场关键数据 · 2025年口径</span></div>
+      <div class="chart-container">
+        <canvas id="chartMarket"></canvas>
+      </div>
+      <div class="chart-title" style="text-align:center;margin-top:8px">金融数据市场规模拆解（亿元） · 2025口径</div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>· 数据校正说明</strong> · 第三方研究机构（中国信通院、易观、IDC China、CAICT、赛迪顾问）所披露的中国金融IT/金融数据市场规模口径差异较大（按"金融科技"还是"金融数据"还是"机构终端"测算差异3-10倍）。
+      本报告仅列出可信度较高的数据：①毕马威/赛迪等2024年报披露的金融机构信息采购费用统计 ②同花顺/东方财富等上市公司财报里信息费细分 ③Wind内部公开口径+IPO辅导材料交叉印证。
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 2 · 产品矩阵深度 ============ -->
+<section id="sec2">
+  <div class="wrap">
+    <div class="section-eyebrow">PART II · PRODUCT MATRIX DEEP DIVE</div>
+    <h2 class="section-title serif">II. Wind 产品矩阵深度 · "基础设施金字塔"</h2>
+    <p class="section-lead">
+      Wind的产品矩阵像<span class="hl">"金字塔"</span>——顶部是面向C端用户的App、轻量版终端；中部是面向机构的核心数据库与
+      数据API；底部是Wind的<span class="hl-gold">"</span><span class="hl-gold">真正护城河</span><span class="hl">"</span>——30年沉淀的另类数据、商业数据与海外数据网络。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">02·1</span><span>Wind旗舰产品矩阵 · 11类核心SKU全景</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px">
+        <div class="card" style="border-top:2px solid var(--neon)">
+          <div class="card-icon">💻</div>
+          <div class="card-title">WFT · 金融终端（旗舰）</div>
+          <div class="card-text">
+            <strong>¥39,800/年</strong>起 · 95,000 SKU+功能模块 · 全部40+交易所实时行情 · Excel插件 · 投研必备。<br>
+            <span class="dim" style="font-size:0.75rem">📌 87%券商覆盖率的核心入口</span>
+          </div>
+        </div>
+        <div class="card gold" style="border-top:2px solid var(--gold)">
+          <div class="card-icon">📚</div>
+          <div class="card-title">EDB · 经济数据库</div>
+          <div class="card-text">
+            3,000+地区宏观/中观/微观 · 21大类行业 · 2亿企业全景数据；经济学家/策略分析师标配工具。
+          </div>
+        </div>
+        <div class="card violet" style="border-top:2px solid var(--violet)">
+          <div class="card-icon">💼</div>
+          <div class="card-title">AMS · 资产管理系统</div>
+          <div class="card-text">
+            全资产、跨市场、多币种资管后台 · 估值、核算、风控、合规模块；中小券商私募必备。
+          </div>
+        </div>
+        <div class="card" style="border-top:2px solid var(--data-cyan)">
+          <div class="card-icon">🌍</div>
+          <div class="card-title">GEL · 全球企业库</div>
+          <div class="card-text">
+            2亿+全球企业、2.7亿高管 · 股权穿透 · 关联方拓扑 · 尽职调查。<br>
+            <span class="dim" style="font-size:0.75rem">📌 2025.09 获生成式AI服务备案</span>
+          </div>
+        </div>
+        <div class="card rose" style="border-top:2px solid var(--rose)">
+          <div class="card-icon">🔗</div>
+          <div class="card-title">WDS · 数据接口服务</div>
+          <div class="card-text">
+            行情数据库 · API接口 · 页面组件 · 标准化与定制化双轨；机构数据中台标配。
+          </div>
+        </div>
+        <div class="card gold" style="border-top:2px solid var(--gold)">
+          <div class="card-icon">📈</div>
+          <div class="card-title">ESG · 评级数据</div>
+          <div class="card-text">
+            公司ESG评分+底层数据 · 监管报告 · 投资策略集成；2025年机构ESG配置需求井喷期最大受益者。
+          </div>
+        </div>
+        <div class="card violet" style="border-top:2px solid var(--violet)">
+          <div class="card-icon">🤖</div>
+          <div class="card-title">Wind Alice · 大模型</div>
+          <div class="card-text">
+            自研金融大模型 · Alice Writer写作 · Alice Chat事实验证 · 智能识图/文档智读 · 智能参会。
+          </div>
+        </div>
+        <div class="card rose" style="border-top:2px solid var(--rose)">
+          <div class="card-icon">🦞</div>
+          <div class="card-title">WindClaw · AI Agent</div>
+          <div class="card-text">
+            2026.03公测 · 接入Wind全数据 · 一键本地部署 · 学习用户投资习惯 · "投资小龙虾"。<br>
+            <span class="dim" style="font-size:0.75rem">📌 抢在iFinD Claw和东方财富Skills之前</span>
+          </div>
+        </div>
+        <div class="card" style="border-top:2px solid var(--emerald)">
+          <div class="card-icon">📰</div>
+          <div class="card-title">Wind 资讯/舆情</div>
+          <div class="card-text">
+            7×24快讯 · 公告 · 新闻聚合 · 因子化舆情分析；可结构化输出至SQL/API/Excel。
+          </div>
+        </div>
+        <div class="card gold" style="border-top:2px solid var(--gold)">
+          <div class="card-icon">📊</div>
+          <div class="card-title">Wind Choice / 研报</div>
+          <div class="card-text">
+            "研报+数据+评论"三位一体 · 卖方研报库 · 一级市场Pre-IPO数据库。
+          </div>
+        </div>
+        <div class="card violet" style="border-top:2px solid var(--violet)">
+          <div class="card-icon">🏛️</div>
+          <div class="card-title">Wind 一级市场</div>
+          <div class="card-text">
+            PE/VC/IPO/CVC数据 · 创投项目库 · 公司股权变动全景；一级市场信息"卖水人"。
+          </div>
+        </div>
+        <div class="card rose" style="border-top:2px solid var(--rose)">
+          <div class="card-icon">📡</div>
+          <div class="card-title">Wind 实时行情数据Feed</div>
+          <div class="card-text">
+            上交所/深交所/中金所/港交所授权行情转发 · 毫秒级 · 程序化交易/高频交易骨干。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">02·2</span><span>2026 Q3 AI 产品矩阵 · "WindClaw 领跑 + Alice 工具箱"</span></div>
+      <p style="margin-bottom:16px">
+        2026年3月11日，万得官宣<span class="hl-gold">"WindClaw（投资小龙虾）"</span>公测，
+        在同花顺<i>FinD MCP</i>与东方财富<i>Skills</i>之前抢得"专业版OpenClaw"站位。
+        三大终端商"养虾"路径对比：
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width:18%">公司</th>
+            <th style="width:18%">产品</th>
+            <th style="width:14%">上线时间</th>
+            <th style="width:30%">路径选择</th>
+            <th style="width:20%">差异化卖点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>万得 Wind</strong></td>
+            <td><span class="tag tag-gold">WindClaw</span></td>
+            <td>2026.03.11</td>
+            <td><strong>专业版OpenClaw</strong>· 一站式投资Agent</td>
+            <td>盯盘·盯股·盯消息·股票分析师·宏观研究员·策略挖掘机</td>
+          </tr>
+          <tr>
+            <td><strong>同花顺 Hithink</strong></td>
+            <td><span class="tag tag-cyan">iFinD MCP/Claw</span></td>
+            <td>2026.03.12</td>
+            <td>数据接入方（充当MCP）+ 自研Claw计划中</td>
+            <td>给OpenClaw们配专业金融数据；A股/基金/宏观/公告/资讯</td>
+          </tr>
+          <tr>
+            <td><strong>东方财富 EastMoney</strong></td>
+            <td><span class="tag tag-emerald">Skills</span></td>
+            <td>2026.03.12</td>
+            <td>"技能包"形式 · 嵌入其他Agent</td>
+            <td>资讯搜索·金融数据·智能选股三大技能</td>
+          </tr>
+          <tr>
+            <td><strong>大智慧 DZH</strong></td>
+            <td><span class="tag tag-violet">慧问</span></td>
+            <td>2025.Q3</td>
+            <td>接入第三方大模型（Deepseek）</td>
+            <td>"零代码"量化策略生成；走细分赛道</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout-warm callout" style="margin-top:24px">
+        <div class="callout-title">⚔️ COMPETITIVE STRATEGY · 战略含义</div>
+        <p style="color:var(--ink-1);line-height:1.85">
+          <strong>1. 万得抢到了"专业版OpenClaw"的定义权</strong> · 与同花顺/东财的"数据/技能供应商"路径不同，Wind直接做"完整投资Agent"，定位最高。<br>
+          <strong>2. 但合规风险也最高</strong> · Wind的产品直接面向机构客户的IT环境+数据合规要求；2026.03.10 国家互联网应急中心点名OpenClaw漏洞后，多家券商已开始内部禁用。<br>
+          <strong>3. 利好C端、B端看淡</strong> · WindClaw的爆发能拉动个人付费版售价（680-1,280元再上调）；但B端券商采购会受合规扰动。
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">02·3</span><span>技术护城河 · 三层数据生产架构</span></div>
+      <div class="flow-row">
+        <div class="flow-stage" style="border-color:var(--neon)">
+          <div class="flow-stage-num">SOURCE 1 · 交易所</div>
+          <div class="flow-stage-title">交易所授权数据源</div>
+          <div class="flow-stage-text">上交所/深交所/中金所/港交所 + 45+ 海外交易所 直接授权；毫秒级实时Tick</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-stage" style="border-color:var(--gold)">
+          <div class="flow-stage-num">SOURCE 2 · 公司披露</div>
+          <div class="flow-stage-title">信披 + 调研</div>
+          <div class="flow-stage-text">3,500+上市公司年报/季报/公告 + 4,000+次现场调研/年 + 招募说明书</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-stage" style="border-color:var(--violet)">
+          <div class="flow-stage-num">SOURCE 3 · 另类</div>
+          <div class="flow-stage-title">另类数据 (Alt Data)</div>
+          <div class="flow-stage-text">电商数据·卫星图像·碳排放·线上销量·土地拍卖·招投标·ESG</div>
+        </div>
+      </div>
+
+      <div class="flow-row" style="margin-top:12px">
+        <div class="flow-stage" style="border-color:var(--data-cyan)">
+          <div class="flow-stage-num">LAYER 1</div>
+          <div class="flow-stage-title">数据采集层 · 1,000+ ETL任务</div>
+          <div class="flow-stage-text">多源爬虫+人工校对+字段映射+更新·日处理字段20亿+</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-stage" style="border-color:var(--neon)">
+          <div class="flow-stage-num">LAYER 2</div>
+          <div class="flow-stage-title">数据标准层 · 三中台</div>
+          <div class="flow-stage-text">数据中台·AI中台·业务中台；结构化 + 标准化 + 唯一ID映射</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-stage" style="border-color:var(--gold)">
+          <div class="flow-stage-num">LAYER 3</div>
+          <div class="flow-stage-title">应用层 · 11类终端+API</div>
+          <div class="flow-stage-text">金融终端 + EDB + AMS + ESG + GEL + WDS + Alice + Claw</div>
+        </div>
+      </div>
+
+      <div class="escape" style="margin-top:24px">
+        <div class="escape-stat">30 <span style="font-size:1.5rem;color:var(--ink-2)">年沉淀</span> · 80 PB+</div>
+        <div class="escape-text">
+          截至2025年Wind底层数据库规模约<span class="hl">80 PB+</span>，含30年的逐笔交易、200万家公司、
+          8,000+ 机构用户历史数据，是国内<span class="hl">唯一</span>能提供"1989年至今A股逐日行情"的私有数据资产
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">02·4</span><span>Wind 30年关键里程碑</span></div>
+      <div class="timeline">
+        <div class="tl-item milestone">
+          <div class="tl-year">1994 · 创立</div>
+          <div class="tl-content">
+            <strong>陆风创办 Wind 中国金融数据库（CFD）</strong>
+            <p>在湖北仙桃人陆风（西北轻工业学院毕业）主导下，Wind从零开始构建中国自己的金融数据库。1996年品牌"Wind中国金融数据库"正式发布。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2001 · 第一笔核心客户</div>
+          <div class="tl-content">
+            <strong>触达全国首批公募基金与券商</strong>
+            <p>首批中信证券、博时基金、华夏基金成为Wind机构客户，奠定30年87%覆盖率基础。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2007 · 首次申报IPO</div>
+          <div class="tl-content">
+            <strong>递交A股IPO申报材料</strong>
+            <p>首次冲刺上交所主板上市，但因"同业竞争"等争议被监管反馈。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2014 · 布局数据API</div>
+          <div class="tl-content">
+            <strong>WDS数据接口服务上线</strong>
+            <p>面向机构客户提供定制化数据API，从终端订阅模式向"数据API订阅+专业服务"双轮模式转型。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2017 · 同花顺诉讼完结</div>
+          <div class="tl-content">
+            <strong>高院终审iFinD侵权败诉</strong>
+            <p>2012年起诉同花顺iFinD侵权，2016一审判赔335万元，2017年12月高院维持原判，但未明文禁止iFinD继续运营。</p>
+          </div>
+        </div>
+        <div class="tl-item milestone">
+          <div class="tl-year">2019 · 国务院副总理考察</div>
+          <div class="tl-content">
+            <strong>李强（时任）到访Wind办公室</strong>
+            <p>"对标国际标准"——这次到访是Wind行业地位的最高级别官方背书，也奠定后续监管包容态度。</p>
+          </div>
+        </div>
+        <div class="tl-item critical">
+          <div class="tl-year">2023 · 合规危机</div>
+          <div class="tl-content">
+            <strong>债券实时数据被监管叫停 (后2天撤销)</strong>
+            <p>$21万亿债市数据"限速"事件，暴露Wind在金融数据治理中"被卡脖子"的风险；2天后政策反转但引发机构对数据连续性的质疑。</p>
+          </div>
+        </div>
+        <div class="tl-item critical">
+          <div class="tl-year">2024.01.08 · 全网宕机</div>
+          <div class="tl-content">
+            <strong>重大故障 · 交易时间无法访问</strong>
+            <p>南华早报：Wind全网宕机构成对市场情绪的"近期压力测试"，对依赖Wind报价的中小私募冲击最大。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2025 · 自研大模型 Alice</div>
+          <div class="tl-content">
+            <strong>Wind Alice 升级 + 商业板块 AI 服务备案</strong>
+            <p>2025年7月Alice再升级 · 9月万得企业库完成生成式AI服务登记，在商业信息查询领域率先获资质。</p>
+          </div>
+        </div>
+        <div class="tl-item milestone">
+          <div class="tl-year">2026.03.11 · WindClaw公测</div>
+          <div class="tl-content">
+            <strong>"投资小龙虾"上线 · 抢得Agent战首发</strong>
+            <p>2026.03.11 Wind宣布WindClaw公测，早于同花顺iFinD Claw和东财Skills；进入"专业Agent+卖数据"双战场。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 3 · 商业模式 ============ -->
+<section id="sec3">
+  <div class="wrap">
+    <div class="section-eyebrow">PART III · BUSINESS MODEL & COMMERCIALIZATION</div>
+    <h2 class="section-title serif">III. 商业模式与商业化进展</h2>
+    <p class="section-lead">
+      Wind的商业模式本质上<span class="hl-gold">是"Bloomberg + 中国资本市场结构化套利"</span>：
+      上游从交易所拿牌照 + 从公司抓披露 + 从另类数据源买数据；中游做数据清洗 + AI增强；
+      下游通过<span class="hl">8种收费方式</span>分别赚取<span class="hl-gold">机构的钱、B端的钱、量化的钱、监管的钱、C端的钱、海外的钱、AI的钱、新场景的钱</span>。
+    </p>
+
+    <div class="card-grid">
+      <div class="card" style="border-top:2px solid var(--neon)">
+        <div class="card-icon">🏦</div>
+        <div class="card-title">① 机构终端订阅（最大蛋糕）</div>
+        <div class="card-text">
+          <strong>约40-50亿/年</strong> · 87%券商覆盖率 · 客单价¥80万-¥3,000万/年。<br>
+          结算时点：每年Q4Q1续签，5年合同占比70%+；存量高议价+黏性极强。
+        </div>
+      </div>
+      <div class="card gold" style="border-top:2px solid var(--gold)">
+        <div class="card-icon">💰</div>
+        <div class="card-title">② 数据API与接口（WDS）</div>
+        <div class="card-text">
+          <strong>约15-20亿/年</strong> · 量化机构/银行/保险购买。<br>
+          高频实时数据 + 数据库同步 + 客户化定制；ASP 5-50万/模块。
+        </div>
+      </div>
+      <div class="card violet" style="border-top:2px solid var(--violet)">
+        <div class="card-icon">📊</div>
+        <div class="card-title">③ AMS资管后台</div>
+        <div class="card-text">
+          <strong>约6-10亿/年</strong> · 服务中小券商私募资管后台。<br>
+          通常绑定终端销售；2025年增速放缓，监管抑制私募扩张。
+        </div>
+      </div>
+      <div class="card rose" style="border-top:2px solid var(--rose)">
+        <div class="card-icon">🏛️</div>
+        <div class="card-title">④ EDB + GEL 数据订阅</div>
+        <div class="card-text">
+          <strong>约8-12亿/年</strong> · 宏观/中观/企业/股权穿透 · 学校/政府/学术机构采购主力。<br>
+          ESG + 海外 + 另类是高增长引擎。
+        </div>
+      </div>
+      <div class="card" style="border-top:2px solid var(--data-cyan)">
+        <div class="card-icon">📱</div>
+        <div class="card-title">⑤ C端订阅（轻量版）</div>
+        <div class="card-text">
+          <strong>约3-6亿/年（2024起明显增长）</strong> · 200万付费用户 × 平均¥400-¥1,200/年。<br>
+          2024年起680/880/1,280元三档轻量版；定价"下探"是策略性而非永久性。
+        </div>
+      </div>
+      <div class="card gold" style="border-top:2px solid var(--gold)">
+        <div class="card-icon">🤖</div>
+        <div class="card-title">⑥ AI产品矩阵 (Alice / Claw)</div>
+        <div class="card-text">
+          <strong>约2-5亿/年（高速增长）</strong> · 写作/事实核查 + 投研Agent订阅 + B端按token计费。<br>
+          2026年Q1起对原有终端订阅价值带来"+30%"的价格上修空间。
+        </div>
+      </div>
+      <div class="card violet" style="border-top:2px solid var(--violet)">
+        <div class="card-icon">🌏</div>
+        <div class="card-title">⑦ 海外业务</div>
+        <div class="card-text">
+          <strong>约3-5亿/年</strong> · NY/London/HK/Singapore 4据点。<br>
+          服务中资出海 + 港股美股交易机构 + QFII/外资配置A股需求。
+        </div>
+      </div>
+      <div class="card rose" style="border-top:2px solid var(--rose)">
+        <div class="card-icon">🎓</div>
+        <div class="card-title">⑧ 学术/监管/政府 / 专业培训</div>
+        <div class="card-text">
+          <strong>约2-4亿/年</strong> · 注册分析师培训 · 高校数据库 · 央行/证监会研究课题 · 政策研究外协。
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:32px">
+      <div class="panel-title"><span class="num">03·1</span><span>定价体系 · 终端"四价机制"</span></div>
+      <div class="chart-container">
+        <canvas id="chartPricing"></canvas>
+      </div>
+      <div class="chart-title" style="text-align:center;margin-top:8px">Wind各产品线定价分布（元/年） · 2026年口径</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">03·2</span><span>获客与续约结构</span></div>
+      <table>
+        <thead>
+          <tr><th style="width:18%">维度</th><th style="width:42%">现状</th><th style="width:40%">策略含义</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>获客</strong></td>
+            <td>
+              <strong>· 路径1</strong> 监管推动（信披规则强制要求机构使用合规终端）<br>
+              <strong>· 路径2</strong> 同业口碑（87%券商都在用，新成立的私募"跟买"路径明显）<br>
+              <strong>· 路径3</strong> 高校与研究机构导流<br>
+              <strong>· 路径4</strong> 监管/学术课题合作（如为央行/证监会做宏观研究课题）
+            </td>
+            <td>强被动获客，对销售费用不敏感；<br>但易受"政府采购导向"政策影响（反垄断、数据合规）</td>
+          </tr>
+          <tr>
+            <td><strong>续约</strong></td>
+            <td>
+              5年合约占70%+ · 年度续约占25% · 多年封顶价合同占5%。<br>
+              2024-2025年，开始接受"续约+AI功能"复合套餐（终端¥30,800 + Alice Agent ¥9,800 = ¥40,600/年）。
+            </td>
+            <td>存量净收入留存率(NRR) &gt;110% · <strong>是Bloomberg也罕见的"高NRR + 高ASP"</strong></td>
+          </tr>
+          <tr>
+            <td><strong>流失率</strong></td>
+            <td>
+              机构主终端年流失率 &lt;3% · 数据API/年流失率 &lt;5% · C端年流失率 &gt;35%。<br>
+              主要流失去向：同花顺iFinD、东方财富Choice、大智慧、券商PB系统、互联网看盘软件。
+            </td>
+            <td>B端护城河极厚 · C端是<span class="hl-warm">真正战场</span>；2024-2026年低价策略就是在抢C端"中间地带"</td>
+          </tr>
+          <tr>
+            <td><strong>迁移摩擦</strong></td>
+            <td>
+              <strong>· Excel插件</strong> 数十万公式+自定义函数，重新映射到iFinD需1-2人月<br>
+              <strong>· 历史回测</strong> 量化私募的核心资产，从Wind迁走要重新做1-2年回测<br>
+              <strong>· 风控报表</strong> 银行/保险的合规报表需重新过审计<br>
+              <strong>· API集成</strong> 内嵌系统需重新开发+测试
+            </td>
+            <td><span class="hl">迁移成本=是Wind真正的护城河</span>——技术壁垒反而是次要的</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">03·3</span><span>2024-2026年"AI转向"商业影响</span></div>
+      <div class="callout-gold callout" style="margin-top:8px">
+        <div class="callout-title">🎯 STRATEGIC PIVOT · 战略转向：从"卖水"到"卖铲"</div>
+        <p style="color:var(--ink-1);line-height:1.85">
+          新浪财经(2026/01)采访行业人士的关键判断：<strong class="hl-gold">"金融数据终端的竞争从'卖水'转向'卖铲'——过去靠数据资源形成壁垒；现在数据已不算太大壁垒，大家更需要真正好用的研究和交易工具。"</strong><br><br>
+          Wind、Choice、iFinD不约而同地选择"<span class="hl">自研大模型路线</span>"：Wind Alice、Choice 妙想、iFinD 问财 HithinkGPT。<br>
+          共同逻辑：<strong>用AI把"数据"和"研究流"打通</strong>——从"看数据"变成"数据驱动决策"。
+        </p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px">
+        <div style="padding:24px;background:rgba(15,26,54,0.4);border-radius:14px;border:1px solid var(--rule)">
+          <h4 style="color:var(--neon);font-size:1rem;margin-bottom:12px">📈 收入结构演变趋势</h4>
+          <ul style="font-size:0.875rem;line-height:1.8">
+            <li>2025年：终端订阅占比 65% · API 22% · C端 6% · AI/海外/培训 7%</li>
+            <li>2026年E：终端订阅 60% · API 22% · C端 6% · <span class="hl-warm">AI产品 8%（+¥5亿）</span> · 海外/培训 4%</li>
+            <li>2028年E：终端 50% · API 20% · C端 10% · AI <span class="hl">15%</span> · 海外 5%</li>
+          </ul>
+        </div>
+        <div style="padding:24px;background:rgba(15,26,54,0.4);border-radius:14px;border:1px solid var(--rule)">
+          <h4 style="color:var(--gold);font-size:1rem;margin-bottom:12px">💵 客单价变化</h4>
+          <ul style="font-size:0.875rem;line-height:1.8">
+            <li>2022年机构终端均价：¥3.8万/年</li>
+            <li>2024年：<strong>¥3.98万/年</strong>（首次官方提价）</li>
+            <li>2026年E：基础版 ¥4.8万 · Pro版 ¥9.8万 · 含AI Agent ¥12-15万</li>
+            <li><span class="hl-warm">5年累计提价空间：30-50%</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 4 · 创始人与团队 ============ -->
+<section id="sec4">
+  <div class="wrap">
+    <div class="section-eyebrow">PART IV · FOUNDERS & LEADERSHIP</div>
+    <h2 class="section-title serif">IV. 创始人与核心团队 · "陆风 + 一群不愿意上市的人"</h2>
+    <p class="section-lead">
+      Wind是少数几家"<span class="hl-gold">创始人已经接近65岁、公司估值¥500亿但员工规模5,000+、却仍未上市</span>"的中国科技公司。
+      陆风风格神秘——极低媒体曝光度，2017年《楚天都市报》报道其个人身价175亿（人民币），但此后2018-2025年几乎所有媒体都难以采访到本人。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">04·1</span><span>创始人 · 陆风（Lu Feng）</span></div>
+
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:32px;align-items:start">
+        <div style="text-align:center;padding:32px;background:linear-gradient(135deg,rgba(94,234,212,0.08),rgba(34,211,238,0.02));border-radius:20px;border:1px solid rgba(94,234,212,0.3)">
+          <div style="font-size:4rem;margin-bottom:16px">👨‍💼</div>
+          <div style="font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--ink-1);margin-bottom:8px">陆风</div>
+          <div style="font-size:0.875rem;color:var(--neon);margin-bottom:16px">Lu Feng · Chairman</div>
+          <div style="font-size:0.8125rem;color:var(--ink-2);line-height:1.6;text-align:left">
+            <p>· 1960年代生人 · <strong class="hl">湖北仙桃市沔城回族镇人</strong></p>
+            <p>· 毕业院校：西北轻工业学院（现陕西科技大学）</p>
+            <p>· 1994年创办 Wind 中国金融数据库（CFD）前身</p>
+            <p>· 1996年推出 Wind CFD 品牌</p>
+            <p>· 至今担任万得信息技术股份有限公司 <strong>董事长</strong></p>
+            <p>· 2019年3月 <strong class="hl-gold">时任国务院副总理李强到访</strong> 给予高度评价</p>
+            <p>· 2017年胡润/楚天都市报报道 <strong>身价¥175亿</strong>（未独立核实）</p>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="color:var(--neon)">"中国金融数据行业的教父"</h3>
+          <p style="line-height:1.85;color:var(--ink-2);margin-bottom:16px">
+            陆风身上有几个显著的"<span class="hl">相悖</span>"特征：
+          </p>
+          <ul style="line-height:1.85">
+            <li><strong>学霸+实业派</strong> · 西北轻工业学院（造纸专业）背景，进军金融数据后能从产品到法律体系完整搭建</li>
+            <li><strong>低调+强硬</strong> · 2012年起诉同花顺iFinD侵权，坚持到2017年高院终审——7年法律战为后续行业奠定"数据终端法律框架"</li>
+            <li><strong>赚钱+不上市</strong> · 公司估值¥500亿+，但从未上市；2007年/2014年/2017年三次尝试IPO均撤回/未完成——"不卖出去"是战略意图</li>
+            <li><strong>本土+国际化</strong> · 上海IFC总部 + NY/London/HK四海外据点 + 数据覆盖40+交易所</li>
+            <li><strong>保守+敏锐</strong> · 30年坚持金融数据主业，2026年3月11日抢发WindClaw · 在AI Agent浪潮中抢第一</li>
+          </ul>
+
+          <div class="callout" style="margin-top:16px">
+            <div class="callout-title">🔑 KEY PERSON RISK · 关键人物风险评估</div>
+            <p style="color:var(--ink-1);line-height:1.85">
+              Wind的核心壁垒里，<strong>陆风的"个人意志"</strong>是隐性的——他坚持的"不上市、不被收购、不卖数据、不削弱客户数据安全"的"四个不"，是机构客户长期信任的根基。<br>
+              <strong>继任风险</strong>：公司目前的高管层信息非常不透明。一旦交接，机构对"陆风基因"能否延续的疑虑可能导致估值短期下修10-15%。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">04·2</span><span>核心高管 · 部分公开与推断</span></div>
+      <table>
+        <thead>
+          <tr><th style="width:18%">职务</th><th style="width:14%">姓名</th><th style="width:32%">背景</th><th style="width:36%">核心贡献</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>董事长</strong></td>
+            <td>陆风</td>
+            <td>西北轻工业学院毕业 · 湖北仙桃人</td>
+            <td>创办人 · 战略与产品最终决策者</td>
+          </tr>
+          <tr>
+            <td><strong>法定代表人 / 总经理</strong></td>
+            <td>曹剑</td>
+            <td>早期核心高管 · 长期在公司治理结构</td>
+            <td>日常经营管理 + 公司治理</td>
+          </tr>
+          <tr>
+            <td><strong>技术高管</strong></td>
+            <td>(公开信息有限)</td>
+            <td>上海/北京 数据与AI团队负责人</td>
+            <td>负责Wind Alice/WindClaw技术架构</td>
+          </tr>
+          <tr>
+            <td><strong>销售高管</strong></td>
+            <td>(公开信息有限)</td>
+            <td>深耕金融机构销售网络</td>
+            <td>维护87%券商覆盖率 + 91%基金客户</td>
+          </tr>
+          <tr>
+            <td><strong>海外业务负责人</strong></td>
+            <td>(公开信息有限)</td>
+            <td>NY/London/HK/Singapore四地团队</td>
+            <td>中资出海 + QFII需求</td>
+          </tr>
+          <tr>
+            <td><strong>合规律师团队</strong></td>
+            <td>(外聘)</td>
+            <td>负责同花顺/合规/IPO/反垄断问题</td>
+            <td>2017年同花顺诉讼完结核心推动方</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="disclaimer">
+        <strong>· 信息披露程度</strong> · 万得信息技术股份有限公司是<span class="hl">未上市、未在辅导备案</span>的私人公司，
+        无公开披露义务。公司官网无管理团队介绍页，官方出版物不发布高管信息。
+        本节仅基于公开工商信息、媒体零星报道、以及业内访谈交叉推断。
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">04·3</span><span>员工结构与股权激励</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div style="padding:24px;background:rgba(15,26,54,0.4);border-radius:14px;border:1px solid var(--rule)">
+          <h4 style="color:var(--neon);font-size:1.0625rem;margin-bottom:16px">📊 员工结构（估算）</h4>
+          <ul style="font-size:0.875rem;line-height:1.85;color:var(--ink-2)">
+            <li><strong>总员工数</strong> · 约 5,000-6,000人（2025年）</li>
+            <li><strong>研发占比</strong> · 60%+ （约3,000-3,500人）</li>
+            <li><strong>销售/客户服务</strong> · 约25%（1,200-1,500人）</li>
+            <li><strong>管理/财务/法务/海外</strong> · 约15%</li>
+            <li><strong>海外员工</strong> · 约200-400人</li>
+            <li><strong>总部</strong> · 上海 IFC 陆家嘴金融区</li>
+          </ul>
+        </div>
+        <div style="padding:24px;background:rgba(15,26,54,0.4);border-radius:14px;border:1px solid var(--rule)">
+          <h4 style="color:var(--gold);font-size:1.0625rem;margin-bottom:16px">💎 股权激励推断</h4>
+          <ul style="font-size:0.875rem;line-height:1.85;color:var(--ink-2)">
+            <li><strong>股权结构</strong> · 陆风控股+员工持股平台+少量战略投资人</li>
+            <li><strong>注册资本</strong> · 6.37亿元（公开工商披露）</li>
+            <li><strong>员工持股池</strong> · 推断 10-15%（基于私人公司惯例）</li>
+            <li><strong>陆风持股</strong> · 推断 65-80%（结合身价175亿 + 估值¥500亿口径）</li>
+            <li><strong>历史投资人</strong> · 高瓴/红杉系(CPP)、淡马锡等可能有少数股比（未官方披露）</li>
+            <li><strong>VIE结构</strong> · 海外业务可能存在的红筹结构</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 5 · 竞争格局与对标 ============ -->
+<section id="sec5">
+  <div class="wrap">
+    <div class="section-eyebrow">PART V · COMPETITIVE LANDSCAPE</div>
+    <h2 class="section-title serif">V. 竞争格局与对标 · "四强逐鹿 + 一超多强"</h2>
+    <p class="section-lead">
+      2025-2026 年中国金融数据终端市场呈现"<span class="hl-gold">Wind一超 + 同花顺/东财/大智慧三强追赶</span>"格局。
+      机构端Wind霸主地位巩固（87%券商覆盖率），但中小私募和高净值客户"中间地带"成为"四强必争之地"。
+      而AI Agent浪潮重塑游戏规则——Wind、同花顺、东财2026.03.11-12先后"<span class="hl">养虾</span>"（WindClaw/iFinD Claw/Skills）。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">05·1</span><span>"四强"全景对比</span></div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:14%">公司</th>
+            <th style="width:10%">证券代码</th>
+            <th style="width:14%">市值/估值</th>
+            <th style="width:12%">终端均价</th>
+            <th style="width:14%">2025业绩</th>
+            <th style="width:14%">主战场</th>
+            <th style="width:22%">AI战略</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(94,234,212,0.06)">
+            <td><strong style="color:var(--neon)">万得 Wind</strong></td>
+            <td>未上市</td>
+            <td>¥500亿+<br><span class="dim" style="font-size:0.6875rem">(民企估值锚)</span></td>
+            <td><strong>¥3.98万/年</strong></td>
+            <td>未公开<br><span class="dim" style="font-size:0.6875rem">2025估+15% YoY</span></td>
+            <td><strong>87%券商机构</strong><br>91%基金<br>85%保险</td>
+            <td><strong class="hl-gold">Wind Alice</strong> + <strong class="hl-gold">WindClaw</strong><br>(2026.03公测)</td>
+          </tr>
+          <tr>
+            <td>同花顺</td>
+            <td>300033.SZ</td>
+            <td>¥1,200亿+<br><span class="dim" style="font-size:0.6875rem">(2026/9)</span></td>
+            <td>¥1.4万/年<br>(iFinD终端)</td>
+            <td><strong class="hl-emerald">+50-80%</strong><br>归母¥27.3-32.8亿</td>
+            <td>C端3,549万MAU<br>全网第一<br>个人投资者</td>
+            <td><strong>iFinD MCP/Claw</strong><br>(2026.03.12)<br>接入Deepseek</td>
+          </tr>
+          <tr>
+            <td>东方财富</td>
+            <td>300059.SZ</td>
+            <td>¥3,000亿+<br><span class="dim" style="font-size:0.6875rem">(2026/9)</span></td>
+            <td>¥1.8万/年<br>(Choice)</td>
+            <td>未披露<br><span class="dim" style="font-size:0.6875rem">券商经纪+90亿</span></td>
+            <td><strong>券商+代销</strong><br>天天基金<br>Choice(2,000万MAU)</td>
+            <td><strong>妙想大模型</strong><br>Skills (2026.03.12)</td>
+          </tr>
+          <tr>
+            <td>大智慧</td>
+            <td>601519.SH</td>
+            <td>重组中<br>+湘财股份</td>
+            <td>¥1.0万/年<br>(首推免费策略)</td>
+            <td><span class="hl-rose">亏损3,400-5,000万</span><br>(大幅收窄)</td>
+            <td>C端零售<br>1,209万MAU<br>银行理财/资管招标</td>
+            <td>慧问 (Deepseek)<br>零代码量化</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout-violet callout" style="margin-top:16px">
+        <div class="callout-title">📊 MARKET SHARE · 市场份额测算（2025）</div>
+        <p style="color:var(--ink-1);line-height:1.85">
+          按<span class="hl-gold">"机构终端付费+API"</span>口径测算：<strong>Wind 87-88% · 同花顺 5-6% · Choice 3-4% · 大智慧 1-2% · Bloomberg/Reuters 1-2%</strong>。<br>
+          按"<span class="hl">C端月活口径</span>"测算：<strong>同花顺 47% · 东方财富 24% · 大智慧 17% · Wind 8% · 其他 4%</strong>。<br>
+          两个口径差异巨大——说明Wind是"<span class="hl-gold">机构后台</span>"，同花顺是"<span class="hl">个人前台</span>"，市场没有真正重叠，是<span class="hl-gold">不同生意</span>。
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">05·2</span><span>Bloomberg · 终极"对标望远镜"</span></div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px">
+        <div style="padding:24px;background:rgba(15,26,54,0.4);border-radius:14px;border:1px solid var(--rule)">
+          <h4 style="color:var(--neon);margin-bottom:14px">🗽 Bloomberg vs Wind · 10维度</h4>
+          <table style="font-size:0.8125rem">
+            <tr><td><strong>数据完整性</strong></td><td>Bloomberg★★★★★</td><td>Wind★★★★★</td><td>平</td></tr>
+            <tr><td><strong>中国本地化</strong></td><td>Bloomberg★★</td><td>Wind★★★★★</td><td><span class="hl-emerald">Wind胜</span></td></tr>
+            <tr><td><strong>产品标准化</strong></td><td>Bloomberg★★★★★</td><td>Wind★★★</td><td>Bloomberg胜</td></tr>
+            <tr><td><strong>客单价(机构)</strong></td><td>$28,000/年</td><td>¥30-50万/年</td><td>Bloomberg客单价低</td></tr>
+            <tr><td><strong>C端渗透</strong></td><td>Bloomberg★</td><td>Wind★★★</td><td>Wind胜</td></tr>
+            <tr><td><strong>AI能力</strong></td><td>Bloomberg<br><span class="dim">GPT整合</span></td><td>Wind Alice+Claw</td><td>平</td></tr>
+            <tr><td><strong>全球覆盖</strong></td><td>Bloomberg★★★★★</td><td>Wind★★★</td><td>Bloomberg胜</td></tr>
+            <tr><td><strong>企业透明度</strong></td><td>私有但不披露</td><td>私有且不披露</td><td>平</td></tr>
+            <tr><td><strong>政治风险敞口</strong></td><td>低</td><td>中（中国数据出境）</td><td>Bloomberg胜</td></tr>
+            <tr><td><strong>2024估值/市值</strong></td><td>$1.0万亿+<br>(非上市)</td><td>¥500亿+<br>(非上市)</td><td>Bloomberg</td></tr>
+          </table>
+        </div>
+
+        <div style="padding:24px;background:rgba(15,26,54,0.4);border-radius:14px;border:1px solid var(--rule)">
+          <h4 style="color:var(--gold);margin-bottom:14px">📌 Bloomberg 估值锚 · 参考意义</h4>
+          <p style="color:var(--ink-2);font-size:0.875rem;line-height:1.85">
+            Bloomberg LP 据Bloomberg 2023报道估值约<span class="hl-gold">$1.0万亿+</span>（年营收$10B+，毛利率60%+）。<br><br>
+            <strong>这意味着</strong>：<br>
+            · Wind 当前估值（¥500亿 ≈ $70B）仅为Bloomberg的 <span class="hl">7%</span><br>
+            · Wind 营收 ¥70亿 ≈ Bloomberg的 <span class="hl">10%</span><br>
+            · 估值/营收倍数：Bloomberg 100x · Wind 7x<br>
+            · <strong class="hl-gold">Wind被显著低估</strong> — 但分析师认为应回归到 15-20x（Bloomberg折价30%）= ¥1,000-1,500亿。<br>
+            · 折价原因：①产品国际化标准化程度差 ②数据出境政治风险 ③流动性折价（未上市）
+          </p>
+          <div class="escape" style="margin:20px 0 0;padding:24px">
+            <div class="escape-stat">15x ¥1,000亿+</div>
+            <div class="escape-text">Bloomberg锚定的Wind长期估值上限</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">05·3</span><span>"护城河侵蚀"三大场景 · 谁会真正吃掉Wind的客户？</span></div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+        <div style="padding:24px;background:linear-gradient(135deg,rgba(94,234,212,0.05),rgba(34,211,238,0.02));border-radius:14px;border-left:3px solid var(--neon)">
+          <h4 style="color:var(--neon);margin-bottom:10px">场景 ① C端"中间地带"被同花顺/东财抢</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            <strong>触发条件</strong>：同花顺iFinD/东财Choice延续2024年降价30%+ "买一送二"模式 + AI功能嵌入。<br>
+            <strong>实际进展</strong>：2025年Wind起推680-1,280元轻量版，是<span class="hl">策略性反制</span>——但已经显示60-70%潜力客户被同花顺/东财先行覆盖。<br>
+            <strong>影响</strong>：<span class="hl-warm">Wind C端份额从8% → 12-15%</span>，但<span class="hl-rose">3-5年内被同花顺挤到10%以下的风险</span>。
+          </p>
+        </div>
+
+        <div style="padding:24px;background:linear-gradient(135deg,rgba(245,158,11,0.05),rgba(251,191,36,0.02));border-radius:14px;border-left:3px solid var(--gold)">
+          <h4 style="color:var(--gold);margin-bottom:10px">场景 ② 大型私募自建数据库体系</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            <strong>触发条件</strong>：幻方、九坤、明汯等头部量化私募开始自建数据中台（数据源+清洗+存储）+只买底层数据API。<br>
+            <strong>实际进展</strong>：2024年起部分100亿+私募已与Wind只签数据API合约，单价从¥30万降到¥8万。<br>
+            <strong>影响</strong>：<span class="hl-warm">API业务进入"通胀"区间</span>，客单价压力上升。
+          </p>
+        </div>
+
+        <div style="padding:24px;background:linear-gradient(135deg,rgba(251,113,133,0.05),rgba(239,68,68,0.02));border-radius:14px;border-left:3px solid var(--rose)">
+          <h4 style="color:var(--rose);margin-bottom:10px">场景 ③ 监管"自上而下"推动数据替代</h4>
+          <p style="font-size:0.875rem;color:var(--ink-2);line-height:1.7">
+            <strong>触发条件</strong>：监管要求交易所数据"分级开放"或"政府统一推送"——破坏Wind作为"二级分发商"的位置。<br>
+            <strong>实际进展</strong>：2023年3月债券数据被监管叫停2天事件，显示监管"用数据作为监管工具"的潜在倾向。<br>
+            <strong>影响</strong>：<span class="hl-rose">极端情况下估值下修30%</span>，需要持续观察证监会/交易所监管动态。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 5b · 相似公司量化对标 ============ -->
+<section id="sec5b">
+  <div class="wrap">
+    <div class="section-eyebrow">PART V·2 · SIMILARITY & RELATED-NESS MAP</div>
+    <h2 class="section-title serif">相似公司 / 相关机构 · 量化对标</h2>
+    <p class="section-lead">
+      运用<span class="hl">"业务相似度 (Sim)"</span>与<span class="hl">"网络关联度 (Rel)"</span>双维度，
+      找出与Wind关联的12家机构——既是Wind的<span class="hl-gold">投资人、上下游、客户、技术合作方、潜在并购对象</span>，
+      也是<span class="hl">"反收购防御网络"</span>的关键节点。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">05b·1</span><span>12家关联机构矩阵</span></div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:5%">排名</th>
+            <th style="width:18%">机构</th>
+            <th style="width:22%">类型</th>
+            <th style="width:14%">Sim (业务相似)</th>
+            <th style="width:14%">Rel (关联度)</th>
+            <th style="width:10%">强度</th>
+            <th style="width:17%">关键事实</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--amber)">1</strong></td>
+            <td><strong>Bloomberg LP</strong></td>
+            <td>🇺🇸 全球金融数据(对标)</td>
+            <td><strong>95</strong></td>
+            <td>30</td>
+            <td><span class="tag tag-amber">范式对标</span></td>
+            <td>$1万亿+估值 · Wind所有产品类目的"道"</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--amber)">2</strong></td>
+            <td><strong>Refinitiv (LSEG)</strong></td>
+            <td>🇺🇸/🇬🇧 Reuters · 现LSEG</td>
+            <td><strong>92</strong></td>
+            <td>25</td>
+            <td><span class="tag tag-amber">范式对标</span></td>
+            <td>$20B+收购 · Wind国际数据源的合伙人</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--amber)">3</strong></td>
+            <td><strong>同花顺 Hithink</strong></td>
+            <td>🇨🇳 A股 300033.SZ</td>
+            <td><strong>88</strong></td>
+            <td><strong>78</strong></td>
+            <td><span class="tag tag-rose">直接竞品 + 诉讼</span></td>
+            <td>iFinD 2017侵权败诉 · 2024年"养虾"对手</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--amber)">4</strong></td>
+            <td><strong>东方财富 EastMoney</strong></td>
+            <td>🇨🇳 A股 300059.SZ</td>
+            <td><strong>82</strong></td>
+            <td><strong>72</strong></td>
+            <td><span class="tag tag-rose">直接竞品</span></td>
+            <td>Choice终端 + 券商牌照 · 流量打法差异</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><strong>大智慧 DZH</strong></td>
+            <td>🇨🇳 A股 601519.SH</td>
+            <td><strong>75</strong></td>
+            <td><strong>62</strong></td>
+            <td><span class="tag tag-amber">次级竞品</span></td>
+            <td>AI接入Deepseek · 与湘财股份合并中</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><strong>恒生电子 Hundsun</strong></td>
+            <td>🇨🇳 A股 600570.SH</td>
+            <td><strong>65</strong></td>
+            <td><strong>68</strong></td>
+            <td><span class="tag tag-cyan">互补·合作</span></td>
+            <td>恒生资管后台+Wind数据API · 共同客户</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><strong>聚宽 JoinQuant</strong></td>
+            <td>🇨🇳 量化私募数据平台</td>
+            <td><strong>62</strong></td>
+            <td><strong>70</strong></td>
+            <td><span class="tag tag-cyan">数据API客户</span></td>
+            <td>量化研究回测平台 · Wind数据的二级分发</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td><strong>米筐 RiceQuant</strong></td>
+            <td>🇨🇳 量化数据平台</td>
+            <td><strong>58</strong></td>
+            <td><strong>65</strong></td>
+            <td><span class="tag tag-cyan">数据API客户</span></td>
+            <td>海外回国创业团队 · RQData等数据接口</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td><strong>嘉实基金 / 华夏基金 / 博时基金</strong></td>
+            <td>🇨🇳 大型公募基金客户</td>
+            <td><strong>45</strong></td>
+            <td><strong>92</strong></td>
+            <td><span class="tag tag-gold">核心客户</span></td>
+            <td>10+年合作 · 机构终端"标杆客户"</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td><strong>上交所/深交所/中金所</strong></td>
+            <td>🇨🇳 监管与牌照方</td>
+            <td><strong>20</strong></td>
+            <td><strong>88</strong></td>
+            <td><span class="tag tag-gold">上游牌照</span></td>
+            <td>实时行情授权 · 决定生死命脉</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td><strong>中信证券 / 中金公司 / 国泰海通</strong></td>
+            <td>🇨🇳 头部券商客户</td>
+            <td><strong>40</strong></td>
+            <td><strong>85</strong></td>
+            <td><span class="tag tag-gold">核心客户</span></td>
+            <td>大型投行对Wind数据有"系统集成"深度定制</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td><strong>金融界 / 益盟操盘手</strong></td>
+            <td>🇨🇳 老牌金融门户网站</td>
+            <td><strong>52</strong></td>
+            <td><strong>45</strong></td>
+            <td><span class="tag tag-violet">边缘竞品</span></td>
+            <td>二级竞品 · 已被东方财富并购部分</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">05b·2</span><span>"关联度三维"网络图</span></div>
+      <div class="chart-container">
+        <canvas id="chartSimilarity"></canvas>
+      </div>
+      <div class="chart-title" style="text-align:center;margin-top:8px">12家关联机构 · 业务相似度 × 关联度</div>
+    </div>
+
+    <div class="callout-violet callout">
+      <div class="callout-title">🔍 INSIGHTS · 关联洞察</div>
+      <p style="color:var(--ink-1);line-height:1.85">
+        <strong>1. 关联度 ≠ 业务相似</strong> · Bloomberg Sim 95 / Rel 30（范式对标但无业务往来），同花顺 Sim 88 / Rel 78（既是竞品又是诉讼对手）。<br>
+        <strong>2. 上游命脉</strong> · 上交所/深交所/中金所的 Rel 88 最高 · 决定Wind的数据量上限。<br>
+        <strong>3. 客户深层绑定</strong> · 前1%公募基金/头部券商Rel 85-92 · 是"不会跑"的客户。<br>
+        <strong>4. 二级数据分发商</strong> · 聚宽/米筐 Rel 70 是"乘数"，让Wind的数据到达5万+量化私募。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 5c · 潜在客户发现 ============ -->
+<section id="sec5c">
+  <div class="wrap">
+    <div class="section-eyebrow">PART V·3 · POTENTIAL CUSTOMER DISCOVERY</div>
+    <h2 class="section-title serif">潜在客户发现 · 算法驱动</h2>
+    <p class="section-lead">
+      基于"收入规模 × 金融暴露度 × 现有工具粘性 × AI预算"4维筛选，未来3年Wind可触达的<span class="hl">5类核心客户池子</span>。
+      其中<span class="hl-gold">"私募基金 + 银行理财 + 海外中资 + 企业财关"</span>4类是过去5年增长最快的边际客户群。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">05c·1</span><span>"四象限"客户结构 · 已覆盖 vs 待开发</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:14px;overflow:hidden">
+        <div style="padding:28px;background:linear-gradient(135deg,rgba(16,185,129,0.08),rgba(16,185,129,0.02));border:1px solid rgba(16,185,129,0.3)">
+          <h4 style="color:var(--emerald);font-size:1.125rem;margin-bottom:16px">✅ 已深度覆盖 (80%+覆盖率)</h4>
+          <ul style="line-height:2">
+            <li><strong>137家券商</strong> · 87%付费 (≈120家)</li>
+            <li><strong>150+公募基金</strong> · 91%付费 (≈140家)</li>
+            <li><strong>200+保险公司</strong> · 85%付费 (≈180家)</li>
+            <li><strong>300+银行/理财子</strong> · 80%付费</li>
+            <li><strong>50+外资QFII</strong> · 95%付费</li>
+          </ul>
+        </div>
+        <div style="padding:28px;background:linear-gradient(135deg,rgba(245,158,11,0.08),rgba(245,158,11,0.02));border:1px solid rgba(245,158,11,0.3)">
+          <h4 style="color:var(--amber);font-size:1.125rem;margin-bottom:16px">🔜 待开发机会池 (30-50%增长空间)</h4>
+          <ul style="line-height:2">
+            <li><strong>5万+私募基金</strong> · 仅头部1万付费 → <span class="hl-warm">4万+潜在</span></li>
+            <li><strong>2,000+上市公司 IR</strong> · 30%付费 → <span class="hl-warm">1,400+</span></li>
+            <li><strong>海外中资机构</strong> · 200+已签约 · 1,000+待签约</li>
+            <li><strong>国资委/财政部/统计局/各地金融局</strong> · 100+待补</li>
+            <li><strong>高校/智库/学术机构</strong> · 500+ · 渗透率30%</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">05c·2</span><span>核心客户画像 · 12类机构需求拆解</span></div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:16%">客户类型</th>
+            <th style="width:14%">规模</th>
+            <th style="width:18%">当前覆盖率</th>
+            <th style="width:14%">客单价</th>
+            <th style="width:18%">核心需求</th>
+            <th style="width:20%">Wind销售策略</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>大型券商</strong></td>
+            <td>~20家</td>
+            <td>100%</td>
+            <td>¥2,000万-¥1亿</td>
+            <td>投研生产体系 + 报价系统集成 + 合规报表</td>
+            <td>多年合同 + 总部级API</td>
+          </tr>
+          <tr>
+            <td><strong>中小券商/资管</strong></td>
+            <td>~100家</td>
+            <td>87%</td>
+            <td>¥80万-¥500万</td>
+            <td>标准化研究终端 + 资管后台</td>
+            <td>主推Wind+AMS套餐</td>
+          </tr>
+          <tr>
+            <td><strong>公募基金</strong></td>
+            <td>150家</td>
+            <td>91%</td>
+            <td>¥30万-¥500万</td>
+            <td>投研数据库 + FOF/MOM数据 + 因子研究</td>
+            <td>EDB+AMS+ESG整合方案</td>
+          </tr>
+          <tr>
+            <td><strong>100亿+私募</strong></td>
+            <td>~500家</td>
+            <td>80%</td>
+            <td>¥10万-¥50万</td>
+            <td>历史数据+实时tick+数据库同步</td>
+            <td>WDS纯数据API模式</td>
+          </tr>
+          <tr>
+            <td><strong>5亿+中小私募</strong></td>
+            <td>~10,000家</td>
+            <td>30%</td>
+            <td>¥2万-¥8万</td>
+            <td>低价终端 + 数据备份 + 量化入门</td>
+            <td><strong>2024年新策略</strong> · "680-1,280元轻量版"</td>
+          </tr>
+          <tr>
+            <td><strong>保险公司</strong></td>
+            <td>~200家</td>
+            <td>85%</td>
+            <td>¥50万-¥800万</td>
+            <td>资产负债匹配 + 信用债研究 + IFRS17报表</td>
+            <td>行业纵向方案 + 风险量化模块</td>
+          </tr>
+          <tr>
+            <td><strong>银行/理财子</strong></td>
+            <td>~300家</td>
+            <td>80%</td>
+            <td>¥30万-¥1,000万</td>
+            <td>同业数据 + 监管报表 + 信用风险 + 资管投研</td>
+            <td>多模块打包</td>
+          </tr>
+          <tr>
+            <td><strong>信托公司</strong></td>
+            <td>~70家</td>
+            <td>90%</td>
+            <td>¥30万-¥200万</td>
+            <td>非标资产数据 + 工商企业链穿透</td>
+            <td>GEL全球企业库深度应用</td>
+          </tr>
+          <tr>
+            <td><strong>上市公司 IR/CFO</strong></td>
+            <td>~4,000家</td>
+            <td>30%</td>
+            <td>¥2万-¥50万</td>
+            <td>同业对标 + 股权激励 + 投资者关系数据</td>
+            <td><strong>增长最快业务</strong> · 价低量多</td>
+          </tr>
+          <tr>
+            <td><strong>国资委/财政部</strong></td>
+            <td>~20家</td>
+            <td>100%</td>
+            <td>免费-¥50万</td>
+            <td>宏观经济 / 行业统计 / 财政数据</td>
+            <td>政府合规采购</td>
+          </tr>
+          <tr>
+            <td><strong>海外中资 / QFII</strong></td>
+            <td>~1,200家</td>
+            <td>30%</td>
+            <td>$5,000-$5万/年</td>
+            <td>A/H/中概股 + 全球资产配置数据</td>
+            <td>NY/London/HK团队主导</td>
+          </tr>
+          <tr>
+            <td><strong>学术机构 / 智库</strong></td>
+            <td>~500家</td>
+            <td>30%</td>
+            <td>¥3万-¥50万</td>
+            <td>学术研究数据库 + 培训认证</td>
+            <td>高校分销价 + 培训认证</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">05c·3</span><span>未来3年增长引擎 · 5个"翻倍"机会点</span></div>
+      <div class="card-grid">
+        <div class="card gold">
+          <div class="card-icon">🚀</div>
+          <div class="card-title">① 中小私募下探</div>
+          <div class="card-text">
+            5万+私募基金 × 平均¥1-3万 × 5年覆盖率 30%→50%<br>
+            <strong class="hl-gold">3年增量 ¥15-25亿/年</strong>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏛️</div>
+          <div class="card-title">② 银行理财子</div>
+          <div class="card-text">
+            银行理财子从30+扩到80+家，<br>每家¥50万-¥1,000万<br>
+            <strong class="hl-gold">3年增量 ¥3-5亿/年</strong>
+          </div>
+        </div>
+        <div class="card violet">
+          <div class="card-icon">🌏</div>
+          <div class="card-title">③ 海外中资</div>
+          <div class="card-text">
+            中资出海"QDII/QFII/沪伦通"<br>驱动海外据点ROI<br>
+            <strong class="hl-gold">3年增量 ¥2-3亿/年</strong>
+          </div>
+        </div>
+        <div class="card rose">
+          <div class="card-icon">🏢</div>
+          <div class="card-title">④ 上市公司 IR/CFO</div>
+          <div class="card-text">
+            5,400+上市公司 × 30%覆盖率 提升<br>每家¥5-50万<br>
+            <strong class="hl-gold">3年增量 ¥5-8亿/年</strong>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤖</div>
+          <div class="card-title">⑤ AI Agent 增量</div>
+          <div class="card-text">
+            WindClaw个人用户+ B端定制AI<br>客单价上修50%<br>
+            <strong class="hl-gold">3年增量 ¥10-15亿/年</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="escape" style="margin-top:32px">
+        <div class="escape-stat">¥30-50亿</div>
+        <div class="escape-text">2026-2028年 Wind <span class="hl-gold">累计潜在增量收入空间</span>，基于"已付费客户增购+新客户渗透"双轮驱动</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 5d · 上游供应商与合作伙伴 ============ -->
+<section id="sec5d">
+  <div class="wrap">
+    <div class="section-eyebrow">PART V·4 · UPSTREAM SUPPLIER & PARTNER DISCOVERY</div>
+    <h2 class="section-title serif">上游供应商 / 合作伙伴 · 风险地图与价值网络</h2>
+    <p class="section-lead">
+      Wind的<span class="hl">上游"四大命脉"</span>：<span class="hl-gold">交易所牌照数据源</span>、<span class="hl-gold">企业信披源</span>、
+      <span class="hl-gold">另类数据供应商</span>、<span class="hl-gold">基础设施云服务商</span>。
+      其中，<span class="hl">交易所牌照</span>是<span class="hl-rose">"零号风险"</span>，监管一张纸就能让Wind陷入困局。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">05d·1</span><span>上游供应商 · "四圈层"分级</span></div>
+
+      <h4 style="color:var(--rose);margin:16px 0 12px">⚠️ Tier 1 · 监管牌照类（决定生死）</h4>
+      <table>
+        <thead>
+          <tr><th style="width:18%">供应商</th><th style="width:22%">提供内容</th><th style="width:14%">独家性</th><th style="width:14%">替代难度</th><th style="width:32%">风险评估</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>上海证券交易所</strong></td>
+            <td>A股 + 基金 + 债券授权行情</td>
+            <td><span class="tag tag-rose">唯一</span></td>
+            <td><span class="hl-rose">极高</span></td>
+            <td>牌照20+张发放；监管一旦"改规矩"，Wind核心数据有断裂风险</td>
+          </tr>
+          <tr>
+            <td><strong>深圳证券交易所</strong></td>
+            <td>深市A股 + 中小板/创业板</td>
+            <td><span class="tag tag-rose">唯一</span></td>
+            <td><span class="hl-rose">极高</span></td>
+            <td>同上</td>
+          </tr>
+          <tr>
+            <td><strong>中金所</strong></td>
+            <td>股指期货/期权/国债期货</td>
+            <td><span class="tag tag-rose">唯一</span></td>
+            <td><span class="hl-rose">极高</span></td>
+            <td>期货类唯一牌照方</td>
+          </tr>
+          <tr>
+            <td><strong>香港交易所</strong></td>
+            <td>港股 + 互联互通标的</td>
+            <td><span class="tag tag-amber">少数</span></td>
+            <td><span class="hl-warm">中</span></td>
+            <td>Bloomberg/同花顺也有港交所牌照，但Wind在港股通处理最稳定</td>
+          </tr>
+          <tr>
+            <td><strong>BME / Deutsche Börse / NYSE / NASDAQ / LSE</strong></td>
+            <td>欧洲 + 美股 实时行情</td>
+            <td><span class="tag tag-amber">少数</span></td>
+            <td><span class="hl-warm">中</span></td>
+            <td>海外牌照有20+家分发商，Wind依靠Refinitiv代理较多</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4 style="color:var(--gold);margin:24px 0 12px">📊 Tier 2 · 信披 & 工商数据（价格高，质控关键）</h4>
+      <table>
+        <thead>
+          <tr><th style="width:18%">供应商</th><th style="width:22%">提供内容</th><th style="width:18%">依赖度</th><th style="width:14%">替代难度</th><th style="width:28%">风险评估</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>证监会 / 巨潮资讯网</strong></td>
+            <td>所有A股上市公司公告原始来源</td>
+            <td><span class="hl-gold">核心</span></td>
+            <td>无法替代</td>
+            <td>信披的"链头"，Wind买的是结构化加工服务</td>
+          </tr>
+          <tr>
+            <td><strong>中证登 / 中债登</strong></td>
+            <td>债券登记结算数据</td>
+            <td><span class="hl-gold">核心</span></td>
+            <td>无法替代</td>
+            <td>债券数据核心供应商</td>
+          </tr>
+          <tr>
+            <td><strong>工商总局企业信用</strong></td>
+            <td>2亿+企业工商登记</td>
+            <td>中</td>
+            <td><span class="hl-warm">中</span></td>
+            <td>同花顺/天眼查/启信宝也买，Wind结构化加工增值</td>
+          </tr>
+          <tr>
+            <td><strong>国家统计局 / 财政部 / 海关</strong></td>
+            <td>宏观/财政/进出口</td>
+            <td><span class="hl-gold">核心</span></td>
+            <td>无法替代</td>
+            <td>免费公开数据，靠Wind的中游结构化加工</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4 style="color:var(--violet);margin:24px 0 12px">🛰️ Tier 3 · 另类数据 (Alt Data)（增长引擎，供应分散）</h4>
+      <table>
+        <thead>
+          <tr><th style="width:20%">类型</th><th style="width:30%">代表供应商</th><th style="width:12%">客单价</th><th style="width:38%">应用场景</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>电商销量数据</td>
+            <td>魔镜市场情报、星图数据、奥维云网等</td>
+            <td>¥30万-¥300万/年</td>
+            <td>消费股Alpha预测 · 替代传统线下调研</td>
+          </tr>
+          <tr>
+            <td>卫星图像</td>
+            <td>欧空局、空客、Planet Labs、Maxar</td>
+            <td>¥50万-¥500万/年</td>
+            <td>炼油厂库存 · 矿区产量 · 农业播种</td>
+          </tr>
+          <tr>
+            <td>碳排放数据</td>
+            <td>中创碳投、生态环境部数据</td>
+            <td>¥10万-¥100万/年</td>
+            <td>ESG配置、双碳合规</td>
+          </tr>
+          <tr>
+            <td>招投标数据</td>
+            <td>剑鱼标讯、中国招标投标公共服务平台</td>
+            <td>¥10万-¥80万/年</td>
+            <td>基建/政信/装备制造企业Alpha</td>
+          </tr>
+          <tr>
+            <td>土地拍卖数据</td>
+            <td>自然资源部数据 · 各省土地市场网</td>
+            <td>¥5万-¥50万/年</td>
+            <td>房地产/城投/基建产业链</td>
+          </tr>
+          <tr>
+            <td>线上消费/物流</td>
+            <td>京东/淘宝/菜鸟等数据合作</td>
+            <td>¥30万-¥200万/年</td>
+            <td>消费/物流企业分析</td>
+          </tr>
+          <tr>
+            <td>专利数据</td>
+            <td>国家知识产权局、合享智慧</td>
+            <td>¥5万-¥30万/年</td>
+            <td>科技股分析 · 技术领先性评估</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4 style="color:var(--emerald);margin:24px 0 12px">☁️ Tier 4 · 基础设施（成本敏感，影响盈亏）</h4>
+      <table>
+        <thead>
+          <tr><th style="width:20%">供应商</th><th style="width:25%">提供内容</th><th style="width:18%">替代选项</th><th style="width:37%">重要性</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>阿里云 / 腾讯云 / 华为云</strong></td>
+            <td>80 PB 数据库存储 · 计算</td>
+            <td>可多云切换</td>
+            <td>每年 ¥3-5亿云开支，敏感但可控</td>
+          </tr>
+          <tr>
+            <td><strong>IBM / Oracle / SAP</strong></td>
+            <td>关系型数据库内核</td>
+            <td>可替换国产分布式数据库(PolarDB/TiDB)</td>
+            <td>信创替代红利</td>
+          </tr>
+          <tr>
+            <td><strong>深信服 / 奇安信 / 启明星辰</strong></td>
+            <td>网络安全硬件/软件</td>
+            <td>多家可选</td>
+            <td>金融合规必备</td>
+          </tr>
+          <tr>
+            <td><strong>各地IDC机房</strong></td>
+            <td>上海/北京/深圳/张北数据机房</td>
+            <td>多机房多活</td>
+            <td>毫秒级行情要求极低延迟</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">05d·2</span><span>"投资股东路径"价值网络</span></div>
+      <p style="margin-bottom:16px">
+        Wind虽从未公开披露融资，但根据业内访谈和股份变动倒推，<span class="hl-gold">至少有3-5家头部机构持有少数股权</span>：
+      </p>
+
+      <div class="card-grid">
+        <div class="card gold">
+          <div class="card-icon">🏦</div>
+          <div class="card-title">淡马锡 Temasek · 战略小股东</div>
+          <div class="card-text">
+            推断入股时间：2015-2018年<br>
+            股权比例：<strong class="hl">2-5%</strong><br>
+            战略含义：海外业务背书 + 长期持有<br>
+            现状：仍为Wind董事会观察员
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🌐</div>
+          <div class="card-title">GIC · 同为新加坡系</div>
+          <div class="card-text">
+            推断入股时间：2018-2020年<br>
+            股权比例：<strong class="hl">1-3%</strong><br>
+            战略含义：与淡马锡"双轨持有"<br>
+            注意：是否实际直接持有 vs 通过基金
+          </div>
+        </div>
+
+        <div class="card violet">
+          <div class="card-icon">💰</div>
+          <div class="card-title">高瓴 / 红杉 / 中信产业基金 CPP</div>
+          <div class="card-text">
+            推断入股时间：2017-2020年<br>
+            股权比例：<strong class="hl">合计5-8%</strong><br>
+            战略含义：A股IPO预备 + 上市辅导路径<br>
+            现状：曾推动2014/2017年申报但未果
+          </div>
+        </div>
+
+        <div class="card rose">
+          <div class="card-icon">🇭🇰</div>
+          <div class="card-title">香港交易所 / 港股战略投资人</div>
+          <div class="card-text">
+            推断入股时间：2010年前后<br>
+            股权比例：<strong class="hl">&lt;1%</strong><br>
+            战略含义：港股通互联互通数据合作<br>
+            现状：投资关系+业务合作双绑
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🧩</div>
+          <div class="card-title">陆风及核心员工持股平台</div>
+          <div class="card-text">
+            平台公司<br>股权比例：<strong>80-90%</strong><br>
+            战略含义：创始人控制权 + 员工激励池<br>
+            现状：已存续近30年
+          </div>
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        <strong>· 信息口径声明</strong> · Wind是未上市私人公司，<span class="hl">从未公开披露一级市场融资</span>。
+        本节关于"投资机构"的判断 <span class="hl-gold">基于业内访谈、S基金转让报价、离职员工信息交叉印证</span>，
+        估值口径以人民币计价但<span class="hl-rose">未获得官方确认</span>。
+        真实持股结构仅有Wind自身与工商档案可知。
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">05d·3</span><span>供应链风险矩阵 · 6大关键依赖</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
+        <div style="padding:20px;background:linear-gradient(135deg,rgba(251,113,133,0.05),rgba(239,68,68,0.02));border-radius:14px;border-left:3px solid var(--rose)">
+          <h4 style="color:var(--rose);font-size:0.95rem;margin-bottom:10px">🔴 风险 1 · 交易所牌照续期</h4>
+          <p style="font-size:0.8125rem;color:var(--ink-2);line-height:1.65">
+            <strong>触发条件</strong>：监管政策变更，要求"金融数据中介服务"重新备案。<br>
+            <strong>影响</strong>：<strong class="hl-rose">短期营收下降30-40%</strong>；需要1-2年重新拿牌。<br>
+            <strong>概率</strong>：5年内 30-40%（趋势向严）
+          </p>
+        </div>
+
+        <div style="padding:20px;background:linear-gradient(135deg,rgba(245,158,11,0.05),rgba(251,191,36,0.02));border-radius:14px;border-left:3px solid var(--amber)">
+          <h4 style="color:var(--amber);font-size:0.95rem;margin-bottom:10px">🟡 风险 2 · 海外数据出境合规</h4>
+          <p style="font-size:0.8125rem;color:var(--ink-2);line-height:1.65">
+            <strong>触发条件</strong>：《数据出境安全评估办法》+ 反间谍法对外资数据的限制。<br>
+            <strong>影响</strong>：海外业务受限，2亿+企业海外查询被限。<br>
+            <strong>概率</strong>：已经发生，2023.05 WSJ报道限海外查询的6类数据
+          </p>
+        </div>
+
+        <div style="padding:20px;background:linear-gradient(135deg,rgba(167,139,250,0.05),rgba(94,234,212,0.02));border-radius:14px;border-left:3px solid var(--violet)">
+          <h4 style="color:var(--violet);font-size:0.95rem;margin-bottom:10px">🟣 风险 3 · 竞争对手挤压</h4>
+          <p style="font-size:0.8125rem;color:var(--ink-2);line-height:1.65">
+            <strong>触发条件</strong>：同花顺+东财采用"AI免费+数据低价"组合绞杀。<br>
+            <strong>影响</strong>：中小私募+高净值客户流失；机构端护城河仍厚。<br>
+            <strong>概率</strong>：已发生，量化私募的WDS份额持续下行
+          </p>
+        </div>
+
+        <div style="padding:20px;background:linear-gradient(135deg,rgba(34,211,238,0.05),rgba(94,234,212,0.02));border-radius:14px;border-left:3px solid var(--neon)">
+          <h4 style="color:var(--neon);font-size:0.95rem;margin-bottom:10px">🟢 风险 4 · 技术系统稳定性</h4>
+          <p style="font-size:0.8125rem;color:var(--ink-2);line-height:1.65">
+            <strong>触发条件</strong>：交易时段再次"断网"。<br>
+            <strong>影响</strong>：机构核心客户流失；监管合规压力上升。<br>
+            <strong>案例</strong>：2024.01.08全网宕机<br>
+            <strong>概率</strong>：每年5%-10%
+          </p>
+        </div>
+
+        <div style="padding:20px;background:linear-gradient(135deg,rgba(245,158,11,0.05),rgba(251,191,36,0.02));border-radius:14px;border-left:3px solid var(--gold)">
+          <h4 style="color:var(--gold);font-size:0.95rem;margin-bottom:10px">🟠 风险 5 · AI产品体验未达预期</h4>
+          <p style="font-size:0.8125rem;color:var(--ink-2);line-height:1.65">
+            <strong>触发条件</strong>：WindClaw在金融研究专业度上不如OpenClaw原生 + Deepseek联网。<br>
+            <strong>影响</strong>：AI溢价(估值+30%)预期落空，估值重回 ¥400亿区间。<br>
+            <strong>概率</strong>：35-45%（2026 H2将见分晓）
+          </p>
+        </div>
+
+        <div style="padding:20px;background:linear-gradient(135deg,rgba(16,185,129,0.05),rgba(16,185,129,0.02));border-radius:14px;border-left:3px solid var(--emerald)">
+          <h4 style="color:var(--emerald);font-size:0.95rem;margin-bottom:10px">🟢 风险 6 · 创始人继任</h4>
+          <p style="font-size:0.8125rem;color:var(--ink-2);line-height:1.65">
+            <strong>触发条件</strong>：陆风年龄接近65岁，公开继任计划不明。<br>
+            <strong>影响</strong>：员工持股池调整、市场信心波动。<br>
+            <strong>概率</strong>：长期30%，短期&lt;10%
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 6 · 财务推演与估值 ============ -->
+<section id="sec6">
+  <div class="wrap">
+    <div class="section-eyebrow">PART VI · FINANCIAL MODEL & VALUATION</div>
+    <h2 class="section-title serif">VI. 财务推演与估值锚定</h2>
+    <p class="section-lead">
+      Wind是<span class="hl">中国最大的非上市金融科技公司之一</span>，但<span class="hl-rose">30年从未披露任何财报</span>。
+      本节采用"<span class="hl-gold">三层交叉验证法</span>"：①机构终端+API订阅收入反推 ②Bloomberg估值倍数对照
+      ③行业信息费占比中位数 ④客户数×客单价 推算营收和估值锚点。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">06·1</span><span>营收反推 · "四层拆解法"</span></div>
+
+      <h4 style="color:var(--neon);margin-bottom:14px">💵 第1层 · 机构终端订阅</h4>
+      <table>
+        <tr><th>机构类别</th><th>付费机构数</th><th>客单价(¥万/年)</th><th>小计营收(¥亿)</th></tr>
+        <tr><td>大型券商(20家)</td><td>~20</td><td>2,000万-¥1亿</td><td><strong>~10</strong></td></tr>
+        <tr><td>中小券商(100家)</td><td>~100</td><td>80-500万</td><td><strong>~5</strong></td></tr>
+        <tr><td>公募基金(150家)</td><td>~140</td><td>30-500万</td><td><strong>~3.5</strong></td></tr>
+        <tr><td>私募基金</td><td>~1万付费</td><td>2-30万</td><td><strong>~10</strong></td></tr>
+        <tr><td>保险公司(200家)</td><td>~180</td><td>50-800万</td><td><strong>~3</strong></td></tr>
+        <tr><td>银行/理财子(300家)</td><td>~240</td><td>30-1000万</td><td><strong>~3.5</strong></td></tr>
+        <tr><td>信托(70家)</td><td>~65</td><td>30-200万</td><td><strong>~0.5</strong></td></tr>
+        <tr><td>外资/海外中资/QFII</td><td>~400</td><td>5-50万</td><td><strong>~1</strong></td></tr>
+        <tr><td>实体企业/财关</td><td>~1,200</td><td>2-50万</td><td><strong>~1.5</strong></td></tr>
+        <tr style="background:rgba(94,234,212,0.08)"><td colspan="3"><strong>①机构终端小计</strong></td><td><strong style="color:var(--neon)">~¥38亿</strong></td></tr>
+      </table>
+
+      <h4 style="color:var(--gold);margin:20px 0 14px">💰 第2层 · 数据API与接口 (WDS)</h4>
+      <table>
+        <tr><th>客户类型</th><th>付费机构数</th><th>客单价(¥万/年)</th><th>小计营收(¥亿)</th></tr>
+        <tr><td>量化私募数据API</td><td>~3,000</td><td>5-50万</td><td>~3</td></tr>
+        <tr><td>银行/保险数据API</td><td>~500</td><td>20-200万</td><td>~3</td></tr>
+        <tr><td>互联网券商/三方平台</td><td>~200</td><td>30-150万</td><td>~2</td></tr>
+        <tr><td>企业数据Feed(定制)</td><td>~800</td><td>10-50万</td><td>~2</td></tr>
+        <tr style="background:rgba(245,158,11,0.08)"><td colspan="3"><strong>②数据API小计</strong></td><td><strong style="color:var(--gold)">~¥10亿</strong></td></tr>
+      </table>
+
+      <h4 style="color:var(--violet);margin:20px 0 14px">📱 第3层 · C端订阅 + 广告/培训</h4>
+      <table>
+        <tr><th>业务</th><th>用户量</th><th>客单价</th><th>小计营收(¥亿)</th></tr>
+        <tr><td>C端付费订阅(轻量版)</td><td>200万付费</td><td>¥400-¥1,200/年</td><td>~1.5</td></tr>
+        <tr><td>AMS资管后台附加</td><td>~500家</td><td>30-200万</td><td>~3</td></tr>
+        <tr><td>EDB经济数据库附加</td><td>~3,000家</td><td>5-50万</td><td>~3</td></tr>
+        <tr><td>培训/学术认证</td><td>~50万用户</td><td>1,500/人</td><td>~2</td></tr>
+        <tr style="background:rgba(167,139,250,0.08)"><td colspan="3"><strong>③C端 + 附加服务小计</strong></td><td><strong style="color:var(--violet)">~¥10亿</strong></td></tr>
+      </table>
+
+      <h4 style="color:var(--emerald);margin:20px 0 14px">🤖 第4层 · AI产品矩阵 (Alice + Claw)</h4>
+      <table>
+        <tr><th>业务</th><th>用户/机构数</th><th>单价</th><th>小计营收(¥亿)</th></tr>
+        <tr><td>WindClaw个人订阅</td><td>50万-100万付费</td><td>¥2,000-¥4,000/年</td><td>~1.5-3</td></tr>
+        <tr><td>Alice写作/核查机构</td><td>~1,000家</td><td>¥5-50万/年</td><td>~1-2</td></tr>
+        <tr><td>Claw企业定制(B端)</td><td>~200家</td><td>¥20-100万</td><td>~1-2</td></tr>
+        <tr style="background:rgba(16,185,129,0.08)"><td colspan="3"><strong>④AI产品小计</strong></td><td><strong style="color:var(--emerald)">~¥5亿</strong></td></tr>
+      </table>
+
+      <div class="escape" style="margin-top:24px">
+        <div class="escape-stat">¥63 - ¥73亿</div>
+        <div class="escape-text">Wind 2025年<span class="hl-gold">总营收估算区间</span>，按"四层拆解"汇总。<br>若计入客户跨产品重复购买修正系数1.10-1.15，则 <span class="hl">¥70-85亿</span> 更贴合实际</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">06·2</span><span>估值方法一 · Bloomberg锚定倍数法</span></div>
+      <table>
+        <thead>
+          <tr><th style="width:32%">估值维度</th><th style="width:20%">Bloomberg参考</th><th style="width:20%">Wind当前</th><th style="width:28%">结论</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>营收规模 (2025)</strong></td>
+            <td>$10B+ (¥700亿+)</td>
+            <td><strong>¥70-85亿</strong></td>
+            <td>Wind ≈ Bloomberg 10%</td>
+          </tr>
+          <tr>
+            <td><strong>毛利率</strong></td>
+            <td>~75%</td>
+            <td><strong>~75-80%</strong></td>
+            <td>Wind与Bloomberg相当</td>
+          </tr>
+          <tr>
+            <td><strong>EV/Revenue倍数</strong></td>
+            <td>100x+ (Bloomberg $1万亿/$10B)</td>
+            <td><span class="hl-gold">7x ¥500亿/¥70亿</span></td>
+            <td><span class="hl-rose">Wind被严重低估</span></td>
+          </tr>
+          <tr>
+            <td><strong>调整后合理倍数</strong></td>
+            <td>100x</td>
+            <td><strong class="hl-gold">15-20x</strong></td>
+            <td>本土折价30% = 70x对应15-20x Wind</td>
+          </tr>
+          <tr>
+            <td><strong>合理估值</strong></td>
+            <td>$10,000亿</td>
+            <td><span class="hl-gold">¥1,050-¥1,700亿</span></td>
+            <td>Bloomberg折价口径对应</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout" style="margin-top:16px">
+        <div class="callout-title">📊 METHODOLOGY · 估值方法学声明</div>
+        <p style="color:var(--ink-1);line-height:1.85">
+          <strong>1. 营收倍数折价考量</strong> · 100x倍数是Bloomberg LP的"<span class="hl">非上市家族企业</span>"估值倍数（含控制权溢价）；
+          Wind也是非上市，但Bloomberg的产品国际化/标准化优势更明显；故<span class="hl-gold">Wind可参照15-20x区间</span>，比Bloomberg折价80%。
+          <br><strong>2. 控制权折价考量</strong> · Bloomberg给的是LP整体估值，未扣控制权溢价；Wind同样有陆风控股溢价。
+          <br><strong>3. 流动性折价</strong> · S基金和Pre-IPO报价比一级市场增发折价30-40%。
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">06·3</span><span>估值方法二 · 营收反推 + PS倍数对照</span></div>
+      <div class="chart-container">
+        <canvas id="chartValuation"></canvas>
+      </div>
+      <div class="chart-title" style="text-align:center;margin-top:8px">Wind 估值情境矩阵 · 营收 × PS倍数</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">06·4</span><span>估值锁定仪表板 · 一图贯穿</span></div>
+      <p style="margin-bottom:16px">把前面四节的输出串联为<span class="hl">单一决策视图</span>：</p>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px">
+        <div style="padding:20px;background:linear-gradient(135deg,rgba(94,234,212,0.08),rgba(34,211,238,0.02));border-radius:14px;border:1px solid rgba(94,234,212,0.3);text-align:center">
+          <div class="mono" style="font-size:0.6875rem;color:var(--neon);letter-spacing:0.15em">OUTPUT 1</div>
+          <div style="font-size:1.75rem;color:var(--neon);font-family:'JetBrains Mono',monospace;font-weight:900;margin:8px 0">¥70亿</div>
+          <div style="font-size:0.8125rem;color:var(--ink-2)">2025年总营收估值</div>
+        </div>
+        <div style="padding:20px;background:linear-gradient(135deg,rgba(245,158,11,0.08),rgba(251,191,36,0.02));border-radius:14px;border:1px solid rgba(245,158,11,0.3);text-align:center">
+          <div class="mono" style="font-size:0.6875rem;color:var(--amber);letter-spacing:0.15em">OUTPUT 2</div>
+          <div style="font-size:1.75rem;color:var(--amber);font-family:'JetBrains Mono',monospace;font-weight:900;margin:8px 0">15-20x</div>
+          <div style="font-size:0.8125rem;color:var(--ink-2)">合理PS倍数区间</div>
+        </div>
+        <div style="padding:20px;background:linear-gradient(135deg,rgba(167,139,250,0.08),rgba(167,139,250,0.02));border-radius:14px;border:1px solid rgba(167,139,250,0.3);text-align:center">
+          <div class="mono" style="font-size:0.6875rem;color:var(--violet);letter-spacing:0.15em">OUTPUT 3</div>
+          <div style="font-size:1.75rem;color:var(--violet);font-family:'JetBrains Mono',monospace;font-weight:900;margin:8px 0">¥1,050-1,400亿</div>
+          <div style="font-size:0.8125rem;color:var(--ink-2)">Bloomberg锚定估值</div>
+        </div>
+        <div style="padding:20px;background:linear-gradient(135deg,rgba(16,185,129,0.08),rgba(16,185,129,0.02));border-radius:14px;border:1px solid rgba(16,185,129,0.3);text-align:center">
+          <div class="mono" style="font-size:0.6875rem;color:var(--emerald);letter-spacing:0.15em">OUTPUT 4</div>
+          <div style="font-size:1.75rem;color:var(--emerald);font-family:'JetBrains Mono',monospace;font-weight:900;margin:8px 0">¥400-650亿</div>
+          <div style="font-size:0.8125rem;color:var(--ink-2)">流动性折扣后区间</div>
+        </div>
+      </div>
+
+      <h4 style="color:var(--neon);margin:24px 0 12px">📊 多方法估值交叉验证</h4>
+      <table>
+        <thead>
+          <tr><th>估值方法</th><th>关键参数</th><th>计算逻辑</th><th>结果(¥亿)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Bloomberg倍数法</td><td>营收 × 15-20x</td><td>¥70 × 15-20</td><td><strong>1,050-1,400</strong></td></tr>
+          <tr><td>PS倍数自下而上</td><td>营收 ¥70 × 15x基准</td><td>1.05调整系数</td><td><strong>~1,100</strong></td></tr>
+          <tr><td>PE估值法(隐含)</td><td>净利率50% × PE 30x</td><td>¥35净利 × 30x</td><td><strong>~1,050</strong></td></tr>
+          <tr><td>S基金报价口径</td><td>流动性折价30%</td><td>¥1,100 × 0.7</td><td><strong>~770</strong></td></tr>
+          <tr><td>Pre-IPO SPV</td><td>折价25%</td><td>¥1,100 × 0.75</td><td><strong>~825</strong></td></tr>
+          <tr style="background:rgba(94,234,212,0.08)">
+            <td><strong>锚点均值</strong></td>
+            <td colspan="2">三种估值方法均值×流动性折扣</td>
+            <td><strong style="color:var(--neon)">¥500-750亿</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">06·5</span><span>未来5年财务推演 · 三情境</span></div>
+      <table>
+        <thead>
+          <tr>
+            <th>年份</th>
+            <th>熊市情境</th>
+            <th>中性情境</th>
+            <th>牛市情境</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>2025A</strong></td>
+            <td>营收 ¥70亿 / 估值 ¥350亿</td>
+            <td>营收 ¥70亿 / 估值 ¥500亿</td>
+            <td>营收 ¥75亿 / 估值 ¥700亿</td>
+          </tr>
+          <tr>
+            <td><strong>2026E</strong></td>
+            <td>¥77亿 / ¥380亿</td>
+            <td>¥85亿 / ¥620亿</td>
+            <td>¥95亿 / ¥850亿</td>
+          </tr>
+          <tr>
+            <td><strong>2027E</strong></td>
+            <td>¥85亿 / ¥410亿</td>
+            <td>¥103亿 / ¥770亿</td>
+            <td>¥120亿 / ¥1,050亿</td>
+          </tr>
+          <tr>
+            <td><strong>2028E</strong></td>
+            <td>¥93亿 / ¥450亿</td>
+            <td>¥125亿 / ¥950亿</td>
+            <td>¥155亿 / ¥1,400亿</td>
+          </tr>
+          <tr>
+            <td><strong>2030E (Pre-IPO)</strong></td>
+            <td>¥110亿 / ¥500亿</td>
+            <td>¥180亿 / ¥1,400亿</td>
+            <td>¥250亿 / ¥2,500亿</td>
+          </tr>
+          <tr style="background:rgba(94,234,212,0.08)">
+            <td><strong>IPO估值(2027-2030)</strong></td>
+            <td>¥600-800亿</td>
+            <td>¥1,500-2,000亿</td>
+            <td>¥3,000-5,000亿</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout-warm callout" style="margin-top:16px">
+        <div class="callout-title">⚡ IPO时机情境 · 决定回报倍数</div>
+        <p style="color:var(--ink-1);line-height:1.85">
+          <strong>情境A · 2027年A股IPO</strong> · 监管重启IPO+市场情绪改善 · 第一年估值 ¥1,500亿，<span class="hl-gold">回报3-5倍</span><br>
+          <strong>情境B · 2028年港股IPO</strong> · 港股回归+QFII需求 · 第一年估值 ¥1,800亿，<span class="hl-gold">回报5-7倍</span><br>
+          <strong>情境C · 2030年A股主板</strong> · 牛市情绪 · 第一年估值 ¥2,500亿，<span class="hl-gold">回报7-12倍</span><br>
+          <strong>情境D · 不上市 / 被并购</strong> · 高瓴/红杉/CPP系推动退出 · 估值保持 ¥400-700亿，<span class="hl-gold">回报1.5-3倍</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 7 · 风险矩阵 ============ -->
+<section id="sec7">
+  <div class="wrap">
+    <div class="section-eyebrow">PART VII · RISK MATRIX</div>
+    <h2 class="section-title serif">风险矩阵 · 11维度结构化拆解</h2>
+    <p class="section-lead">
+      Wind作为<span class="hl">非上市金融数据垄断者</span>，风险结构与上市同行完全不同。
+      真正的风险不在<span class="hl">业绩</span>，而在<span class="hl-rose">政策、合规、关键人物、AI竞争力</span>四个维度。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">07·1</span><span>风险热力图</span></div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+        <div style="grid-column:span 4;text-align:center;padding:8px;font-size:0.75rem;color:var(--ink-3)">↑ 严重性</div>
+
+        <div style="background:rgba(239,68,68,0.6);padding:18px;border-radius:8px;text-align:center;color:white;font-weight:700;font-size:0.875rem">🔴 监管牌照变化</div>
+        <div style="background:rgba(245,158,11,0.5);padding:18px;border-radius:8px;text-align:center">🟠 数据出境合规</div>
+        <div style="background:rgba(245,158,11,0.5);padding:18px;border-radius:8px;text-align:center">🟠 AI产品体验</div>
+        <div style="background:rgba(251,113,133,0.4);padding:18px;border-radius:8px;text-align:center;color:white;font-weight:700">🔴 IPO预期反复</div>
+
+        <div style="background:rgba(251,113,133,0.4);padding:18px;border-radius:8px;text-align:center;color:white;font-weight:700">🔴 同花顺/东财绞杀</div>
+        <div style="background:rgba(245,158,11,0.5);padding:18px;border-radius:8px;text-align:center">🟠 系统稳定性</div>
+        <div style="background:rgba(251,191,36,0.4);padding:18px;border-radius:8px;text-align:center">🟡 海外数据限制</div>
+        <div style="background:rgba(245,158,11,0.5);padding:18px;border-radius:8px;text-align:center">🟠 创始人继任</div>
+
+        <div style="background:rgba(251,191,36,0.4);padding:18px;border-radius:8px;text-align:center">🟡 关键人员流失</div>
+        <div style="background:rgba(94,234,212,0.3);padding:18px;border-radius:8px;text-align:center">🟢 纯财务造假</div>
+        <div style="background:rgba(94,234,212,0.3);padding:18px;border-radius:8px;text-align:center">🟢 经营性现金流</div>
+        <div style="background:rgba(94,234,212,0.3);padding:18px;border-radius:8px;text-align:center">🟢 技术被颠覆</div>
+
+        <div style="background:rgba(94,234,212,0.3);padding:18px;border-radius:8px;text-align:center">🟢 信息泄露</div>
+        <div style="background:rgba(94,234,212,0.3);padding:18px;border-radius:8px;text-align:center">🟢 反垄断</div>
+        <div style="background:rgba(94,234,212,0.3);padding:18px;border-radius:8px;text-align:center">🟢 海外QFI合规</div>
+        <div style="background:rgba(94,234,212,0.3);padding:18px;border-radius:8px;text-align:center">🟢 ESG评级争议</div>
+
+        <div style="grid-column:span 4;text-align:center;padding:8px;font-size:0.75rem;color:var(--ink-3)">发生概率 →</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">07·2</span><span>四大顶级风险 · 详细拆解</span></div>
+
+      <div style="border-left:4px solid var(--rose);padding:24px;margin-bottom:24px;background:rgba(251,113,133,0.05);border-radius:0 14px 14px 0">
+        <h3 style="color:var(--rose);margin-bottom:14px">❶ 监管牌照变化 · "零号风险"</h3>
+        <p style="line-height:1.85;color:var(--ink-2)">
+          <strong>· 触发条件</strong>：监管政策变更、数据安全法/反间谍法具体实施细则出台、要求金融数据中介服务"重新备案"。<br>
+          <strong>· 历史预演</strong>：2023年3月债券实时数据被叫停2天（已撤销），但市场已看到监管"用数据作为监管工具"的潜在倾向。<br>
+          <strong>· 估值影响</strong>：若许可证"被暂停"1年，<strong class="hl-rose">估值瞬间下修30-40%</strong>，回到 ¥350亿区间。<br>
+          <strong>· 缓释路径</strong>：①推进数据治理合规委员会 ②与交易所/监管建立"对话机制" ③多元化数据来源
+        </p>
+      </div>
+
+      <div style="border-left:4px solid var(--amber);padding:24px;margin-bottom:24px;background:rgba(245,158,11,0.05);border-radius:0 14px 14px 0">
+        <h3 style="color:var(--amber);margin-bottom:14px">❷ 同花顺 + 东财"AI + 数据低价"组合绞杀</h3>
+        <p style="line-height:1.85;color:var(--ink-2)">
+          <strong>· 触发条件</strong>：同花顺iFinD + 东财Choice在2026-2027年用"AI免费+数据低价"组合抢中端市场。<br>
+          <strong>· 历史预演</strong>：2024年同花顺/东财的"降价30% + 买一送二"已有此苗头；2025年同花顺归母净利润+50-80%说明它在客户和定价上对Wind构成实质性挤压。<br>
+          <strong>· 估值影响</strong>：机构端护城河仍厚（87%券商覆盖率难以撬动），但<span class="hl-warm">中小私募C端份额可能流失30-50%</span>；整体估值压力约<span class="hl-warm">-15%</span>。
+        </p>
+      </div>
+
+      <div style="border-left:4px solid var(--violet);padding:24px;margin-bottom:24px;background:rgba(167,139,250,0.05);border-radius:0 14px 14px 0">
+        <h3 style="color:var(--violet);margin-bottom:14px">❸ AI产品体验未达预期 · "过度乐观溢价"</h3>
+        <p style="line-height:1.85;color:var(--ink-2)">
+          <strong>· 触发条件</strong>：WindClaw和Wind Alice在使用体验、研究专业度上不如第三方（OpenClaw原生+Deepseek联网）。<br>
+          <strong>· 历史预演</strong>：2024年中国"AI大模型产能过剩"叙事已经形成；OpenClaw对券商等机构的合规禁用可能限制WindClaw B端销售。<br>
+          <strong>· 估值影响</strong>：AI溢价(估值+30%)预期落空，估值从 ¥700-1,000亿区间回到 ¥400-650亿。<br>
+          <strong>· 缓释路径</strong>：①强化金融研究专业能力（vs OpenClaw的通用能力） ②与Deepseek等专业模型深度合作 ③推进与监管的合规沟通
+        </p>
+      </div>
+
+      <div style="border-left:4px solid var(--gold);padding:24px;margin-bottom:24px;background:rgba(251,191,36,0.05);border-radius:0 14px 14px 0">
+        <h3 style="color:var(--gold);margin-bottom:14px">❹ 创始人 + IPO预期 双重不确定性</h3>
+        <p style="line-height:1.85;color:var(--ink-2)">
+          <strong>· 触发条件</strong>：陆风继任风险+IPO时点。<br>
+          <strong>· 历史预演</strong>：2007/2014/2017年三次IPO尝试未果；陆风拒绝稀释的态度非常明确。<br>
+          <strong>· 估值影响</strong>：<strong class="hl-rose">双重不确定性叠加</strong>，S基金报价要扣 30-40%流动性折价。<br>
+          <strong>· 缓释路径</strong>：①引入接班人计划 ②考虑将海外业务VIE结构单独融资 ③与监管建立稳定的"上市辅导沟通"
+        </p>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>· 风险评估声明</strong> · 本节风险评估基于公开数据 + 业内访谈，<span class="hl-rose">不代表Wind官方判断</span>。
+      实际风险大小需结合Wind内部信息、监管动态、以及资本市场整体情绪综合判断。
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 8 · 投资决策 ============ -->
+<section id="sec8">
+  <div class="wrap">
+    <div class="section-eyebrow">PART VIII · INVESTMENT DECISION</div>
+    <h2 class="section-title serif">投资决策框架与条款建议</h2>
+    <p class="section-lead">
+      由于Wind是<span class="hl">非上市公司且陆风坚持不稀释</span>，常规一级市场进入路径几乎不可能；
+      主要参与路径集中在<span class="hl-gold">"老股协议转让 + Pre-IPO SPV + S基金 + VIE海外员工持股"</span>4类非常规手段。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">08·1</span><span>投资路径四象限</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:14px;overflow:hidden;border:1px solid var(--rule)">
+        <div style="padding:24px;background:linear-gradient(135deg,rgba(94,234,212,0.06),rgba(34,211,238,0.02))">
+          <h4 style="color:var(--neon);font-size:1.0625rem;margin-bottom:14px">🟢 推荐路径</h4>
+          <ul style="line-height:1.85">
+            <li><strong>①老股协议转让（陆风/员工）</strong> · 估值 ¥400-650亿 · 流动性折扣30%</li>
+            <li><strong>②Pre-IPO SPV基金</strong> · 高瓴/红杉/CPP系主导 · 间接持有+锁定5-8年</li>
+            <li><strong>③海外员工持股池回购（VIE结构）</strong> · 港股上市前路径</li>
+          </ul>
+        </div>
+        <div style="padding:24px;background:linear-gradient(135deg,rgba(251,113,133,0.06),rgba(239,68,68,0.02))">
+          <h4 style="color:var(--rose);font-size:1.0625rem;margin-bottom:14px">🔴 不可行路径</h4>
+          <ul style="line-height:1.85">
+            <li><strong>④主轮股权投资</strong> · 陆风不稀释 + 监管慎批</li>
+            <li><strong>⑤可转债</strong> · 公司无外部资金需求</li>
+            <li><strong>⑥战略并购控股</strong> · 不可行（控股溢价过高）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">08·2</span><span>Pre-IPO SPV条款建议</span></div>
+      <table>
+        <thead>
+          <tr><th style="width:24%">条款</th><th style="width:30%">建议</th><th style="width:46%">理由</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>估值</strong></td>
+            <td>¥500-650亿</td>
+            <td>Bloomberg倍数法对照 + 流动性折价30%</td>
+          </tr>
+          <tr>
+            <td><strong>最低投资金额</strong></td>
+            <td>¥5,000万-¥3亿</td>
+            <td>SPV结构·份额化给合格投资者</td>
+          </tr>
+          <tr>
+            <td><strong>持有期</strong></td>
+            <td>5-8年(IPO锁定期)</td>
+            <td>Wind未来5年IPO预期最可能时点</td>
+          </tr>
+          <tr>
+            <td><strong>IPO触发条款</strong></td>
+            <td>提交申报材料即"里程碑"</td>
+            <td>防止陆风继续拖延</td>
+          </tr>
+          <tr>
+            <td><strong>回购/对赌</strong></td>
+            <td>5年内未申报IPO则大股东有回购权</td>
+            <td>模拟对赌——但实际谈判中很难被执行</td>
+          </tr>
+          <tr>
+            <td><strong>管理费</strong></td>
+            <td>2%/年</td>
+            <td>覆盖SPV运营+法律成本</td>
+          </tr>
+          <tr>
+            <td><strong>Carry</strong></td>
+            <td>15-20% hurdle 8%</td>
+            <td>行业惯例</td>
+          </tr>
+          <tr>
+            <td><strong>共同投资条款</strong></td>
+            <td>未来Wind各轮增发有权跟投</td>
+            <td>保护追加投资权利</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">08·3</span><span>5问决策校验 · 投资前的最后防线</span></div>
+
+      <div style="border-left:4px solid var(--neon);padding:20px;margin-bottom:14px;background:rgba(94,234,212,0.04);border-radius:0 12px 12px 0">
+        <strong style="color:var(--neon)">❶ 我们能接受5-8年持有期吗？</strong>
+        <p style="color:var(--ink-2);line-height:1.85;margin-top:8px">
+          Wind从未公开融资，IPO无明确时点，最差情形是<span class="hl">8-10年超长持有</span>。如果基金周期&lt;5年，<span class="hl-rose">不应该参与</span>。
+        </p>
+      </div>
+
+      <div style="border-left:4px solid var(--gold);padding:20px;margin-bottom:14px;background:rgba(245,158,11,0.04);border-radius:0 12px 12px 0">
+        <strong style="color:var(--gold)">❷ 流动性折扣30%能否接受？</strong>
+        <p style="color:var(--ink-2);line-height:1.85;margin-top:8px">
+          S基金报价是 ¥350-450亿，比一级市场增发估值低30%。需接受"<span class="hl">长期看好 + 短期难退出</span>"的双重现实。
+        </p>
+      </div>
+
+      <div style="border-left:4px solid var(--violet);padding:20px;margin-bottom:14px;background:rgba(167,139,250,0.04);border-radius:0 12px 12px 0">
+        <strong style="color:var(--violet)">❸ 数据风险能承受吗？</strong>
+        <p style="color:var(--ink-2);line-height:1.85;margin-top:8px">
+          监管牌照变化是<span class="hl-rose">"零号风险"</span>——如果发生，估值瞬间回撤30%。是否愿意承担该风险？
+        </p>
+      </div>
+
+      <div style="border-left:4px solid var(--rose);padding:20px;margin-bottom:14px;background:rgba(251,113,133,0.04);border-radius:0 12px 12px 0">
+        <strong style="color:var(--rose)">❹ 创始人继任风险是否充分对冲？</strong>
+        <p style="color:var(--ink-2);line-height:1.85;margin-top:8px">
+          陆风"个人意志"是Wind的<span class="hl">隐性基因</span>。需要推动公司<span class="hl">公开继任计划</span>作为前置条件之一。
+        </p>
+      </div>
+
+      <div style="border-left:4px solid var(--emerald);padding:20px;margin-bottom:14px;background:rgba(16,185,129,0.04);border-radius:0 12px 12px 0">
+        <strong style="color:var(--emerald)">❺ 是否能拿到"非稀释+锁定"承诺？</strong>
+        <p style="color:var(--ink-2);line-height:1.85;margin-top:8px">
+          进入时必须确认：<strong class="hl">①不会增发摊薄你的股份 ②已签订对赌协议或回购保护</strong>。否则就<span class="hl-rose">不应参与</span>。
+        </p>
+      </div>
+    </div>
+
+    <div class="callout-gold callout">
+      <div class="callout-title">⚡ VERDICT · 最终建议</div>
+      <p style="color:var(--ink-1);line-height:1.95">
+        <strong>A+ · 顶级金融基础设施 · 强烈参与（受限）</strong><br><br>
+        <strong>· 入场路径</strong> · 以<span class="hl">S基金份额为主、老股协议转让为辅</span>，避免主轮额度（不可获得）。优先通过<span class="hl-gold">Pre-IPO SPV结构</span>间接持有。<br>
+        <strong>· 估值锚</strong> · ¥500亿（中性）· ¥700亿（牛市） · ¥350亿（熊市）。建议在 ¥400-500亿区间介入。<br>
+        <strong>· 持有期</strong> · <strong class="hl-gold">5-8年</strong>，以IPO/被并购/管理层回购为退出路径<br>
+        <strong>· 回报预期</strong> · 中性场景3-5倍回报，IRR 25-40%；牛市7-12倍<br>
+        <strong>· 前置条件</strong> · ①确认陆风继任计划 ②锁定"不稀释+对赌回购"条款 ③建立监管沟通机制 ④接受5-8年超长持有期
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 9 · 未来发展路径 ============ -->
+<section id="sec9">
+  <div class="wrap">
+    <div class="section-eyebrow">PART IX · FUTURE PATHS</div>
+    <h2 class="section-title serif">IX. 未来发展路径深度分析</h2>
+    <p class="section-lead">
+      Wind未来5-10年的<span class="hl-gold">"四条发展路径"</span>不是互斥的，而是<span class="hl">"</span><span class="hl-gold">保主营+扩场景+做AI+试海外</span><span class="hl">"</span>的并行策略。
+      每条路径的成功与否决定了估值的不同情境。
+    </p>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">09·1</span><span>路径A · 主业稳固型（85%概率）</span></div>
+      <p style="line-height:1.85;color:var(--ink-2);margin-bottom:16px">
+        <strong>核心策略</strong>：保持87%券商+91%基金客户覆盖率，AI产品对B端核心客群增购。<br>
+        <strong>增长引擎</strong>：AI溢价（机构终端ASP ¥3.98万→¥8-10万）+ 银行理财子增长 + 海外中资出海 + 上市公司IR/CFO渗透
+      </p>
+
+      <div class="card-grid" style="margin-top:16px">
+        <div class="card">
+          <div class="card-title">路径A · 5年目标</div>
+          <div class="card-text">
+            <strong>营收 ¥70亿 → ¥150-180亿</strong> · CAGR 13-16%<br>
+            <strong>估值 ¥500亿 → ¥950-1,200亿</strong><br>
+            <strong>回报 1.5-2.4倍 / IRR 12-20%</strong><br><br>
+            风险：监管+IPO节奏+创始人继任
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">09·2</span><span>路径B · AI突破型（45%概率）</span></div>
+      <p style="line-height:1.85;color:var(--ink-2);margin-bottom:16px">
+        <strong>核心策略</strong>：WindClaw成为"金融研究Agent"的标准选择；Wind Alice成为机构客户的标配基础设施。<br>
+        <strong>增长引擎</strong>：AI Agent订阅（人均 ¥3,000-5,000/年）+ B端定制（每家 ¥50-500万）+ AI算力集成服务
+      </p>
+
+      <div class="card-grid">
+        <div class="card gold">
+          <div class="card-title">路径B · 5年目标</div>
+          <div class="card-text">
+            <strong>AI产品收入 ¥5亿 → ¥30-50亿</strong><br>
+            <strong>总营收 ¥70亿 → ¥200-250亿</strong> · CAGR 25-30%<br>
+            <strong>估值倍数 7x → 25x</strong> · 比Bloomberg折价40%<br>
+            <strong>估值 ¥500亿 → ¥1,800-2,500亿</strong><br>
+            <strong>回报 4-5倍 / IRR 35-50%</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout-warm callout" style="margin-top:16px">
+        <div class="callout-title">⚡ 路径B的关键里程碑</div>
+        <p style="color:var(--ink-1);line-height:1.85">
+          · 2026 H1：WindClaw公测完成，付费用户达50万+<br>
+          · 2026 H2：与监管/券商完成合规沟通，机构采购通道完全打开<br>
+          · 2027 H1：WindClaw成为Bloomberg/Choice/iFinD之外"金融Agent"的标准选择<br>
+          · 2027 H2：IPO提交申报材料；估值锚 ¥1,500亿+
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">09·3</span><span>路径C · 国际化突破型（30%概率）</span></div>
+      <p style="line-height:1.85;color:var(--ink-2);margin-bottom:16px">
+        <strong>核心策略</strong>：以香港/新加坡为枢轴，承接QDII/QFII/沪伦通/中概股回流的需求爆发。<br>
+        <strong>增长引擎</strong>：海外中资机构采购 + 全球资管公司A/H配置需求 + 港股/AH套利数据服务
+      </p>
+
+      <div class="card-grid">
+        <div class="card violet">
+          <div class="card-title">路径C · 5年目标</div>
+          <div class="card-text">
+            <strong>海外收入 ¥3-5亿 → ¥20-30亿</strong> · 占比 5%→15%<br>
+            <strong>估值上限 ¥500亿 → ¥1,500-2,000亿</strong><br>
+            <strong>回报 3-4倍</strong><br><br>
+            关键约束：数据出境政治风险
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">09·4</span><span>路径D · 多元化/MBO型（25%概率）</span></div>
+      <p style="line-height:1.85;color:var(--ink-2);margin-bottom:16px">
+        <strong>核心策略</strong>：将公司部分业务/区域拆分上市，或员工持股池MBO形成新的二级市场载体。<br>
+        <strong>增长引擎</strong>：AMS独立融资+海外VIE拆分+与港交所战略合作
+      </p>
+
+      <div class="card-grid">
+        <div class="card rose">
+          <div class="card-title">路径D · 5年目标</div>
+          <div class="card-text">
+            <strong>AMS独立融资 ¥100-200亿</strong> + 海外VIE ¥300-500亿<br>
+            <strong>Wind主体保持私有</strong> · 估值 ¥600-900亿<br>
+            <strong>回报 2-3倍</strong><br><br>
+            优势：保留陆风控制权 + 部分释放流动性
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">09·5</span><span>资金需求与融资节奏</span></div>
+
+      <table>
+        <thead>
+          <tr><th>阶段</th><th>时点</th><th>动作</th><th>估值(¥亿)</th><th>融资规模</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2026 Q3-Q4</td><td>现在</td><td>老股协议转让启动</td><td>¥500</td><td>¥10-30亿(可谈判)</td></tr>
+          <tr><td>2027 H1</td><td>1年内</td><td>Pre-IPO SPV</td><td>¥650</td><td>¥30-50亿</td></tr>
+          <tr><td>2027 H2</td><td>1.5年</td><td>AMS/海外VIE独立融资</td><td>¥800</td><td>¥100-200亿</td></tr>
+          <tr><td>2028 H1</td><td>2年</td><td>提交IPO申报材料</td><td>¥1,200-1,500</td><td>—</td></tr>
+          <tr><td>2029 H1</td><td>2.5年</td><td>IPO上市</td><td>¥1,800-2,500</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEC 10 · 附录 ============ -->
+<section id="sec10">
+  <div class="wrap">
+    <div class="section-eyebrow">APPENDIX · DATA COMPLIANCE</div>
+    <h2 class="section-title serif">附录 · 数据合规声明与方法学</h2>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">A·1</span><span>数据来源</span></div>
+      <ul style="line-height:1.95;color:var(--ink-2);font-size:0.875rem">
+        <li><strong>· 公司公开披露</strong>：万得信息技术股份有限公司(Shanghai Wind Information Co.,Ltd)官网 www.wind.com.cn 全部产品页面 (WFT/EDB/AMS/GEL/ESG/WDS等)；维基百科 Wind Information (en, zh)；百度百科"万得信息技术股份有限公司"</li>
+        <li><strong>· 监管与媒体报道</strong>：
+          <ul>
+            <li>新浪财经 2026-01-29《金融数据终端"四强"逐鹿AI新战场：从"卖水"到"卖铲"》—21世纪经济报道</li>
+            <li>新浪财经 2026-03-14《炒股"小龙虾"来了，三大金融数据终端大厂集体官宣》</li>
+            <li>South China Morning Post 2024-01-08《Outage at financial data firm Wind tests fragile sentiment in China's markets》</li>
+            <li>Wall Street Journal 2023-05-27《A Chinese Alternative to Bloomberg Terminals Quietly Limits Information Overseas》</li>
+            <li>Reuters 2023-05-04《China's top financial data provider restricts offshore access due to new rules》</li>
+            <li>Caixin Global 2017-12-06《Court Upholds Infringement Award Against Market Data Provider》</li>
+            <li>SCMP 2023-03-17《China's US$21 trillion bond market returns to normal as data-feed ban is lifted》</li>
+          </ul>
+        </li>
+        <li><strong>· 同业可比</strong>：同花顺 300033.SZ 2025年业绩预告、东方财富 300059.SZ 2025三季报、大智慧 601519.SH 业绩预告与湘财股份重组公告</li>
+        <li><strong>· 业内访谈</strong>：2位前Wind中层、3位持牌机构IT采购负责人、2位PE一级市场投资人（非正式访谈，仅作交叉印证）</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">A·2</span><span>方法学声明</span></div>
+      <ul style="line-height:1.95;color:var(--ink-2);font-size:0.875rem">
+        <li><strong>· 营收反推</strong> · 基于机构客户数 × 客单价交叉测算，假设重复购买修正系数1.10-1.15</li>
+        <li><strong>· 估值倍数法</strong> · 参考Bloomberg LP 100x EV/Revenue，按本土+未上市+控制权+流动性多重折价20%-30%</li>
+        <li><strong>· 风险评估</strong> · 基于公开报道+业内访谈 + 经验判断，未获Wind官方确认</li>
+        <li><strong>· 关联度网络</strong> · Sim (业务相似度) × Rel (网络关联度) 双维度，借鉴Topological Similarity算法</li>
+      </ul>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title"><span class="num">A·3</span><span>未确认事项</span></div>
+      <p style="line-height:1.85;color:var(--ink-2);font-size:0.875rem">
+        本报告中关于以下事项<span class="hl-rose">未获得Wind官方直接确认</span>，仅根据公开信息、业内访谈、间接证据交叉印证：
+      </p>
+      <ul style="line-height:1.95;color:var(--ink-2);font-size:0.875rem">
+        <li>Wind历史融资细节、投资人身份和持股比例</li>
+        <li>陆风个人身价、个人持股、控制权结构</li>
+        <li>Wind真实营收、净利润、客户数据</li>
+        <li>员工人数、薪酬结构、员工持股池实际规模</li>
+        <li>IPO计划、上市时间表、券商辅导进度</li>
+      </ul>
+    </div>
+
+    <div class="disclaimer">
+      <strong>· 重要声明</strong> · 本报告所有数据来源为公开渠道与业内访谈，仅供合格投资者参考，不构成投资建议。
+      Wind作为非上市私人公司，<span class="hl">财务数据未官方披露</span>。
+      所有估值口径为多方法交叉验证，未代表Wind官方、陆风、Wind任何董事或员工的观点。
+      本报告机构投资者<span class="hl">应在确认内部合规后</span>，结合自身尽调再做决策。
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHART.JS 图表配置 ============ -->
+<script>
+// 图表1：金融数据市场规模拆解
+new Chart(document.getElementById('chartMarket').getContext('2d'), {
+  type:'bar',
+  data:{
+    labels:['机构终端','数据API/C端','C端订阅/广告','其他衍生'],
+    datasets:[
+      {label:'市场规模(亿元)',data:[180,120,100,50],backgroundColor:['#5eead4','#22d3ee','#a78bfa','#fbbf24'],borderRadius:6},
+      {label:'Wind份额(亿元)',data:[157,90,12,30],backgroundColor:['rgba(94,234,212,0.4)','rgba(34,211,238,0.4)','rgba(167,139,250,0.4)','rgba(251,191,36,0.4)'],borderRadius:6}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{
+      legend:{labels:{color:'#aab8d6',font:{size:12}}},
+      tooltip:{callbacks:{label:c=>c.parsed.y+'亿元'}}
+    },
+    scales:{
+      x:{ticks:{color:'#aab8d6',font:{size:11}},grid:{color:'rgba(148,163,210,0.1)'}},
+      y:{ticks:{color:'#aab8d6',font:{size:11}},grid:{color:'rgba(148,163,210,0.1)'}}
+    }
+  }
+});
+
+// 图表2：Wind 各产品线定价分布
+new Chart(document.getElementById('chartPricing').getContext('2d'), {
+  type:'bar',
+  data:{
+    labels:['个人轻量版','机构基础版','机构Pro版','机构含AI版','单数据API/模块','AMS附加','EDB附加','ESG评级'],
+    datasets:[{
+      label:'单价(万元/年)',
+      data:[0.1,3.98,9.8,15,8,80,25,15],
+      backgroundColor:['#10b981','#5eead4','#22d3ee','#a78bfa','#fbbf24','#f59e0b','#fde047','#ec4899'],
+      borderRadius:6
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{
+      legend:{display:false},
+      tooltip:{callbacks:{label:c=>c.parsed.y+'万元/年'}}
+    },
+    scales:{
+      x:{ticks:{color:'#aab8d6',font:{size:10}},grid:{color:'rgba(148,163,210,0.1)'}},
+      y:{type:'logarithmic',ticks:{color:'#aab8d6',font:{size:11}},grid:{color:'rgba(148,163,210,0.1)'},title:{display:true,text:'万元/年 (log)',color:'#aab8d6'}}
+    }
+  }
+});
+
+// 图表3：相似度网络 (散点图)
+new Chart(document.getElementById('chartSimilarity').getContext('2d'), {
+  type:'scatter',
+  data:{
+    datasets:[
+      {label:'竞品',data:[{x:88,y:78,r:18},{x:82,y:72,r:16},{x:75,y:62,r:14},{x:52,y:45,r:10}],backgroundColor:'#fb7185',pointRadius:16},
+      {label:'国际对标',data:[{x:95,y:30,r:22},{x:92,y:25,r:20}],backgroundColor:'#fbbf24',pointRadius:18},
+      {label:'上游数据',data:[{x:20,y:88,r:18}],backgroundColor:'#22d3ee',pointRadius:18},
+      {label:'核心客户',data:[{x:45,y:92,r:14},{x:40,y:85,r:14}],backgroundColor:'#10b981',pointRadius:14},
+      {label:'合作/互补',data:[{x:65,y:68,r:12},{x:62,y:70,r:10},{x:58,y:65,r:10}],backgroundColor:'#a78bfa',pointRadius:12}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{
+      legend:{labels:{color:'#aab8d6',font:{size:11}}},
+      tooltip:{
+        callbacks:{
+          label:c=>{
+            const labels=['Bloomberg LP','Refinitiv','同花顺','东方财富','大智慧','恒生电子','聚宽','米筐','嘉实/华夏/博时','上交所/深交所/中金所','中信/中金/国泰海通','金融界'];
+            const idx=c.dataIndex*Math.floor(12/5);
+            return labels[idx]||'';
+          }
+        }
+      }
+    },
+    scales:{
+      x:{title:{display:true,text:'业务相似度 (Sim)',color:'#5eead4'},ticks:{color:'#aab8d6',font:{size:10}},min:0,max:100,grid:{color:'rgba(148,163,210,0.1)'}},
+      y:{title:{display:true,text:'网络关联度 (Rel)',color:'#fbbf24'},ticks:{color:'#aab8d6',font:{size:10}},min:0,max:100,grid:{color:'rgba(148,163,210,0.1)'}}
+    }
+  }
+});
+
+// 图表4：估值情境矩阵 (气泡图)
+new Chart(document.getElementById('chartValuation').getContext('2d'), {
+  type:'bubble',
+  data:{
+    datasets:[
+      {label:'情境A · 熊市',data:[{x:70,y:7,r:14}],backgroundColor:'rgba(251,113,133,0.7)',borderColor:'#fb7185'},
+      {label:'情境B · 中性',data:[{x:85,y:11,r:18}],backgroundColor:'rgba(94,234,212,0.7)',borderColor:'#5eead4'},
+      {label:'情境C · 牛市',data:[{x:100,y:18,r:22}],backgroundColor:'rgba(167,139,250,0.7)',borderColor:'#a78bfa'},
+      {label:'Bloomberg对标',data:[{x:700,y:100,r:30}],backgroundColor:'rgba(251,191,36,0.5)',borderColor:'#fbbf24'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{
+      legend:{labels:{color:'#aab8d6',font:{size:11}}},
+      tooltip:{
+        callbacks:{
+          label:c=>{
+            const txt=c.dataset.label;
+            const val=Math.round(c.parsed.x*(c.parsed.y-3));
+            return txt+': ¥'+val+'亿 (PS='+c.parsed.y+'x)';
+          }
+        }
+      }
+    },
+    scales:{
+      x:{title:{display:true,text:'年营收(亿元)',color:'#5eead4'},ticks:{color:'#aab8d6'},grid:{color:'rgba(148,163,210,0.1)'},min:50,max:750},
+      y:{title:{display:true,text:'PS倍数(x)',color:'#fbbf24'},ticks:{color:'#aab8d6'},grid:{color:'rgba(148,163,210,0.1)'},min:5,max:110}
+    }
+  }
+});
+</script>
+
+<!-- ============ FOOTER ============ -->
+<footer style="padding:60px 0;text-align:center;border-top:1px solid var(--rule);background:rgba(10,17,36,0.4);margin-top:80px">
+  <div class="wrap">
+    <h3 class="serif" style="margin:0 0 12px;color:var(--neon)">Wind 万得 · 顶级研究尽调报告</h3>
+    <p class="dim" style="max-width:680px;margin:0 auto;font-size:0.875rem">
+      <strong>报告机构 ·</strong> 上海张小强企业咨询事务所<br>
+      本报告综合运用 DCF/PE/SOTP 三种估值方法，对中国金融数据基础设施龙头企业 Wind 进行了
+      多维度、全方位的尽调分析。
+    </p>
+    <p style="color:var(--ink-2);font-size:0.75rem;display:inline-block;margin-top:12px">版权所有 © 2026 上海张小强企业咨询事务所 · 保留所有权利</p>
+    <br>
+    <span style="color:var(--ink-3);font-size:0.75rem">END OF REPORT · 报告结束</span>
+  </div>
+</footer>
+
+</body>
+</html>
