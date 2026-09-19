@@ -1,5 +1,5 @@
 // Settings Page - Professional System Configuration
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import {
   Settings as SettingsIcon, Globe, Shield, Bell, User, Database, Key,
   Monitor, Palette, Code, Save, AlertTriangle, CheckCircle, Eye, EyeOff,
@@ -7,6 +7,9 @@ import {
 import { PageHeader } from '../components/ui/PageHeader';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
+import { useMe, useAuditLog } from '../hooks/useAdminData';
+import { api } from '../services/api';
+import { fmtRelative, fmtDate } from '../lib/format';
 
 const TABS = [
   { key: 'general', label: '通用', icon: <SettingsIcon size={14} /> },
@@ -105,6 +108,25 @@ export function SettingsPage() {
   const [compactMode, setCompactMode] = useState(false);
   const [highContrast, setHighContrast] = useState(false);
 
+  const { data: meData, refetch: refetchMe } = useMe();
+  const { data: auditData, loading: auditLoading } = useAuditLog({ days: 30, action: '登录', limit: 10 });
+  // 同时拿登录失败
+  const { data: auditFailData } = useAuditLog({ days: 30, action: '登录失败', limit: 10 });
+
+  const loginHistory = useMemo(() => {
+    const all = [...(auditData?.logs || []), ...(auditFailData?.logs || [])];
+    return all.sort((a, b) => (b.timestamp || '').localeCompare(a.timestamp || '')).slice(0, 10);
+  }, [auditData, auditFailData]);
+
+  const [profileName, setProfileName] = useState('');
+  const [savingProfile, setSavingProfile] = useState(false);
+
+  useEffect(() => {
+    if (meData?.admin?.name !== undefined) {
+      setProfileName(meData.admin.name);
+    }
+  }, [meData?.admin?.name]);
+
   const handleSave = (section: string) => {
     if (section === 'general') {
       localStorage.setItem('qhs_site_name', siteName);
@@ -115,6 +137,23 @@ export function SettingsPage() {
       localStorage.setItem('qhs_cf_enabled', enableCF ? '1' : '0');
     }
     toast.success('设置已保存');
+  };
+
+  const handleSaveProfile = async () => {
+    if (!profileName.trim()) {
+      toast.error('名称不能为空');
+      return;
+    }
+    setSavingProfile(true);
+    try {
+      await api.updateMe({ name: profileName.trim() });
+      toast.success('个人信息已保存');
+      refetchMe();
+    } catch (err) {
+      toast.error((err as Error).message || '保存失败');
+    } finally {
+      setSavingProfile(false);
+    }
   };
 
   return (
@@ -204,37 +243,53 @@ export function SettingsPage() {
         <div className="max-w-3xl space-y-6">
           <SettingSection
             title="个人信息"
-            description="管理您的账户信息"
+            description="管理您的账户信息（数据源: /api/admin/me）"
           >
             <div className="flex items-center gap-4 pb-4 border-b border-zinc-800/50">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center text-white text-xl font-bold">
-                A
+                {(meData?.admin?.name || meData?.admin?.email || 'A')[0].toUpperCase()}
               </div>
               <div>
-                <button className="admin-btn ghost">
+                <button className="admin-btn ghost" disabled>
                   更换头像
                 </button>
-                <p className="text-xs text-zinc-500 mt-2">支持 JPG、PNG，最大 2MB</p>
+                <p className="text-xs text-zinc-500 mt-2">头像上传（即将上线）</p>
               </div>
             </div>
             <SettingInput
               label="显示名称"
-              value="管理员"
-              onChange={() => {}}
+              value={profileName}
+              onChange={setProfileName}
               placeholder="您的显示名称"
             />
             <SettingInput
               label="邮箱地址"
-              value="admin@zxq.com"
+              value={meData?.admin?.email || ''}
               onChange={() => {}}
               placeholder="邮箱地址"
             />
             <SettingInput
-              label="职位"
-              value="系统管理员"
+              label="角色"
+              value={meData?.admin?.role || ''}
               onChange={() => {}}
-              placeholder="您的职位"
+              placeholder="角色"
             />
+            <div className="flex justify-end pt-2">
+              <button onClick={handleSaveProfile} className="admin-btn primary" disabled={savingProfile}>
+                <Save size={16} />
+                {savingProfile ? '保存中…' : '保存个人信息'}
+              </button>
+            </div>
+          </SettingSection>
+
+          <SettingSection title="账户统计" description="登录与 2FA 状态">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              <Stat label="角色" value={meData?.admin?.role || '-'} />
+              <Stat label="2FA" value={meData?.admin?.twoFactorEnabled ? '已启用' : '未启用'} />
+              <Stat label="累计登录" value={`${meData?.admin?.loginCount || 0} 次`} />
+              <Stat label="上次登录" value={meData?.admin?.lastLoginAt ? fmtRelative(meData.admin.lastLoginAt) : '-'} />
+              <Stat label="账号创建" value={meData?.admin?.createdAt && meData.admin.createdAt !== '-' ? fmtDate(meData.admin.createdAt) : '-'} />
+            </div>
           </SettingSection>
         </div>
       )}
@@ -391,31 +446,35 @@ export function SettingsPage() {
 
           <SettingSection
             title="登录历史"
-            description="最近的登录活动"
+            description="最近 30 天登录与登录失败事件（数据源: /api/admin/audit-log）"
           >
-            {[
-              { device: 'Chrome on macOS', location: '上海市', time: '2026-07-10 14:28', current: true },
-              { device: 'Safari on iPhone', location: '上海市', time: '2026-07-09 09:15', current: false },
-              { device: 'Chrome on Windows', location: '北京市', time: '2026-07-08 16:42', current: false },
-            ].map((login, idx) => (
-              <div key={idx} className="flex items-center justify-between py-3 border-b border-zinc-800/50 last:border-0">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <Monitor size={14} className="text-zinc-500" />
-                    <span className="text-sm text-white">{login.device}</span>
-                    {login.current && (
-                      <span className="admin-badge info">当前</span>
-                    )}
-                  </div>
-                  <div className="text-xs text-zinc-500 mt-1">
-                    {login.location} · {login.time}
+            {auditLoading && loginHistory.length === 0 ? (
+              <div className="py-6 text-center text-xs text-zinc-500">加载中...</div>
+            ) : loginHistory.length === 0 ? (
+              <div className="py-6 text-center text-xs text-zinc-500">暂无登录记录</div>
+            ) : (
+              loginHistory.map((login) => (
+                <div key={login.id} className="flex items-center justify-between py-3 border-b border-zinc-800/50 last:border-0">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <Monitor size={14} className="text-zinc-500" />
+                      <span className="text-sm text-white">{login.user_email}</span>
+                      <span className={cn(
+                        'text-[10px] font-semibold px-1.5 py-0.5 rounded border',
+                        login.status === 'success'
+                          ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                          : 'bg-rose-500/10 text-rose-400 border-rose-500/20'
+                      )}>
+                        {login.status === 'success' ? '登录成功' : '登录失败'}
+                      </span>
+                    </div>
+                    <div className="text-xs text-zinc-500 mt-1 font-mono">
+                      IP {login.ip} · {login.timestamp}
+                    </div>
                   </div>
                 </div>
-                {!login.current && (
-                  <button className="admin-btn ghost text-danger text-xs">移除</button>
-                )}
-              </div>
-            ))}
+              ))
+            )}
           </SettingSection>
         </div>
       )}
@@ -488,3 +547,13 @@ export function SettingsPage() {
     </>
   );
 }
+
+function Stat({ label, value }: { label: string; value: React.ReactNode }) {
+  return (
+    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3">
+      <div className="text-[10px] font-semibold text-zinc-500 uppercase tracking-widest">{label}</div>
+      <div className="text-sm font-bold text-white mt-1">{value}</div>
+    </div>
+  );
+}
+

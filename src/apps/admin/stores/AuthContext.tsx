@@ -1,10 +1,8 @@
-// Admin Auth Context — Enhanced (RBAC + 2FA)
-// Dev bypass: enable VITE_DEV_BYPASS=1 in .env.local for local demo login (no backend required)
+// Admin Auth Context — RBAC + 2FA
+// Authenticates against /api/admin/login. Session persisted in localStorage.
 import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import api from '../services/api';
-
-const DEV_BYPASS = (import.meta as any).env?.VITE_DEV_BYPASS === '1';
 
 type Role = 'super_admin' | 'admin' | 'editor' | 'viewer';
 
@@ -51,22 +49,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   ): Promise<boolean> => {
     setIsLoading(true);
     setError(null);
-
-    // DEV BYPASS: any password works in dev mode
-    if (DEV_BYPASS) {
-      const devToken = 'dev_bypass_token_2026';
-      const devEmail = 'dev@zxqconsulting.com';
-      const devRole: Role = 'super_admin';
-      setToken(devToken);
-      setEmail(devEmail);
-      setRole(devRole);
-      localStorage.setItem('qhs_admin_token', devToken);
-      localStorage.setItem('qhs_admin_email', devEmail);
-      localStorage.setItem('qhs_admin_role', devRole);
-      api.setToken(devToken);
-      setIsLoading(false);
-      return true;
-    }
 
     try {
       const response = await api.login(loginEmail, password, totpToken);

@@ -230,31 +230,8 @@ export async function verifySession(auth: AuthContext): Promise<AuthResult | nul
     return null;
   }
 
-  // 3. 审计日志(可选 - 上报到 D1)
-  await logAuditEvent(env, {
-    email: session.email,
-    action: 'session_verify',
-    ip: ipCheck.ip,
-    timestamp: Date.now(),
-  });
+  // 3. 审计日志（每次请求都打 session_verify 会噪声过大，改在登录时由 login.ts 记录）
+  // 如需细粒度操作审计，由各业务 API 调用时写入 audit_log 表
 
   return { ok: true as const, email: session.email, role: admin.role };
-}
-
-async function logAuditEvent(
-  env: AuthContext['env'],
-  event: { email: string; action: string; ip: string; timestamp: number }
-): Promise<void> {
-  try {
-    const db = getDB(env);
-    if (!db) return;
-    await db
-      .prepare(
-        `INSERT INTO audit_log (email, action, ip_address, timestamp) VALUES (?, ?, ?, ?)`
-      )
-      .bind(event.email, event.action, event.ip, event.timestamp)
-      .run();
-  } catch (err) {
-    console.error('[auth] Failed to write audit log:', err);
-  }
 }

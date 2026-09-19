@@ -124,6 +124,13 @@ export async function onRequest(context: { request: Request; env: Env }) {
     const inputHash = hashPassword(password);
     const valid = inputHash === expectedPasswordHash;
     if (!valid) {
+      // 记录失败审计
+      const failIp = request.headers.get('cf-connecting-ip') || '';
+      await env.ADMIN_KV.put(
+        `audit:login:${email}:${Date.now()}`,
+        JSON.stringify({ email, ip: failIp, role: 'unknown', success: false, timestamp: Date.now() }),
+        { expirationTtl: 30 * 24 * 60 * 60 }
+      ).catch(() => { /* 不阻塞主流程 */ });
       return json({ success: false, error: '账号或密码错误' }, 401);
     }
 
@@ -146,11 +153,21 @@ export async function onRequest(context: { request: Request; env: Env }) {
     // 3. 生成 token 并存会话
     const token = generateToken();
     const role = env.ADMIN_ROLE || 'admin';
+    const ua = request.headers.get('User-Agent') || '';
+    const ip = request.headers.get('cf-connecting-ip') || (request as any).cf?.clientIp || '';
+    const country = request.headers.get('cf-ipcountry') || '';
+    const city = (request as any).cf?.city || '';
+
     const sessionData = JSON.stringify({
       email,
       role,
       createdAt: Date.now(),
+      lastActiveAt: Date.now(),
       expiresAt: Date.now() + 7 * 24 * 60 * 60 * 1000,
+      userAgent: ua,
+      ip,
+      country,
+      city,
     });
 
     await env.ADMIN_KV.put(`session:${token}`, sessionData, {
@@ -158,10 +175,9 @@ export async function onRequest(context: { request: Request; env: Env }) {
     });
 
     // 4. 记录审计
-    const ip = request.headers.get('cf-connecting-ip') || '';
     await env.ADMIN_KV.put(
       `audit:login:${email}:${Date.now()}`,
-      JSON.stringify({ email, ip, totp: !!env.ADMIN_2FA_SECRET, role, timestamp: Date.now() }),
+      JSON.stringify({ email, ip, totp: !!env.ADMIN_2FA_SECRET, role, success: true, timestamp: Date.now() }),
       { expirationTtl: 30 * 24 * 60 * 60 }
     );
 

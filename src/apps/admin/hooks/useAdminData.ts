@@ -105,3 +105,46 @@ export function useResearchAnalytics(days = 30) {
     [days]
   );
 }
+
+// ── Audit Log ──
+export function useAuditLog(params: { days?: number; action?: string; limit?: number } = {}) {
+  return useFetch(
+    () => api.getAuditLog(params),
+    [params.days, params.action, params.limit]
+  );
+}
+
+// ── Active Sessions ──
+export function useActiveSessions() {
+  return useFetch(() => api.getActiveSessions(), []);
+}
+
+// ── IP Whitelist ──
+export function useWhitelist() {
+  return useFetch(() => api.getWhitelist(), []);
+}
+
+// ── Current Admin (me) ──
+export function useMe() {
+  return useFetch(() => api.getMe(), []);
+}
+
+// ── Notifications ──
+export function useNotifications() {
+  return useFetch(() => api.getNotifications(), []);
+}
+
+// ── Tasks ──
+export function useTasks() {
+  return useFetch(() => api.getTasks(), []);
+}
+
+// ── Projects ──
+export function useProjects() {
+  return useFetch(() => api.getProjects(), []);
+}
+
+// ── Whitepapers ──
+export function useWhitepapers() {
+  return useFetch(() => api.getWhitepapers(), []);
+}

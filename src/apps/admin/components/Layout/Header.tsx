@@ -3,11 +3,14 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Menu, Search, Bell, LogOut, User, ChevronDown, Globe, ShieldCheck,
+  Inbox, MessageSquare, Brain, Loader2,
 } from 'lucide-react';
 import { useAuth } from '../../stores/AuthContext';
 import { useUI } from '../../stores/UIContext';
 import { findNavItem } from '../../config/navigation';
+import { useNotifications } from '../../hooks/useAdminData';
 import { cn } from '@/lib/utils';
+import { fmtRelative } from '@/apps/admin/lib/format';
 
 interface Props {
   onOpenCommand: () => void;
@@ -22,6 +25,11 @@ export function Header({ onOpenCommand }: Props) {
   const [notifOpen, setNotifOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [now, setNow] = useState(() => new Date());
+
+  // Live notifications from API
+  const { data: notifData, loading: notifLoading } = useNotifications();
+  const notifItems = notifData?.items ?? [];
+  const unreadCount = notifData?.unread_count ?? 0;
 
   useEffect(() => {
     const t = setInterval(() => setNow(new Date()), 60_000);
@@ -100,10 +108,18 @@ export function Header({ onOpenCommand }: Props) {
             aria-label="通知"
           >
             <Bell size={16} />
-            <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-emerald-400 ring-2 ring-zinc-950" />
+            {unreadCount > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 min-w-[16px] h-4 px-1 rounded-full bg-rose-500 text-[10px] font-bold text-white flex items-center justify-center">
+                {unreadCount > 9 ? '9+' : unreadCount}
+              </span>
+            )}
           </button>
           {notifOpen && (
-            <NotificationPanel onClose={() => setNotifOpen(false)} />
+            <NotificationPanel
+              onClose={() => setNotifOpen(false)}
+              items={notifItems}
+              loading={notifLoading}
+            />
           )}
         </div>
 
@@ -139,7 +155,23 @@ export function Header({ onOpenCommand }: Props) {
   );
 }
 
-function NotificationPanel({ onClose }: { onClose: () => void }) {
+function NotificationPanel({
+  onClose,
+  items,
+  loading,
+}: {
+  onClose: () => void;
+  items: Array<{
+    id: string;
+    title: string;
+    description: string;
+    href: string;
+    icon: 'inbox' | 'brain' | 'message' | 'user' | 'shield';
+    timestamp: string;
+    unread: boolean;
+  }>;
+  loading: boolean;
+}) {
   const navigate = useNavigate();
   return (
     <>
@@ -152,26 +184,28 @@ function NotificationPanel({ onClose }: { onClose: () => void }) {
           </button>
         </div>
         <div className="max-h-[360px] overflow-y-auto admin-scroll">
-          <NotifItem
-            title="3 条新线索待跟进"
-            description="来自网站 /diagnose 页面的 AI 诊断表单"
-            time="5 分钟前"
-            icon="inbox"
-            onClick={() => { navigate('/admin/submissions'); onClose(); }}
-          />
-          <NotifItem
-            title="系统已部署到生产"
-            description="version 2.4.1 · 由 Cloudflare Workers 推送"
-            time="2 小时前"
-            icon="shield"
-          />
-          <NotifItem
-            title="周报生成完成"
-            description="本周访问 1,283 · 较上周 +18%"
-            time="昨天 18:00"
-            icon="activity"
-            onClick={() => { navigate('/admin'); onClose(); }}
-          />
+          {loading && (
+            <div className="flex items-center justify-center gap-2 py-10 text-xs text-zinc-500">
+              <Loader2 size={14} className="animate-spin" />
+              加载中...
+            </div>
+          )}
+          {!loading && items.length === 0 && (
+            <div className="py-10 text-center text-xs text-zinc-500">
+              暂无新通知
+            </div>
+          )}
+          {!loading && items.map((n) => (
+            <NotifItem
+              key={n.id}
+              title={n.title}
+              description={n.description}
+              time={fmtRelative(n.timestamp)}
+              icon={n.icon}
+              unread={n.unread}
+              onClick={() => { navigate(n.href); onClose(); }}
+            />
+          ))}
         </div>
         <div className="px-4 py-2 border-t border-[var(--admin-border)] bg-white/[0.015] text-[11px] text-zinc-500 text-center">
           通知由系统自动汇总 · 不推送离线消息
@@ -186,12 +220,14 @@ function NotifItem({
   description,
   time,
   icon,
+  unread,
   onClick,
 }: {
   title: string;
   description: string;
   time: string;
-  icon: 'inbox' | 'shield' | 'activity';
+  icon: 'inbox' | 'brain' | 'message' | 'user' | 'shield';
+  unread?: boolean;
   onClick?: () => void;
 }) {
   return (
@@ -207,16 +243,28 @@ function NotifItem({
           className={cn(
             'w-8 h-8 rounded-lg flex items-center justify-center shrink-0',
             icon === 'inbox' && 'bg-blue-500/10 text-blue-400',
-            icon === 'shield' && 'bg-emerald-500/10 text-emerald-400',
-            icon === 'activity' && 'bg-purple-500/10 text-purple-400'
+            icon === 'brain' && 'bg-purple-500/10 text-purple-400',
+            icon === 'message' && 'bg-amber-500/10 text-amber-400',
+            icon === 'user' && 'bg-emerald-500/10 text-emerald-400',
+            icon === 'shield' && 'bg-emerald-500/10 text-emerald-400'
           )}
         >
-          {icon === 'inbox' && <Bell size={14} />}
+          {icon === 'inbox' && <Inbox size={14} />}
+          {icon === 'brain' && <Brain size={14} />}
+          {icon === 'message' && <MessageSquare size={14} />}
+          {icon === 'user' && <User size={14} />}
           {icon === 'shield' && <ShieldCheck size={14} />}
-          {icon === 'activity' && <Search size={14} />}
         </div>
         <div className="flex-1 min-w-0">
-          <div className="text-sm font-semibold text-white truncate">{title}</div>
+          <div className="flex items-center gap-2">
+            <div className={cn(
+              'text-sm truncate',
+              unread ? 'font-semibold text-white' : 'font-medium text-zinc-300'
+            )}>
+              {title}
+            </div>
+            {unread && <span className="w-1.5 h-1.5 rounded-full bg-rose-400 shrink-0" />}
+          </div>
           <div className="text-xs text-zinc-500 mt-0.5 truncate">{description}</div>
           <div className="text-[10.5px] text-zinc-600 mt-1">{time}</div>
         </div>
