@@ -84,6 +84,10 @@ export default function ResearchReport() {
   // 旧方案：给 iframe body 注入 padding-top 以避开 SPA navbar
   // 新方案：整个 ResearchReport 用 fixed inset-0 z-[60] 覆盖整个屏幕（高于 navbar 的 z-50），
   //         iframe 内的报告 header 不再被遮挡，因此不再需要 padding-top 注入。
+  //
+  // 重要修复(2026-09-22): 当报告 HTML 包含 <script src="world-data.js"> 等相对路径
+  // 外部脚本时,直接放进 srcDoc 会导致脚本无法执行(about:srcdoc 无 base URL)。
+  // 解决: 将所有相对路径的 <script src="X"> 替换为内联 <script>X 内容</script> 后再注入。
   useEffect(() => {
     if (!report) return;
     if (needsPassword && !passwordUnlocked) return; // 密码未解锁前不下载报告内容
@@ -97,7 +101,13 @@ export default function ResearchReport() {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         let html = await res.text();
         if (aborted) return;
-        setSrcDoc(html);
+
+        // 将所有相对路径的 <script src="*.js"> 替换为内联脚本
+        // 这样 srcDoc 里的脚本才能正常执行
+        const inlineHtml = await replaceRelativeScripts(html, report.href);
+        if (aborted) return;
+
+        setSrcDoc(inlineHtml);
       } catch {
         if (!aborted) {
           setIframeError(true);
@@ -110,6 +120,43 @@ export default function ResearchReport() {
       aborted = true;
     };
   }, [report, nonce, needsPassword, passwordUnlocked]);
+
+/**
+ * 将 HTML 中的相对路径 <script src="path/to/file.js"> 替换为
+ * 内联 <script>// 文件内容</script>，避免 srcDoc 无法加载外部脚本。
+ * 仅处理同源相对路径（不以 / 或 http 开头）。
+ */
+async function replaceRelativeScripts(
+  html: string,
+  reportHref: string,
+): Promise<string> {
+  // 从 reportHref 推导 base 路径（去掉文件名部分）
+  // 例如 /_reports/fta-global-deep-2026.html → /_reports/
+  const basePath = reportHref.replace(/\/[^/]+$/, '/');
+
+  // 匹配 <script src="...">（忽略 defer/async 和引号类型）
+  const scriptSrcRe = /<script\s+[^>]*\bsrc=["']([^"']+)["'][^>]*>\s*<\/script>/gi;
+  const matches = [...html.matchAll(scriptSrcRe)];
+
+  let result = html;
+  for (const m of matches) {
+    const src = m[1];
+    // 只处理相对路径（不以 / 或 http 开头）
+    if (src.startsWith('/') || src.startsWith('http://') || src.startsWith('https://')) continue;
+    try {
+      const scriptUrl = basePath + src;
+      const scriptRes = await fetch(scriptUrl, { cache: 'no-cache' });
+      if (!scriptRes.ok) continue;
+      const content = await scriptRes.text();
+      // 替换为内联脚本
+      const inlineScript = `<script>${content}<\/script>`;
+      result = result.slice(0, m.index!) + inlineScript + result.slice(m.index! + m[0].length);
+    } catch {
+      // fetch 失败则跳过（保留原标签，避免破坏页面）
+    }
+  }
+  return result;
+}
 
   // 监听 iframe 内部滚动 → 控制返回顶部按钮
   useEffect(() => {
