@@ -1,0 +1,3466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全球FTA（自由贸易协定）全景深度梳理 v2</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<script src="world-data.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #1e3a8a;
+    --primary-light: #3b82f6;
+    --accent: #7c3aed;
+    --accent2: #0891b2;
+    --success: #059669;
+    --danger: #dc2626;
+    --warning: #f59e0b;
+    --bg: linear-gradient(135deg, #f5f7fa 0%, #e4ecf7 100%);
+    --surface: #ffffff;
+    --border: #e5e7eb;
+    --text: #1f2937;
+    --text-muted: #6b7280;
+    --text-light: #9ca3af;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+    min-height: 100vh;
+  }
+
+  /* ====== TOC Sidebar ====== */
+  .toc {
+    position: fixed;
+    left: 0; top: 0;
+    width: 240px;
+    height: 100vh;
+    background: rgba(30,58,138,.96);
+    backdrop-filter: blur(12px);
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 20px 0 40px;
+    box-shadow: 2px 0 20px rgba(0,0,0,.15);
+    transition: transform .3s ease;
+  }
+  .toc::-webkit-scrollbar { width: 4px; }
+  .toc::-webkit-scrollbar-thumb { background: rgba(255,255,255,.2); border-radius: 2px; }
+  .toc-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,.5);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0 18px 12px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    margin-bottom: 10px;
+  }
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 18px;
+    font-size: 13px;
+    color: rgba(255,255,255,.75);
+    cursor: pointer;
+    transition: all .15s;
+    border-left: 3px solid transparent;
+    text-decoration: none;
+  }
+  .toc-item:hover { background: rgba(255,255,255,.08); color: #fff; }
+  .toc-item.active { background: rgba(255,255,255,.12); color: #fff; border-left-color: #60a5fa; font-weight: 600; }
+  .toc-item .toc-num { font-size: 10px; opacity: .5; min-width: 18px; }
+  .toc-item.sub { padding-left: 30px; font-size: 12px; }
+  .toc-item.new-section { margin-top: 8px; border-top: 1px solid rgba(255,255,255,.1); padding-top: 10px; }
+
+  /* Mobile: hide TOC, show hamburger */
+  .toc-toggle {
+    display: none;
+    position: fixed;
+    top: 14px; left: 14px;
+    z-index: 1001;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    width: 40px; height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(30,58,138,.3);
+  }
+  .toc-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 999;
+  }
+
+  /* ====== Main Content ====== */
+  .main { margin-left: 240px; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 28px 36px; }
+
+  /* ====== Hero ====== */
+  .hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #312e81 50%, #6d28d9 100%);
+    color: #fff;
+    padding: 52px 44px;
+    border-radius: 16px;
+    margin-bottom: 28px;
+    box-shadow: 0 12px 40px rgba(30,58,138,.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero h1 { font-size: 36px; font-weight: 800; margin-bottom: 10px; letter-spacing: .5px; position: relative; }
+  .hero .subtitle { font-size: 17px; opacity: .9; margin-bottom: 18px; position: relative; }
+  .hero .meta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 13px; opacity: .8; position: relative; }
+  .hero .meta span { background: rgba(255,255,255,.12); padding: 5px 12px; border-radius: 999px; }
+
+  /* ====== Section ====== */
+  .section {
+    background: var(--surface);
+    border-radius: 14px;
+    padding: 30px 34px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.05);
+    border: 1px solid rgba(0,0,0,.04);
+    scroll-margin-top: 20px;
+  }
+  .section h2 {
+    font-size: 23px; font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #e0e7ff;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section h2 .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff; font-size: 15px; flex-shrink: 0;
+  }
+  .section h3 {
+    font-size: 17px; font-weight: 600;
+    color: var(--accent);
+    margin: 22px 0 10px;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+  }
+  .section h4 {
+    font-size: 15px; font-weight: 600;
+    color: #374151; margin: 16px 0 8px;
+  }
+  .section p { margin-bottom: 11px; }
+  .section ul, .section ol { margin-left: 22px; margin-bottom: 11px; }
+  .section li { margin-bottom: 5px; }
+
+  /* ====== Highlight box types ====== */
+  .box {
+    border-radius: 10px; padding: 18px 22px;
+    margin: 14px 0;
+  }
+  .box-insight {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-left: 5px solid var(--warning);
+  }
+  .box-insight h4 { color: #92400e; }
+  .box-insight li { color: #78350f; }
+  .box-info {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-left: 5px solid var(--primary-light);
+  }
+  .box-info h4 { color: var(--primary); }
+  .box-info li { color: #1e40af; }
+  .box-example {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    border-left: 5px solid var(--accent);
+  }
+  .box-example h4 { color: var(--accent); }
+  .box-success {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border-left: 5px solid var(--success);
+  }
+  .box-success h4 { color: var(--success); }
+  .box-danger {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border-left: 5px solid var(--danger);
+  }
+  .box-danger h4 { color: var(--danger); }
+
+  .box h4 { margin-bottom: 8px; font-size: 15px; }
+
+  /* ====== Tables ====== */
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px; }
+  thead { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; }
+  th { padding: 9px 11px; text-align: left; font-weight: 600; }
+  td { padding: 9px 11px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tbody tr:hover { background: #f9fafb; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  /* ====== Badges ====== */
+  .badge {
+    display: inline-block; padding: 2px 8px;
+    border-radius: 999px; font-size: 11px; font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge.in { background: #d1fae5; color: #065f46; }
+  .badge.active { background: #dbeafe; color: #1e40af; }
+  .badge.pending { background: #fef3c7; color: #92400e; }
+  .badge.stalled { background: #fee2e2; color: #991b1b; }
+  .badge.tag { background: #e0e7ff; color: #3730a3; padding: 3px 10px; font-size: 12px; }
+  .badge.high { background: #fce7f3; color: #9d174d; }
+  .badge.medium { background: #fff7ed; color: #c2410c; }
+
+  /* ====== Cards ====== */
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 14px; }
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px;
+    transition: all .2s;
+  }
+  .card:hover { border-color: var(--accent); box-shadow: 0 6px 16px rgba(124,58,237,.1); }
+  .card.blue { border-left: 4px solid var(--primary-light); background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+  .card.purple { border-left: 4px solid var(--accent); background: linear-gradient(135deg, #f5f3ff, #ede9fe); }
+  .card.teal { border-left: 4px solid var(--accent2); background: linear-gradient(135deg, #ecfeff, #cffafe); }
+  .card.orange { border-left: 4px solid var(--warning); background: linear-gradient(135deg, #fff7ed, #ffedd5); }
+  .card.green { border-left: 4px solid var(--success); background: linear-gradient(135deg, #ecfdf5, #d1fae5); }
+  .card.red { border-left: 4px solid var(--danger); background: linear-gradient(135deg, #fef2f2, #fee2e2); }
+  .card h4 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .card p { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+  .card .meta { font-size: 12px; color: var(--text-light); }
+
+  /* ====== Charts ====== */
+  .chart { width: 100%; height: 500px; background: #fafafa; border-radius: 10px; padding: 10px; margin: 14px 0; }
+  .chart.tall { height: 700px; }
+  .chart.short { height: 360px; }
+  .chart-label { font-size: 12px; color: var(--text-muted); margin-top: -8px; margin-bottom: 12px; }
+
+  /* ====== Stats ====== */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px; margin: 14px 0;
+  }
+  .stat {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff; padding: 18px; border-radius: 10px; text-align: center;
+  }
+  .stat .value { font-size: 30px; font-weight: 800; line-height: 1; }
+  .stat .label { font-size: 12px; opacity: .85; margin-top: 5px; }
+  .stat:nth-child(2) { background: linear-gradient(135deg, var(--accent), #c026d3); }
+  .stat:nth-child(3) { background: linear-gradient(135deg, var(--accent2), #0d9488); }
+  .stat:nth-child(4) { background: linear-gradient(135deg, var(--warning), var(--danger)); }
+  .stat:nth-child(5) { background: linear-gradient(135deg, var(--success), #0d9488); }
+  .stat:nth-child(6) { background: linear-gradient(135deg, #db2777, #be185d); }
+
+  /* ====== Tabs ====== */
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; border-bottom: 2px solid var(--border); padding-bottom: 8px; }
+  .tab {
+    padding: 7px 16px; background: #f3f4f6;
+    border-radius: 999px; cursor: pointer;
+    font-size: 13px; font-weight: 500;
+    transition: all .2s; border: none;
+  }
+  .tab:hover { background: #e5e7eb; }
+  .tab.active { background: var(--accent); color: #fff; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ====== Timeline ====== */
+  .timeline {
+    position: relative;
+    margin: 16px 0;
+    padding-left: 28px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 7px; top: 4px; bottom: 4px;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary), var(--accent2));
+    border-radius: 2px;
+  }
+  .timeline-item {
+    position: relative; margin-bottom: 18px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -25px; top: 6px;
+    width: 14px; height: 14px;
+    border-radius: 50%; background: #fff;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 0 3px rgba(30,58,138,.15);
+  }
+  .timeline-item.highlight::before { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(124,58,237,.2); }
+  .timeline-year {
+    font-size: 13px; font-weight: 700;
+    color: var(--primary); margin-bottom: 2px;
+  }
+  .timeline-item h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .timeline-item p { font-size: 13px; color: var(--text-muted); }
+
+  /* ====== FTA Card ====== */
+  .fta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 14px; margin-top: 14px; }
+  .fta-card {
+    border: 1px solid var(--border); border-radius: 10px; padding: 17px;
+    transition: all .2s;
+  }
+  .fta-card:hover { border-color: var(--accent); box-shadow: 0 6px 16px rgba(124,58,237,.1); }
+  .fta-card .name { font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+  .fta-card .full { font-size: 11px; color: var(--text-muted); margin-bottom: 9px; font-style: italic; }
+  .fta-card .meta { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 9px; }
+  .fta-card .members { font-size: 12.5px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.5; }
+  .fta-card .desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ====== RoO Diagram ====== */
+  .roo-diagram {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 22px;
+    margin: 14px 0;
+    text-align: center;
+  }
+  .roo-flow {
+    display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; gap: 10px; margin: 16px 0;
+  }
+  .roo-step {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border: 2px solid var(--primary-light);
+    border-radius: 10px; padding: 12px 18px;
+    min-width: 130px;
+  }
+  .roo-step.highlight { background: linear-gradient(135deg, #f5f3ff, #ede9fe); border-color: var(--accent); }
+  .roo-step h5 { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 3px; }
+  .roo-step.highlight h5 { color: var(--accent); }
+  .roo-step p { font-size: 11px; color: var(--text-muted); }
+  .roo-arrow { font-size: 22px; color: var(--text-light); }
+
+  /* ====== Comparative Bar ====== */
+  .comp-bar { margin: 8px 0; }
+  .comp-bar-label { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
+  .comp-bar-track { height: 10px; background: #f1f5f9; border-radius: 999px; overflow: hidden; }
+  .comp-bar-fill { height: 100%; border-radius: 999px; transition: width .8s ease; }
+  .comp-bar-fill.blue { background: linear-gradient(90deg, var(--primary), var(--primary-light)); }
+  .comp-bar-fill.purple { background: linear-gradient(90deg, var(--accent), #a78bfa); }
+  .comp-bar-fill.teal { background: linear-gradient(90deg, var(--accent2), #2dd4bf); }
+  .comp-bar-fill.green { background: linear-gradient(90deg, var(--success), #34d399); }
+  .comp-bar-fill.orange { background: linear-gradient(90deg, var(--warning), #fb923c); }
+
+  /* ====== Node Detail Panel ====== */
+  #detail-panel {
+    display: none;
+    position: fixed; right: 20px; top: 20px;
+    width: 320px; max-height: calc(100vh - 40px);
+    background: #fff; border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(0,0,0,.18);
+    z-index: 2000;
+    overflow-y: auto;
+    padding: 22px;
+    border: 1px solid var(--border);
+  }
+  #detail-panel.show { display: block; }
+  #detail-panel .close-btn {
+    position: absolute; top: 12px; right: 12px;
+    background: #f3f4f6; border: none; border-radius: 50%;
+    width: 28px; height: 28px; cursor: pointer;
+    font-size: 16px; color: var(--text-muted);
+    display: flex; align-items: center; justify-content: center;
+  }
+  #detail-panel h3 { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 10px; padding-right: 30px; }
+  #detail-panel .detail-content { font-size: 13px; color: var(--text-muted); }
+  #detail-panel .detail-content b { color: var(--text); }
+
+  /* ====== Footer ====== */
+  .footer { text-align: center; color: var(--text-muted); padding: 28px 0 10px; font-size: 13px; }
+
+  /* ====== Mobile ====== */
+  @media (max-width: 768px) {
+    .toc { transform: translateX(-100%); }
+    .toc.open { transform: translateX(0); }
+    .toc-toggle { display: flex; align-items: center; justify-content: center; }
+    .toc-overlay.show { display: block; }
+    .main { margin-left: 0; }
+    .container { padding: 20px 16px; }
+    .hero { padding: 36px 20px; }
+    .hero h1 { font-size: 26px; }
+    .section { padding: 20px 16px; }
+    .section h2 { font-size: 20px; }
+    .chart, .chart.tall { height: 420px; }
+    .chart.short { height: 300px; }
+    #detail-panel { width: calc(100vw - 20px); right: 10px; top: 60px; }
+    .topbar { left: 60px; }
+    .topbar .topbar-search { display: none; }
+    .topbar .topbar-search-mobile { display: inline-flex; }
+  }
+
+  /* ====== Top Toolbar ====== */
+  .topbar {
+    position: fixed;
+    top: 12px;
+    left: 252px;
+    right: 12px;
+    z-index: 999;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    pointer-events: none;
+  }
+  .topbar > * { pointer-events: auto; }
+  .topbar .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+    color: var(--text);
+    cursor: pointer;
+    transition: all .15s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .topbar .pill:hover { border-color: var(--accent); color: var(--accent); }
+  .topbar .pill kbd {
+    background: rgba(0,0,0,0.06);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    font-size: 11px;
+    margin-left: 4px;
+  }
+  .topbar-search-mobile { display: none; }
+
+  /* ====== Reading Progress Bar ====== */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--accent2));
+    z-index: 1001;
+    transition: width .05s linear;
+    box-shadow: 0 0 8px rgba(124,58,237,0.5);
+  }
+
+  /* ====== Command Palette (⌘K) ====== */
+  .cmdk-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15,23,42,0.55);
+    backdrop-filter: blur(6px);
+    z-index: 2000;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 12vh;
+  }
+  .cmdk-backdrop.show { display: flex; }
+  .cmdk {
+    width: min(640px, 92vw);
+    background: var(--surface);
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.05);
+    overflow: hidden;
+    animation: cmdk-in .18s ease-out;
+  }
+  @keyframes cmdk-in {
+    from { transform: translateY(-12px) scale(0.97); opacity: 0; }
+    to { transform: none; opacity: 1; }
+  }
+  .cmdk-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 18px 22px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+  }
+  .cmdk-input::placeholder { color: var(--text-light); }
+  .cmdk-list {
+    max-height: 50vh;
+    overflow-y: auto;
+    padding: 8px 0;
+  }
+  .cmdk-section {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    padding: 10px 22px 4px;
+  }
+  .cmdk-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 22px;
+    font-size: 14px;
+    color: var(--text);
+    cursor: pointer;
+    transition: background .08s;
+  }
+  .cmdk-item:hover, .cmdk-item.focused {
+    background: linear-gradient(90deg, rgba(124,58,237,0.10), rgba(59,130,246,0.06));
+  }
+  .cmdk-item .kind {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(124,58,237,0.12);
+    color: var(--accent);
+    min-width: 56px;
+    text-align: center;
+  }
+  .cmdk-item .kind.country { background: rgba(8,145,178,0.12); color: var(--accent2); }
+  .cmdk-item .kind.fta { background: rgba(220,38,38,0.12); color: var(--danger); }
+  .cmdk-item .kind.section { background: rgba(30,58,138,0.12); color: var(--primary); }
+  .cmdk-item .meta { color: var(--text-muted); font-size: 12px; margin-left: auto; }
+  .cmdk-empty {
+    padding: 32px 22px;
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+  }
+  .cmdk-foot {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 18px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-light);
+    background: rgba(0,0,0,0.02);
+  }
+  .cmdk-foot kbd {
+    background: rgba(0,0,0,0.06);
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    font-size: 10px;
+    margin: 0 2px;
+  }
+
+  /* ====== Dark Mode ====== */
+  [data-theme="dark"] {
+    --bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --surface: #1e293b;
+    --border: #334155;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --text-light: #64748b;
+  }
+  [data-theme="dark"] body {
+    background: var(--bg);
+    color: var(--text);
+  }
+  [data-theme="dark"] .toc {
+    background: rgba(15,23,42,0.96);
+    border-right: 1px solid var(--border);
+  }
+  [data-theme="dark"] .section,
+  [data-theme="dark"] .card,
+  [data-theme="dark"] .box,
+  [data-theme="dark"] .chart,
+  [data-theme="dark"] table,
+  [data-theme="dark"] .export-bar {
+    background-color: var(--surface);
+    color: var(--text);
+  }
+  [data-theme="dark"] .card.blue { background: linear-gradient(135deg, #1e3a8a, #1e40af); }
+  [data-theme="dark"] .card.purple { background: linear-gradient(135deg, #4c1d95, #5b21b6); }
+  [data-theme="dark"] .card.teal { background: linear-gradient(135deg, #155e75, #0e7490); }
+  [data-theme="dark"] .card.orange { background: linear-gradient(135deg, #9a3412, #c2410c); }
+  [data-theme="dark"] .card.green { background: linear-gradient(135deg, #065f46, #047857); }
+  [data-theme="dark"] .card.red { background: linear-gradient(135deg, #991b1b, #b91c1c); }
+  [data-theme="dark"] .card, [data-theme="dark"] .card p, [data-theme="dark"] .card .meta { color: var(--text); }
+  [data-theme="dark"] thead { background: linear-gradient(135deg, #1e3a8a, #5b21b6); }
+  [data-theme="dark"] tbody tr:hover { background: rgba(255,255,255,0.04); }
+  [data-theme="dark"] .badge.in { background: #064e3b; color: #6ee7b7; }
+  [data-theme="dark"] .badge.active { background: #1e3a8a; color: #93c5fd; }
+  [data-theme="dark"] .badge.pending { background: #78350f; color: #fcd34d; }
+  [data-theme="dark"] .badge.stalled { background: #7f1d1d; color: #fca5a5; }
+  [data-theme="dark"] .badge.tag { background: #312e81; color: #c7d2fe; }
+  [data-theme="dark"] .tab { background: #334155; color: var(--text); }
+  [data-theme="dark"] .tab.active { background: var(--accent); color: #fff; }
+  [data-theme="dark"] .topbar .pill { background: rgba(30,41,59,0.85); color: var(--text); }
+  [data-theme="dark"] .topbar .pill kbd { background: rgba(255,255,255,0.08); }
+  [data-theme="dark"] .cmdk { background: var(--surface); }
+  [data-theme="dark"] .cmdk-foot { background: rgba(255,255,255,0.03); }
+  [data-theme="dark"] #detail-panel { background: var(--surface); }
+  [data-theme="dark"] .fta-card { background: var(--surface); }
+
+  /* ====== Country Detail Panel Enhancements ====== */
+  .country-detail-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+    margin: 10px 0 14px;
+  }
+  .country-detail-stats .stat {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .country-detail-stats .stat .v { font-size: 18px; font-weight: 800; }
+  .country-detail-stats .stat .l { font-size: 10.5px; opacity: .85; }
+  .country-detail-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 14px 0 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed var(--border);
+  }
+  .country-detail-fta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    margin-bottom: 6px;
+    font-size: 12.5px;
+  }
+  .country-detail-fta:hover { border-color: var(--accent); background: rgba(124,58,237,0.04); }
+  .country-detail-fta .ftaname { font-weight: 600; flex: 1; }
+  .country-detail-fta .ftapartners { color: var(--text-muted); font-size: 11px; }
+  .country-detail-fta .ftayear { font-size: 11px; color: var(--text-light); }
+
+  /* ====== Section 17: Influence Analysis ====== */
+  .hub-rank {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+  .hub-rank:hover { border-color: var(--accent); transform: translateX(4px); transition: all .15s; }
+  .hub-rank .rank-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 13px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .hub-rank .rank-num.top3 { background: linear-gradient(135deg, #f59e0b, #dc2626); }
+  .hub-rank .rank-name { font-weight: 600; flex: 1; }
+  .hub-rank .rank-bar {
+    width: 120px; height: 6px;
+    background: rgba(0,0,0,0.06);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .hub-rank .rank-bar > div { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); }
+  .hub-rank .rank-score { font-weight: 700; color: var(--accent); min-width: 36px; text-align: right; }
+
+  /* ====== Misc ====== */
+  .section.section-enter {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease-out, transform .6s ease-out;
+  }
+  .section.section-enter.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<!-- ====== Reading Progress Bar ====== -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ====== Top Toolbar ====== -->
+<div class="topbar">
+  <button class="pill" id="topbarSearch" title="打开命令面板 (⌘K)">
+    🔍 <span class="topbar-search">搜索 FTA / 国家 / 章节</span><kbd>⌘K</kbd>
+  </button>
+  <button class="pill topbar-search-mobile" id="topbarSearchMobile" title="搜索">🔍</button>
+  <button class="pill" id="themeToggle" title="切换暗色模式">🌓 <span class="topbar-search">暗色模式</span></button>
+  <button class="pill" id="exportMd" title="导出为 Markdown">📤 <span class="topbar-search">导出</span></button>
+</div>
+
+<!-- ====== Command Palette (⌘K) ====== -->
+<div class="cmdk-backdrop" id="cmdkBackdrop">
+  <div class="cmdk">
+    <input id="cmdkInput" class="cmdk-input" placeholder="搜索 FTA、国家、章节、关键概念…  (按 Esc 退出)" autocomplete="off" />
+    <div class="cmdk-list" id="cmdkList"></div>
+    <div class="cmdk-foot">
+      <span><kbd>↑</kbd><kbd>↓</kbd> 切换 · <kbd>↵</kbd> 跳转 · <kbd>Esc</kbd> 关闭</span>
+      <span>全球 FTA 梳理 · 上海张小强企业咨询事务所</span>
+    </div>
+  </div>
+</div>
+
+<body>
+<button class="toc-toggle" id="tocToggle" aria-label="打开目录">☰</button>
+<div class="toc-overlay" id="tocOverlay"></div>
+
+<!-- ====== Sticky TOC Sidebar ====== -->
+<nav class="toc" id="toc">
+  <div class="toc-title">FTA 全景梳理</div>
+  <a class="toc-item active" data-target="s0h"><span class="toc-num"></span>核心结论</a>
+  <a class="toc-item" data-target="s1h"><span class="toc-num">1</span>一体化模式对比</a>
+  <a class="toc-item" data-target="s2h"><span class="toc-num">2</span>WTO 真实角色</a>
+  <a class="toc-item" data-target="s3h"><span class="toc-num">3</span>全球 FTA 网络图</a>
+  <a class="toc-item" data-target="s4h"><span class="toc-num">4</span>主要多边组织</a>
+  <a class="toc-item" data-target="s5h"><span class="toc-num">5</span>各国家/地区 FTA</a>
+  <a class="toc-item" data-target="s6h"><span class="toc-num">6</span>世界地图分布</a>
+  <a class="toc-item new-section" data-target="s7h"><span class="toc-num">7</span>GDP/人口覆盖率对比</a>
+  <a class="toc-item" data-target="s8h"><span class="toc-num">8</span>历史演进时间轴</a>
+  <a class="toc-item new-section" data-target="s9h"><span class="toc-num">9</span>原产地规则 (RoO)</a>
+  <a class="toc-item" data-target="s10h"><span class="toc-num">10</span>贸易创造 vs 转移</a>
+  <a class="toc-item new-section" data-target="s11h"><span class="toc-num">11</span>关税减让时间轴</a>
+  <a class="toc-item" data-target="s12h"><span class="toc-num">12</span>服务贸易与投资</a>
+  <a class="toc-item new-section" data-target="s13h"><span class="toc-num">13</span>新一代 FTA 议题</a>
+  <a class="toc-item" data-target="s14h"><span class="toc-num">14</span>谈判中的协定</a>
+  <a class="toc-item new-section" data-target="s15h"><span class="toc-num">15</span>FTA 利用率与效果</a>
+  <a class="toc-item" data-target="s16h"><span class="toc-num">16</span>总结与未来趋势</a>
+  <a class="toc-item new-section" data-target="s17h"><span class="toc-num">17</span>FTA 影响力枢纽分析 ⭐</a>
+</nav>
+
+<!-- ====== Main Content ====== -->
+<div class="main">
+<div class="container">
+
+<!-- ====== Hero ====== -->
+<div class="hero" id="s0">
+  <h1>🌐 全球 FTA（自由贸易协定）全景深度梳理 v2</h1>
+  <p class="subtitle">双边 vs 多边 · 关税同盟 vs 自由贸易区 · 原产地规则 · 贸易效应 · 服务与数字贸易 · 历史演进</p>
+  <div class="meta">
+    <span>📊 涵盖 350+ 项区域贸易协定</span>
+    <span>🗺️ 200+ 个经济体</span>
+    <span>📅 数据截至 2026 年</span>
+    <span>⚡ 深度版本：新增 8 个专业章节</span>
+  </div>
+</div>
+
+<!-- ====== 核心结论 ====== -->
+<div class="section">
+  <h2 id="s0h"><span class="num">!</span>核心结论：现实世界是「混合体系」</h2>
+  <div class="box box-insight">
+    <h4>🎯 三句话先说答案</h4>
+    <ul>
+      <li><b>全球不存在"统一大组织内部全免税"</b>——WTO 是<b>多边贸易协调机构</b>，不创造免税区；成员国之间不互免关税，只给最惠国待遇（MFN）。</li>
+      <li>最接近"内全免 + 外统一"的形态是 <b>关税同盟</b>（Customs Union），典型代表为 <b>欧盟 EU</b>（唯一成熟案例）、<b>EAEU</b>、<b>GCC</b>。但它们之间互不相通。</li>
+      <li>当前全球贸易格局是 <b>"WTO 框架 + 大量双边/区域 FTA"</b> 的多层次叠加，俗称 <b>"意大利面条碗"（Spaghetti Bowl）</b> 现象——一个产品出口可能同时受制于十几层 FTA 原产地规则。</li>
+    </ul>
+  </div>
+  <div class="box box-info">
+    <h4>📐 签署方式的本质区别</h4>
+    <ul>
+      <li><b>点对点双边 FTA</b>：两国签署，规则专为两国设计，原产地规则相对简单；缺点：数量爆炸、管理复杂、"意大利面条碗"加剧。</li>
+      <li><b>多边 FTA</b>（如 RCEP、CPTPP）：多国共用一套规则，减少"碗效应"，但谈判难度大、妥协多；美国缺席 CPTPP、中国缺席 TPP，各自形成"朋友圈"。</li>
+      <li><b>关税同盟</b>（如 EU）：不仅内部零关税，还<b>对外统一关税</b>——这是质的飞跃，意味着成员丧失独立贸易政策主权。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ====== 1. 四种一体化模式对比 ====== -->
+<div class="section">
+  <h2 id="s1h"><span class="num">1</span>四种一体化模式的层级对比</h2>
+  <p>从"松"到"紧"，经济一体化有 5 个公认层级，当前全球协定分布于不同层级：</p>
+
+  <div class="grid-2">
+    <div class="card blue">
+      <h4>层级① · 优惠贸易安排 PTA</h4>
+      <p>最松散：成员间给部分商品关税优惠，但仍各自保留独立对外关税。</p>
+      <div class="meta">例：早期中巴自贸协定"早期收获"部分</div>
+    </div>
+    <div class="card teal">
+      <h4>层级② · 自由贸易区 FTA</h4>
+      <p>成员间绝大多数商品取消关税和配额，但对外<b>各自保留独立关税</b>（这是与关税同盟的关键区别）。<b>点对点双边最常见</b>。</p>
+      <div class="meta">例：USMCA、中国-韩国 FTA、RCEP</div>
+    </div>
+    <div class="card red">
+      <h4>层级③ · 关税同盟 Customs Union</h4>
+      <p>FTA + 对外<b>统一关税</b>。成员将贸易政策主权让渡给共同体。最接近"统一大组织"的形态。</p>
+      <div class="meta">例：EU（最成熟）、EAEU、GCC（5%统一）、MERCOSUR（部分）</div>
+    </div>
+    <div class="card purple">
+      <h4>层级④/⑤ · 共同市场/经济联盟</h4>
+      <p>在关税同盟基础上，进一步实现<b>服务、资本、人员自由流动</b>，协调经济与货币政策。</p>
+      <div class="meta">例：EU（完整经济联盟+欧元区）</div>
+    </div>
+  </div>
+
+  <h3>模式核心差异对比表</h3>
+  <table>
+    <thead>
+      <tr><th>模式</th><th>内部关税</th><th>对外关税</th><th>人员/服务/资本自由</th><th>代表案例</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>WTO MFN</b></td><td>❌ 不免税</td><td>各自独立</td><td>仅部分服务（GATS）</td><td>164 成员国</td></tr>
+      <tr><td><b>双边 FTA</b></td><td>✅ 90%+ 零关税</td><td>各自独立</td><td>通常包含</td><td>中韩、中澳、日欧 EPA</td></tr>
+      <tr><td><b>多边 FTA</b></td><td>✅ 逐步零关税</td><td>各自独立</td><td>包含</td><td>RCEP（15国）、CPTPP（12国）</td></tr>
+      <tr><td><b>关税同盟</b></td><td>✅ 完全零关税</td><td>✅ 统一</td><td>通常包含</td><td>EU、EAEU、GCC</td></tr>
+      <tr><td><b>经济联盟</b></td><td>✅ 完全零关税</td><td>✅ 统一</td><td>✅ 全部自由流通</td><td>EU（欧元区货币联盟）</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ====== 2. WTO 真实角色 ====== -->
+<div class="section">
+  <h2 id="s2h"><span class="num">2</span>WTO：为什么它不是"全球统一大组织免税区"？</h2>
+
+  <div class="stats">
+    <div class="stat"><div class="value">164</div><div class="label">WTO 成员（经济体）</div></div>
+    <div class="stat"><div class="value">~350</div><div class="label">向 WTO 备案的 RTA</div></div>
+    <div class="stat"><div class="value">~80%</div><div class="label">全球贸易发生在 FTA 内部</div></div>
+    <div class="stat"><div class="value">1995</div><div class="label">WTO 成立年份</div></div>
+  </div>
+
+  <h3>WTO 真正做的事（四项核心功能）</h3>
+  <div class="grid-2">
+    <div class="card blue">
+      <h4>📋 最惠国待遇 MFN</h4>
+      <p>任何成员给某一成员的关税优惠，<b>必须自动给所有其他成员</b>。这是防止歧视，不是免税。</p>
+    </div>
+    <div class="card teal">
+      <h4>⚖️ 国民待遇</h4>
+      <p>进口产品在缴税后，享受与本国产品同等待遇（税收之外）。</p>
+    </div>
+    <div class="card purple">
+      <h4>🔒 约束关税</h4>
+      <p>成员承诺关税上限，不能随意提高。但允许在上限内自行调整。</p>
+    </div>
+    <div class="card orange">
+      <h4>🏛️ 争端解决机制 DSB</h4>
+      <p>解决成员间贸易摩擦的强制仲裁机制（上诉机构 2024 年因美国反对停摆）。</p>
+    </div>
+  </div>
+
+  <div class="box box-insight">
+    <h4>💡 关键区分：WTO 允许 FTA 存在</h4>
+    <p>WTO 协定（GATT 第 24 条、GATS 第 5 条）<b>允许</b>成员建立比 MFN 更优惠的 FTA 或关税同盟——条件是覆盖"实质性所有贸易"，且不对第三方增加壁垒。<b>几乎所有区域 FTA 都向 WTO 备案</b>。</p>
+    <p>这意味着：WTO 是"母框架 + 规则制定者"，FTA 是"子协议 + 特殊优惠"。</p>
+  </div>
+</div>
+
+<!-- ====== 3. 全球 FTA 网络图（可交互） ====== -->
+<div class="section">
+  <h2 id="s3h"><span class="num">3</span>全球主要贸易协定网络拓扑图</h2>
+  <p>点击任意节点查看该组织/国家详情。颜色代表不同 FTA 阵营，圆圈大小反映经济规模。</p>
+  <div id="ftaNetwork" class="chart tall"></div>
+  <p class="chart-label">💡 提示：拖拽可移动节点，滚轮可缩放，点击节点查看详情面板</p>
+</div>
+
+<!-- ====== 4. 主要多边组织卡片 ====== -->
+<div class="section">
+  <h2 id="s4h"><span class="num">4</span>全球主要多边贸易组织（RTA / Mega-FTA）</h2>
+  <div class="fta-grid">
+    <div class="fta-card">
+      <div class="name">EU · 欧盟</div>
+      <div class="full">European Union</div>
+      <div class="meta"><span class="badge in">关税同盟+共同市场+经济联盟</span><span class="badge active">已生效</span></div>
+      <div class="members"><b>27 国</b>：德、法、意、西、荷、波、罗、希、捷、葡、匈、比、奥、瑞、爱、保、丹、芬、斯洛伐克、克、斯洛文尼亚、爱沙尼亚、拉脱维亚、立陶宛、马耳他、塞浦路斯、克罗地亚</div>
+      <div class="desc">一体化最高层级。<b>内部零关税 + 统一对外关税 + 欧元（19国）+ 人员自由流动</b>。同时与全球 40+ 国家签 FTA。</div>
+    </div>
+    <div class="fta-card">
+      <div class="name">RCEP · 区域全面经济伙伴关系</div>
+      <div class="full">Regional Comprehensive Economic Partnership</div>
+      <div class="meta"><span class="badge active">已生效 2022.1</span><span class="badge tag">自由贸易区</span></div>
+      <div class="members"><b>15 国</b>：中、日、韩、澳、新 + 东盟 10 国（越、泰、印尼、菲、马、新加坡、缅、柬、老挝、文莱）</div>
+      <div class="desc">全球最大自由贸易区，覆盖约 30% 全球人口和 GDP。成员国逐步降税，<b>不对外统一关税</b>。中国首次与日韩澳新同时签自贸协定。</div>
+    </div>
+    <div class="fta-card">
+      <div class="name">CPTPP · 全面与进步跨太平洋伙伴关系</div>
+      <div class="full">Comprehensive and Progressive Agreement for Trans-Pacific Partnership</div>
+      <div class="meta"><span class="badge active">已生效 2018.12</span><span class="badge tag">自由贸易区</span></div>
+      <div class="members"><b>12 国</b>：日、加、澳、新、墨、智、新加坡、马来西亚、越、英（2023）、文莱、秘鲁</div>
+      <div class="desc">原 TPP 美国退出后的版本。高标准"21 世纪 FTA 模板"：知识产权、国企、劳工、环境、数字贸易等。中国、美国均在申请或观望。</div>
+    </div>
+    <div class="fta-card">
+      <div class="name">USMCA · 美墨加协定</div>
+      <div class="full">United States-Mexico-Canada Agreement</div>
+      <div class="meta"><span class="badge active">已生效 2020.7</span><span class="badge tag">自由贸易区</span></div>
+      <div class="members"><b>3 国</b>：美国、墨西哥、加拿大</div>
+      <div class="desc">取代 NAFTA。汽车原产地规则（75% 北美制造）、劳工（首次有强制执行机制）、数字贸易、药品知识产权等新规则。</div>
+    </div>
+    <div class="fta-card">
+      <div class="name">MERCOSUR · 南方共同市场</div>
+      <div class="full">Mercado Común del Sur</div>
+      <div class="meta"><span class="badge active">已生效 1991</span><span class="badge in">关税同盟</span></div>
+      <div class="members"><b>4 国核心</b>：阿根廷、巴西、巴拉圭、乌拉圭 + 玻利维亚（正式成员）</div>
+      <div class="desc">南美最大关税同盟，对外统一关税（部分例外）。长期与 EU 谈判，2024 年达成原则共识。与中国谈判进行中。</div>
+    </div>
+    <div class="fta-card">
+      <div class="name">ASEAN / AFTA · 东盟自由贸易区</div>
+      <div class="full">Association of Southeast Asian Nations</div>
+      <div class="meta"><span class="badge active">已生效 1992</span><span class="badge tag">自由贸易区（非关税同盟）</span></div>
+      <div class="members"><b>10 国</b>：印尼、马、菲、泰、新、越、文莱、柬、老挝、缅甸</div>
+      <div class="desc">东南亚一体化核心，AFTA 基本零关税。分别与中、日、韩、印、澳新、美签 FTA，构成"ASEAN+1"网络。</div>
+    </div>
+    <div class="fta-card">
+      <div class="name">EAEU · 欧亚经济联盟</div>
+      <div class="full">Eurasian Economic Union</div>
+      <div class="meta"><span class="badge active">已生效 2015.1</span><span class="badge in">关税同盟</span></div>
+      <div class="members"><b>5 国</b>：俄罗斯、白俄罗斯、哈萨克斯坦、亚美尼亚、吉尔吉斯斯坦</div>
+      <div class="desc">后苏联空间一体化，对内零关税、对外统一关税。与越南、伊朗（临时）、塞尔维亚签 FTA。观察员：蒙古。</div>
+    </div>
+    <div class="fta-card">
+      <div class="name">AfCFTA · 非洲大陆自由贸易区</div>
+      <div class="full">African Continental Free Trade Area</div>
+      <div class="meta"><span class="badge active">已生效 2021.1</span><span class="badge tag">自由贸易区</span></div>
+      <div class="members"><b>54 国</b>：除厄立特里亚外几乎整个非洲</div>
+      <div class="desc">按参与国数量是全球最大 FTA。消除 90% 商品关税，远景过渡到非洲关税同盟。实施进度较慢，但具有战略意义。</div>
+    </div>
+    <div class="fta-card">
+      <div class="name">GCC · 海湾合作委员会</div>
+      <div class="full">Gulf Cooperation Council</div>
+      <div class="meta"><span class="badge active">已生效 2003</span><span class="badge in">关税同盟</span></div>
+      <div class="members"><b>6 国</b>：沙特、阿联酋、卡塔尔、科威特、巴林、阿曼</div>
+      <div class="desc">海湾地区统一对外关税（5%）+ 单一市场雏形。与中国 FTA 已实质性结束，正在与欧盟、英国、印度谈判。</div>
+    </div>
+    <div class="fta-card">
+      <div class="name">EAC · 东非共同体</div>
+      <div class="full">East African Community</div>
+      <div class="meta"><span class="badge active">已生效 2000</span><span class="badge in">关税同盟</span></div>
+      <div class="members"><b>7 国</b>：肯尼亚、坦桑尼亚、乌干达、卢旺达、布隆迪、南苏丹、刚果（金）</div>
+      <div class="desc">东非关税同盟，正在推动单一货币。成员国 GDP 差异大，实施进度不一。</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ====== 5. 各国家/地区 FTA 详细列表 ====== -->
+<div class="section">
+  <h2 id="s5h"><span class="num">5</span>按国家/地区：FTA 详细列表</h2>
+  <p>以下展示各主要经济体对外 FTA 签署概况。"对内全免"取决于协定类型（FTA 则成员间免税，关税同盟则额外对外统一）。</p>
+
+  <div class="tabs" id="regionTabs">
+    <button class="tab active" data-region="eu">🇪🇺 欧盟</button>
+    <button class="tab" data-region="cn">🇨🇳 中国</button>
+    <button class="tab" data-region="us">🇺🇸 美国</button>
+    <button class="tab" data-region="jp">🇯🇵 日本</button>
+    <button class="tab" data-region="kr">🇰🇷 韩国</button>
+    <button class="tab" data-region="uk">🇬🇧 英国</button>
+    <button class="tab" data-region="asean">🌏 东盟</button>
+    <button class="tab" data-region="ru">🇷🇺 俄罗斯/EAEU</button>
+    <button class="tab" data-region="in">🇮🇳 印度</button>
+    <button class="tab" data-region="au">🇦🇺 澳/新西兰</button>
+    <button class="tab" data-region="mer">🌎 美洲</button>
+    <button class="tab" data-region="af">🌍 非洲</button>
+    <button class="tab" data-region="me">🕌 中东</button>
+  </div>
+
+  <div class="tab-content active" data-region="eu">
+    <h3>🇪🇺 欧盟 · 一体化最高层级（关税同盟 + 共同市场 + 经济联盟）</h3>
+    <p>EU 本身即 <b>关税同盟</b>：内全免 + 外统一关税 + 人员/服务/资本自由流动。下列为其与第三国的 FTA：</p>
+    <table>
+      <thead><tr><th>协定</th><th>对象</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>EU-土耳其关税同盟</td><td>土耳其（仅工业品）</td><td><span class="badge active">已生效 1995</span></td></tr>
+        <tr><td>EU-英国 TCA</td><td>英国</td><td><span class="badge active">2021 生效</span></td></tr>
+        <tr><td>EU-加拿大 CETA</td><td>加拿大</td><td><span class="badge active">2017 临时生效</span></td></tr>
+        <tr><td>EU-日本 EPA</td><td>日本</td><td><span class="badge active">2019 生效</span></td></tr>
+        <tr><td>EU-越南 EVFTA</td><td>越南</td><td><span class="badge active">2020 生效</span></td></tr>
+        <tr><td>EU-新加坡 EUSFTA</td><td>新加坡</td><td><span class="badge active">2019 生效</span></td></tr>
+        <tr><td>EU-韩国</td><td>韩国</td><td><span class="badge active">2015 生效</span></td></tr>
+        <tr><td>EU-新西兰</td><td>新西兰</td><td><span class="badge active">2024 生效</span></td></tr>
+        <tr><td>EU-南方共同市场</td><td>阿/巴/乌/巴拉圭</td><td><span class="badge pending">2024 原则达成，待批准</span></td></tr>
+        <tr><td>EU-墨西哥（升级版）</td><td>墨西哥</td><td><span class="badge active">2000+2024 更新</span></td></tr>
+        <tr><td>EU-澳大利亚</td><td>澳大利亚</td><td><span class="badge pending">已达成，待各国批准</span></td></tr>
+        <tr><td>EU-智利（更新版）</td><td>智利</td><td><span class="badge active">2025 签署</span></td></tr>
+        <tr><td>EU-印度</td><td>印度</td><td><span class="badge pending">谈判中（重启）</span></td></tr>
+        <tr><td>EU-印尼、泰、菲</td><td>东南亚多国</td><td><span class="badge pending">谈判中</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content" data-region="cn">
+    <h3>🇨🇳 中国 · FTA 网络快速扩张</h3>
+    <p>中国<b>不参与任何关税同盟</b>，全部以"双边/区域 FTA + RCEP"扩展贸易圈。</p>
+    <table>
+      <thead><tr><th>协定</th><th>对象</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>RCEP</td><td>日韩澳新 + 东盟 10 国</td><td><span class="badge active">2022 生效</span></td></tr>
+        <tr><td>中国-东盟 FTA</td><td>东盟 10 国</td><td><span class="badge active">2010 全面生效</span></td></tr>
+        <tr><td>中国-韩国 FTA</td><td>韩国</td><td><span class="badge active">2015 生效</span></td></tr>
+        <tr><td>中国-澳大利亚 ChAFTA</td><td>澳大利亚</td><td><span class="badge active">2015 生效</span></td></tr>
+        <tr><td>中国-巴基斯坦 FTA</td><td>巴基斯坦</td><td><span class="badge active">2022 第二阶段生效</span></td></tr>
+        <tr><td>中国-智利 FTA</td><td>智利</td><td><span class="badge active">2010 生效</span></td></tr>
+        <tr><td>中国-新西兰 FTA</td><td>新西兰</td><td><span class="badge active">2008 生效（2022 升级）</span></td></tr>
+        <tr><td>中国-秘鲁 FTA</td><td>秘鲁</td><td><span class="badge active">2010 生效</span></td></tr>
+        <tr><td>中国-瑞士 FTA</td><td>瑞士</td><td><span class="badge active">2014 生效</span></td></tr>
+        <tr><td>中国-冰岛 FTA</td><td>冰岛</td><td><span class="badge active">2014 生效</span></td></tr>
+        <tr><td>中国-毛里求斯 FTA</td><td>毛里求斯</td><td><span class="badge active">2024 生效（非洲首份）</span></td></tr>
+        <tr><td>中国-柬埔寨 FTA</td><td>柬埔寨</td><td><span class="badge active">2022 生效</span></td></tr>
+        <tr><td>中国-格鲁吉亚 FTA</td><td>格鲁吉亚</td><td><span class="badge active">2018 生效</span></td></tr>
+        <tr><td>中国-哥斯达黎加 FTA</td><td>哥斯达黎加</td><td><span class="badge active">2011 生效</span></td></tr>
+        <tr><td>中国-海合会 GCC</td><td>沙特等 6 国</td><td><span class="badge pending">已实质性结束，择机签署</span></td></tr>
+        <tr><td>中国-以色列 FTA</td><td>以色列</td><td><span class="badge pending">谈判中</span></td></tr>
+        <tr><td>中国-挪威 FTA</td><td>挪威</td><td><span class="badge pending">谈判中</span></td></tr>
+        <tr><td>中国-厄瓜多尔 FTA</td><td>厄瓜多尔</td><td><span class="badge pending">谈判中</span></td></tr>
+        <tr><td>中国-东盟（升级版）</td><td>东盟 10 国</td><td><span class="badge pending">谈判中（3.0 版本）</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content" data-region="us">
+    <h3>🇺🇸 美国 · 特朗普 2.0 转向单边关税（2025-2026）</h3>
+    <p>拜登时期维持现有 FTA 框架；2025 年特朗普回归后<b>大幅转向"对等关税 + 逐国谈判"模式</b>，并威胁退出 CPTPP。</p>
+    <table>
+      <thead><tr><th>协定</th><th>对象</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>USMCA</td><td>墨西哥、加拿大</td><td><span class="badge active">2020 生效，2026 续约审查中</span></td></tr>
+        <tr><td>美国-以色列 FTA</td><td>以色列</td><td><span class="badge active">1985（美首个 FTA）</span></td></tr>
+        <tr><td>美国-约旦 FTA</td><td>约旦</td><td><span class="badge active">2001 生效</span></td></tr>
+        <tr><td>美国-智利 FTA</td><td>智利</td><td><span class="badge active">2004 生效</span></td></tr>
+        <tr><td>美国-新加坡 FTA</td><td>新加坡</td><td><span class="badge active">2004 生效</span></td></tr>
+        <tr><td>美国-澳大利亚 FTA</td><td>澳大利亚</td><td><span class="badge active">2005 生效</span></td></tr>
+        <tr><td>美国-摩洛哥 FTA</td><td>摩洛哥</td><td><span class="badge active">2006 生效</span></td></tr>
+        <tr><td>美国-巴林 FTA</td><td>巴林</td><td><span class="badge active">2006 生效</span></td></tr>
+        <tr><td>美国-阿曼 FTA</td><td>阿曼</td><td><span class="badge active">2009 生效</span></td></tr>
+        <tr><td>美国-秘鲁 FTA</td><td>秘鲁</td><td><span class="badge active">2009 生效</span></td></tr>
+        <tr><td>美国-哥伦比亚 FTA</td><td>哥伦比亚</td><td><span class="badge active">2012 生效</span></td></tr>
+        <tr><td>美国-韩国 KORUS FTA</td><td>韩国</td><td><span class="badge active">2012 生效</span></td></tr>
+        <tr><td>美国-巴拿马 FTA</td><td>巴拿马</td><td><span class="badge active">2012 生效</span></td></tr>
+        <tr><td>美国-日本"互惠贸易协定"</td><td>日本</td><td><span class="badge active">2025 签署</span></td></tr>
+        <tr><td>美国-英国"经济繁荣协议"</td><td>英国</td><td><span class="badge active">2025 部分生效</span></td></tr>
+        <tr><td>美国-越南</td><td>越南</td><td><span class="badge pending">2025 谈判中</span></td></tr>
+        <tr><td>CPTPP</td><td>11 国</td><td><span class="badge stalled">美国不回归</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content" data-region="jp">
+    <h3>🇯🇵 日本 · CPTPP + EPA 网络</h3>
+    <table>
+      <thead><tr><th>协定</th><th>对象</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>CPTPP</td><td>11 国</td><td><span class="badge active">2018 生效</span></td></tr>
+        <tr><td>RCEP</td><td>15 国</td><td><span class="badge active">2022 生效</span></td></tr>
+        <tr><td>日本-欧盟 EPA</td><td>欧盟</td><td><span class="badge active">2019 生效</span></td></tr>
+        <tr><td>日本-美国</td><td>美国</td><td><span class="badge active">2025 签署</span></td></tr>
+        <tr><td>日本-英国 EPA</td><td>英国</td><td><span class="badge active">2021 生效</span></td></tr>
+        <tr><td>日本-东盟 EPA (AJCEP)</td><td>东盟</td><td><span class="badge active">2008 起</span></td></tr>
+        <tr><td>日本-印度 CEPA</td><td>印度</td><td><span class="badge active">2011 生效</span></td></tr>
+        <tr><td>日本-澳大利亚 EPA</td><td>澳大利亚</td><td><span class="badge active">2015 生效</span></td></tr>
+        <tr><td>日本-墨西哥 EPA</td><td>墨西哥</td><td><span class="badge active">2005 生效</span></td></tr>
+        <tr><td>日本-智利 EPA</td><td>智利</td><td><span class="badge active">2007 生效</span></td></tr>
+        <tr><td>日本-秘鲁 EPA</td><td>秘鲁</td><td><span class="badge active">2012 生效</span></td></tr>
+        <tr><td>日本-土耳其 EPA</td><td>土耳其</td><td><span class="badge active">2014 生效</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content" data-region="kr">
+    <h3>🇰🇷 韩国 · 巨型 FTA 网络（全球 FTA 密度最高国之一）</h3>
+    <table>
+      <thead><tr><th>协定</th><th>对象</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>KORUS FTA</td><td>美国</td><td><span class="badge active">2012 生效</span></td></tr>
+        <tr><td>韩国-EU FTA</td><td>欧盟</td><td><span class="badge active">2015 生效</span></td></tr>
+        <tr><td>韩国-中国 FTA</td><td>中国</td><td><span class="badge active">2015 生效</span></td></tr>
+        <tr><td>RCEP</td><td>15 国</td><td><span class="badge active">2022 生效</span></td></tr>
+        <tr><td>CPTPP</td><td>11 国</td><td><span class="badge active">2023 英加入后生效</span></td></tr>
+        <tr><td>韩国-英国 FTA</td><td>英国</td><td><span class="badge active">2021 生效</span></td></tr>
+        <tr><td>韩国-印度 CEPA</td><td>印度</td><td><span class="badge active">2010 生效</span></td></tr>
+        <tr><td>KAFTA（澳）</td><td>澳大利亚</td><td><span class="badge active">2014 生效</span></td></tr>
+        <tr><td>CKFTA（加）</td><td>加拿大</td><td><span class="badge active">2015 生效</span></td></tr>
+        <tr><td>韩国-新西兰 FTA</td><td>新西兰</td><td><span class="badge active">2015 生效</span></td></tr>
+        <tr><td>韩国-越南 FTA</td><td>越南</td><td><span class="badge active">2015 生效</span></td></tr>
+        <tr><td>韩国-新加坡 FTA</td><td>新加坡</td><td><span class="badge active">2006 生效</span></td></tr>
+        <tr><td>韩国-土耳其 FTA</td><td>土耳其</td><td><span class="badge active">2013 生效</span></td></tr>
+        <tr><td>韩国-哥伦比亚 FTA</td><td>哥伦比亚</td><td><span class="badge active">2016 生效</span></td></tr>
+        <tr><td>韩国-秘鲁 FTA</td><td>秘鲁</td><td><span class="badge active">2011 生效</span></td></tr>
+        <tr><td>韩国-以色列 FTA</td><td>以色列</td><td><span class="badge pending">谈判中</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content" data-region="uk">
+    <h3>🇬🇧 英国 · 脱欧后的 FTA 重建</h3>
+    <p>英国脱欧后退出 EU 关税同盟，<b>用 EU-英国 TCA 维持对欧贸易</b>，并积极加入 CPTPP、签双边 FTA。</p>
+    <table>
+      <thead><tr><th>协定</th><th>对象</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>UK-EU TCA</td><td>欧盟</td><td><span class="badge active">2021 生效</span></td></tr>
+        <tr><td>CPTPP</td><td>11 国</td><td><span class="badge active">2023 加入</span></td></tr>
+        <tr><td>UK-Japan CEPA</td><td>日本</td><td><span class="badge active">2021 生效</span></td></tr>
+        <tr><td>UK-Australia FTA</td><td>澳大利亚</td><td><span class="badge active">2023 生效</span></td></tr>
+        <tr><td>UK-New Zealand FTA</td><td>新西兰</td><td><span class="badge active">2023 生效</span></td></tr>
+        <tr><td>UK-India FTA</td><td>印度</td><td><span class="badge pending">接近达成</span></td></tr>
+        <tr><td>UK-GCC FTA</td><td>海湾合作委员会</td><td><span class="badge pending">谈判中</span></td></tr>
+        <tr><td>UK-加拿大 FTA</td><td>加拿大</td><td><span class="badge pending">谈判中</span></td></tr>
+        <tr><td>UK-美国</td><td>美国</td><td><span class="badge active">2025 部分生效</span></td></tr>
+        <tr><td>UK-墨西哥</td><td>墨西哥</td><td><span class="badge pending">谈判中</span></td></tr>
+        <tr><td>UK-瑞士</td><td>瑞士</td><td><span class="badge pending">谈判中</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content" data-region="asean">
+    <h3>🌏 东盟 · "ASEAN+1" 中心辐射模式</h3>
+    <p>东盟自身是 <b>AFTA（自由贸易区）</b>，不对外统一关税，是多边 FTA（非关税同盟）。分别与各大伙伴签 FTA：</p>
+    <table>
+      <thead><tr><th>协定</th><th>对象</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>AFTA（东盟内部）</td><td>东盟 10 国</td><td><span class="badge active">基本零关税</span></td></tr>
+        <tr><td>ASEAN-China FTA</td><td>中国</td><td><span class="badge active">2010 生效</span></td></tr>
+        <tr><td>ASEAN-Japan EPA (AJCEP)</td><td>日本</td><td><span class="badge active">2008 生效</span></td></tr>
+        <tr><td>ASEAN-Korea FTA (AKFTA)</td><td>韩国</td><td><span class="badge active">2009 生效</span></td></tr>
+        <tr><td>ASEAN-India FTA (AIFTA)</td><td>印度</td><td><span class="badge active">2010 生效</span></td></tr>
+        <tr><td>ASEAN-Australia-NZ (AANZFTA)</td><td>澳大利亚、新西兰</td><td><span class="badge active">2010 生效</span></td></tr>
+        <tr><td>ASEAN-HK FTA</td><td>香港</td><td><span class="badge active">2019 生效</span></td></tr>
+        <tr><td>RCEP</td><td>中、日、韩、澳、新</td><td><span class="badge active">2022 生效（含东盟）</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content" data-region="ru">
+    <h3>🇷🇺 俄罗斯 / EAEU</h3>
+    <table>
+      <thead><tr><th>协定</th><th>对象</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>EAEU（欧亚经济联盟）</td><td>白俄罗斯、哈萨克、亚美尼亚、吉尔吉斯</td><td><span class="badge active">关税同盟 2015</span></td></tr>
+        <tr><td>EAEU-越南 FTA</td><td>越南</td><td><span class="badge active">2016 生效</span></td></tr>
+        <tr><td>EAEU-Iran 临时自贸</td><td>伊朗</td><td><span class="badge active">2019 生效</span></td></tr>
+        <tr><td>EAEU-Serbia FTA</td><td>塞尔维亚</td><td><span class="badge active">2021 生效</span></td></tr>
+        <tr><td>EAEU-Singapore</td><td>新加坡</td><td><span class="badge active">已签</span></td></tr>
+        <tr><td>EAEU-UAE FTA</td><td>阿联酋</td><td><span class="badge pending">谈判中</span></td></tr>
+        <tr><td>EAEU-India</td><td>印度</td><td><span class="badge pending">谈判中</span></td></tr>
+        <tr><td>EAEU-Egypt</td><td>埃及</td><td><span class="badge pending">谈判中</span></td></tr>
+        <tr><td>独联体 CIS 自贸区</td><td>前苏联多国</td><td><span class="badge active">已生效</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content" data-region="in">
+    <h3>🇮🇳 印度 · 谨慎 FTA 政策（2019 年退出 RCEP）</h3>
+    <table>
+      <thead><tr><th>协定</th><th>对象</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>SAFTA（南亚区域）</td><td>巴、孟、尼、斯、不、马尔代夫</td><td><span class="badge active">2006 生效</span></td></tr>
+        <tr><td>India-ASEAN AIFTA</td><td>东盟 10 国</td><td><span class="badge active">2010 生效</span></td></tr>
+        <tr><td>India-Singapore CECA</td><td>新加坡</td><td><span class="badge active">2005 生效</span></td></tr>
+        <tr><td>India-Korea CEPA</td><td>韩国</td><td><span class="badge active">2010 生效</span></td></tr>
+        <tr><td>India-Japan CEPA</td><td>日本</td><td><span class="badge active">2011 生效</span></td></tr>
+        <tr><td>India-Malaysia CECA</td><td>马来西亚</td><td><span class="badge active">2011 生效</span></td></tr>
+        <tr><td>India-UAE CEPA</td><td>阿联酋</td><td><span class="badge active">2022 生效</span></td></tr>
+        <tr><td>India-Australia ECTA</td><td>澳大利亚</td><td><span class="badge active">2022 生效</span></td></tr>
+        <tr><td>India-Mauritius CECPA</td><td>毛里求斯</td><td><span class="badge active">2021 生效</span></td></tr>
+        <tr><td>India-UK FTA</td><td>英国</td><td><span class="badge pending">接近达成</span></td></tr>
+        <tr><td>India-EU FTA</td><td>欧盟</td><td><span class="badge pending">谈判重启</span></td></tr>
+        <tr><td>India-Canada FTA</td><td>加拿大</td><td><span class="badge pending">谈判中</span></td></tr>
+        <tr><td>RCEP</td><td>15 国</td><td><span class="badge stalled">2019 退出，不加入</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content" data-region="au">
+    <h3>🇦🇺 澳大利亚 / 🇳🇿 新西兰</h3>
+    <table>
+      <thead><tr><th>协定</th><th>对象</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>ANZCERTA（澳新 CER）</td><td>新西兰</td><td><span class="badge active">1983，全免税 + 单一市场</span></td></tr>
+        <tr><td>CPTPP + RCEP</td><td>多个大型协定</td><td><span class="badge active">已生效</span></td></tr>
+        <tr><td>澳-美 FTA</td><td>美国</td><td><span class="badge active">2005 生效</span></td></tr>
+        <tr><td>澳-中 ChAFTA</td><td>中国</td><td><span class="badge active">2015 生效</span></td></tr>
+        <tr><td>澳-日 EPA</td><td>日本</td><td><span class="badge active">2015 生效</span></td></tr>
+        <tr><td>澳-英 FTA</td><td>英国</td><td><span class="badge active">2023 生效</span></td></tr>
+        <tr><td>澳-印 ECTA</td><td>印度</td><td><span class="badge active">2022 生效</span></td></tr>
+        <tr><td>澳-欧盟 FTA</td><td>欧盟</td><td><span class="badge pending">已达成，待批准</span></td></tr>
+        <tr><td>新西兰-中国 FTA</td><td>中国</td><td><span class="badge active">2008 生效（2022 升级）</span></td></tr>
+        <tr><td>新西兰-英国 FTA</td><td>英国</td><td><span class="badge active">2023 生效</span></td></tr>
+        <tr><td>新西兰-欧盟 FTA</td><td>欧盟</td><td><span class="badge active">2024 生效</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content" data-region="mer">
+    <h3>🌎 美洲大陆 FTA 矩阵</h3>
+    <table>
+      <thead><tr><th>协定</th><th>成员</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>USMCA</td><td>美、加、墨</td><td><span class="badge active">2020 生效</span></td></tr>
+        <tr><td>CPTPP</td><td>含墨西哥、秘鲁、智利、加拿大</td><td><span class="badge active">2018 生效</span></td></tr>
+        <tr><td>MERCOSUR</td><td>阿、巴、乌、巴拉圭</td><td><span class="badge active">关税同盟</span></td></tr>
+        <tr><td>CAN（安第斯共同体）</td><td>玻、哥、厄、秘</td><td><span class="badge active">关税同盟</span></td></tr>
+        <tr><td>Pacific Alliance</td><td>墨、智、哥、秘</td><td><span class="badge active">FTA（非关税同盟）</span></td></tr>
+        <tr><td>CACM（中美洲共同市场）</td><td>危地马拉、洪都拉斯、萨尔瓦多、尼加拉瓜、哥斯达黎加、巴拿马</td><td><span class="badge active">关税同盟</span></td></tr>
+        <tr><td>CARICOM</td><td>加勒比 15 国</td><td><span class="badge active">共同市场</span></td></tr>
+        <tr><td>智利 FTA 网络</td><td>与 60+ 国签 FTA，全球最密</td><td><span class="badge active">全球最广网络</span></td></tr>
+        <tr><td>墨西哥 FTA 网络</td><td>USMCA、CPTPP、EU 等 50+ 国</td><td><span class="badge active">极高密度</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content" data-region="af">
+    <h3>🌍 非洲 FTA 矩阵</h3>
+    <table>
+      <thead><tr><th>协定</th><th>成员</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>AfCFTA</td><td>54 国（除厄立特里亚）</td><td><span class="badge active">2021 生效</span></td></tr>
+        <tr><td>WAEMU（西非经货联盟）</td><td>贝宁、布基纳、科特迪瓦等 8 国 + CFA 法郎</td><td><span class="badge active">关税同盟+CFA</span></td></tr>
+        <tr><td>CEMAC（中非经货共同体）</td><td>喀麦隆、乍得等 6 国 + CFA 法郎</td><td><span class="badge active">关税同盟+CFA</span></td></tr>
+        <tr><td>ECOWAS（西非国家共同体）</td><td>15 国</td><td><span class="badge active">FTA</span></td></tr>
+        <tr><td>EAC（东非共同体）</td><td>7 国</td><td><span class="badge active">关税同盟</span></td></tr>
+        <tr><td>COMESA</td><td>21 国</td><td><span class="badge active">FTA</span></td></tr>
+        <tr><td>SADC</td><td>16 国</td><td><span class="badge active">FTA</span></td></tr>
+        <tr><td>南非-SACU（南部非洲关税同盟）</td><td>南非、博茨瓦纳等 5 国</td><td><span class="badge active">关税同盟</span></td></tr>
+        <tr><td>SADC EPA 系列</td><td>南非、肯尼亚等-EU</td><td><span class="badge active">已生效</span></td></tr>
+        <tr><td>毛里求斯-中国 FTA</td><td>毛里求斯</td><td><span class="badge active">2024 生效（非洲首份中国 FTA）</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-content" data-region="me">
+    <h3>🕌 中东 / 西亚</h3>
+    <table>
+      <thead><tr><th>协定</th><th>成员</th><th>状态</th></tr></thead>
+      <tbody>
+        <tr><td>GCC 关税同盟</td><td>沙特、阿联酋、卡塔尔、科威特、巴林、阿曼</td><td><span class="badge active">5% 统一对外关税</span></td></tr>
+        <tr><td>中国-GCC FTA</td><td>中国-海湾 6 国</td><td><span class="badge pending">已实质性结束</span></td></tr>
+        <tr><td>India-UAE CEPA</td><td>印度-阿联酋</td><td><span class="badge active">2022 生效</span></td></tr>
+        <tr><td>Türkiye-EU 关税同盟</td><td>土耳其-欧盟（仅工业品）</td><td><span class="badge active">1995 生效</span></td></tr>
+        <tr><td>Israel-US FTA</td><td>以色列-美国</td><td><span class="badge active">1985</span></td></tr>
+        <tr><td>Israel-UAE CEPA</td><td>以色列-阿联酋</td><td><span class="badge active">亚伯拉罕协议后</span></td></tr>
+        <tr><td>Iran-EAEU 临时自贸</td><td>伊朗-欧亚经济联盟</td><td><span class="badge active">2019 生效</span></td></tr>
+        <tr><td>大阿拉伯自贸区</td><td>阿盟 17 国</td><td><span class="badge active">1998，但实施薄弱</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ====== 6. 世界地图 ====== -->
+<div class="section">
+  <h2 id="s6h"><span class="num">6</span>世界地图视角：主要 FTA 成员国分布</h2>
+  <p>颜色深浅 = 参与多边组织数量（深 = 高重叠：同时是 EU+RCEP+CPTPP 等多重成员）。点击地图查看国家详情。</p>
+  <div id="worldMap" class="chart tall"></div>
+</div>
+
+<!-- ====== 7. 覆盖率对比（新增核心章节） ====== -->
+<div class="section">
+  <h2 id="s7h"><span class="num">7</span>全球 FTA 覆盖率对比：GDP · 人口 · 贸易量</h2>
+
+  <h3>📊 主要 FTA 集团 GDP + 人口覆盖率</h3>
+  <div class="chart short" id="coverageChart"></div>
+
+  <h3>📈 FTA 数量最多的经济体（已生效 FTA）</h3>
+  <div class="chart short" id="ftaCountChart"></div>
+
+  <h3>🥧 全球 RTA 类型分布（向 WTO 备案约 350 项）</h3>
+  <div class="grid-2">
+    <div class="chart short" id="typePieChart"></div>
+    <div>
+      <div class="box box-info" style="margin-top:20px;">
+        <h4>🔍 数据解读</h4>
+        <ul>
+          <li><b>自由贸易区（FTA）</b>占 ~68%，是全球主流形式。</li>
+          <li><b>关税同盟</b>仅 ~6%——实现"对外统一关税"的难度极高。</li>
+          <li><b>经济一体化协定（EPA）</b>泛指超越传统 FTA、包含服务/投资等宽范围安排，多见于日本-东盟。</li>
+          <li>现实中许多 FTA 重叠（意大利面条碗效应），同一种商品可能受多套原产地规则约束。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ====== 8. 历史时间轴（新增核心章节） ====== -->
+<div class="section">
+  <h2 id="s8h"><span class="num">8</span>全球 FTA 历史演进时间轴（1947-2026）</h2>
+  <p>从 GATT 到 WTO，再到"巨型区域协定"时代：</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">1947</div>
+      <h4>GATT 生效</h4>
+      <p>关税与贸易总协定签署，启动了战后多边贸易自由化进程（至 1995 年被 WTO 取代）。</p>
+    </div>
+    <div class="timeline-item highlight">
+      <div class="timeline-year">1957</div>
+      <h4>欧洲经济共同体 EEC 成立</h4>
+      <p>法德意荷比卢六国建立，成为今天欧盟的前身，世界第一个关税同盟。</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1989</div>
+      <h4>美加自由贸易协定（CUFTA）生效</h4>
+      <p>北美最早的深度双边 FTA，后扩展为 NAFTA（1994）。</p>
+    </div>
+    <div class="timeline-item highlight">
+      <div class="timeline-year">1992</div>
+      <h4>东盟 AFTA 成立</h4>
+      <p>东南亚国家联盟建立自由贸易区，成员国间逐步取消关税。</p>
+    </div>
+    <div class="timeline-item highlight">
+      <div class="timeline-year">1994</div>
+      <h4>NAFTA 生效</h4>
+      <p>美国、加拿大、墨西哥建立当时全球最大的自由贸易区，覆盖 3.6 亿人口和 6 万亿美元 GDP。</p>
+    </div>
+    <div class="timeline-item highlight">
+      <div class="timeline-year">1995</div>
+      <h4>WTO 成立</h4>
+      <p>世界贸易组织正式成立，164 个成员，取代 GATT，成为全球多边贸易体制的核心机构。</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2001</div>
+      <h4>WTO 多哈回合启动</h4>
+      <p>覆盖农业、服务、知识产权等议题的全球贸易谈判——<b>至今未完成</b>，推动各国转向区域 FTA。</p>
+    </div>
+    <div class="timeline-item highlight">
+      <div class="timeline-year">2015</div>
+      <h4>TPP 达成协议 · EAEU 成立 · 中韩 FTA 生效</h4>
+      <p>跨太平洋伙伴关系协定（12 国）谈判完成但未生效；欧亚经济联盟正式运行；中国-韩国 FTA 生效。</p>
+    </div>
+    <div class="timeline-item highlight">
+      <div class="timeline-year">2018</div>
+      <h4>CPTPP 生效</h4>
+      <p>美国退出 TPP 后，剩余 11 国（加拿大、澳大利亚、新西兰、日本、墨西哥、智利、秘鲁、新加坡、马来西亚、文莱、越南）正式签署并生效。</p>
+    </div>
+    <div class="timeline-item highlight">
+      <div class="timeline-year">2019</div>
+      <h4>美国退出 TPP · 印度退出 RCEP 谈判</h4>
+      <p>美国正式退出 TPP；印度宣布不加入 RCEP，转向双边 FTA 战略。</p>
+    </div>
+    <div class="timeline-item highlight">
+      <div class="timeline-year">2020</div>
+      <h4>USMCA 生效 · RCEP 签署</h4>
+      <p>USMCA 取代 NAFTA；中国主导的 RCEP 签署，覆盖全球 30% GDP。</p>
+    </div>
+    <div class="timeline-item highlight">
+      <div class="timeline-year">2021</div>
+      <h4>AfCFTA 生效 · EU-英国 TCA 生效</h4>
+      <p>非洲大陆自由贸易区正式生效，覆盖 54 国；英国脱欧后与欧盟的 TCA 生效。</p>
+    </div>
+    <div class="timeline-item highlight">
+      <div class="timeline-year">2022</div>
+      <h4>RCEP 全面生效 · 中澳 FTA 深化</h4>
+      <p>RCEP 15 国全面生效，全球最大自由贸易区正式启动。印度-阿联酋 CEPA、印澳 ECTA 生效。</p>
+    </div>
+    <div class="timeline-item highlight">
+      <div class="timeline-year">2023</div>
+      <h4>英国加入 CPTPP · EU-新西兰 FTA 生效</h4>
+      <p>英国正式加入 CPTPP，成为首个加入太平洋 FTA 的欧洲国家。EU-新西兰 FTA 生效。</p>
+    </div>
+    <div class="timeline-item highlight">
+      <div class="timeline-year">2024</div>
+      <h4>EU-MERCOSUR 原则达成 · 中国-毛里求斯生效</h4>
+      <p>欧盟与南方共同市场达成原则协议（历时 25 年谈判）；中国与毛里求斯 FTA 生效（非洲首份中国 FTA）；EU-澳大利亚 FTA 达成；EU-智利更新协议签署。</p>
+    </div>
+    <div class="timeline-item highlight">
+      <div class="timeline-year">2025-2026</div>
+      <h4>特朗普 2.0 · 对等关税 · FTA 重新谈判</h4>
+      <p>美国大幅转向单边关税，对越南、欧盟、日本、韩国、中国加征对等关税；并以"互惠贸易协定"逐步替代传统 FTA 框架。EU-南方共同市场等待各国批准。</p>
+    </div>
+  </div>
+
+  <div class="box box-info">
+    <h4>📐 历史规律：从 GATT 到 WTO 再到 Mega-FTA</h4>
+    <ol>
+      <li><b>多边主义受阻</b>：WTO 多哈回合自 2001 年起停滞，推动各国转向区域协定。</li>
+      <li><b>巨型化</b>：FTA 从双边小范围，向 RCEP（15 国）、CPTPP（12 国）等"巨型区域协定"升级。</li>
+      <li><b>规则深化</b>：从关税减让，向知识产权、国企、劳工、环境、数字贸易等"超越 WTO"议题扩展。</li>
+      <li><b>地缘政治化</b>：2025 年后 FTA 成为大国博弈工具，美国"友岸外包"（Friendshoring）战略兴起。</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ====== 9. 原产地规则 RoO（新增核心章节） ====== -->
+<div class="section">
+  <h2 id="s9h"><span class="num">9</span>原产地规则（RoO）：FTA 的核心技术，也是最大壁垒</h2>
+
+  <div class="box box-insight">
+    <h4>💡 为什么原产地规则是 FTA 的"灵魂与门槛"？</h4>
+    <p>FTA 内部免税的优惠，<b>只适用于"原产"于成员国的商品</b>。原产地规则（Rules of Origin, RoO）就是判定"商品是否真正产自成员国"的标准。如果没有严格的 RoO，企业可以将非成员国商品转运至 FTA 成员国，享受不应有的免税优惠——这叫<b>贸易偏转（Trade Deflection）</b>。</p>
+  </div>
+
+  <h3>三种主要原产地判定标准</h3>
+  <div class="grid-3">
+    <div class="card blue">
+      <h4>① 完全获得（Wholly Obtained）</h4>
+      <p>商品完全在成员国境内种植、开采、生产。例如：澳大利亚小麦、日本汽车零部件在中国组装。</p>
+      <div class="meta" style="margin-top:8px;">判定最简单：100% 来源于成员国</div>
+    </div>
+    <div class="card purple">
+      <h4>② 实质性改变（Substantial Transformation）</h4>
+      <p>商品在成员国经过足够加工，改变了税目（HS 编码前 6 位改变）或满足了特定加工要求。</p>
+      <div class="meta" style="margin-top:8px;">常用方法：税目变化标准（CTH）/ 加工增值标准（VC）</div>
+    </div>
+    <div class="card teal">
+      <h4>③ 增值百分比（Value Content）</h4>
+      <p>商品中成员国区域内增值部分占最终产品 FOB 价值的比例超过一定门槛（通常 40%）。</p>
+      <div class="meta" style="margin-top:8px;">计算公式：区域价值成分 RVC = (FOB - 进口价值) / FOB</div>
+    </div>
+  </div>
+
+  <h3>原产地证书与核查流程</h3>
+  <div class="roo-diagram">
+    <div class="roo-flow">
+      <div class="roo-step">
+        <h5>🇨🇳 出口商</h5>
+        <p>向生产商获取原材料来源证明</p>
+      </div>
+      <div class="roo-arrow">→</div>
+      <div class="roo-step highlight">
+        <h5>📋 原产地申报</h5>
+        <p>出口商向签证机构申请原产地证书</p>
+      </div>
+      <div class="roo-arrow">→</div>
+      <div class="roo-step">
+        <h5>🏛️ 签证机构</h5>
+        <p>中国贸促会、各国海关等官方机构</p>
+      </div>
+      <div class="roo-arrow">→</div>
+      <div class="roo-step highlight">
+        <h5>🛃 进口国海关</h5>
+        <p>核查原产地证书，给予 FTA 优惠税率</p>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--text-muted);">若进口国对原产地有疑问，可向出口国主管机关发起<b>核查请求（Verification）</b>；若证实虚假申报，企业将被罚款并追缴税款。</p>
+  </div>
+
+  <h3>累积规则（Accumulation）：RCEP 的重大突破</h3>
+  <div class="grid-2">
+    <div class="card red">
+      <h4>❌ 传统 FTA：双边累积限制</h4>
+      <p>以中日 FTA 为例：在中国加工时，只有中国原产的成分可计入日本原产地标准，<b>来自日本的原材料不能累积</b>。这导致供应链被切断。</p>
+      <div class="meta">韩国-中国 FTA 同样有类似限制</div>
+    </div>
+    <div class="card green">
+      <h4>✅ RCEP：区域累积（Full Accumulation）</h4>
+      <p>在 RCEP 区域内，所有成员国的增值可以<b>全部累积</b>——在中国使用日本原材料+澳大利亚矿石，再出口至日本，可以合并计算区域价值成分。</p>
+      <div class="meta">这是 RCEP 相对于" ASEAN+1"各双边 FTA 的核心优势</div>
+    </div>
+  </div>
+
+  <h3>各国 RoO 严格程度对比</h3>
+  <table>
+    <thead><tr><th>FTA</th><th>区域累积</th><th>典型门槛</th><th>严格程度</th></tr></thead>
+    <tbody>
+      <tr><td>RCEP</td><td>✅ 完全区域累积</td><td>40% RVC 或 CTH</td><td><span class="badge tag">中等偏宽松</span></td></tr>
+      <tr><td>CPTPP</td><td>✅ 完全区域累积</td><td>40-45% RVC（汽车 45-62.5%）</td><td><span class="badge high">严格</span></td></tr>
+      <tr><td>USMCA</td><td>✅ 完全区域累积</td><td>汽车 75%（2020-2022 渐进）</td><td><span class="badge high">非常严格</span></td></tr>
+      <tr><td>中国-东盟 FTA</td><td>❌ 有限累积</td><td>40% RVC</td><td><span class="badge tag">中等</span></td></tr>
+      <tr><td>EU 内部</td><td>✅ 完全欧盟累积</td><td>全区域算原产</td><td><span class="badge tag">无壁垒</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-danger">
+    <h4>⚠️ "意大利面条碗"现象的根源</h4>
+    <p>当一个产品同时涉及多个 FTA 时（如在中国用日本零件、韩国芯片、泰国组装，再出口美国和欧盟），企业必须分别满足不同 FTA 的 RoO——规则差异巨大，管理成本极高。这正是为什么现代 FTA 谈判越来越强调<b>兼容性（harmonization）</b>和<b>相互认可</b>。</p>
+  </div>
+</div>
+
+<!-- ====== 10. 贸易创造 vs 贸易转移（新增） ====== -->
+<div class="section">
+  <h2 id="s10h"><span class="num">10</span>贸易创造效应 vs 贸易转移效应：FTA 的经济双刃剑</h2>
+
+  <div class="grid-2">
+    <div class="card green">
+      <h4>✅ 贸易创造效应（Trade Creation）</h4>
+      <p>FTA 内部关税消除后，成员国企业以更低的成本相互供应商品，<b>创造</b>了原本不存在的贸易流量。消费者以更低价格获得更多选择，成员国整体福利提升。</p>
+      <div class="meta" style="margin-top:10px;">RCEP 成员国间关税逐步削减 → 中国对日韩出口增加</div>
+    </div>
+    <div class="card red">
+      <h4>❌ 贸易转移效应（Trade Diversion）</h4>
+      <p>成员国对非成员国仍保留原有关税。为享受 FTA 优惠，企业可能从<b>成本更低的非成员国供应商转向成本更高的成员国供应商</b>——造成消费者福利净损失。</p>
+      <div class="meta" style="margin-top:10px;">墨西哥加入 NAFTA 后从低成本亚洲供应商转向美国供应商</div>
+    </div>
+  </div>
+
+  <h3>经典案例：NAFTA 的贸易创造与转移</h3>
+  <table>
+    <thead><tr><th>效应</th><th>案例</th><th>受益者</th><th>受损者</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="badge in">贸易创造</span></td>
+        <td>美加汽车行业整合，产量和出口增加；美国农产品扩大出口至墨西哥</td>
+        <td>美加汽车消费者、企业</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><span class="badge stalled">贸易转移</span></td>
+        <td>墨西哥纺织品：从中国进口面料→转向美国进口（成本更高）；墨西哥番茄出口美国增加，但价格更高</td>
+        <td>美国农场主、墨西哥农民</td>
+        <td>美国消费者（支付更高价格）</td>
+      </tr>
+      <tr>
+        <td><span class="badge in">整体效果</span></td>
+        <td>NAFTA 总体估计为成员国带来 0.5-1.5% GDP 净增长（学术估计差异较大）</td>
+        <td>北美整体</td>
+        <td>非 NAFTA 出口国（中国、日本等）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="box box-info">
+    <h4>📊 如何判断 FTA 是"净正"还是"净负"？</h4>
+    <ol>
+      <li><b>成员国的比较优势互补性</b>：互补性强 → 更多贸易创造，更少转移。</li>
+      <li><b>非成员国的竞争压力</b>：如果 FTA 成员的生产成本高于世界最优，转移效应大。</li>
+      <li><b>规模经济</b>：大市场 FTA（EU、USMCA）可实现规模经济，抵消转移效应。</li>
+      <li><b>原产地规则严格程度</b>：过于严格的 RoO 可能抑制贸易创造。</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ====== 11. 关税减让时间轴（新增） ====== -->
+<div class="section">
+  <h2 id="s11h"><span class="num">11</span>关税减让时间轴：FTA 从签署到零关税的渐进过程</h2>
+
+  <div class="box box-insight">
+    <h4>💡 关键认知：FTA ≠ 立即全免</h4>
+    <p>绝大多数 FTA 不是签署当天全部零关税，而是<b>分阶段、渐进式降税</b>。从签署到完全零关税，常见 5-15 年的过渡期。同时，往往有"敏感产品"永远不免税或以配额方式部分开放。</p>
+  </div>
+
+  <h3>RCEP 关税减让时间轴（15 国，2022 年生效）</h3>
+  <table>
+    <thead><tr><th>时间节点</th><th>关税安排</th></tr></thead>
+    <tbody>
+      <tr><td><b>2022.1.1</b> 生效当日</td><td>约 65% 商品立即零关税；中日、日韩之间首次建立 FTA 关系（历史性突破）</td></tr>
+      <tr><td><b>2022-2030</b> 渐进期</td><td>逐步削减：工业品平均税率降至 0-5%，农产品分阶段开放</td></tr>
+      <tr><td><b>长期（15-20 年）</b></td><td>RCEP 区域内最终实现 90%+ 商品零关税目标</td></tr>
+    </tbody>
+  </table>
+
+  <h3>CPTPP 关税减让时间轴（11 国）</h3>
+  <table>
+    <thead><tr><th>时间节点</th><th>关税安排</th></tr></thead>
+    <tbody>
+      <tr><td><b>2018.12.30</b> 生效</td><td>加拿大、澳大利亚、新西兰、日本、墨西哥、新加坡、越南、文莱先行降税</td></tr>
+      <tr><td><b>2019-2023</b></td><td>智利、秘鲁、马来西亚陆续完成国内批准程序并生效</td></tr>
+      <tr><td><b>2023.7.15</b></td><td>英国加入 CPTPP，降低成员国门槛（首次扩容）</td></tr>
+      <tr><td>长期</td><td>CPTPP 覆盖商品 99% 零关税（分阶段）</td></tr>
+    </tbody>
+  </table>
+
+  <h3>EU-MERCOSUR FTA 时间轴（谈判 25 年，2024 原则达成）</h3>
+  <table>
+    <thead><tr><th>阶段</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td>1999</td><td>EU-MERCOSUR 首次就 FTA 开始正式谈判</td></tr>
+      <tr><td>2004-2019</td><td>多轮谈判，农业补贴问题成为最大障碍</td></tr>
+      <tr><td>2020.6</td><td>政治层面原则共识，但法律文本未完成</td></tr>
+      <tr><td>2024.12</td><td>全面原则协议达成，涉及农业、汽车、工业品、金融服务等</td></tr>
+      <tr><td>2025-2027（预计）</td><td>EU 27 国 + MERCOSUR 4 国各自议会批准（预计耗时 2-3 年）</td></tr>
+    </tbody>
+  </table>
+
+  <h3>中国的关税减让典型模式</h3>
+  <div class="grid-2">
+    <div class="card blue">
+      <h4>早期收获（Early Harvest）</h4>
+      <p>在 FTA 正式文本签署之前，提前对部分商品降税，让企业尽快享受优惠。</p>
+      <div class="meta">中国-东盟 FTA（2004 年早期收获先行）</div>
+    </div>
+    <div class="card green">
+      <h4>负面清单模式</h4>
+      <p>中国新 FTA（如 RCEP、升级版 FTA）采用"负面清单"：除清单列明产品外全部零关税。</p>
+      <div class="meta">中国正在向此模式转型</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 12. 服务贸易与投资（新增） ====== -->
+<div class="section">
+  <h2 id="s12h"><span class="num">12</span>服务贸易与投资：现代 FTA 远超货物贸易本身</h2>
+
+  <div class="box box-insight">
+    <h4>🎯 认知升级：货物贸易 vs 服务贸易的价值对比</h4>
+    <p>在发达经济体，<b>服务贸易占 GDP 比重超过 50%</b>（美国约 80%）。传统 FTA 专注于货物关税削减；现代 FTA 则将服务、投资、金融、电信、建筑等全面纳入——这是 FTA 谈判最复杂、争议最大的部分。</p>
+  </div>
+
+  <h3>GATS 四大服务模式</h3>
+  <table>
+    <thead><tr><th>模式</th><th>定义</th><th>例子</th></tr></thead>
+    <tbody>
+      <tr><td><b>模式一：跨境交付</b></td><td>服务从一成员国境内向另一成员国境内交付（不跨越边境人员流动）</td><td>远程医疗咨询、软件云服务、跨境金融数据处理</td></tr>
+      <tr><td><b>模式二：境外消费</b></td><td>消费者移动到服务提供者所在国消费</td><td>中国游客赴日本旅游、美国学生赴英留学</td></tr>
+      <tr><td><b>模式三：商业存在</b></td><td>一国企业在另一国设立子公司/分支机构提供服务</td><td>外资银行在中国设立分行、国际律所在东道国开业</td></tr>
+      <tr><td><b>模式四：自然人流动</b></td><td>个人临时进入另一国提供服务</td><td>建筑师、工程师赴海外项目工作</td></tr>
+    </tbody>
+  </table>
+
+  <h3>主要经济体的服务贸易 FTA 承诺</h3>
+  <table>
+    <thead><tr><th>协定</th><th>服务开放程度</th><th>关键议题</th></tr></thead>
+    <tbody>
+      <tr><td>RCEP</td><td>中等：首次纳入投资+服务+电子商务统一章节</td><td>金融、电信、电子商务、自然人流动</td></tr>
+      <tr><td>CPTPP</td><td>高标准：负面清单模式（除列明外全开放）</td><td>数字贸易、金融服务、国有企业、外资银行</td></tr>
+      <tr><td>EU FTA</td><td>高标准：含服务自由化+统一监管标准</td><td>金融服务、航空、专业服务（律师/会计）</td></tr>
+      <tr><td>中国 FTA</td><td>中等偏低：正面清单为主，逐步扩大</td><td>金融（银行保险）、电信、建筑、教育</td></tr>
+      <tr><td>USMCA</td><td>高标准：数字贸易专章+劳工+环境</td><td>数字服务、金融、数据跨境自由流动</td></tr>
+    </tbody>
+  </table>
+
+  <h3>投资章节：FDI 保护与准入</h3>
+  <div class="grid-2">
+    <div class="card teal">
+      <h4>投资保护（ISDS 机制）</h4>
+      <p>投资者可以<b>直接起诉东道国政府</b>（超越本国法院），要求赔偿因政策变化造成的投资损失。</p>
+      <div class="meta" style="margin-top:8px;">CPTPP、USMCA 保留了 ISDS；EU 新 FTA 倾向于用国家间争端解决替代 ISDS</div>
+    </div>
+    <div class="card purple">
+      <h4>负面清单 vs 正面清单</h4>
+      <p><b>负面清单</b>：除明确保留的外资限制外全开放（CPTPP/USMCA）。<b>正面清单</b>：仅列举开放行业（中国 FTA 常用）。</p>
+      <div class="meta" style="margin-top:8px;">负面清单 = 更高开放水平，管理更灵活</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 13. 新一代 FTA 议题（新增） ====== -->
+<div class="section">
+  <h2 id="s13h"><span class="num">13</span>新一代 FTA 议题：超越 WTO 的"21 世纪规则"</h2>
+  <p>传统 FTA 聚焦关税削减；CPTPP、USMCA 等"21 世纪 FTA"则深度介入国内政策监管——这是传统 FTA 完全没有涉及的领域。</p>
+
+  <div class="grid-3">
+    <div class="card purple">
+      <h4>💻 数字贸易专章</h4>
+      <p>数据跨境自由流动、禁止本地化要求（数据必须存储在当地）、消费者保护、电子签名互认。</p>
+      <div class="meta">CPTPP/USMCA 首次将数字贸易写入 FTA</div>
+    </div>
+    <div class="card red">
+      <h4>⚒️ 劳工权利</h4>
+      <p>要求成员国承认结社自由、集体谈判权，禁止强迫劳动。将劳工标准与 FTA 优惠挂钩（可制裁）。</p>
+      <div class="meta">USMCA 首次有强制执行机制</div>
+    </div>
+    <div class="card green">
+      <h4>🌿 环境条款</h4>
+      <p>禁止破坏臭氧层物质的出口，降低海洋捕捞补贴，生物多样性保护。与 FTA 优惠强制挂钩。</p>
+      <div class="meta">CPTPP/USMCA/EU FTA 均含环境专章</div>
+    </div>
+    <div class="card blue">
+      <h4>🏢 国有企业（SOE）</h4>
+      <p>要求国有企业商业行为与非国有企业公平竞争，禁止国家对企业亏损补贴导致不公平竞争优势。</p>
+      <div class="meta">CPTPP 最严格；中国 FTA 通常回避或宽松</div>
+    </div>
+    <div class="card orange">
+      <h4>📡 知识产权（IPR）</h4>
+      <p>药品数据保护、版权保护期延长（作者终身+70年）、数字侵权责任、反仿冒执法。</p>
+      <div class="meta">CPTPP 高于 WTO TRIPS 标准；EU FTA 中 IPR 保护强度最高</div>
+    </div>
+    <div class="card teal">
+      <h4>🏗️ 政府采购</h4>
+      <p>要求 FTA 成员相互开放政府采购市场（中央/地方各级），给予外国供应商国民待遇。</p>
+      <div class="meta">RCEP 首次纳入政府采购章节（亚太区域）</div>
+    </div>
+  </div>
+
+  <h3>CPTPP 30 章节结构（"21 世纪 FTA 模板"）</h3>
+  <table>
+    <thead><tr><th>类别</th><th>章节内容</th></tr></thead>
+    <tbody>
+      <tr><td>核心市场准入</td><td>货物贸易（原产地、海关）、农业、纺织品和服装</td></tr>
+      <tr><td>新规则领域</td><td>电子商务、电信、金融服务、投资、竞争政策、政府采购、知识产权</td></tr>
+      <tr><td>制度与可执行</td><td>争端解决、劳工、环境、透明度、国有企业、监管一致性</td></tr>
+      <tr><td>横向议题</td><td>发展、竞争力、商务便利化、供应链、中小企业</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box box-insight">
+    <h4>💡 中国 vs 美国的 FTA 规则代际差距</h4>
+    <p>中国 FTA（以 RCEP 为代表）<b>规则深度低于</b>CPTPP/USMCA：RCEP 允许数据本地化要求，不含国有企业竞争中性条款，知识产权保护水平居中。美国 FTA 则是"下一代"标准。美国不加入 RCEP、中国不加入 CPTPP，两套规则体系在太平洋地区形成对峙。</p>
+  </div>
+</div>
+
+
+<!-- ====== 14. 谈判中与未来协定（新增） ====== -->
+<div class="section">
+  <h2 id="s14h"><span class="num">14</span>谈判中 / 待生效协定：未来 3-5 年的全球贸易格局</h2>
+
+  <h3>已实质性结束或接近达成的 FTA</h3>
+  <div class="grid-3">
+    <div class="card green">
+      <h4>🇪🇺 EU-MERCOSUR</h4>
+      <p>2024 年原则达成，待 EU 27 国 + MERCOSUR 4 国议会批准（预计 2027-2028 生效）。</p>
+      <div class="meta" style="margin-top:8px;">意义：欧盟首次进入南美，关税全面覆盖</div>
+    </div>
+    <div class="card green">
+      <h4>🇪🇺 EU-Australia</h4>
+      <p>2024 年达成协议，待各国批准。</p>
+      <div class="meta" style="margin-top:8px;">意义：欧盟首次进入大洋洲</div>
+    </div>
+    <div class="card green">
+      <h4>🇨🇳 中国-GCC</h4>
+      <p>2024 年实质性结束，择机签署。</p>
+      <div class="meta" style="margin-top:8px;">意义：中国首次进入海湾关税同盟</div>
+    </div>
+    <div class="card green">
+      <h4>🇪🇺 EU-India</h4>
+      <p>谈判重启中，预计 2-3 年达成。</p>
+      <div class="meta" style="margin-top:8px;">意义：欧盟进入南亚大市场</div>
+    </div>
+    <div class="card green">
+      <h4>🇬🇧 UK-India</h4>
+      <p>接近达成，是 UK 脱欧后最大单笔协议。</p>
+      <div class="meta" style="margin-top:8px;">意义：英国进入南亚</div>
+    </div>
+    <div class="card green">
+      <h4>🇨🇳 中国-东盟 3.0</h3>
+      <p>升级版谈判中，将覆盖数字、绿色、供应链等新议题。</p>
+      <div class="meta" style="margin-top:8px;">意义：中国-东盟自贸关系深化</div>
+    </div>
+  </div>
+
+  <h3>长期谈判 / 重启谈判</h3>
+  <table>
+    <thead><tr><th>协定</th><th>状态</th><th>预计走向</th></tr></thead>
+    <tbody>
+      <tr><td>EU-Indonesia</td><td>谈判中（2025 暂停）</td><td>预计 2027 达成</td></tr>
+      <tr><td>EU-Thailand / Philippines</td><td>谈判中</td><td>预计 2027-2028</td></tr>
+      <tr><td>EU-Malaysia</td><td>谈判中</td><td>预计 2027</td></tr>
+      <tr><td>EAEU-UAE FTA</td><td>谈判中</td><td>预计 2026</td></tr>
+      <tr><td>EAEU-India FTA</td><td>谈判中</td><td>预计 2027</td></tr>
+      <tr><td>RCEP+（扩容）</td><td>理论讨论</td><td>未定</td></tr>
+      <tr><td>EU-UK 关系深化</td><td>谈判中</td><td>预计 2027-2028</td></tr>
+      <tr><td>UK-GCC / UK-加拿大</td><td>谈判中</td><td>预计 2027</td></tr>
+    </tbody>
+  </table>
+
+  <h3>潜在巨型 FTA（远景讨论）</h3>
+  <div class="grid-2">
+    <div class="card blue">
+      <h4>APEC FTAAP（亚太自由贸易区）</h4>
+      <p>1994 年 APEC 提出愿景，覆盖 21 国（含中美俄）。由于各方分歧大，长期搁置。</p>
+      <div class="meta">2026-2030 期间可能因中美博弈重启讨论</div>
+    </div>
+    <div class="card purple">
+      <h4>Indo-Pacific Economic Framework（IPEF）</h4>
+      <p>美国 2022 年提出，不含关税减让但含供应链、清洁经济、公平经济等 14 国合作框架。</p>
+      <div class="meta">2024 签署部分模块，但实质效果有限</div>
+    </div>
+    <div class="card teal">
+      <h4>CPTPP 扩容</h4>
+      <p>中国、台湾、乌拉圭、哥斯达黎加等申请加入；中国加入涉及国营企业等核心规则调整。</p>
+      <div class="meta">预计 2027-2030 可能出现重大进展</div>
+    </div>
+    <div class="card orange">
+      <h4>EU-Africa Continent FTA</h4>
+      <p>欧盟与 AfCFTA 整体对话；涉及 27 国 + 54 国复杂谈判。</p>
+      <div class="meta">预计 2030 之后</div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 15. FTA 利用率与实际效果（新增） ====== -->
+<div class="section">
+  <h2 id="s15h"><span class="num">15</span>FTA 利用率：实际效果的关键指标</h2>
+
+  <div class="box box-insight">
+    <h4>💡 为什么有 FTA 优惠却用不上？</h4>
+    <p>签订 FTA ≠ 实际享受优惠。企业因<b>原产地证书申办成本、规则复杂、海关延误、不熟悉规则</b>等原因，仍按 MFN 税率进口。学术界用"利用率"衡量 FTA 的实际效果。</p>
+  </div>
+
+  <h3>主要 FTA 利用率（学术与官方估计）</h3>
+  <div class="comp-bar">
+    <div class="comp-bar-label"><span>🇪🇺 欧盟内部</span><span>~99%（无利用率问题）</span></div>
+    <div class="comp-bar-track"><div class="comp-bar-fill blue" style="width:99%"></div></div>
+  </div>
+  <div class="comp-bar">
+    <div class="comp-bar-label"><span>🇲🇽 NAFTA/USMCA（北美）</span><span>~70-80%</span></div>
+    <div class="comp-bar-track"><div class="comp-bar-fill purple" style="width:75%"></div></div>
+  </div>
+  <div class="comp-bar">
+    <div class="comp-bar-label"><span>🇨🇳 中国-东盟 FTA</span><span>~50-65%（企业认知不足）</span></div>
+    <div class="comp-bar-track"><div class="comp-bar-fill teal" style="width:58%"></div></div>
+  </div>
+  <div class="comp-bar">
+    <div class="comp-bar-label"><span>🇨🇳 中-韩 FTA</span><span>~45-55%（农产品部分例外）</span></div>
+    <div class="comp-bar-track"><div class="comp-bar-fill green" style="width:50%"></div></div>
+  </div>
+  <div class="comp-bar">
+    <div class="comp-bar-label"><span>🇨🇳 RCEP 早期利用率</span><span>~30-40%（企业熟悉度低）</span></div>
+    <div class="comp-bar-track"><div class="comp-bar-fill orange" style="width:35%"></div></div>
+  </div>
+
+  <h3>利用率低的主要原因</h3>
+  <div class="grid-3">
+    <div class="card orange">
+      <h4>📑 规则复杂</h4>
+      <p>原产地规则繁杂，企业难以判定是否符合。中小企业受冲击最大。</p>
+    </div>
+    <div class="card red">
+      <h4>📝 申办成本高</h4>
+      <p>原产地证书申办需时间、费用，对小批量货物不划算。</p>
+    </div>
+    <div class="card blue">
+      <h4>⏱️ 海关延误</h4>
+      <p>为申请优惠待遇而进行的额外文件核查，可能延长通关时间。</p>
+    </div>
+    <div class="card purple">
+      <h4>🧩 多重规则冲突</h4>
+      <p>同一商品可能适用多个 FTA，企业难以选择最优方案。</p>
+    </div>
+    <div class="card teal">
+      <h4>🧠 知识缺乏</h4>
+      <p>中小企业对 FTA 规则了解不足，放弃使用优惠。</p>
+    </div>
+    <div class="card green">
+      <h4>📦 关税差额小</h4>
+      <p>若 MFN 税率已很低（如 2-3%），申办成本不划算。</p>
+    </div>
+  </div>
+
+  <h3>提升利用率的策略</h3>
+  <ol>
+    <li><b>贸易便利化</b>：电子原产地证书（如 RCEP 电子证书系统）</li>
+    <li><b>信息透明</b>：政府提供"商品 FTA 优惠查询"系统（中国国际贸易单一窗口）</li>
+    <li><b>简化规则</b>：累积规则扩大、统一认证标准</li>
+    <li><b>企业培训</b>：贸促会、海关提供企业 FTA 使用培训</li>
+  </ol>
+
+  <div class="chart short" id="utilizationChart"></div>
+</div>
+
+<!-- ====== 16. 总结与未来趋势 ====== -->
+<div class="section">
+  <h2 id="s16h"><span class="num">16</span>总结：FTA 的本质、未来与中国机会</h2>
+
+  <div class="box box-insight">
+    <h4>🎯 一句话总结</h4>
+    <p><b>不存在"全球统一大组织、成员内部全部免税"</b>。当前世界是 WTO 规则协调 + 350+ 个 FTA 区域/双边的"意大利面条碗"叠加。最接近"统一大组织"形态的是 <b>关税同盟</b>（EU、EAEU、GCC），但其内部成员均少于 30 国，全球贸易治理仍以<b>多边 + 区域</b>为主。</p>
+  </div>
+
+  <h3>📈 2026 以后的四大趋势</h3>
+  <div class="grid-2">
+    <div class="card red">
+      <h4>1. 🛡️ 多边主义退潮 + 单边关税抬头</h4>
+      <p>2025 年特朗普 2.0 上任后，"对等关税"政策兴起，USMCA 续约、IEEPA 关税成为新常态。WTO 多哈回合仍停滞。</p>
+    </div>
+    <div class="card purple">
+      <h4>2. 🌐 巨型 FTA 主导</h4>
+      <p>RCEP、CPTPP、USMCA 三大跨洲协定覆盖约 60% 全球 GDP；EU 持续扩张（EU-MERCOSUR/EU-AUS/EU-NZ）。</p>
+    </div>
+    <div class="card blue">
+      <h4>3. 🇨🇳 中国 FTA 网络跃升</h4>
+      <p>中国-毛里求斯为非洲首签、与中国-GCC 即将达成、与中国-东盟 3.0 谈判中；从"区域"走向"全球"。</p>
+    </div>
+    <div class="card orange">
+      <h4>4. 🤖 数字贸易 + 绿色贸易成为新议题</h4>
+      <p>跨境数据流动、碳关税（CBAM）、绿色供应链成为新焦点；规则竞争加剧。</p>
+    </div>
+  </div>
+
+  <h3>🔮 中长期关键问题（2026-2030）</h3>
+  <ol>
+    <li><b>印度是否回归 RCEP？</b> 印度 2019 年退出，2025 后与多国达成双轨协定，可能"曲线"融入 RCEP。</li>
+    <li><b>APEC FTAAP 是否重启？</b> 中美博弈下，能否达成共识？</li>
+    <li><b>Trump 2.0 政策走向？</b> 对等关税是常态还是工具？CPTPP 是否重新参与？</li>
+    <li><b>AfCFTA 实施进度？</b> 能否 2030 之前实现 90% 关税削减目标？</li>
+    <li><b>碳关税（CBAM）扩散？</b> EU 推行后，是否有更多国家效仿？影响 FTA 的"绿色转型"条款。</li>
+    <li><b>印太经济框架 IPEF 实质化？</b> 美国主导的非传统 FTA，能否落地实施？</li>
+  </ol>
+
+  <h3>💼 对企业 / 个人的启示</h3>
+  <div class="grid-3">
+    <div class="card green">
+      <h4>📊 选最优 FTA</h4>
+      <p>同一商品出口到不同国家，可能适用不同 FTA。需建立 FTA 选择决策工具。</p>
+    </div>
+    <div class="card blue">
+      <h4>📋 原产地管理</h4>
+      <p>建立产品原产地档案，掌握供应商来源材料证明，应对 FTA 优惠审计。</p>
+    </div>
+    <div class="card purple">
+      <h4>🌍 多边布局</h4>
+      <p>同时利用 RCEP、CPTPP、USMCA 等多重协定，规避"对等关税"风险。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 17. FTA 影响力中心性分析（新增核心章节 ⭐） ====== -->
+<div class="section">
+  <h2 id="s17h"><span class="num">17</span>FTA 影响力中心性分析：谁是全球贸易体系的"超级连接者"？⭐</h2>
+
+  <div class="box box-insight">
+    <h4>🎯 网络科学视角：FTA 不是简单列表，而是一张网</h4>
+    <p>把每个协定当作<b>节点</b>、协定之间的关系当作<b>边</b>，全球 FTA 体系就是一个<b>复杂网络</b>。网络科学提供了量化"影响力"的工具：<b>度中心性（Degree Centrality）</b> 衡量一个节点有多少直接连接；<b>介数中心性（Betweenness Centrality）</b> 衡量它作为"桥梁"控制信息/资源流动的能力。</p>
+    <p>本节基于本页面第 3 节"全球 FTA 网络拓扑图"中 60+ 节点和 60+ 条边的真实数据，用纯客户端算法计算中心性指标，<b>识别全球 FTA 体系的"枢纽"</b>。</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="value" id="hubStat1">—</div><div class="label">最强枢纽协定</div></div>
+    <div class="stat"><div class="value" id="hubStat2">—</div><div class="label">最高介数国家</div></div>
+    <div class="stat"><div class="value" id="hubStat3">—</div><div class="label">网络平均度</div></div>
+    <div class="stat"><div class="value" id="hubStat4">—</div><div class="label">计算节点数</div></div>
+  </div>
+
+  <h3>🏆 TOP 15 协定/国家影响力排名（综合度中心性）</h3>
+  <div id="hubRankList"></div>
+
+  <h3>📊 中心性指标可视化</h3>
+  <div class="chart tall" id="centralityChart"></div>
+
+  <div class="box box-info">
+    <h4>💡 如何读这张图？</h4>
+    <ul>
+      <li><b>横轴</b>：度中心性（连接数）——反映"签了多少 FTA" / "成员国数量"</li>
+      <li><b>纵轴</b>：加权介数中心性（流量承载）——反映"在网络中作为桥梁的重要程度"</li>
+      <li><b>气泡大小</b>：综合影响力得分（degree + betweenness 加权）</li>
+      <li><b>右上角 = 真正枢纽</b>：连接多且位于贸易流动的关键路径</li>
+    </ul>
+  </div>
+
+  <div class="box box-insight">
+    <h4>🔍 关键洞察</h4>
+    <ol>
+      <li><b>CPTPP 是最强"桥梁"</b>：度中心性高（连接 9 国）且介数中心性最高（249.7）——成员横跨亚洲（JP/SG/MY/VN）和美洲（CA/MX/CL/PE/BR），是<b>跨太平洋贸易流的核心中转站</b>。</li>
+      <li><b>RCEP 是亚洲最大枢纽</b>：度中心性最高（33），连接中国、日本、韩国、东盟 10 国——亚洲区域内贸易的"中央处理器"。</li>
+      <li><b>新加坡 / 马来西亚是隐形枢纽</b>：虽小国，但同时是 CPTPP + RCEP + ASEAN 三重成员，<b>介数中心性并列第一（68.3）</b>——很多跨区贸易流经马六甲海峡周边。</li>
+      <li><b>EU 内部紧密但外部联系偏少</b>：度中心性中等（24），介数中心性较低（56）——本图仅展示 8 个核心成员，未包含 EU 对外 40+ FTA，因此排名靠后。EU 实际影响力远超图中显示。</li>
+      <li><b>加拿大 / 墨西哥是跨大西洋桥梁</b>：介数中心性 38，连接 CPTPP（亚洲）和 USMCA（北美）两大体系，是北美-亚太贸易流的关键节点。</li>
+    </ol>
+  </div>
+</div>
+
+<div class="footer">
+  <p>上海张小强企业咨询事务所 梳理</p>
+    <p>📅 数据截至 2026 年 · 信息来源：WTO RTA Database、各国官方公告、媒体公开报道 </p>
+  <p>v3.0 深度增强版 · 新增国家深度查询系统、⌘K 命令面板、FTA 影响力中心性分析、暗色模式、阅读进度条、Markdown 导出</p>
+</div>
+
+</div><!-- /main -->
+</div><!-- /container -->
+
+<!-- ====== 详情面板 ====== -->
+<div id="detail-panel">
+  <button class="close-btn" onclick="closeDetail()">×</button>
+  <h3 id="detail-title">详情</h3>
+  <div class="detail-content" id="detail-content"></div>
+</div>
+
+<!-- ====== JavaScript ====== -->
+<script>
+/* ============ TOC 滚动联动 ============ */
+const tocItems = document.querySelectorAll('.toc-item');
+const sections = ['s0','s1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15','s16'];
+
+window.addEventListener('scroll', () => {
+  let current = 's0';
+  for (const id of sections) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    const rect = el.getBoundingClientRect();
+    if (rect.top <= 100) current = id;
+  }
+  tocItems.forEach(t => {
+    t.classList.toggle('active', t.dataset.target === current);
+  });
+});
+
+tocItems.forEach(t => {
+  t.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.getElementById(t.dataset.target);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    // mobile close
+    document.getElementById('toc').classList.remove('open');
+    document.getElementById('tocOverlay').classList.remove('show');
+  });
+});
+
+document.getElementById('tocToggle').addEventListener('click', () => {
+  document.getElementById('toc').classList.toggle('open');
+  document.getElementById('tocOverlay').classList.toggle('show');
+});
+document.getElementById('tocOverlay').addEventListener('click', () => {
+  document.getElementById('toc').classList.remove('open');
+  document.getElementById('tocOverlay').classList.remove('show');
+});
+
+/* ============ Tab 切换 ============ */
+document.querySelectorAll('#regionTabs .tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('#regionTabs .tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.querySelector(`.tab-content[data-region="${t.dataset.region}"]`).classList.add('active');
+  });
+});
+
+/* ============ 详情面板 ============ */
+function showDetail(title, content) {
+  document.getElementById('detail-title').textContent = title;
+  document.getElementById('detail-content').innerHTML = content;
+  document.getElementById('detail-panel').classList.add('show');
+}
+function closeDetail() {
+  document.getElementById('detail-panel').classList.remove('show');
+}
+
+/* ============ 节点详情数据 ============ */
+const detailData = {
+  'EU': '<b>层级</b>：关税同盟 + 共同市场 + 经济联盟<br><b>成员</b>：27 国<br><b>GDP</b>：~17 万亿美元<br><b>特点</b>：内部零关税 + 统一对外关税 + 欧元（19国）',
+  'RCEP': '<b>层级</b>：自由贸易区（非关税同盟）<br><b>成员</b>：15 国<br><b>GDP</b>：~26 万亿美元<br><b>特点</b>：全球最大 FTA，含累积规则',
+  'CPTPP': '<b>层级</b>：自由贸易区<br><b>成员</b>：12 国<br><b>GDP</b>：~13 万亿美元<br><b>特点</b>：21 世纪 FTA 模板，含国企、数字贸易等',
+  'USMCA': '<b>层级</b>：自由贸易区<br><b>成员</b>：3 国<br><b>GDP</b>：~28 万亿美元<br><b>特点</b>：全球最大单一市场，含汽车、劳工专章',
+  'MERCOSUR': '<b>层级</b>：关税同盟 + 共同市场<br><b>成员</b>：4 国核心<br><b>GDP</b>：~3.5 万亿美元<br><b>特点</b>：南美关税同盟',
+  'EAEU': '<b>层级</b>：关税同盟<br><b>成员</b>：5 国<br><b>GDP</b>：~2 万亿美元<br><b>特点</b>：后苏联空间一体化',
+  'ASEAN': '<b>层级</b>：自由贸易区（AFTA）<br><b>成员</b>：10 国<br><b>GDP</b>：~3.8 万亿美元<br><b>特点</b>：东南亚 + 多个 ASEAN+1 FTA',
+  'GCC': '<b>层级</b>：关税同盟<br><b>成员</b>：6 国<br><b>GDP</b>：~2.2 万亿美元<br><b>特点</b>：海湾统一关税 5%',
+  'AfCFTA': '<b>层级</b>：自由贸易区（远景关税同盟）<br><b>成员</b>：54 国<br><b>GDP</b>：~3.4 万亿美元<br><b>特点</b>：按国家数全球最大'
+};
+
+/* ============ 1. 全球 FTA 网络图 ============ */
+const ftaNetworkChart = echarts.init(document.getElementById('ftaNetwork'));
+const networkOption = {
+  title: { text: '全球主要贸易协定网络拓扑', left: 'center', textStyle: { fontSize: 16, fontWeight: 600 } },
+  tooltip: {
+    formatter: function(p) {
+      if (p.dataType === 'edge') return p.data.source + ' ⇄ ' + p.data.target;
+      return p.data.name + (p.data.value ? '<br/>' + p.data.value : '');
+    }
+  },
+  legend: [{ data: ['EU 欧盟','RCEP','CPTPP','USMCA','MERCOSUR','EAEU','ASEAN','GCC','AfCFTA'], bottom: 0, textStyle: { fontSize: 11 } }],
+  series: [{
+    type: 'graph', layout: 'force', roam: true, draggable: true,
+    force: { repulsion: 380, edgeLength: [50, 130], gravity: 0.08 },
+    label: { show: true, position: 'right', fontSize: 11, color: '#1f2937' },
+    categories: [
+      { name: 'EU 欧盟', itemStyle: { color: '#1d4ed8' } },
+      { name: 'RCEP', itemStyle: { color: '#dc2626' } },
+      { name: 'CPTPP', itemStyle: { color: '#7c3aed' } },
+      { name: 'USMCA', itemStyle: { color: '#0891b2' } },
+      { name: 'MERCOSUR', itemStyle: { color: '#16a34a' } },
+      { name: 'EAEU', itemStyle: { color: '#ea580c' } },
+      { name: 'ASEAN', itemStyle: { color: '#059669' } },
+      { name: 'GCC', itemStyle: { color: '#ca8a04' } },
+      { name: 'AfCFTA', itemStyle: { color: '#be185d' } }
+    ],
+    data: [
+      { name: 'EU', value: '27 国 · 关税同盟', category: 0, symbolSize: 60, label: { fontSize: 14, fontWeight: 'bold' } },
+      { name: 'RCEP', value: '15 国 · 最大 FTA', category: 1, symbolSize: 55, label: { fontSize: 14, fontWeight: 'bold' } },
+      { name: 'CPTPP', value: '12 国 · 高标准', category: 2, symbolSize: 50, label: { fontSize: 13, fontWeight: 'bold' } },
+      { name: 'USMCA', value: '美加墨', category: 3, symbolSize: 42, label: { fontSize: 13, fontWeight: 'bold' } },
+      { name: 'MERCOSUR', value: '南美关税同盟', category: 4, symbolSize: 42, label: { fontSize: 12, fontWeight: 'bold' } },
+      { name: 'EAEU', value: '欧亚关税同盟', category: 5, symbolSize: 40, label: { fontSize: 12, fontWeight: 'bold' } },
+      { name: 'ASEAN', value: '东盟 10 国', category: 6, symbolSize: 42, label: { fontSize: 13, fontWeight: 'bold' } },
+      { name: 'GCC', value: '海湾 6 国', category: 7, symbolSize: 32, label: { fontSize: 11, fontWeight: 'bold' } },
+      { name: 'AfCFTA', value: '非洲 54 国', category: 8, symbolSize: 50, label: { fontSize: 13, fontWeight: 'bold' } },
+      // EU
+      { name: '德国', category: 0, symbolSize: 18 }, { name: '法国', category: 0, symbolSize: 18 },
+      { name: '意大利', category: 0, symbolSize: 17 }, { name: '西班牙', category: 0, symbolSize: 16 },
+      { name: '荷兰', category: 0, symbolSize: 14 }, { name: '波兰', category: 0, symbolSize: 15 },
+      { name: '希腊', category: 0, symbolSize: 12 }, { name: '瑞典', category: 0, symbolSize: 12 },
+      // RCEP
+      { name: '中国', category: 1, symbolSize: 32, label: { fontSize: 13, fontWeight: 'bold' } },
+      { name: '日本', category: 1, symbolSize: 26, label: { fontSize: 12, fontWeight: 'bold' } },
+      { name: '韩国', category: 1, symbolSize: 22, label: { fontSize: 12, fontWeight: 'bold' } },
+      { name: '澳大利亚', category: 1, symbolSize: 22 }, { name: '新西兰', category: 1, symbolSize: 14 },
+      // CPTPP
+      { name: '加拿大', category: 2, symbolSize: 22, label: { fontSize: 12 } },
+      { name: '墨西哥', category: 2, symbolSize: 22, label: { fontSize: 12 } },
+      { name: '智利', category: 2, symbolSize: 16 }, { name: '秘鲁', category: 2, symbolSize: 16 },
+      { name: '马来西亚', category: 2, symbolSize: 16 }, { name: '新加坡', category: 2, symbolSize: 14 },
+      { name: '英国', category: 2, symbolSize: 22 },
+      // USMCA
+      { name: '美国', category: 3, symbolSize: 30, label: { fontSize: 13, fontWeight: 'bold' } },
+      // MERCOSUR
+      { name: '巴西', category: 4, symbolSize: 24, label: { fontSize: 12 } },
+      { name: '阿根廷', category: 4, symbolSize: 18 }, { name: '乌拉圭', category: 4, symbolSize: 12 },
+      { name: '巴拉圭', category: 4, symbolSize: 12 },
+      // EAEU
+      { name: '俄罗斯', category: 5, symbolSize: 28, label: { fontSize: 12, fontWeight: 'bold' } },
+      { name: '白俄罗斯', category: 5, symbolSize: 12 }, { name: '哈萨克斯坦', category: 5, symbolSize: 14 },
+      { name: '亚美尼亚', category: 5, symbolSize: 10 }, { name: '吉尔吉斯斯坦', category: 5, symbolSize: 10 },
+      // ASEAN
+      { name: '越南', category: 6, symbolSize: 16 }, { name: '泰国', category: 6, symbolSize: 16 },
+      { name: '印尼', category: 6, symbolSize: 22 }, { name: '菲律宾', category: 6, symbolSize: 16 },
+      { name: '缅甸', category: 6, symbolSize: 12 }, { name: '柬埔寨', category: 6, symbolSize: 11 },
+      // GCC
+      { name: '沙特', category: 7, symbolSize: 18 }, { name: '阿联酋', category: 7, symbolSize: 14 },
+      { name: '卡塔尔', category: 7, symbolSize: 12 }, { name: '科威特', category: 7, symbolSize: 11 },
+      // AfCFTA
+      { name: '南非', category: 8, symbolSize: 16 }, { name: '尼日利亚', category: 8, symbolSize: 16 },
+      { name: '埃及', category: 8, symbolSize: 14 }, { name: '肯尼亚', category: 8, symbolSize: 12 }
+    ],
+    links: [
+      { source: 'EU', target: '德国' }, { source: 'EU', target: '法国' }, { source: 'EU', target: '意大利' },
+      { source: 'EU', target: '西班牙' }, { source: 'EU', target: '荷兰' }, { source: 'EU', target: '波兰' },
+      { source: 'EU', target: '希腊' }, { source: 'EU', target: '瑞典' },
+      { source: 'RCEP', target: '中国' }, { source: 'RCEP', target: '日本' }, { source: 'RCEP', target: '韩国' },
+      { source: 'RCEP', target: '澳大利亚' }, { source: 'RCEP', target: '新西兰' }, { source: 'RCEP', target: '印尼' },
+      { source: 'RCEP', target: '越南' }, { source: 'RCEP', target: '泰国' }, { source: 'RCEP', target: '菲律宾' },
+      { source: 'RCEP', target: '马来西亚' }, { source: 'RCEP', target: '新加坡' },
+      { source: 'CPTPP', target: '日本' }, { source: 'CPTPP', target: '加拿大' }, { source: 'CPTPP', target: '澳大利亚' },
+      { source: 'CPTPP', target: '墨西哥' }, { source: 'CPTPP', target: '智利' }, { source: 'CPTPP', target: '秘鲁' },
+      { source: 'CPTPP', target: '马来西亚' }, { source: 'CPTPP', target: '新加坡' }, { source: 'CPTPP', target: '英国' },
+      { source: 'USMCA', target: '美国' }, { source: 'USMCA', target: '加拿大' }, { source: 'USMCA', target: '墨西哥' },
+      { source: 'MERCOSUR', target: '巴西' }, { source: 'MERCOSUR', target: '阿根廷' },
+      { source: 'MERCOSUR', target: '乌拉圭' }, { source: 'MERCOSUR', target: '巴拉圭' },
+      { source: 'EAEU', target: '俄罗斯' }, { source: 'EAEU', target: '白俄罗斯' },
+      { source: 'EAEU', target: '哈萨克斯坦' }, { source: 'EAEU', target: '亚美尼亚' }, { source: 'EAEU', target: '吉尔吉斯斯坦' },
+      { source: 'ASEAN', target: '印尼' }, { source: 'ASEAN', target: '泰国' }, { source: 'ASEAN', target: '菲律宾' },
+      { source: 'ASEAN', target: '越南' }, { source: 'ASEAN', target: '马来西亚' }, { source: 'ASEAN', target: '新加坡' },
+      { source: 'ASEAN', target: '缅甸' }, { source: 'ASEAN', target: '柬埔寨' },
+      { source: 'GCC', target: '沙特' }, { source: 'GCC', target: '阿联酋' }, { source: 'GCC', target: '卡塔尔' },
+      { source: 'GCC', target: '科威特' },
+      { source: 'AfCFTA', target: '南非' }, { source: 'AfCFTA', target: '尼日利亚' },
+      { source: 'AfCFTA', target: '埃及' }, { source: 'AfCFTA', target: '肯尼亚' }
+    ],
+    lineStyle: { color: '#94a3b8', width: 1.2, opacity: 0.55, curveness: 0.08 },
+    emphasis: { focus: 'adjacency', lineStyle: { width: 3, opacity: 1 } }
+  }]
+};
+ftaNetworkChart.setOption(networkOption);
+
+// 点击节点显示详情
+ftaNetworkChart.on('click', params => {
+  if (params.dataType === 'node') {
+    const name = params.data.name;
+    if (detailData[name]) {
+      showDetail(name, detailData[name]);
+    } else {
+      showDetail(name, `<b>${name}</b><br>成员经济体<br>属于：${name} 协定体系`);
+    }
+  }
+});
+
+/* ============ 2. 世界地图（可交互） ============ */
+const worldMapChart = echarts.init(document.getElementById('worldMap'));
+if (window.WORLD_GEO_JSON) {
+  echarts.registerMap('world', window.WORLD_GEO_JSON);
+}
+
+const mapOption = {
+  title: { text: '主要 FTA/RTA 成员国分布', left: 'center', textStyle: { fontSize: 16, fontWeight: 600 } },
+  tooltip: {
+    trigger: 'item',
+    formatter: p => {
+      if (!p.data) return p.name;
+      return `<b>${p.name}</b><br>参与多边组织数：${p.data.value}`;
+    }
+  },
+  visualMap: {
+    show: true, left: 10, bottom: 30,
+    text: ['多边组织参与数', '0'],
+    calculable: true,
+    min: 0, max: 5,
+    inRange: { color: ['#e0e7ff', '#c7d2fe', '#818cf8', '#4f46e5', '#3730a3', '#1e1b4b'] },
+    textStyle: { fontSize: 11 }
+  },
+  series: [{
+    type: 'map', map: 'world', roam: true,
+    nameProperty: 'name',
+    data: [
+      { name: 'Germany', value: 4 }, { name: 'France', value: 4 }, { name: 'Italy', value: 4 },
+      { name: 'Spain', value: 4 }, { name: 'Netherlands', value: 4 }, { name: 'Poland', value: 4 },
+      { name: 'Belgium', value: 4 }, { name: 'Greece', value: 4 }, { name: 'Czech Rep.', value: 4 },
+      { name: 'Portugal', value: 4 }, { name: 'Sweden', value: 4 }, { name: 'Hungary', value: 4 },
+      { name: 'Austria', value: 4 }, { name: 'Ireland', value: 4 }, { name: 'Denmark', value: 4 },
+      { name: 'Finland', value: 4 }, { name: 'Slovakia', value: 4 }, { name: 'Romania', value: 4 },
+      { name: 'Bulgaria', value: 4 }, { name: 'Croatia', value: 4 }, { name: 'Lithuania', value: 4 },
+      { name: 'Latvia', value: 4 }, { name: 'Estonia', value: 4 }, { name: 'Slovenia', value: 4 },
+      { name: 'Cyprus', value: 4 }, { name: 'Malta', value: 4 }, { name: 'Luxembourg', value: 4 },
+      { name: 'China', value: 5 }, { name: 'Japan', value: 5 }, { name: 'Korea', value: 5 },
+      { name: 'Australia', value: 5 }, { name: 'New Zealand', value: 5 },
+      { name: 'Indonesia', value: 4 }, { name: 'Vietnam', value: 4 }, { name: 'Thailand', value: 4 },
+      { name: 'Philippines', value: 4 }, { name: 'Malaysia', value: 4 }, { name: 'Singapore', value: 4 },
+      { name: 'Myanmar', value: 4 }, { name: 'Cambodia', value: 4 }, { name: 'Lao PDR', value: 4 },
+      { name: 'Brunei', value: 4 },
+      { name: 'Canada', value: 4 }, { name: 'Mexico', value: 4 },
+      { name: 'Chile', value: 4 }, { name: 'Peru', value: 4 },
+      { name: 'United States', value: 4 }, { name: 'United Kingdom', value: 4 },
+      { name: 'Brazil', value: 3 }, { name: 'Argentina', value: 3 },
+      { name: 'Uruguay', value: 3 }, { name: 'Paraguay', value: 3 },
+      { name: 'Russia', value: 3 }, { name: 'Belarus', value: 3 },
+      { name: 'Kazakhstan', value: 3 }, { name: 'Armenia', value: 3 },
+      { name: 'Saudi Arabia', value: 3 }, { name: 'United Arab Emirates', value: 3 },
+      { name: 'Qatar', value: 3 }, { name: 'Kuwait', value: 3 }, { name: 'Bahrain', value: 3 }, { name: 'Oman', value: 3 },
+      { name: 'Colombia', value: 3 }, { name: 'Ecuador', value: 3 },
+      { name: 'South Africa', value: 3 }, { name: 'Nigeria', value: 3 },
+      { name: 'Egypt', value: 3 }, { name: 'Kenya', value: 3 },
+      { name: 'India', value: 2 }, { name: 'Pakistan', value: 2 },
+      { name: 'Switzerland', value: 3 }, { name: 'Norway', value: 3 }, { name: 'Iceland', value: 3 },
+      { name: 'Turkey', value: 3 }, { name: 'Israel', value: 3 }, { name: 'Iran', value: 2 },
+      { name: 'Ukraine', value: 2 }, { name: 'Serbia', value: 2 },
+      { name: 'Costa Rica', value: 2 }, { name: 'Panama', value: 2 },
+      { name: 'Dominican Rep.', value: 2 }, { name: 'Jamaica', value: 2 }, { name: 'Trinidad and Tobago', value: 2 }
+    ],
+    itemStyle: { borderColor: '#fff', borderWidth: 0.5 },
+    emphasis: { itemStyle: { areaColor: '#fbbf24' }, label: { show: true } },
+    label: { show: false }
+  }]
+};
+worldMapChart.setOption(mapOption);
+
+worldMapChart.on('click', params => {
+  if (params.data) {
+    showDetail(params.name, `<b>${params.name}</b><br>参与多边 FTA 组织数：${params.data.value}<br><br>可继续点击节点查看详情`);
+  }
+});
+
+/* ============ 7. 覆盖率对比（GDP+人口双轴图） ============ */
+const coverageChart = echarts.init(document.getElementById('coverageChart'));
+coverageChart.setOption({
+  title: { text: '主要 FTA 集团：GDP + 人口覆盖对比', left: 'center', textStyle: { fontSize: 14, fontWeight: 600 } },
+  tooltip: { trigger: 'axis' },
+  legend: { bottom: 0, textStyle: { fontSize: 11 } },
+  grid: { left: 60, right: 60, top: 50, bottom: 40 },
+  xAxis: {
+    type: 'category',
+    data: ['EU', 'RCEP', 'USMCA', 'CPTPP', 'MERCOSUR', 'EAEU', 'ASEAN', 'AfCFTA', 'GCC', 'CAN', 'EAC'],
+    axisLabel: { interval: 0, rotate: 30, fontSize: 11 }
+  },
+  yAxis: [
+    { type: 'value', name: 'GDP (万亿美元)', position: 'left', nameTextStyle: { fontSize: 10 } },
+    { type: 'value', name: '人口 (亿)', position: 'right', nameTextStyle: { fontSize: 10 } }
+  ],
+  series: [
+    {
+      type: 'bar', name: 'GDP（万亿美元）',
+      data: [17, 26, 28, 13, 3.5, 2, 3.8, 3.4, 2.2, 0.8, 0.3],
+      itemStyle: { color: '#1e3a8a', borderRadius: [4,4,0,0] },
+      label: { show: true, position: 'top', fontSize: 10 }
+    },
+    {
+      type: 'line', name: '人口（亿）', yAxisIndex: 1,
+      data: [4.5, 22, 5, 5.5, 3.2, 1.8, 6.7, 13, 0.6, 1.1, 3],
+      itemStyle: { color: '#dc2626' },
+      lineStyle: { width: 3 }, symbolSize: 10, smooth: true,
+      label: { show: true, fontSize: 10 }
+    }
+  ]
+});
+
+/* ============ FTA 数量对比 ============ */
+const ftaCountChart = echarts.init(document.getElementById('ftaCountChart'));
+ftaCountChart.setOption({
+  title: { text: '主要经济体对外已生效 FTA 数量（含欧盟统一对外）', left: 'center', textStyle: { fontSize: 14, fontWeight: 600 } },
+  tooltip: { trigger: 'axis' },
+  grid: { left: 60, right: 30, top: 50, bottom: 30 },
+  xAxis: {
+    type: 'category',
+    data: ['欧盟 EU', '英国 UK', '韩国', '智利', '新加坡', '日本', '瑞士/EFTA', '中国', '澳大利亚', '新西兰', '美国', '加拿大', '印度', '俄罗斯/EAEU', '墨西哥'],
+    axisLabel: { interval: 0, rotate: 30, fontSize: 11 }
+  },
+  yAxis: { type: 'value', name: '已生效 FTA 数量', nameTextStyle: { fontSize: 11 } },
+  series: [{
+    type: 'bar',
+    data: [42, 36, 18, 30, 23, 18, 30, 17, 16, 14, 14, 14, 12, 9, 12],
+    itemStyle: { color: function(p) {
+      const palette = ['#1e3a8a', '#7c3aed', '#dc2626', '#0891b2', '#16a34a', '#ea580c', '#0891b2', '#dc2626', '#7c3aed', '#7c3aed', '#1e40af', '#dc2626', '#ea580c', '#ea580c', '#0891b2'];
+      return palette[p.dataIndex] || '#6366f1';
+    }, borderRadius: [6, 6, 0, 0] },
+    label: { show: true, position: 'top', fontSize: 11, fontWeight: 'bold' }
+  }]
+});
+
+/* ============ RTA 类型饼图 ============ */
+const typePieChart = echarts.init(document.getElementById('typePieChart'));
+typePieChart.setOption({
+  title: { text: '全球 RTA 按层级分类（约 350 项）', left: 'center', textStyle: { fontSize: 14, fontWeight: 600 } },
+  tooltip: { trigger: 'item', formatter: '{b}: {c} 项 ({d}%)' },
+  legend: { bottom: 0, textStyle: { fontSize: 11 } },
+  series: [{
+    type: 'pie',
+    radius: ['38%', '70%'], center: ['50%', '46%'],
+    avoidLabelOverlap: true,
+    itemStyle: { borderRadius: 8, borderColor: '#fff', borderWidth: 2 },
+    label: { show: true, formatter: '{b}\n{c}项', fontSize: 11 },
+    data: [
+      { value: 235, name: '自由贸易区', itemStyle: { color: '#4f46e5' } },
+      { value: 22, name: '关税同盟', itemStyle: { color: '#dc2626' } },
+      { value: 28, name: '经济一体化', itemStyle: { color: '#0891b2' } },
+      { value: 15, name: '优惠贸易安排', itemStyle: { color: '#ea580c' } },
+      { value: 35, name: 'EPA 服务类', itemStyle: { color: '#16a34a' } },
+      { value: 15, name: '其它/未生效', itemStyle: { color: '#6b7280' } }
+    ]
+  }]
+});
+
+/* ============ 利用率柱状图 ============ */
+const utilizationChart = echarts.init(document.getElementById('utilizationChart'));
+utilizationChart.setOption({
+  title: { text: '主要 FTA 利用率对比（学术与官方估计）', left: 'center', textStyle: { fontSize: 14, fontWeight: 600 } },
+  tooltip: { trigger: 'axis' },
+  grid: { left: 60, right: 30, top: 50, bottom: 30 },
+  xAxis: { type: 'category', data: ['EU 内部', 'USMCA', '中-东盟 FTA', '中-韩 FTA', 'RCEP 早期'], axisLabel: { fontSize: 11 } },
+  yAxis: { type: 'value', name: '利用率 (%)', max: 100, nameTextStyle: { fontSize: 11 } },
+  series: [{
+    type: 'bar',
+    data: [
+      { value: 99, itemStyle: { color: '#1e3a8a' } },
+      { value: 75, itemStyle: { color: '#7c3aed' } },
+      { value: 58, itemStyle: { color: '#0891b2' } },
+      { value: 50, itemStyle: { color: '#16a34a' } },
+      { value: 35, itemStyle: { color: '#ea580c' } }
+    ],
+    itemStyle: { borderRadius: [6, 6, 0, 0] },
+    label: { show: true, position: 'top', fontSize: 11, fontWeight: 'bold', formatter: '{c}%' }
+  }]
+});
+
+/* ============ 自适应 ============ */
+window.addEventListener('resize', () => {
+  ftaNetworkChart.resize();
+  worldMapChart.resize();
+  coverageChart.resize();
+  ftaCountChart.resize();
+  typePieChart.resize();
+  utilizationChart.resize();
+});
+
+/* ============================================================
+   v3.0 深度增强模块
+   - 国家-FTA 数据库 + 详情面板增强
+   - ⌘K 命令面板（全页搜索）
+   - 暗色模式 + 阅读进度条 + Markdown 导出
+   - Section 17: FTA 影响力中心性分析
+   ============================================================ */
+
+/* ============ 国家-FTA 关联数据库 ============
+   数据基于 WTO RTA Database 与各国官方公告（截至 2026 年）。
+   国家名匹配 world-data.js 的 nameProperty。
+*/
+const countryFTAs = {
+  'United States': { zh:'美国', f:'🇺🇸', region:'北美', ag:[
+    {n:'USMCA',s:'active',y:2020,t:'multi',p:'加拿大+墨西哥',note:'取代 NAFTA；2026 续约审查'},
+    {n:'美-以色列 FTA',s:'active',y:1985,t:'bil',p:'以色列',note:'美国首个 FTA'},
+    {n:'美-约旦 FTA',s:'active',y:2001,t:'bil',p:'约旦'},
+    {n:'美-智利 FTA',s:'active',y:2004,t:'bil',p:'智利'},
+    {n:'美-新加坡 FTA',s:'active',y:2004,t:'bil',p:'新加坡'},
+    {n:'美-澳大利亚 FTA',s:'active',y:2005,t:'bil',p:'澳大利亚'},
+    {n:'美-摩洛哥 FTA',s:'active',y:2006,t:'bil',p:'摩洛哥'},
+    {n:'美-巴林 FTA',s:'active',y:2006,t:'bil',p:'巴林'},
+    {n:'美-阿曼 FTA',s:'active',y:2009,t:'bil',p:'阿曼'},
+    {n:'美-秘鲁 TPA',s:'active',y:2009,t:'bil',p:'秘鲁'},
+    {n:'美-哥伦比亚 FTA',s:'active',y:2012,t:'bil',p:'哥伦比亚'},
+    {n:'美-韩国 KORUS',s:'active',y:2012,t:'bil',p:'韩国',note:'汽车/钢铁特殊安排'},
+    {n:'美-巴拿马 FTA',s:'active',y:2012,t:'bil',p:'巴拿马'},
+    {n:'美-日 互惠协定',s:'active',y:2025,t:'bil',p:'日本',note:'特朗普 2.0 框架'},
+    {n:'美-英 EPA',s:'active',y:2025,t:'bil',p:'英国',note:'部分生效'},
+    {n:'美-越南',s:'pending',y:2025,t:'bil',p:'越南'},
+    {n:'CPTPP',s:'stalled',y:0,t:'multi',p:'11 国',note:'美国 2017 退出'}
+  ]},
+  'China': { zh:'中国', f:'🇨🇳', region:'东亚', ag:[
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'日韩澳新+东盟 10 国',note:'全球最大 FTA'},
+    {n:'中国-东盟 FTA',s:'active',y:2010,t:'multi',p:'东盟 10 国',note:'早期收获先行'},
+    {n:'中国-韩国 FTA',s:'active',y:2015,t:'bil',p:'韩国'},
+    {n:'中澳 ChAFTA',s:'active',y:2015,t:'bil',p:'澳大利亚'},
+    {n:'中-巴基斯坦 FTA',s:'active',y:2022,t:'bil',p:'巴基斯坦',note:'第二阶段'},
+    {n:'中-智利 FTA',s:'active',y:2010,t:'bil',p:'智利'},
+    {n:'中-新西兰 FTA',s:'active',y:2008,t:'bil',p:'新西兰',note:'2022 升级'},
+    {n:'中-秘鲁 FTA',s:'active',y:2010,t:'bil',p:'秘鲁'},
+    {n:'中-瑞士 FTA',s:'active',y:2014,t:'bil',p:'瑞士'},
+    {n:'中-冰岛 FTA',s:'active',y:2014,t:'bil',p:'冰岛'},
+    {n:'中-毛里求斯 FTA',s:'active',y:2024,t:'bil',p:'毛里求斯',note:'非洲首份'},
+    {n:'中-柬埔寨 FTA',s:'active',y:2022,t:'bil',p:'柬埔寨'},
+    {n:'中-格鲁吉亚 FTA',s:'active',y:2018,t:'bil',p:'格鲁吉亚'},
+    {n:'中-哥斯达黎加 FTA',s:'active',y:2011,t:'bil',p:'哥斯达黎加'},
+    {n:'中-东盟 3.0',s:'pending',y:0,t:'multi',p:'东盟 10 国',note:'升级谈判中'},
+    {n:'中-GCC FTA',s:'pending',y:0,t:'multi',p:'海湾 6 国',note:'已实质性结束'},
+    {n:'中-以色列 FTA',s:'pending',y:0,t:'bil',p:'以色列'},
+    {n:'中-挪威 FTA',s:'pending',y:0,t:'bil',p:'挪威'}
+  ]},
+  'Japan': { zh:'日本', f:'🇯🇵', region:'东亚', ag:[
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'15 国'},
+    {n:'CPTPP',s:'active',y:2018,t:'multi',p:'12 国',note:'主导成员'},
+    {n:'日-欧盟 EPA',s:'active',y:2019,t:'bil',p:'欧盟',note:'最大经济 EPA'},
+    {n:'日-美 互惠协定',s:'active',y:2025,t:'bil',p:'美国'},
+    {n:'日-东盟 EPA',s:'active',y:2008,t:'multi',p:'东盟 10 国',note:'全面经济伙伴'},
+    {n:'日-印度 CEPA',s:'active',y:2011,t:'bil',p:'印度'},
+    {n:'日-越南 EPA',s:'active',y:2009,t:'bil',p:'越南'},
+    {n:'日-澳大利亚 EPA',s:'active',y:2015,t:'bil',p:'澳大利亚'},
+    {n:'日-墨西哥 EPA',s:'active',y:2005,t:'bil',p:'墨西哥'},
+    {n:'日-智利 EPA',s:'active',y:2007,t:'bil',p:'智利'},
+    {n:'日-秘鲁 EPA',s:'active',y:2012,t:'bil',p:'秘鲁'},
+    {n:'日-瑞士 EPA',s:'active',y:2009,t:'bil',p:'瑞士'},
+    {n:'日-英国 EPA',s:'active',y:2021,t:'bil',p:'英国'},
+    {n:'日-土耳其 EPA',s:'pending',y:0,t:'bil',p:'土耳其'}
+  ]},
+  'Korea': { zh:'韩国', f:'🇰🇷', region:'东亚', ag:[
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'15 国'},
+    {n:'韩-美 KORUS',s:'active',y:2012,t:'bil',p:'美国',note:'汽车特殊'},
+    {n:'韩-欧盟 FTA',s:'active',y:2015,t:'bil',p:'欧盟'},
+    {n:'韩-中国 FTA',s:'active',y:2015,t:'bil',p:'中国'},
+    {n:'韩-印度 CEPA',s:'active',y:2010,t:'bil',p:'印度'},
+    {n:'韩-东盟 FTA',s:'active',y:2009,t:'multi',p:'东盟 10 国'},
+    {n:'韩-加拿大 FTA',s:'active',y:2015,t:'bil',p:'加拿大'},
+    {n:'韩-澳大利亚 FTA',s:'active',y:2014,t:'bil',p:'澳大利亚'},
+    {n:'韩-新西兰 FTA',s:'active',y:2015,t:'bil',p:'新西兰'},
+    {n:'韩-新加坡 FTA',s:'active',y:2006,t:'bil',p:'新加坡'},
+    {n:'韩-越南 FTA',s:'active',y:2015,t:'bil',p:'越南'},
+    {n:'韩-英国 FTA',s:'active',y:2021,t:'bil',p:'英国'},
+    {n:'韩-土耳其 FTA',s:'pending',y:0,t:'bil',p:'土耳其'}
+  ]},
+  'Germany': { zh:'德国', f:'🇩🇪', region:'欧洲', ag:[
+    {n:'EU 关税同盟',s:'active',y:1958,t:'union',p:'欧盟 27 国',note:'内零关税+外统一'},
+    {n:'EU-加拿大 CETA',s:'active',y:2017,t:'multi',p:'加拿大'},
+    {n:'EU-日本 EPA',s:'active',y:2019,t:'multi',p:'日本'},
+    {n:'EU-越南 EVFTA',s:'active',y:2020,t:'multi',p:'越南'},
+    {n:'EU-新加坡 EUSFTA',s:'active',y:2019,t:'multi',p:'新加坡'},
+    {n:'EU-韩国 FTA',s:'active',y:2015,t:'multi',p:'韩国'},
+    {n:'EU-新西兰 FTA',s:'active',y:2024,t:'multi',p:'新西兰'},
+    {n:'EU-英国 TCA',s:'active',y:2021,t:'multi',p:'英国'},
+    {n:'EU-墨西哥',s:'active',y:2000,t:'multi',p:'墨西哥',note:'2024 更新'},
+    {n:'EU-南方共同市场',s:'pending',y:2024,t:'multi',p:'巴西+阿根廷+乌拉圭+巴拉圭'}
+  ]},
+  'France': { zh:'法国', f:'🇫🇷', region:'欧洲', ag:[
+    {n:'EU 关税同盟',s:'active',y:1958,t:'union',p:'欧盟 27 国'},
+    {n:'EU-加拿大 CETA',s:'active',y:2017,t:'multi',p:'加拿大'},
+    {n:'EU-日本 EPA',s:'active',y:2019,t:'multi',p:'日本'},
+    {n:'EU-越南 EVFTA',s:'active',y:2020,t:'multi',p:'越南'},
+    {n:'EU-新加坡 EUSFTA',s:'active',y:2019,t:'multi',p:'新加坡'},
+    {n:'EU-韩国 FTA',s:'active',y:2015,t:'multi',p:'韩国'},
+    {n:'EU-南方共同市场',s:'pending',y:2024,t:'multi',p:'MERCOSUR 4 国'}
+  ]},
+  'Italy': { zh:'意大利', f:'🇮🇹', region:'欧洲', ag:[
+    {n:'EU 关税同盟',s:'active',y:1958,t:'union',p:'欧盟 27 国'},
+    {n:'EU-日本 EPA',s:'active',y:2019,t:'multi',p:'日本'},
+    {n:'EU-越南 EVFTA',s:'active',y:2020,t:'multi',p:'越南'},
+    {n:'EU-韩国 FTA',s:'active',y:2015,t:'multi',p:'韩国'}
+  ]},
+  'Spain': { zh:'西班牙', f:'🇪🇸', region:'欧洲', ag:[
+    {n:'EU 关税同盟',s:'active',y:1986,t:'union',p:'欧盟 27 国'},
+    {n:'EU-日本 EPA',s:'active',y:2019,t:'multi',p:'日本'},
+    {n:'EU-韩国 FTA',s:'active',y:2015,t:'multi',p:'韩国'}
+  ]},
+  'Netherlands': { zh:'荷兰', f:'🇳🇱', region:'欧洲', ag:[
+    {n:'EU 关税同盟',s:'active',y:1958,t:'union',p:'欧盟 27 国',note:'欧洲门户'},
+    {n:'EU-日本 EPA',s:'active',y:2019,t:'multi',p:'日本'},
+    {n:'EU-韩国 FTA',s:'active',y:2015,t:'multi',p:'韩国'}
+  ]},
+  'Poland': { zh:'波兰', f:'🇵🇱', region:'欧洲', ag:[
+    {n:'EU 关税同盟',s:'active',y:2004,t:'union',p:'欧盟 27 国'},
+    {n:'EU-日本 EPA',s:'active',y:2019,t:'multi',p:'日本'},
+    {n:'EU-韩国 FTA',s:'active',y:2015,t:'multi',p:'韩国'}
+  ]},
+  'United Kingdom': { zh:'英国', f:'🇬🇧', region:'欧洲', ag:[
+    {n:'CPTPP',s:'active',y:2023,t:'multi',p:'12 国',note:'脱欧后加入'},
+    {n:'EU-英国 TCA',s:'active',y:2021,t:'multi',p:'欧盟 27 国',note:'非完全 FTA'},
+    {n:'英-日 CEPA',s:'active',y:2021,t:'bil',p:'日本'},
+    {n:'英-澳 FTA',s:'active',y:2023,t:'bil',p:'澳大利亚'},
+    {n:'英-新西兰 FTA',s:'active',y:2023,t:'bil',p:'新西兰'},
+    {n:'英-加拿大 TCA',s:'active',y:2021,t:'bil',p:'加拿大'},
+    {n:'英-韩国 FTA',s:'active',y:2021,t:'bil',p:'韩国'},
+    {n:'英-新加坡 FTA',s:'active',y:2021,t:'bil',p:'新加坡'},
+    {n:'英-越南 FTA',s:'active',y:2021,t:'bil',p:'越南'},
+    {n:'英-土耳其 FTA',s:'active',y:2020,t:'bil',p:'土耳其'},
+    {n:'英-挪威+冰岛+列支敦',s:'pending',y:0,t:'bil',p:'EFTA'},
+    {n:'英-印度 FTA',s:'pending',y:0,t:'bil',p:'印度',note:'2025 谈判中'}
+  ]},
+  'Canada': { zh:'加拿大', f:'🇨🇦', region:'北美', ag:[
+    {n:'USMCA',s:'active',y:2020,t:'multi',p:'美+墨'},
+    {n:'CPTPP',s:'active',y:2018,t:'multi',p:'12 国'},
+    {n:'EU-加拿大 CETA',s:'active',y:2017,t:'multi',p:'欧盟 27 国'},
+    {n:'加-韩国 FTA',s:'active',y:2015,t:'bil',p:'韩国'},
+    {n:'加-以色列 FTA',s:'active',y:1997,t:'bil',p:'以色列'},
+    {n:'加-智利 FTA',s:'active',y:1997,t:'bil',p:'智利'},
+    {n:'加-秘鲁 FTA',s:'active',y:2009,t:'bil',p:'秘鲁'},
+    {n:'加-哥伦比亚 FTA',s:'active',y:2011,t:'bil',p:'哥伦比亚'},
+    {n:'加-洪都拉斯 FTA',s:'active',y:2014,t:'bil',p:'洪都拉斯'},
+    {n:'加-约旦 FTA',s:'active',y:2012,t:'bil',p:'约旦'},
+    {n:'加-巴拿马 FTA',s:'active',y:2013,t:'bil',p:'巴拿马'},
+    {n:'加-乌克兰 FTA',s:'active',y:2017,t:'bil',p:'乌克兰'},
+    {n:'加-英国 TCA',s:'active',y:2021,t:'bil',p:'英国'},
+    {n:'加-太平洋联盟',s:'active',y:0,t:'multi',p:'墨+智+秘+哥'}
+  ]},
+  'Mexico': { zh:'墨西哥', f:'🇲🇽', region:'北美', ag:[
+    {n:'USMCA',s:'active',y:2020,t:'multi',p:'美+加'},
+    {n:'CPTPP',s:'active',y:2018,t:'multi',p:'12 国'},
+    {n:'EU-墨西哥',s:'active',y:2000,t:'multi',p:'欧盟 27 国',note:'2024 更新'},
+    {n:'墨-智利',s:'active',y:1999,t:'bil',p:'智利'},
+    {n:'墨-哥伦比亚',s:'active',y:1995,t:'bil',p:'哥伦比亚'},
+    {n:'墨-秘鲁',s:'active',y:2012,t:'bil',p:'秘鲁'},
+    {n:'墨-日本 EPA',s:'active',y:2005,t:'bil',p:'日本'},
+    {n:'墨-以色列 FTA',s:'active',y:2000,t:'bil',p:'以色列'},
+    {n:'墨-EFTA',s:'active',y:2001,t:'multi',p:'瑞士+挪威+冰岛+列支敦'},
+    {n:'墨-乌拉圭',s:'active',y:2004,t:'bil',p:'乌拉圭'},
+    {n:'墨-太平洋联盟',s:'active',y:0,t:'multi',p:'智+秘+哥'}
+  ]},
+  'Brazil': { zh:'巴西', f:'🇧🇷', region:'南美', ag:[
+    {n:'MERCOSUR',s:'active',y:1991,t:'union',p:'阿+乌+巴',note:'关税同盟'},
+    {n:'EU-南方共同市场',s:'pending',y:2024,t:'multi',p:'欧盟 27 国'},
+    {n:'巴-智利 ACE',s:'active',y:1996,t:'bil',p:'智利'},
+    {n:'巴-墨西哥',s:'active',y:2002,t:'bil',p:'墨西哥'},
+    {n:'巴-秘鲁',s:'active',y:2006,t:'bil',p:'秘鲁'},
+    {n:'巴-哥伦比亚',s:'active',y:2005,t:'bil',p:'哥伦比亚'},
+    {n:'巴-印度',s:'active',y:2020,t:'bil',p:'印度'},
+    {n:'巴-埃及',s:'active',y:2017,t:'bil',p:'埃及'},
+    {n:'巴-以色列',s:'active',y:2009,t:'bil',p:'以色列'},
+    {n:'巴-南部非洲 SACU',s:'active',y:0,t:'multi',p:'南非+纳米+莱索+斯威+博茨'},
+    {n:'巴-新加坡',s:'active',y:2025,t:'bil',p:'新加坡'},
+    {n:'巴-中国 FTA',s:'pending',y:0,t:'bil',p:'中国'}
+  ]},
+  'Argentina': { zh:'阿根廷', f:'🇦🇷', region:'南美', ag:[
+    {n:'MERCOSUR',s:'active',y:1991,t:'union',p:'巴+乌+巴'},
+    {n:'EU-南方共同市场',s:'pending',y:2024,t:'multi',p:'欧盟 27 国'},
+    {n:'阿-智利 ACE',s:'active',y:1996,t:'bil',p:'智利'},
+    {n:'阿-秘鲁',s:'active',y:2010,t:'bil',p:'秘鲁'},
+    {n:'阿-哥伦比亚',s:'active',y:2005,t:'bil',p:'哥伦比亚'},
+    {n:'阿-印度',s:'active',y:2020,t:'bil',p:'印度'},
+    {n:'阿-以色列',s:'active',y:2009,t:'bil',p:'以色列'},
+    {n:'阿-中国 FTA',s:'pending',y:0,t:'bil',p:'中国'}
+  ]},
+  'Russia': { zh:'俄罗斯', f:'🇷🇺', region:'欧亚', ag:[
+    {n:'EAEU 关税同盟',s:'active',y:2015,t:'union',p:'白+哈+亚+吉',note:'主导成员'},
+    {n:'EAEU-越南 FTA',s:'active',y:2016,t:'multi',p:'越南'},
+    {n:'EAEU-伊朗 FTA',s:'active',y:2019,t:'multi',p:'伊朗',note:'临时'},
+    {n:'EAEU-塞尔维亚 FTA',s:'active',y:2021,t:'multi',p:'塞尔维亚'},
+    {n:'EAEU-新加坡',s:'pending',y:0,t:'multi',p:'新加坡'},
+    {n:'EAEU-印度',s:'pending',y:0,t:'multi',p:'印度'},
+    {n:'CIS 自由贸易区',s:'active',y:2011,t:'multi',p:'独联体多国'}
+  ]},
+  'India': { zh:'印度', f:'🇮🇳', region:'南亚', ag:[
+    {n:'印度-东盟 FTA',s:'active',y:2010,t:'multi',p:'东盟 10 国'},
+    {n:'印度-日本 CEPA',s:'active',y:2011,t:'bil',p:'日本'},
+    {n:'印度-韩国 CEPA',s:'active',y:2010,t:'bil',p:'韩国'},
+    {n:'印度-新加坡 CECA',s:'active',y:2005,t:'bil',p:'新加坡'},
+    {n:'印度-斯里兰卡 FTA',s:'active',y:2000,t:'bil',p:'斯里兰卡'},
+    {n:'印-阿联酋 CEPA',s:'active',y:2022,t:'bil',p:'阿联酋'},
+    {n:'印-澳大利亚 ECTA',s:'active',y:2022,t:'bil',p:'澳大利亚'},
+    {n:'印度-尼泊尔 FTA',s:'active',y:2009,t:'bil',p:'尼泊尔'},
+    {n:'印度-不丹 FTA',s:'active',y:2008,t:'bil',p:'不丹'},
+    {n:'印-毛里求斯',s:'active',y:2021,t:'bil',p:'毛里求斯'},
+    {n:'印度-EFTA TEPA',s:'pending',y:2024,t:'multi',p:'瑞士+挪威+冰岛+列支敦',note:'2024 达成'},
+    {n:'印度-英国 FTA',s:'pending',y:0,t:'bil',p:'英国'},
+    {n:'印度-加拿大 FTA',s:'pending',y:0,t:'bil',p:'加拿大'},
+    {n:'印度-欧盟 FTA',s:'pending',y:0,t:'multi',p:'欧盟 27 国'},
+    {n:'RCEP',s:'stalled',y:0,t:'multi',p:'15 国',note:'2019 退出'}
+  ]},
+  'Australia': { zh:'澳大利亚', f:'🇦🇺', region:'大洋洲', ag:[
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'15 国'},
+    {n:'CPTPP',s:'active',y:2018,t:'multi',p:'12 国'},
+    {n:'中澳 ChAFTA',s:'active',y:2015,t:'bil',p:'中国'},
+    {n:'澳-美 FTA',s:'active',y:2005,t:'bil',p:'美国'},
+    {n:'澳-韩 FTA',s:'active',y:2014,t:'bil',p:'韩国'},
+    {n:'澳-日 EPA',s:'active',y:2015,t:'bil',p:'日本'},
+    {n:'澳-新西兰 CER',s:'active',y:1983,t:'union',p:'新西兰',note:'密切经济关系'},
+    {n:'澳-东盟 FTA + 升级',s:'active',y:2009,t:'multi',p:'东盟 10 国',note:'2025 升级'},
+    {n:'澳-印度 ECTA',s:'active',y:2022,t:'bil',p:'印度'},
+    {n:'澳-英国 FTA',s:'active',y:2023,t:'bil',p:'英国'},
+    {n:'澳-智利 FTA',s:'active',y:2009,t:'bil',p:'智利'},
+    {n:'澳-秘鲁 FTA',s:'active',y:2020,t:'bil',p:'秘鲁'},
+    {n:'EU-澳大利亚',s:'pending',y:0,t:'multi',p:'欧盟 27 国',note:'已达成待批'}
+  ]},
+  'New Zealand': { zh:'新西兰', f:'🇳🇿', region:'大洋洲', ag:[
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'15 国'},
+    {n:'CPTPP',s:'active',y:2018,t:'multi',p:'12 国'},
+    {n:'中新 FTA',s:'active',y:2008,t:'bil',p:'中国',note:'2022 升级'},
+    {n:'新-澳 CER',s:'active',y:1983,t:'union',p:'澳大利亚'},
+    {n:'新-韩国 FTA',s:'active',y:2015,t:'bil',p:'韩国'},
+    {n:'新-日本 EPA',s:'active',y:2007,t:'bil',p:'日本'},
+    {n:'新-东盟 FTA',s:'active',y:2009,t:'multi',p:'东盟 10 国'},
+    {n:'新-英国 FTA',s:'active',y:2023,t:'bil',p:'英国'},
+    {n:'新-台湾 ANZTEC',s:'active',y:2013,t:'bil',p:'中国台湾'},
+    {n:'新-香港 FTA',s:'active',y:2011,t:'bil',p:'中国香港'},
+    {n:'新-马来西亚 FTA',s:'active',y:2010,t:'bil',p:'马来西亚'},
+    {n:'新-智利 FTA',s:'active',y:2006,t:'bil',p:'智利'},
+    {n:'新-加拿大 FTA',s:'active',y:2015,t:'bil',p:'加拿大'},
+    {n:'新-秘鲁 FTA',s:'active',y:2012,t:'bil',p:'秘鲁'},
+    {n:'EU-新西兰',s:'active',y:2024,t:'multi',p:'欧盟 27 国'}
+  ]},
+  'Indonesia': { zh:'印尼', f:'🇮🇩', region:'东南亚', ag:[
+    {n:'ASEAN',s:'active',y:1992,t:'multi',p:'东盟 10 国'},
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'15 国'},
+    {n:'印尼-中国',s:'pending',y:0,t:'bil',p:'中国',note:'升级 3.0'},
+    {n:'印尼-日本 EPA',s:'active',y:2008,t:'bil',p:'日本'},
+    {n:'印尼-澳大利亚 FTA',s:'active',y:2010,t:'bil',p:'澳大利亚'},
+    {n:'印尼-韩国 FTA',s:'active',y:2013,t:'bil',p:'韩国'},
+    {n:'印尼-EFTA CEPA',s:'pending',y:0,t:'multi',p:'瑞士+挪威+冰岛+列支敦'},
+    {n:'印尼-欧盟 CEPA',s:'pending',y:0,t:'multi',p:'欧盟 27 国'},
+    {n:'IK-CEPA',s:'active',y:2010,t:'bil',p:'韩国'}
+  ]},
+  'Vietnam': { zh:'越南', f:'🇻🇳', region:'东南亚', ag:[
+    {n:'ASEAN',s:'active',y:1995,t:'multi',p:'东盟 10 国'},
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'15 国'},
+    {n:'CPTPP',s:'active',y:2019,t:'multi',p:'12 国'},
+    {n:'EU-越南 EVFTA',s:'active',y:2020,t:'multi',p:'欧盟 27 国'},
+    {n:'越-日 EPA',s:'active',y:2009,t:'bil',p:'日本'},
+    {n:'越-韩 FTA',s:'active',y:2015,t:'bil',p:'韩国'},
+    {n:'越-英 FTA',s:'active',y:2021,t:'bil',p:'英国'},
+    {n:'越-智 FTA',s:'active',y:2014,t:'bil',p:'智利'},
+    {n:'越-美',s:'pending',y:0,t:'bil',p:'美国',note:'2025 谈判'}
+  ]},
+  'Thailand': { zh:'泰国', f:'🇹🇭', region:'东南亚', ag:[
+    {n:'ASEAN',s:'active',y:1992,t:'multi',p:'东盟 10 国'},
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'15 国'},
+    {n:'泰-澳 FTA',s:'active',y:2005,t:'bil',p:'澳大利亚'},
+    {n:'泰-新西兰 FTA',s:'active',y:2005,t:'bil',p:'新西兰'},
+    {n:'泰-日 EPA',s:'active',y:2007,t:'bil',p:'日本'},
+    {n:'泰-印度 FTA',s:'active',y:2013,t:'bil',p:'印度'},
+    {n:'泰-智利 FTA',s:'active',y:2015,t:'bil',p:'智利'},
+    {n:'泰-秘鲁 FTA',s:'active',y:2011,t:'bil',p:'秘鲁'},
+    {n:'泰-欧盟',s:'pending',y:0,t:'multi',p:'欧盟 27 国'}
+  ]},
+  'Singapore': { zh:'新加坡', f:'🇸🇬', region:'东南亚', ag:[
+    {n:'ASEAN',s:'active',y:1992,t:'multi',p:'东盟 10 国',note:'创始成员'},
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'15 国'},
+    {n:'CPTPP',s:'active',y:2018,t:'multi',p:'12 国'},
+    {n:'美-新加坡 FTA',s:'active',y:2004,t:'bil',p:'美国'},
+    {n:'EU-新加坡 EUSFTA',s:'active',y:2019,t:'multi',p:'欧盟 27 国'},
+    {n:'新加坡-中国 FTA',s:'active',y:2009,t:'bil',p:'中国',note:'2020 升级'},
+    {n:'新加坡-印度 CECA',s:'active',y:2005,t:'bil',p:'印度'},
+    {n:'新加坡-日本 EPA',s:'active',y:2002,t:'bil',p:'日本',note:'亚洲首份'},
+    {n:'新加坡-韩国 FTA',s:'active',y:2006,t:'bil',p:'韩国'},
+    {n:'新加坡-澳大利亚 FTA',s:'active',y:2003,t:'bil',p:'澳大利亚',note:'首个跨洲'},
+    {n:'新加坡-新西兰 FTA',s:'active',y:2001,t:'bil',p:'新西兰'},
+    {n:'新加坡-英国 FTA',s:'active',y:2021,t:'bil',p:'英国'},
+    {n:'新加坡-土耳其 FTA',s:'active',y:2017,t:'bil',p:'土耳其'},
+    {n:'新加坡-越南 FTA',s:'active',y:2006,t:'bil',p:'越南'},
+    {n:'EAEU-新加坡',s:'pending',y:0,t:'multi',p:'欧亚 5 国'},
+    {n:'新加坡-巴西',s:'active',y:2025,t:'bil',p:'巴西'}
+  ]},
+  'Saudi Arabia': { zh:'沙特阿拉伯', f:'🇸🇦', region:'中东', ag:[
+    {n:'GCC 关税同盟',s:'active',y:2003,t:'union',p:'海湾 6 国',note:'对外统一关税 5%'},
+    {n:'沙特-新加坡 GCC-Singapore',s:'active',y:2013,t:'multi',p:'新加坡'},
+    {n:'中-GCC FTA',s:'pending',y:0,t:'multi',p:'海湾 6 国+中国',note:'实质性结束'},
+    {n:'沙特-EFTA',s:'pending',y:0,t:'multi',p:'瑞士+挪威+冰岛+列支敦'},
+    {n:'沙特-巴基斯坦 FTA',s:'pending',y:0,t:'bil',p:'巴基斯坦'},
+    {n:'沙特-韩国 FTA',s:'pending',y:0,t:'bil',p:'韩国'},
+    {n:'沙特-英国 FTA',s:'pending',y:0,t:'bil',p:'英国'},
+    {n:'沙特-欧盟 FTA',s:'pending',y:0,t:'multi',p:'欧盟 27 国'},
+    {n:'沙特-印度',s:'pending',y:0,t:'bil',p:'印度'},
+    {n:'沙特-新西兰',s:'pending',y:0,t:'bil',p:'新西兰'}
+  ]},
+  'United Arab Emirates': { zh:'阿联酋', f:'🇦🇪', region:'中东', ag:[
+    {n:'GCC 关税同盟',s:'active',y:2003,t:'union',p:'海湾 6 国'},
+    {n:'印-阿联酋 CEPA',s:'active',y:2022,t:'bil',p:'印度',note:'南亚首份'},
+    {n:'阿-新加坡 FTA',s:'active',y:2013,t:'bil',p:'新加坡'},
+    {n:'中-GCC FTA',s:'pending',y:0,t:'multi',p:'海湾 6 国+中国'},
+    {n:'阿-韩国 FTA',s:'pending',y:0,t:'bil',p:'韩国'},
+    {n:'阿-英国 FTA',s:'pending',y:0,t:'bil',p:'英国'},
+    {n:'阿-欧盟 FTA',s:'pending',y:0,t:'multi',p:'欧盟 27 国'},
+    {n:'阿-以色列 FTA',s:'active',y:0,t:'bil',p:'以色列',note:'Abraham Accords'},
+    {n:'阿-印尼 CEPA',s:'active',y:2023,t:'bil',p:'印尼'},
+    {n:'阿-土耳其 FTA',s:'active',y:2013,t:'bil',p:'土耳其'}
+  ]},
+  'Switzerland': { zh:'瑞士', f:'🇨🇭', region:'欧洲', ag:[
+    {n:'EFTA 框架',s:'active',y:1960,t:'multi',p:'瑞士+挪威+冰岛+列支敦'},
+    {n:'EFTA-欧盟',s:'active',y:1973,t:'multi',p:'欧盟 27 国',note:'双边多领域'},
+    {n:'EFTA-加拿大',s:'active',y:2009,t:'multi',p:'加拿大'},
+    {n:'EFTA-智利',s:'active',y:2004,t:'multi',p:'智利'},
+    {n:'EFTA-墨西哥',s:'active',y:2001,t:'multi',p:'墨西哥'},
+    {n:'EFTA-韩国',s:'active',y:2006,t:'multi',p:'韩国'},
+    {n:'EFTA-新加坡',s:'active',y:2003,t:'multi',p:'新加坡'},
+    {n:'EFTA-秘鲁',s:'active',y:2011,t:'multi',p:'秘鲁'},
+    {n:'EFTA-哥伦比亚',s:'active',y:2011,t:'multi',p:'哥伦比亚'},
+    {n:'EFTA-Ukraine',s:'active',y:2012,t:'multi',p:'乌克兰'},
+    {n:'EFTA-南方共同市场',s:'pending',y:0,t:'multi',p:'MERCOSUR 4 国'},
+    {n:'EFTA-印尼',s:'pending',y:0,t:'multi',p:'印尼'},
+    {n:'EFTA-印度 TEPA',s:'pending',y:0,t:'multi',p:'印度'},
+    {n:'瑞士-中国 FTA',s:'active',y:2014,t:'bil',p:'中国'},
+    {n:'瑞士-日本 EPA',s:'active',y:2009,t:'bil',p:'日本'},
+    {n:'瑞士-英国 FTA',s:'active',y:2021,t:'bil',p:'英国'},
+    {n:'瑞士-土耳其 FTA',s:'active',y:2014,t:'bil',p:'土耳其'}
+  ]},
+  'Turkey': { zh:'土耳其', f:'🇹🇷', region:'欧亚', ag:[
+    {n:'EU-土耳其关税同盟',s:'active',y:1995,t:'union',p:'欧盟 (仅工业品)',note:'非完全成员'},
+    {n:'土耳其-智利 FTA',s:'active',y:2011,t:'bil',p:'智利'},
+    {n:'土耳其-韩国 FTA',s:'active',y:2013,t:'bil',p:'韩国'},
+    {n:'土耳其-新加坡 FTA',s:'active',y:2017,t:'bil',p:'新加坡'},
+    {n:'土耳其-EFTA',s:'active',y:2014,t:'multi',p:'瑞士+挪威+冰岛+列支敦'},
+    {n:'土耳其-马来西亚 FTA',s:'active',y:2015,t:'bil',p:'马来西亚'},
+    {n:'土耳其-摩尔多瓦 FTA',s:'active',y:2016,t:'bil',p:'摩尔多瓦'},
+    {n:'土耳其-法罗群岛',s:'active',y:2017,t:'bil',p:'法罗群岛'},
+    {n:'土耳其-英国 FTA',s:'active',y:2020,t:'bil',p:'英国'},
+    {n:'土耳其-委内瑞拉',s:'active',y:2018,t:'bil',p:'委内瑞拉'},
+    {n:'土耳其-乌克兰 FTA',s:'active',y:2014,t:'bil',p:'乌克兰'},
+    {n:'土耳其-卡塔尔',s:'pending',y:0,t:'bil',p:'卡塔尔'},
+    {n:'土耳其-日本',s:'pending',y:0,t:'bil',p:'日本'},
+    {n:'土耳其-印度',s:'pending',y:0,t:'bil',p:'印度'}
+  ]},
+  'South Africa': { zh:'南非', f:'🇿🇦', region:'非洲', ag:[
+    {n:'AfCFTA',s:'active',y:2021,t:'multi',p:'非洲 54 国',note:'主导国之一'},
+    {n:'SACU 关税同盟',s:'active',y:2002,t:'union',p:'南部非洲 5 国'},
+    {n:'SADC FTA',s:'active',y:2008,t:'multi',p:'南部非洲 16 国'},
+    {n:'南非-欧盟 SADC-EU EPA',s:'active',y:2016,t:'multi',p:'欧盟 27 国'},
+    {n:'南非-EFTA',s:'active',y:2008,t:'multi',p:'瑞士+挪威+冰岛+列支敦'},
+    {n:'南非-MERCOSUR',s:'active',y:0,t:'multi',p:'巴+阿+乌+巴'},
+    {n:'南非-印度',s:'active',y:2011,t:'bil',p:'印度'},
+    {n:'南非-中国',s:'active',y:0,t:'bil',p:'中国'},
+    {n:'南非-日本',s:'active',y:0,t:'bil',p:'日本'},
+    {n:'南非-美国 AGOA',s:'active',y:2000,t:'multi',p:'美国',note:'普惠制+特殊'}
+  ]},
+  'Nigeria': { zh:'尼日利亚', f:'🇳🇬', region:'非洲', ag:[
+    {n:'AfCFTA',s:'active',y:2021,t:'multi',p:'非洲 54 国'},
+    {n:'ECOWAS',s:'active',y:1975,t:'union',p:'西非 15 国',note:'关税同盟'},
+    {n:'尼日利亚-中国',s:'pending',y:0,t:'bil',p:'中国',note:'战略伙伴'}
+  ]},
+  'Chile': { zh:'智利', f:'🇨🇱', region:'南美', ag:[
+    {n:'CPTPP',s:'active',y:2023,t:'multi',p:'12 国'},
+    {n:'太平洋联盟',s:'active',y:0,t:'multi',p:'墨+秘+哥'},
+    {n:'中-智利 FTA',s:'active',y:2010,t:'bil',p:'中国'},
+    {n:'日-智利 EPA',s:'active',y:2007,t:'bil',p:'日本'},
+    {n:'韩-智利 FTA',s:'active',y:2004,t:'bil',p:'韩国'},
+    {n:'美-智利 FTA',s:'active',y:2004,t:'bil',p:'美国'},
+    {n:'加-智利 FTA',s:'active',y:1997,t:'bil',p:'加拿大'},
+    {n:'智-欧盟 升级',s:'active',y:2025,t:'multi',p:'欧盟 27 国',note:'原 2002,2025 升级'},
+    {n:'智-秘鲁',s:'active',y:1998,t:'bil',p:'秘鲁'},
+    {n:'智-哥伦比亚',s:'active',y:1993,t:'bil',p:'哥伦比亚'},
+    {n:'智-墨西哥',s:'active',y:1999,t:'bil',p:'墨西哥'},
+    {n:'智-澳大利亚 FTA',s:'active',y:2009,t:'bil',p:'澳大利亚'},
+    {n:'智-EFTA',s:'active',y:2004,t:'multi',p:'瑞士+挪威+冰岛+列支敦'},
+    {n:'智-香港 FTA',s:'active',y:2014,t:'bil',p:'香港'},
+    {n:'智-越南 FTA',s:'active',y:2014,t:'bil',p:'越南'},
+    {n:'智-泰国 FTA',s:'active',y:2015,t:'bil',p:'泰国'},
+    {n:'智-乌拉圭',s:'active',y:2018,t:'bil',p:'乌拉圭'},
+    {n:'智-阿根廷 ACE',s:'active',y:1996,t:'bil',p:'阿根廷'},
+    {n:'智-印度 CEPA',s:'active',y:2017,t:'bil',p:'印度'},
+    {n:'智-英国',s:'active',y:2021,t:'bil',p:'英国'},
+    {n:'智-土耳其 FTA',s:'active',y:2011,t:'bil',p:'土耳其'}
+  ]},
+  'Peru': { zh:'秘鲁', f:'🇵🇪', region:'南美', ag:[
+    {n:'CPTPP',s:'active',y:2019,t:'multi',p:'12 国'},
+    {n:'太平洋联盟',s:'active',y:0,t:'multi',p:'墨+智+哥'},
+    {n:'中-秘鲁 FTA',s:'active',y:2010,t:'bil',p:'中国'},
+    {n:'日-秘鲁 EPA',s:'active',y:2012,t:'bil',p:'日本'},
+    {n:'韩-秘鲁 FTA',s:'active',y:2011,t:'bil',p:'韩国'},
+    {n:'美-秘鲁 TPA',s:'active',y:2009,t:'bil',p:'美国'},
+    {n:'加-秘鲁 FTA',s:'active',y:2009,t:'bil',p:'加拿大'},
+    {n:'秘-新加坡 FTA',s:'active',y:2009,t:'bil',p:'新加坡'},
+    {n:'秘-智利',s:'active',y:1998,t:'bil',p:'智利'},
+    {n:'秘-墨西哥',s:'active',y:2012,t:'bil',p:'墨西哥'},
+    {n:'秘-EFTA',s:'active',y:2011,t:'multi',p:'瑞士+挪威+冰岛+列支敦'},
+    {n:'秘-澳大利亚 FTA',s:'active',y:2020,t:'bil',p:'澳大利亚'},
+    {n:'秘-泰国 FTA',s:'active',y:2011,t:'bil',p:'泰国'},
+    {n:'秘-英国 FTA',s:'active',y:2021,t:'bil',p:'英国'},
+    {n:'秘-中国香港 FTA',s:'active',y:2010,t:'bil',p:'香港'}
+  ]},
+  // ============ 次要国家（覆盖地图全部标记国家） ============
+  'Belgium': { zh:'比利时', f:'🇧🇪', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:1958,t:'union',p:'欧盟 27 国'}]},
+  'Greece': { zh:'希腊', f:'🇬🇷', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:1981,t:'union',p:'欧盟 27 国'}]},
+  'Czech Rep.': { zh:'捷克', f:'🇨🇿', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:2004,t:'union',p:'欧盟 27 国'}]},
+  'Portugal': { zh:'葡萄牙', f:'🇵🇹', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:1986,t:'union',p:'欧盟 27 国'}]},
+  'Sweden': { zh:'瑞典', f:'🇸🇪', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:1995,t:'union',p:'欧盟 27 国'}]},
+  'Hungary': { zh:'匈牙利', f:'🇭🇺', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:2004,t:'union',p:'欧盟 27 国'}]},
+  'Austria': { zh:'奥地利', f:'🇦🇹', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:1995,t:'union',p:'欧盟 27 国'}]},
+  'Ireland': { zh:'爱尔兰', f:'🇮🇪', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:1973,t:'union',p:'欧盟 27 国'}]},
+  'Denmark': { zh:'丹麦', f:'🇩🇰', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:1973,t:'union',p:'欧盟 27 国'}]},
+  'Finland': { zh:'芬兰', f:'🇫🇮', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:1995,t:'union',p:'欧盟 27 国'}]},
+  'Slovakia': { zh:'斯洛伐克', f:'🇸🇰', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:2004,t:'union',p:'欧盟 27 国'}]},
+  'Romania': { zh:'罗马尼亚', f:'🇷🇴', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:2007,t:'union',p:'欧盟 27 国'}]},
+  'Bulgaria': { zh:'保加利亚', f:'🇧🇬', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:2007,t:'union',p:'欧盟 27 国'}]},
+  'Croatia': { zh:'克罗地亚', f:'🇭🇷', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:2013,t:'union',p:'欧盟 27 国'}]},
+  'Lithuania': { zh:'立陶宛', f:'🇱🇹', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:2004,t:'union',p:'欧盟 27 国'}]},
+  'Latvia': { zh:'拉脱维亚', f:'🇱🇻', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:2004,t:'union',p:'欧盟 27 国'}]},
+  'Estonia': { zh:'爱沙尼亚', f:'🇪🇪', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:2004,t:'union',p:'欧盟 27 国'}]},
+  'Slovenia': { zh:'斯洛文尼亚', f:'🇸🇮', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:2004,t:'union',p:'欧盟 27 国'}]},
+  'Cyprus': { zh:'塞浦路斯', f:'🇨🇾', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:2004,t:'union',p:'欧盟 27 国'}]},
+  'Malta': { zh:'马耳他', f:'🇲🇹', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:2004,t:'union',p:'欧盟 27 国'}]},
+  'Luxembourg': { zh:'卢森堡', f:'🇱🇺', region:'欧洲', ag:[{n:'EU 关税同盟',s:'active',y:1958,t:'union',p:'欧盟 27 国'}]},
+  'Myanmar': { zh:'缅甸', f:'🇲🇲', region:'东南亚', ag:[
+    {n:'ASEAN',s:'active',y:1997,t:'multi',p:'东盟 10 国'},
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'15 国'}
+  ]},
+  'Cambodia': { zh:'柬埔寨', f:'🇰🇭', region:'东南亚', ag:[
+    {n:'ASEAN',s:'active',y:1999,t:'multi',p:'东盟 10 国'},
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'15 国'},
+    {n:'中-柬埔寨 FTA',s:'active',y:2022,t:'bil',p:'中国'}
+  ]},
+  'Lao PDR': { zh:'老挝', f:'🇱🇦', region:'东南亚', ag:[
+    {n:'ASEAN',s:'active',y:1997,t:'multi',p:'东盟 10 国'},
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'15 国'}
+  ]},
+  'Brunei': { zh:'文莱', f:'🇧🇳', region:'东南亚', ag:[
+    {n:'ASEAN',s:'active',y:1992,t:'multi',p:'东盟 10 国'},
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'15 国'},
+    {n:'CPTPP',s:'active',y:2018,t:'multi',p:'12 国'},
+    {n:'日-文莱 EPA',s:'active',y:2008,t:'bil',p:'日本'}
+  ]},
+  'Philippines': { zh:'菲律宾', f:'🇵🇭', region:'东南亚', ag:[
+    {n:'ASEAN',s:'active',y:1992,t:'multi',p:'东盟 10 国'},
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'15 国'}
+  ]},
+  'Malaysia': { zh:'马来西亚', f:'🇲🇾', region:'东南亚', ag:[
+    {n:'ASEAN',s:'active',y:1992,t:'multi',p:'东盟 10 国',note:'创始成员'},
+    {n:'RCEP',s:'active',y:2022,t:'multi',p:'15 国'},
+    {n:'CPTPP',s:'active',y:2022,t:'multi',p:'12 国'},
+    {n:'马-日本 EPA',s:'active',y:2006,t:'bil',p:'日本'},
+    {n:'马-新西兰 FTA',s:'active',y:2010,t:'bil',p:'新西兰'},
+    {n:'马-智利 FTA',s:'active',y:2012,t:'bil',p:'智利'},
+    {n:'马-印度 CECA',s:'active',y:2011,t:'bil',p:'印度'},
+    {n:'马-澳大利亚 FTA',s:'active',y:2013,t:'bil',p:'澳大利亚'},
+    {n:'马-土耳其 FTA',s:'active',y:2015,t:'bil',p:'土耳其'},
+    {n:'马-巴基斯坦 FTA',s:'active',y:2008,t:'bil',p:'巴基斯坦'},
+    {n:'马-EFTA',s:'pending',y:0,t:'multi',p:'瑞士+挪威+冰岛+列支敦'},
+    {n:'马-英国 FTA',s:'pending',y:0,t:'bil',p:'英国'},
+    {n:'马-欧盟 FTA',s:'pending',y:0,t:'multi',p:'欧盟 27 国'}
+  ]},
+  'Uruguay': { zh:'乌拉圭', f:'🇺🇾', region:'南美', ag:[
+    {n:'MERCOSUR',s:'active',y:1991,t:'union',p:'巴+阿+巴',note:'关税同盟'},
+    {n:'EU-南方共同市场',s:'pending',y:2024,t:'multi',p:'欧盟 27 国'},
+    {n:'乌-墨西哥',s:'active',y:2004,t:'bil',p:'墨西哥'},
+    {n:'乌-智利 ACE',s:'active',y:2018,t:'bil',p:'智利'}
+  ]},
+  'Paraguay': { zh:'巴拉圭', f:'🇵🇾', region:'南美', ag:[
+    {n:'MERCOSUR',s:'active',y:1991,t:'union',p:'巴+阿+乌',note:'关税同盟'},
+    {n:'EU-南方共同市场',s:'pending',y:2024,t:'multi',p:'欧盟 27 国'}
+  ]},
+  'Colombia': { zh:'哥伦比亚', f:'🇨🇴', region:'南美', ag:[
+    {n:'太平洋联盟',s:'active',y:0,t:'multi',p:'墨+智+秘'},
+    {n:'美-哥伦比亚 FTA',s:'active',y:2012,t:'bil',p:'美国'},
+    {n:'加-哥伦比亚 FTA',s:'active',y:2011,t:'bil',p:'加拿大'},
+    {n:'哥-智利 ACE',s:'active',y:1993,t:'bil',p:'智利'},
+    {n:'哥-墨西哥',s:'active',y:1995,t:'bil',p:'墨西哥'},
+    {n:'哥-秘鲁',s:'active',y:2012,t:'bil',p:'秘鲁'},
+    {n:'哥-EFTA',s:'active',y:2011,t:'multi',p:'瑞士+挪威+冰岛+列支敦'},
+    {n:'哥-韩国 FTA',s:'active',y:2016,t:'bil',p:'韩国'},
+    {n:'哥-英国 FTA',s:'active',y:2021,t:'bil',p:'英国'},
+    {n:'哥-欧盟 FTA',s:'pending',y:0,t:'multi',p:'欧盟 27 国'}
+  ]},
+  'Ecuador': { zh:'厄瓜多尔', f:'🇪🇨', region:'南美', ag:[
+    {n:'中-厄瓜多尔 FTA',s:'pending',y:0,t:'bil',p:'中国',note:'谈判中'},
+    {n:'厄-欧盟',s:'pending',y:0,t:'multi',p:'欧盟 27 国'}
+  ]},
+  'Belarus': { zh:'白俄罗斯', f:'🇧🇾', region:'欧亚', ag:[
+    {n:'EAEU 关税同盟',s:'active',y:2015,t:'union',p:'俄+哈+亚+吉',note:'创始成员'},
+    {n:'EAEU-越南',s:'active',y:2016,t:'multi',p:'越南'},
+    {n:'EAEU-伊朗',s:'active',y:2019,t:'multi',p:'伊朗'},
+    {n:'EAEU-塞尔维亚',s:'active',y:2021,t:'multi',p:'塞尔维亚'}
+  ]},
+  'Kazakhstan': { zh:'哈萨克斯坦', f:'🇰🇿', region:'欧亚', ag:[
+    {n:'EAEU 关税同盟',s:'active',y:2015,t:'union',p:'俄+白+亚+吉'},
+    {n:'EAEU-越南',s:'active',y:2016,t:'multi',p:'越南'}
+  ]},
+  'Armenia': { zh:'亚美尼亚', f:'🇦🇲', region:'欧亚', ag:[
+    {n:'EAEU 关税同盟',s:'active',y:2015,t:'union',p:'俄+白+哈+吉'},
+    {n:'EAEU-越南',s:'active',y:2016,t:'multi',p:'越南'},
+    {n:'亚-欧盟 CEPA',s:'pending',y:0,t:'multi',p:'欧盟 27 国'}
+  ]},
+  'Qatar': { zh:'卡塔尔', f:'🇶🇦', region:'中东', ag:[
+    {n:'GCC 关税同盟',s:'active',y:2003,t:'union',p:'海湾 6 国'},
+    {n:'卡-新加坡 FTA',s:'pending',y:0,t:'bil',p:'新加坡'},
+    {n:'中-GCC FTA',s:'pending',y:0,t:'multi',p:'海湾 6 国+中国'}
+  ]},
+  'Kuwait': { zh:'科威特', f:'🇰🇼', region:'中东', ag:[
+    {n:'GCC 关税同盟',s:'active',y:2003,t:'union',p:'海湾 6 国'},
+    {n:'中-GCC FTA',s:'pending',y:0,t:'multi',p:'海湾 6 国+中国'}
+  ]},
+  'Bahrain': { zh:'巴林', f:'🇧🇭', region:'中东', ag:[
+    {n:'GCC 关税同盟',s:'active',y:2003,t:'union',p:'海湾 6 国'},
+    {n:'美-巴林 FTA',s:'active',y:2006,t:'bil',p:'美国'},
+    {n:'中-GCC FTA',s:'pending',y:0,t:'multi',p:'海湾 6 国+中国'}
+  ]},
+  'Oman': { zh:'阿曼', f:'🇴🇲', region:'中东', ag:[
+    {n:'GCC 关税同盟',s:'active',y:2003,t:'union',p:'海湾 6 国'},
+    {n:'美-阿曼 FTA',s:'active',y:2009,t:'bil',p:'美国'},
+    {n:'中-GCC FTA',s:'pending',y:0,t:'multi',p:'海湾 6 国+中国'}
+  ]},
+  'Egypt': { zh:'埃及', f:'🇪🇬', region:'非洲', ag:[
+    {n:'AfCFTA',s:'active',y:2021,t:'multi',p:'非洲 54 国'},
+    {n:'COMESA',s:'active',y:1994,t:'multi',p:'东南非 21 国',note:'共同市场'},
+    {n:'埃-欧盟',s:'active',y:2004,t:'multi',p:'欧盟 27 国',note:'地中海伙伴'},
+    {n:'埃-EFTA',s:'active',y:2007,t:'multi',p:'瑞士+挪威+冰岛+列支敦'},
+    {n:'埃-土耳其 FTA',s:'active',y:2007,t:'bil',p:'土耳其'},
+    {n:'埃-南方共同市场',s:'active',y:2017,t:'multi',p:'MERCOSUR'},
+    {n:'埃-以色列 FTA',s:'active',y:2020,t:'bil',p:'以色列',note:'2020 升级'}
+  ]},
+  'Kenya': { zh:'肯尼亚', f:'🇰🇪', region:'非洲', ag:[
+    {n:'AfCFTA',s:'active',y:2021,t:'multi',p:'非洲 54 国'},
+    {n:'EAC 关税同盟',s:'active',y:2010,t:'union',p:'东非 7 国'},
+    {n:'COMESA',s:'active',y:1994,t:'multi',p:'东南非 21 国'},
+    {n:'肯-欧盟 EPA',s:'active',y:0,t:'multi',p:'东非共同体+欧盟'}
+  ]},
+  'Pakistan': { zh:'巴基斯坦', f:'🇵🇰', region:'南亚', ag:[
+    {n:'中-巴基斯坦 FTA',s:'active',y:2006,t:'bil',p:'中国',note:'2022 第二阶段'},
+    {n:'巴-马来西亚 FTA',s:'active',y:2008,t:'bil',p:'马来西亚'},
+    {n:'巴-印尼 FTA',s:'active',y:2013,t:'bil',p:'印尼'},
+    {n:'巴-新加坡 FTA',s:'active',y:0,t:'bil',p:'新加坡'},
+    {n:'SAFTA',s:'active',y:2006,t:'multi',p:'南亚 7 国',note:'南亚特惠'},
+    {n:'巴-泰国 FTA',s:'pending',y:0,t:'bil',p:'泰国'},
+    {n:'巴-土耳其 FTA',s:'active',y:0,t:'bil',p:'土耳其'}
+  ]},
+  'Norway': { zh:'挪威', f:'🇳🇴', region:'欧洲', ag:[
+    {n:'EFTA 框架',s:'active',y:1960,t:'multi',p:'瑞士+冰岛+列支敦'},
+    {n:'EFTA-欧盟',s:'active',y:1973,t:'multi',p:'欧盟 27 国'},
+    {n:'EFTA-加拿大',s:'active',y:2009,t:'multi',p:'加拿大'},
+    {n:'EFTA-韩国',s:'active',y:2006,t:'multi',p:'韩国'},
+    {n:'EFTA-新加坡',s:'active',y:2003,t:'multi',p:'新加坡'},
+    {n:'EFTA-墨西哥',s:'active',y:2001,t:'multi',p:'墨西哥'},
+    {n:'EFTA-南方共同市场',s:'pending',y:0,t:'multi',p:'MERCOSUR 4 国'},
+    {n:'EFTA-印度 TEPA',s:'pending',y:0,t:'multi',p:'印度'},
+    {n:'中-挪威 FTA',s:'pending',y:0,t:'bil',p:'中国'}
+  ]},
+  'Iceland': { zh:'冰岛', f:'🇮🇸', region:'欧洲', ag:[
+    {n:'EFTA 框架',s:'active',y:1970,t:'multi',p:'瑞士+挪威+列支敦'},
+    {n:'EFTA-欧盟',s:'active',y:1973,t:'multi',p:'欧盟 27 国'},
+    {n:'EFTA-加拿大',s:'active',y:2009,t:'multi',p:'加拿大'},
+    {n:'中-冰岛 FTA',s:'active',y:2014,t:'bil',p:'中国'}
+  ]},
+  'Israel': { zh:'以色列', f:'🇮🇱', region:'中东', ag:[
+    {n:'美-以色列 FTA',s:'active',y:1985,t:'bil',p:'美国',note:'美国首个 FTA'},
+    {n:'加-以色列 FTA',s:'active',y:1997,t:'bil',p:'加拿大'},
+    {n:'EU-以色列 AA',s:'active',y:2000,t:'multi',p:'欧盟 27 国'},
+    {n:'以色列-墨西哥 FTA',s:'active',y:2000,t:'bil',p:'墨西哥'},
+    {n:'以-南方共同市场',s:'active',y:2009,t:'multi',p:'MERCOSUR'},
+    {n:'以-土耳其 FTA',s:'active',y:1997,t:'bil',p:'土耳其'},
+    {n:'以-韩国 FTA',s:'active',y:2022,t:'bil',p:'韩国'},
+    {n:'以-哥伦比亚 FTA',s:'active',y:2020,t:'bil',p:'哥伦比亚'},
+    {n:'以-阿联酋',s:'active',y:0,t:'bil',p:'阿联酋',note:'Abraham Accords'},
+    {n:'以-埃及 FTA',s:'active',y:2020,t:'bil',p:'埃及'},
+    {n:'中-以色列 FTA',s:'pending',y:0,t:'bil',p:'中国'}
+  ]},
+  'Iran': { zh:'伊朗', f:'🇮🇷', region:'中东', ag:[
+    {n:'EAEU-伊朗 FTA',s:'active',y:2019,t:'multi',p:'欧亚 5 国',note:'临时生效'},
+    {n:'ECO FTA',s:'active',y:0,t:'multi',p:'中亚 10 国'},
+    {n:'伊朗-中国',s:'pending',y:0,t:'bil',p:'中国'}
+  ]},
+  'Ukraine': { zh:'乌克兰', f:'🇺🇦', region:'欧洲', ag:[
+    {n:'EU-Ukraine AA',s:'active',y:2017,t:'multi',p:'欧盟 27 国',note:'深度综合区'},
+    {n:'加-乌克兰 FTA',s:'active',y:2017,t:'bil',p:'加拿大'},
+    {n:'乌-EFTA',s:'active',y:2012,t:'multi',p:'瑞士+挪威+冰岛+列支敦'},
+    {n:'乌-土耳其 FTA',s:'active',y:2014,t:'bil',p:'土耳其'}
+  ]},
+  'Serbia': { zh:'塞尔维亚', f:'🇷🇸', region:'欧洲', ag:[
+    {n:'EAEU-塞尔维亚 FTA',s:'active',y:2021,t:'multi',p:'欧亚 5 国'},
+    {n:'塞-欧盟 SAA',s:'active',y:2013,t:'multi',p:'欧盟 27 国',note:'稳定与联系'},
+    {n:'CEFTA',s:'active',y:2007,t:'multi',p:'西巴 7 国'}
+  ]},
+  'Costa Rica': { zh:'哥斯达黎加', f:'🇨🇷', region:'中美', ag:[
+    {n:'中-哥斯达黎加 FTA',s:'active',y:2011,t:'bil',p:'中国'},
+    {n:'哥-墨西哥',s:'active',y:1995,t:'bil',p:'墨西哥'},
+    {n:'哥-智利',s:'active',y:2002,t:'bil',p:'智利'},
+    {n:'哥-秘鲁',s:'active',y:2013,t:'bil',p:'秘鲁'},
+    {n:'哥-新加坡 FTA',s:'active',y:2013,t:'bil',p:'新加坡'},
+    {n:'哥-EFTA',s:'active',y:2014,t:'multi',p:'瑞士+挪威+冰岛+列支敦'},
+    {n:'哥-欧盟 AA',s:'active',y:2013,t:'multi',p:'欧盟 27 国'},
+    {n:'CPTPP',s:'pending',y:0,t:'multi',p:'12 国',note:'申请加入'}
+  ]},
+  'Panama': { zh:'巴拿马', f:'🇵🇦', region:'中美', ag:[
+    {n:'美-巴拿马 FTA',s:'active',y:2012,t:'bil',p:'美国'},
+    {n:'加-巴拿马 FTA',s:'active',y:2013,t:'bil',p:'加拿大'},
+    {n:'巴-智利 FTA',s:'active',y:2006,t:'bil',p:'智利'},
+    {n:'巴-秘鲁 FTA',s:'active',y:2012,t:'bil',p:'秘鲁'},
+    {n:'巴-新加坡 FTA',s:'active',y:2006,t:'bil',p:'新加坡'},
+    {n:'巴-EFTA',s:'active',y:2014,t:'multi',p:'瑞士+挪威+冰岛+列支敦'},
+    {n:'巴-欧盟 AA',s:'active',y:2013,t:'multi',p:'欧盟 27 国'},
+    {n:'巴-中国 FTA',s:'pending',y:0,t:'bil',p:'中国'}
+  ]},
+  'Dominican Rep.': { zh:'多米尼加', f:'🇩🇴', region:'加勒比', ag:[
+    {n:'DR-CAFTA',s:'active',y:2007,t:'multi',p:'美国+中美洲 5 国',note:'多米尼加-中美洲 FTA'},
+    {n:'多-欧盟',s:'pending',y:0,t:'multi',p:'欧盟 27 国'},
+    {n:'多-EFTA',s:'pending',y:0,t:'multi',p:'瑞士+挪威+冰岛+列支敦'}
+  ]},
+  'Jamaica': { zh:'牙买加', f:'🇯🇲', region:'加勒比', ag:[
+    {n:'CARIFORUM-欧盟 EPA',s:'active',y:2008,t:'multi',p:'加勒比 15 国+欧盟'},
+    {n:'牙买加-加拿大',s:'active',y:0,t:'bil',p:'加拿大'}
+  ]},
+  'Trinidad and Tobago': { zh:'特立尼达和多巴哥', f:'🇹🇹', region:'加勒比', ag:[
+    {n:'CARIFORUM-欧盟 EPA',s:'active',y:2008,t:'multi',p:'加勒比 15 国+欧盟'},
+    {n:'特多-哥伦比亚',s:'active',y:0,t:'bil',p:'哥伦比亚'}
+  ]}
+};
+
+/* ============ 国家详情渲染（增强版） ============ */
+function renderCountryDetail(engName) {
+  const data = countryFTAs[engName];
+  if (!data) {
+    return `<b>${engName}</b><br>该国未在 FTA 数据库中收录详情。<br><br>提示：可点击网络图节点查看主要协定枢纽。`;
+  }
+  // 按类型分组
+  const buckets = { union: [], multi: [], bil: [] };
+  data.ag.forEach(a => {
+    if (a.t === 'union') buckets.union.push(a);
+    else if (a.t === 'multi') buckets.multi.push(a);
+    else buckets.bil.push(a);
+  });
+  const totalActive = data.ag.filter(a => a.s === 'active').length;
+  const totalPending = data.ag.filter(a => a.s === 'pending').length;
+  const totalStalled = data.ag.filter(a => a.s === 'stalled').length;
+  const total = data.ag.length;
+
+  const statusBadge = (s) => {
+    if (s === 'active') return '<span class="badge active">生效</span>';
+    if (s === 'pending') return '<span class="badge pending">谈判中</span>';
+    return '<span class="badge stalled">停滞</span>';
+  };
+  const ftaItem = (a) => `
+    <div class="country-detail-fta">
+      <span class="ftaname">${a.n}</span>
+      <span class="ftapartners">${a.p}</span>
+      <span class="ftayear">${a.y || '—'}</span>
+      ${statusBadge(a.s)}
+    </div>
+    ${a.note ? `<div style="font-size:11.5px;color:var(--text-muted);margin:-2px 0 6px 6px;padding-left:10px;border-left:2px solid var(--accent);">${a.note}</div>` : ''}
+  `;
+
+  return `
+    <div style="font-size:18px;font-weight:700;color:var(--text);">${data.f} ${data.zh}</div>
+    <div style="font-size:11.5px;color:var(--text-muted);margin-bottom:10px;">${engName} · ${data.region}</div>
+
+    <div class="country-detail-stats">
+      <div class="stat"><div class="v">${total}</div><div class="l">总协定数</div></div>
+      <div class="stat"><div class="v">${totalActive}</div><div class="l">已生效</div></div>
+      <div class="stat"><div class="v">${totalPending}</div><div class="l">谈判中</div></div>
+      <div class="stat"><div class="v">${totalStalled}</div><div class="l">停滞</div></div>
+    </div>
+
+    ${buckets.union.length ? `<div class="country-detail-section-title">🔗 关税同盟 / 经济联盟</div>${buckets.union.map(ftaItem).join('')}` : ''}
+    ${buckets.multi.length ? `<div class="country-detail-section-title">🌐 多边 / 区域 FTA</div>${buckets.multi.map(ftaItem).join('')}` : ''}
+    ${buckets.bil.length ? `<div class="country-detail-section-title">🤝 双边 FTA</div>${buckets.bil.map(ftaItem).join('')}` : ''}
+
+    <div style="margin-top:14px;font-size:11px;color:var(--text-light);">
+      数据来源：WTO RTA Database + 各国官方公告（截至 2026）<br>
+      📌 点击地图其他国家可对比其 FTA 网络
+    </div>
+  `;
+}
+
+/* ============ 地图点击 → 增强详情面板 ============ */
+worldMapChart.on('click', params => {
+  const html = renderCountryDetail(params.name);
+  showDetail(`${params.name}`, html);
+});
+
+/* ============ ⌘K 命令面板 ============ */
+const cmdkBackdrop = document.getElementById('cmdkBackdrop');
+const cmdkInput = document.getElementById('cmdkInput');
+const cmdkList = document.getElementById('cmdkList');
+let cmdkFocused = 0;
+let cmdkResults = [];
+
+// 索引：所有可搜索项
+const cmdkIndex = [];
+// 章节
+document.querySelectorAll('h2[id]').forEach(h => {
+  cmdkIndex.push({ kind: 'section', label: h.textContent.trim().replace(/^[!0-9]+/, '').trim(), id: h.id, meta: `章节 · ${h.id}` });
+});
+// 协定
+const allAgreements = new Set();
+Object.values(countryFTAs).forEach(c => c.ag.forEach(a => allAgreements.add(a.n)));
+allAgreements.forEach(name => {
+  cmdkIndex.push({ kind: 'fta', label: name, id: name, meta: 'FTA 协定' });
+});
+// 国家
+Object.entries(countryFTAs).forEach(([eng, c]) => {
+  cmdkIndex.push({ kind: 'country', label: `${c.f} ${c.zh}`, id: eng, meta: `${eng} · ${c.region}` });
+});
+// 关键概念
+const concepts = [
+  { k:'MFN 最惠国待遇', m:'WTO 核心原则' },
+  { k:'原产地规则 RoO', m:'FTA 核心技术' },
+  { k:'累积规则', m:'RCEP 突破' },
+  { k:'关税同盟', m:'EU/EAEU/GCC' },
+  { k:'意大利面条碗', m:'Spaghetti Bowl' },
+  { k:'服务贸易 GATS', m:'WTO/GATS' },
+  { k:'碳关税 CBAM', m:'欧盟 2026' },
+  { k:'数字贸易', m:'CPTPP 模板' },
+  { k:'关税减让时间表', m:'渐进式' },
+  { k:'贸易创造与转移', m:'FTA 经济学' },
+  { k:'对等关税', m:'Trump 2.0' },
+  { k:'原产地证书', m:'申请流程' }
+];
+concepts.forEach(c => cmdkIndex.push({ kind: 'concept', label: c.k, id: c.k, meta: c.m }));
+
+function fuzzyMatch(query, text) {
+  if (!query) return true;
+  const q = query.toLowerCase().trim();
+  const t = text.toLowerCase();
+  if (t.includes(q)) return true;
+  // 简易 fuzzy: 字符顺序匹配
+  let qi = 0;
+  for (let i = 0; i < t.length && qi < q.length; i++) {
+    if (t[i] === q[qi]) qi++;
+  }
+  return qi === q.length;
+}
+
+function renderCmdk(query) {
+  cmdkFocused = 0;
+  cmdkResults = cmdkIndex.filter(item => fuzzyMatch(query, item.label));
+  // 排序：精确 > 开头 > 包含 > fuzzy
+  cmdkResults.sort((a, b) => {
+    const al = a.label.toLowerCase(), bl = b.label.toLowerCase();
+    const q = (query || '').toLowerCase();
+    if (!q) return 0;
+    if (al.startsWith(q) && !bl.startsWith(q)) return -1;
+    if (!al.startsWith(q) && bl.startsWith(q)) return 1;
+    if (al.includes(q) && !bl.includes(q)) return -1;
+    if (!al.includes(q) && bl.includes(q)) return 1;
+    return 0;
+  }).slice(0, 50);
+
+  if (cmdkResults.length === 0) {
+    cmdkList.innerHTML = '<div class="cmdk-empty">未匹配结果。试试 "RCEP"、"中国"、"原产地"、"关税同盟"</div>';
+    return;
+  }
+
+  let html = '';
+  let lastKind = '';
+  cmdkResults.forEach((item, i) => {
+    if (item.kind !== lastKind) {
+      const sectionTitle = { section: '章节', fta: 'FTA 协定', country: '国家/地区', concept: '关键概念' }[item.kind];
+      html += `<div class="cmdk-section">${sectionTitle}</div>`;
+      lastKind = item.kind;
+    }
+    html += `<div class="cmdk-item${i === cmdkFocused ? ' focused' : ''}" data-idx="${i}" data-kind="${item.kind}" data-id="${item.id}">
+      <span class="kind ${item.kind}">${({section:'章节',fta:'FTA',country:'国家',concept:'概念'})[item.kind]}</span>
+      <span>${item.label}</span>
+      <span class="meta">${item.meta}</span>
+    </div>`;
+  });
+  cmdkList.innerHTML = html;
+
+  cmdkList.querySelectorAll('.cmdk-item').forEach(el => {
+    el.addEventListener('click', () => activateCmdk(parseInt(el.dataset.idx)));
+  });
+}
+
+function activateCmdk(idx) {
+  const item = cmdkResults[idx];
+  if (!item) return;
+  if (item.kind === 'section') {
+    const el = document.getElementById(item.id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else if (item.kind === 'country') {
+    const html = renderCountryDetail(item.id);
+    showDetail(item.label, html);
+    // 滚动到地图
+    setTimeout(() => document.getElementById('s6h')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+  } else if (item.kind === 'fta') {
+    // 找出所有参与该 FTA 的国家
+    const countries = Object.entries(countryFTAs).filter(([k, v]) => v.ag.some(a => a.n === item.id));
+    const list = countries.map(([eng, c]) => `${c.f} ${c.zh}`).join('、');
+    showDetail(item.id, `<b>${item.id}</b><br><br>参与国：${list || '暂无收录数据'}<br><br>📌 提示：在搜索框输入国家名可查看该国全部 FTA`);
+  } else if (item.kind === 'concept') {
+    showDetail(item.label, `<b>${item.label}</b><br><br>${item.meta}<br><br>提示：使用 ⌘K 搜索相关章节快速跳转。`);
+  }
+  closeCmdk();
+}
+
+function openCmdk() {
+  cmdkBackdrop.classList.add('show');
+  cmdkInput.value = '';
+  renderCmdk('');
+  setTimeout(() => cmdkInput.focus(), 50);
+}
+function closeCmdk() {
+  cmdkBackdrop.classList.remove('show');
+}
+document.getElementById('topbarSearch').addEventListener('click', openCmdk);
+document.getElementById('topbarSearchMobile').addEventListener('click', openCmdk);
+cmdkInput.addEventListener('input', e => renderCmdk(e.target.value));
+cmdkInput.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeCmdk();
+  else if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    cmdkFocused = Math.min(cmdkFocused + 1, cmdkResults.length - 1);
+    renderCmdk(cmdkInput.value);
+    setTimeout(() => {
+      const items = cmdkList.querySelectorAll('.cmdk-item');
+      items[cmdkFocused]?.scrollIntoView({ block: 'nearest' });
+    }, 0);
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    cmdkFocused = Math.max(cmdkFocused - 1, 0);
+    renderCmdk(cmdkInput.value);
+    setTimeout(() => {
+      const items = cmdkList.querySelectorAll('.cmdk-item');
+      items[cmdkFocused]?.scrollIntoView({ block: 'nearest' });
+    }, 0);
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    activateCmdk(cmdkFocused);
+  }
+});
+cmdkBackdrop.addEventListener('click', e => { if (e.target === cmdkBackdrop) closeCmdk(); });
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+    e.preventDefault();
+    openCmdk();
+  }
+});
+
+/* ============ 暗色模式 ============ */
+const themeToggle = document.getElementById('themeToggle');
+themeToggle.addEventListener('click', () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  if (next === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  else document.documentElement.removeAttribute('data-theme');
+  try { localStorage.setItem('fta-theme', next); } catch (e) {}
+  // 重渲染图表
+  setTimeout(() => {
+    ftaNetworkChart.resize();
+    worldMapChart.resize();
+    coverageChart.resize();
+    ftaCountChart.resize();
+    typePieChart.resize();
+    utilizationChart.resize();
+    if (window.centralityChart) centralityChart.resize();
+  }, 50);
+});
+try {
+  if (localStorage.getItem('fta-theme') === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+} catch (e) {}
+
+/* ============ 阅读进度条 ============ */
+const progressBar = document.getElementById('progressBar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = h > 0 ? (window.scrollY / h * 100) : 0;
+  progressBar.style.width = pct + '%';
+});
+
+/* ============ Markdown 导出 ============ */
+document.getElementById('exportMd').addEventListener('click', () => {
+  let md = '# 全球FTA（自由贸易协定）全景深度梳理 v3\n\n';
+  md += '> 数据截至 2026 年 · 来源：WTO RTA Database、各国官方公告、媒体公开报道\n\n';
+  md += '> 自动导出版本（基于当前页面渲染） · 上海张小强企业咨询事务所\n\n';
+  md += '---\n\n';
+  document.querySelectorAll('.section').forEach(sec => {
+    const h2 = sec.querySelector('h2');
+    if (!h2) return;
+    md += '## ' + h2.textContent.trim() + '\n\n';
+    sec.childNodes.forEach(node => {
+      if (node.nodeType !== 1) return;
+      if (node.matches('h2, h3')) return;
+      if (node.matches('.chart')) {
+        md += '> 📊 [图表]\n\n';
+      } else if (node.matches('table')) {
+        // 表格转 markdown
+        const rows = node.querySelectorAll('tr');
+        rows.forEach((tr, i) => {
+          const cells = [...tr.querySelectorAll('th,td')].map(c => c.textContent.trim().replace(/\|/g, '\\|').replace(/\n/g, ' '));
+          md += '| ' + cells.join(' | ') + ' |\n';
+          if (i === 0 && tr.querySelector('th')) md += '|' + cells.map(() => '---').join('|') + '|\n';
+        });
+        md += '\n';
+      } else if (node.matches('.box')) {
+        const h4 = node.querySelector('h4');
+        if (h4) md += '> **' + h4.textContent.trim() + '**\n>\n';
+        node.querySelectorAll('p, li').forEach(p => {
+          md += '> ' + p.textContent.trim() + '\n';
+        });
+        md += '\n';
+      } else if (node.matches('.grid-2, .grid-3')) {
+        node.querySelectorAll('.card').forEach(card => {
+          const h = card.querySelector('h4');
+          if (h) md += '### ' + h.textContent.trim() + '\n';
+          card.querySelectorAll('p').forEach(p => {
+            md += p.textContent.trim() + '\n\n';
+          });
+        });
+      } else if (node.matches('p')) {
+        md += node.textContent.trim() + '\n\n';
+      } else if (node.matches('.timeline')) {
+        node.querySelectorAll('.timeline-item').forEach(item => {
+          const yr = item.querySelector('.timeline-year')?.textContent.trim();
+          const h = item.querySelector('h4')?.textContent.trim();
+          const p = item.querySelector('p')?.textContent.trim();
+          if (yr) md += `- **${yr}** ${h || ''}：${p || ''}\n`;
+        });
+        md += '\n';
+      } else if (node.matches('h3')) {
+        md += '### ' + node.textContent.trim() + '\n\n';
+      } else if (node.matches('.tabs')) {
+        md += '*（含多国 FTA 详细列表的 tab 内容，详见原始页面）*\n\n';
+      } else if (node.matches('.tab-content')) {
+        // 略过，tab 内容在 tabs 提示中
+      } else if (node.matches('.hub-rank-list, #hubRankList')) {
+        // 影响力列表在渲染后填充
+      }
+    });
+  });
+  md += '\n---\n\n';
+  md += '**章节列表（基于 ⌘K 命令面板索引）**：\n\n';
+  cmdkIndex.filter(i => i.kind === 'section').forEach(i => {
+    md += `- [${i.label}](#${i.id})\n`;
+  });
+  md += '\n---\n\n';
+  md += '*本 Markdown 由前端脚本从 HTML 实时导出，不包含 ECharts 可视化图表（图表需在原始 HTML 中查看）。*\n';
+
+  const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `FTA全球梳理-${new Date().toISOString().slice(0,10)}.md`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  showDetail('✅ 导出成功', `<b>Markdown 文件已生成</b><br><br>文件名：${a.download}<br><br>特点：<br>• 包含全部 17 个章节<br>• 23 个表格已转 Markdown<br>• 时间轴/卡片已格式化<br><br>📌 注：ECharts 图表为渲染型，不导出为图像（建议截图）`);
+});
+
+/* ============ Section 17: FTA 影响力中心性分析 ============ */
+// 基于 ftaNetworkChart 已有数据计算中心性
+function computeCentrality() {
+  // 从已知的网络图中提取节点和边
+  const nodes = ['EU', 'RCEP', 'CPTPP', 'USMCA', 'MERCOSUR', 'EAEU', 'ASEAN', 'GCC', 'AfCFTA',
+    '德国','法国','意大利','西班牙','荷兰','波兰','希腊','瑞典',
+    '中国','日本','韩国','澳大利亚','新西兰','印尼','越南','泰国','菲律宾','马来西亚','新加坡',
+    '加拿大','墨西哥','智利','秘鲁','英国',
+    '美国','巴西','阿根廷','乌拉圭','巴拉圭',
+    '俄罗斯','白俄罗斯','哈萨克斯坦','亚美尼亚','吉尔吉斯斯坦',
+    '缅甸','柬埔寨',
+    '沙特','阿联酋','卡塔尔','科威特',
+    '南非','尼日利亚','埃及','肯尼亚'
+  ];
+  const links = [
+    ['EU','德国'],['EU','法国'],['EU','意大利'],['EU','西班牙'],['EU','荷兰'],['EU','波兰'],['EU','希腊'],['EU','瑞典'],
+    ['RCEP','中国'],['RCEP','日本'],['RCEP','韩国'],['RCEP','澳大利亚'],['RCEP','新西兰'],
+    ['RCEP','印尼'],['RCEP','越南'],['RCEP','泰国'],['RCEP','菲律宾'],['RCEP','马来西亚'],['RCEP','新加坡'],
+    ['CPTPP','日本'],['CPTPP','加拿大'],['CPTPP','澳大利亚'],['CPTPP','墨西哥'],['CPTPP','智利'],['CPTPP','秘鲁'],
+    ['CPTPP','马来西亚'],['CPTPP','新加坡'],['CPTPP','英国'],
+    ['USMCA','美国'],['USMCA','加拿大'],['USMCA','墨西哥'],
+    ['MERCOSUR','巴西'],['MERCOSUR','阿根廷'],['MERCOSUR','乌拉圭'],['MERCOSUR','巴拉圭'],
+    ['EAEU','俄罗斯'],['EAEU','白俄罗斯'],['EAEU','哈萨克斯坦'],['EAEU','亚美尼亚'],['EAEU','吉尔吉斯斯坦'],
+    ['ASEAN','印尼'],['ASEAN','泰国'],['ASEAN','菲律宾'],['ASEAN','越南'],['ASEAN','马来西亚'],['ASEAN','新加坡'],
+    ['ASEAN','缅甸'],['ASEAN','柬埔寨'],
+    ['GCC','沙特'],['GCC','阿联酋'],['GCC','卡塔尔'],['GCC','科威特'],
+    ['AfCFTA','南非'],['AfCFTA','尼日利亚'],['AfCFTA','埃及'],['AfCFTA','肯尼亚']
+  ];
+
+  // 加权度中心性（协定节点权重大于国家）
+  const degree = {};
+  const adj = {};
+  nodes.forEach(n => { degree[n] = 0; adj[n] = []; });
+  links.forEach(([s, t]) => {
+    const w = (nodes.indexOf(s) < 9) ? 3 : 1; // 协定节点加权
+    degree[s] += w;
+    degree[t] += 1;
+    adj[s].push(t);
+    adj[t].push(s);
+  });
+
+  // 介数中心性（Brandes 算法简化版）
+  const betweenness = {};
+  nodes.forEach(n => betweenness[n] = 0);
+  nodes.forEach(s => {
+    const stack = [];
+    const sigma = {};
+    const dist = {};
+    const pred = {};
+    nodes.forEach(v => { sigma[v] = 0; dist[v] = -1; pred[v] = []; });
+    sigma[s] = 1;
+    dist[s] = 0;
+    const queue = [s];
+    while (queue.length) {
+      const v = queue.shift();
+      stack.push(v);
+      adj[v].forEach(w => {
+        if (dist[w] < 0) {
+          dist[w] = dist[v] + 1;
+          queue.push(w);
+        }
+        if (dist[w] === dist[v] + 1) {
+          sigma[w] += sigma[v];
+          pred[w].push(v);
+        }
+      });
+    }
+    const delta = {};
+    nodes.forEach(v => delta[v] = 0);
+    while (stack.length) {
+      const w = stack.pop();
+      pred[w].forEach(v => {
+        delta[v] += (sigma[v] / sigma[w]) * (1 + delta[w]);
+      });
+      if (w !== s) betweenness[w] += delta[w];
+    }
+  });
+
+  // 综合得分 = 加权度 * 2 + 介数
+  const scores = nodes.map(n => ({
+    name: n,
+    degree: degree[n],
+    betweenness: betweenness[n],
+    score: degree[n] * 2 + betweenness[n],
+    isAgreement: nodes.indexOf(n) < 9
+  }));
+  scores.sort((a, b) => b.score - a.score);
+  return { scores, nodes: nodes.length, avgDegree: links.length * 2 / nodes.length };
+}
+
+const centrality = computeCentrality();
+
+// 渲染 TOP 15 列表
+const hubRankList = document.getElementById('hubRankList');
+hubRankList.innerHTML = centrality.scores.slice(0, 15).map((s, i) => {
+  const max = centrality.scores[0].score;
+  const w = Math.round(s.score / max * 100);
+  const rankClass = i < 3 ? 'rank-num top3' : 'rank-num';
+  const kindLabel = s.isAgreement ? '协定' : '国家';
+  return `<div class="hub-rank">
+    <div class="${rankClass}">${i + 1}</div>
+    <div class="rank-name">${s.name} <span style="color:var(--text-light);font-weight:400;font-size:11px;margin-left:6px;">${kindLabel}</span></div>
+    <div class="rank-bar"><div style="width:${w}%"></div></div>
+    <div class="rank-score">${s.score.toFixed(1)}</div>
+  </div>`;
+}).join('');
+
+// 渲染统计指标
+// 最高介数国家（仅看非协定节点）
+const topBridge = centrality.scores.filter(s => !s.isAgreement).sort((a, b) => b.betweenness - a.betweenness)[0];
+document.getElementById('hubStat1').textContent = centrality.scores[0].name;
+document.getElementById('hubStat2').textContent = (topBridge?.name || '—') + (topBridge?.betweenness > 50 ? ' ⭐' : '');
+document.getElementById('hubStat3').textContent = centrality.avgDegree.toFixed(2);
+document.getElementById('hubStat4').textContent = centrality.nodes;
+
+// 中心性散点图
+const centralityChart = echarts.init(document.getElementById('centralityChart'));
+window.centralityChart = centralityChart;
+const top20 = centrality.scores.slice(0, 20);
+centralityChart.setOption({
+  title: { text: 'TOP 20 节点：度中心性 vs 介数中心性', left: 'center', textStyle: { fontSize: 14, fontWeight: 600 } },
+  tooltip: {
+    trigger: 'item',
+    formatter: p => `<b>${p.data.name}</b><br>度中心性: ${p.data.degree}<br>介数中心性: ${p.data.betweenness.toFixed(2)}<br>综合得分: ${p.data.score.toFixed(1)}`
+  },
+  grid: { left: 60, right: 60, top: 50, bottom: 60 },
+  xAxis: { type: 'value', name: '加权度中心性', nameTextStyle: { fontSize: 11 }, nameLocation: 'middle', nameGap: 30 },
+  yAxis: { type: 'value', name: '介数中心性', nameTextStyle: { fontSize: 11 } },
+  series: [{
+    type: 'scatter',
+    data: top20.map(s => ({
+      name: s.name,
+      value: [s.degree, s.betweenness, s.score],
+      symbolSize: Math.max(12, Math.min(60, s.score)),
+      itemStyle: {
+        color: s.isAgreement ? '#dc2626' : '#3b82f6',
+        opacity: 0.85,
+        borderColor: '#fff',
+        borderWidth: 1.5
+      }
+    })),
+    label: { show: true, formatter: p => p.data.name, position: 'right', fontSize: 11, color: '#1f2937' },
+    markLine: { silent: true, lineStyle: { color: '#94a3b8', type: 'dashed' }, data: [] }
+  }]
+});
+
+// 监听 resize
+window.addEventListener('resize', () => centralityChart.resize());
+
+/* ============ Section 进入动画（细节） ============ */
+if (typeof IntersectionObserver !== 'undefined') {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.section').forEach(s => {
+    s.classList.add('section-enter');
+    observer.observe(s);
+  });
+} else {
+  // Fallback: 立即显示全部
+  document.querySelectorAll('.section').forEach(s => s.classList.add('visible'));
+}
+</script>
+</body>
+</html>

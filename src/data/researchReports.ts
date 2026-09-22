@@ -642,4 +642,28 @@ export const RESEARCH_REPORTS: ResearchReport[] = [
       { label: '分析章节', value: '12 章' },
     ],
   },
+  {
+    id: 'fta-global-deep-2026',
+    title: '全球 FTA（自由贸易协定）全景深度梳理 v2',
+    subtitle: '双边 vs 多边 · 关税同盟 vs 自由贸易区 · 原产地规则 · 贸易效应 · 服务与数字贸易 · 历史演进',
+    date: '2026-09-22',
+    region: '全球',
+    category: '情报',
+    readMinutes: 80,
+    chapters: 17,
+    href: '/_reports/fta-global-deep-2026.html',
+    highlights: [
+      '全球不存在"统一大组织内部全免税"——WTO 是多边协调机构 · 当前格局是 WTO + 350+ 双边/区域 FTA 的「意大利面条碗」',
+      '四种一体化层级：FTA / 关税同盟 / 共同市场 / 经济联盟 · EU 是唯一成熟关税同盟案例 · EAEU / GCC 次之',
+      '三大巨型 FTA：CPTPP(11 国) / RCEP(15 国) / USMCA(3 国) · 覆盖约 60% 全球 GDP · 跨洲贸易核心枢纽',
+      '原产地规则（RoO）是 FTA 核心技术也是最大壁垒 · RCEP 累积规则重大突破 · 各国严格程度横向对比',
+      '21 世纪 FTA 新议题：数字贸易 / 跨境数据 / 绿色供应链（CBAM 碳关税）/ 投资章节 / CPTPP 30 章节模板',
+    ],
+    metrics: [
+      { label: 'RTA 总数', value: '350+' },
+      { label: '覆盖经济体', value: '200+' },
+      { label: '分析章节', value: '17 章' },
+      { label: '巨型 FTA', value: '3 大' },
+    ],
+  },
 ];
