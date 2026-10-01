@@ -24,6 +24,7 @@ export function ResearchPage() {
     reports: ReportStats[];
     trafficSources: Array<{ traffic_source: string; pageviews: number; visitors: number }>;
     devices: Array<{ device_type: string; pageviews: number }>;
+    seoBots?: Array<{ bot_name: string; pageviews: number; unique_visitors: number }>;
   } | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -186,6 +187,48 @@ export function ResearchPage() {
               </div>
             ) : (
               <div className="text-sm text-zinc-500 py-4 text-center">暂无数据</div>
+            )}
+          </div>
+
+          {/* SEO bots */}
+          <div className="admin-card">
+            <div className="admin-section-title flex items-center gap-2">
+              <Globe size={14} className="text-emerald-400" />
+              SEO 爬虫收录
+            </div>
+            <p className="text-xs text-zinc-500 mb-3">
+              搜索引擎/AI 平台爬虫访问 — 这些访问越多,你的报告越容易被 Google / Bing / ChatGPT 等检索到。
+            </p>
+            {(data.seoBots ?? []).length > 0 ? (
+              <div className="space-y-2">
+                {(data.seoBots ?? []).map((b) => (
+                  <div key={b.bot_name} className="flex items-center gap-3">
+                    <div className="w-32 text-xs text-zinc-300 truncate flex-shrink-0">{b.bot_name}</div>
+                    <div className="flex-1 h-5 bg-white/[0.04] rounded-md overflow-hidden">
+                      <div
+                        className="h-full rounded-md bg-gradient-to-r from-emerald-500/60 to-emerald-400/80"
+                        style={{
+                          width: `${
+                            data.seoBots && data.seoBots[0]
+                              ? (b.pageviews / data.seoBots[0].pageviews) * 100
+                              : 0
+                          }%`,
+                        }}
+                      />
+                    </div>
+                    <div className="w-12 text-right text-xs text-white font-medium">
+                      {fmtCompact(b.pageviews)}
+                    </div>
+                    <div className="w-16 text-right text-xs text-zinc-500">
+                      IP {b.unique_visitors}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-sm text-zinc-500 py-4 text-center">
+                暂无 SEO 爬虫收录
+              </div>
             )}
           </div>
 

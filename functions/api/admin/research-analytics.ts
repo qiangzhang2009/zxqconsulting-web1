@@ -186,7 +186,11 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
     `).bind(Date.now() - days * 24 * 60 * 60 * 1000).all();
 
     // ── 7. 设备分布 ───────────────────────────────────────────────────────
-    // 用 User-Agent 解析设备类型。顺序: 移动 > 平板 > 桌面 > 爬虫。
+    // 解析规则:
+    //   - 真正的搜索引擎爬虫(Googlebot/Bingbot/AhrefsBot 等) → 'bot'
+    //     这些应该被欢迎:它们让你的报告被 Google 索引到搜索结果里
+    //   - 其他爬虫/工具(curl/python-requests/HeadlessChrome 等) → 'desktop'
+    //     这些通常是开发者监控/内部测试,不是真实爬虫,展示成桌面用户更准确
     const deviceResult = await DB.prepare(`
       SELECT
         CASE
@@ -194,7 +198,14 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
             THEN 'mobile'
           WHEN ua LIKE '%Tablet%'
             THEN 'tablet'
-          WHEN ua LIKE '%bot%' OR ua LIKE '%spider%' OR ua LIKE '%crawler%' OR ua LIKE '%curl%'
+          WHEN
+            -- 主流搜索引擎爬虫(SEO 友好的真爬虫)
+            (ua LIKE '%Googlebot%' OR ua LIKE '%bingbot%' OR ua LIKE '%Slurped%'
+             OR ua LIKE '%DuckDuckBot%' OR ua LIKE '%Baiduspider%' OR ua LIKE '%YandexBot%'
+             OR ua LIKE '%AhrefsBot%' OR ua LIKE '%SemrushBot%' OR ua LIKE '%MJ12bot%'
+             OR ua LIKE '%OAI-SearchBot%' OR ua LIKE '%meta-externalagent%'
+             OR ua LIKE '%facebookexternalhit%' OR ua LIKE '%Twitterbot%'
+             OR ua LIKE '%LinkedInBot%' OR ua LIKE '%Applebot%')
             THEN 'bot'
           ELSE 'desktop'
         END AS device_type,
@@ -204,6 +215,43 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
       GROUP BY device_type
       ORDER BY pageviews DESC
     `).bind(Date.now() - days * 24 * 60 * 60 * 1000).all() as { results: Array<{ device_type: string; pageviews: number }> };
+
+    // ── 7b. SEO 爬虫明细 ───────────────────────────────────────────────────
+    // 报告页对 GEO/SEO 至关重要:让用户看到哪些搜索引擎爬取了哪些报告页
+    const seoBotResult = await DB.prepare(`
+      WITH classified AS (
+        SELECT
+          CASE
+            WHEN ua LIKE '%Googlebot%'    THEN 'Googlebot'
+            WHEN ua LIKE '%bingbot%'      THEN 'Bingbot'
+            WHEN ua LIKE '%AhrefsBot%'    THEN 'AhrefsBot'
+            WHEN ua LIKE '%SemrushBot%'   THEN 'SemrushBot'
+            WHEN ua LIKE '%MJ12bot%'      THEN 'MajesticBot'
+            WHEN ua LIKE '%OAI-SearchBot%' THEN 'OpenAI SearchBot'
+            WHEN ua LIKE '%meta-externalagent%' OR ua LIKE '%facebookexternalhit%' THEN 'Meta (Facebook)'
+            WHEN ua LIKE '%Twitterbot%'   THEN 'Twitterbot'
+            WHEN ua LIKE '%LinkedInBot%'  THEN 'LinkedInBot'
+            WHEN ua LIKE '%Applebot%'     THEN 'Applebot'
+            WHEN ua LIKE '%Baiduspider%'  THEN 'Baiduspider'
+            WHEN ua LIKE '%YandexBot%'    THEN 'YandexBot'
+            WHEN ua LIKE '%DuckDuckBot%'  THEN 'DuckDuckBot'
+            ELSE 'Other Crawler'
+          END AS bot_name,
+          report_id,
+          ip
+        FROM report_interactions
+        WHERE event_type = 'view'
+          AND (
+            ua LIKE '%bot%' OR ua LIKE '%spider%' OR ua LIKE '%crawler%'
+            OR ua LIKE '%Slurp%'
+          )
+          AND created_at >= ?
+      )
+      SELECT bot_name, COUNT(*) AS pageviews, COUNT(DISTINCT ip) AS unique_visitors
+      FROM classified
+      GROUP BY bot_name
+      ORDER BY pageviews DESC
+    `).bind(Date.now() - days * 24 * 60 * 60 * 1000).all() as { results: Array<{ bot_name: string; pageviews: number; unique_visitors: number }> };
 
     // ── 8. 流量来源 ───────────────────────────────────────────────────────
     // 把 referrer URL 归一为 host 段(去掉 www./path),仅统计外部引荐(排除自家域名)
@@ -303,6 +351,7 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
       trend,
       trafficSources: trafficResult.results || [],
       devices: deviceResult.results || [],
+      seoBots: seoBotResult.results || [],
       recentVisitors: recentVisitorsResult.results || [],
       isRealData: true,
     }), {

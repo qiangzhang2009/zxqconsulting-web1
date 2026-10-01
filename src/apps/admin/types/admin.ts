@@ -235,6 +235,7 @@ export interface ResearchAnalyticsData {
   trend: Array<Record<string, number | string>>;
   trafficSources: Array<{ traffic_source: string; pageviews: number; visitors: number }>;
   devices: Array<{ device_type: string; pageviews: number }>;
+  seoBots?: Array<{ bot_name: string; pageviews: number; unique_visitors: number }>;
   recentVisitors: Array<{
     visitor_id: string;
     report_id: string;

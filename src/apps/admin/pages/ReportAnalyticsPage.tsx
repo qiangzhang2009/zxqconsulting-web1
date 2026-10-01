@@ -1,11 +1,12 @@
 // ReportAnalyticsPage — 报告互动分析
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import { TrendingUp, Heart, Share2, Eye, Users } from 'lucide-react';
 import { PageHeader } from '../components/ui/PageHeader';
 import { DataTable, type Column } from '../components/data-table/DataTable';
 import { CardSkeleton } from '../components/ui/Skeleton';
 import { fmtNumber, fmtCompact, cn } from '@/apps/admin/lib/format';
 import { api } from '../services/api';
+import { RESEARCH_REPORTS } from '@/data/researchReports';
 
 interface ReportInteractionItem {
   report_id: string;
@@ -52,14 +53,31 @@ export function ReportAnalyticsPage() {
     fetchData();
   }, [fetchData]);
 
+  // 把报告 ID 映射为标题(用于表格展示)
+  // - 元数据匹配 RESEARCH_REPORTS
+  // - 未匹配的退化为 ID 片段(测试数据/已删除报告等)
+  const titleById = useMemo(() => {
+    const m = new Map<string, string>();
+    for (const r of RESEARCH_REPORTS) m.set(r.id, r.title);
+    return m;
+  }, []);
+
   const columns: Column<ReportInteractionItem>[] = [
     {
-      key: 'report_id',
-      header: '报告 ID',
-      width: '160px',
-      render: (r) => (
-        <span className="font-mono text-xs text-zinc-400">{r.report_id.slice(0, 16)}…</span>
-      ),
+      key: 'title',
+      header: '报告',
+      width: '280px',
+      render: (r) => {
+        const title = titleById.get(r.report_id);
+        return title ? (
+          <div className="space-y-0.5 max-w-[280px]">
+            <div className="text-sm font-medium text-white truncate" title={title}>{title}</div>
+            <div className="font-mono text-[10px] text-zinc-600 truncate">{r.report_id}</div>
+          </div>
+        ) : (
+          <span className="font-mono text-xs text-zinc-400">{r.report_id.slice(0, 20)}…</span>
+        );
+      },
     },
     {
       key: 'likes',
