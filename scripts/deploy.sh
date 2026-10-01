@@ -138,7 +138,7 @@ RESEARCH_BUNDLE=$(ls -1 dist/assets/researchReports-*.js 2>/dev/null | head -1 |
 if [ -z "$RESEARCH_BUNDLE" ]; then
   warn "  未找到 dist/assets/researchReports-*.js,跳过验证"
 else
-  for id in bencao-cultural-revival-2026 japan-kampo-hegemony-2026 tcm-global-2026; do
+  for id in bencao-cultural-revival-2026 japan-kampo-hegemony-2026 tcm-global-2026 china-global-playbook-2026 china-global-framework-2026 tcm-overseas-full-2026 muse-ai-rise-2026; do
     count=$(curl -sS "$PROD_URL/assets/$RESEARCH_BUNDLE" 2>/dev/null | grep -c "$id" || echo 0)
     if [ "$count" -gt 0 ]; then
       ok "  $id ✓"
