@@ -1,17 +1,28 @@
 // Admin Login Page
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Eye, EyeOff, LogIn, Shield, KeyRound } from 'lucide-react';
 import { useAuth } from '../stores/AuthContext';
 
 export function LoginPage() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { login, isLoading, error, clearError, requiresTwoFactor } = useAuth();
 
   const [email, setEmail] = useState('zxq@qq.com');
   const [password, setPassword] = useState('');
   const [totpToken, setTotpToken] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+
+  // 如果是会话过期跳来的,显示提示
+  const isExpired = searchParams.get('expired') === '1';
+
+  useEffect(() => {
+    if (isExpired) {
+      // AuthContext 已经清过 token,这里只显示提示
+      clearError();
+    }
+  }, [isExpired, clearError]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -89,6 +100,12 @@ export function LoginPage() {
           {error && (
             <div className="bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">
               <p className="text-red-400 text-xs">{error}</p>
+            </div>
+          )}
+
+          {isExpired && !error && (
+            <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl px-4 py-3">
+              <p className="text-amber-400 text-xs">会话已过期,请重新登录</p>
             </div>
           )}
 

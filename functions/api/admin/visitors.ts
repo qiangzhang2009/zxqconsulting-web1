@@ -32,8 +32,8 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
 
   try {
     const url = new URL(request.url);
-    const page = parseInt(url.searchParams.get('page') || '1');
-    const limit = parseInt(url.searchParams.get('limit') || '20');
+    const page = Math.max(1, parseInt(url.searchParams.get('page') || '1') || 1);
+    const limit = Math.max(1, Math.min(parseInt(url.searchParams.get('limit') || '20') || 20, 200));
     const search = url.searchParams.get('search') || '';
     const websiteId = url.searchParams.get('website_id') || 'zxqconsulting';
     const offset = (page - 1) * limit;

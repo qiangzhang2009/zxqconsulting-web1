@@ -15,9 +15,22 @@ import type {
 } from '../types/admin';
 
 const API_BASE = '/api/admin';
+const DEFAULT_TIMEOUT_MS = 15_000;
+
+export class ApiError extends Error {
+  status: number;
+  body: unknown;
+  constructor(message: string, status: number, body: unknown) {
+    super(message);
+    this.name = 'ApiError';
+    this.status = status;
+    this.body = body;
+  }
+}
 
 class ApiClient {
   private token: string | null = null;
+  private unauthorizedHandler: (() => void) | null = null;
 
   setToken(token: string | null) {
     this.token = token;
@@ -35,37 +48,86 @@ class ApiClient {
     return this.token;
   }
 
+  // 自定义 401 处理 (默认抛 ApiError 让上层决定要不要跳登录页)
+  setUnauthorizedHandler(fn: (() => void) | null) {
+    this.unauthorizedHandler = fn;
+  }
+
   private async request<T>(
     endpoint: string,
-    options: RequestInit = {}
+    options: RequestInit & { timeoutMs?: number } = {}
   ): Promise<T> {
     const token = this.getToken();
 
     const headers: HeadersInit = {
       'Content-Type': 'application/json',
-      ...options.headers,
+      ...(options.headers as Record<string, string>),
     };
 
     if (token) {
       (headers as Record<string, string>)['Authorization'] = `Bearer ${token}`;
     }
 
-    const response = await fetch(`${API_BASE}${endpoint}`, {
-      ...options,
-      headers,
-    });
+    // AbortController + 超时,避免后端 hang 时前端白屏
+    const controller = new AbortController();
+    const timeoutMs = options.timeoutMs ?? DEFAULT_TIMEOUT_MS;
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+    let response: Response;
+    try {
+      response = await fetch(`${API_BASE}${endpoint}`, {
+        ...options,
+        headers,
+        signal: controller.signal,
+      });
+    } catch (err) {
+      clearTimeout(timer);
+      if (err instanceof DOMException && err.name === 'AbortError') {
+        throw new ApiError(`请求超时 (${Math.round(timeoutMs / 1000)}s),请稍后重试`, 0, null);
+      }
+      throw new ApiError(
+        err instanceof Error ? `网络错误: ${err.message}` : '网络错误',
+        0, null
+      );
+    }
+    clearTimeout(timer);
+
+    // 尝试读 body 一次,既能 JSON parse 又能保留原始文本
+    const rawText = await response.text();
+    let parsed: unknown = null;
+    if (rawText) {
+      const ct = response.headers.get('Content-Type') || '';
+      if (ct.includes('application/json')) {
+        try { parsed = JSON.parse(rawText); } catch { /* ignore parse error */ }
+      }
+    }
 
     if (response.status === 401) {
       this.setToken(null);
-      window.location.href = '/admin/login';
-      throw new Error('Unauthorized');
+      if (this.unauthorizedHandler) {
+        this.unauthorizedHandler();
+      } else {
+        // 默认行为: 抛 ApiError,让页面决定是否跳转
+      }
+      const msg =
+        (parsed && typeof parsed === 'object' && 'error' in parsed && typeof (parsed as any).error === 'string')
+          ? (parsed as any).error
+          : '登录已过期,请重新登录';
+      throw new ApiError(msg, 401, parsed);
     }
 
     if (!response.ok) {
-      throw new Error(`API Error: ${response.status}`);
+      const msg =
+        (parsed && typeof parsed === 'object' && 'error' in parsed && typeof (parsed as any).error === 'string')
+          ? (parsed as any).error
+          : `请求失败 (${response.status})`;
+      throw new ApiError(msg, response.status, parsed);
     }
 
-    return response.json();
+    if (parsed === null && rawText) {
+      throw new ApiError('服务器返回了非 JSON 内容', response.status, rawText);
+    }
+    return parsed as T;
   }
 
   // ============ Auth ============

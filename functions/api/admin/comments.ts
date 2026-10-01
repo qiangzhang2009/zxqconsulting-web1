@@ -30,8 +30,8 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
 
   try {
     const url = new URL(request.url);
-    const page = parseInt(url.searchParams.get('page') || '1');
-    const limit = parseInt(url.searchParams.get('limit') || '20');
+    const page = Math.max(1, parseInt(url.searchParams.get('page') || '1') || 1);
+    const limit = Math.max(1, Math.min(parseInt(url.searchParams.get('limit') || '20') || 20, 200));
     const status = url.searchParams.get('status') || '';
     const search = url.searchParams.get('search') || '';
     const offset = (page - 1) * limit;
@@ -96,6 +96,11 @@ export async function onRequestPatch(context: { request: Request; env: Env }) {
 
   const session = await verifyAuth(request, env);
   if (!session) return authResponse();
+  if (!['super_admin', 'admin', 'editor'].includes(session.role)) {
+    return new Response(JSON.stringify({ error: '需要编辑权限' }), {
+      status: 403, headers: { 'Content-Type': 'application/json' }
+    });
+  }
 
   try {
     const url = new URL(request.url);
@@ -140,6 +145,11 @@ export async function onRequestDelete(context: { request: Request; env: Env }) {
 
   const session = await verifyAuth(request, env);
   if (!session) return authResponse();
+  if (!['super_admin', 'admin'].includes(session.role)) {
+    return new Response(JSON.stringify({ error: '需要管理员权限' }), {
+      status: 403, headers: { 'Content-Type': 'application/json' }
+    });
+  }
 
   try {
     const url = new URL(request.url);

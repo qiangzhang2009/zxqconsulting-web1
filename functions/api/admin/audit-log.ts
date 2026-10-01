@@ -159,41 +159,43 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
           if (actionFilter && actionFilter !== actionLabel) continue;
 
           logs.push({
-            id: `sub-${s.id}`,
+            id: `sub-${s.id}-${s.updated_at}`,
             action: actionLabel,
             target: `${s.name || '线索'} (${s.id}) → ${s.status}${s.assigned_to ? ` · 分配给 ${s.assigned_to}` : ''}`,
-            user_email: session.email,
-            user_role: session.role,
+            user_email: s.assigned_to || '-',
+            user_role: '-',
             ip: '-',
             status: 'success',
             timestamp: String(s.updated_at).replace('T', ' ').slice(0, 19),
-            metadata: { kind: 'submission', submission_id: s.id, status: s.status },
+            metadata: { kind: 'submission', submission_id: s.id, status: s.status, derived: true },
           });
         }
       } catch (e) {
         console.warn('[audit-log] submissions derive failed:', (e as Error).message);
       }
 
-      // ── 4) 推导 comments 状态变更 ──
+      // ── 4) 推导 comments 状态变更 (按时间窗口过滤) ──
       try {
+        const sinceIso = new Date(sinceMs).toISOString();
         const comments = await DB.prepare(
-          `SELECT id, user_name, status FROM comments WHERE status != 'pending' LIMIT 200`
-        ).all() as { results: Array<{ id: string; user_name: string; status: string }> };
+          `SELECT id, user_name, status, timestamp FROM comments
+             WHERE status != 'pending' AND timestamp >= ? LIMIT 200`
+        ).bind(sinceIso).all() as { results: Array<{ id: string; user_name: string; status: string; timestamp: string }> };
 
         for (const c of comments.results || []) {
           const actionLabel = '审核评论';
           if (actionFilter && actionFilter !== actionLabel) continue;
 
           logs.push({
-            id: `cmt-${c.id}`,
+            id: `cmt-${c.id}-${c.timestamp}`,
             action: actionLabel,
             target: `评论 #${c.id} (${c.user_name || ''}) → ${c.status}`,
-            user_email: session.email,
-            user_role: session.role,
+            user_email: '-',
+            user_role: '-',
             ip: '-',
             status: 'success',
-            timestamp: '-',
-            metadata: { kind: 'comment', comment_id: c.id },
+            timestamp: String(c.timestamp).replace('T', ' ').slice(0, 19),
+            metadata: { kind: 'comment', comment_id: c.id, derived: true },
           });
         }
       } catch (e) {
@@ -230,6 +232,9 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
   const { request, env } = context;
   const session = await verifySession({ request, env });
   if (!session) return authResponse();
+  if (!['super_admin', 'admin', 'editor'].includes(session.role)) {
+    return jsonResponse({ error: '需要编辑权限' }, 403);
+  }
   const DB = getDB(env);
   if (!DB) return jsonResponse({ error: 'Database not configured' }, 503);
 

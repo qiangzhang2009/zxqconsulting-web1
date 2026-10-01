@@ -170,8 +170,69 @@ function hashPattern(p: string): string {
   return 'wl_' + Math.abs(h).toString(36).slice(0, 10);
 }
 
+function isValidIPv6(s: string): boolean {
+  if (!s || s.length < 2 || s.length > 45) return false;
+  if (s === '::') return true;
+  const doubleColon = s.indexOf('::');
+  if (doubleColon === -1) {
+    const parts = s.split(':');
+    if (parts.length !== 8) return false;
+    return parts.every(p => /^[0-9a-fA-F]{1,4}$/.test(p));
+  }
+  if (s.indexOf('::', doubleColon + 1) !== -1) return false;
+  const left = s.slice(0, doubleColon);
+  const right = s.slice(doubleColon + 2);
+  const leftParts = left === '' ? [] : left.split(':');
+  const rightParts = right === '' ? [] : right.split(':');
+  if (leftParts.length + rightParts.length > 7) return false;
+  const valid = (arr: string[]) => arr.every(p => /^[0-9a-fA-F]{1,4}$/.test(p));
+  if (left && !valid(leftParts)) return false;
+  if (right && !valid(rightParts)) return false;
+  return true;
+}
+
 function isValidPattern(p: string): boolean {
-  if (/^[\d./*]+$/.test(p)) {
+  if (!p || p.length > 64) return false;
+  // CIDR
+  if (p.includes('/')) {
+    const [range, bits] = p.split('/');
+    const b = parseInt(bits, 10);
+    if (!Number.isFinite(b) || b < 0 || b > 128) return false;
+    if (range.includes('.') && !range.includes(':')) {
+      if (!/^\d{1,3}(\.\d{1,3}){3}$/.test(range)) return false;
+      for (const oct of range.split('.')) {
+        const n = parseInt(oct, 10);
+        if (n < 0 || n > 255) return false;
+      }
+      return b <= 32;
+    }
+    if (range.includes(':')) {
+      return isValidIPv6(range) && b <= 128;
+    }
+    return false;
+  }
+  // 单 IPv4
+  if (/^\d{1,3}(\.\d{1,3}){3}$/.test(p)) {
+    for (const oct of p.split('.')) {
+      const n = parseInt(oct, 10);
+      if (n < 0 || n > 255) return false;
+    }
+    return true;
+  }
+  // 单 IPv6
+  if (p.includes(':')) return isValidIPv6(p);
+  // IPv4 通配符: 数字 / 星号 / 点
+  if (/^[\d.*]+$/.test(p)) {
+    if (p.includes('..')) return false;
+    const segments = p.split('.');
+    if (segments.length !== 4) return false;
+    for (const s of segments) {
+      if (s === '' || s === '*') continue;
+      if (/^\d+$/.test(s)) {
+        const n = parseInt(s, 10);
+        if (n < 0 || n > 255) return false;
+      } else return false;
+    }
     return true;
   }
   return false;

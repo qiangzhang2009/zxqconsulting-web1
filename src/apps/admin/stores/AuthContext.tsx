@@ -31,6 +31,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const initialToken = getInitialToken();
   if (initialToken) api.setToken(initialToken);
 
+  // 注册 401 统一处理 — token 失效时跳登录页
+  useEffect(() => {
+    api.setUnauthorizedHandler(() => {
+      setToken(null);
+      setEmail(null);
+      setRole(null);
+      if (typeof window !== 'undefined' && !window.location.pathname.startsWith('/admin/login')) {
+        window.location.href = '/admin/login?expired=1';
+      }
+    });
+    return () => api.setUnauthorizedHandler(null);
+  }, []);
+
   const [token, setToken] = useState<string | null>(initialToken);
   const [email, setEmail] = useState<string | null>(
     initialToken ? localStorage.getItem('qhs_admin_email') : null

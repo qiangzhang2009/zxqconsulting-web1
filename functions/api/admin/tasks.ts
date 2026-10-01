@@ -136,13 +136,14 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
       }
     } catch (e) { console.warn('[tasks] reports:', (e as Error).message); }
 
-    // ── 4. 新客户采集 ──
+    // ── 4. 新客户采集 (近 7 天) ──
     try {
+      const since = new Date(Date.now() - 7 * 86_400_000).toISOString();
       const intake = await DB.prepare(`
         SELECT id, company_name, contact_name, created_at FROM client_intake
-        WHERE status = 'new'
+        WHERE status = 'new' AND created_at >= ?
         ORDER BY created_at DESC LIMIT 10
-      `).all() as {
+      `).bind(since).all() as {
         results: Array<{ id: number; company_name: string | null; contact_name: string | null; created_at: string }>;
       };
       for (const c of intake.results || []) {

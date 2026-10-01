@@ -29,8 +29,8 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
 
   try {
     const url = new URL(request.url);
-    const page = parseInt(url.searchParams.get('page') || '1');
-    const limit = parseInt(url.searchParams.get('limit') || '20');
+    const page = Math.max(1, parseInt(url.searchParams.get('page') || '1') || 1);
+    const limit = Math.max(1, Math.min(parseInt(url.searchParams.get('limit') || '20') || 20, 200));
     const search = url.searchParams.get('search') || '';
     const status = url.searchParams.get('status');
     const websiteId = url.searchParams.get('website_id') || 'zxqconsulting';
@@ -55,7 +55,8 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
     
     if (search) {
       whereClause += ` AND (name LIKE ? OR email LIKE ? OR phone LIKE ? OR company LIKE ?)`;
-      const searchTerm = `%${search}%`;
+      const safeSearch = search.length > 100 ? search.slice(0, 100) : search;
+      const searchTerm = `%${safeSearch}%`;
       params.push(searchTerm, searchTerm, searchTerm, searchTerm);
     }
     
@@ -63,7 +64,6 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
       whereClause += ' AND status = ?';
       params.push(status);
     }
-    
     const countResult = await DB.prepare(
       `SELECT COUNT(*) as total FROM submissions ${whereClause}`
     ).bind(...params).first() as { total: number };
@@ -75,7 +75,7 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
              message, source_page, country, status, notes, assigned_to, created_at
       FROM submissions 
       ${whereClause}
-      ORDER BY created_at DESC
+      ORDER BY created_at DESC, id DESC
       LIMIT ? OFFSET ?
     `).bind(...params, limit, offset).all();
     
@@ -109,6 +109,11 @@ export async function onRequestPatch(context: { request: Request; env: Env }) {
 
   const session = await verifyAuth(request, env);
   if (!session) return authResponse();
+  if (!['super_admin', 'admin', 'editor'].includes(session.role)) {
+    return new Response(JSON.stringify({ error: '需要编辑权限' }), {
+      status: 403, headers: { 'Content-Type': 'application/json' }
+    });
+  }
   try {
     const url = new URL(request.url);
     const id = url.searchParams.get('id');
@@ -126,6 +131,12 @@ export async function onRequestPatch(context: { request: Request; env: Env }) {
     
     if (!id) {
       return new Response(JSON.stringify({ error: 'Missing id parameter' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    if (typeof id !== 'string' || id.length > 128) {
+      return new Response(JSON.stringify({ error: 'Invalid id' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }
       });
@@ -159,6 +170,55 @@ export async function onRequestPatch(context: { request: Request; env: Env }) {
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
+    });
+  }
+}
+
+/**
+ * DELETE /api/admin/submissions?id=
+ * 删除单条线索 (需要 admin 权限)
+ */
+export async function onRequestDelete(context: { request: Request; env: Env }) {
+  const { env, request } = context;
+  const session = await verifyAuth(request, env);
+  if (!session) return authResponse();
+  if (!['super_admin', 'admin'].includes(session.role)) {
+    return new Response(JSON.stringify({ error: '需要管理员权限' }), {
+      status: 403, headers: { 'Content-Type': 'application/json' }
+    });
+  }
+  try {
+    const url = new URL(request.url);
+    const id = url.searchParams.get('id');
+    if (!id) return new Response(JSON.stringify({ error: 'id required' }), {
+      status: 400, headers: { 'Content-Type': 'application/json' }
+    });
+    if (typeof id !== 'string' || id.length > 128) {
+      return new Response(JSON.stringify({ error: 'invalid id' }), {
+        status: 400, headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
+    const DB = getDB(env);
+    if (!DB) return new Response(JSON.stringify({ error: 'Database not configured' }), {
+      status: 503, headers: { 'Content-Type': 'application/json' }
+    });
+
+    const existing = await DB.prepare('SELECT id, name FROM submissions WHERE id = ?').bind(id).first();
+    if (!existing) return new Response(JSON.stringify({ error: '线索不存在' }), {
+      status: 404, headers: { 'Content-Type': 'application/json' }
+    });
+
+    await DB.prepare('DELETE FROM submissions WHERE id = ?').bind(id).run();
+    console.log(`[Admin] Deleted submission: ${id} by ${session.email}`);
+
+    return new Response(JSON.stringify({ success: true, message: '线索已删除' }), {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  } catch (error) {
+    console.error('Delete Submission API error:', error);
+    return new Response(JSON.stringify({ error: (error as Error).message }), {
+      status: 500, headers: { 'Content-Type': 'application/json' }
     });
   }
 }

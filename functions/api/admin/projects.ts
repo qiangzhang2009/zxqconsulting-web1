@@ -70,6 +70,9 @@ export async function onRequestPost(context: { request: Request; env: Env }) {
   const { request, env } = context;
   const session = await verifySession({ request, env });
   if (!session) return authResponse();
+  if (!['super_admin', 'admin'].includes(session.role)) {
+    return json({ error: '需要管理员权限' }, 403);
+  }
   const DB = getDB(env);
   if (!DB) return json({ error: 'Database not configured' }, 503);
 
@@ -140,6 +143,9 @@ export async function onRequestPatch(context: { request: Request; env: Env }) {
   const { request, env } = context;
   const session = await verifySession({ request, env });
   if (!session) return authResponse();
+  if (!['super_admin', 'admin', 'editor'].includes(session.role)) {
+    return json({ error: '需要编辑权限' }, 403);
+  }
   const DB = getDB(env);
   if (!DB) return json({ error: 'Database not configured' }, 503);
 
@@ -197,6 +203,9 @@ export async function onRequestDelete(context: { request: Request; env: Env }) {
   const { request, env } = context;
   const session = await verifySession({ request, env });
   if (!session) return authResponse();
+  if (!['super_admin', 'admin'].includes(session.role)) {
+    return json({ error: '需要管理员权限' }, 403);
+  }
   const DB = getDB(env);
   if (!DB) return json({ error: 'Database not configured' }, 503);
 
@@ -204,9 +213,13 @@ export async function onRequestDelete(context: { request: Request; env: Env }) {
     const url = new URL(request.url);
     const id = url.searchParams.get('id');
     if (!id) return json({ error: 'id required' }, 400);
+    if (typeof id !== 'string' || id.length > 128) return json({ error: 'invalid id' }, 400);
+
+    const existing = await DB.prepare('SELECT id, name, code FROM projects WHERE id = ?').bind(id).first();
+    if (!existing) return json({ error: '项目不存在' }, 404);
 
     await DB.prepare(`DELETE FROM projects WHERE id = ?`).bind(id).run();
-    await logAudit(DB, session.email, '删除项目', id, request).catch(() => {});
+    await logAudit(DB, session.email, '删除项目', `${existing.code} ${existing.name} (${id})`, request).catch(() => {});
     return json({ success: true });
   } catch (err) {
     return json({ error: (err as Error).message }, 500);
