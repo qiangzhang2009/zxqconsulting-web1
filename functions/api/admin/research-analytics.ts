@@ -54,6 +54,7 @@ const REPORT_META: Record<string, { title: string; region: string; category: str
   'syrebo-founder-briefing-2026':  { title: 'Syrebo 致创始人会前简报', region: '美国', category: '情报' },
   'crnmc-ultra-pure-metals-2026':  { title: 'CRNMC 超纯金属战略情报', region: '加拿大', category: '情报' },
   'cross-border-ich-2026':         { title: '跨境中医药 ICH 合规情报', region: '全球', category: '监管' },
+  'japan-2026':                    { title: '日本消费市场全息选品研究报告（早期版本）', region: '日本', category: '消费市场' },
 };
 
 export async function onRequestGet(context: { request: Request; env: Env }) {
@@ -184,8 +185,61 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
       LIMIT 20
     `).bind(Date.now() - days * 24 * 60 * 60 * 1000).all();
 
-    // ── 7. 设备分布（从 visitor_id 无法直接判断，用 report_id 聚合） ─────
-    const deviceResult = { results: [] as Array<{ device_type: string; pageviews: number }> };
+    // ── 7. 设备分布 ───────────────────────────────────────────────────────
+    // 用 User-Agent 解析设备类型。顺序: 移动 > 平板 > 桌面 > 爬虫。
+    const deviceResult = await DB.prepare(`
+      SELECT
+        CASE
+          WHEN ua LIKE '%iPhone%' OR ua LIKE '%iPad%' OR ua LIKE '%Android%' OR ua LIKE '%Mobile%'
+            THEN 'mobile'
+          WHEN ua LIKE '%Tablet%'
+            THEN 'tablet'
+          WHEN ua LIKE '%bot%' OR ua LIKE '%spider%' OR ua LIKE '%crawler%' OR ua LIKE '%curl%'
+            THEN 'bot'
+          ELSE 'desktop'
+        END AS device_type,
+        COUNT(*) AS pageviews
+      FROM report_interactions
+      WHERE event_type = 'view' AND created_at >= ?
+      GROUP BY device_type
+      ORDER BY pageviews DESC
+    `).bind(Date.now() - days * 24 * 60 * 60 * 1000).all() as { results: Array<{ device_type: string; pageviews: number }> };
+
+    // ── 8. 流量来源 ───────────────────────────────────────────────────────
+    // 把 referrer URL 归一为 host 段(去掉 www./path),仅统计外部引荐(排除自家域名)
+    const trafficResult = await DB.prepare(`
+      WITH refs AS (
+        SELECT
+          CASE
+            WHEN referrer IS NULL OR referrer = '' THEN ''
+            WHEN instr(referrer, '://') = 0 THEN referrer
+            ELSE substr(referrer, instr(referrer, '://') + 3, instr(substr(referrer, instr(referrer, '://') + 3), '/') - 1)
+          END AS host,
+          ip
+        FROM report_interactions
+        WHERE event_type = 'view' AND created_at >= ?
+          AND referrer IS NOT NULL AND referrer != ''
+      )
+      SELECT
+        CASE
+          WHEN host LIKE 'www.%' THEN substr(host, 5)
+          ELSE host
+        END AS traffic_source,
+        COUNT(*) AS pageviews,
+        COUNT(DISTINCT ip) AS visitors
+      FROM refs
+      WHERE host != '' AND host NOT LIKE '%zxqconsulting.com%' AND host NOT LIKE '%qiangzhang2009%'
+      GROUP BY traffic_source
+      ORDER BY pageviews DESC
+      LIMIT 10
+    `).bind(Date.now() - days * 24 * 60 * 60 * 1000).all() as { results: Array<{ traffic_source: string; pageviews: number; visitors: number }> };
+
+    // ── 9. 平均阅读时长 ────────────────────────────────────────────────────
+    const readTimeResult = await DB.prepare(`
+      SELECT COALESCE(AVG(duration_seconds), 0) AS avg_read_seconds
+      FROM report_interactions
+      WHERE event_type = 'read' AND duration_seconds > 0 AND created_at >= ?
+    `).bind(Date.now() - days * 24 * 60 * 60 * 1000).first() as { avg_read_seconds: number } | null;
 
     // ── 组装报告数据 ──────────────────────────────────────────────────────
     const pvMap = new Map((pvResult.results || []).map(r => [r.report_id, r]));
@@ -197,6 +251,7 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
     });
 
     // 自动发现新报告（不在 REPORT_META 中的）
+    const knownIdsCount = Object.keys(REPORT_META).length;
     const knownIds = new Set(Object.keys(REPORT_META));
     (pvResult.results || []).forEach(r => {
       if (!knownIds.has(r.report_id)) {
@@ -239,12 +294,14 @@ export async function onRequestGet(context: { request: Request; env: Env }) {
         totalPageviews: totalResult?.total_pageviews || 0,
         totalUniqueVisitors: totalResult?.total_unique_visitors || 0,
         totalCountries: totalResult?.total_countries || 0,
-        totalReports: Object.keys(REPORT_META).length,
-        avgReadTime: null,
+        // 只统计前端 RESEARCH_REPORTS 元数据里真实存在的报告数
+        // (排除自动发现的陌生 ID,如 burst-* 等测试噪音)
+        totalReports: knownIdsCount,
+        avgReadTime: Math.round(readTimeResult?.avg_read_seconds || 0),
       },
       reports,
       trend,
-      trafficSources: [],
+      trafficSources: trafficResult.results || [],
       devices: deviceResult.results || [],
       recentVisitors: recentVisitorsResult.results || [],
       isRealData: true,
