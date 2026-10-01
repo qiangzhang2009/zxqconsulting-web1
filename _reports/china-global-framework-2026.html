@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>企业出海完整体系｜五层结构 · 三时钟 · 七关卡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b14; --bg2:#0d1322; --card:rgba(19,26,43,.72); --card2:rgba(25,33,54,.9);
+  --line:rgba(148,163,184,.14); --line2:rgba(148,163,184,.28);
+  --tx:#e8edf7; --tx2:#a8b4c8; --tx3:#6b7a92;
+  --l1:#f43f5e; --l2:#a855f7; --l3:#06b6d4; --l4:#f59e0b; --l5:#10b981;
+  --ok:#22c55e; --warn:#f59e0b; --bad:#ef4444; --info:#3b82f6;
+  --mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  font-family:'Inter','Noto Sans SC',-apple-system,sans-serif;
+  background:var(--bg);color:var(--tx2);line-height:1.75;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(900px 500px at 12% -5%,rgba(244,63,94,.10),transparent 60%),
+    radial-gradient(800px 480px at 88% 8%,rgba(168,85,247,.10),transparent 60%),
+    radial-gradient(900px 600px at 50% 105%,rgba(6,182,212,.08),transparent 60%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(148,163,184,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.035) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 90% 70% at 50% 30%,#000 30%,transparent 100%);
+}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:#2a3550;border-radius:5px;border:2px solid var(--bg2)}
+::-webkit-scrollbar-thumb:hover{background:#3a4a6b}
+
+/* ============ NAV ============ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  background:rgba(7,11,20,.82);backdrop-filter:blur(20px) saturate(160%);
+  border-bottom:1px solid var(--line);
+}
+.navin{max-width:1320px;margin:0 auto;padding:.85rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.brand{display:flex;align-items:center;gap:.65rem;font-weight:800;color:var(--tx);font-size:1.05rem;white-space:nowrap;letter-spacing:-.01em}
+.brand svg{width:30px;height:30px;flex-shrink:0}
+.brand small{display:block;font-size:.625rem;font-weight:500;color:var(--tx3);letter-spacing:.14em;text-transform:uppercase}
+.nlinks{display:flex;gap:.15rem;list-style:none}
+.nlinks a{
+  color:var(--tx3);text-decoration:none;font-size:.8125rem;font-weight:500;
+  padding:.45rem .8rem;border-radius:.5rem;transition:.18s;white-space:nowrap
+}
+.nlinks a:hover{color:var(--tx);background:rgba(255,255,255,.06)}
+.nlinks a.on{color:var(--tx);background:rgba(255,255,255,.09)}
+.burger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:.5rem}
+.burger i{width:20px;height:2px;background:var(--tx2);display:block;transition:.25s}
+
+/* ============ LAYOUT ============ */
+.wrap{position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:0 2rem}
+section{padding:5.5rem 0}
+.shead{margin-bottom:3rem;max-width:760px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);margin-bottom:.9rem
+}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--tx3)}
+h2{font-size:clamp(1.75rem,3.4vw,2.6rem);font-weight:800;color:var(--tx);line-height:1.2;letter-spacing:-.02em;margin-bottom:.85rem}
+.lede{font-size:1.0625rem;color:var(--tx2);line-height:1.8}
+
+/* ============ HERO ============ */
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 0 4rem}
+.hero .wrap{width:100%}
+.hgrid{display:grid;grid-template-columns:1.25fr .75fr;gap:4rem;align-items:center}
+.tag{
+  display:inline-flex;align-items:center;gap:.55rem;padding:.42rem .9rem;
+  background:rgba(244,63,94,.1);border:1px solid rgba(244,63,94,.3);
+  border-radius:2rem;font-size:.75rem;color:#fda4af;font-weight:600;margin-bottom:1.6rem
+}
+.dot{width:6px;height:6px;border-radius:50%;background:#fb7185;animation:bl 2.2s infinite}
+@keyframes bl{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(1.35)}}
+h1{font-size:clamp(2.4rem,5.6vw,4.15rem);font-weight:900;color:var(--tx);line-height:1.08;letter-spacing:-.035em;margin-bottom:1.4rem}
+h1 em{font-style:normal;background:linear-gradient(120deg,#f43f5e,#a855f7 42%,#06b6d4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hp{font-size:1.1rem;color:var(--tx2);line-height:1.85;margin-bottom:2.2rem;max-width:600px}
+.hp b{color:var(--tx);font-weight:600}
+.pillars{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.pillars span{
+  padding:.4rem .85rem;border-radius:2rem;font-size:.8125rem;font-weight:600;
+  border:1px solid;background:rgba(255,255,255,.02)
+}
+.hstats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:1rem;overflow:hidden}
+.hs{background:var(--card);padding:1.3rem 1.4rem}
+.hs b{display:block;font-size:2.1rem;font-weight:800;color:var(--tx);line-height:1;letter-spacing:-.03em}
+.hs span{font-size:.75rem;color:var(--tx3)}
+
+/* ============ FIVE LAYERS ============ */
+.layers{display:flex;flex-direction:column;gap:.6rem}
+.layer{
+  position:relative;border:1px solid var(--line);border-radius:1rem;
+  background:var(--card);backdrop-filter:blur(12px);overflow:hidden;
+  transition:border-color .3s,transform .3s,box-shadow .3s
+}
+.layer::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px}
+.layer[data-c="1"]::before{background:linear-gradient(180deg,#f43f5e,#fb7185)}
+.layer[data-c="2"]::before{background:linear-gradient(180deg,#a855f7,#c084fc)}
+.layer[data-c="3"]::before{background:linear-gradient(180deg,#06b6d4,#22d3ee)}
+.layer[data-c="4"]::before{background:linear-gradient(180deg,#f59e0b,#fbbf24)}
+.layer[data-c="5"]::before{background:linear-gradient(180deg,#10b981,#34d399)}
+.layer:hover{transform:translateX(6px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.lhead{display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;padding:1.35rem 1.6rem;cursor:pointer;user-select:none}
+.lbadge{
+  width:52px;height:52px;border-radius:.8rem;display:grid;place-items:center;
+  font-size:1.15rem;font-weight:800;flex-shrink:0
+}
+.lname{font-size:1.2rem;font-weight:700;color:var(--tx);display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.lname em{font-style:normal;font-size:.75rem;font-weight:500;color:var(--tx3);font-family:var(--mono)}
+.chip{padding:.2rem .6rem;border-radius:2rem;font-size:.6875rem;font-weight:600;border:1px solid}
+.lmeta{font-size:.8125rem;color:var(--tx3);text-align:right;white-space:nowrap}
+.lmeta b{display:block;color:var(--tx2);font-weight:600;font-size:.875rem}
+.lcaret{transition:transform .3s;color:var(--tx3);flex-shrink:0}
+.layer.open .lcaret{transform:rotate(90deg)}
+.lbody{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
+.layer.open .lbody{max-height:1400px}
+.lin{padding:0 1.6rem 1.6rem 5.9rem}
+.lgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:.8rem}
+.litem{background:rgba(255,255,255,.022);border:1px solid var(--line);border-radius:.7rem;padding:.95rem 1.05rem;transition:.2s}
+.litem:hover{background:rgba(255,255,255,.05);border-color:var(--line2)}
+.litem b{display:block;color:var(--tx);font-size:.875rem;font-weight:600;margin-bottom:.3rem}
+.litem span{font-size:.8125rem;color:var(--tx3);line-height:1.6}
+.lout{
+  margin-top:1.1rem;padding:.85rem 1.1rem;border-radius:.6rem;
+  background:rgba(255,255,255,.02);border:1px dashed var(--line2);font-size:.8125rem
+}
+.lout strong{color:var(--tx2);font-weight:600}
+.lout code{
+  display:inline-block;font-family:var(--mono);font-size:.75rem;color:var(--tx);
+  background:rgba(255,255,255,.05);padding:.12rem .45rem;border-radius:.3rem;margin:.15rem .15rem 0 0
+}
+
+/* ============ CLOCKS ============ */
+.clockwrap{background:var(--card);border:1px solid var(--line);border-radius:1.2rem;padding:2rem 1.8rem;backdrop-filter:blur(12px)}
+.clocks{display:flex;flex-direction:column;gap:1.5rem;margin:2rem 0}
+.clock{display:grid;grid-template-columns:150px 1fr;gap:1.2rem;align-items:center}
+.clabel b{display:block;color:var(--tx);font-size:.9375rem;font-weight:600}
+.clabel span{font-size:.75rem;color:var(--tx3);font-family:var(--mono)}
+.cbar{position:relative;height:44px;background:rgba(255,255,255,.03);border-radius:.6rem;border:1px solid var(--line);overflow:hidden}
+.cfill{position:absolute;top:0;bottom:0;display:flex;align-items:center;padding:0 .9rem;font-size:.8125rem;font-weight:600;color:#fff;border-radius:.5rem}
+.axis{display:grid;grid-template-columns:150px repeat(6,1fr);gap:0;margin-top:.5rem;font-size:.6875rem;color:var(--tx3);font-family:var(--mono);text-align:center}
+.axis span:first-child{text-align:left}
+.conflict{
+  position:relative;margin-top:1.5rem;padding:1.4rem;border-radius:.9rem;
+  background:rgba(244,63,94,.07);border:1px solid rgba(244,63,94,.25)
+}
+.conflict h4{color:#fda4af;font-size:.9375rem;font-weight:700;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
+.conflict p{font-size:.875rem;color:var(--tx2)}
+.solgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:2rem}
+.sol{background:rgba(255,255,255,.022);border:1px solid var(--line);border-radius:.85rem;padding:1.3rem}
+.sol .n{font-family:var(--mono);font-size:.7rem;color:var(--tx3);margin-bottom:.5rem}
+.sol b{display:block;color:var(--tx);font-size:.9375rem;font-weight:600;margin-bottom:.45rem}
+.sol p{font-size:.8125rem;color:var(--tx3);line-height:1.65}
+
+/* ============ GATES ============ */
+.gates{display:flex;flex-direction:column;gap:.55rem}
+.gate{
+  border:1px solid var(--line);border-radius:.9rem;background:var(--card);
+  overflow:hidden;transition:.25s;backdrop-filter:blur(10px)
+}
+.gate:hover{border-color:var(--line2)}
+.gate.open{border-color:rgba(56,189,248,.35);box-shadow:0 10px 36px rgba(0,0,0,.4)}
+.ghead{display:grid;grid-template-columns:auto 1fr auto auto;gap:1.1rem;align-items:center;padding:1.05rem 1.4rem;cursor:pointer;user-select:none}
+.gid{
+  font-family:var(--mono);font-size:.75rem;font-weight:600;padding:.3rem .6rem;border-radius:.35rem;
+  background:rgba(255,255,255,.06);color:var(--tx2);flex-shrink:0
+}
+.gq{font-size:.975rem;font-weight:600;color:var(--tx)}
+.gdec{font-size:.75rem;color:var(--tx3);white-space:nowrap}
+.gcaret{transition:transform .3s;color:var(--tx3);flex-shrink:0}
+.gate.open .gcaret{transform:rotate(90deg)}
+.gbody{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.gate.open .gbody{max-height:900px}
+.gin{padding:0 1.4rem 1.4rem 4.5rem}
+.gcols{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.gbox{background:rgba(255,255,255,.022);border:1px solid var(--line);border-radius:.7rem;padding:1rem 1.1rem}
+.gbox h5{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);margin-bottom:.6rem}
+.gbox p{font-size:.875rem;color:var(--tx2);line-height:1.7}
+.gbox.kill{background:rgba(239,68,68,.07);border-color:rgba(239,68,68,.22)}
+.gbox.kill h5{color:#fca5a5}
+.gflow{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:1rem;padding-top:1rem;border-top:1px dashed var(--line2)}
+.gflow span{
+  font-size:.75rem;padding:.3rem .65rem;border-radius:2rem;border:1px solid var(--line2);color:var(--tx3)
+}
+.gflow span.y{color:#86efac;border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.08)}
+.gflow span.r{color:#fca5a5;border-color:rgba(239,68,68,.3);background:rgba(239,68,68,.08)}
+.gflow span.a{color:#fcd34d;border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.08)}
+.gdiscipline{
+  margin-top:2.5rem;padding:1.4rem 1.6rem;border-radius:.9rem;
+  background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.25);
+  display:flex;gap:1.1rem;align-items:flex-start
+}
+.gdiscipline svg{flex-shrink:0;margin-top:.2rem}
+.gdiscipline b{color:#fcd34d;display:block;margin-bottom:.35rem;font-size:.9375rem}
+.gdiscipline p{font-size:.875rem;color:var(--tx2)}
+
+/* progress tracker */
+.gtrack{display:flex;gap:.3rem;margin:2rem 0 1.5rem;flex-wrap:wrap}
+.gtrack div{
+  flex:1;min-width:78px;height:4px;border-radius:2px;background:rgba(255,255,255,.07);position:relative
+}
+.gtrack div.done{background:linear-gradient(90deg,var(--l5),var(--l3))}
+.gtrack div.cur{background:linear-gradient(90deg,var(--info),#38bdf8);animation:pl 1.8s infinite}
+@keyframes pl{0%,100%{opacity:1}50%{opacity:.45}}
+.glabels{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.5rem}
+.glabels span{flex:1;min-width:78px;font-family:var(--mono);font-size:.625rem;color:var(--tx3);text-align:center}
+
+/* ============ RADAR ============ */
+.radarwrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:center}
+.radarbox{position:relative;display:grid;place-items:center}
+.radarbox svg{width:100%;max-width:440px;height:auto;overflow:visible}
+.rtog{display:flex;gap:.4rem;margin-top:1.5rem;justify-content:center;flex-wrap:wrap}
+.rtog button{
+  padding:.45rem .9rem;border-radius:.5rem;border:1px solid var(--line);
+  background:transparent;color:var(--tx3);font-size:.8125rem;font-weight:600;cursor:pointer;transition:.2s;font-family:inherit
+}
+.rtog button:hover{border-color:var(--line2);color:var(--tx2)}
+.rtog button.on{background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.4);color:#7dd3fc}
+.rlegend{display:grid;gap:.6rem;margin-top:1.5rem}
+.rlg{display:flex;align-items:center;gap:.6rem;font-size:.8125rem;color:var(--tx3)}
+.rlg i{width:9px;height:9px;border-radius:2px;flex-shrink:0}
+.rdesc{background:var(--card);border:1px solid var(--line);border-radius:1rem;padding:1.6rem}
+.rdesc h3{color:var(--tx);font-size:1.1rem;font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+.rdesc p{font-size:.875rem;margin-bottom:.85rem}
+.rdesc p b{color:var(--tx)}
+.rdesc ul{list-style:none;display:grid;gap:.4rem;margin-top:.4rem}
+.rdesc li{font-size:.8125rem;color:var(--tx3);padding-left:1rem;position:relative}
+.rdesc li::before{content:'▸';position:absolute;left:0;color:var(--l1)}
+
+/* risk table */
+.risktabs{display:flex;gap:.4rem;margin-bottom:1.2rem;flex-wrap:wrap}
+.risktabs button{
+  padding:.5rem 1rem;border-radius:.5rem;border:1px solid var(--line);background:transparent;
+  color:var(--tx3);font-size:.8125rem;font-weight:600;cursor:pointer;transition:.2s;font-family:inherit
+}
+.risktabs button.on{color:var(--tx);background:rgba(255,255,255,.07);border-color:var(--line2)}
+.risklist{display:grid;gap:.6rem}
+.risklist.hide{display:none}
+.risk{
+  display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;
+  padding:.9rem 1.1rem;background:rgba(255,255,255,.022);border:1px solid var(--line);border-radius:.6rem
+}
+.rlvl{font-family:var(--mono);font-size:.625rem;font-weight:600;padding:.22rem .5rem;border-radius:.3rem;white-space:nowrap}
+.lv-h{background:rgba(239,68,68,.15);color:#fca5a5}
+.lv-m{background:rgba(245,158,11,.15);color:#fcd34d}
+.lv-l{background:rgba(34,197,94,.15);color:#86efac}
+.risk b{display:block;color:var(--tx);font-size:.875rem;font-weight:600;margin-bottom:.2rem}
+.risk p{font-size:.8125rem;color:var(--tx3);line-height:1.6}
+.rsign{font-size:.6875rem;color:var(--tx3);text-align:right;max-width:190px;line-height:1.5}
+
+/* ============ UE ============ */
+.uegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.9rem}
+.ue{background:var(--card);border:1px solid var(--line);border-radius:.9rem;padding:1.4rem;transition:.25s}
+.ue:hover{border-color:var(--line2);transform:translateY(-3px)}
+.ue .h{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);font-weight:700;margin-bottom:.9rem}
+.ue .big{font-size:1.9rem;font-weight:800;color:var(--tx);line-height:1;letter-spacing:-.02em;margin-bottom:.35rem}
+.ue .big.neg{color:#f87171}
+.ue .big.pos{color:#4ade80}
+.ue .sub{font-size:.8125rem;color:var(--tx3);line-height:1.6}
+.uenum{font-family:var(--mono);font-size:.8125rem;color:var(--tx2);margin-top:.9rem;padding-top:.9rem;border-top:1px dashed var(--line2)}
+
+/* ============ ORG ============ */
+.org{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem}
+.onode{background:var(--card);border:1px solid var(--line);border-radius:.85rem;padding:1.3rem;position:relative;transition:.25s}
+.onode:hover{border-color:var(--line2)}
+.onode .lv{font-size:.625rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);font-weight:700;margin-bottom:.5rem}
+.onode b{display:block;color:var(--tx);font-size:.9375rem;font-weight:600;margin-bottom:.4rem}
+.onode p{font-size:.8125rem;color:var(--tx3);line-height:1.65}
+.conflict{
+  margin-top:2rem;padding:1.5rem;border-radius:.9rem;
+  background:rgba(168,85,247,.07);border:1px solid rgba(168,85,247,.25)
+}
+.conflict h4{color:#d8b4fe;font-size:.975rem;font-weight:700;margin-bottom:.7rem}
+.conflict p{font-size:.875rem;color:var(--tx2);margin-bottom:.8rem}
+.conflict p:last-child{margin-bottom:0}
+
+/* ============ PRINCIPLES ============ */
+.borrow{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.bcard{background:var(--card);border:1px solid var(--line);border-radius:1rem;padding:1.6rem}
+.bcard.ok{border-left:3px solid var(--l5)}
+.bcard.no{border-left:3px solid var(--bad)}
+.bcard h3{font-size:1rem;font-weight:700;color:var(--tx);margin-bottom:1rem;display:flex;align-items:center;gap:.55rem}
+.bcard li{font-size:.875rem;color:var(--tx2);margin-bottom:.55rem;padding-left:1.1rem;position:relative;list-style:none}
+.bcard li::before{content:'→';position:absolute;left:0;color:var(--l5);font-size:.8125rem}
+.bcard.no li::before{color:var(--bad);content:'✕'}
+.bl{list-style:none}
+
+/* one-pager */
+.onepager{
+  background:linear-gradient(135deg,rgba(244,63,94,.09),rgba(168,85,247,.09) 45%,rgba(6,182,212,.09));
+  border:1px solid var(--line2);border-radius:1.3rem;padding:2.6rem 2.2rem
+}
+.opline{font-size:clamp(.95rem,1.8vw,1.2rem);line-height:2.2;color:var(--tx2)}
+.opline b{color:var(--tx);font-weight:700}
+.opline .k{display:inline-block;padding:.05rem .5rem;border-radius:.3rem;font-weight:700;font-size:.9em}
+.k1{background:rgba(244,63,94,.16);color:#fda4af}
+.k2{background:rgba(168,85,247,.16);color:#d8b4fe}
+.k3{background:rgba(6,182,212,.16);color:#67e8f9}
+.k4{background:rgba(245,158,11,.16);color:#fcd34d}
+.k5{background:rgba(16,185,129,.16);color:#6ee7b7}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:3rem 0;margin-top:4rem}
+.fin{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
+footer p{font-size:.8125rem;color:var(--tx3)}
+.totop{
+  position:fixed;bottom:1.8rem;right:1.8rem;width:46px;height:46px;border-radius:50%;
+  background:var(--l2);border:none;cursor:pointer;display:grid;place-items:center;
+  opacity:0;visibility:hidden;transition:.3s;z-index:800
+}
+.totop.on{opacity:1;visibility:visible}
+.totop:hover{transform:translateY(-3px);filter:brightness(1.15)}
+.totop svg{width:20px;height:20px;color:#fff}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:translateY(0)}
+
+/* responsive */
+@media(max-width:1080px){
+  .hgrid{grid-template-columns:1fr;gap:2.5rem}
+  .radarwrap{grid-template-columns:1fr;gap:2.5rem}
+  .solgrid{grid-template-columns:1fr}
+  .borrow{grid-template-columns:1fr}
+  .gcols{grid-template-columns:1fr}
+}
+@media(max-width:820px){
+  .wrap{padding:0 1.25rem}
+  .nlinks{
+    display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+    background:rgba(7,11,20,.98);padding:1rem;gap:.15rem;border-bottom:1px solid var(--line)
+  }
+  .nlinks.on{display:flex}
+  .nlinks a{padding:.6rem .8rem}
+  .burger{display:flex}
+  .layer[data-c] .lhead{grid-template-columns:auto 1fr auto;gap:1rem;padding:1.1rem}
+  .lmeta{grid-column:2/-1;text-align:left;font-size:.75rem}
+  .lmeta b{display:inline}
+  .lin{padding-left:1.6rem}
+  .clock{grid-template-columns:1fr;gap:.5rem}
+  .axis{grid-template-columns:repeat(6,1fr)}
+  .axis span:first-child{display:none}
+  .gh{grid-template-columns:auto 1fr auto}
+  .gdec{grid-column:2/-1;white-space:normal}
+  .gin{padding-left:1.4rem}
+  .ghead{grid-template-columns:auto 1fr auto auto;gap:.7rem}
+  .risk{grid-template-columns:1fr;gap:.6rem}
+  .rsign{text-align:left;max-width:none}
+}
+@media print{
+  nav,.totop{display:none}
+  body::before,body::after{display:none}
+  body{background:#fff;color:#000}
+  .lbody,.gbody{max-height:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="navin">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="13" stroke="url(#g1)" stroke-width="2"/>
+        <path d="M3 16h26M16 3c4 4 4 22 0 26M16 3c-4 4-4 22 0 26" stroke="url(#g1)" stroke-width="1.5"/>
+        <circle cx="16" cy="16" r="3" fill="url(#g1)"/>
+        <defs><linearGradient id="g1" x1="0" y1="0" x2="32" y2="32">
+          <stop stop-color="#f43f5e"/><stop offset=".5" stop-color="#a855f7"/><stop offset="1" stop-color="#06b6d4"/>
+        </linearGradient></defs>
+      </svg>
+      <div>出海体系<small>Globalization Framework</small></div>
+    </div>
+    <ul class="nlinks" id="nl">
+      <li><a href="#five">五层结构</a></li>
+      <li><a href="#clocks">三时钟</a></li>
+      <li><a href="#gates">七关卡</a></li>
+      <li><a href="#risks">风险</a></li>
+      <li><a href="#ue">单位经济</a></li>
+      <li><a href="#org">权责</a></li>
+      <li><a href="#borrow">取舍</a></li>
+    </ul>
+    <div class="burger" id="bg"><i></i><i></i><i></i></div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hgrid">
+      <div>
+        <div class="tag"><i class="dot"></i>Enterprise Globalization Framework · 2026</div>
+        <h1>出海不是建一个软件<br>是<em>在异国合法地长期经营</em></h1>
+        <p class="hp">
+          它是一次<b>没有终点的经营</b>，不是一次有验收标准的建造。
+          所以不能用瀑布、Sprint、WBS 去套——那会把真正致命的问题藏起来。
+          正确的框架是：<b>五层底盘</b>、<b>三个打架的时钟</b>、<b>七道要命的关卡</b>。
+        </p>
+        <div class="pillars">
+          <span style="border-color:rgba(244,63,94,.3);color:#fda4af">L1 战略</span>
+          <span style="border-color:rgba(168,85,247,.3);color:#d8b4fe">L2 建制</span>
+          <span style="border-color:rgba(6,182,212,.3);color:#67e8f9">L3 经营</span>
+          <span style="border-color:rgba(245,158,11,.3);color:#fcd34d">L4 市场</span>
+          <span style="border-color:rgba(16,185,129,.3);color:#6ee7b7">L5 组织</span>
+        </div>
+        <p class="hp" style="margin:0">
+          <b>出海 = 战略选战场 × 建制换门票 × 经营算得清 × 市场打得进 × 组织留得住</b><br>
+          <span style="color:var(--tx3);font-size:.9375rem">任一层为 0，整盘棋归 0。</span>
+        </p>
+      </div>
+      <div class="hstats">
+        <div class="hs"><b>5</b><span>经营层（底盘）</span></div>
+        <div class="hs"><b>3</b><span>互相打架的时钟</span></div>
+        <div class="hs"><b>7</b><span>可否决的关卡</span></div>
+        <div class="hs"><b>5</b><span>风险类别台账</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 本质差异 ============ -->
+<section style="padding-top:2rem">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="eyebrow">01 / 本质差异</div>
+      <h2>为什么软件流程套不上</h2>
+      <p class="lede">把两者的底层假设摊开看，就知道为什么"需求→设计→开发→测试→上线"这条链条在出海场景里会系统性失效。</p>
+    </div>
+    <div style="overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:1rem;backdrop-filter:blur(12px)">
+      <table style="width:100%;border-collapse:collapse;min-width:680px">
+        <thead>
+          <tr style="background:rgba(255,255,255,.03)">
+            <th style="text-align:left;padding:1rem 1.4rem;color:var(--tx);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;border-bottom:1px solid var(--line)">维度</th>
+            <th style="text-align:left;padding:1rem 1.4rem;color:var(--tx3);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;border-bottom:1px solid var(--line)">软件开发项目</th>
+            <th style="text-align:left;padding:1rem 1.4rem;color:#fda4af;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;border-bottom:1px solid var(--line)">企业出海</th>
+          </tr>
+        </thead>
+        <tbody id="cmp"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIVE LAYERS ============ -->
+<section id="five">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="eyebrow">02 / 体系主体</div>
+      <h2>五层结构：必须同时成立，不可跳层</h2>
+      <p class="lede">出海不是七段式流程，而是五层必须<b style="color:var(--tx)">同时</b>成立的经营结构。任何一层塌了，整盘棋崩。点击展开每层。</p>
+    </div>
+    <div class="layers" id="layers"></div>
+  </div>
+</section>
+
+<!-- ============ THREE CLOCKS ============ -->
+<section id="clocks">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="eyebrow">03 / 核心矛盾</div>
+      <h2>三个时钟：为什么出海注定别扭</h2>
+      <p class="lede">这是软件项目完全没有的东西，也是出海项目失败的第一大原因——<b style="color:var(--tx)">机会窗口通常短于建制周期</b>。</p>
+    </div>
+    <div class="clockwrap rv">
+      <div class="clocks" id="clocksRow"></div>
+      <div class="axis" id="axis"></div>
+      <div class="conflict">
+        <h4>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+          核心冲突：窗口在关，牌照还在排队
+        </h4>
+        <p>市场空位可能只有 6 个月，但当地公司注册 + 行业牌照 + 税务架构 + 银行开户走完要 18~24 个月，而且<b style="color:#fda4af">法定周期不可压缩</b>。如果你按"先建制、再卖货"的顺序走，等你拿到门票时窗口已经关了。</p>
+      </div>
+    </div>
+    <div class="solgrid rv">
+      <div class="sol">
+        <div class="n">解法 01</div>
+        <b>由建制门槛倒推国别顺序</b>
+        <p>先用建制门槛低的模式和市场（出口、跨境电商，往往不需要本地实体和重牌照）抢窗口、验证模式、攒数据；等建制能力成熟，再去打重资产/严合规市场。</p>
+      </div>
+      <div class="sol">
+        <div class="n">解法 02</div>
+        <b>并行而非串行</b>
+        <p>建制线和市场线<b>同时跑</b>。不要"先把公司注册好再开始卖"。注册走 A 律师，业务验证走另一条线，两套节奏互不阻塞。</p>
+      </div>
+      <div class="sol">
+        <div class="n">解法 03</div>
+        <b>按模式匹配资源</b>
+        <p>轻模式（电商/出口）投小钱快验证；重模式（建厂/设实体）只在单位经济被证明为正之后才投。资源跟着模式走，不跟着想象走。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEVEN GATES ============ -->
+<section id="gates">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="eyebrow">04 / 决策机制</div>
+      <h2>七道关卡：不用"阶段"，用"关卡"</h2>
+      <p class="lede">软件项目是「阶段评审→通过就往下走」。出海项目是<b style="color:var(--tx)">关卡决策→通过 / 否决 / 缩范围 / 止损退出</b>。每一道关卡都可能杀死整个项目。点击展开。</p>
+    </div>
+    <div class="gtrack rv"><div class="done"></div><div class="done"></div><div class="cur"></div><div></div><div></div><div></div><div></div></div>
+    <div class="glabels rv"><span>G0</span><span>G1</span><span>G2</span><span>G3</span><span>G4</span><span>G5</span><span>G6</span><span>G7</span></div>
+    <div class="gates" id="gatesList"></div>
+    <div class="gdiscipline rv">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fcd34d" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <div>
+        <b>核心纪律：止损条件必须在进关前书面确认</b>
+        <p>否则沉没成本会绑架之后每一个决策。这是软件项目根本不需要、而出海项目必须有的机制。进关那一刻就把"什么情况下我们认输"写死，不许事后改口径、不许换算新指标美化。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RISKS ============ -->
+<section id="risks">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="eyebrow">05 / 风险管理</div>
+      <h2>五类风险台账 + 风险雷达</h2>
+      <p class="lede">台账必须持续更新，且每条风险都要有<b style="color:var(--tx)">责任人 + 应对预案 + 触发信号</b>（早期预警指标）——没有预警信号的风险台账只是摆设。</p>
+    </div>
+    <div class="radarwrap rv">
+      <div class="radarbox">
+        <svg viewBox="0 0 400 400" id="radar"></svg>
+        <div class="rtog">
+          <button class="on" data-r="now">当前评估</button>
+          <button data-r="m6">6 个月后（若不干预）</button>
+          <button data-r="done">干预后目标</button>
+        </div>
+        <div class="rlegend">
+          <div class="rlg"><i style="background:#38bdf8"></i>政治与地缘</div>
+          <div class="rlg"><i style="background:#a855f7"></i>法律与合规</div>
+          <div class="rlg"><i style="background:#f59e0b"></i>财务与资金</div>
+          <div class="rlg"><i style="background:#10b981"></i>市场与经营</div>
+          <div class="rlg"><i style="background:#f43f5e"></i>组织与人员</div>
+        </div>
+      </div>
+      <div class="rdesc" id="rdesc"></div>
+    </div>
+    <div style="margin-top:3rem">
+      <div class="risktabs rv" id="rtabs"></div>
+      <div class="risklist rv" id="rlist"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UE ============ -->
+<section id="ue">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="eyebrow">06 / 财务真相</div>
+      <h2>单位经济：出海项目最容易自杀的地方</h2>
+      <p class="lede">不合并看 P&amp;L。亏损国长期被盈利国掩盖，是出海财务最经典的自欺。每个国家独立算，UE 不转正的缩规模。</p>
+    </div>
+    <div class="uegrid rv" id="uegrid"></div>
+    <div class="gdiscipline rv" style="background:rgba(239,68,68,.07);border-color:rgba(239,68,68,.25)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fca5a5" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+      <div>
+        <b style="color:#fca5a5">最容易被漏掉的 20~30% 成本</b>
+        <p>注册维护费、年审、审计、律师、牌照续期、认证复审、商标续展。这些不进"到岸成本"，但持续吃利润。做 UE 时必须单列一行叫 <b style="color:#fca5a5">"合规持有成本"</b>，很多项目就是死在这一行。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ORG ============ -->
+<section id="org">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="eyebrow">07 / 权责机制</div>
+      <h2>总部 vs 当地：内耗的根源</h2>
+      <p class="lede">出海项目最常见的内耗来自一条结构性矛盾——<b style="color:var(--tx)">当地有信息，总部有决策权</b>。解法不是开会，是设计授权矩阵。</p>
+    </div>
+    <div class="conflict rv">
+      <h4>结构矛盾：当地有信息，总部有决策权 → 必然打架</h4>
+      <p>中方的"先研究再决定" vs 本地的"先做了再说"。不要互相否定，要明确各自适用场景。</p>
+      <p><b style="color:#d8b4fe">解法四件套：</b>授权矩阵（金额/人事/合同/合规四类权限逐级下放）· 决策时效 SLA（慢一天丢单，快一天违规）· 上报红线（不报不算授权）· 冲突升级路径</p>
+    </div>
+    <div class="org rv" id="orggrid" style="margin-top:2rem"></div>
+  </div>
+</section>
+
+<!-- ============ BORROW ============ -->
+<section id="borrow">
+  <div class="wrap">
+    <div class="shead rv">
+      <div class="eyebrow">08 / 方法论取舍</div>
+      <h2>只借鉴这三样，其余全部丢掉</h2>
+      <p class="lede">软件工程的方法论不是不能用，而是必须<b style="color:var(--tx)">改造后用</b>。原样照搬只会掩盖真正的问题。</p>
+    </div>
+    <div class="borrow rv" id="borrowBox"></div>
+  </div>
+</section>
+
+<!-- ============ ONE PAGER ============ -->
+<section style="padding-bottom:3rem">
+  <div class="wrap">
+    <div class="onepager rv">
+      <div class="eyebrow">09 / 一页纸总结</div>
+      <div class="opline">
+        出海 = <span class="k k1">战略选战场</span> × <span class="k k2">建制换门票</span> × <span class="k k3">经营算得清</span> × <span class="k k4">市场打得进</span> × <span class="k k5">组织留得住</span>
+        <div style="height:1px;background:var(--line2);margin:1.3rem 0"></div>
+        三时钟打架 → <b>由建制门槛倒推国别顺序</b>，机会与建制并行推进
+        <div style="height:1px;background:var(--line2);margin:1.3rem 0"></div>
+        七道关卡 → 每关可「<b>通过 / 否决 / 缩范围 / 止损</b>」，止损线进关前写死，事后不许改口径
+        <div style="height:1px;background:var(--line2);margin:1.3rem 0"></div>
+        两把尺子 → 关卡通过度 + 分国别运营健康指标，<b>不用"项目完成度 80%"这种话</b>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap fin">
+    <p>企业出海完整体系 · Enterprise Globalization Framework</p>
+    <p style="font-family:var(--mono);font-size:.6875rem">五层结构 · 三时钟 · 七关卡 · 五类风险</p>
+  </div>
+</footer>
+
+<button class="totop" id="top" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script>
+const TX='#e8edf7',TX2='#a8b4c8',TX3='#6b7a92',LN='rgba(148,163,184,.14)';
+const C={1:'#f43f5e',2:'#a855f7',3:'#06b6d4',4:'#f59e0b',5:'#10b981'};
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+/* ---------- 对比表 ---------- */
+const CMP=[
+['本质','一次性的<b>建造活动</b>','长期的<b>异地经营</b>'],
+['终态','有交付物、有验收、有结项 → <b>会结束</b>','没有"完成" → <b>会扎根或会退出</b>'],
+['核心问题','能不能<b>做出来</b>？','能不能<b>活下来、合法地赚到钱</b>？'],
+['主要风险','进度、质量、技术债','政治、法律、税务、资金、汇率、人'],
+['失败形态','延期、返工','<b>出局</b>：罚款、封号、牌照吊销、亏损、被制裁'],
+['关键动作','需求 → 设计 → 开发','决策 → 建制 → 验证 → 规模化 → 整合'],
+['组织','项目制，PM 主导','<b>多主体博弈</b>：总部/政府/代理/员工/供应商/客户各有利益'],
+['节奏','一个时钟（跟着 Sprint）','<b>三个时钟</b>互相打架'],
+['退出','几乎不退出','<b>必须有预设止损线</b>（软件项目根本没这概念）']
+];
+document.getElementById('cmp').innerHTML=CMP.map(r=>`<tr>
+<td style="padding:.9rem 1.4rem;border-bottom:1px solid ${LN};color:${TX};font-weight:600;font-size:.875rem">${r[0]}</td>
+<td style="padding:.9rem 1.4rem;border-bottom:1px solid ${LN};font-size:.875rem">${r[1]}</td>
+<td style="padding:.9rem 1.4rem;border-bottom:1px solid ${LN};font-size:.875rem">${r[2]}</td></tr>`).join('');
+
+/* ---------- 五层 ---------- */
+const LAYERS=[
+{c:1,icon:'🎯',name:'战略层',en:'Strategy',q:'去哪个战场，凭什么赢',meta:'周期 1–3 个月｜决策者 CXO',
+items:[['国别组合','选 1-3 个主战场 + 若干观察国，不要铺 8 国全都不深'],['进入顺序','由<b>建制门槛</b>倒推，不是由市场规模倒推'],['进入模式','出口 / 跨境电商 / 授权经销 / 合资 / 绿地自建 / 收购'],['竞争定位','成本领先 / 差异化 / 聚焦细分——三个都要等于没有定位'],['资源承诺','投入上限、亏损容忍度、<b>止损线</b>'],['退出预设','并表 / 剥离 / 回购 / 二次出售 / 关停']],
+out:['国别组合矩阵','进入模式决策备忘','竞争定位书','资源承诺书（含止损线）','战略共识文件']},
+{c:2,icon:'⚖️',name:'建制层',en:'Foundation',q:'合法经营的底盘——这一层决定生死，且不可加速',meta:'周期 12–24 个月｜法定不可压缩',
+items:[['法律实体架构','子公司/代表处/SPV/合资，谁持股、谁并表'],['注册与治理','章程、董事会、股东协议、实际控制人认定'],['牌照与准入','行业经营许可、外资准入负面清单、行业认证'],['税务架构','税务居民身份、常设机构、转让定价、VAT/GST、关税、利润汇回路径'],['合规体系','数据保护、制裁/AML、反贿赂、出口管制、竞争法、ESG'],['银行与资金流','当地收款账户、收付路径、汇损、资金冻结风险'],['知识产权','商标在先注册（<b>抢注是出海常见坑</b>）、专利、合同体系']],
+out:['法律实体架构图','注册与章程文件','股东/合资协议','牌照清单','转让定价文档','税务意见书','合规义务台账 CM','资金流向图']},
+{c:3,icon:'⚙️',name:'经营层',en:'Operations',q:'单位经济能不能为正',meta:'决定盈亏｜持续运营',
+items:[['产品适配','功能要不要改？要不要过当地安全/健康/环保认证？说明书什么语言？'],['供应链','生产在哪？仓储在哪？海运/空运？清关怎么办？最后一公里谁做？'],['跨境收款','当地用户怎么付款？收进来怎么合规汇出？拒付/冻结怎么办？'],['成本与定价','到岸成本 + 关税 + 渠道加价 = 多少？目标毛利多少？定价用户能接受吗？'],['产能与资本开支','需不需要建厂/租仓/买设备？投多少？回收期多久？'],['售后与质量','退换货、质保、召回、投诉响应']],
+out:['单位经济模型 UE','到岸成本拆解','定价与毛利表','供应链与履约方案','认证清单','资本开支预算']},
+{c:4,icon:'📣',name:'市场层',en:'Market',q:'能不能卖出去、卖贵',meta:'周期 3–12 个月｜竞争最激烈',
+items:[['进入策略','直销/代理/经销/平台电商/KOL/展会？各自成本和可控性？'],['品牌与信任','名字/域名/社媒在当地是否被占？当地人凭什么信你？'],['本地化','语言（不只是翻译，还有语气和文化）、渠道习惯、定价心理、支付习惯'],['客户获取','目标客户从哪来？CAC 多少？线索怎么来？'],['定价策略','本地竞品价格带？锚定谁？促销怎么打？'],['客户成功','留存/复购/口碑怎么来？B2B 和 B2C 逻辑完全不同']],
+out:['GTM 方案','品牌与域名策略','渠道/代理协议','本地化资产包','定价表','客户画像与漏斗指标定义']},
+{c:5,icon:'👥',name:'组织层',en:'Organization',q:'人、激励、权责',meta:'周期 6–18 个月｜最慢最难迁',
+items:[['组织设计','总部 / 区域 / 当地三角，汇报线怎么设计？'],['关键岗位','本地 CEO/GM、法定代表人、财税负责人、数据保护官——谁？招得到吗？'],['激励绑定','股权/期权/跟投/利润分成——绑不绑得住本地高管？'],['劳动合规','劳动合同、工时、解雇、签证、外籍员工配额'],['授权边界','多少钱以下当地能自己拍板？招多少人能自己定？'],['继任与去风险','本地一号人物走了怎么办？关键人单点故障怎么解？']],
+out:['组织图','关键岗位说明书','激励方案','授权矩阵（金额/人事/合同权限）','关键人继任计划']}
+];
+document.getElementById('layers').innerHTML=LAYERS.map(L=>`
+<div class="layer" data-c="${L.c}">
+  <div class="lhead">
+    <div class="lbadge" style="background:${C[L.c]}1f;color:${C[L.c]}">${L.icon}</div>
+    <div>
+      <div class="lname">${L.name} <em>${L.en}</em>
+        <span class="chip" style="border-color:${C[L.c]}44;color:${C[L.c]};background:${C[L.c]}12">L${L.c}</span></div>
+      <div style="font-size:.8125rem;color:${TX3};margin-top:.15rem">${L.q}</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem">
+      <div class="lmeta">${L.meta}</div>
+      <svg class="lcaret" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+  </div>
+  <div class="lbody"><div class="lin">
+    <div class="lgrid">${L.items.map(i=>`<div class="litem"><b>${i[0]}</b><span>${i[1]}</span></div>`).join('')}</div>
+    <div class="lout"><strong>关键产出物：</strong>${L.out.map(o=>`<code>${o}</code>`).join('')}</div>
+  </div></div>
+</div>`).join('');
+document.querySelectorAll('#layers .lhead').forEach(h=>h.onclick=()=>h.parentElement.classList.toggle('open'));
+document.querySelector('#five .layer').classList.add('open');
+
+/* ---------- 三时钟 ---------- */
+const CLOCKS=[
+{n:'机会时钟',e:'Opportunity',c:'#f43f5e',s:0,w:25,d:'市场窗口 / 竞品空位 / 政策红利',tag:'可能随时关闭 · 不可控',note:'抢'},
+{n:'建制时钟',e:'Foundation',c:'#a855f7',s:38,w:56,d:'注册 / 牌照 / 税务 / 银行 / 认证',tag:'法定周期 · 不可压缩',note:'等'},
+{n:'能力时钟',e:'Capability',c:'#10b981',s:8,w:92,d:'本地团队成熟 / 渠道关系 / 供应链 / 品牌信任',tag:'只能靠时间',note:'养'}
+];
+document.getElementById('clocksRow').innerHTML=CLOCKS.map(k=>`
+<div class="clock">
+  <div class="clabel"><b>${k.n}</b><span>${k.e}</span></div>
+  <div class="cbar"><div class="cfill" style="left:${k.s}%;width:${k.w}%;background:linear-gradient(90deg,${k.c}dd,${k.c}88)">${k.d} · ${k.tag}</div></div>
+</div>`).join('');
+document.getElementById('axis').innerHTML=['M0','M6','M12','M18','M24','M36'].map(x=>`<span>${x}</span>`).join('');
+
+/* ---------- 七关卡 ---------- */
+const GATES=[
+{id:'G0',q:'值不值得出海？',who:'CXO / 战略委员会',
+ pass:'战略匹配度、资源可得性、老板决心明确、投入上限与止损线书面确认',
+ kill:'无战略匹配，或拿不到"亏损容忍 + 止损线"的授权 → <b>不去</b>',
+ f:[['y','通过：进入 G1'],['a','缩范围：只做 1 国 / 只做单一模式'],['r','否决：不出海']]},
+{id:'G1',q:'这个市场有人要吗？',who:'业务负责人',
+ pass:'目标客户名单、访谈记录、<b>付费意愿验证</b>、竞品空位确认',
+ kill:'3 个月内拿不到任何付费意向 → <b>停</b>（不是"再等等"）',
+ f:[['y','通过：进入 G2'],['a','缩范围：换细分 / 换客群'],['r','停：需求证伪']]},
+{id:'G2',q:'合法能经营吗？',who:'法务 + 财务 + CFO',
+ pass:'实体 / 牌照 / 税务架构 / 银行账户 / 合规基线全部就位',
+ kill:'牌照拿不到、税务架构走不通、当地银行开户失败 → <b>换模式或退</b>',
+ f:[['y','通过：进入 G3'],['a','降级模式：重资产转轻资产 / 代理替代自建'],['r','退：换国家或放弃']]},
+{id:'G3',q:'真能卖出去吗？',who:'业务负责人',
+ pass:'第一单、<b>第一笔回款</b>、第一份复购或转介绍',
+ kill:'6 个月零成交 → <b>换定位或退</b>',
+ f:[['y','通过：进入 G4'],['a','调价 / 调渠道 / 调客群'],['r','退：市场或定位错误']]},
+{id:'G4',q:'能赚钱吗？',who:'CFO',
+ pass:'单位经济 UE 转正，经营现金流收窄或为正，合规持有成本已单列入模',
+ kill:'UE 长期不转正且无改善路径 → <b>缩规模或退</b>',
+ f:[['y','通过：进入 G5'],['a','缩规模：砍 SKU / 砍区域，保核心市场'],['r','退：模型不成立']]},
+{id:'G5',q:'放大得起来吗？',who:'业务 + 财务',
+ pass:'组织 / 供应链 / 资金能跟上，复制一个市场的边际成本递减',
+ kill:'增长全靠堆人堆钱、<b>无杠杆</b> → <b>暂停扩张</b>',
+ f:[['y','通过：进入 G6'],['a','限定节奏：单国深耕，暂不扩国'],['r','暂停：先修可复制性']]},
+{id:'G6',q:'能长期活吗？',who:'战略委员会',
+ pass:'本地关系与护城河建立、政治稳定、品牌信任形成、关键人已接替',
+ kill:'政治风险失控（制裁 / 国有化 / 外资限制）→ <b>启动退出</b>',
+ f:[['y','通过：进入 G7'],['a','多元化：分散国别 / 供应链 / 客户'],['r','退出：有序撤退而非仓皇']]},
+{id:'G7',q:'怎么收？',who:'CXO / 董事会',
+ pass:'并表 / 剥离 / 回购 / 二次出售 / 关停，各路径估值与净收益已测算',
+ kill:'—',
+ f:[['y','并表：长期经营'],['a','剥离 / 二次出售：回收现金'],['r','关停：清算与合规退出']]}
+];
+document.getElementById('gatesList').innerHTML=GATES.map(g=>`
+<div class="gate">
+  <div class="ghead">
+    <div class="gid">${g.id}</div>
+    <div class="gq">${g.q}</div>
+    <div class="gdec">决策人：${g.who}</div>
+    <svg class="gcaret" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+  </div>
+  <div class="gbody"><div class="gin">
+    <div class="gcols">
+      <div class="gbox"><h5>通过标准</h5><p>${g.pass}</p></div>
+      <div class="gbox kill"><h5>止损 / 否决条件</h5><p>${g.kill}</p></div>
+    </div>
+    <div class="gflow">${g.f.map(x=>`<span class="${x[0]}">${x[1]}</span>`).join('')}</div>
+  </div></div>
+</div>`).join('');
+document.querySelectorAll('#gatesList .ghead').forEach(h=>h.onclick=()=>h.parentElement.classList.toggle('open'));
+document.querySelector('#gatesList .gate').classList.add('open');
+
+/* ---------- 风险 ---------- */
+const RADAR_AXES=['政治与地缘','法律与合规','财务与资金','市场与经营','组织与人员'];
+const RADAR_COLORS=['#38bdf8','#a855f7','#f59e0b','#10b981','#f43f5e'];
+const RADAR_DATA={
+ now:{v:[3,4,4,3,3],l:'当前评估：法律合规与财务资金是当前最突出的两块软肋。典型症状是 CM（合规义务台账）没有闭环、UE 模型里没有单列合规持有成本。'},
+ m6:{v:[4,5,5,4,4],l:'6 个月后（若不干预）：风险普遍上移一级。政治与地缘爬升最快——因为你没有提前建立多国分散，本地单点暴露在上升。财务资金恶化源于汇损与回款周期未纳管。'},
+ done:{v:[2,2,2,2,2],l:'干预后目标：把每类风险压回"可监控"区间。做法是：CM 逐条闭环 + 预警信号上线 + 国别分散 + 单位经济转正 + 关键人继任到位。'}
+};
+const AXD=[
+ ['政治与地缘','选举与政策变更','出口管制 / 制裁清单','关税与贸易壁垒突变','外汇管制与资本出境限制','当地伙伴单方变卦','国有化或外资准入收紧'],
+ ['法律与合规','行业牌照缺失或吊销','数据保护违规（个保法/GDPR/CCPA）','税务追缴与转让定价调整','劳动法违规与解雇纠纷','反腐败（FCPA/UKBA）','出口管制或制裁关联'],
+ ['财务与资金','汇率波动吃掉 5–15% 毛利','资金冻结 / 账户被止付','应收账款坏账与长账期','当地融资成本高企','资本管制限制利润汇出','隐性合规持有成本失控'],
+ ['市场与经营','需求判断错误','价格战与竞品降价','渠道被代理黑箱化','平台规则突变（App Store/Amazon）','品牌信任建立缓慢','单一客户或单一渠道依赖'],
+ ['组织与人员','关键人（本地一号）流失','招聘周期长于市场窗口','中外文化冲突','签证与外籍员工配额风险','激励不到位导致团队涣散','总部与当地决策反复拉扯']
+];
+function drawRadar(key){
+  const cx=200,cy=200,R=140,N=RADAR_AXES.length;
+  const pt=(i,r)=>{const a=-Math.PI/2+i*2*Math.PI/N;return[cx+Math.cos(a)*r,cy+Math.sin(a)*r]};
+  let g='';
+  for(let l=1;l<=5;l++){const p=RADAR_AXES.map((_,i)=>pt(i,R*l/5).map(v=>v.toFixed(1)).join(',')).join(' ');
+    g+=`<polygon points="${p}" fill="none" stroke="${LN}" stroke-width="1"/>`}
+  RADAR_AXES.forEach((_,i)=>{const[x,y]=pt(i,R);g+=`<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="${LN}" stroke-width="1"/>`});
+  RADAR_AXES.forEach((n,i)=>{const[x,y]=pt(i,R+26);const anch=x<cx-8?'end':x>cx+8?'start':'middle';
+    g+=`<text x="${x}" y="${y+4}" fill="${TX2}" font-size="12" font-weight="600" text-anchor="${anch}" font-family="Inter,sans-serif">${n}</text>`});
+  for(let v=1;v<=5;v++)g+=`<text x="${cx+5}" y="${cy-R*v/5+4}" fill="${TX3}" font-size="9" font-family="monospace">${v}</text>`;
+  RADAR_DATA[key].v.forEach((v,i)=>{const[x,y]=pt(i,R*v/5);
+    g+=`<circle cx="${x}" cy="${y}" r="4" fill="${RADAR_COLORS[i]}" stroke="#070b14" stroke-width="1.5"/>`});
+  const poly=RADAR_DATA[key].v.map((v,i)=>pt(i,R*v/5).map(n=>n.toFixed(1)).join(',')).join(' ');
+  g+=`<polygon points="${poly}" fill="rgba(56,189,248,.14)" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round"/>`;
+  document.getElementById('radar').innerHTML=g;
+  document.getElementById('rdesc').innerHTML=`
+    <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>风险评估</h3>
+    <p>${RADAR_DATA[key].l}</p>
+    <p style="margin-top:1.2rem"><b>评分标准：</b>1 = 可忽略 · 3 = 需监控与预案 · 5 = 已威胁项目存活，需立即决策</p>
+    <p><b>硬性要求：</b>每条 ≥3 分的风险必须有<b style="color:#fda4af">责任人 + 应对预案 + 触发信号</b>。没有预警信号的风险记录等于没记。</p>`;
+}
+drawRadar('now');
+document.querySelectorAll('.rtog button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.rtog button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');drawRadar(b.dataset.r)});
+const lvl={h:['高','lv-h'],m:['中','lv-m'],l:['低','lv-l']};
+const TABS=['全部','政治与地缘','法律与合规','财务与资金','市场与经营','组织与人员'];
+const SIG={
+ '政治与地缘':['当地议会/换届时间表','外资负面清单更新','本国出口管制清单扩围','当地央行外汇管制公告','代理商书面意向变更'],
+ '法律与合规':['CM 台账未闭环事项数 > 0','监管问询/警告函','数据主体投诉量突增','牌照年审/复审到期日','第三方审计发现项'],
+ '财务与资金':['经营现金 runway < 9 个月','汇损率 > 5%','应收账款逾期率上升','当地账户被风控冻结预警','UE 转正时间较承诺延后'],
+ '市场与经营':['CAC 环比上升 > 30%','复购率/留存下滑','竞品降价公告','平台规则变更通知','单一渠道收入占比 > 60%'],
+ '组织与人员':['本地一号岗位空缺 > 30 天','核心人员主动离职率','签证/工作许可拒签','招聘周期超市场窗口','授权矩阵审批超时次数']
+};
+document.getElementById('rtabs').innerHTML=TABS.map((t,i)=>`<button class="${i===0?'on':''}" data-t="${t}">${t}</button>`).join('');
+function drawRisks(t){
+  const rows=AXD.map((arr,i)=>arr.map((it,j)=>({cat:arr[0],it,i,j})))
+    .flat().filter(r=>t==='全部'||r.cat===t);
+  document.getElementById('rlist').innerHTML=rows.map(r=>{
+      const h=(r.i+r.j)%4===0?'h':((r.i+r.j)%4===1?'m':'l');
+      const sig=SIG[r.cat][r.j%SIG[r.cat].length];
+      return`<div class="risk">
+        <span class="rlvl ${lvl[h][1]}">${lvl[h][0]}风险</span>
+        <div><b>${r.it}</b><p>${r.cat}</p></div>
+        <div class="rsign">预警信号：${sig}</div>
+      </div>`}).join('')}
+drawRisks('全部');
+document.querySelectorAll('#rtabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#rtabs button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');drawRisks(b.dataset.t)});
+
+/* ---------- 单位经济 ---------- */
+const UE=[
+{h:'到岸成本',big:'—',sub:'出厂价 + 国际运费 + 保险 + 关税 + 清关 + 本地仓储配送',n:'＝ 落到当地货架的总成本'},
+{h:'毛利率目标',big:'≥ 45%',sub:'B2B 硬件/消费品常见区间；低于 30% 几乎无法承担渠道与合规成本',n:'毛利率 < 30% → 慎入'},
+{h:'CAC 回收期',big:'≤ 12 个月',sub:'B2B 可放宽到 18 个月；超过则现金流会被吃穿',n:'回本周期 > 24 个月 → 危险'},
+{h:'LTV / CAC',big:'≥ 3',sub:'健康线 3~5；低于 3 说明增长在买伪需求',n:'< 3 → 停止投放，先修留存'},
+{h:'汇率敏感度',big:'−10%/−20%',sub:'收入币种与成本币种错配会直接吞掉毛利，必须做情景分析',n:'每 −10% 汇率 → 毛利 −X%'},
+{h:'合规持有成本',big:'易漏 20–30%',sub:'注册维护 / 年审 / 审计 / 律师 / 牌照续期 / 认证复审 / 商标续展',n:'必须单列一行，否则 UE 失真'},
+{h:'Runway',big:'24–36 月',sub:'出海普遍前两年烧钱；必须测算下一笔融资的时间节点并倒推',n:'runway < 9 月 → 立即触发 G4 复审'},
+{h:'各国独立 P&L',big:'不合看',sub:'亏损国长期被盈利国掩盖，是出海财务最经典的自欺',n:'分国别看，亏损国不设上限＝慢性自杀'}
+];
+document.getElementById('uegrid').innerHTML=UE.map(u=>`<div class="ue">
+  <div class="h">${u.h}</div><div class="big">${u.big}</div><div class="sub">${u.sub}</div><div class="uenum">${u.n}</div></div>`).join('');
+
+/* ---------- 组织 ---------- */
+const ORG=[
+['总部','战略 / 资本 / 品牌','定国别组合、定投入上限、审批重大投资与退出、全球品牌与合规底线'],
+['总部','财务 / 税务 / 法务','转移定价与资金路径、实体与牌照把关、全球合同模板、CM 台账 owner'],
+['区域','Regional GM','区域内资源调度、跨国复制、区域 P&L 负责、总部与当地之间的缓冲层'],
+['当地','CEO / GM','本地经营第一责任人、当地关系与政府沟通、本地团队组建、当地 P&L'],
+['当地','法定代表 / 财税负责人','法律意义上的对外责任人与税务第一责任人（常与 GM 不同人）'],
+['当地','销售 / 渠道 / 客服 / 运营','一线经营：获客、交付、回款、客户成功'],
+['当地','EOR / 代理 / 顾问','早期无实体时的合规替代方案：名义雇主、当地代理、市场顾问']
+];
+document.getElementById('orggrid').innerHTML=ORG.map(o=>`<div class="onode">
+  <div class="lv">${o[0]}</div><b>${o[1]}</b><p>${o[2]}</p></div>`).join('');
+
+/* ---------- 取舍 ---------- */
+document.getElementById('borrowBox').innerHTML=`
+<div class="bcard ok">
+  <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>可以借鉴（但要改造）</h3>
+  <ul class="bl">
+    <li><b>追踪矩阵</b> → RTM（需求追踪）基本可直接用；但出海真正值钱的矩阵是 <b>CM 合规义务台账</b>（义务→控制点→责任人→证据）</li>
+    <li><b>变更控制</b> → 出海版要更严：<b>任何涉及法律/税务/牌照的变更等同门禁级变更</b>，必须法务 + 财务双签</li>
+    <li><b>风险登记册</b> → 保留形式，内容换成五类政治/法律/财务/市场/组织风险，且每条必须配<b>预警信号</b></li>
+  </ul>
+</div>
+<div class="bcard no">
+  <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>必须丢掉</h3>
+  <ul class="bl">
+    <li><b>需求瀑布</b> → 市场假设会被证伪，不是"需求做完了"就成立</li>
+    <li><b>WBS 工期倒推</b> → 法定审批周期不由你的工期决定</li>
+    <li><b>代码级设计文档</b> → 没有代码要设计，只有架构与合规方案</li>
+    <li><b>测试用例体系</b> → 关键验证是牌照/税务/回款/回款路径，不是功能用例</li>
+    <li><b>敏捷 Sprint 节奏</b> → 出海被三个时钟拉扯，不是被需求池驱动</li>
+    <li><b>结项验收</b> → 出海没有"结项"，只有"扎根"或"退出"</li>
+  </ul>
+</div>`;
+
+/* ---------- 交互 ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+const secs=[...document.querySelectorAll('section[id]')],links=[...document.querySelectorAll('.nlinks a')];
+const topBtn=document.getElementById('top');
+addEventListener('scroll',()=>{
+  topBtn.classList.toggle('on',scrollY>600);
+  let cur='';secs.forEach(s=>{if(scrollY>=s.offsetTop-160)cur=s.id});
+  links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur));
+},{passive:true});
+topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+const nl=document.getElementById('nl'),bg=document.getElementById('bg');
+bg.onclick=()=>nl.classList.toggle('on');
+nl.querySelectorAll('a').forEach(a=>a.onclick=()=>nl.classList.remove('on'));
+</script>
+</body>
+</html>

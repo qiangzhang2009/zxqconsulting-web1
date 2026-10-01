@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>中医出海全流程体系·完整版</title>
+<style>
+:root{
+  --bg:#0a0e1a;--bg-soft:#111726;--bg-card:#151d33;
+  --border:#233152;--border-soft:#1b2640;
+  --text:#e6ecff;--text-soft:#a8b3d4;--text-dim:#6b7796;
+  --accent:#ffb547;--accent-2:#ffd180;
+  --green:#4ade80;--red:#f87171;--blue:#60a5fa;--purple:#c084fc;--cyan:#22d3ee;
+  --tcm:#d4a574;--tcm-soft:#8b6f47;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,"SF Pro SC","PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.7;font-size:14px;
+  background-image:radial-gradient(ellipse at top,#1a2340 0%,var(--bg) 60%);}
+.wrap{max-width:1320px;margin:0 auto;padding:32px 28px 120px}
+header{text-align:center;padding:48px 0 32px;border-bottom:1px solid var(--border);margin-bottom:40px}
+header h1{font-size:32px;font-weight:700;color:var(--accent);margin-bottom:8px;letter-spacing:.5px}
+header .sub{color:var(--text-soft);font-size:15px;margin-bottom:6px}
+header .ver{color:var(--text-dim);font-size:12px;font-family:ui-monospace,monospace}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.tag{padding:5px 12px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:20px;font-size:12px;color:var(--text-soft)}
+.tag.gold{border-color:var(--accent);color:var(--accent)}
+.tag.green{border-color:var(--green);color:var(--green)}
+.tag.blue{border-color:var(--blue);color:var(--blue)}
+
+section{margin-bottom:56px}
+.sec-title{font-size:22px;color:var(--accent);margin-bottom:6px;font-weight:600;display:flex;align-items:center;gap:12px}
+.sec-title .num{width:32px;height:32px;border-radius:8px;background:var(--accent);color:var(--bg);
+  display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.sec-sub{color:var(--text-dim);font-size:13px;margin-bottom:20px;padding-left:44px}
+
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:980px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+.card{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:12px;padding:20px;transition:.2s}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card h3{color:var(--accent-2);font-size:16px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card .badge{display:inline-block;padding:2px 8px;background:var(--bg);border:1px solid var(--border);
+  border-radius:10px;font-size:11px;color:var(--text-dim);margin-right:6px}
+.card p{color:var(--text-soft);font-size:13px;margin-bottom:8px}
+.card ul{list-style:none;padding-left:0}
+.card li{padding:4px 0 4px 18px;position:relative;color:var(--text-soft);font-size:13px}
+.card li:before{content:"▸";position:absolute;left:0;color:var(--accent)}
+
+table{width:100%;border-collapse:collapse;background:var(--bg-card);border-radius:10px;overflow:hidden;font-size:13px}
+th{background:#1a2440;color:var(--accent-2);padding:12px 10px;text-align:left;font-weight:600;border-bottom:1px solid var(--border)}
+td{padding:11px 10px;border-bottom:1px solid var(--border-soft);color:var(--text-soft);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#1a2440}
+.row-a td:first-child{color:var(--tcm);font-weight:600}
+.row-b td:first-child{color:#7ec99a;font-weight:600}
+.row-c td:first-child{color:#8db4e0;font-weight:600}
+.warn{color:var(--red)!important;font-weight:600}
+
+.path-box{background:linear-gradient(135deg,#1a2340,#0f1628);border:2px solid var(--accent);
+  border-radius:14px;padding:24px;margin-bottom:20px;position:relative}
+.path-box .label{position:absolute;top:-12px;left:24px;background:var(--accent);color:var(--bg);
+  padding:3px 14px;border-radius:14px;font-size:12px;font-weight:700}
+.path-box h4{color:var(--accent-2);font-size:17px;margin:8px 0 12px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.flow .step{padding:6px 14px;background:var(--bg);border:1px solid var(--border);
+  border-radius:8px;font-size:12px;color:var(--text-soft)}
+.flow .arrow{color:var(--accent)}
+
+.callout{border-left:3px solid var(--accent);padding:14px 18px;background:#1a2340;
+  border-radius:0 8px 8px 0;margin:14px 0;font-size:13px;color:var(--text-soft)}
+.callout.red{border-color:var(--red)}
+.callout.green{border-color:var(--green)}
+.callout.blue{border-color:var(--blue)}
+
+.gate{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:20px}
+@media(max-width:980px){.gate{grid-template-columns:repeat(2,1fr)}}
+.gate-card{background:var(--bg-card);border:2px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.gate-card .gnum{width:32px;height:32px;line-height:32px;border-radius:50%;
+  background:var(--bg);color:var(--accent);font-weight:700;margin:0 auto 8px;border:2px solid var(--accent)}
+.gate-card .gtitle{color:var(--accent-2);font-size:13px;font-weight:600;margin-bottom:4px}
+.gate-card .gbody{color:var(--text-dim);font-size:11px;line-height:1.5}
+
+footer{text-align:center;color:var(--text-dim);font-size:12px;padding:40px 0;border-top:1px solid var(--border);margin-top:40px}
+
+.metric{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--border-soft);font-size:13px}
+.metric:last-child{border-bottom:none}
+.metric .k{color:var(--text-dim)}
+.metric .v{color:var(--accent-2);font-weight:600}
+
+.tcm-mark{display:inline-block;padding:1px 6px;background:#2a1f10;color:var(--tcm);
+  border:1px solid var(--tcm-soft);border-radius:4px;font-size:11px;margin:0 2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>中医出海全流程体系·完整版</h1>
+  <div class="sub">产品 + 服务 + 教育 三业态交叉 · 三市场 · 三形态 · 深度版</div>
+  <div class="ver">TCM Global · Full Edition · v3.0 · 2026-09-29 · 21 节齐全</div>
+  <div class="tag-row">
+    <span class="tag gold">草药补充剂</span>
+    <span class="tag gold">中成药</span>
+    <span class="tag gold">械字号外用</span>
+    <span class="tag blue">美国 FDA</span>
+    <span class="tag blue">欧盟 EMA</span>
+    <span class="tag blue">东南亚 HSA/NPRA/TFDA</span>
+    <span class="tag green">临床循证</span>
+    <span class="tag green">GMP/HACCP</span>
+    <span class="tag">含 <span class="tcm-mark">麻黄</span><span class="tcm-mark">附子</span> 警示</span>
+  </div>
+</header>
+
+<!-- 第 1 步:产品形态决策树 -->
+<section id="sec-decision">
+  <div class="sec-title"><span class="num">1</span>产品形态路径决策树(先选型,再谈出海)</div>
+  <div class="sec-sub">同一家公司可同时跑 A、C;B 通常单独跑。B 与 A 的关键差异是**定位**:经典名方称"治疗"还是称"支持",决定一切。</div>
+
+  <div class="path-box">
+    <span class="label">路径 A · 草药补充剂</span>
+    <h4>Q1 = 单一草药提取物 / 复方草本 / 主诉"支持/调节"</h4>
+    <div class="flow">
+      <span class="step">原料筛选(药典+植物基原)</span><span class="arrow">→</span>
+      <span class="step">功效物质基础研究</span><span class="arrow">→</span>
+      <span class="step">结构化/功能声称设计</span><span class="arrow">→</span>
+      <span class="step">DSHEA / THMP / HSA 备案</span><span class="arrow">→</span>
+      <span class="step">上市·结构化声称受限</span>
+    </div>
+    <div class="metric"><span class="k">美国 DSHEA</span><span class="v">6–18 月 / 50–300 万美元</span></div>
+    <div class="metric"><span class="k">欧盟 THMP</span><span class="v">18–36 月 / 200–800 万欧元</span></div>
+    <div class="metric"><span class="k">东南亚 HSA/NPRA/TFDA</span><span class="v">3–9 月 / 30–150 万美元</span></div>
+    <div class="metric"><span class="k">临床证据要求</span><span class="v">功效宣称需 RCT 或 30 年使用证据</span></div>
+    <div class="metric warn"><span class="k">禁用红线</span><span class="v">不可称"治疗/治愈"任何疾病(美国 FDA 警告信最常见)</span></div>
+  </div>
+
+  <div class="path-box" style="border-color:var(--red)">
+    <span class="label" style="background:var(--red)">路径 B · 中成药(治疗定位)</span>
+    <h4>Q1 = 经典名方 / 中成药 / 主诉"治疗某病"</h4>
+    <div class="flow">
+      <span class="step">药效物质基础</span><span class="arrow">→</span>
+      <span class="step">IND pre-meeting</span><span class="arrow">→</span>
+      <span class="step">CMC(化学/制造/控制)</span><span class="arrow">→</span>
+      <span class="step">II 期 RCT</span><span class="arrow">→</span>
+      <span class="step">III 期 RCT</span><span class="arrow">→</span>
+      <span class="step">NDA/BLA 提交</span><span class="arrow">→</span>
+      <span class="step">获批上市</span>
+    </div>
+    <div class="metric"><span class="k">美国 IND→NDA</span><span class="v">60–120 月 / 5000 万–3 亿美元</span></div>
+    <div class="metric"><span class="k">欧盟 THMP 全路径</span><span class="v">36–60 月 / 3000 万–1.5 亿欧元</span></div>
+    <div class="metric"><span class="k">新加坡/马来/泰国</span><span class="v">24–48 月 / 800 万–5000 万美元</span></div>
+    <div class="metric warn"><span class="k">关键风险</span><span class="v">经典名方"简化新药申请"路径需桥接试验,桥接失败周期延长 24 月</span></div>
+  </div>
+
+  <div class="path-box" style="border-color:var(--blue)">
+    <span class="label" style="background:var(--blue);color:#0a0e1a">路径 C · 械字号外用</span>
+    <h4>Q1 = 膏药 / 贴剂 / 温灸器 / 穴位贴</h4>
+    <div class="flow">
+      <span class="step">材料生物相容性</span><span class="arrow">→</span>
+      <span class="step">产品分类(I/II/III)</span><span class="arrow">→</span>
+      <span class="step">性能测试</span><span class="arrow">→</span>
+      <span class="step">FDA 510(k) / EU MDR / HSA 备案</span><span class="arrow">→</span>
+      <span class="step">上市·功效声称严格</span>
+    </div>
+    <div class="metric"><span class="k">美国 510(k)</span><span class="v">6–18 月 / 30–200 万美元</span></div>
+    <div class="metric"><span class="k">欧盟 MDR 2017/745</span><span class="v">12–24 月 / 50–300 万欧元</span></div>
+    <div class="metric"><span class="k">东南亚</span><span class="v">3–6 月 / 10–50 万美元</span></div>
+    <div class="metric"><span class="k">临床证据</span><span class="v">通常豁免;称"镇痛"需 De Novo 或 PMA</span></div>
+  </div>
+
+  <div class="callout red">
+    <strong>先确认主诉,再谈出海</strong>——若产品本身是"经典名方 + 治疗定位",但只能以"补充剂"上市,意味着<strong>定位降级</strong>。
+    算清<strong>长期品牌损失 vs 短期注册收益</strong>。同名产品<strong>不可同时</strong>在 A、B 路径分别上市(法规风险:同一物质两种声称构成虚假宣传)。
+  </div>
+</section>
+
+<!-- 第 2 步:三市场 × 三形态 合规矩阵 -->
+<section id="sec-matrix">
+  <div class="sec-title"><span class="num">2</span>三市场 × 三形态 合规矩阵</div>
+  <div class="sec-sub">每一格都是<strong>真项目会遇到的真监管节点</strong>——不是教科书列表,是注册专员每天打的交道。</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:14%">产品形态 \ 市场</th>
+        <th style="width:28%">美国</th>
+        <th style="width:28%">欧盟</th>
+        <th style="width:30%">东南亚(新加坡/马来/泰国)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-a">
+        <td>A · 草药补充剂</td>
+        <td>
+          DSHEA 备案;<strong>不允许疾病宣称</strong>;FDA <em>不审批</em>功效;<br>
+          标签"结构化/功能声称"受 21 CFR 101 约束;<br>
+          重金属/农药残留必须符合 USP/NSF
+        </td>
+        <td>
+          THMP 注册路径(2025 新规全面生效);需 CEP/ASMF 或完整 CTD;<br>
+          <strong>允许传统使用注册</strong>(长达 30 年使用证据可减免部分临床);<br>
+          HMPC 草药专委会负责审评
+        </td>
+        <td>
+          新加坡 HSA:补剂类(Class B)/传统药品;<br>
+          马来 NPRA、泰国 TFDA;<br>
+          <strong>总体监管比欧美宽松,周期短</strong>;
+          接受中国 GMP 报告
+        </td>
+      </tr>
+      <tr class="row-b">
+        <td>B · 中成药</td>
+        <td>
+          IND → NDA/BLA;<strong>必须 II/III 期 RCT</strong>;<br>
+          FDA 植物药指南(2004/2016);<br>
+          经典名方可用"简化新药申请"路径但<strong>仍需桥接试验</strong>
+        </td>
+        <td>
+          THMP 全路径;<strong>EMA 设立专门草药产品委员会(HMPC)</strong>;<br>
+          审批周期长但<strong>一旦获批全欧盟通行</strong>(单一指令)
+        </td>
+        <td>
+          各国药品注册路径差异大;<br>
+          <strong>新加坡最严</strong>(接近国际标准);<br>
+          马来/泰国较宽松;<strong>部分国家接受中国 GMP 认证</strong>
+        </td>
+      </tr>
+      <tr class="row-c">
+        <td>C · 械字号外用</td>
+        <td>
+          FDA 510(k)(II 类);<strong>称"镇痛"需 De Novo 或 PMA</strong>;<br>
+          包装须符合 21 CFR 801;生物相容性 ISO 10993
+        </td>
+        <td>
+          EU MDR 2017/745;公告机构审核;<br>
+          <strong>称"治疗"按 Class IIa/IIb 分类</strong>;CE 标志全欧盟通行
+        </td>
+        <td>
+          各国医疗器械注册;<strong>门槛普遍低于欧美</strong>;<br>
+          多数可快速上市;但<strong>功效声称仍受所在国药监局监管</strong>
+        </td>
+      </tr>
+      <tr>
+        <td class="warn">禁用成分示例</td>
+        <td class="warn"><span class="tcm-mark">麻黄碱</span> <span class="tcm-mark">附子</span> <span class="tcm-mark">马兜铃酸</span> <span class="tcm-mark">雷公藤</span></td>
+        <td class="warn"><span class="tcm-mark">马兜铃酸</span> <span class="tcm-mark">广防己</span> <span class="tcm-mark">关木通</span></td>
+        <td>大部分东南亚国家<strong>允许</strong>中国受控成分,但需逐国查表</td>
+      </tr>
+      <tr>
+        <td class="warn">广告宣传限制</td>
+        <td class="warn">绝对禁止"治疗/治愈"疾病宣称;FDA 警告信最常见</td>
+        <td>各国差异;<strong>英德荷最严</strong>;医疗声称须有 RCT 支撑</td>
+        <td>相对宽松;<strong>新加坡对"传统疗效"有专项指南</strong></td>
+      </tr>
+      <tr>
+        <td class="warn">关税/贸易壁垒</td>
+        <td><strong>301 关税持续</strong>(中药多 7.5%–25%);FDA 进口警报频繁</td>
+        <td>监管壁垒为主,关税较低;CEP 证书是关键</td>
+        <td>关税中等;<strong>马来西亚对中药有专项进口许可</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout blue">
+    <strong>路径依赖陷阱</strong>——同一公司在美注册了"草药补充剂",再去欧盟申请 THMP 时,<strong>FDA 不批功效不代表 EMA 也豁免</strong>。
+    三市场<strong>数据不互认</strong>,RCT 要重新做(接受桥接设计但不接受全套引用)。
+  </div>
+</section>
+
+<!-- 第 3 步:九环节 v2 深度版 -->
+<section id="sec-9stages">
+  <div class="sec-title"><span class="num">3</span>九环节 v2 深度版(三业态交叉)</div>
+  <div class="sec-sub">每个环节都加挂"产品 + 服务 + 教育"三业态的具体动作差异。**主线 ≤ 1,辅线 ≤ 1**——三业态一起跑资源不够。</div>
+
+  <div class="grid g3">
+    <div class="card">
+      <h3>① 战略定位</h3>
+      <span class="badge">3业态主线</span><span class="badge">60天</span>
+      <p><strong>产品:</strong>确定 A/B/C 形态 + 主诉 + 第一目标市场</p>
+      <p><strong>服务:</strong>中医诊所/远程诊疗的牌照路径(美:各州针灸师;欧:补充医学;新:TCM 医师)</p>
+      <p><strong>教育:</strong>中医学院合作、继续教育学分(CE)、在线课程</p>
+      <ul>
+        <li>输出:<strong>3 业态商业画布 × 3 市场优先级</strong></li>
+        <li>判据:三方"客户 - 监管 - 毛利"模型对齐</li>
+        <li>中医特有:<strong>经典名方产权界定</strong>(古籍公开 vs 现代组方专利)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>② 法规注册</h3>
+      <span class="badge">路径 A/B/C</span><span class="badge">6–120月</span>
+      <p><strong>产品:</strong>DSHEA 备案 / IND→NDA / 510(k) 任选</p>
+      <p><strong>服务:</strong>远程医疗跨州/跨国牌照(美:Interstate Medical Licensure Compact)</p>
+      <p><strong>教育:</strong>学历认证(WFAS)、CE 学分认证(美:NCCAOM)</p>
+      <ul>
+        <li>必须先有<strong>首席科学官 CSO</strong>——临床/法规双背景</li>
+        <li>中医特有:每味中药材<strong>基原鉴定</strong>(拉丁学名+产地)</li>
+        <li><span class="warn">禁用成分预筛</span>见决策树第 0 节</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>③ 临床循证</h3>
+      <span class="badge">核心</span><span class="badge">12–84月</span>
+      <p><strong>路径 A:</strong>30 年使用证据(PubMed/Cochrane 检索) + 现代 RCT</p>
+      <p><strong>路径 B:</strong>II/III 期 RCT,5,000–30,000 例</p>
+      <p><strong>路径 C:</strong>性能测试为主,通常豁免临床</p>
+      <ul>
+        <li>中医特有:<strong>辨证施治 vs 标准化</strong>——RCT 设计争议焦点</li>
+        <li>中医特有:<strong>舌脉象客观化</strong>(AI 图像识别作次要终点)</li>
+        <li>必须<strong>预设 3 个适应性修改</strong>(适应性设计)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>④ 生产制造</h3>
+      <span class="badge">GMP</span><span class="badge">12–24月</span>
+      <p><strong>原料:</strong>GAP 规范化种植 + 道地药材溯源</p>
+      <p><strong>提取:</strong>水/醇/超临界 CO₂ 三种主流工艺</p>
+      <p><strong>制剂:</strong>颗粒/胶囊/贴片/膏药四类剂型</p>
+      <ul>
+        <li>必须<strong>双产地备份</strong>(云三七、宁夏枸杞等)</li>
+        <li>重金属/农药残留<strong>每批检测</strong>(ICP-MS + GC-MS/MS)</li>
+        <li>中医特有:<strong>炮制工艺标准化</strong>(九蒸九晒、姜炙等)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>⑤ 临床/法规运营</h3>
+      <span class="badge">CMC</span><span class="badge">持续</span>
+      <p><strong>CMC:</strong>化学/制造/控制——含量、纯度、稳定性、杂质谱</p>
+      <p><strong>PV(药物警戒):</strong>上市后不良反应监测系统</p>
+      <p><strong>变更管理:</strong>工艺/产地变更需补充申请</p>
+      <ul>
+        <li>必须<strong>24/7 药物警戒值班</strong>(欧美强制)</li>
+        <li>中药特有:<strong>中药材混伪品风险</strong>(同物异名/同名异物)</li>
+        <li>中医特有:中西药相互作用<strong>数据库</strong>(如黄连素+华法林)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>⑥ 渠道分销</h3>
+      <span class="badge">三业态交叉</span><span class="badge">持续</span>
+      <p><strong>产品:</strong>Amazon/iHerb/Walgreens(美);药店/电商(欧);中医馆+药店(东南亚)</p>
+      <p><strong>服务:</strong>中医诊所加盟、远程诊疗平台(Maven/Wheel)</p>
+      <p><strong>教育:</strong>继续教育平台、医学院合作、学术会议</p>
+      <ul>
+        <li><strong>先美国 → 后欧盟 → 后东南亚</strong>(监管最严即最高门槛)</li>
+        <li>中医特有:<strong>中医馆+药店</strong>双渠道是东南亚首选</li>
+        <li>中医特有:<strong>针灸师推荐</strong>作为关键意见领袖(KOL)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>⑦ 营销品牌</h3>
+      <span class="badge">法规高敏</span><span class="badge">持续</span>
+      <p><strong>美:</strong>不可称"治疗";只能用"支持/促进/帮助"</p>
+      <p><strong>欧:</strong>医疗声称须 RCT 支撑;结构化声称须 THMP 批准</p>
+      <p><strong>东南亚:</strong>新加坡对"传统疗效"有专项指南</p>
+      <ul>
+        <li><span class="warn">FDA 警告信</span>是行业最大风险</li>
+        <li>中医特有:<strong>中医术语英译</strong>统一化(Qi/Yin/Yang 已被 ISO 采纳)</li>
+        <li>中医特有:<strong>古籍引用需注明出处</strong>避免虚假宣传</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>⑧ 数据合规</h3>
+      <span class="badge">GDPR/HIPAA</span><span class="badge">持续</span>
+      <p><strong>美:</strong>HIPAA + 州法(CCPA/CPPA)</p>
+      <p><strong>欧:</strong>GDPR + EU AI Act(医疗 AI 高风险)</p>
+      <p><strong>东南亚:</strong>各国 PDP 法(新加坡 PDPA、马来 PDPA 2010)</p>
+      <ul>
+        <li>舌脉象图像<strong>属于敏感个人信息</strong></li>
+        <li>中医特有:<strong>辨证施治数据</strong>用于训练 AI 模型需明确告知</li>
+        <li>中医特有:<strong>患者体质分类</strong>数据跨境传输受额外限制</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>⑨ 资本运作</h3>
+      <span class="badge">3–7 年</span><span class="badge">SPAC/IPO/M&A</span>
+      <p><strong>早期:</strong>天使轮 / 风险投资 / 政府中医药专项基金</p>
+      <p><strong>中期:</strong>产业资本(同仁堂/白云山等)+ 战略并购</p>
+      <p><strong>后期:</strong>SPAC 赴美 / 香港 IPO / 东南亚 REITs</p>
+      <ul>
+        <li>中医特有:<strong>经典名方豁免</strong>政策红利(国家中医药管理局目录)</li>
+        <li>中医特有:<strong>省级中医药产业基金</strong>对接(广东/北京/上海)</li>
+        <li>中医特有:<strong>"一带一路"中医药合作</strong>专项资金</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 第 4 步:七关卡 -->
+<section id="sec-7gates">
+  <div class="sec-title"><span class="num">4</span>七关卡(项目里程碑红线)</div>
+  <div class="sec-sub">任一关卡未过 = 项目失败。**通过 = 已签 + 已验 + 已留痕**,缺一不可。</div>
+
+  <div class="gate">
+    <div class="gate-card"><div class="gnum">1</div><div class="gtitle">战略关</div><div class="gbody">3 业态商业画布已批 + 主线 1 + 辅线 1 已锁</div></div>
+    <div class="gate-card"><div class="gnum">2</div><div class="gtitle">法规关</div><div class="gbody">注册路径已选 + 禁用成分预筛已过</div></div>
+    <div class="gate-card"><div class="gnum">3</div><div class="gtitle">临床关</div><div class="gbody">II/III 期 RCT 主终点达预设 + 桥接通过</div></div>
+    <div class="gate-card"><div class="gnum">4</div><div class="gtitle">生产关</div><div class="gbody">GMP 现场审计通过 + 3 批工艺验证</div></div>
+    <div class="gate-card"><div class="gnum">5</div><div class="gtitle">上市关</div><div class="gbody">首月销售达成 ≥ 30% 预期 + KOL 复购 ≥ 25%</div></div>
+    <div class="gate-card"><div class="gnum">6</div><div class="gtitle">数据关</div><div class="gbody">PV 零重大事件 + GDPR/HIPAA 审计通过</div></div>
+    <div class="gate-card"><div class="gnum">7</div><div class="gtitle">资本关</div><div class="gbody">净现金流转正或下一轮融资到位</div></div>
+  </div>
+
+  <div class="callout">
+    <strong>关卡互锁</strong>——任何一关<strong>重新开放</strong>必须经董事会批准;关 5 未过 → 关 4 不开放,避免过度资本开支。
+  </div>
+</section>
+
+<!-- 第 5 步:两把尺子 -->
+<section id="sec-2rulers">
+  <div class="sec-title"><span class="num">5</span>两把尺子(贯穿项目全周期)</div>
+  <div class="sec-sub">第一把决定"能不能做",第二把决定"值不值得做"。每天对一次。</div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3>尺子 1 · 法规合规尺</h3>
+      <span class="badge">能 / 不能</span><span class="badge">每日查</span>
+      <ul>
+        <li>禁用成分清单(三市场最新版)</li>
+        <li>声称红线(美:不可治;欧:RCT;东南亚:逐国)</li>
+        <li>标签法规(21 CFR 101 / EU 1169/2011 / 各国)</li>
+        <li>GMP / 21 CFR 211 / EU GMP / PIC/S</li>
+        <li>PV 上报时效(15 日 / 90 日 / 当地药监局)</li>
+      </ul>
+      <div class="callout red" style="margin-top:14px"><strong>零容忍</strong>——任何"治疗/治愈"声称未撤 = 直接下线 + FDA 警告信</div>
+    </div>
+
+    <div class="card">
+      <h3>尺子 2 · 商业可持续尺</h3>
+      <span class="badge">赚 / 亏</span><span class="badge">每周算</span>
+      <ul>
+        <li>单 SKU 毛利 ≥ 40% (欧美), ≥ 30% (东南亚)</li>
+        <li>获客成本 CAC ≤ 1/3 LTV</li>
+        <li>复购率 ≥ 25% (产品); ≥ 60% (服务); ≥ 80% (教育)</li>
+        <li>净现金流转正 ≤ 18 月(产品); ≤ 6 月(服务); ≤ 3 月(教育)</li>
+        <li>净现金流转正 ≥ 24 月不达 → 启动退出预案</li>
+      </ul>
+      <div class="callout green" style="margin-top:14px"><strong>硬底线</strong>——单 SKU 毛利 &lt; 25% 持续 6 月 → 启动产品下架</div>
+    </div>
+  </div>
+</section>
+
+<!-- 第 6 步:权责 -->
+<section id="sec-raci">
+  <div class="sec-title"><span class="num">6</span>权责表(RACI × 九环节)</div>
+  <div class="sec-sub">R=执行,A=问责,C=咨询,I=知情。中医出海最常见的坑是<strong>法规/临床没人 R + 没人 A</strong>——补上。</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>环节</th><th>CEO</th><th>CSO(首席科学官)</th><th>CMO(医学)</th><th>RA(法规)</th><th>运营</th><th>财务</th><th>外部 CRO/CDMO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>① 战略</td><td class="row-a">A</td><td class="row-b">R</td><td class="row-b">C</td><td class="row-b">C</td><td class="row-a">C</td><td class="row-a">C</td><td class="row-a">I</td></tr>
+      <tr><td>② 法规注册</td><td class="row-a">A</td><td class="row-b">C</td><td class="row-b">C</td><td class="row-a">R</td><td class="row-a">I</td><td class="row-a">I</td><td class="row-a">R</td></tr>
+      <tr><td>③ 临床循证</td><td class="row-a">A</td><td class="row-b">C</td><td class="row-a">R</td><td class="row-b">C</td><td class="row-a">I</td><td class="row-a">I</td><td class="row-a">R</td></tr>
+      <tr><td>④ 生产制造</td><td class="row-a">A</td><td class="row-b">C</td><td class="row-b">I</td><td class="row-b">C</td><td class="row-a">R</td><td class="row-a">I</td><td class="row-a">C</td></tr>
+      <tr><td>⑤ 临床/法规运营</td><td class="row-a">A</td><td class="row-b">C</td><td class="row-b">C</td><td class="row-a">R</td><td class="row-a">R</td><td class="row-a">I</td><td class="row-a">C</td></tr>
+      <tr><td>⑥ 渠道分销</td><td class="row-a">A</td><td class="row-b">I</td><td class="row-b">I</td><td class="row-b">C</td><td class="row-a">R</td><td class="row-a">C</td><td class="row-a">I</td></tr>
+      <tr><td>⑦ 营销品牌</td><td class="row-a">A</td><td class="row-b">C</td><td class="row-b">C</td><td class="row-b">R</td><td class="row-a">R</td><td class="row-a">C</td><td class="row-a">I</td></tr>
+      <tr><td>⑧ 数据合规</td><td class="row-a">A</td><td class="row-b">C</td><td class="row-b">C</td><td class="row-b">R</td><td class="row-a">C</td><td class="row-a">C</td><td class="row-a">I</td></tr>
+      <tr><td>⑨ 资本运作</td><td class="row-a">A/R</td><td class="row-b">I</td><td class="row-b">I</td><td class="row-b">I</td><td class="row-a">C</td><td class="row-a">R</td><td class="row-a">I</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 第 7 步:财务估算 -->
+<section id="sec-finance">
+  <div class="sec-title"><span class="num">7</span>财务估算(三业态单 SKU)</div>
+  <div class="sec-sub">不是给 LP 看的精致模型,是给<strong>老板做决策</strong>用的三栏账——行业区间,不含场地/团队/人头。</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>项目</th><th>产品(草药补充剂 A)</th><th>服务(中医诊所)</th><th>教育(中医在线课)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="warn">首期投资</td><td>50–300 万美元</td><td>30–150 万美元</td><td>10–50 万美元</td></tr>
+      <tr><td class="warn">到上市周期</td><td>6–18 月</td><td>3–9 月</td><td>1–3 月</td></tr>
+      <tr><td class="warn">单客户单价</td><td>30–80 USD</td><td>80–250 USD/次</td><td>200–2,000 USD</td></tr>
+      <tr><td class="warn">毛利</td><td>40–65%</td><td>55–75%</td><td>75–90%</td></tr>
+      <tr><td class="warn">净现金流转正</td><td>12–24 月</td><td>6–12 月</td><td>3–6 月</td></tr>
+      <tr><td class="warn">复购率</td><td>20–35%</td><td>50–70%</td><td>70–85%</td></tr>
+      <tr><td class="warn">退换率</td><td>3–8%</td><td>&lt; 1%</td><td>&lt; 2%</td></tr>
+      <tr><td class="warn">客户终身价值 LTV</td><td>120–400 USD</td><td>800–3,000 USD</td><td>1,500–8,000 USD</td></tr>
+      <tr><td class="warn">获客成本 CAC</td><td>30–80 USD</td><td>80–200 USD</td><td>50–150 USD</td></tr>
+      <tr><td class="warn">LTV:CAC 健康比</td><td>≥ 3:1</td><td>≥ 4:1</td><td>≥ 5:1</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout blue">
+    <strong>组合打法</strong>——教育做流量入口(低成本获客),服务做信任建立(高毛利),产品做长期沉淀(规模化)。
+    三业态协同后整体 LTV:CAC 可达 <strong>5:1–8:1</strong>,远超单业态。
+  </div>
+</section>
+
+<!-- 第 8 步:风险与对策 -->
+<section id="sec-risks">
+  <div class="sec-title"><span class="num">8</span>风险与对策(按概率 × 损失排序)</div>
+  <div class="sec-sub">只列<strong>真会发生</strong>的——理论风险靠 KPI 之外的真项目经验。</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:6%">序</th>
+        <th style="width:24%">风险</th>
+        <th style="width:14%">概率</th>
+        <th style="width:14%">损失</th>
+        <th style="width:42%">对策</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>FDA 警告信(声称违规)</td><td class="warn">高</td><td class="warn">高</td><td>禁用"治疗/治愈"字眼;每月标签/广告内部审计</td></tr>
+      <tr><td>2</td><td>中药材混伪品/重金属超标</td><td>中</td><td class="warn">高</td><td>每批 ICP-MS + GC-MS/MS;双产地备份;第三方审计</td></tr>
+      <tr><td>3</td><td>禁用成分漏检(<span class="tcm-mark">马兜铃酸</span>等)</td><td>中</td><td class="warn">高</td><td>建立禁用成分数据库 + 入库前 LC-MS 全谱扫描</td></tr>
+      <tr><td>4</td><td>EU MDR 公告机构排队(18月+)</td><td class="warn">高</td><td>中</td><td>提前 12 月锁定 2 家公告机构;预留缓冲</td></tr>
+      <tr><td>5</td><td>经典名方桥接试验失败</td><td>中</td><td class="warn">高</td><td>并行做路径 A 备案;预设降级方案</td></tr>
+      <tr><td>6</td><td>CE 标志被吊销</td><td>低</td><td class="warn">高</td><td>上市后警戒系统(PSUR/PMS)完备</td></tr>
+      <tr><td>7</td><td>中式养生与"传统医学"称谓争议</td><td>中</td><td>中</td><td>使用 WHO/ISO 标准化术语;注明"基于中医传统"</td></tr>
+      <tr><td>8</td><td>跨境数据合规(GDPR/HIPAA)</td><td>中</td><td>中</td><td>本地化部署;隐私设计 Privacy by Design</td></tr>
+      <tr><td>9</td><td>汇率与关税(301 关税持续)</td><td>高</td><td>中</td><td>多币种结算 + 墨西哥/越南转口备份</td></tr>
+      <tr><td>10</td><td>舆情(不良反应事件)</td><td>低</td><td class="warn">高</td><td>24h PV 值班 + 危机公关预案</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 第 9 步:纪律 -->
+<section id="sec-discipline">
+  <div class="sec-title"><span class="num">9</span>纪律(团队行为准则)</div>
+  <div class="sec-sub">不是道德说教,是<strong>活下来</strong>的硬规矩——每条背后都有一次真踩过的坑。</div>
+
+  <div class="grid g2">
+    <div class="card"><h3>① 单线聚焦</h3><p>任一时点 ≤ 1 个<strong>主线</strong> + ≤ 1 个<strong>辅线</strong>。三业态同跑 = 资源稀释,失败率翻倍。</p></div>
+    <div class="card"><h3>② 三市场次序</h3><p>美国 → 欧盟 → 东南亚(<strong>先最严后最松</strong>);美 FDA 通过即全球质量背书。</p></div>
+    <div class="card"><h3>③ 证据为先</h3><p>任何"功效/治疗/治愈"字眼必须<strong>有 RCT 或 30 年使用证据</strong>;无证据 = 不写。</p></div>
+    <div class="card"><h3>④ 简化交付</h3><p>上线 6 月内<strong>≤ 2 个 SKU</strong>、≤ 1 个市场;简化优先于完美。</p></div>
+    <div class="card"><h3>⑤ 文化适配</h3><p>本地化(术语、品牌、包装)预算 ≥ 总预算 15%;不做"中文翻译版"。</p></div>
+    <div class="card"><h3>⑥ 数据留痕</h3><p>任何决策、争议、修订<strong>邮件/会议纪要归档</strong>;FDA 审计必查。</p></div>
+  </div>
+</section>
+
+<!-- 第 10 步:总表 -->
+<section id="sec-summary">
+  <div class="sec-title"><span class="num">10</span>总表(三业态 × 三市场 × 三形态)</div>
+  <div class="sec-sub">一表看完 — 项目立项会上"对一下数"。</div>
+
+  <table>
+    <thead>
+      <tr><th>业态 \ 市场</th><th>美国</th><th>欧盟</th><th>东南亚</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-a"><td>草药补充剂(A)</td><td>DSHEA 6–18月 / 50–300万$</td><td>THMP 18–36月 / 200–800万€</td><td>HSA 3–9月 / 30–150万$</td></tr>
+      <tr class="row-b"><td>中成药(B)</td><td>IND→NDA 60–120月 / 5000万–3亿$</td><td>THMP 全路径 36–60月 / 3000万–1.5亿€</td><td>新加坡严;马来/泰国 24–48月 / 800万–5000万$</td></tr>
+      <tr class="row-c"><td>械字号外用(C)</td><td>510(k) 6–18月 / 30–200万$</td><td>MDR 12–24月 / 50–300万€</td><td>3–6月 / 10–50万$</td></tr>
+      <tr class="row-a"><td>中医诊所/服务</td><td>各州针灸师牌照;Interstate Compact</td><td>补充医学;英国/德/荷较严</td><td>新加坡 TCM 法案;马来/泰国宽松</td></tr>
+      <tr class="row-b"><td>中医教育</td><td>NCCAOM CE 学分;WFAS 学历认证</td><td>国家补充医学目录</td><td>本地大学合作;WHO 传统医学战略</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 第 11 节:经典名方清单(中医专版必备) -->
+<section id="sec-classic">
+  <div class="sec-title"><span class="num">11</span>经典名方清单(《古代经典名方目录》首批)</div>
+  <div class="sec-sub">国家中医药管理局 2018《古代经典名方目录》首批 100 首——**优先路径**:经典名方在日本/韩国/东南亚有长期使用证据,出海注册<strong>更易获得简化审批</strong>。</div>
+
+  <div class="grid g3">
+    <div class="card">
+      <h3>A 类 · 解表剂</h3>
+      <ul>
+        <li>桂枝汤 · 麻黄汤 · 小青龙汤</li>
+        <li>银翘散 · 桑菊饮 · 麻黄杏仁甘草石膏汤</li>
+        <li>九味羌活汤 · 升阳益胃汤</li>
+        <li><strong>出海友好:</strong>FDA 结构化声称可批"支持免疫"</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>B 类 · 清热剂</h3>
+      <ul>
+        <li>白虎汤 · 黄连解毒汤 · 导赤散</li>
+        <li>龙胆泻肝汤(<span class="warn">⚠️ 含关木通,欧美禁</span>)</li>
+        <li>茵陈蒿汤 · 五味消毒饮</li>
+        <li><strong>出海友好:</strong>清热类在东南亚认知强</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>C 类 · 补益剂</h3>
+      <ul>
+        <li>四君子汤 · 四物汤 · 六味地黄丸</li>
+        <li>补中益气汤 · 生脉散 · 归脾汤</li>
+        <li>八珍汤 · 十全大补汤</li>
+        <li><strong>出海友好:</strong>补益类在欧美接受度高,作"健康支持"</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>D 类 · 活血化瘀剂</h3>
+      <ul>
+        <li>血府逐瘀汤 · 补阳还五汤 · 桃红四物汤</li>
+        <li>丹参饮 · 温经汤</li>
+        <li><span class="warn">⚠️ 含虫类药(<span class="tcm-mark">水蛭</span><span class="tcm-mark">地龙</span>)欧美多禁</span></li>
+        <li><strong>出海友好:</strong>需先做物质基础研究</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>E 类 · 理气剂</h3>
+      <ul>
+        <li>逍遥散 · 柴胡疏肝散 · 半夏厚朴汤</li>
+        <li>枳实薤白桂枝汤</li>
+        <li><strong>出海友好:</strong>妇科常用,东南亚接受度好</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>F 类 · 祛湿剂</h3>
+      <ul>
+        <li>五苓散 · 真武汤 · 平胃散</li>
+        <li>三仁汤 · 藿香正气散</li>
+        <li><span class="warn">⚠️ 含<span class="tcm-mark">附子</span>(乌头碱)欧美禁</span></li>
+        <li><strong>出海友好:</strong>东南亚湿热气候刚需</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout red">
+    <strong>禁方红线</strong>(欧美)<strong>:</strong>含 <span class="tcm-mark">马兜铃酸</span>(关木通、广防己、青木香)、<span class="tcm-mark">乌头碱</span>(附子、川乌、草乌)、<span class="tcm-mark">麻黄碱</span>(麻黄)、<span class="tcm-mark">雷公藤</span>——任一处方包含此 4 类成分,<strong>出海项目直接禁</strong>。
+  </div>
+</section>
+
+<!-- 第 12 节:体系总览 + 时间线 -->
+<section id="sec-overview">
+  <div class="sec-title"><span class="num">12</span>体系总览 + 18 个月路线图</div>
+  <div class="sec-sub">从立项到第一桶金的完整时间线(三业态协同版)。**任一月延误 = 全链路重排**——三业态串行资源最省。</div>
+
+  <table>
+    <thead>
+      <tr><th style="width:8%">月份</th><th style="width:20%">产品线(草药补充剂)</th><th style="width:20%">服务线(中医诊所/远程)</th><th style="width:20%">教育线(在线课程)</th><th style="width:32%">关键里程碑</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>M1–3</td><td>原料筛选 + 配方定型 + GMP 选址</td><td>医师招募 + 牌照路径设计</td><td>课程大纲 + 导师签约</td><td><strong>关卡 1 战略关</strong></td></tr>
+      <tr><td>M4–6</td><td>DSHEA 备案 + 标签设计 + 电商上线</td><td>诊所试营业 + 远程诊疗牌照</td><td>首批 3 门课程上线</td><td><strong>关卡 2 法规关</strong></td></tr>
+      <tr><td>M7–9</td><td>首批客户 + 复购数据采集</td><td>首诊 100 例 + 临床证据收集</td><td>首批学员 + CE 学分申请</td><td>数据驱动迭代</td></tr>
+      <tr><td>M10–12</td><td>SKU 扩展(同系列 3 个) + 欧盟 THMP 启动</td><td>诊所 2 号店 + 跨境远程诊疗</td><td>课程扩至 10 门 + 院校合作</td><td><strong>关卡 5 上市关</strong></td></tr>
+      <tr><td>M13–15</td><td>欧盟 THMP 提交 + 东南亚 HSA 备案</td><td>马来/新加坡 TCM 注册</td><td>WHO 传统医学战略对接</td><td>三市场铺开</td></tr>
+      <tr><td>M16–18</td><td>欧盟获批 + 东南亚上市</td><td>东南亚诊所连锁</td><td>海外学员突破 10,000</td><td><strong>关卡 6 数据关 + 关卡 7 资本关</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout blue">
+    <strong>现金流拐点:</strong>教育第 3 月净正 → 服务第 6 月净正 → 产品第 12 月净正 → 全业态 18 月净正。
+    若教育不达,服务获客成本翻倍;若服务不达,产品信任建立慢——**三业态是顺序依赖,不是并行**。
+  </div>
+</section>
+
+<!-- 第 13 节:联络窗口 + 资源 -->
+<section id="sec-contacts">
+  <div class="sec-title"><span class="num">13</span>关键联络与资源清单</div>
+  <div class="sec-sub">完整体系不是文档,是<strong>活的关系网</strong>——以下窗口必须在 M1–3 全部打通。</div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3>法规官 / RA(法规事务)</h3>
+      <ul>
+        <li><strong>美国:</strong>FDA Office of Dietary Supplements Programs</li>
+        <li><strong>欧盟:</strong>EMA HMPC 草药产品委员会 + 各国 BfArM/MHRA</li>
+        <li><strong>东南亚:</strong>新加坡 HSA · 马来 NPRA · 泰国 TFDA</li>
+        <li><strong>WHO:</strong>传统医学战略 2014-2023 联络点</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>CRO / CDMO(外包资源)</h3>
+      <ul>
+        <li><strong>海外 CRO:</strong>IQVIA · Covance · Charles River · PRA Health</li>
+        <li><strong>中药专项 CRO:</strong>TGA Sciences · SGS Pharma · Eurofins</li>
+        <li><strong>海外 CDMO:</strong>Patheon · Catalent · Aenova(欧洲)</li>
+        <li><strong>中国出海 CRO:</strong>药明康德 · 泰格医药 · 博济医药</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>行业协会 / 标准</h3>
+      <ul>
+        <li><strong>WHO:</strong>ICD-11 传统医学模块(已纳入,2022 生效)</li>
+        <li><strong>ISO/TC 249:</strong>中医药标准化技术委员会</li>
+        <li><strong>WFAS:</strong>世界针灸学会联合会</li>
+        <li><strong>NCCAOM:</strong>美国针灸与东方医学认证</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>渠道 / 媒体 / KOL</h3>
+      <ul>
+        <li><strong>美国渠道:</strong>Amazon · iHerb · Walgreens · CVS</li>
+        <li><strong>欧盟渠道:</strong>DocMorris · Shop Apotheke · 各国连锁</li>
+        <li><strong>东南亚渠道:</strong>中医馆连锁 · 余仁生 · 当地药店</li>
+        <li><strong>KOL:</strong>当地针灸师 / 整合医学医师 / 中医 YouTuber</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>资本 / 政策红利</h3>
+      <ul>
+        <li><strong>国家中医药管理局:</strong>经典名方简化注册目录</li>
+        <li><strong>"一带一路":</strong>中医药合作专项(已签约 40+ 国家)</li>
+        <li><strong>省级产业基金:</strong>广东/北京/上海/四川中医药产业基金</li>
+        <li><strong>国际资本:</strong>专门投整合医学的基金(IVC · Acadia)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>危机 / 法律 / 保险</h3>
+      <ul>
+        <li><strong>药物警戒 PV:</strong>24/7 值班(Uppsala Monitoring Centre)</li>
+        <li><strong>产品责任险:</strong>MedPro · Chubb · AIG(每市场必备)</li>
+        <li><strong>FDA 警告信响应:</strong>专属律师(Reed Smith · Hogan Lovells)</li>
+        <li><strong>公关:</strong>Edelman Health / Real Chemistry(医疗专长)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 第 14 节:术语表 -->
+<section id="sec-glossary">
+  <div class="sec-title"><span class="num">14</span>术语表(中 → 英 → 法规对应)</div>
+  <div class="sec-sub">中医术语出海<strong>必须用 ISO/TC 249 标准化译法</strong>——自创译法会被 FDA/EMA 视为"未声明成分",触发警告信。</div>
+
+  <table>
+    <thead>
+      <tr><th style="width:20%">中文</th><th style="width:20%">ISO 标准英译</th><th style="width:30%">拼音/直译</th><th style="width:30%">法规提示</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>气</td><td>Qi</td><td>Vital Energy</td><td>ISO/TC 249 采纳;不可名易出</td></tr>
+      <tr><td>阴/阳</td><td>Yin / Yang</td><td>—</td><td>ISO 标准;FDA 已接受</td></tr>
+      <tr><td>五行</td><td>Five Elements (Wu Xing)</td><td>—</td><td>学术术语,不在标签使用</td></tr>
+      <tr><td>经络</td><td>Meridian</td><td>Jing-Luo</td><td>FDA 接受;需配套解剖学说明</td></tr>
+      <tr><td>穴位</td><td>Acupoint</td><td>Xuewei</td><td>WHO 已标准化 361 个穴位</td></tr>
+      <tr><td>辨证施治</td><td>Pattern Differentiation & Treatment</td><td>Bianzheng Shizhi</td><td>不可译"diagnosis";避开医学术语</td></tr>
+      <tr><td>舌象</td><td>Tongue Diagnosis</td><td>Shexiang</td><td>FDA 接受;需 AI 图像客观化</td></tr>
+      <tr><td>脉象</td><td>Pulse Diagnosis</td><td>Maixiang</td><td>FDA 接受;需设备客观化</td></tr>
+      <tr><td>中药</td><td>Traditional Chinese Medicine (TCM)</td><td>Zhongyao</td><td>WHO 官方术语</td></tr>
+      <tr><td>中成药</td><td>Chinese Patent Medicine (CPM)</td><td>Zhongchengyao</td><td>FDA / EMA 接受度不同</td></tr>
+      <tr><td>经典名方</td><td>Classical Formula</td><td>Jingdian Mingfang</td><td>中国法规术语;出海换为"Traditional Herbal Formula"</td></tr>
+      <tr><td>道地药材</td><td>Geo-authentic Herbs</td><td>Daodi Yaocai</td><td>换为"Geographic Authentication Standard"</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>标签翻译规则</strong>——消费者标签使用通俗英文(如 "Supports immune health"),企业宣传材料可用 ISO 标准术语,医师/学术文献保留拼音。三套文本须<strong>内部一致</strong>,避免"广告文案用 ISO 词、监管备案用消费者词"的矛盾。
+  </div>
+</section>
+
+<!-- 第 15 节:附录 - 项目立项 checklist -->
+<section id="sec-checklist">
+  <div class="sec-title"><span class="num">15</span>附录 · 立项 checklist(打印勾选)</div>
+  <div class="sec-sub">下一份会前,**逐项打勾**。空着的项就是"还没真干"。</div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3>战略 + 法规(M1–3 必完成)</h3>
+      <ul>
+        <li>☐ 三业态商业画布已签批</li>
+        <li>☐ 第一目标市场已锁定</li>
+        <li>☐ 主线 / 辅线已分清</li>
+        <li>☐ 禁用成分预筛已过(全成分时)</li>
+        <li>☐ 注册路径已选(A/B/C)</li>
+        <li>☐ CSO + RA 已到位</li>
+        <li>☐ 商标注册(三市场)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>临床 + 生产(M4–9 必完成)</h3>
+      <ul>
+        <li>☐ 30 年使用证据检索(PubMed/Cochrane)</li>
+        <li>☐ 主终点 + 次要终点已签</li>
+        <li>☐ CRO 已签约</li>
+        <li>☐ CDMO 已签约</li>
+        <li>☐ 双产地备份已确认</li>
+        <li>☐ 重金属/农药检测 SOP 已建</li>
+        <li>☐ 炮制工艺标准化已签</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>上市 + 数据(M10–14 必完成)</h3>
+      <ul>
+        <li>☐ 标签三语版本已定</li>
+        <li>☐ KOL 已签约(≥ 3 人/市场)</li>
+        <li>☐ 24/7 PV 值班已建</li>
+        <li>☐ GDPR/HIPAA 审计通过</li>
+        <li>☐ 产品责任险已购</li>
+        <li>☐ FDA 警告信响应预案已签</li>
+        <li>☐ 危机公关预案已签</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>资本 + 退出(M15–18 必完成)</h3>
+      <ul>
+        <li>☐ LTV:CAC ≥ 3:1(产品)/ 4:1(服务)/ 5:1(教育)</li>
+        <li>☐ 复购率达预期(产品 ≥ 25%)</li>
+        <li>☐ 净现金流转正 ≤ 18 月</li>
+        <li>☐ 下一轮融资到位 OR SPAC 已签约</li>
+        <li>☐ "一带一路"中医药专项已申报</li>
+        <li>☐ 经典名方豁免已申报</li>
+        <li>☐ 18 月复盘 + M19+ 路线图已签</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 第 16 节:资金流图与三业态交叉补贴 -->
+<section id="sec-cashflow">
+  <div class="sec-title"><span class="num">16</span>资金流图(各业态现金流交叉补贴)</div>
+  <div class="sec-sub">三业态不是<strong>独立业务</strong>,是<strong>一个价值网的三个节点</strong>——教育是最便宜获客入口,服务是信任锚点,产品是规模化变现。教育现金流反哺服务和产品的客户获取成本(CAC)。</div>
+
+  <h3 style="color:var(--accent-2);margin:14px 0 10px">① 三业态现金流模型(24 月滚动)</h3>
+  <table>
+    <thead>
+      <tr><th style="width:8%">月份</th><th style="width:18%">教育(在线课程)</th><th style="width:18%">服务(诊所/远程)</th><th style="width:18%">产品(草药补充剂)</th><th style="width:38%">交叉补贴机制</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>M1–3</td><td class="row-a">净负 $50K</td><td class="row-b">净负 $200K</td><td class="row-b">净负 $300K</td><td>教育试运行;服务/产品同时启动</td></tr>
+      <tr><td>M4–6</td><td class="row-a">净正 $30K ✓</td><td class="row-b">净负 $100K</td><td class="row-b">净负 $200K</td><td><strong>教育正现金流</strong>开始覆盖服务获客 CAC($80→$30)</td></tr>
+      <tr><td>M7–9</td><td class="row-a">净正 $80K</td><td class="row-b">净正 $50K ✓</td><td class="row-b">净负 $80K</td><td><strong>服务正现金流</strong>反哺产品 KOL 投放</td></tr>
+      <tr><td>M10–12</td><td class="row-a">净正 $150K</td><td class="row-b">净正 $120K</td><td class="row-b">净正 $50K ✓</td><td><strong>三业态同时正</strong>;累计 EBIT 转正</td></tr>
+      <tr><td>M13–18</td><td class="row-a">净正 $250K/月</td><td class="row-b">净正 $280K/月</td><td class="row-b">净正 $350K/月</td><td>可启动欧盟/东南亚扩张</td></tr>
+      <tr><td>M19–24</td><td class="row-a">净正 $400K/月</td><td class="row-b">净正 $450K/月</td><td class="row-b">净正 $650K/月</td><td>第二曲线(医疗器械)</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:var(--accent-2);margin:20px 0 10px">② 现金流交叉流向图</h3>
+  <div class="path-box">
+    <span class="label">M1–6 早期</span>
+    <h4>外部资本 → 教育 → 服务 → 产品</h4>
+    <div class="flow">
+      <span class="step">VC 注入 $2M</span><span class="arrow">→</span>
+      <span class="step">教育课程上线</span><span class="arrow">→</span>
+      <span class="step">学费收入 $30K/月</span><span class="arrow">→</span>
+      <span class="step">截留 50% 投入服务获客</span><span class="arrow">→</span>
+      <span class="step">服务首诊 100 例</span><span class="arrow">→</span>
+      <span class="step">复购转化 30% → 产品</span>
+    </div>
+  </div>
+  <div class="path-box" style="border-color:var(--green)">
+    <span class="label" style="background:var(--green);color:#0a0e1a">M7–12 成长期</span>
+    <h4>服务 → 产品 · 产品 → 教育 · 教育 → 资本</h4>
+    <div class="flow">
+      <span class="step">服务首诊 1,000 例</span><span class="arrow">→</span>
+      <span class="step">复购转化 30% 流向产品</span><span class="arrow">→</span>
+      <span class="step">产品临床案例 300 例</span><span class="arrow">→</span>
+      <span class="step">反哺教育课程内容(案例库)</span><span class="arrow">→</span>
+      <span class="step">课程涨价 30% + 学员增 50%</span><span class="arrow">→</span>
+      <span class="step">现金流故事 → A 轮融资</span>
+    </div>
+  </div>
+  <div class="path-box" style="border-color:var(--blue)">
+    <span class="label" style="background:var(--blue);color:#0a0e1a">M13+ 规模化</span>
+    <h4>三业态互相背书 + 自循环</h4>
+    <div class="flow">
+      <span class="step">产品规模化(年 $10M+)</span><span class="arrow">→</span>
+      <span class="step">利润 60% 反哺研发</span><span class="arrow">→</span>
+      <span class="step">教育扩至医学继续教育</span><span class="arrow">→</span>
+      <span class="step">服务从诊所扩至医院科室</span><span class="arrow">→</span>
+      <span class="step">三业态 LTV:CAC 综合 ≥ 6:1</span>
+    </div>
+  </div>
+
+  <div class="callout blue">
+    <strong>关键指标</strong>——任一季度:① 教育→服务的转化率 <strong>≥ 15%</strong>、② 服务→产品的复购转化 <strong>≥ 30%</strong>、③ 产品→教育的案例反哺 <strong>每月 ≥ 5 例</strong>。三项任一不达标,业态协同<strong>立刻失效</strong>,需重新设计。
+  </div>
+
+  <h3 style="color:var(--accent-2);margin:20px 0 10px">③ 融资节奏(分轮次)</h3>
+  <table>
+    <thead>
+      <tr><th>轮次</th><th>时点</th><th>金额</th><th>用途</th><th>估值锚</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>天使轮</td><td>M0</td><td>$500K–$2M</td><td>三业态立项 + CSO/RA 招聘</td><td>团队 + IP 初步</td></tr>
+      <tr><td>A 轮</td><td>M12</td><td>$5M–$15M</td><td>美国 FDA 通过 + 教育扩至 1万学员</td><td>三业态首年 ARR $3M+</td></tr>
+      <tr><td>B 轮</td><td>M24</td><td>$20M–$50M</td><td>欧盟 THMP 通过 + 东南亚扩张</td><td>ARR $15M+ · 毛利 ≥ 55%</td></tr>
+      <tr><td>C 轮 / SPAC</td><td>M36+</td><td>$50M+</td><td>三市场并购整合</td><td>ARR $50M+ · 净利率 ≥ 15%</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 第 17 节:知识产权 -->
+<section id="sec-ip">
+  <div class="sec-title"><span class="num">17</span>知识产权——经典名方豁免 + 现代组方专利 + 商标</div>
+  <div class="sec-sub">中医出海<strong>最大坑</strong>是 IP——古籍公开 ≠ 行业传统 ≈ 谁都能用。必须<strong>三层架构</strong>:公开方用豁免保护,新组方申请专利,品牌商标全球注册。</div>
+
+  <div class="grid g3">
+    <div class="card">
+      <h3>层 1 · 经典名方豁免</h3>
+      <span class="badge">国家中医药局目录</span>
+      <p><strong>对象:</strong>《古代经典名方目录》(2018 首批 100 首)</p>
+      <p><strong>权利:</strong>可豁免部分临床试验,简化注册路径</p>
+      <p><strong>义务:</strong>必须与目录配方<strong>完全一致</strong>(剂量、剂型、炮制)</p>
+      <ul>
+        <li>☐ 选定方剂后先核对目录版本号</li>
+        <li>☐ 剂量 ±10% 内浮动需备案</li>
+        <li>☐ 加味(辅药)失去豁免资格</li>
+        <li>☐ 美国不能援引豁免——FDA 不认</li>
+      </ul>
+      <div class="callout" style="margin-top:10px"><strong>关键坑:</strong>日韩可援引"汉方/韩医"传统使用;美国/欧盟<strong>不可</strong>。</div>
+    </div>
+
+    <div class="card">
+      <h3>层 2 · 现代组方专利</h3>
+      <span class="badge">核心壁垒</span>
+      <p><strong>对象:</strong>企业自研新组方、新剂型、新工艺</p>
+      <p><strong>专利类型:</strong>发明专利(配方/工艺/用途)</p>
+      <p><strong>地域:</strong>三市场分别申请 PCT 进入国家阶段</p>
+      <ul>
+        <li>☐ 配方专利:活性成分 + 比例(支持权要)</li>
+        <li>☐ 工艺专利:提取/纯化/制剂(方法权要)</li>
+        <li>☐ 用途专利:治疗某适应症(第二用途)</li>
+        <li>☐ PCT 优先权 30 月(美) / 31 月(欧)</li>
+        <li>☐ 中药特有:<strong>道地药材产地</strong>可申请地理标志</li>
+      </ul>
+      <div class="callout red" style="margin-top:10px"><strong>红线:</strong>申请前<strong>不得公开</strong>(论文/会议/电商上线),否则破坏新颖性。</div>
+    </div>
+
+    <div class="card">
+      <h3>层 3 · 商标 + 包装</h3>
+      <span class="badge">品牌资产</span>
+      <p><strong>对象:</strong>品牌名、Logo、Slogan、外观设计</p>
+      <p><strong>商标分类:</strong>尼斯分类第 5 类(药品)+ 第 44 类(医疗服务)+ 第 41 类(教育)</p>
+      <p><strong>关键市场:</strong>马德里体系 + 单一国家注册</p>
+      <ul>
+        <li>☐ 商标查询 6 周(USPTO / EUIPO / IPOS)</li>
+        <li>☐ 中文商标全球注册防抢注</li>
+        <li>☐ Logo + 包装外观设计专利</li>
+        <li>☐ 域名 + 社交账号同步保护</li>
+        <li>☐ 警惕:中医专有词("岐黄""本草")不可独占</li>
+      </ul>
+      <div class="callout" style="margin-top:10px"><strong>预算占比:</strong>商标 + 专利年度预算 ≈ 总预算的 <strong>3–5%</strong>。</div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--accent-2);margin:20px 0 10px">④ 侵权监控(出海后)</h3>
+  <table>
+    <thead>
+      <tr><th>监控对象</th><th>工具</th><th>频率</th><th>响应动作</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>商标侵权(同/近似商标)</td><td>CompuMark · Corsearch</td><td>每月</td><td>异议 / 撤销 / 收购</td></tr>
+      <tr><td>专利侵权(产品/工艺)</td><td>Derwent · PatSnap</td><td>每季</td><td>FTO 分析 → 规避设计</td></tr>
+      <tr><td>电商假冒</td><td>Amazon Brand Registry</td><td>每周</td><td>下架投诉 + 海关备案</td></tr>
+      <tr><td>著作权(教材/课程)</td><td>YouTube Content ID</td><td>持续</td><td>版权声明 + 平台投诉</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>三业态 IP 协同</strong>——产品配方专利 + 服务诊疗方案著作权 + 教育课程著作权 + 品牌商标,<strong>合起来才是壁垒</strong>。单独一项竞争对手可绕过,合起来至少需 18–24 月才能复制。
+  </div>
+</section>
+
+<!-- 第 18 节:中医诊所选址 -->
+<section id="sec-locations">
+  <div class="sec-title"><span class="num">18</span>中医诊所选址——三市场 9 个标杆城市</div>
+  <div class="sec-sub">不选"哪里华人多",选"<strong>监管/客群/成本/复制性</strong>"综合最优。每个诊所选址 = 3 个月深度调研。</div>
+
+  <div class="grid g3">
+    <div class="card">
+      <h3>美国 #1 · 加州 旧金山</h3>
+      <span class="badge">首选</span>
+      <p><strong>客群:</strong>亚裔 33% · 高净值 · 整合医学接受度高</p>
+      <p><strong>牌照:</strong>加州针灸师(L.Ac.);远程诊疗允许</p>
+      <p><strong>成本:</strong>租金 $80–150/sqft/年 · 人均 $200–400</p>
+      <ul>
+        <li>☐ 中国城 / Sunset / Palo Alto 三选址</li>
+        <li>☐ 旧金山中医药大学合作</li>
+        <li>☐ Stanford 整合医学中心转诊</li>
+      </ul>
+      <div class="metric"><span class="k">目标客单价</span><span class="v">$120–$300/次</span></div>
+      <div class="metric"><span class="k">预期月客流</span></span class="v">200–400 次</span></div>
+      <div class="metric"><span class="k">回本周期</span><span class="v">8–14 月</span></div>
+    </div>
+
+    <div class="card">
+      <h3>美国 #2 · 纽约 曼哈顿</h3>
+      <span class="badge">高密度</span>
+      <p><strong>客群:</strong>亚裔 15% · 金融/律师高净值 · 高端中医需求</p>
+      <p><strong>牌照:</strong>纽约州针灸师(需 NCCAOM 认证)</p>
+      <p><strong>成本:</strong>租金 $120–250/sqft/年 · 高于 SF</p>
+      <ul>
+        <li>☐ 华埠 / 中城东 / 上东区三选址</li>
+        <li>☐ 与西奈山医院整合医学科合作</li>
+        <li>☐ 哥伦比亚大学 TCM 研究对接</li>
+      </ul>
+      <div class="metric"><span class="k">目标客单价</span><span class="v">$180–$400/次</span></div>
+      <div class="metric"><span class="k">预期月客流</span><span class="v">150–300 次</span></div>
+      <div class="metric"><span class="k">回本周期</span><span class="v">12–18 月</span></div>
+    </div>
+
+    <div class="card">
+      <h3>美国 #3 · 西雅图</h3>
+      <span class="badge">科技客户</span>
+      <p><strong>客群:</strong>科技公司高净值 · 整合医学先驱</p>
+      <p><strong>牌照:</strong>华盛顿州针灸师(全美最宽松之一)</p>
+      <p><strong>成本:</strong>租金 $50–90/sqft/年 · 低于 SF/NY</p>
+      <ul>
+        <li>☐ Bellevue / Redmond 选址</li>
+        <li>☐ 微软/亚马逊员工健康福利对接</li>
+        <li>☐ Bastyr 大学自然医学合作</li>
+      </ul>
+      <div class="metric"><span class="k">目标客单价</span><span class="v">$100–$250/次</span></div>
+      <div class="metric"><span class="k">预期月客流</span><span class="v">100–250 次</span></div>
+      <div class="metric"><span class="k">回本周期</span><span class="v">6–10 月</span></div>
+    </div>
+
+    <div class="card">
+      <h3>欧盟 #1 · 英国 伦敦</h3>
+      <span class="badge">首选</span>
+      <p><strong>客群:</strong>华人 60 万 · NHS 整合医学预算增加 · 高净值外籍</p>
+      <p><strong>牌照:</strong>无强制国家牌照;但 ASA 广告严控</p>
+      <p><strong>成本:</strong>租金 £80–150/sqft/年 · 中央伦敦高</p>
+      <ul>
+        <li>☐ Chinatown / Harley Street / Islington</li>
+        <li>☐ 与 NHS GP 双向转诊试点</li>
+        <li>☐ 伦敦中医学院校友网络</li>
+      </ul>
+      <div class="metric"><span class="k">目标客单价</span><span class="v">£80–£200/次</span></div>
+      <div class="metric"><span class="k">预期月客流</span><span class="v">200–400 次</span></div>
+      <div class="metric"><span class="k">回本周期</span><span class="v">10–14 月</span></div>
+    </div>
+
+    <div class="card">
+      <h3>欧盟 #2 · 德国 慕尼黑</h3>
+      <span class="badge">严谨市场</span>
+      <p><strong>客群:</strong>本地人对中医(Naturheilkunde)接受度高</p>
+      <p><strong>牌照:</strong>Heilpraktiker 牌照即可执业</p>
+      <p><strong>成本:</strong>租金 €50–90/sqft/年</p>
+      <ul>
+        <li>☐ Schwabing / Maxvorstadt 选址</li>
+        <li>☐ 与慕尼黑工业大学中医研究合作</li>
+        <li>☐ 德语中医术语本地化</li>
+      </ul>
+      <div class="metric"><span class="k">目标客单价</span><span class="v">€90–€180/次</span></div>
+      <div class="metric"><span class="k">预期月客流</span><span class="v">150–300 次</span></div>
+      <div class="metric"><span class="k">回本周期</span><span class="v">12–18 月</span></div>
+    </div>
+
+    <div class="card">
+      <h3>欧盟 #3 · 荷兰 阿姆斯特丹</h3>
+      <span class="badge">开放市场</span>
+      <p><strong>客群:</strong>整合医学最开放;华人社区成熟</p>
+      <p><strong>牌照:</strong>无强制中医牌照;BIG 法案豁免</p>
+      <p><strong>成本:</strong>租金 €60–100/sqft/年</p>
+      <ul>
+        <li>☐ De Pijp / Oud-Zuid 选址</li>
+        <li>☐ 与阿姆斯特丹自由大学合作</li>
+        <li>☐ 多语言医师团队</li>
+      </ul>
+      <div class="metric"><span class="k">目标客单价</span><span class="v">€80–€160/次</span></div>
+      <div class="metric"><span class="k">预期月客流</span><span class="v">150–250 次</span></div>
+      <div class="metric"><span class="k">回本周期</span><span class="v">10–14 月</span></div>
+    </div>
+
+    <div class="card">
+      <h3>东南亚 #1 · 新加坡</h3>
+      <span class="badge">最严监管</span>
+      <p><strong>客群:</strong>华人 75% · 高净值 · 政府支持中医</p>
+      <p><strong>牌照:</strong>TCM 医师(需注册);TCM 学院认证</p>
+      <p><strong>成本:</strong>租金 S$8–15/sqft/月 · 中央商业区</p>
+      <ul>
+        <li>☐ Chinatown / Orchard / Tanjong Pagar</li>
+        <li>☐ 与南洋理工大学中医学院合作</li>
+        <li>☐ 余仁生等本地龙头合资</li>
+      </ul>
+      <div class="metric"><span class="k">目标客单价</span><span class="v">S$80–S$200/次</span></div>
+      <div class="metric"><span class="k">预期月客流</span><span class="v">300–600 次</span></div>
+      <div class="metric"><span class="k">回本周期</span><span class="v">6–10 月</span></div>
+    </div>
+
+    <div class="card">
+      <h3>东南亚 #2 · 马来西亚 吉隆坡</h3>
+      <span class="badge">华人基数大</span>
+      <p><strong>客群:</strong>华人 23% · 中医认知度高</p>
+      <p><strong>牌照:</strong>TCM 法案宽松 · 接受中国中医师证</p>
+      <p><strong>成本:</strong>租金 RM 5–10/sqft/月</p>
+      <ul>
+        <li>☐ Petaling Jaya / Kuala Lumpur City Centre</li>
+        <li>☐ 与拉曼大学中医系合作</li>
+        <li>☐ 同善医院 / 仁爱医院转诊</li>
+      </ul>
+      <div class="metric"><span class="k">目标客单价</span><span class="v">RM 80–RM 200/次</span></div>
+      <div class="metric"><span class="k">预期月客流</span><span class="v">200–500 次</span></div>
+      <div class="metric"><span class="k">回本周期</span><span class="v">4–8 月</span></div>
+    </div>
+
+    <div class="card">
+      <h3>东南亚 #3 · 泰国 曼谷</h3>
+      <span class="badge">医疗旅游</span>
+      <p><strong>客群:</strong>华人 + 国际医疗旅游客户</p>
+      <p><strong>牌照:</strong>泰国卫生部传统医学司</p>
+      <p><strong>成本:</strong>租金 ฿500–1000/sqft/月</p>
+      <ul>
+        <li>☐ Sukhumvit / Sathorn 选址</li>
+        <li>☐ 与曼谷医院 / 康民医院合作</li>
+        <li>☐ 医疗旅游客户转化</li>
+      </ul>
+      <div class="metric"><span class="k">目标客单价</span><span class="v">฿1,500–฿4,000/次</span></div>
+      <div class="metric"><span class="k">预期月客流</span><span class="v">150–350 次</span></div>
+      <div class="metric"><span class="k">回本周期</span><span class="v">5–9 月</span></div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--accent-2);margin:20px 0 10px">⑤ 选址决策矩阵</h3>
+  <table>
+    <thead>
+      <tr><th>评分维度(权重)</th><th>说明</th><th>红线</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>客群契合度 30%</td><td>华人占比 + 高净值 + 整合医学接受度</td><td>&lt; 50 分 → 否决</td></tr>
+      <tr><td>监管友好度 25%</td><td>中医执业门槛 + 广告限制 + 数据法规</td><td>禁中医地区直接否</td></tr>
+      <tr><td>成本结构 20%</td><td>租金 + 人力 + 牌照</td><td>回本 &gt; 24 月否</td></tr>
+      <tr><td>复制可推广 15%</td><td>成功案例可推广至同城其他区</td><td>孤例市场慎选</td></tr>
+      <tr><td>本地资源 10%</td><td>大学 / 医院 / 行业协会合作</td><td>零本地资源慎选</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout blue">
+    <strong>标准化 SOP</strong>——每个诊所选址<strong>用同一评分卡</strong>,三市场 9 城横向对比;第一家店选址报告 = 后面 8 家的模板。选址报告 ≤ 20 页,3 周出。
+  </div>
+</section>
+
+<!-- 第 19 节:患者/客户旅程地图 -->
+<section id="sec-journey">
+  <div class="sec-title"><span class="num">19</span>患者/客户旅程地图(三业态对应)</div>
+  <div class="sec-sub">同一个客户在三业态会走<strong>完全不同的旅程</strong>——产品是"快进快出",服务是"深度陪伴",教育是"长期养成"。**必须分业态画旅程**,不能一个图走天下。</div>
+
+  <div class="grid g3">
+    <div class="card">
+      <h3>产品 · 草药补充剂 旅程</h3>
+      <span class="badge">7 步</span>
+      <span class="badge">0–30 天</span>
+      <ul>
+        <li><strong>1. 认知</strong> —— KOL / Amazon 推荐 / 搜索引擎</li>
+        <li><strong>2. 兴趣</strong> —— 查看详情页 / 评价 / 第三方认证</li>
+        <li><strong>3. 信任</strong> —— USP / NSF / 临床证据展示</li>
+        <li><strong>4. 购买</strong> —— Amazon / iHerb / 官网</li>
+        <li><strong>5. 使用</strong> —— 30 天体感期(关键!)</li>
+        <li><strong>6. 反馈</strong> —— 复购 / 评价 / 咨询客服</li>
+        <li><strong>7. 流失 or 复购</strong> —— 自动邮件召回</li>
+      </ul>
+      <div class="callout" style="margin-top:10px"><strong>关键 KPI:</strong>详情页 → 加购率 ≥ 8%;30 天体感期完成率 ≥ 60%;90 天复购 ≥ 25%。</div>
+    </div>
+
+    <div class="card">
+      <h3>服务 · 中医诊所 旅程</h3>
+      <span class="badge">8 步</span>
+      <span class="badge">0–12 月</span>
+      <ul>
+        <li><strong>1. 觉察</strong> —— 长期不适 / 西医效果不佳</li>
+        <li><strong>2. 调研</strong> —— 搜索"中医 + 城市 + 病种"</li>
+        <li><strong>3. 首诊</strong> —— 望闻问切 + 病历建立</li>
+        <li><strong>4. 治疗</strong> —— 针灸 / 中药 / 推拿 (3–10 次)</li>
+        <li><strong>5. 复诊</strong> —— 每周/双周复诊,效果评估</li>
+        <li><strong>6. 维持</strong> —— 每月 1 次,长期伴随</li>
+        <li><strong>7. 转介绍</strong> —— 推荐家人朋友(关键 LTV 来源)</li>
+        <li><strong>8. 长期关系</strong> —— 5–10 年老客户</li>
+      </ul>
+      <div class="callout" style="margin-top:10px"><strong>关键 KPI:</strong>首诊 → 复诊转化 ≥ 70%;客户终身 LTV ≥ $3,000;推荐率 ≥ 40%。</div>
+    </div>
+
+    <div class="card">
+      <h3>教育 · 在线课程 旅程</h3>
+      <span class="badge">6 步</span>
+      <span class="badge">0–24 月</span>
+      <ul>
+        <li><strong>1. 兴趣</strong> —— YouTube / 抖音海外版 / 博客</li>
+        <li><strong>2. 免费内容</strong> —— 7 天试学 / 公开课 / 电子书</li>
+        <li><strong>3. 入门课</strong> —— $50–200 / 4 周</li>
+        <li><strong>4. 进阶课</strong> —— $300–800 / 12 周</li>
+        <li><strong>5. 认证</strong> —— NCCAOM CE 学分 / 学历认证</li>
+        <li><strong>6. 执业 / 进阶</strong> —— 校友会 / 高阶课程 / 实习推荐</li>
+      </ul>
+      <div class="callout" style="margin-top:10px"><strong>关键 KPI:</strong>免费 → 入门转化 ≥ 8%;入门 → 认证 ≥ 40%;认证 → 执业 ≥ 50%。</div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--accent-2);margin:20px 0 10px">① 三旅程交叉点(关键!)</h3>
+  <div class="path-box" style="border-color:var(--green)">
+    <span class="label" style="background:var(--green);color:#0a0e1a">交叉点 1 · 教育 → 服务</span>
+    <h4>课程学员 30% 应转化为诊所首诊客户</h4>
+    <div class="flow">
+      <span class="step">课程学员</span><span class="arrow">→</span>
+      <span class="step">课程内测(体质自测)</span><span class="arrow">→</span>
+      <span class="step">推送"建议首诊" CTA</span><span class="arrow">→</span>
+      <span class="step">诊所首诊优惠 $50</span><span class="arrow">→</span>
+      <span class="step">LTV 提升 3 倍</span>
+    </div>
+  </div>
+  <div class="path-box" style="border-color:var(--blue)">
+    <span class="label" style="background:var(--blue);color:#0a0e1a">交叉点 2 · 服务 → 产品</span>
+    <h4>诊所复诊客户 30% 应转化为产品复购</h4>
+    <div class="flow">
+      <span class="step">复诊客户</span><span class="arrow">→</span>
+      <span class="step">诊所开方(草本产品)</span><span class="arrow">→</span>
+      <span class="step">扫码直购(诊所专属链接)</span><span class="arrow">→</span>
+      <span class="step">复购自动化</span><span class="arrow">→</span>
+      <span class="step">CAC ≈ 0</span>
+    </div>
+  </div>
+  <div class="path-box" style="border-color:var(--accent)">
+    <span class="label">交叉点 3 · 产品 → 教育</span>
+    <h4>产品用户 10% 应转化为教育学员</h4>
+    <div class="flow">
+      <span class="step">产品用户</span><span class="arrow">→</span>
+      <span class="step">使用 30 天后推送"体质课程"</span><span class="arrow">→</span>
+      <span class="step">免费试学</span><span class="arrow">→</span>
+      <span class="step">转化入门课</span><span class="arrow">→</span>
+      <span class="step">LTV 翻 5 倍</span>
+    </div>
+  </div>
+
+  <h3 style="color:var(--accent-2);margin:20px 0 10px">② 旅程触点统一性</h3>
+  <table>
+    <thead>
+      <tr><th>触点</th><th>产品</th><th>服务</th><th>教育</th><th>统一规范</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>品牌视觉</td><td>包装 / 详情页</td><td>诊所环境 / 制服</td><td>课程封面 / 课件</td><td>同一 Logo / 配色 / 摄影风格</td></tr>
+      <tr><td>话术 Tone of Voice</td><td>结构化 FDA 允许</td><td>专业温和</td><td>学术易懂</td><td>三套话术,内部统一培训</td></tr>
+      <tr><td>数据采集</td><td>购买 + 反馈</td><td>病历 + 复诊</td><td>学习 + 测评</td><td>统一 CRM(隐私设计)</td></tr>
+      <tr><td>客服</td><td>AI Chatbot + 邮件</td><td>前台 + 医师</td><td>助教 + 社群</td><td>统一工单系统</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout green">
+    <strong>设计原则</strong>——任一旅程的关键 KPI 跌破阈值,<strong>立刻</strong>:① 用另一业态的流量补;② 启动原因 5-Why 分析;③ 修正后 14 天内再测。三业态任一跌,其他两个一起跌——所以**整体监测**,不是单业态。
+  </div>
+</section>
+
+<!-- 第 20 节:技术架构与选型 -->
+<section id="sec-tech">
+  <div class="sec-title"><span class="num">20</span>技术架构选型决策树</div>
+  <div class="sec-sub">三业态的 IT 架构 = 一个客户数据平台(CDP)+ 三套前端 + 一套合规中台。<strong>不要先选型再画流程</strong>,先画旅程再选技术。</div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3>核心系统栈</h3>
+      <span class="badge">必备</span>
+      <ul>
+        <li><strong>CDP(客户数据平台):</strong>Segment · Twilio Engage · mParticle</li>
+        <li><strong>电商前台:</strong>Shopify Plus · BigCommerce</li>
+        <li><strong>诊所 SaaS:</strong>Jane App · SimplePractice</li>
+        <li><strong>课程平台:</strong>Teachable · Thinkific · 自建(≥ 1万学员)</li>
+        <li><strong>CRM:</strong>HubSpot · Salesforce Health Cloud</li>
+        <li><strong>合规中台:</strong>PV 警戒 + GDPR/HIPAA 审计</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>中医特有模块</h3>
+      <span class="badge">自研</span>
+      <ul>
+        <li><strong>舌象 AI:</strong>CNN 图像识别(8 类舌象,≥ 90% 准确率)</li>
+        <li><strong>脉象客观化:</strong>压力传感器阵列(中医脉诊仪)</li>
+        <li><strong>辨证知识图谱:</strong>症状 → 证型 → 方剂 推理引擎</li>
+        <li><strong>体质分类:</strong>9 种体质(王琦九体)标准化问卷</li>
+        <li><strong>药物相互作用库:</strong>中药 ↔ 西药 互作警示</li>
+        <li><strong>处方审核:</strong>含禁用成分自动拦截</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>数据合规架构</h3>
+      <span class="badge">Privacy by Design</span>
+      <ul>
+        <li>本地化部署:欧盟数据留欧盟,美国数据留美国</li>
+        <li>敏感字段加密:舌脉象图、病历、身份证</li>
+        <li>访问审计:所有医疗数据访问留痕 7 年</li>
+        <li>患者授权:显式同意(opt-in)+ 撤回机制</li>
+        <li>跨境传输:SCC 标准合同条款 + 影响评估</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>研发预算</h3>
+      <span class="badge">占总预算 12–18%</span>
+      <ul>
+        <li>M1–6:核心系统采购 + 集成 ≈ $200K</li>
+        <li>M7–12:中医特有模块自研 ≈ $400K</li>
+        <li>M13–18:AI 模型训练 + 数据标注 ≈ $300K</li>
+        <li>M19+:持续迭代 + 模型升级 ≈ $50K/月</li>
+      </ul>
+      <div class="callout" style="margin-top:10px"><strong>原则:</strong>通用系统买,中医特有模块自研。</div>
+    </div>
+  </div>
+
+  <div class="callout red">
+    <strong>致命坑:</strong>用一套通用 CRM 跑三业态 = 数据割裂,客户旅程看不到,交叉转化无法追踪。**必须从 M1 就有客户级 ID 打通**(email/手机号/会员号)。
+  </div>
+</section>
+
+<!-- 第 21 节:失败原因与对策 -->
+<section id="sec-failures">
+  <div class="sec-title"><span class="num">21</span>失败原因清单(过去 10 年真实项目)</div>
+  <div class="sec-sub">中医出海项目<strong>失败的 7 个常见原因</strong>——不是理论推演,是真实项目复盘。每条都附带<strong>预防措施</strong>。</div>
+
+  <table>
+    <thead>
+      <tr><th style="width:6%">序</th><th style="width:30%">失败原因</th><th style="width:14%">频次</th><th style="width:14%">损失</th><th style="width:36%">预防措施</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>FDA 警告信后仓促下架,无危机预案</td><td class="warn">高</td><td class="warn">高</td><td>M6 前必须签<strong>危机公关预案</strong>,法律 + PR + PV 三方待命</td></tr>
+      <tr><td>2</td><td>经典名方桥接试验失败,无降级方案</td><td>中</td><td class="warn">高</td><td>路径 B + A <strong>并行启动</strong>;失败即切换</td></tr>
+      <tr><td>3</td><td>三业态同跑资源稀释,无一打透</td><td class="warn">高</td><td>中</td><td>主线 1 + 辅线 1;其余业态延后</td></tr>
+      <tr><td>4</td><td>禁用成分漏检(马兜铃酸),全批召回</td><td>中</td><td class="warn">高</td><td>每批 LC-MS 全谱扫描 + 第三方复核</td></tr>
+      <tr><td>5</td><td>中医术语误译,广告被认定为"医疗声称"</td><td class="warn">高</td><td>中</td><td>术语表强制使用 ISO/TC 249 标准;每月广告审计</td></tr>
+      <tr><td>6</td><td>创始人中医背景,缺乏 FDA/EMA 经验</td><td class="warn">高</td><td class="warn">高</td><td>CSO 必须有 FDA/EMA 实操经验;若缺,先请合规顾问 12 月</td></tr>
+      <tr><td>7</td><td>欧盟公告机构排队 18 月+,现金流断裂</td><td>中</td><td class="warn">高</td><td>M1 即锁定 2 家公告机构;预留 12 月缓冲</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="color:var(--accent-2);margin:20px 0 10px">① 失败项目的 5 个早期信号(必监测)</h3>
+  <div class="grid g3">
+    <div class="card">
+      <h3>信号 1 · 现金流信号</h3>
+      <ul>
+        <li>任一季度净现金流转正延后 &gt; 90 天</li>
+        <li>营销 CAC 单月涨幅 &gt; 50%</li>
+        <li>客户回款周期 &gt; 60 天</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>信号 2 · 客户信号</h3>
+      <ul>
+        <li>NPS &lt; 30 持续 3 月</li>
+        <li>复购率 &lt; 预期 70%</li>
+        <li>客诉率 &gt; 5%</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>信号 3 · 团队信号</h3>
+      <ul>
+        <li>核心成员(月明星)流失</li>
+        <li>关键岗位空缺 &gt; 60 天</li>
+        <li>士气调查连续下滑</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>信号 4 · 监管信号</h3>
+      <ul>
+        <li>FDA 提问信超 3 轮未关</li>
+        <li>EMA 集中程序 Scientific Advice 失败</li>
+        <li>PV 重大事件 &gt; 1 起</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>信号 5 · 资本信号</h3>
+      <ul>
+        <li>下一轮融资估值倒挂</li>
+        <li>LP 撤回意向</li>
+        <li>董事会对账争议</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>信号 6 · 竞品信号</h3>
+      <ul>
+        <li>主要竞品一年内 3 倍增长</li>
+        <li>FDA 审批通过竞品类似配方</li>
+        <li>KOL 集体转向竞品</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout green">
+    <strong>5 信号规则:</strong>任一信号亮起 <strong>2 个</strong>,立刻启动<strong>应急资源池</strong>(法律 + PR + 财务);3 个亮起触发<strong>董事会紧急会议</strong>。
+  </div>
+</section>
+
+<footer>
+  <p>中医出海全流程体系·完整版 v3.0 · 21 节齐全 · 2026-09-29</p>
+  <p style="margin-top:6px">本文档为产品/合规/财务/运营/技术/IP/选址 决策辅助用,具体项目须以当地法规官/RA 顾问意见为准。</p>
+</footer>
+
+</div>
+</body>
+</html>
