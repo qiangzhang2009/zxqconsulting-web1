@@ -1,11 +1,10 @@
 /**
- * Core Advantages Section — 我们陪你的 4 件事（陪跑者版）
+ * Core Advantages Section — 「稳稳陪跑」4 件事
  *
- * 从「四大发现能力」改为「我们陪你的 4 件事」:
- * - 陪你判断要不要走
- * - 陪你找到第一批客户
- * - 陪你打通合规路径
- * - 陪你签约 + 持续跟进
+ * 围绕「让本草品牌稳稳走向世界」重构：
+ * - 4 件事锚到「稳」的具象化场景：看清稳的方向、选稳的队友、走稳的合规、签完稳 14 个月
+ * - 顶部 tag 改为「让本草品牌 稳稳走向世界」
+ * - CTA 改为「让小驼陪我稳稳走第一步」
  */
 
 import { useEffect, useRef } from 'react';
@@ -49,12 +48,12 @@ const CoreAdvantages = () => {
     {
       id: 'judge',
       icon: <Compass className="h-6 w-6" />,
-      title: '陪你判断要不要走',
+      title: '陪你把方向看稳',
       subtitle: 'When you wonder "should we go?"',
-      desc: '你不是想出海才来找我们,你是「想出海但不确定值不值得」才来。我们陪你想 —— 不是催你立项,也不是劝你放弃。',
+      desc: '出海第一步往往最贵 —— 走错一次,后面 12 个月都在补。我们陪你想 —— 不是催你立项,也不是劝你放弃,而是让数据先替你看稳。',
       features: [
         '60 分钟陪聊,小驼 + 真人顾问都在',
-        '35 国优先级,我们陪你看哪个先做',
+        '35 国数据底座,我们陪你看哪个先做',
         '预算 / 团队 / 合规,我们陪你掂量',
         '如果不该走,我们直接告诉你',
       ],
@@ -64,9 +63,9 @@ const CoreAdvantages = () => {
     {
       id: 'find-first',
       icon: <Users className="h-6 w-6" />,
-      title: '陪你找到第一个队友',
+      title: '陪你选稳第一个队友',
       subtitle: 'When you need your first ally',
-      desc: '出海最难的不是"找客户",是"找对的人"。我们陪你挑 —— 不是扔一份名单让你自己联系,是陪你看每个候选、一起排优先级。',
+      desc: '出海最难的不是"找客户",是"找对的人"。我们陪你挑 —— 不是扔一份名单让你自己联系,是陪你看每个候选、一起排优先级,让每一步都走得稳。',
       features: [
         '小驼扫 10,000+ 候选,顾问陪你筛 50 家',
         '每个候选的画像,我们陪你看',
@@ -79,9 +78,9 @@ const CoreAdvantages = () => {
     {
       id: 'compliance',
       icon: <Shield className="h-6 w-6" />,
-      title: '陪你打通合规路径',
+      title: '陪你走稳合规这条路',
       subtitle: 'When regulations feel like a maze',
-      desc: '药品 / 食品 / 化妆品,每个市场门槛都不一样。我们陪你走 —— 不是丢一份 PDF 让你自己看,是陪你看条款、陪你做判断、陪你避坑。',
+      desc: '药品 / 食品 / 化妆品,每个市场门槛都不一样。我们陪你走 —— 不是丢一份 PDF 让你自己看,是陪你看条款、陪你做判断、陪你避坑,让合规这条路走得稳。',
       features: [
         '35 国法规框架,我们陪你入库',
         '剂型 / 成分 / 标签,我们陪你想',
@@ -94,9 +93,9 @@ const CoreAdvantages = () => {
     {
       id: 'follow-through',
       icon: <MessageCircle className="h-6 w-6" />,
-      title: '陪你签约 + 继续陪',
+      title: '陪你稳到出货 · 稳 14 个月',
       subtitle: 'When you need us after signing',
-      desc: '签约不是结束。我们陪你盯 —— 政策变了我们比你先看到,订单掉了我们陪你找原因,新机会来了我们继续陪你看。',
+      desc: '签约不是结束。我们陪你盯 —— 政策变了我们比你先看到,订单掉了我们陪你做归因,新机会来了我们继续陪你看。出海这条路,我们陪你走得稳稳的。',
       features: [
         '政策变了,我们比你先 48 小时看到',
         '订单波动,我们陪你做归因',
@@ -166,23 +165,23 @@ const CoreAdvantages = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-6">
-        {/* 章节标题 — 算法 + 陪跑 双锚 */}
+        {/* 章节标题 — 「稳稳」叙事 */}
         <div className="mx-auto max-w-3xl text-center mb-16 advantage-header">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#C2473B]/30 bg-[#C2473B]/8 px-4 py-2 text-sm text-[#C2473B] shadow-sm mb-6">
             <Sparkles className="h-4 w-4" />
-            <span className="font-medium">算法即世界 · 我们陪你的 4 件事</span>
+            <span className="font-medium">让本草品牌 · 稳稳走向世界</span>
           </div>
           <h2
             className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.15] tracking-tight text-[#2A1F18]"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
-            算法先看，我们陪你做完
-            <span className="block text-[#C2473B] mt-2">不只是顾问,是陪到底的队友</span>
+            算法指方向，数据打底，
+            <span className="block text-[#C2473B] mt-2">真人陪你走得稳稳的</span>
           </h2>
           <p className="mt-6 text-lg leading-[1.85] text-[#5A4A3C] max-w-2xl mx-auto">
             不要海量的功能清单。
             <br />
-            只有 4 件事 —— <span className="text-[#C2473B] font-medium">算法替你扫世界,真人陪你走到「签了还在陪」</span>,每件事我们都陪在旁边。
+            只有 4 件事 —— <span className="text-[#C2473B] font-medium">算法指方向,数据打底,真人陪你走得稳稳的</span>,每一步都有人替你托底。
           </p>
         </div>
 
@@ -264,7 +263,7 @@ const CoreAdvantages = () => {
         {/* 底部 CTA */}
         <div className="mt-16 text-center advantage-header">
           <p className="text-base text-[#5A4A3C] mb-6">
-            想让小驼陪你做第 1 件事?
+            想让小驼陪你稳稳走第 1 步?
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
             <Link
@@ -272,7 +271,7 @@ const CoreAdvantages = () => {
               className="inline-flex items-center gap-3 rounded-2xl bg-[#C2473B] hover:bg-[#A93B30] px-7 py-4 text-base font-semibold text-white shadow-[0_10px_30px_rgba(194,71,59,0.25)] transition-all hover:-translate-y-0.5"
             >
               <Heart className="h-5 w-5 fill-white" />
-              让小驼陪我走第一步
+              让小驼陪我稳稳走第一步
               <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
@@ -287,7 +286,7 @@ const CoreAdvantages = () => {
               className="group inline-flex items-center gap-2 rounded-xl border border-[#2F5D57]/20 bg-white px-4 py-3 text-sm font-medium text-[#2F5D57] transition-all hover:bg-[#F7EFE0] hover:border-[#C2473B]/40 hover:text-[#C2473B]"
             >
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#C2473B] group-hover:animate-pulse" />
-              订阅《出海陪跑周报》
+              订阅《出海判断周报》
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>

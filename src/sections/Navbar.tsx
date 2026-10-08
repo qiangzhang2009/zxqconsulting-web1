@@ -4,7 +4,7 @@
  * 调整：
  * - 品牌名旁加「陪你走完出海每一步」tagline
  * - 导航名改为「我们怎么陪你」「陪你去的 35 国」「陪跑档案」「陪你的人」
- * - CTA 改为「让小驼陪我走第一步」
+ * - CTA 改为「让小驼陪我稳稳走第一步」
  */
 
 import { useState, useEffect } from 'react';
@@ -73,7 +73,7 @@ const Navbar = () => {
                 className="text-sm font-semibold tracking-tight text-[#2A1F18]"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
-                {t('brand.tagline', '算法即世界 · 岐黄出四海')}
+                {t('brand.tagline', '让本草品牌 · 稳稳走向世界')}
               </div>
             </div>
           </Link>
@@ -126,7 +126,7 @@ const Navbar = () => {
               className="inline-flex items-center gap-2 rounded-full border border-[#C2473B]/40 bg-[#C2473B] px-5 py-2 text-sm font-semibold text-white shadow-[0_2px_12px_rgba(194,71,59,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#A93B30] hover:border-[#A93B30]/60 hover:shadow-[0_4px_16px_rgba(194,71,59,0.25)] active:translate-y-0"
             >
               <Heart className="h-3.5 w-3.5 fill-white" />
-              让小驼陪我走第一步
+              让小驼陪我稳稳走第一步
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -207,7 +207,7 @@ const Navbar = () => {
               className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-[#C2473B]/40 bg-[#C2473B] px-5 py-3 text-sm font-semibold text-white"
             >
               <Heart className="h-3.5 w-3.5 fill-white" />
-              让小驼陪我走第一步
+              让小驼陪我稳稳走第一步
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
 

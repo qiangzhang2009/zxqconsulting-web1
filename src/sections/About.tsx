@@ -1,11 +1,11 @@
 /**
- * About Section — 算法世界观 + 我们是谁（B 方案）
+ * About Section — 「稳稳」叙事版（C 方案）
  *
  * 核心叙事：
- * - 「算法即世界，岐黄出四海」作为开篇金句锚点
- * - 创始人独白改为第一人称情感化
- * - 新增「为什么我们用算法看中医药」小段：哲学化锚点，把算法世界观埋入
- * - 「主理人说」+ 「小驼同事」情感锚点保留
+ * - 主金句：「让本草品牌，稳稳走向世界」（与 Hero 同句，1+1=记忆加深）
+ * - 创始人独白改为「稳」视角 —— 出海不是赶路，是稳着走
+ * - 「数据底座」小段：把"算法即世界"的世界观替换为"35 国数据底座"的实在锚点
+ * - 「主理人说」+ 「小驼同事」情感锚点保留，并升级为「稳稳陪跑」
  */
 
 import { useEffect, useRef } from 'react';
@@ -29,12 +29,12 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-// 核心价值观 — 改为「陪跑承诺」
+// 核心价值观 — 围绕「稳稳陪跑」的 4 条承诺
 const values: ValueItem[] = [
   {
     icon: <Heart className="h-5 w-5 fill-[#C2473B] text-[#C2473B]" />,
-    title: '陪你想清楚',
-    desc: '不催你立项,也不催你放弃 —— 我们陪你看清每一步的代价',
+    title: '陪你把方向看稳',
+    desc: '不催你立项,也不催你放弃 —— 35 国数据先替你看清每一步的代价',
   },
   {
     icon: <Users className="h-5 w-5" />,
@@ -43,8 +43,8 @@ const values: ValueItem[] = [
   },
   {
     icon: <Lightbulb className="h-5 w-5" />,
-    title: '算法 + 顾问一起',
-    desc: '小驼扫数据,真人顾问做判断 —— 我们陪的是你,不是 AI',
+    title: '算法 + 数据 + 顾问',
+    desc: '小驼扫方向,数据打底,真人顾问做判断 —— 我们陪的是你,不是 AI',
   },
   {
     icon: <Shield className="h-5 w-5" />,
@@ -136,7 +136,7 @@ const About = () => {
       </div>
 
       <div className="relative z-10 container mx-auto px-6">
-        {/* 顶部：品牌金句 — 算法世界观核心锚点 */}
+        {/* 顶部：品牌金句 — 新主 Slogan 第 5 次露出 */}
         <div className="mx-auto max-w-3xl text-center mb-10 about-header">
           <div className="inline-flex items-center gap-3 mb-7">
             <span className="h-px w-10 bg-[#C2473B]" />
@@ -144,13 +144,13 @@ const About = () => {
               className="text-[12px] font-bold uppercase tracking-[0.28em] text-[#C2473B]"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              算法即世界 · 岐黄出四海
+              让本草品牌 · 稳稳走向世界
             </span>
             <span className="h-px w-10 bg-[#C2473B]" />
           </div>
         </div>
 
-        {/* 算法视角小段 — 把「算法即世界」埋进品牌叙事 */}
+        {/* 数据底座小段 — 替代原"算法即世界"哲理段,把"算法 + 数据 + 陪跑"实化到"35 国数据底座" */}
         <div className="mx-auto max-w-3xl mb-8 about-header">
           <div
             className="rounded-2xl border-l-4 border-[#2F5D57] bg-white px-6 py-5 shadow-sm"
@@ -158,16 +158,15 @@ const About = () => {
           >
             <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#2F5D57] mb-2 flex items-center gap-2">
               <Sparkles className="h-3.5 w-3.5" />
-              为什么我们用算法看中医药
+              35 国数据底座 · 让每一个判断都站得住
             </div>
             <p className="text-base md:text-[17px] leading-[1.85] text-[#2A1F18]">
-              在这个时代，谁能<span className="text-[#C2473B]">用算法重新理解一件事</span>，谁就能重新定义这件事的全球可能性。
-              中医药出海这件事,我们不打算凭经验拍脑袋 —— 我们打算让算法替我们看见更多候选、更多路径、更多可能性,然后真人顾问陪你把判断走到能签。
+              出海最贵的不是钱,是<span className="text-[#C2473B]">走错那一次</span>。我们不打算让你凭经验拍脑袋 —— 我们把 35 国监管框架、上万个候选、近百个真实案例,做成你能摸得到的数据底座;再让<span className="text-[#2A1F18] font-medium">算法指方向</span>、<span className="text-[#2A1F18] font-medium">数据打底</span>、<span className="text-[#2A1F18] font-medium">真人陪你出海</span> —— 让你的每一步都稳稳的。
             </p>
           </div>
         </div>
 
-        {/* 创始人独白 — 改为第一人称情感化 */}
+        {/* 创始人独白 — 「稳稳」视角改写 */}
         <div className="mx-auto max-w-3xl mb-10 about-header">
           <div
             className="rounded-3xl border border-[#C2473B]/15 p-8 md:p-12 shadow-sm"
@@ -180,14 +179,20 @@ const About = () => {
               className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#C2473B] mb-4"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              为什么我们做这件事
+              为什么是「稳」,而不是「快」
             </div>
             <p
               className="text-lg md:text-xl leading-[1.95] text-[#2A1F18] font-medium mb-5"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
+              出海不是赶路,是稳着走。走错一步,后面 12 个月都得补 —— 这个成本,我们见过太多次。
+            </p>
+            <p
+              className="text-lg md:text-xl leading-[1.95] text-[#2A1F18] font-medium mb-5"
+              style={{ fontFamily: 'var(--font-serif)' }}
+            >
               我见过一个老中医,一个人飞去日本考察,回来 6 个月没动静。
-              不是不想动 —— 是不知道下一步该问谁。
+              不是不想动 —— 是不知道下一步该问谁,生怕走错那一步。
             </p>
             <p
               className="text-lg md:text-xl leading-[1.95] text-[#2A1F18] font-medium mb-5"
@@ -196,14 +201,14 @@ const About = () => {
               我们做的,就是把那个「该问谁」变成一个你能找到、24h 在线的人 —— 小驼扫数据,真人顾问陪你做判断,你只管出海路上那件你最该做的事。
             </p>
             <p className="text-base leading-[1.9] text-[#5A4A3C]">
-              <span className="text-[#C2473B]">差别不在资源，在于你有没有人在你身后。</span>
+              <span className="text-[#C2473B]">差别不在资源,在每一步有没有人替你把稳。</span>
               <br />
-              这就是我们做岐黄四海的原因 —— 让你出海时,<span className="text-[#2A1F18]">身后有人,身边有驼。</span>
+              这就是我们做岐黄四海的原因 —— 让你出海时,<span className="text-[#2A1F18]">身后有人,身边有驼,脚下的路稳稳的。</span>
             </p>
           </div>
         </div>
 
-        {/* 主理人说卡 — 加「小驼同事」情感锚点 */}
+        {/* 主理人说卡 — 改为「稳稳陪跑」主题 */}
         <div className="mx-auto max-w-3xl mb-20 about-header">
           <div className="grid gap-4 md:gap-5 md:grid-cols-[1fr_1fr]">
             {/* 主理人说 */}
@@ -231,7 +236,7 @@ const About = () => {
                     style={{ fontFamily: 'var(--font-serif)' }}
                   >
                     我们做这件事,不是要给行业多一个选择,
-                    而是要让每一个想出海的中医药人,<span className="text-[#C2473B]">都敢迈出下一步。</span>
+                    而是要让每一个想出海的<span className="text-[#C2473B]">本草品牌,都能稳稳走向世界。</span>
                   </p>
                   <div className="flex items-center gap-2 text-sm text-[#5A4A3C]">
                     <span className="h-px w-6 bg-[#C2473B]/30" />
@@ -243,7 +248,7 @@ const About = () => {
               </div>
             </div>
 
-            {/* 小驼说 — 同事/队友情感锚点 */}
+            {/* 小驼说 — 算法 + 数据 + 陪跑 三锚合一的"队友" */}
             <div className="relative rounded-2xl border border-[#D9A66B]/30 bg-gradient-to-br from-[#FFFCF5] via-[#FAF6EC] to-[#F7EFE0] p-6 md:p-8 shadow-md">
               <div
                 className="absolute -top-3 left-6 flex h-7 w-7 items-center justify-center rounded-full bg-[#D9A66B] text-white text-lg shadow-md"
@@ -268,8 +273,8 @@ const About = () => {
                     style={{ fontFamily: 'var(--font-serif)' }}
                   >
                     我是小驼,张小强的同事。
-                    <span className="text-[#C2473B]"> 24h 在线,扫数据、查法规、陪你问问题 —— </span>
-                    不睡觉的队友,了解一下?
+                    <span className="text-[#C2473B]"> 24h 在线,扫方向、查法规、看数据 —— </span>
+                    不睡觉的队友,陪你稳稳走每一步。
                   </p>
                   <div className="flex items-center gap-2 text-sm text-[#5A4A3C]">
                     <span className="h-px w-6 bg-[#D9A66B]/40" />
@@ -297,20 +302,20 @@ const About = () => {
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               不只是顾问,
-              <span className="block text-[#C2473B]">是你的出海队友</span>
+              <span className="block text-[#C2473B]">是你稳稳出海的那双脚</span>
             </h2>
 
             <div className="relative pl-6 border-l-4 border-[#C2473B]">
               <Quote className="absolute -left-4 -top-2 h-6 w-6 text-[#C2473B]/20" />
               <p className="text-lg leading-[1.9] text-[#5A4A3C] italic">
-                出海不是一句口号,是一段你身后有没有人的路。
+                出海不是一句口号,是一段你每一步都得走得稳的路。
               </p>
             </div>
 
             <p className="mt-6 text-base leading-[1.9] text-[#5A4A3C]">
               岐黄四海专注于中医药、保健食品、汉方品牌的全球增长。
-              小驼帮你扫数据,资深顾问陪你做判断 —— 从「要不要走」一直陪到「签了、出了、稳定了」。
-              <span className="text-[#2A1F18] font-medium">你不是一个人在出海,我们在你身后。</span>
+              让算法指方向,数据来打底,资深顾问陪你做判断 —— 从「要不要走」一直陪到「签了、出了、稳定了」。
+              <span className="text-[#2A1F18] font-medium">你不是一个人在出海,我们让这件事稳稳地发生。</span>
             </p>
           </div>
 
@@ -354,10 +359,10 @@ const About = () => {
               className="text-3xl md:text-4xl font-semibold text-[#2A1F18] mb-4"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              为什么出海时,选我们陪你
+              为什么出海时,选我们陪你走得稳
             </h2>
             <p className="text-base text-[#5A4A3C] max-w-2xl mx-auto">
-              不是因为我们有多大牌。是因为我们真的陪你走过 —— 走过立项的纠结、谈判的冷场、出问题的深夜。
+              不是因为我们有多大牌。是因为我们真的陪你走过 —— 走过立项的纠结、谈判的冷场、出问题的深夜。每一步,都陪你走得稳稳的。
             </p>
           </div>
 
@@ -365,17 +370,17 @@ const About = () => {
             {[
               {
                 title: '不是顾问,是队友',
-                desc: '你的项目我们一起扛 —— 出问题我们一起熬,签下来我们一起开心。',
+                desc: '你的项目我们一起扛 —— 出问题我们一起熬,签下来我们一起开心,每一步都走得稳。',
                 highlight: '真陪,不是假装',
               },
               {
-                title: '不是工具,是陪伴',
-                desc: '小驼扫数据,但判断是真人顾问做。出海路上,你需要的是有人在旁边。',
-                highlight: '算法 + 顾问,都在',
+                title: '不是工具,是稳稳的托底',
+                desc: '算法指方向,数据打底,真人顾问做判断 —— 出海路上,你需要的是每一脚都踩得稳。',
+                highlight: '算法 + 数据 + 顾问,都在',
               },
               {
                 title: '不是签约就走',
-                desc: '出海只是开始,后续 14 个月的货我们陪你盯。中途政策变了,我们比你先看到。',
+                desc: '出海只是开始,后续 14 个月的货我们陪你盯。中途政策变了,我们比你先看到,先稳住。',
                 highlight: '签完,继续陪',
               },
             ].map((item) => (
@@ -410,7 +415,7 @@ const About = () => {
               className="inline-flex items-center gap-3 rounded-2xl bg-[#C2473B] hover:bg-[#A93B30] px-7 py-4 text-base font-semibold text-white shadow-[0_10px_30px_rgba(194,71,59,0.25)] transition-all hover:-translate-y-0.5"
             >
               <Heart className="h-5 w-5 fill-white" />
-              让小驼陪我走第一步
+              让小驼陪我稳稳走第一步
               <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
@@ -425,7 +430,7 @@ const About = () => {
               className="group inline-flex items-center gap-2 rounded-xl border border-[#2F5D57]/20 bg-white px-4 py-3 text-sm font-medium text-[#2F5D57] transition-all hover:bg-[#F7EFE0] hover:border-[#C2473B]/40 hover:text-[#C2473B]"
             >
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#C2473B] group-hover:animate-pulse" />
-              订阅《出海陪跑周报》
+              订阅《出海判断周报》
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>

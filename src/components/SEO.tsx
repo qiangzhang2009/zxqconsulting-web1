@@ -11,9 +11,9 @@ type SeoEntry = {
 
 const DEFAULT_SEO: SeoEntry = {
   lang: 'en',
-  title: 'Qihuang Sihai | AI Decision System for TCM Global Expansion',
+  title: 'Qihuang Sihai | Steadily Guide Herding TCM Brands to the World',
   description:
-    'Qihuang Sihai is an AI-powered decision operating system for TCM, supplements, Hanfang skincare and health products. Evaluate market priority, entry compliance, cost ROI, channel fit and project risk before committing resources to global expansion.',
+    'Qihuang Sihai is the AI-powered, data-backed coaching partner for TCM, supplements, and Hanfang skincare brands. With a 35-country regulatory framework and real advisor feedback, we help teams make every decision on their global expansion journey steadily and confidently.',
   ogLocale: 'en_US',
   siteName: '岐黄四海 QihuangSihai',
 };
@@ -22,11 +22,11 @@ const SEO_BY_LANGUAGE: Record<string, SeoEntry> = {
   en: DEFAULT_SEO,
   zh: {
     lang: 'zh-CN',
-    title: '岐黄四海 | 中医出海 一站式服务 全程陪伴',
+    title: '岐黄四海 | 让本草品牌 稳稳走向世界 — 算法 + 数据 + 真人顾问陪跑',
     description:
-      '岐黄四海是面向中医、保健食品、汉方护肤与健康产品的出海陪跑伙伴。帮助企业在进入全球市场前，先完成市场优先级、准入合规、成本ROI、渠道匹配与项目风险的AI判断，并由资深顾问全程陪伴落地。',
+      '岐黄四海是面向中医、保健食品、汉方护肤与健康品牌的出海陪跑伙伴 —— 让本草品牌,稳稳走向世界。算法指方向,数据打底,真人顾问陪你走完每一步:看方向、找队友、过合规、谈到签约、稳定出货。',
     ogLocale: 'zh_CN',
-    siteName: '岐黄四海 QihuangSihai',
+    siteName: '岐黄四海 QihuangSihai · 让本草品牌 稳稳走向世界',
   },
   ja: {
     lang: 'ja',

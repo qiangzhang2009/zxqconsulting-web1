@@ -152,13 +152,13 @@ const Contact = () => {
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#C2473B]/30 bg-[#C2473B]/10 px-4 py-2 text-sm text-[#C2473B]">
             <Sparkles className="h-4 w-4" />
-            算法即世界 · 我们陪你走到
+            让本草品牌 · 稳稳走向世界
           </div>
           <h2 className="mt-5 text-3xl font-semibold text-white md:text-5xl">
-            算法给你方向，我们陪你落地
+            算法指方向，数据打底，<br className="hidden md:inline" />真人陪你稳稳出海
           </h2>
           <p className="mt-5 text-lg leading-8 text-amber-50/70">
-            用算法发现机会,用顾问陪跑落地。无论您处于出海的哪个阶段,我们都愿意倾听并提供帮助。
+            让本草品牌,稳稳走向世界 —— 用算法看方向,用数据打底,用真人顾问陪你走完每一步。无论您处于出海的哪个阶段,我们都愿意陪着。
           </p>
         </div>
 

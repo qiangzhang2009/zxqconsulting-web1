@@ -1,15 +1,15 @@
 /**
- * Home Hero Section — 算法世界观 + 陪跑者版（B 方案）
+ * Home Hero Section — 「稳稳」叙事版（C 方案）
  *
- * 设计要点：
- * - 主标：算法即世界 / 岐黄出四海（双行）
- * - 「岐黄」注解：取自岐伯、黄帝 —— 中医药的两千年源头
- * - 副标：算法给你方向，真人陪你落地（算法 + 陪跑双锚）
- * - 顶部 tag：算法即世界 · 我们陪你落地
- * - 视觉中心：羊驼吉祥物（240px+），周围散落「陪跑节点」对话气泡
+ * 围绕新主 slogan ——「让本草品牌稳稳走向世界」重构：
+ * - 主标：让本草品牌 / 稳稳走向世界（双行，「稳稳」朱砂加重）
+ * - 「本草」注解：出口两千年 —— 中药、保健食品、汉方护肤的共同根
+ * - 副标：算法指方向 · 数据打底 · 真人陪你出海（三大支柱锚点）
+ * - 顶部 tag：让本草品牌 稳稳走向世界
+ * - 视觉中心：羊驼吉祥物「小驼」，围绕 4 个陪跑节点
  * - 配色：暖米色主调（#F7EFE0），朱砂 + 墨青点缀
- * - CTA 三层：主菜「让小驼陪我走第一步」/ 沙拉「看我们的方法论」/ 点心「订阅《算法出海周报》」
- * - 算法视角金句暗线：在每处文案开篇体现「算法即世界」的世界观
+ * - CTA 三层：主菜「让小驼陪我稳稳走第一步」/ 沙拉「看我们的方法论」/ 点心「订阅《出海判断周报》」
+ * - 「稳稳」叙事暗线：算法给稳的方向，数据给稳的判断，陪跑给稳的落地
  */
 
 import { useEffect, useRef } from 'react';
@@ -25,37 +25,37 @@ import {
 import { tracking } from '../lib/tracking';
 import { InteractiveAvatar } from '@/components/InteractiveAvatar';
 
-// 陪跑节点 — 从「算法漏斗」升级为「陪跑路上的对话」
+// 陪跑节点 — 围绕「稳稳出海」的 4 个关键节点
 const accompanyNodes = [
   {
     key: 'a',
     icon: <Compass className="h-3.5 w-3.5" />,
-    label: '出发前',
-    desc: '小驼陪你判断要不要走',
+    label: '看清再走',
+    desc: '小驼替你扫稳的方向',
     color: 'bg-[#C2473B]',
     position: 'top-0 left-0',
   },
   {
     key: 'b',
     icon: <Heart className="h-3.5 w-3.5" />,
-    label: '找同行',
-    desc: '小驼陪你找第一批队友',
+    label: '找对队友',
+    desc: '数据替你选稳的路径',
     color: 'bg-[#D9A66B]',
     position: 'top-8 right-0',
   },
   {
     key: 'c',
     icon: <MessageCircle className="h-3.5 w-3.5" />,
-    label: '走到底',
-    desc: '小驼陪你签约、落地',
+    label: '坐到桌前',
+    desc: '顾问陪你稳到签约',
     color: 'bg-[#2F5D57]',
     position: 'bottom-8 left-0',
   },
   {
     key: 'd',
     icon: <Sparkles className="h-3.5 w-3.5" />,
-    label: '送一程',
-    desc: '小驼送你稳定出货',
+    label: '稳到出货',
+    desc: '继续陪你稳 14 个月',
     color: 'bg-[#7B9E8A]',
     position: 'bottom-0 right-0',
   },
@@ -148,17 +148,17 @@ const Hero = () => {
           <div className="grid gap-10 lg:gap-12 lg:grid-cols-2 items-center">
             {/* ============ 左：文案主轴 ============ */}
             <div>
-              {/* 顶部 tag — 算法世界观 + 陪跑 */}
+              {/* 顶部 tag — 新主 Slogan + 三大支柱暗线 */}
               <div className="hero-fade inline-flex items-center gap-2.5 rounded-full border border-[#C2473B]/30 bg-white px-4 py-2 text-sm text-[#C2473B] shadow-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#C2473B] opacity-70" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-[#C2473B]" />
                 </span>
                 <Heart className="h-3.5 w-3.5 fill-[#C2473B]" />
-                <span className="font-medium">算法即世界 · 我们陪你落地</span>
+                <span className="font-medium">让本草品牌，稳稳走向世界</span>
               </div>
 
-              {/* 主标 — 「算法即世界 岐黄出四海」 */}
+              {/* 主标 — 新 Slogan「让本草品牌 稳稳走向世界」 */}
               <h1
                 className="hero-fade mt-6 font-semibold leading-[1.1] tracking-tight text-[#2A1F18]"
                 style={{
@@ -166,28 +166,28 @@ const Hero = () => {
                   fontSize: 'clamp(2.4rem, 4.6vw, 4.2rem)',
                 }}
               >
-                <span className="block">算法即世界</span>
+                <span className="block">让本草品牌</span>
                 <span className="block mt-2">
-                  岐黄<span className="text-[#C2473B]">出四海</span>
+                  <span className="text-[#C2473B]">稳稳</span>走向世界
                 </span>
               </h1>
 
-              {/* 「岐黄」注解 — serif 小字,品牌历史锚点 */}
+              {/* 「本草」注解 — 替代原「岐黄」注解，把品牌根脉绑到「本草」品类 */}
               <p
                 className="hero-fade mt-4 max-w-xl text-sm leading-relaxed text-[#5A4A3C] italic"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
-                「岐黄」二字取自岐伯、黄帝 —— 中医药的两千年源头
+                「本草」二字出口两千年 —— 中药、保健食品、汉方护肤的共同根
               </p>
 
-              {/* 算法 + 陪跑 双锚副标 */}
+              {/* 三大支柱副标 — 算法指方向 · 数据打底 · 真人陪你出海 */}
               <p className="hero-fade mt-5 max-w-xl text-base md:text-lg leading-[1.85] text-[#5A4A3C]">
                 <span className="text-[#2A1F18] font-medium">
-                  算法告诉你这条路该不该走，我们陪你走到能签
+                  算法指方向，数据打底，真人陪你出海
                 </span>
                 <br />
-                <span className="text-[#C2473B]">小驼</span>扫尽 10,000+ 候选,
-                真人顾问陪你拆判断、跑合规、坐到第一张谈判桌前 —— <span className="text-[#2A1F18]">算法给你方向,真人陪你落地。</span>
+                <span className="text-[#C2473B]">小驼</span>扫尽 35 国监管框架 + 10,000+ 候选,
+                真人顾问陪你拆判断、跑合规、坐到第一张谈判桌前 —— <span className="text-[#2A1F18]">让出海这件事，稳稳的。</span>
               </p>
 
               {/* CTA 三层分级 — 主菜 / 沙拉 / 点心 */}
@@ -198,7 +198,7 @@ const Hero = () => {
                   className="group inline-flex items-center gap-3 rounded-2xl bg-[#C2473B] hover:bg-[#A93B30] px-7 py-4 text-base font-semibold text-white shadow-[0_10px_30px_rgba(194,71,59,0.35)] transition-all hover:-translate-y-0.5"
                 >
                   <Heart className="h-5 w-5 fill-white" />
-                  让小驼陪我走第一步
+                  让小驼陪我稳稳走第一步
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
 
@@ -217,18 +217,18 @@ const Hero = () => {
                   className="group inline-flex items-center gap-2 rounded-xl border border-[#2F5D57]/20 bg-white px-4 py-3 text-sm font-medium text-[#2F5D57] transition-all hover:bg-[#F7EFE0] hover:border-[#C2473B]/40 hover:text-[#C2473B]"
                 >
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#C2473B] group-hover:animate-pulse" />
-                  订阅《算法出海周报》
+                  订阅《出海判断周报》
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </Link>
               </div>
 
-              {/* 信任锚点 — 算法 + 陪跑 双线 */}
+              {/* 信任锚点 — 「稳稳」的具象化表达 */}
               <div className="hero-fade mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[#5A4A3C]">
                 {[
-                  '算法先看 · 真人陪跑',
-                  '7 天走到 3 张敢签的判断书',
-                  '35 国监管框架',
-                  '签约后继续陪你 14 个月',
+                  '35 国数据底座 · 不凭感觉选目的地',
+                  '7 天给你 3 张敢签的判断书',
+                  '算法 + 数据 + 真人顾问 三重托底',
+                  '签约后继续陪你稳 14 个月',
                 ].map((item) => (
                   <div key={item} className="inline-flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-[#C2473B]" />
@@ -345,16 +345,16 @@ const Hero = () => {
                   );
                 })}
 
-                {/* 中心底部小标签 — 羊驼身份（算法 + 陪跑 双锚） */}
+                {/* 中心底部小标签 — 羊驼身份（算法 + 数据 + 陪跑 三锚合一 → 稳稳） */}
                 <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 text-center">
                   <div
                     className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#C2473B]"
                     style={{ fontFamily: 'var(--font-serif)' }}
                   >
-                    小驼 · 用算法替你扫世界，用陪跑替你走世界
+                    小驼 · 让本草品牌 稳稳走向世界
                   </div>
                   <div className="text-[9px] text-[#5A4A3C] mt-0.5">
-                    24h 在线 · 点击看方法论
+                    24h 在线 · 算法 + 数据 + 真人陪跑
                   </div>
                 </div>
               </div>
