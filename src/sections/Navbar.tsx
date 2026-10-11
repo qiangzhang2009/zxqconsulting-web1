@@ -112,8 +112,8 @@ const Navbar = () => {
             <Link
               to="/admin/login"
               onClick={() => tracking.click('header_admin_entry', 'navigation')}
-              title="管理后台"
-              aria-label="管理后台"
+              title={t('nav2.adminEntry', '管理后台')}
+              aria-label={t('nav2.adminEntry', '管理后台')}
               className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#C2473B]/15 bg-white/60 text-[#5A4A3C]/70 transition-all duration-200 hover:border-[#C2473B]/40 hover:bg-[#C2473B]/5 hover:text-[#C2473B]"
             >
               <ShieldCheck className="h-4 w-4" />
@@ -126,7 +126,7 @@ const Navbar = () => {
               className="inline-flex items-center gap-2 rounded-full border border-[#C2473B]/40 bg-[#C2473B] px-5 py-2 text-sm font-semibold text-white shadow-[0_2px_12px_rgba(194,71,59,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#A93B30] hover:border-[#A93B30]/60 hover:shadow-[0_4px_16px_rgba(194,71,59,0.25)] active:translate-y-0"
             >
               <Heart className="h-3.5 w-3.5 fill-white" />
-              让小驼陪我稳稳走第一步
+              {t('nav2.ctaPrimary', '让小驼陪我稳稳走第一步')}
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -207,7 +207,7 @@ const Navbar = () => {
               className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-[#C2473B]/40 bg-[#C2473B] px-5 py-3 text-sm font-semibold text-white"
             >
               <Heart className="h-3.5 w-3.5 fill-white" />
-              让小驼陪我稳稳走第一步
+              {t('nav2.ctaPrimary', '让小驼陪我稳稳走第一步')}
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
 
@@ -218,7 +218,7 @@ const Navbar = () => {
               className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl border border-[#C2473B]/25 bg-white px-5 py-3 text-sm font-semibold text-[#C2473B] transition-colors hover:bg-[#C2473B]/5"
             >
               <ShieldCheck className="h-4 w-4" />
-              管理后台
+              {t('nav2.adminEntry', '管理后台')}
             </Link>
           </div>
         )}

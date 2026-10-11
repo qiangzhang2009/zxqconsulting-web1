@@ -1,6 +1,6 @@
 /**
  * Contact Section — 联系版块 (简化版)
- * 
+ *
  * 简洁展示联系方式:
  * - 简洁的联系表单
  * - 联系方式
@@ -12,7 +12,6 @@ import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
-  ArrowRight,
   Bot,
   Building,
   CalendarRange,
@@ -146,19 +145,31 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // 国际化占位符
+  const placeholderName = t('contact.form.namePlaceholder', 'Your name');
+  const placeholderCompany = t('contact.form.companyPlaceholder', 'Company or brand name');
+  const placeholderEmail = t('contact.form.emailPlaceholder', 'your@email.com');
+  const placeholderPhone = t('contact.form.phonePlaceholder', '+86 xxx xxxx xxxx');
+  const placeholderStage = t('contact2.labelStage', 'Stage of going global');
+  const placeholderMarkets = t('contact.form.messagePlaceholder', 'e.g. Japan, EU, Southeast Asia');
+  const placeholderChallenge = t('contact2.labelChallenge', 'Describe your needs or questions...');
+  const placeholderTimeline = t('contact2.labelTimeline', 'e.g. 6 months / 1 year / no deadline');
+  const placeholderNotes = t('contact2.labelNotes', 'Anything else we should know...');
+
   return (
     <section id="contact" ref={sectionRef} className="bg-[#0a1612] py-24">
       <div className="container mx-auto px-6">
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#C2473B]/30 bg-[#C2473B]/10 px-4 py-2 text-sm text-[#C2473B]">
             <Sparkles className="h-4 w-4" />
-            让本草品牌 · 稳稳走向世界
+            {t('contact2.topTag')}
           </div>
-          <h2 className="mt-5 text-3xl font-semibold text-white md:text-5xl">
-            算法指方向，数据打底，<br className="hidden md:inline" />真人陪你稳稳出海
-          </h2>
+          <h2
+            className="mt-5 text-3xl font-semibold text-white md:text-5xl"
+            dangerouslySetInnerHTML={{ __html: t('contact2.title') }}
+          />
           <p className="mt-5 text-lg leading-8 text-amber-50/70">
-            让本草品牌,稳稳走向世界 —— 用算法看方向,用数据打底,用真人顾问陪你走完每一步。无论您处于出海的哪个阶段,我们都愿意陪着。
+            {t('contact2.lead')}
           </p>
         </div>
 
@@ -169,8 +180,8 @@ const Contact = () => {
               <img src="/contact-bg.jpg" alt="Contact" className="h-[280px] w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a1612] via-[#0a1612]/20 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <div className="text-sm uppercase tracking-[0.2em] text-[#C2473B]/85">岐黄四海</div>
-                <h3 className="mt-2 text-2xl font-semibold">中医出海 一站式服务</h3>
+                <div className="text-sm uppercase tracking-[0.2em] text-[#C2473B]/85">{t('brand.name', '岐黄四海')}</div>
+                <h3 className="mt-2 text-2xl font-semibold">{t('contact2.backgroundCaption')}</h3>
               </div>
             </div>
 
@@ -182,8 +193,8 @@ const Contact = () => {
                     <Bot className="h-5 w-5" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="text-lg font-semibold text-white">顾问团队</div>
-                    <div className="mt-1 text-sm text-amber-50/70">资深顾问全程陪跑您的出海之路</div>
+                    <div className="text-lg font-semibold text-white">{t('contact2.teamLabel')}</div>
+                    <div className="mt-1 text-sm text-amber-50/70">{t('contact2.teamSub')}</div>
                     <div className="mt-2 space-y-2 text-sm">
                       <a href="mailto:customer@zxqconsulting.com" className="flex items-center gap-2 text-amber-50/80 transition-colors hover:text-white">
                         <Mail className="h-4 w-4 text-[#C2473B]" /> customer@zxqconsulting.com
@@ -200,15 +211,15 @@ const Contact = () => {
                   <div className="space-y-2 text-sm text-amber-50/70">
                     <div className="flex items-center gap-2">
                       <Sparkles className="h-3.5 w-3.5 text-[#C2473B]" />
-                      <span>专属订制算法精准匹配</span>
+                      <span>{t('contact2.promise1')}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <MessageSquare className="h-3.5 w-3.5 text-[#C2473B]" />
-                      <span>24小时内回复</span>
+                      <span>{t('contact2.promise2')}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Globe2 className="h-3.5 w-3.5 text-[#C2473B]" />
-                      <span>35国法规框架支持</span>
+                      <span>{t('contact2.promise3')}</span>
                     </div>
                   </div>
                 </div>
@@ -220,10 +231,10 @@ const Contact = () => {
           <form ref={formRef} onSubmit={handleSubmit} className="rounded-[2rem] border border-[#C2473B]/20 bg-[#0d1f1a] p-6 shadow-xl backdrop-blur-sm md:p-8">
             <div className="mb-6">
               <h3 className="text-2xl font-semibold text-white mb-2">
-                留下您的信息
+                {t('contact2.formTitle')}
               </h3>
               <p className="text-sm leading-7 text-slate-400">
-                我们会尽快与您联系,了解您的需求并提供初步建议。
+                {t('contact2.formLead')}
               </p>
             </div>
 
@@ -232,36 +243,36 @@ const Contact = () => {
                 <div>
                   <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                     <User className="h-4 w-4 text-emerald-300" />
-                    姓名 <span className="text-red-400">*</span>
+                    {t('contact2.labelName')} <span className="text-red-400">*</span>
                   </label>
                   <input type="text" name="name" value={formData.name} onChange={handleChange} required
-                    className="mac-input focus-ring" placeholder="您的姓名" />
+                    className="mac-input focus-ring" placeholder={placeholderName} />
                 </div>
                 <div>
                   <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                     <Building className="h-4 w-4 text-emerald-300" />
-                    公司/品牌
+                    {t('contact2.labelCompany')}
                   </label>
                   <input type="text" name="company" value={formData.company} onChange={handleChange}
-                    className="mac-input focus-ring" placeholder="您的公司或品牌名称" />
+                    className="mac-input focus-ring" placeholder={placeholderCompany} />
                 </div>
               </div>
 
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
-                    <Mail className="h-4 w-4 text-emerald-300" /> Email <span className="text-red-400">*</span>
+                    <Mail className="h-4 w-4 text-emerald-300" /> {t('contact2.labelEmail')} <span className="text-red-400">*</span>
                   </label>
                   <input type="email" name="email" value={formData.email} onChange={handleChange} required
-                    className="mac-input focus-ring" placeholder="your@email.com" />
+                    className="mac-input focus-ring" placeholder={placeholderEmail} />
                 </div>
                 <div>
                   <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                     <Phone className="h-4 w-4 text-emerald-300" />
-                    电话
+                    {t('contact2.labelPhone')}
                   </label>
                   <input type="tel" name="phone" value={formData.phone} onChange={handleChange}
-                    className="mac-input focus-ring" placeholder="+86 xxx xxxx xxxx" />
+                    className="mac-input focus-ring" placeholder={placeholderPhone} />
                 </div>
               </div>
 
@@ -269,54 +280,53 @@ const Contact = () => {
                 <div>
                   <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                     <ClipboardList className="h-4 w-4 text-emerald-300" />
-                    出海阶段
+                    {t('contact2.labelStage')}
                   </label>
                   <select name="projectStage" value={formData.projectStage} onChange={handleChange}
                     className="mac-input focus-ring">
-                    <option value="">请选择</option>
-                    <option value="idea">初步想法</option>
-                    <option value="pilot">小规模试水</option>
-                    <option value="launch">正式进入</option>
-                    <option value="scale">规模化扩展</option>
+                    <option value="">{placeholderStage}</option>
+                    {(t('contact2.stageOptions', { returnObjects: true }) as Array<{ value: string; label: string }>).map((opt) => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
                   </select>
                 </div>
                 <div>
                   <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                     <Globe2 className="h-4 w-4 text-emerald-300" />
-                    目标市场
+                    {t('contact2.labelMarkets')}
                   </label>
                   <input type="text" name="targetMarkets" value={formData.targetMarkets} onChange={handleChange}
-                    className="mac-input focus-ring" placeholder="如:日本、欧盟、东南亚" />
+                    className="mac-input focus-ring" placeholder={placeholderMarkets} />
                 </div>
               </div>
 
               <div>
                 <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                   <MessageSquare className="h-4 w-4 text-emerald-300" />
-                  您的需求或问题
+                  {t('contact2.labelChallenge')}
                 </label>
                 <textarea name="challenge" value={formData.challenge} onChange={handleChange} rows={3}
                   className="mac-input focus-ring resize-none"
-                  placeholder="请简要描述您的出海需求或面临的问题..." />
+                  placeholder={placeholderChallenge} />
               </div>
 
               <div>
                 <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                   <CalendarRange className="h-4 w-4 text-emerald-300" />
-                  时间线
+                  {t('contact2.labelTimeline')}
                 </label>
                 <input type="text" name="timeline" value={formData.timeline} onChange={handleChange}
-                  className="mac-input focus-ring" placeholder="如:6个月内、1年内、无明确时间" />
+                  className="mac-input focus-ring" placeholder={placeholderTimeline} />
               </div>
 
               <div>
                 <label className="mb-1.5 flex items-center gap-2 text-sm font-medium text-slate-300">
                   <MessageSquare className="h-4 w-4 text-emerald-300" />
-                  补充说明
+                  {t('contact2.labelNotes')}
                 </label>
                 <textarea name="message" value={formData.message} onChange={handleChange} rows={3}
                   className="mac-input focus-ring resize-none"
-                  placeholder="任何其他您想让我们了解的信息..." />
+                  placeholder={placeholderNotes} />
               </div>
 
               <button
@@ -325,7 +335,7 @@ const Contact = () => {
                 className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 transition-all hover:-translate-y-0.5 hover:bg-emerald-50 disabled:opacity-50"
               >
                 <Send className="h-4 w-4" />
-                {isSubmitting ? '提交中...' : '提交咨询'}
+                {isSubmitting ? t('contact2.submitting') : t('contact2.submit')}
               </button>
             </div>
           </form>
@@ -335,9 +345,9 @@ const Contact = () => {
       <Dialog open={showDialog} onOpenChange={setShowDialog}>
         <DialogContent className="border-white/10 bg-[#0b1620] text-white">
           <DialogHeader>
-            <DialogTitle>提交成功!</DialogTitle>
+            <DialogTitle>{t('contact2.successTitle')}</DialogTitle>
             <DialogDescription className="text-slate-400">
-              感谢您的咨询。我们的顾问团队会在24小时内与您联系,请留意您的邮箱。
+              {t('contact2.successDesc')}
             </DialogDescription>
           </DialogHeader>
         </DialogContent>

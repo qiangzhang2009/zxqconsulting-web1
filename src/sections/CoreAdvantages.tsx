@@ -15,97 +15,40 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ArrowRight,
   Users,
-  Building2,
-  TrendingUp,
-  Target,
+  Compass,
   Heart,
   Sparkles,
-  CheckCircle2,
   Shield,
   MessageCircle,
-  Compass,
 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
-
-interface CompanionItem {
-  id: string;
-  icon: React.ReactNode;
-  title: string;
-  subtitle: string;
-  desc: string;
-  features: string[];
-  color: string;
-  bg: string;
-}
 
 const CoreAdvantages = () => {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
 
-  const companionItems: CompanionItem[] = [
-    {
-      id: 'judge',
-      icon: <Compass className="h-6 w-6" />,
-      title: '陪你把方向看稳',
-      subtitle: 'When you wonder "should we go?"',
-      desc: '出海第一步往往最贵 —— 走错一次,后面 12 个月都在补。我们陪你想 —— 不是催你立项,也不是劝你放弃,而是让数据先替你看稳。',
-      features: [
-        '60 分钟陪聊,小驼 + 真人顾问都在',
-        '35 国数据底座,我们陪你看哪个先做',
-        '预算 / 团队 / 合规,我们陪你掂量',
-        '如果不该走,我们直接告诉你',
-      ],
-      color: 'text-[#C2473B]',
-      bg: 'bg-[#C2473B]/10',
-    },
-    {
-      id: 'find-first',
-      icon: <Users className="h-6 w-6" />,
-      title: '陪你选稳第一个队友',
-      subtitle: 'When you need your first ally',
-      desc: '出海最难的不是"找客户",是"找对的人"。我们陪你挑 —— 不是扔一份名单让你自己联系,是陪你看每个候选、一起排优先级,让每一步都走得稳。',
-      features: [
-        '小驼扫 10,000+ 候选,顾问陪你筛 50 家',
-        '每个候选的画像,我们陪你看',
-        '第一次邮件怎么写,我们陪你改',
-        '谁适合先接触,我们陪你想',
-      ],
-      color: 'text-[#D9A66B]',
-      bg: 'bg-[#D9A66B]/15',
-    },
-    {
-      id: 'compliance',
-      icon: <Shield className="h-6 w-6" />,
-      title: '陪你走稳合规这条路',
-      subtitle: 'When regulations feel like a maze',
-      desc: '药品 / 食品 / 化妆品,每个市场门槛都不一样。我们陪你走 —— 不是丢一份 PDF 让你自己看,是陪你看条款、陪你做判断、陪你避坑,让合规这条路走得稳。',
-      features: [
-        '35 国法规框架,我们陪你入库',
-        '剂型 / 成分 / 标签,我们陪你想',
-        '注册方案,我们陪你排时间表',
-        '政策变了,我们比你先看到',
-      ],
-      color: 'text-[#7B9E8A]',
-      bg: 'bg-[#7B9E8A]/15',
-    },
-    {
-      id: 'follow-through',
-      icon: <MessageCircle className="h-6 w-6" />,
-      title: '陪你稳到出货 · 稳 14 个月',
-      subtitle: 'When you need us after signing',
-      desc: '签约不是结束。我们陪你盯 —— 政策变了我们比你先看到,订单掉了我们陪你做归因,新机会来了我们继续陪你看。出海这条路,我们陪你走得稳稳的。',
-      features: [
-        '政策变了,我们比你先 48 小时看到',
-        '订单波动,我们陪你做归因',
-        '新机会来了,我们继续陪你看',
-        '深夜出问题,你打电话有人接',
-      ],
-      color: 'text-[#2F5D57]',
-      bg: 'bg-[#2F5D57]/15',
-    },
+  // 4 张陪跑卡片的图标（与 i18n advantages2.items 顺序对应）
+  const itemIcons = [
+    <Compass key="judge" className="h-6 w-6" />,
+    <Users key="ally" className="h-6 w-6" />,
+    <Shield key="compliance" className="h-6 w-6" />,
+    <MessageCircle key="ship" className="h-6 w-6" />,
   ];
+  const itemColors = [
+    { color: 'text-[#C2473B]', bg: 'bg-[#C2473B]/10' },
+    { color: 'text-[#D9A66B]', bg: 'bg-[#D9A66B]/15' },
+    { color: 'text-[#7B9E8A]', bg: 'bg-[#7B9E8A]/15' },
+    { color: 'text-[#2F5D57]', bg: 'bg-[#2F5D57]/15' },
+  ];
+
+  const items = t('advantages2.items', { returnObjects: true }) as Array<{
+    subtitle: string;
+    title: string;
+    desc: string;
+    features: string[];
+  }>;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -169,27 +112,26 @@ const CoreAdvantages = () => {
         <div className="mx-auto max-w-3xl text-center mb-16 advantage-header">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#C2473B]/30 bg-[#C2473B]/8 px-4 py-2 text-sm text-[#C2473B] shadow-sm mb-6">
             <Sparkles className="h-4 w-4" />
-            <span className="font-medium">让本草品牌 · 稳稳走向世界</span>
+            <span className="font-medium">{t('advantages2.topTag')}</span>
           </div>
           <h2
             className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.15] tracking-tight text-[#2A1F18]"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
-            算法指方向，数据打底，
-            <span className="block text-[#C2473B] mt-2">真人陪你走得稳稳的</span>
+            {t('advantages2.titleLine1')}
+            <span className="block text-[#C2473B] mt-2">{t('advantages2.titleAccent')}</span>
           </h2>
-          <p className="mt-6 text-lg leading-[1.85] text-[#5A4A3C] max-w-2xl mx-auto">
-            不要海量的功能清单。
-            <br />
-            只有 4 件事 —— <span className="text-[#C2473B] font-medium">算法指方向,数据打底,真人陪你走得稳稳的</span>,每一步都有人替你托底。
-          </p>
+          <p
+            className="mt-6 text-lg leading-[1.85] text-[#5A4A3C] max-w-2xl mx-auto"
+            dangerouslySetInnerHTML={{ __html: t('advantages2.intro') }}
+          />
         </div>
 
         {/* 四大陪跑卡片 */}
         <div ref={cardsRef} className="grid gap-8 md:grid-cols-2">
-          {companionItems.map((item, index) => (
+          {items.map((item, index) => (
             <article
-              key={item.id}
+              key={item.title}
               className="advantage-card group relative rounded-[1.5rem] bg-white border border-[#C2473B]/12 p-8 shadow-sm hover:shadow-xl hover:border-[#C2473B]/30 transition-all duration-300"
             >
               {/* 顶部装饰 */}
@@ -201,8 +143,8 @@ const CoreAdvantages = () => {
               </div>
 
               {/* 图标 */}
-              <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl ${item.bg} ${item.color} mb-5`}>
-                {item.icon}
+              <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl ${itemColors[index]?.bg} ${itemColors[index]?.color} mb-5`}>
+                {itemIcons[index]}
               </div>
 
               {/* 情感化副标题 */}
@@ -248,22 +190,20 @@ const CoreAdvantages = () => {
                 className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#C2473B]"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
-                我们拒绝的事
+                {t('advantages2.refuseTitle')}
               </span>
             </div>
-            <p className="text-sm text-[#5A4A3C] leading-relaxed">
-              我们<span className="text-[#C2473B] font-semibold">不接不熟悉的品类</span> ·
-              我们<span className="text-[#C2473B] font-semibold">不催你立项</span> ·
-              我们<span className="text-[#C2473B] font-semibold">不签完就走</span>。
-              敢于说是陪你,敢于不也是陪你。
-            </p>
+            <p
+              className="text-sm text-[#5A4A3C] leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: t('advantages2.refuse') }}
+            />
           </div>
         </div>
 
         {/* 底部 CTA */}
         <div className="mt-16 text-center advantage-header">
           <p className="text-base text-[#5A4A3C] mb-6">
-            想让小驼陪你稳稳走第 1 步?
+            {t('advantages2.ctaAsk')}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
             <Link
@@ -271,7 +211,7 @@ const CoreAdvantages = () => {
               className="inline-flex items-center gap-3 rounded-2xl bg-[#C2473B] hover:bg-[#A93B30] px-7 py-4 text-base font-semibold text-white shadow-[0_10px_30px_rgba(194,71,59,0.25)] transition-all hover:-translate-y-0.5"
             >
               <Heart className="h-5 w-5 fill-white" />
-              让小驼陪我稳稳走第一步
+              {t('hero3.ctaPrimary')}
               <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
@@ -279,14 +219,14 @@ const CoreAdvantages = () => {
               className="inline-flex items-center gap-3 rounded-2xl border-2 border-[#2F5D57] bg-white px-7 py-4 text-base font-semibold text-[#2F5D57] transition-all hover:bg-[#2F5D57] hover:text-white hover:-translate-y-0.5"
             >
               <Users className="h-5 w-5" />
-              看我们的方法论
+              {t('hero3.ctaMethod')}
             </Link>
             <Link
               to="/research"
               className="group inline-flex items-center gap-2 rounded-xl border border-[#2F5D57]/20 bg-white px-4 py-3 text-sm font-medium text-[#2F5D57] transition-all hover:bg-[#F7EFE0] hover:border-[#C2473B]/40 hover:text-[#C2473B]"
             >
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#C2473B] group-hover:animate-pulse" />
-              订阅《出海判断周报》
+              {t('hero3.ctaSubscribe')}
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>

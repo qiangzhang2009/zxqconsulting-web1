@@ -8,11 +8,12 @@
  * - 顶部 tag：让本草品牌 稳稳走向世界
  * - 视觉中心：羊驼吉祥物「小驼」，围绕 4 个陪跑节点
  * - 配色：暖米色主调（#F7EFE0），朱砂 + 墨青点缀
- * - CTA 三层：主菜「让小驼陪我稳稳走第一步」/ 沙拉「看我们的方法论」/ 点心「订阅《出海判断周报》」
+ * - CTA 三层：主菜「让小驼陪我稳稳走第一步」/ 沙拉「看我们的方法论」/ 点心「订阅《出海判断周报》》
  * - 「稳稳」叙事暗线：算法给稳的方向，数据给稳的判断，陪跑给稳的落地
  */
 
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import {
@@ -25,44 +26,33 @@ import {
 import { tracking } from '../lib/tracking';
 import { InteractiveAvatar } from '@/components/InteractiveAvatar';
 
-// 陪跑节点 — 围绕「稳稳出海」的 4 个关键节点
-const accompanyNodes = [
-  {
-    key: 'a',
-    icon: <Compass className="h-3.5 w-3.5" />,
-    label: '看清再走',
-    desc: '小驼替你扫稳的方向',
-    color: 'bg-[#C2473B]',
-    position: 'top-0 left-0',
-  },
-  {
-    key: 'b',
-    icon: <Heart className="h-3.5 w-3.5" />,
-    label: '找对队友',
-    desc: '数据替你选稳的路径',
-    color: 'bg-[#D9A66B]',
-    position: 'top-8 right-0',
-  },
-  {
-    key: 'c',
-    icon: <MessageCircle className="h-3.5 w-3.5" />,
-    label: '坐到桌前',
-    desc: '顾问陪你稳到签约',
-    color: 'bg-[#2F5D57]',
-    position: 'bottom-8 left-0',
-  },
-  {
-    key: 'd',
-    icon: <Sparkles className="h-3.5 w-3.5" />,
-    label: '稳到出货',
-    desc: '继续陪你稳 14 个月',
-    color: 'bg-[#7B9E8A]',
-    position: 'bottom-0 right-0',
-  },
-];
-
 const Hero = () => {
+  const { t } = useTranslation();
   const heroRef = useRef<HTMLDivElement>(null);
+
+  // 陪跑节点 — 围绕「稳稳出海」的 4 个关键节点（i18n: hero3.nodes）
+  const accompanyNodes = [
+    {
+      key: 'judge',
+      icon: <Compass className="h-3.5 w-3.5" />,
+      color: 'bg-[#C2473B]',
+    },
+    {
+      key: 'ally',
+      icon: <Heart className="h-3.5 w-3.5" />,
+      color: 'bg-[#D9A66B]',
+    },
+    {
+      key: 'negotiate',
+      icon: <MessageCircle className="h-3.5 w-3.5" />,
+      color: 'bg-[#2F5D57]',
+    },
+    {
+      key: 'ship',
+      icon: <Sparkles className="h-3.5 w-3.5" />,
+      color: 'bg-[#7B9E8A]',
+    },
+  ] as const;
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -155,7 +145,7 @@ const Hero = () => {
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-[#C2473B]" />
                 </span>
                 <Heart className="h-3.5 w-3.5 fill-[#C2473B]" />
-                <span className="font-medium">让本草品牌，稳稳走向世界</span>
+                <span className="font-medium">{t('hero3.topTag')}</span>
               </div>
 
               {/* 主标 — 新 Slogan「让本草品牌 稳稳走向世界」 */}
@@ -166,9 +156,10 @@ const Hero = () => {
                   fontSize: 'clamp(2.4rem, 4.6vw, 4.2rem)',
                 }}
               >
-                <span className="block">让本草品牌</span>
+                <span className="block">{t('hero3.titleLine1')}</span>
                 <span className="block mt-2">
-                  <span className="text-[#C2473B]">稳稳</span>走向世界
+                  <span className="text-[#C2473B]">{t('hero3.titleAccent')}</span>
+                  {' '}{t('hero3.titleLine2')}
                 </span>
               </h1>
 
@@ -177,17 +168,17 @@ const Hero = () => {
                 className="hero-fade mt-4 max-w-xl text-sm leading-relaxed text-[#5A4A3C] italic"
                 style={{ fontFamily: 'var(--font-serif)' }}
               >
-                「本草」二字出口两千年 —— 中药、保健食品、汉方护肤的共同根
+                {t('hero3.bencaoNote')}
               </p>
 
               {/* 三大支柱副标 — 算法指方向 · 数据打底 · 真人陪你出海 */}
               <p className="hero-fade mt-5 max-w-xl text-base md:text-lg leading-[1.85] text-[#5A4A3C]">
                 <span className="text-[#2A1F18] font-medium">
-                  算法指方向，数据打底，真人陪你出海
+                  {t('hero3.subtitleLead')}
                 </span>
                 <br />
-                <span className="text-[#C2473B]">小驼</span>扫尽 35 国监管框架 + 10,000+ 候选,
-                真人顾问陪你拆判断、跑合规、坐到第一张谈判桌前 —— <span className="text-[#2A1F18]">让出海这件事，稳稳的。</span>
+                <span className="text-[#C2473B]">{t('hero3.alpacaName')}</span>
+                {t('hero3.subtitleDetail')}
               </p>
 
               {/* CTA 三层分级 — 主菜 / 沙拉 / 点心 */}
@@ -198,7 +189,7 @@ const Hero = () => {
                   className="group inline-flex items-center gap-3 rounded-2xl bg-[#C2473B] hover:bg-[#A93B30] px-7 py-4 text-base font-semibold text-white shadow-[0_10px_30px_rgba(194,71,59,0.35)] transition-all hover:-translate-y-0.5"
                 >
                   <Heart className="h-5 w-5 fill-white" />
-                  让小驼陪我稳稳走第一步
+                  {t('hero3.ctaPrimary')}
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
 
@@ -208,7 +199,7 @@ const Hero = () => {
                   className="inline-flex items-center gap-3 rounded-2xl border-2 border-[#2F5D57] bg-white px-7 py-4 text-base font-semibold text-[#2F5D57] transition-all hover:bg-[#2F5D57] hover:text-white hover:-translate-y-0.5"
                 >
                   <Sparkles className="h-5 w-5" />
-                  看我们的方法论
+                  {t('hero3.ctaMethod')}
                 </Link>
 
                 <Link
@@ -217,19 +208,14 @@ const Hero = () => {
                   className="group inline-flex items-center gap-2 rounded-xl border border-[#2F5D57]/20 bg-white px-4 py-3 text-sm font-medium text-[#2F5D57] transition-all hover:bg-[#F7EFE0] hover:border-[#C2473B]/40 hover:text-[#C2473B]"
                 >
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#C2473B] group-hover:animate-pulse" />
-                  订阅《出海判断周报》
+                  {t('hero3.ctaSubscribe')}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </Link>
               </div>
 
               {/* 信任锚点 — 「稳稳」的具象化表达 */}
               <div className="hero-fade mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[#5A4A3C]">
-                {[
-                  '35 国数据底座 · 不凭感觉选目的地',
-                  '7 天给你 3 张敢签的判断书',
-                  '算法 + 数据 + 真人顾问 三重托底',
-                  '签约后继续陪你稳 14 个月',
-                ].map((item) => (
+                {(t('hero3.trustItems', { returnObjects: true }) as string[]).map((item) => (
                   <div key={item} className="inline-flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-[#C2473B]" />
                     <span>{item}</span>
@@ -238,12 +224,12 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* ============ 右：羊驼吉祥物 — 视觉中心 ============ */}
-            <div className="hero-fade relative flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[480px] aspect-square">
+            {/* ============ 右：羊驼吉祥物 + 节点网格 ============ */}
+            <div className="hero-fade flex justify-center">
+              <div className="relative w-full max-w-[520px]">
                 {/* 中心大圆背景 — 暖纸色 */}
                 <div
-                  className="absolute inset-8 rounded-full"
+                  className="absolute inset-0 rounded-full"
                   style={{
                     background:
                       'radial-gradient(circle at 50% 40%, #FFFCF5 0%, #F7EFE0 60%, #E8DCC4 100%)',
@@ -252,15 +238,15 @@ const Hero = () => {
                   }}
                 />
 
-                {/* 羊驼吉祥物 — 居中，最大尺寸 */}
-                <div className="hero-alpaca absolute inset-0 flex items-center justify-center z-20">
+                {/* 羊驼吉祥物 — 居中 */}
+                <div className="hero-alpaca relative z-20 flex justify-center py-10">
                   <div
                     className="relative rounded-full bg-gradient-to-br from-[#FFF8EC] via-[#F7EFE0] to-[#E8DCC4] border-[3px] border-[#C2473B] shadow-[0_30px_60px_-15px_rgba(194,71,59,0.4)] overflow-hidden transition-all duration-500 cursor-pointer group"
                     style={{
-                      width: 'clamp(220px, 28vw, 320px)',
-                      height: 'clamp(220px, 28vw, 320px)',
+                      width: 'clamp(220px, 30vw, 300px)',
+                      height: 'clamp(220px, 30vw, 300px)',
                     }}
-                    aria-label="小驼 — 你的出海陪跑伙伴"
+                    aria-label={t('hero3.alpacaName')}
                     role="img"
                   >
                     {/* 朱砂呼吸环 */}
@@ -274,7 +260,7 @@ const Hero = () => {
                     {/* 左上 LIVE 小圆点 */}
                     <div className="absolute top-2.5 left-2.5 inline-flex items-center gap-1 rounded-full bg-[#2A1F18]/85 px-2 py-1 backdrop-blur-sm z-10">
                       <span className="h-1.5 w-1.5 rounded-full bg-[#C2473B] animate-pulse" />
-                      <span className="text-[9px] font-bold tracking-wider text-white">陪跑中</span>
+                      <span className="text-[9px] font-bold tracking-wider text-white">{t('hero3.liveBadge')}</span>
                     </div>
 
                     {/* 右下朱砂小角标 */}
@@ -282,80 +268,47 @@ const Hero = () => {
                   </div>
                 </div>
 
-                {/* 4 个陪跑节点 — 围绕羊驼呈环形 */}
-                {accompanyNodes.map((node, i) => {
-                  // 用 transform 精确放置 4 个节点在圆周上
-                  const positions = [
-                    { top: '8%', left: '10%' },
-                    { top: '8%', right: '10%' },
-                    { bottom: '8%', left: '10%' },
-                    { bottom: '8%', right: '10%' },
-                  ];
-                  const pos = positions[i];
-                  return (
-                    <div
-                      key={node.key}
-                      className="accompany-node absolute z-30 group"
-                      style={pos}
-                    >
-                      {/* 连接虚线（指向中心） */}
-                      <div
-                        className="absolute hidden lg:block"
-                        style={{
-                          width: '60px',
-                          height: '60px',
-                          top: '50%',
-                          left: '50%',
-                          transform: `translate(-50%, -50%) rotate(${45 + i * 90}deg)`,
-                        }}
-                        aria-hidden
-                      >
-                        <div
-                          className="absolute inset-0"
-                          style={{
-                            background:
-                              'radial-gradient(circle, transparent 49%, rgba(194,71,59,0.25) 50%, transparent 51%)',
-                          }}
-                        />
-                      </div>
-
-                      {/* 节点卡片 */}
-                      <div className="relative rounded-2xl bg-white border border-[#C2473B]/20 px-3.5 py-3 shadow-md transition-all hover:shadow-xl hover:-translate-y-0.5 hover:border-[#C2473B]/40">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span
-                            className={`flex h-6 w-6 items-center justify-center rounded-full text-white ${node.color}`}
-                          >
-                            {node.icon}
-                          </span>
-                          <span
-                            className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C2473B]"
-                            style={{ fontFamily: 'var(--font-serif)' }}
-                          >
-                            {node.label}
-                          </span>
-                        </div>
-                        <div
-                          className="text-xs text-[#2A1F18] leading-snug whitespace-nowrap"
-                          style={{ fontFamily: 'var(--font-serif)' }}
-                        >
-                          {node.desc}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-
-                {/* 中心底部小标签 — 羊驼身份（算法 + 数据 + 陪跑 三锚合一 → 稳稳） */}
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 text-center">
+                {/* 羊驼身份单行标签 — 放在 avatar 与节点之间 */}
+                <div className="relative z-20 text-center px-4 pb-6 -mt-2">
                   <div
-                    className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#C2473B]"
+                    className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#C2473B]"
                     style={{ fontFamily: 'var(--font-serif)' }}
                   >
-                    小驼 · 让本草品牌 稳稳走向世界
+                    {t('hero3.alpacaName')} · {t('hero3.alpacaFooter')}
                   </div>
                   <div className="text-[9px] text-[#5A4A3C] mt-0.5">
-                    24h 在线 · 算法 + 数据 + 真人陪跑
+                    {t('hero3.alpacaSubline')}
                   </div>
+                </div>
+
+                {/* 4 个陪跑节点 — 2×2 网格（或 md: 1×4 行） */}
+                <div className="relative z-20 grid grid-cols-2 gap-3 px-4 pb-8 max-w-md mx-auto">
+                  {accompanyNodes.map((node) => (
+                    <div
+                      key={node.key}
+                      className="accompany-node rounded-xl bg-white border border-[#C2473B]/15 p-3 shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 hover:border-[#C2473B]/30"
+                    >
+                      <div className="flex items-center gap-2 mb-1">
+                        <span
+                          className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-white ${node.color}`}
+                        >
+                          {node.icon}
+                        </span>
+                        <span
+                          className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#C2473B] leading-tight"
+                          style={{ fontFamily: 'var(--font-serif)' }}
+                        >
+                          {t(`hero3.nodes.${node.key}.label`)}
+                        </span>
+                      </div>
+                      <div
+                        className="text-[11px] text-[#2A1F18] leading-snug"
+                        style={{ fontFamily: 'var(--font-serif)' }}
+                      >
+                        {t(`hero3.nodes.${node.key}.desc`)}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

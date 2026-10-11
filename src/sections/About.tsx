@@ -2,7 +2,7 @@
  * About Section — 「稳稳」叙事版（C 方案）
  *
  * 核心叙事：
- * - 主金句：「让本草品牌，稳稳走向世界」（与 Hero 同句，1+1=记忆加深）
+ * - 主金句：「让本草品牌,稳稳走向世界」（与 Hero 同句，1+1=记忆加深）
  * - 创始人独白改为「稳」视角 —— 出海不是赶路，是稳着走
  * - 「数据底座」小段：把"算法即世界"的世界观替换为"35 国数据底座"的实在锚点
  * - 「主理人说」+ 「小驼同事」情感锚点保留，并升级为「稳稳陪跑」
@@ -16,52 +16,28 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   ArrowRight,
   Award,
-  CheckCircle2,
   Globe2,
   Heart,
   Lightbulb,
   Quote,
   Shield,
   Sparkles,
-  Target,
   Users,
 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// 核心价值观 — 围绕「稳稳陪跑」的 4 条承诺
-const values: ValueItem[] = [
-  {
-    icon: <Heart className="h-5 w-5 fill-[#C2473B] text-[#C2473B]" />,
-    title: '陪你把方向看稳',
-    desc: '不催你立项,也不催你放弃 —— 35 国数据先替你看清每一步的代价',
-  },
-  {
-    icon: <Users className="h-5 w-5" />,
-    title: '陪你走到能签',
-    desc: '从第一次见面到 MOU,我们陪在旁边 —— 不是发完报告就走',
-  },
-  {
-    icon: <Lightbulb className="h-5 w-5" />,
-    title: '算法 + 数据 + 顾问',
-    desc: '小驼扫方向,数据打底,真人顾问做判断 —— 我们陪的是你,不是 AI',
-  },
-  {
-    icon: <Shield className="h-5 w-5" />,
-    title: '签约后还陪你',
-    desc: '出问题的夜里第一个打电话的,是我们 —— 不是机器人',
-  },
-];
-
-interface ValueItem {
-  icon: React.ReactNode;
-  title: string;
-  desc: string;
-}
-
 const About = () => {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  // 核心价值观图标 — 围绕「稳稳陪跑」的 4 条承诺（标题/描述用 t()）
+  const valueIcons = [
+    <Heart key="h" className="h-5 w-5 fill-[#C2473B] text-[#C2473B]" />,
+    <Users key="u" className="h-5 w-5" />,
+    <Lightbulb key="l" className="h-5 w-5" />,
+    <Shield key="s" className="h-5 w-5" />,
+  ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -107,6 +83,9 @@ const About = () => {
     return () => ctx.revert();
   }, []);
 
+  const values = t('about2.values', { returnObjects: true }) as Array<{ title: string; desc: string }>;
+  const whyUsCards = t('about2.whyUsCards', { returnObjects: true }) as Array<{ title: string; desc: string; highlight: string }>;
+
   return (
     <section
       id="about"
@@ -144,7 +123,7 @@ const About = () => {
               className="text-[12px] font-bold uppercase tracking-[0.28em] text-[#C2473B]"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              让本草品牌 · 稳稳走向世界
+              {t('about2.taglinePill')}
             </span>
             <span className="h-px w-10 bg-[#C2473B]" />
           </div>
@@ -158,11 +137,12 @@ const About = () => {
           >
             <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#2F5D57] mb-2 flex items-center gap-2">
               <Sparkles className="h-3.5 w-3.5" />
-              35 国数据底座 · 让每一个判断都站得住
+              {t('about2.dataPill')}
             </div>
-            <p className="text-base md:text-[17px] leading-[1.85] text-[#2A1F18]">
-              出海最贵的不是钱,是<span className="text-[#C2473B]">走错那一次</span>。我们不打算让你凭经验拍脑袋 —— 我们把 35 国监管框架、上万个候选、近百个真实案例,做成你能摸得到的数据底座;再让<span className="text-[#2A1F18] font-medium">算法指方向</span>、<span className="text-[#2A1F18] font-medium">数据打底</span>、<span className="text-[#2A1F18] font-medium">真人陪你出海</span> —— 让你的每一步都稳稳的。
-            </p>
+            <p
+              className="text-base md:text-[17px] leading-[1.85] text-[#2A1F18]"
+              dangerouslySetInnerHTML={{ __html: t('about2.dataParagraph') }}
+            />
           </div>
         </div>
 
@@ -179,31 +159,30 @@ const About = () => {
               className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#C2473B] mb-4"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              为什么是「稳」,而不是「快」
+              {t('about2.whyStableTitle')}
             </div>
             <p
               className="text-lg md:text-xl leading-[1.95] text-[#2A1F18] font-medium mb-5"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              出海不是赶路,是稳着走。走错一步,后面 12 个月都得补 —— 这个成本,我们见过太多次。
+              {t('about2.whyStableP1')}
             </p>
             <p
               className="text-lg md:text-xl leading-[1.95] text-[#2A1F18] font-medium mb-5"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              我见过一个老中医,一个人飞去日本考察,回来 6 个月没动静。
-              不是不想动 —— 是不知道下一步该问谁,生怕走错那一步。
+              {t('about2.whyStableP2')}
             </p>
             <p
               className="text-lg md:text-xl leading-[1.95] text-[#2A1F18] font-medium mb-5"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              我们做的,就是把那个「该问谁」变成一个你能找到、24h 在线的人 —— 小驼扫数据,真人顾问陪你做判断,你只管出海路上那件你最该做的事。
+              {t('about2.whyStableP3')}
             </p>
             <p className="text-base leading-[1.9] text-[#5A4A3C]">
-              <span className="text-[#C2473B]">差别不在资源,在每一步有没有人替你把稳。</span>
+              <span className="text-[#C2473B]">{t('about2.whyStableP4')}</span>
               <br />
-              这就是我们做岐黄四海的原因 —— 让你出海时,<span className="text-[#2A1F18]">身后有人,身边有驼,脚下的路稳稳的。</span>
+              {t('about2.whyStableP5')}
             </p>
           </div>
         </div>
@@ -226,7 +205,7 @@ const About = () => {
                     张
                   </div>
                   <div className="mt-1.5 text-center text-[9px] font-bold uppercase tracking-widest text-[#C2473B]">
-                    主理人
+                    {t('about2.founderRole')}
                   </div>
                 </div>
 
@@ -234,15 +213,13 @@ const About = () => {
                   <p
                     className="text-base md:text-lg leading-[1.85] text-[#2A1F18] font-medium mb-3"
                     style={{ fontFamily: 'var(--font-serif)' }}
-                  >
-                    我们做这件事,不是要给行业多一个选择,
-                    而是要让每一个想出海的<span className="text-[#C2473B]">本草品牌,都能稳稳走向世界。</span>
-                  </p>
+                    dangerouslySetInnerHTML={{ __html: t('about2.founderQuote') }}
+                  />
                   <div className="flex items-center gap-2 text-sm text-[#5A4A3C]">
                     <span className="h-px w-6 bg-[#C2473B]/30" />
-                    <span className="font-medium text-[#2A1F18]">张小强</span>
+                    <span className="font-medium text-[#2A1F18]">{t('about2.founderName')}</span>
                     <span className="text-[#C2473B]">·</span>
-                    <span>岐黄四海 主理人</span>
+                    <span>{t('about2.founderTitle')}</span>
                   </div>
                 </div>
               </div>
@@ -263,7 +240,7 @@ const About = () => {
                     🦙
                   </div>
                   <div className="mt-1.5 text-center text-[9px] font-bold uppercase tracking-widest text-[#D9A66B]">
-                    陪跑队友
+                    {t('about2.teammateRole')}
                   </div>
                 </div>
 
@@ -271,16 +248,13 @@ const About = () => {
                   <p
                     className="text-base md:text-lg leading-[1.85] text-[#2A1F18] font-medium mb-3"
                     style={{ fontFamily: 'var(--font-serif)' }}
-                  >
-                    我是小驼,张小强的同事。
-                    <span className="text-[#C2473B]"> 24h 在线,扫方向、查法规、看数据 —— </span>
-                    不睡觉的队友,陪你稳稳走每一步。
-                  </p>
+                    dangerouslySetInnerHTML={{ __html: t('about2.teammoteQuote') }}
+                  />
                   <div className="flex items-center gap-2 text-sm text-[#5A4A3C]">
                     <span className="h-px w-6 bg-[#D9A66B]/40" />
-                    <span className="font-medium text-[#2A1F18]">小驼</span>
+                    <span className="font-medium text-[#2A1F18]">{t('about2.teammateName')}</span>
                     <span className="text-[#D9A66B]">·</span>
-                    <span>AI 陪跑队友</span>
+                    <span>{t('about2.teammateTitle')}</span>
                   </div>
                 </div>
               </div>
@@ -294,28 +268,26 @@ const About = () => {
           <div className="about-header">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#C2473B]/30 bg-white px-4 py-2 text-sm text-[#C2473B] mb-6 shadow-sm">
               <Heart className="h-4 w-4 fill-[#C2473B]" />
-              <span className="font-medium">我们是谁</span>
+              <span className="font-medium">{t('about2.whoBadge')}</span>
             </div>
 
             <h2
               className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.15] tracking-tight text-[#2A1F18] mb-6"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              不只是顾问,
-              <span className="block text-[#C2473B]">是你稳稳出海的那双脚</span>
+              {t('about2.whoTitle1')}
+              <span className="block text-[#C2473B]">{t('about2.whoTitle2')}</span>
             </h2>
 
             <div className="relative pl-6 border-l-4 border-[#C2473B]">
               <Quote className="absolute -left-4 -top-2 h-6 w-6 text-[#C2473B]/20" />
               <p className="text-lg leading-[1.9] text-[#5A4A3C] italic">
-                出海不是一句口号,是一段你每一步都得走得稳的路。
+                {t('about2.whoQuote')}
               </p>
             </div>
 
             <p className="mt-6 text-base leading-[1.9] text-[#5A4A3C]">
-              岐黄四海专注于中医药、保健食品、汉方品牌的全球增长。
-              让算法指方向,数据来打底,资深顾问陪你做判断 —— 从「要不要走」一直陪到「签了、出了、稳定了」。
-              <span className="text-[#2A1F18] font-medium">你不是一个人在出海,我们让这件事稳稳地发生。</span>
+              {t('about2.whoDesc')}
             </p>
           </div>
 
@@ -323,16 +295,16 @@ const About = () => {
           <div className="about-content">
             <h3 className="text-xl font-semibold text-[#2A1F18] mb-6 flex items-center gap-3">
               <Award className="h-5 w-5 text-[#C2473B]" />
-              我们对你的承诺
+              {t('about2.promiseTitle')}
             </h3>
             <div className="value-grid grid gap-4">
-              {values.map((value) => (
+              {values.map((value, idx) => (
                 <div
                   key={value.title}
                   className="value-card flex items-start gap-4 rounded-xl bg-white border border-[#C2473B]/12 p-5 shadow-sm"
                 >
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#C2473B]/10 text-[#C2473B]">
-                    {value.icon}
+                    {valueIcons[idx] || <Globe2 className="h-5 w-5" />}
                   </div>
                   <div>
                     <h4
@@ -359,31 +331,15 @@ const About = () => {
               className="text-3xl md:text-4xl font-semibold text-[#2A1F18] mb-4"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
-              为什么出海时,选我们陪你走得稳
+              {t('about2.whyUsTitle')}
             </h2>
             <p className="text-base text-[#5A4A3C] max-w-2xl mx-auto">
-              不是因为我们有多大牌。是因为我们真的陪你走过 —— 走过立项的纠结、谈判的冷场、出问题的深夜。每一步,都陪你走得稳稳的。
+              {t('about2.whyUsLead')}
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3 about-content">
-            {[
-              {
-                title: '不是顾问,是队友',
-                desc: '你的项目我们一起扛 —— 出问题我们一起熬,签下来我们一起开心,每一步都走得稳。',
-                highlight: '真陪,不是假装',
-              },
-              {
-                title: '不是工具,是稳稳的托底',
-                desc: '算法指方向,数据打底,真人顾问做判断 —— 出海路上,你需要的是每一脚都踩得稳。',
-                highlight: '算法 + 数据 + 顾问,都在',
-              },
-              {
-                title: '不是签约就走',
-                desc: '出海只是开始,后续 14 个月的货我们陪你盯。中途政策变了,我们比你先看到,先稳住。',
-                highlight: '签完,继续陪',
-              },
-            ].map((item) => (
+            {whyUsCards.map((item) => (
               <div
                 key={item.title}
                 className="rounded-xl border border-[#C2473B]/15 bg-white p-6 text-center hover:border-[#C2473B]/30 hover:shadow-md transition-all duration-300"
@@ -407,7 +363,7 @@ const About = () => {
         {/* CTA 三层分级 */}
         <div className="mt-16 text-center about-header">
           <p className="text-base text-[#5A4A3C] mb-6">
-            想让小驼先陪你聊一聊?
+            {t('about2.ctaAsk')}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
             <Link
@@ -415,7 +371,7 @@ const About = () => {
               className="inline-flex items-center gap-3 rounded-2xl bg-[#C2473B] hover:bg-[#A93B30] px-7 py-4 text-base font-semibold text-white shadow-[0_10px_30px_rgba(194,71,59,0.25)] transition-all hover:-translate-y-0.5"
             >
               <Heart className="h-5 w-5 fill-white" />
-              让小驼陪我稳稳走第一步
+              {t('hero3.ctaPrimary')}
               <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
@@ -423,14 +379,14 @@ const About = () => {
               className="inline-flex items-center gap-3 rounded-2xl border-2 border-[#2F5D57] bg-white px-7 py-4 text-base font-semibold text-[#2F5D57] transition-all hover:bg-[#2F5D57] hover:text-white hover:-translate-y-0.5"
             >
               <Users className="h-5 w-5" />
-              看我们的方法论
+              {t('hero3.ctaMethod')}
             </Link>
             <Link
               to="/research"
               className="group inline-flex items-center gap-2 rounded-xl border border-[#2F5D57]/20 bg-white px-4 py-3 text-sm font-medium text-[#2F5D57] transition-all hover:bg-[#F7EFE0] hover:border-[#C2473B]/40 hover:text-[#C2473B]"
             >
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#C2473B] group-hover:animate-pulse" />
-              订阅《出海判断周报》
+              {t('hero3.ctaSubscribe')}
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
