@@ -1,23 +1,31 @@
 {
   "brand": {
     "name": "Bahasa Melayu",
+    "nameEn": "QihuangSihai",
     "fullName": "Shanghai Zhang Xiaoqiang Enterprise Consulting Firm",
     "tagline": "Your Loyal and Reliable Global Partner",
     "slogan": "Satu salasilah Qihuang. Kesejahteraan empat laut.",
-    "nameEn": "QihuangSihai"
+    "selectLanguage": "Pilih bahasa"
   },
   "nav": {
     "home": "Home",
     "about": "About Us",
     "services": "Services",
     "markets": "Global Markets",
-    "contact": "Contact"
+    "contact": "Contact",
+    "research": "Data Berbicara · Perpustakaan Kajian"
   },
   "hero": {
     "title": "Empowering Businesses to Conquer Global Markets",
     "subtitle": "From market entry strategy to operational implementation, we provide comprehensive overseas consulting services. AI-powered, resource-driven, making faster and more precise decisions for your global expansion.",
     "cta": "Start Your Global Journey",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "banner": "Qihuang Sihai · Perkhidmatan global · Boleh dipercayai",
+    "badge": "Qihuang Sihai · Platform",
+    "highlight": "Herba Glob · Melangkah ke dunia",
+    "trustBadge": "Pasukan profesional·Perkhidmatan sehenti",
+    "serviceBadge": "Perkhidmatan profesional·Boleh dipercayai",
+    "bencaoHealth": "Kesihatan Herba"
   },
   "about": {
     "p1_title": "Judge before you invest",
@@ -48,7 +56,8 @@
     "platformPurpose": "We redesigned the website not to display more capabilities, but to front-load the decisions that enterprises must make before going global.",
     "platformPurposeEn": "We redesigned the website not to display more capabilities, but to front-load the decisions that enterprises must make before going global: which market is a priority, which entry pathway is more reasonable, and which risks might prevent the project from continuing.",
     "platformOutcome": "Once the platform has produced a structured judgment, users can review sample reports, request deeper expert evaluation or explore further collaboration as needed.",
-    "platformOutcomeEn": "Only after the platform has produced a structured judgment should users move into sample reports, expert review and deeper advisory services."
+    "platformOutcomeEn": "Only after the platform has produced a structured judgment should users move into sample reports, expert review and deeper advisory services.",
+    "platformLogic": "Logik dan metodologi platform"
   },
   "services": {
     "diagnosisEngineSection": "Global Entry Diagnosis Engine",
@@ -78,17 +87,26 @@
     "cap_followup_out1": "Result interpretation",
     "cap_followup_out2": "Path comparison",
     "cap_followup_out3": "Budget scenario shifts",
-    "cap_sample_proof": "Sample reports and proof cases",
-    "cap_sample_proof_desc": "Use real engagements and replayable cases to prove the logic instead of relying on agency-style claims.",
-    "cap_sample_proof_out1": "Case logic breakdown",
+    "cap_sample_proof": "Sample reports and algorithm diagnosis",
+    "cap_sample_proof_desc": "Use algorithm-generated diagnostic samples to prove that the evaluation logic is transparent and verifiable.",
+    "cap_sample_proof_out1": "Algorithm logic breakdown",
     "cap_sample_proof_out2": "Pathway examples",
-    "cap_sample_proof_out3": "Proof of outcomes",
+    "cap_sample_proof_out3": "Scoring basis",
     "cap_expert_upgrade": "Deeper expert evaluation",
     "cap_expert_upgrade_desc": "For complex, high-stakes or high-uncertainty projects, a deeper expert evaluation is offered instead of sending every visitor to the same generic form.",
     "cap_expert_upgrade_out1": "Project-fit assessment",
     "cap_expert_upgrade_out2": "Expert evaluation request",
     "cap_expert_upgrade_out3": "Advisory handoff",
-    "viewExpertPath": "See the expert evaluation path"
+    "viewExpertPath": "See the expert evaluation path",
+    "howItWorks": "Cara platform berfungsi",
+    "howItWorksDesc": "Tiga langkah, dari diagnosis hingga pelaksanaan",
+    "ctaNote": "Setiap keupayaan disertakan senarai langkah yang boleh dilaksanakan",
+    "category_strategy": "Strategi",
+    "category_risk": "Risiko",
+    "category_analysis": "Analisis",
+    "category_intelligence": "Ke intel",
+    "category_case": "Kes",
+    "category_expert": "Pakar"
   },
   "whyUs": {
     "title": "Why Choose Us",
@@ -181,7 +199,7 @@
     "badges": {
       "response": "24h Response",
       "consultant": "1-on-1 Expert Consultant",
-      "cases": "Rich Success Cases",
+      "cases": "Algorithm-Driven Diagnosis",
       "support": "Worry-Free After-Sales"
     },
     "items": {
@@ -219,29 +237,8 @@
     "close": "Close",
     "tags": "Tags",
     "loading": "Loading...",
-    "noArticles": "No articles available"
-  },
-  "testimonials": {
-    "title": "Client Testimonials",
-    "subtitle": "What They Say",
-    "description": "Real feedback from clients, witnessing our ability to help businesses successfully expand globally",
-    "items": {
-      "wang": {
-        "quote": "Before going overseas we thought the hardest part was compliance. After the journey we learned the hardest part is judgment. QihuangSihai didn't make us move fast — they made us dare to move. We signed 3 MOUs in Japan and have shipped steadily for 14 months. They saw two regulatory shifts before we did.",
-        "name": "Founder, century-old Shanghai TCM maker",
-        "position": "Japan · drugstore & kampō retail channels"
-      },
-      "li": {
-        "quote": "We wanted to enter Europe and the US, with no idea where to start. In 30 minutes QihuangSihai showed us that Hanfang skincare in Germany and the UK are two completely different stories. We followed their path: a German DTC site first, hitting $8K monthly with 28% repeat purchase in 9 months.",
-        "name": "Founder, emerging Hanfang skincare brand",
-        "position": "EU/US · Germany DTC-first"
-      },
-      "zhang": {
-        "quote": "We had been doing OTC and wanted to move into functional food, but couldn't pick the right category. The algorithm gave 3 judgments first, then a senior consultant walked us through 60 minutes of review. We chose the health-supplement path instead of TCM, saving at least 18 months of compliance time.",
-        "name": "CMO, Bencao-food startup",
-        "position": "Southeast Asia · category-path selection"
-      }
-    }
+    "noArticles": "No articles available",
+    "lastUpdate": "Kemaskini terakhir"
   },
   "contact": {
     "title": "Contact Us",
@@ -283,8 +280,26 @@
       "companyPlaceholder": "Please enter your company name",
       "message": "Inquiry Content",
       "messagePlaceholder": "Please describe your inquiry needs...",
-      "submit": "Submit Inquiry"
+      "submit": "Submit Inquiry",
+      "submitting": "Menghantar...",
+      "success": "Hantar berjaya",
+      "successMessage": "Terima kasih atas pertanyaan anda! Pakar konsultasi kami akan menghubungi anda dalam 24 jam.",
+      "gotIt": "Mengerti",
+      "error": "Hantar gagal. Sila cuba lagi atau hantar e-mel terus ke customer@zxqconsulting.com"
     }
+  },
+  "floatingContact": {
+    "call": "Hubungi sekarang",
+    "wechat": "WeChat",
+    "email": "Hantar e-mel",
+    "message": "Tinggalkan mesej",
+    "contactUs": "Hubungi kami",
+    "workTime": "Waktu bekerja: Isnin hingga Jumaat 9:00-18:00",
+    "copied": "Nombor WeChat disalin: ",
+    "callNow": "Hubungi sekarang",
+    "sendEmail": "Hantar e-mel",
+    "hours": "Waktu operasi: Isn–Jum 9:00–18:00",
+    "wechatCopied": "ID WeChat disalin: {{id}}"
   },
   "footer": {
     "title": "Ready to Go Global?",
@@ -293,7 +308,63 @@
     "quickLinks": "Quick Links",
     "markets": "Market Regions",
     "services": "Professional Services",
-    "copyright": "© 2024 Shanghai Zhang Xiaoqiang Enterprise Consulting Firm. All rights reserved."
+    "copyright": "© 2024 Shanghai Zhang Xiaoqiang Enterprise Consulting Firm. All rights reserved.",
+    "banner": {
+      "badge": "Qihuang Sihai · Platform",
+      "title": "Mulakan perjalanan global anda",
+      "description": "Dengan sokongan dasar negara, bantu produk herba dan budaya Perubatan Tradisional Cina melangkah ke dunia!",
+      "tagline": "Pasukan profesional·Perkhidmatan sehenti·Boleh dipercayai",
+      "button": "Hubungi sekarang, mulakan perjalanan global"
+    },
+    "promo": {
+      "spring": "Siri khas Tahun Kuda 2026",
+      "spirit": "Semangat naga dan kuda",
+      "stride": "Berlari ribuan batu"
+    },
+    "nav": "Navigasi tapak",
+    "priorityMarkets": "Pasaran keutamaan",
+    "platformCapabilities": "Keupayaan platform",
+    "marketEntry": "Penilaian kemasukan pasaran",
+    "compliancePathway": "Penilaian laluan pematuhan",
+    "channelGrowth": "Cadangan saluran dan pertumbuhan",
+    "diagnosisExpert": "Diagnosis susulan dan semakan pakar",
+    "africaDesc": "Platform arbitraj asal dan tarif Afrika",
+    "global2chinaDesc": "Platform konsultasi import produk global ke China",
+    "affiliatedPlatforms": "Platform berkaitan",
+    "tagline": "Platform keputusan AI untuk globalisasi TCM · Metodologi konsultasi + Sistem diagnosis AI",
+    "positioningCoverage": "Fokus utama: Jepun, EU, Asia Tenggara, Timur Tengah, Australia dan Amerika Utara",
+    "positioningDisclaimer": "Notis: Hasil diagnosis AI untuk penilaian peringkat awal; projek rasmi bergantung pada penilaian konsultasi dan peraturan tempatan.",
+    "jpKorea": "Jepun / Korea",
+    "euUk": "EU / UK",
+    "seAsia": "Asia Tenggara",
+    "middleEast": "Timur Tengah"
+  },
+  "ai": {
+    "showcase": {
+      "title": "Dikuasakan AI · Pandangan pasaran global",
+      "subtitle": "Wawasan pasaran luar pesisir",
+      "description": "Berdsarkan analisis data pelbagai dimensi, memberikan Unternehmen panduancer marketan luar pesisir yang tepat dan sokongan keputusan",
+      "heatLevel": "Kepanasan pasaran",
+      "realtimeDynamics": "Dinamik pasaran masa nyata",
+      "autoUpdate": "Kemaskini harian",
+      "aiStats": "Keupayaan data",
+      "dataSources": "Sumber data",
+      "dataSourcesDesc": "Sumber data global",
+      "updateFreq": "Kekerapan kemas kini",
+      "updateFreqDesc": "Kemaskini masa nyata",
+      "analysis": "Dimensi analisis",
+      "analysisDesc": "Analisis pelbagai dimensi",
+      "accuracy": "Ketepatan ramalan",
+      "accuracyDesc": "Ramalan model AI",
+      "learnMore": "Hubungi kami untuk maklumat pasaran lanjut",
+      "dataNote": "Data dikemaskini setiap hari, untuk rujukan sahaja",
+      "lastUpdate": "Kemaskini terakhir",
+      "globalVisualization": "Dinamik Pasaran Global",
+      "marketNode": "Nod Pasaran",
+      "tradeFlow": "Aliran Dagang",
+      "originPoint": "Sumber Data",
+      "liveData": "Aliran Data Langsung"
+    }
   },
   "tools": {
     "selectMarket": "Step 1: Select Your Target Market",
@@ -359,7 +430,7 @@
     },
     "common": {
       "analyzing": "AI Analyzing...",
-      "aiAdvice": "智探Global 智能体 Advice",
+      "aiAdvice": "Cadangan ejen AI Zhit-an Global",
       "aiResult": "AI Assessment Result"
     },
     "policy": {
@@ -402,16 +473,40 @@
     "tagline": "AI platform for TCM global expansion decisions",
     "subtitle": "Global Expansion Intelligence Platform",
     "titlePart1": "Use AI to decide",
-    "titlePart2Gradient": "if your TCM product should go global",
+    "titleHighlight": "memilih jalan",
+    "titlePart2": "35 negara, 4 peringkat keutamaan — kami tapis dahulu, kemudian menilai bersama",
     "description": "Qihuang Sihai turns market priority, entry complexity, channel fit and project risk into one AI decision flow so TCM, supplement, Hanfang skincare and health-product teams can evaluate opportunities before committing serious resources.",
-    "q1": "Which market should you enter first?",
-    "q2": "How hard will compliance and entry be?",
-    "q3": "Is this opportunity worth funding now?",
+    "dq1": "Patutkah kita mulakan sekarang?",
+    "dq2": "Adakah bajet, pasukan dan produk bersedia?",
+    "dq3": "Ubat / Makanan / Kosmetik, laluan mana yang harus dipilih?",
+    "dq4": "Jepun / EU / Asia Tenggara, yang mana dahulu?",
+    "dq5": "Ejenn, pengedar, e-dagang, bagaimana untuk disusun?",
+    "trustVal1": "35",
+    "trustLabel1": "Kerangka kawal atur negara diagihkan",
+    "trustVal2": "35",
+    "trustLabel2": "Kerangka kawal atur negara sasaran dimasukkan",
+    "trustVal3": "12+",
+    "trustLabel3": "tahun amalan dalam eksport produk herba",
+    "trustVal4": "¥3B+",
+    "trustLabel4": "Sumber keputusan pelanggan terkumpul",
     "trust1": "Get an initial decision in 3 minutes",
     "trust2": "Assess market, compliance, cost, channels and risk in one flow",
     "trust3": "Complex projects get a deeper expert evaluation",
+    "convTitle": "Perbualan sebenar · Langkah keputusan",
+    "q1c": "Pakar, bos kami ingin memberi perhatian penuh kepada pasaran Jepun tahun depan, adakah masa untuk mengambil langkah ini sekarang?",
+    "q1a": "Jangan tergesa-gesa tetapkan Jepun dahulu. Di kalangan 35 negara, kerumitan kawal atur setiap pasaran berbeza 3-5 kali ganda; diagnosis AI akan memberikan anda susunan keutamaan dahulu, bukan membiarkan anda memilih destinasi secara langsung.",
+    "q2c": "Kami mempunyai satu ubat herba tradisional OTC yang ingin memasuki EU dan Asia Tenggara; saya dengar EU THR sekurang-kurangnya 18 bulan, kami tidak mampu.",
+    "q2a": "Benar, laluan herba tradisional EU bukan \"buka pelaburan besar dulu\". Saya akan membantu anda menganalisis dalam 30 minit: laluan ini harus menjadi sasaran 12 bulan kemudian, bukan permulaan Q1.",
+    "q3c": "Kami selalu membuat OTC, sekarang ingin membuat makanan berfungsi + kecantikan herba, tidak pasti kategori mana yang harus dipilih.",
+    "q3a": "Pilihan kategori sendiri menentukan laluan pendaftaran, saluran dan bahasa pemasaran anda. Diagnosis AI akan menilai pilihan kategori anda dahulu, kemudian pakar akan mengesahkan.",
+    "advisorQuote": "Saya tidak menjual laporan. Saya menilai bersama anda untuk membuat keputusan yang tegas.",
+    "advisorBio": "Dalam 12 tahun terakhir, kami telah menemani 60+ syarikat Perubatan Tradisional Cina melalui tiga peringkat: permulaan projek, eksport dan semakan. Jika laluan dipilih dengan salah sekali, kami akan membantu anda menukar dalam 30 minit; jika produk tidak patut dibuat, kami akan memberitahu anda secara langsung.",
+    "trustTitle": "Penilaian masa lalu · Bukan hanya nombor pada PPT",
     "ctaStart": "Start AI diagnosis",
+    "ctaDownload": "Muat turun panduan 35 negara",
     "ctaViewSample": "View sample report",
+    "ctaExpert": "Tempah 30 minit konsultasi pakar",
+    "ctaSubscribe": "Langgan buletin mingguan",
     "previewLabel": "Diagnosis preview",
     "previewTitle": "Structured output, not generic advice",
     "threeMin": "3 min",
@@ -421,6 +516,15 @@
     "category": "Category",
     "categoryValue": "Supplements / TCM / Hanfang skincare",
     "categoryDesc": "Match category with entry pathways",
+    "tierA": "Gred A · Keutamaan 12 bulan",
+    "tierB": "Gred B · Sederhana 12-24 bulan",
+    "tierC": "Gred C · Pemerhatian jangka panjang",
+    "tierD": "Gred D · Buat masa ini tidak masuk",
+    "tierABDesc": "Jepun — Tempoh notifikasi terbuka / Jerman — Pembelian berulang kecantikan herba stabil",
+    "tierLabel": "Gred 35 negara",
+    "advisorBadge": "Pakar kemanusiaan",
+    "advisorTagline": "12 tahun menemani 60+ syarikat melalui permulaan · eksport · semakan",
+    "sampleOutput": "Output contoh",
     "opportunityScore": "Opportunity Score",
     "opportunityScoreText": "Identify which market-product combination deserves priority investment.",
     "entryComplexity": "Entry Complexity",
@@ -519,6 +623,29 @@
     "q_budgetDowngrade": "What is the best downgrade path if the budget is too tight?",
     "q_expertThreshold": "What conditions make a project a good fit for a deeper expert evaluation?",
     "selfServe": "Continue self-serve diagnosis",
+    "goToMarket_go": "Pergi sekarang",
+    "goToMarket_wait": "Tunggu / Sediakan",
+    "goToMarket_escalate": "Disyorkan penilaian pakar",
+    "reviewFit_expert": "Disoyorkan penilaian pakar lanjut",
+    "reviewFit_prepare": "Disoyorkan menambah beberapa maklumat utama dahulu",
+    "reviewFit_selfServe": "Disoyorkan terus jelajah sendiri",
+    "nextAction_expert": "Projek anda lebih sesuai untuk penilaian pakar lanjut. Borang akan cuba mengisi konteks diagnosis terlebih dahulu untuk mengurangkan input berulang.",
+    "nextAction_prepare": "Mengisi beberapa maklumat utama dahulu, kemudian memohon penilaian pakar, akan lebih cekap daripada menghantar terus.",
+    "nextAction_selfServe": "Terus diagnosis sendiri dan pengesahan kos rendah, tunggu sehingga andaian utama lebih jelas sebelum menilai sama ada penilaian pakar diperlukan.",
+    "cta_expertReview": "Masuk permohonan penilaian pakar",
+    "cta_viewEntry": "Lihat pintu masuk penilaian pakar",
+    "composing": "Sistem sedang menyusun kesimpulan dan lapisan bukti",
+    "opportunity": "Peluang",
+    "complexity": "Ketidakselarasan",
+    "budgetPressure": "Tekanan bajet",
+    "pressure_low": "Rendah",
+    "pressure_medium": "Sederhana",
+    "pressure_high": "Tinggi",
+    "firstMarket": "Pasaran pertama",
+    "primaryBlocker": "Halangan utama",
+    "recommendedWedge": "Bilah masuk disyorkan: {{category}}. Jika anda masih mahu laluan kawal atur yang lebih ketat, tambah pengesahan, kejelasan bajet dan bukti kemasukan dahulu.",
+    "currentBlockers": "Titik obstruction semasa",
+    "requiredBefore": "Disyorkan untuk ditambah baik sebelum memohon penilaian pakar lanjut",
     "tier1": "Tier 1",
     "tier2": "Tier 2",
     "market_usa": "United States",
@@ -538,12 +665,18 @@
   },
   "nav2": {
     "product": "Product",
+    "how": "Cara berfungsi",
+    "cases": "Kes lepas",
+    "markets": "35 Negara",
+    "research": "Research",
+    "expert": "Pakar konsultasi",
     "diagnosisEngine": "Diagnosis Engine",
     "useCases": "Use Cases",
-    "caseProof": "Case Proof",
+    "caseProof": "Algorithm Samples",
     "expertUpgrade": "Expert Evaluation",
     "selectLang": "Choose language",
-    "research": "Research"
+    "adminEntry": "Pentadbir",
+    "ctaPrimary": "Biarkan Xiao Tuo menemani saya melangkah pertama dengan stabil"
   },
   "expertReview": {
     "title": "Let the platform complete the first judgment; experts step in for complex projects that need deeper evaluation.",
@@ -575,9 +708,6 @@
     "companyPlaceholder": "Company or brand",
     "emailPlaceholder": "Your email",
     "phonePlaceholder": "Best contact channel",
-    "projectStageSelect": "Project stage",
-    "budgetSelect": "Budget range",
-    "validationSelect": "Validation status",
     "stage_exploring": "Early exploration",
     "stage_committed": "Ready to commit",
     "stage_testing": "Already testing overseas",
@@ -597,28 +727,17 @@
     "companyInput": "Company or brand",
     "emailInput": "Your email",
     "phoneInput": "Best contact channel",
-    "projectStageInput": "Project stage",
-    "budgetInput": "Budget range"
-  },
-  "cases": {
-    "badge": "Sample reports and proof cases",
-    "badgeTitle": "Cases are not brand decoration. They are evidence for the diagnosis logic.",
-    "badgeTitleEn": "Cases are not brand decoration. They are evidence for the diagnosis logic.",
-    "desc": "We structure each case as problem, pathway, outcome and takeaway so users can see why different markets and product categories require different routes.",
-    "descEn": "We structure each case as problem, pathway, outcome and takeaway so users can see why different markets and product categories require different routes.",
-    "searchPlaceholder": "Search case, market or category",
-    "showCount": "Showing {n}/4 cases",
-    "proofCase": "Proof case",
-    "allCases": "All Cases",
-    "industry": "Problem",
-    "pathway": "Pathway",
-    "outcome": "Outcome",
-    "insight": "What this means for your project",
-    "cat_all": "All Cases",
-    "cat_supplement": "Health Supplements",
-    "cat_tcm": "TCM",
-    "cat_cosmetic": "Skincare",
-    "cat_medical": "Medical Devices"
+    "projectStageSelect": "Project stage",
+    "budgetSelect": "Budget range",
+    "validationSelect": "Validation status",
+    "diagnosisRec": "Laluan disyorkan diagnosis",
+    "qualificationDecision": "Keserasian projek",
+    "productCategory": "Kategori produk",
+    "submitError": "Hantar gagal, sila cuba lagi.",
+    "formDesc": "Sila isi maklumat yang paling asas. Kami lebih mementing latar belakang projek dan soalan keputusan anda, bukan mengumpul borang kenalan biasa.",
+    "requestSubmitted": "Permohonan dihantar",
+    "requestSubmittedMsg": "Kami akan menilai sama ada projek anda sesuai untuk penilaian pakar lanjut berdasarkan maklumat yang dihantar, dan akan menghubungi anda tidak lama lagi.",
+    "submitting": "Menghantar..."
   },
   "footer2": {
     "highTrust": "AI decision platform you can trust",
@@ -638,15 +757,611 @@
     "applyBtn": "Request a deeper expert evaluation",
     "applyBtnNav": "Contact Us"
   },
-  "ai": {
-    "title": "AI Diagnosis Engine",
-    "subtitle": "Get market entry insights powered by deep market data and AI analysis",
-    "placeholder": "Describe your product and goals..."
+  "ai_tools": {
+    "partialDataError": "Sebahagian data gagal diperolehi, data contoh telah digunakan untuk mengisi",
+    "serviceUnavailable": "Perkhidmatan AI buat masa ini tidak tersedia"
   },
-  "floatingContact": {
-    "title": "Contact Us",
-    "subtitle": "Have questions? Our team is here to help.",
-    "chatWithUs": "Chat with us",
-    "emailUs": "Email us"
+  "expertAdvisors": {
+    "pageTitle": "AI + Pakar · Jaminan Keputusan Berganda",
+    "pageTitleEn": "AI + Advisors · Dual Decision Guarantee",
+    "subtitle": "Diagnosis AI + Pakar kanan — projek kompleks tidak semestinya tekaan",
+    "subtitleEn": "AI diagnosis + senior advisors — complex projects don't have to be guesswork",
+    "teamSectionTitle": "Pakar Teras",
+    "teamSectionTitleEn": "Core Advisors",
+    "teamSectionDesc": "Pakar berdasarkan tanah di setiap rantau. Bukan penasihat jauh — pengamal tempatan yang berpangkalan di pasaran sasaran.",
+    "teamSectionDescEn": "On-the-ground experts in every region. Not remote advisors — local practitioners based in target markets.",
+    "servicesSectionTitle": "Apa yang Kami Lakukan",
+    "servicesSectionTitleEn": "What We Do",
+    "servicesSectionDesc": "Bukan konsultasi umum, tetapi penyelesaian yang boleh dilaksanakan untuk cabaran globalisasi TCM yang spesifik.",
+    "servicesSectionDescEn": "Not generic consulting — actionable solutions for specific TCM globalization challenges.",
+    "stat1Value": "12+",
+    "stat1Label": "Tahun amalan eksport",
+    "stat1LabelEn": "Years of Practice",
+    "stat2Value": "35",
+    "stat2Label": "Liputan pasaran berangka",
+    "stat2LabelEn": "Markets Covered",
+    "stat3Value": "35",
+    "stat3Label": "Kerangka kawal atur negara",
+    "stat3LabelEn": "Country Frameworks",
+    "stat4Value": " accompaniment penuh",
+    "stat4Label": "Pendampingan sepanjang proses",
+    "stat4LabelEn": "End-to-End Coaching",
+    "bookConsultation": "Tempah konsultasi pakar",
+    "startDiagnosis": "Mula diagnosis AI",
+    "serviceMarketEntry": "Penilaian Kemasukan Pasaran",
+    "serviceMarketEntryEn": "Market Entry Assessment",
+    "serviceMarketEntryDesc": "Diagnosis AI + semakan pakar untuk tentukan sama ada kemasukan wajar.",
+    "serviceMarketEntryDescEn": "AI diagnosis + advisor review to determine if entry is warranted.",
+    "serviceCompliance": "Reka Bentuk Laluan Pematuhan",
+    "serviceComplianceEn": "Compliance Pathway Design",
+    "serviceComplianceDesc": "Pemilihan laluan ubat / makanan / kosmetik, rancangan pendaftaran dan penjadualan.",
+    "serviceComplianceDescEn": "Drug, food or cosmetics pathway selection, registration plan and timeline.",
+    "serviceChannel": "Strategi & Pelaksanaan Saluran",
+    "serviceChannelEn": "Channel Strategy & Execution",
+    "serviceChannelDesc": "Reka bentuk saluran seluruh rantaian: ejen, e-dagang dan runcit luar talian.",
+    "serviceChannelDescEn": "Full-chain channel design: agents, e-commerce and offline retail.",
+    "serviceBrand": "Penjenamaan Tempatan",
+    "serviceBrandEn": "Brand Localization",
+    "serviceBrandDesc": "Naratif jenama, bahasa tempatan dan strategi penyesuaian budaya.",
+    "serviceBrandDescEn": "Brand narrative, local language and cultural adaptation strategy.",
+    "serviceCoaching": "Accompaniment Projek End-to-End",
+    "serviceCoachingEn": "End-to-End Project Coaching",
+    "serviceCoachingDesc": "Pakar mengiringi dari permulaan hingga pelancaran, penglibatan mendalam di tahap kritis.",
+    "serviceCoachingDescEn": "Advisors coach from kick-off to launch, deep involvement at critical milestones.",
+    "serviceResources": "Sambungan Sumber",
+    "serviceResourcesEn": "Resource Connection",
+    "serviceResourcesDesc": "Sambungan tepat dengan makmal ujian, firma guaman, ejen dan saluran.",
+    "serviceResourcesDescEn": "Precise connections with testing labs, law firms, agents and channels.",
+    "readyToStart": "Sedia untuk bermula?",
+    "readyToStartEn": "Ready to get started?",
+    "readyToStartDesc": "Lengkapkan diagnosis AI dulu, atau tempah konsultasi pakar 30 minit percuma secara langsung.",
+    "readyToStartDescEn": "Complete the AI diagnosis first, or book a free 30-min expert consultation directly."
+  },
+  "hero3": {
+    "topTag": "Bimbingjenama herba, melangkah ke dunia dengan stabil",
+    "titleLine1": "Bimbingjenama herba",
+    "titleAccent": "dengan stabil",
+    "titleLine2": "melangkah ke dunia",
+    "bencaoNote": "\"Herba\" telah dieksport selama dua ribu tahun — akar bersama ubat tradisional Cina, makanan kesihatan dan kecantikan herba",
+    "subtitleLead": "Algoritma menunjukkan arah, data mengukuhkan asas, pakar menemani anda ke luar negara",
+    "subtitleDetail": "Merangkumi kerangka kawal atur 35 negara dan 10,000+ calon, pakar menemani anda menganalisis keputusan, melaksanakan pematuhan, sehingga ke meja rundingan pertama — supaya jenama herba boleh melangkah ke dunia dengan mantap.",
+    "alpacaName": "Xiao Tuo",
+    "ctaPrimary": "Biarkan Xiao Tuo menemani saya melangkah pertama dengan stabil",
+    "ctaMethod": "Lihat metodologi kami",
+    "ctaSubscribe": "Langgan Buletin Penilaian Ekspor Mingguan",
+    "liveBadge": "Dalam accompaniment",
+    "alpacaFooter": "Bimbingjenama herba melangkah ke dunia dengan stabil",
+    "alpacaSubline": "Online 24j · Algoritma + Data + accompaniment pakar",
+    "trustItems": [
+      "Asas data 35 negara · Tidak bergantung perasaan pilih destinasi",
+      "7 hari berikan 3 keputusan yang anda berani tanda tangani",
+      "Algoritma + Data + Pakar accompaniment tiga lapisan sokongan",
+      "Selepas kontrak, terus menemani anda 14 bulan"
+    ],
+    "nodes": {
+      "judge": {
+        "label": "Lihat dengan jelas sebelum bergerak",
+        "desc": "Arah yang dipantau oleh Xiao Tuo"
+      },
+      "ally": {
+        "label": "Cari ahli yang tepat",
+        "desc": "Laluan yang dipilih oleh data"
+      },
+      "negotiate": {
+        "label": "Sampai ke meja",
+        "desc": "Pakar menemani anda dengan stabil untuk menandatangani"
+      },
+      "ship": {
+        "label": "Stabil sehingga penghantaran",
+        "desc": "Terus menemani anda 14 bulan"
+      }
+    }
+  },
+  "about2": {
+    "taglinePill": "Bimbingjenama herba · Melangkah ke dunia dengan stabil",
+    "dataPill": "Asas data 35 negara · Setiap keputusan berakar pada fakta",
+    "dataParagraph": "Perkara yang paling mahal dalam eksport bukan wang, tetapi tersalah langkah sekali. Kami tidak mahu anda bergantung pada perasaan — kami menjadikan kerangka kawal atur 35 negara, 10,000+ calon dan hampir 100 kes sebenar sebagai asas data yang boleh anda sentuh; kemudian algoritma menunjukkan arah, data mengukuhkan asas, pakar menemani anda — supaya setiap langkah anda stabil.",
+    "whyStableTitle": "Mengapa \"stabil\" dan bukan \"cepat\"",
+    "whyStableP1": "Eksport bukan tergesa-gesa, tetapi berjalan dengan mantap. Kesilapan satu langkah, 12 bulan akan diperbaiki — kos ini, kami pernah lihat terlalu kerap.",
+    "whyStableP2": "Saya pernah melihat seorang doktor tua ubat tradisional terbang ke Jepun untuk membuat kajian, balik 6 bulan tiada perkembangan. Bukan kerana tidak mahu bergerak — kerana tidak tahu siapa yang perlu ditanya seterusnya, takut mengambil langkah yang salah.",
+    "whyStableP3": "Kami berbuat demikian untuk mengubah soalan siapa yang perlu ditanya menjadi seseorang yang boleh anda cari, dalam talian 24 jam — Xiao Tuo mengimbas data, pakar menemani anda menilai, anda hanya perlu fokus pada perkara yang paling perlu anda lakukan dalam perjalanan eksport.",
+    "whyStableP4": "Perbezaan bukan pada sumber, tetapi pada sama ada setiap langkah ada seseorang yang menstabilkan untuk anda.",
+    "whyStableP5": "Sebab itulah kami wujud sebagai Qihuang Sihai — supaya apabila anda keluar ke luar negara, ada orang di belakang anda, ada Little Tuo di sebelah anda, dan jalan di bawah kaki anda kekal mantap.",
+    "founderRole": "Pengurus utama",
+    "founderQuote": "Kami berbuat demikian bukan untuk memberikan industri satu pilihan lagi, tetapi supaya setiap jenama herba yang mahu melangkah ke dunia dapat melangkah dengan mantap.",
+    "founderName": "Zhang Xiaoqiang",
+    "founderTitle": "Pengasas Qihuang Sihai",
+    "teammateRole": "Rakan sepasukan accompaniment",
+    "teammoteQuote": "Saya Xiao Tuo, rakan sekerja Zhang Xiaoqiang. Online 24j, mengimbas arah, menyemak peraturan, melihat data — rakan sepasukan yang tidak tidur, menemani anda melangkah setiap langkah dengan stabil.",
+    "teammateName": "Xiao Tuo",
+    "teammateTitle": "Rakan AI accompaniment",
+    "whoBadge": "Siapa kami",
+    "whoTitle1": "Bukan sekadar konsultasi,",
+    "whoTitle2": "kaki yang stabil untuk jenama anda melangkah ke luar negara",
+    "whoQuote": "Eksport bukan satu slogan, tetapi setiap langkah yang perlu anda lalui dengan stabil.",
+    "whoDesc": "Qihuang Sihai tertumpu pada pertumbuhan global ubat tradisional Cina, makanan kesihatan dan jenama herba. Biar algoritma menunjukkan arah, data mengukuhkan asas dan pakar menemani anda membuat keputusan — dari ‘patutkah pergi’ hingga ‘ditandatangani, dieksport, stabil’. Anda bukan seorang diri, kami menjadikan perkara ini berlaku dengan mantap.",
+    "promiseTitle": "Janji kami kepada anda",
+    "values": [
+      {
+        "title": "Menstabilkan arah bersama anda",
+        "desc": "Kami tidak desak anda untuk memulakan, dan tidak desak anda untuk menyerah — data 35 negara menunjukkan kos setiap langkah terlebih dahulu"
+      },
+      {
+        "title": "Menemani anda sehingga boleh tanda tangani",
+        "desc": "Dari pertemuan pertama hingga MOU, kami menemani di sebelah — bukan hantar laporan dan pergi"
+      },
+      {
+        "title": "Algoritma + Data + Pakar",
+        "desc": "Xiao Tuo mengimbas arah, data mengukuhkan asas, pakar menilai — kami menemani anda, bukan AI"
+      },
+      {
+        "title": "Selepas kontrak, kami masih menemani",
+        "desc": "Masalah tengah malam, panggilan telefon pertama adalah kepada kami — bukan robot"
+      }
+    ],
+    "whyUsTitle": "Mengapa ketika eksport, pilih kami untuk menemani anda dengan stabil",
+    "whyUsLead": "Bukan kerana kami sangat terkenal. Kerana kami benar-benar pernah berjalan bersama anda — melalui keraguan permulaan, rundingan yang membeku, masalah tengah malam. Setiap langkah, dilalui dengan stabil.",
+    "whyUsCards": [
+      {
+        "title": "Bukan konsultasi, adalah rakan sepasukan",
+        "desc": "Projek anda kami pikul bersama — masalah kami hadap bersama, kejayaan kami sambut bersama, setiap langkah dilalui dengan stabil.",
+        "highlight": "Benarnyoaccompany, bukan berpura-pura"
+      },
+      {
+        "title": "Bukan alat, adalah sokongan stabil",
+        "desc": "Algoritma menunjukkan arah, data mengukuhkan asas, pakar membuat penilaian — dalam perjalanan eksport, anda perlukan setiap langkah dipijak dengan stabil.",
+        "highlight": "Algoritma + Data + Pakar, semua ada"
+      },
+      {
+        "title": "Bukan pergi selepas kontrak",
+        "desc": "Eksport hanya permulaan, 14 bulan berikutnya kami pantau bersama. Dasar berubah, kami melihat lebih awal, kami stabilkan lebih awal.",
+        "highlight": "Tanda tangan, terus menemani"
+      }
+    ],
+    "ctaAsk": "Mahu Xiao Tuo menemani anda berbincang dulu?"
+  },
+  "advantages2": {
+    "topTag": "Bimbingjenama herba · Melangkah ke dunia dengan stabil",
+    "titleLine1": "Algoritma menunjukkan arah, data mengukuhkan asas,",
+    "titleAccent": "pakar menemani anda melangkah dengan stabil",
+    "intro": "Bukan senarai keupayaan yang besar. Hanya 4 perkara — algoritma menunjukkan arah, data mengukuhkan asas, pakar menemani anda melangkah dengan stabil, setiap langkah ada seseorang menyokong anda.",
+    "refuseTitle": "Perkara yang kami tolak",
+    "refuse": "Kami tidak menerima kategori yang tidak kami kenal · Kami tidak desak anda untuk memulakan · Kami tidak pergi selepas kontrak. Berani kata ya adalah pendampingan, berani kata tidak juga pendampingan.",
+    "ctaAsk": "Mahu Xiao Tuo menemani anda melangkah langkah pertama dengan stabil?",
+    "items": [
+      {
+        "subtitle": "Apabila anda tertanya-tanya \"patutkah kami pergi?\"",
+        "title": "Menstabilkan arah bersama anda",
+        "desc": "Langkah pertama eksport selalunya paling mahal — salah sekali, 12 bulan akan diperbaiki. Kami menemani anda berfikir — bukan desak anda untuk memulakan, juga bukan menasihati anda supaya menyerah, tetapi biar data menunjukkan kepada anda dengan stabil.",
+        "features": [
+          "60 minit berbual, Xiao Tuo + pakarsemua ada",
+          "Asas data 35 negara, kami bantu anda lihat yang mana dahulu",
+          "Bajet / pasukan / pematuhan, kami ditemani anda timbang",
+          "Jika tidak patut pergi, kami beritahu anda secara langsung"
+        ]
+      },
+      {
+        "subtitle": "Apabila anda perlukan rakan pertama",
+        "title": "Menemani anda memilih rakan pertama yang stabil",
+        "desc": "Yang paling susah dalam eksport bukan mencari pelanggan, tetapi mencari orang yang tepat. Kami bantu anda memilih — bukan memberi senarai untuk anda hubungi sendiri, tetapi kami bantu anda lihat setiap calon dan mengikut urutan keutamaan bersama-sama, supaya setiap langkah stabil.",
+        "features": [
+          "Xiao Tuo mengimbas 10,000+ calon, pakarmenemani anda saring 50",
+          "Setiap profil calon, kami ditemani anda lihat",
+          "E-mel pertama — kami bantu anda ubah",
+          "Siapa sesuai didekati dulu, kami ditemani anda berfikir"
+        ]
+      },
+      {
+        "subtitle": "Apabila peraturan terasa seperti maze",
+        "title": "Menemani anda melangkah laluan pematuhan dengan stabil",
+        "desc": "Ubat / Makanan / Kosmetik, setiap pasaran mempunyai standard yang berbeza. Kami bantu anda melangkah — bukan memberi PDF untuk anda baca sendiri, tetapi kami bantu anda lihat syarat, kami bantu anda nilai, kami bantu anda elakkan perangkap, supaya laluan pematuhan stabil.",
+        "features": [
+          "Kerangka peraturan 35 negara, kami ditemani anda masukkan",
+          "Dos / bahan / pelabelan, kami ditemani anda berfikir",
+          "Rancangan pendaftaran, kami ditemani anda jadual",
+          "Dasar berubah, kami lihat lebih awal daripada anda"
+        ]
+      },
+      {
+        "subtitle": "Apabila anda perlukan kami selepas menandatangani",
+        "title": "Menemani anda stabil sehingga penghantaran · Stabil 14 bulan",
+        "desc": "Tanda tangan bukan akhir. Kami pantau bersama anda — dasar berubah kami lihat lebih awal, pesanan turun kami cari sebab bersama anda, peluang baharu muncul kami terus meneliti bersama anda. Along jalan ini, kami bantu anda dengan stabil.",
+        "features": [
+          "Dasar berubah, kami lihat 48 jam lebih awal daripada anda",
+          "Pesanan turun, kami temani anda buat atribusi",
+          "Peluang baharu muncul, kami terus temani anda gali",
+          "Masalah tengah malam, telefon ada yang angkat"
+        ]
+      }
+    ]
+  },
+  "services2": {
+    "topTag": "Bimbingjenama herba · Melangkah ke dunia dengan stabil",
+    "titleLine1": "Algoritma menunjukkan arah, data mengukuhkan asas,",
+    "titleAccent": "menemani anda melangkah setiap langkah dengan stabil",
+    "intro": "Eksport bukan perundingan sekali, tetapi satu perjalanan. Apabila hilang arah, Xiao Tuo bantu anda lihat dengan jelas, kami berbual bersama anda untuk mencari jalan, kami hadiri bersama anda di rundingan, dan selepas semuanya stabil kami terus menemani anda selama 14 bulan. Membimbing jenama herba melangkah ke dunia dengan mantap — inilah satu-satunya ukuran kami dalam menemani anda.",
+    "footerNote": "Langkah pertama boleh hanya \"Biarkan Xiao Tuo menemani saya berbincang 30 minit dengan stabil\" — tiada janji, tiada bayaran, hanya ada orang di belakang anda",
+    "steps": [
+      {
+        "step": "I",
+        "titleEn": "Apabila Anda Sesat",
+        "emotion": "Anda seorang diri tidak boleh tentukan sama ada perlu ambil langkah ini",
+        "title": "Apabila sesat, menemani anda menstabilkan arah",
+        "description": "Anda mungkin pernah mendengar tentang Jepun, EU, Asia Tenggara, tetapi tidak tahu yang mana dahulu. Kami bantu anda berfikir — bukan memberi borang untuk anda isi sendiri, tetapi 60 minit bersama berbincang, lihat arah dengan stabil dahulu.",
+        "deliverables": [
+          "60 minit 1v1 berbual, lihat arah dengan stabil dahulu",
+          "Asas data 35 negara, kami bantu anda lihat yang mana dahulu",
+          "Bajet, pasukan, pematuhan, ditemani ditimbang",
+          "Titik risiko ditemani dedahkan, bukan sorok"
+        ]
+      },
+      {
+        "step": "II",
+        "titleEn": "Apabila Anda Perlukan Rakan",
+        "emotion": "Anda mahu cari rakan kongsi pertama, tetapi tidak tahu siapa yang boleh dipercayai",
+        "title": "Apabila cari jalan, menemani anda pilih rakan pertama yang stabil",
+        "description": "Xiao Tuo mengimbas 10,000+ calon, data mengukuhkan asas, kami bantu anda memilih — bukan memberi senarai untuk anda hubungi sendiri, tetapi kami bantu anda lihat setiap calon dan mengikut urutan keutamaan bersama-sama, supaya setiap langkah stabil.",
+        "deliverables": [
+          "Xiao Tuo mengimbas 10,000+ calon, data mengukuhkan asas",
+          "Pakar menapis 50, kami bantu anda lihat profil setiap calon",
+          "Siapa sesuai didekati dulu, ditemani anda berfikir",
+          "E-mel pertama — kami bantu anda ubah"
+        ]
+      },
+      {
+        "step": "III",
+        "titleEn": "Apabila Anda Merunding",
+        "emotion": "Anda kali pertama sampai meja rundingan, takut kata yang salah",
+        "title": "Apabila merunding, menemani anda duduk di meja dengan stabil",
+        "description": "Kami bantu anda duduk di meja rundingan — bukan menghantar panduan rundingan untuk anda belajar sendiri. Diam yang awkward kami beri isyarat, rundingan yang gagal kami buat postmortem, kontrak bersama-sama kami lega — supaya kali pertama eksport anda boleh duduk dengan stabil.",
+        "deliverables": [
+          "Perjumpaan pertama, kami terbang bersama anda",
+          "Syarat kontrak, kami membaca bersama anda perkataan demi perkataan",
+          "Harga berunding, kami ditemani anda fikirkan dasar",
+          "Diam / gagal — kami bantu selamatkan bersama"
+        ]
+      },
+      {
+        "step": "IV",
+        "titleEn": "Sehinggalah Ia Berdiri",
+        "emotion": "Anda telah menandatangani kontrak, tetapi dasar berubah, pesanan turun",
+        "title": "Selepas stabil, menemani anda stabil 14 bulan",
+        "description": "Eksport hanya permulaan. Kami pantau bersama anda — dasar berubah kami lihat lebih awal, pesanan turun kami cari sebab bersama anda, peluang baharu muncul kami terus menggali bersama. Along jalan ini, kami bantu anda dengan stabil 14 bulan.",
+        "deliverables": [
+          "Dasar berubah, kami lihat 48 jam lebih awal daripada anda",
+          "Pesanan turun, kami buat atribusi bersama anda",
+          "Peluang baharu muncul, kami terus temani anda gali",
+          "Masalah tengah malam, telefon ada yang angkat"
+        ]
+      }
+    ]
+  },
+  "contact2": {
+    "topTag": "Bimbingjenama herba · Melangkah ke dunia dengan stabil",
+    "title": "AI menunjukkan arah, data mengukuhkan asas,<1>pakar menemani setiap langkah dengan stabil</1>",
+    "lead": "Bimbing jenama herba, melangkah ke dunia dengan stabil — gunakan algoritma untuk lihat arah, data untuk kukuhkan asas, dan kami bantu anda melangkah setiap langkah. Tanpa mengira peringkat eksport anda, kami sedia menemani anda.",
+    "teamLabel": "Pasukan konsultasi",
+    "teamSub": "Pakar berpengalaman menemani anda sepanjang perjalanan eksport",
+    "promise1": "Algoritma customanan padanan tepat",
+    "promise2": "Balas dalam 24 jam",
+    "promise3": "Sokongan kerangka peraturan 35 negara",
+    "formTitle": "Tinggalkan maklumat anda",
+    "formLead": "Kami akan segera menghubungi anda, memahami keperluan anda dan memberikan cadangan awal.",
+    "labelName": "Nama",
+    "labelCompany": "Syarikat / Jenama",
+    "labelEmail": "E-mel",
+    "labelPhone": "Telefon",
+    "labelStage": "Peringkat eksport",
+    "labelMarkets": "Pasaran sasaran",
+    "labelChallenge": "Keperluan atau soalan anda",
+    "labelTimeline": "Garis masa",
+    "labelNotes": "Penjelasan tambahan",
+    "stageOptions": [
+      {
+        "value": "idea",
+        "label": "Idea awal"
+      },
+      {
+        "value": "pilot",
+        "label": "Cubaan kecil"
+      },
+      {
+        "value": "launch",
+        "label": "Pelancaran rasmi"
+      },
+      {
+        "value": "scale",
+        "label": "Perluasan skala"
+      }
+    ],
+    "submit": "Hantar konsultasi",
+    "submitting": "Menghantar...",
+    "successTitle": "Hantar berjaya!",
+    "successDesc": "Terima kasih atas konsultasi anda. Pasukan konsultasi kami akan menghubungi anda dalam 24 jam, sila periksa e-mel anda.",
+    "backgroundCaption": "Perubatan Tradisional Cina eksport perkhidmatan sehenti"
+  },
+  "footer2_text": {
+    "taglinePill": "Bimbingjenama herba · Melangkah ke dunia dengan stabil",
+    "bigQuote": "Tidak kira berapa besar dunia,",
+    "bigQuoteAccent": "kami menemani anda, melangkah ke dunia dengan stabil.",
+    "longDesc": "Apabila hilang arah, Xiao Tuo bantu anda lihat dengan jelas, kami cari jalan bersama anda, kami hadiri bersama anda di rundingan, dan selepas semuanya stabil kami terus menemani anda selama 14 bulan. Algoritma menunjukkan arah, data mengukuhkan asas, kami menemani anda ke luar negara — anda bukan seorang diri, Xiao Tuo dalam talian 24 jam, kami di belakang anda.",
+    "tags": [
+      "Ubat farmasi tradisional Cina",
+      "Makanan kesihatan",
+      "Kecantikan herba",
+      "Produk berfungsi",
+      "Alat perubatan"
+    ],
+    "ctaAsk": "Mula dengan Xiao Tuo",
+    "ctaPrimary": "Mula dengan Xiao Tuo berbincang 30 minit dengan stabil, tiada janji, tiada bayaran, hanya ada orang di belakang anda.",
+    "ctaSecondary": "Setelah berbincang, jika anda mahu jumpa pakars sebenar, kami atur 30 minit perbincangan.",
+    "btnConsult": "Pakar ditemani saya berbincang",
+    "btnDiagnose": "Mula dengan Xiao Tuo 30 minit",
+    "groups": [
+      {
+        "title": "Yang ditemani",
+        "links": [
+          {
+            "name": "Bagaimana kami menemani anda",
+            "to": "/method"
+          },
+          {
+            "name": "35 negara yang kami menemani",
+            "to": "/markets"
+          },
+          {
+            "name": "Rekod accompaniment",
+            "to": "/research"
+          },
+          {
+            "name": "Pentadbir",
+            "to": "/admin/login",
+            "isAdmin": true
+          }
+        ]
+      },
+      {
+        "title": "4 perkara yang ditemani",
+        "links": [
+          {
+            "name": "Menemani anda menilai patut pergi",
+            "to": "/method"
+          },
+          {
+            "name": "Menemani anda cari rakan pertama",
+            "to": "/method"
+          },
+          {
+            "name": "Menemani anda lulus laluan pematuhan",
+            "to": "/method"
+          },
+          {
+            "name": "Menemani kontrak + terus accompaniment",
+            "to": "/method"
+          }
+        ]
+      },
+      {
+        "title": "Destinasi keutamaan",
+        "links": [
+          {
+            "name": "Jepun / Korea",
+            "to": "/markets"
+          },
+          {
+            "name": "EU / UK",
+            "to": "/markets"
+          },
+          {
+            "name": "Asia Tenggara",
+            "to": "/markets"
+          },
+          {
+            "name": "Timur Tengah",
+            "to": "/markets"
+          }
+        ]
+      },
+      {
+        "title": "Peringkat accompaniment",
+        "links": [
+          {
+            "name": "Apabila sesat ditemani berfikir",
+            "to": "/method"
+          },
+          {
+            "name": "Apabila cari jalan ditemani cari",
+            "to": "/method"
+          },
+          {
+            "name": "Xiao Tuo berbincang 30 minit",
+            "to": "/diagnose"
+          },
+          {
+            "name": "Bertemu pakars sebenar",
+            "to": "/expert"
+          }
+        ]
+      }
+    ],
+    "brandName": "岐黄四海",
+    "brandTagline": "Bimbingjenama herba · Melangkah ke dunia dengan stabil",
+    "brandLongDesc": "Tertumpu pada pertumbuhan global jenama ubat tradisional dan herba. Membimbing jenama herba melangkah ke dunia dengan mantap. Algoritma menunjukkan arah, data mengukuhkan asas, kami menemani anda ke luar negara — anda bukan seorang diri, kami di belakang anda.",
+    "brandMeta1": "Kedudukan: rakan penyertaan eksport ubat tradisional Cina",
+    "brandMeta2": "Keutamaan ditemani: Jepun, EU, Asia Tenggara, Timur Tengah, Australia, Amerika Utara",
+    "affiliatedTitle": "Pasukan yang sama",
+    "copyright": "© 2026 Qihuang Sihai.",
+    "subtitle": "Eksport MTC global · Algoritma + Data + Sokongan perunding"
+  },
+  "reviews2": {
+    "tagline": "Soalan jawab pelawat global · AI pakar balas masa nyata",
+    "title": "Berbincang dengan pengguna Qihuang Sihai",
+    "subtitle": "Kongsi pengalaman eksport ubat tradisional Cina anda, atau ajukan soalan praktikal mengenai pematuhan, pasaran, logistik, cukai dll. Selepas penghantaran, AI kami akan memberi jawapan profesional secara automatik.",
+    "namePlaceholder": "Nama samaran anda (pilihan)",
+    "contentPlaceholder": "Kongsi pengalaman出海 ubat tradisional Cina anda, atau aju soalan khusus... AI pakar akan membalas secara automatik selepas размещение",
+    "policy": "Bercakap dengan sopan, larang serangan peribadi ·Mesej dipaparkan secara umum",
+    "submitting": "Memasang...",
+    "submit": "Paparkan mesej",
+    "total": "Keseluruhan",
+    "totalUnit": "mesej",
+    "fromWorld": "Dari {{count}} buah negara dan wilayah",
+    "latest": "Terbaharu",
+    "popular": "Paling hangat",
+    "loading": "Memuatkan...",
+    "emptyEmoji": "💬",
+    "empty": "Belum ada mesej, jadi yang pertama kongsi",
+    "agentConsultant": "Konsultan Perniagaan",
+    "agentLegal": "Peguam",
+    "agentFinance": "Penasihat Kewangan",
+    "agentLogistics": "Penasihat Logistik",
+    "replyCount": "{{count}} balasan",
+    "like": "Suka"
+  },
+  "research": {
+    "hubTitle": "Data Berbicara · Perpustakaan Kajian",
+    "hubSubtitle": "Metodologi dan penilaian kami, dibentangkan sebagai kajian yang boleh dilaksanakan. Setiap laporan dibina daripada data tangan pertama dan menyatakan saiz sampel, kaedah, serta hadnya.",
+    "latest": "Wawasan Terkini",
+    "hint": "Klik mana-mana kad untuk membaca laporan penuh dalam talian",
+    "min": "min baca",
+    "chapters": "Bab",
+    "readNow": "Baca Online",
+    "ctaTitle": "Perlu kajian khas?",
+    "ctaDesc": "Jika anda memerlukan kajian tentang pasaran, kategori, atau peraturan tertentu, anda boleh memohon semakan pakar dan menerima laporan yang disesuaikan dengan projek anda.",
+    "ctaBtn": "Mohon Semakan Pakar",
+    "methodologyNote": "Metodologi: setiap laporan menyatakan saiz sampel, kaedah, dan had pengumpulan dalam bahagian pembuka \"Sumber Data & Metodologi\". Hanya keputusan yang telah lulus semakan dalaman ditunjukkan.",
+    "notFoundTitle": "Laporan tidak dijumpai",
+    "notFoundDesc": "Laporan kajian ini mungkin belum diterbitkan, atau hubungan telah tamat tempoh.",
+    "backToHub": "Kembali ke Perpustakaan",
+    "researchAll": "Perpustakaan",
+    "liveDoc": "Sedang dibaca dalam talian",
+    "openInNewTab": "Buka dalam tab baharu",
+    "saveHtml": "Simpan HTML",
+    "refresh": "Muat semula",
+    "confidentialNote": "Untuk penilaian profesional sahaja",
+    "loadError": "Gagal memuatkan laporan. Sila cuba lagi nanti.",
+    "loadErrorDesc": "Ini mungkin masalah rangkaian sementara. Cuba muat semula di kanan atas, atau buka laporan asal dalam tab baharu.",
+    "retry": "Muat semula",
+    "loading": "Memuatkan laporan kajian…",
+    "backTop": "Kembali ke atas"
+  },
+  "countryAssessment": {
+    "pageTitle": "Penilaian Negara Sasaran Eksport · Qihuang Sihai",
+    "kicker": "Alat Keputusan Eksport",
+    "stepNav": "Langkah Penilaian",
+    "stepNumber": "Langkah {{count}}",
+    "footerResult": "Di atas dikira oleh enjin peraturan tempatan; selepas penghantaran, konfigurasi dihantar ke backend untuk susulan.",
+    "needIndustry": "Industri",
+    "needStage": "Fasa Eksport",
+    "needBudget": "Belanja Negara",
+    "needRisk": "Toleransi Risiko",
+    "needProduct": "Penerangan produk (≥ 10 aksara)",
+    "needFields": "Sila lengkapi: {{fields}}",
+    "needCountry": "Sila pilih sekurang-kurangnya 1 negara calon",
+    "weightSumHint": " Pemberat mestilah berjumlah 100%",
+    "countriesTitle": "Pilih Negara dan Andaian Masuk Calon",
+    "countriesSubtitle": "Pilih sekurang-kurangnya 1 negara, maksimum 5. Setiap negara mempunyai mod masuk tersendiri; langkah seterusnya meminta anda menilai setiap dimensi dan menetapkan status gates wajib.",
+    "entryModeTitle": "Pilih mod masuk untuk setiap negara calon",
+    "selectPlease": "Sila pilih",
+    "entryMode": "Mod Masuk",
+    "entryModeHint": "Petunjuk kesesuaian akan muncul setelah anda memilih mod masuk",
+    "notesPh": "Andaian pasaran / petunjuk pelanggan / kemajuan hubungan pelanggan (pilihan)",
+    "tooMany": "Terlalu banyak negara calon mencairkan pembezaan. Kami cadangkan menumpukan pada 3–5 negara dengan peluang terbaik.",
+    "evidenceNoCountries": "Sila pilih sekurang-kurangnya 1 negara calon sebelum memasuki skor dan gates wajib.",
+    "evidenceTitle": "Masukkan skor, bukti dan gates wajib untuk setiap negara",
+    "evidenceSubtitle": "Skor menjawab \"bolehkah pasaran ini berfungsi\"; gred bukti menjawab \"berapa banyak bukti menyokong skor\"; status gate wajib menjawab \"perlukah kita putuskan sekarang untuk terus maju\".",
+    "gateTriggeredCount": "{{count}} gate wajib terpicu",
+    "gatePendingCount": "{{count}} gate wajib menunggu pengesahan",
+    "gateStatusTitle": "Status Gate Wajib",
+    "noRequiredGate": "Templat ini tiada gates wajib yang diwajibkan. Kami cadangkan sekurang-kurangnya mengesahkan secara manual sekatan dan lesen.",
+    "evidenceNote": "Semakin rendah gred bukti, semakin skor secara automatik mengecut ke nilai neutral",
+    "modelTitle": "Pemberat dan Gates Wajib Tersuai",
+    "modelSubtitle": "Mulakan daripada templat model perniagaan, kemudian laraskan pemberat untuk keupayaan spesifik anda (mestilah berjumlah 100%).",
+    "profileTemplate": "Templat Model Perniagaan",
+    "dimensionWeights": "Pemberat Dimensi",
+    "weightSum": "Jumlah {{sum}} / 100",
+    "hardGates": "Gates Wajib (memicu mana-mana satu menghentikan penilaian)",
+    "hardGatesHint": "\"Mesti sahkan\" meminta pengguna menanda status untuk negara ini pada langkah seterusnya; \"Langkau buat masa ini\" mengeluarkan item tersebut buat sementara dari set gate wajib.",
+    "owner": "Peran Pemilik",
+    "gateRequired": "Mesti Sahkan",
+    "gateOptional": "Peringatan Lembut",
+    "gateIgnored": "Diabaikan",
+    "gatePass": "Lulus",
+    "gatePending": "Untuk Disahkan",
+    "gateTriggered": "Terpicu",
+    "profileTitle": "Profil Syarikat dan Produk",
+    "profileSubtitle": "Mulakan dengan menyatakan soalan eksport dengan jelas: perniagaan, produk, jangka masa, dan risiko yang boleh anda tanggung. Jawapan di sini mengangkur setiap skor dan cadangan yang berikut.",
+    "fieldCompany": "Nama syarikat (pilihan)",
+    "fieldCompanyPh": "cth. Zhang Xiaoqiang Bencao Group",
+    "fieldIndustry": "Industri / Model Perniagaan",
+    "fieldProduct": "Penerangan produk (maks. 200 aksara)",
+    "fieldProductHint": "Sertakan pelanggan sasaran, titik jualan utama, nilai pesanan purata, dan pensijilan; ini mempengaruhi penilaian negara di bawah.",
+    "fieldProductPh": "cth. Makanan kesihatan berdasarkan formula klasik TCM, fokus pada sokongan hati dan imuniti, menyasarkan pelanggan bernilai tinggi usia 30–55 tahun, nilai pesanan purata 600 RMB, bersijil GMP dan ISO22000.",
+    "fieldStage": "Fasa Eksport Semasa",
+    "fieldBudget": "Belanja Negara",
+    "fieldRisk": "Toleransi Risiko",
+    "fieldWindow": "Jendela Masa (input bebas)",
+    "fieldWindowHint": "Terangkan jendela masa yang anda inginkan untuk memasuki negara calon, cth. \"18 bulan akan datang\" atau \"S1 2026\".",
+    "fieldWindowPh": "18 bulan / S3 2026 / berfasa mengikut pasaran",
+    "readinessTitle": "Penilaian Kendiri Kesiapsiagaan Syarikat",
+    "readinessHint": "Beri skor 1–5 merentasi 6 dimensi kesiapsiagaan. Ini mengukur \"bolehkah kita melaksanakan dengan baik\", disimpan berasingan daripada skor peluang negara (bolehkah pasaran berfungsi).",
+    "submitNeedConsent": "Sila setuju dengan syarat terlebih dahulu",
+    "submitNeedName": "Sila masukkan nama / syarikat anda",
+    "submitOk": "Dihantar. Kami akan menghubungi anda tidak lama lagi.",
+    "resultNoCountries": "Sila kembali dan pilih sekurang-kurangnya 1 negara calon sebelum menjana keputusan.",
+    "resultKicker": "Bacaan Keputusan",
+    "resultTitle": "Keputusan Penilaian Negara dan Tindakan Seterusnya",
+    "resultSubtitle": "Nombor menggambarkan \"bolehkah pasaran ini berfungsi\" × keyakinan bukti; kesimpulan menggambarkan \"bolehkah kita lakukan sekarang\". Mana-mana gate wajib yang terpicu segera mengatasi lantai dan ditanda merah, dan tidak boleh diimbangi oleh skor.",
+    "restart": "Laras Penilaian",
+    "crossTitle": "Item yang Memerlukan Perhatian Prioriti Pengurusan",
+    "rankTitle": "Negara Calon Disusun Mengikut Skor Terlaras",
+    "checklistTitle": "Senarai Semak Diatur Mengikut Keutamaan Pengumpulan Data",
+    "aiTitle": "Penjelasan Strategik AI (pilihan)",
+    "aiHint": "Menghasilkan penjelasan dalam bahasa Mandarin, susunan pengesahan 90–180 hari, dan hujah balas dari keputusan berstruktur; apabila AI tidak tersedia, hanya hasil enjin peraturan ditunjukkan.",
+    "submitTitle": "Hubungkan Penilaian Ini dengan Pasukan Anda",
+    "submitHint": "Maklumat di bawah dituliskan ke dalam rekod pelanggan sedia ada supaya kakitangan boleh susulan dengan segera; jika dibiarkan kosong tidak akan disimpan.",
+    "contactName": "Nama",
+    "contactNamePh": "Nama anda",
+    "contactPhone": "Telefon",
+    "contactPhonePh": "Pilihan",
+    "contactEmail": "E-mel",
+    "contactEmailPh": "Pilihan, digunakan untuk menghantar laporan penilaian",
+    "contactNote": "Nota Tambahan",
+    "contactNotePh": "Kami paling berminat menghubungkan 2 negara, dengan jangka masa yang dijangkakan 18 bulan",
+    "consent": "Saya bersetuju untuk menyerahkan keputusan penilaian dan kandungan borang di atas kepada pasukan perundingan Zhang Xiaoqiang untuk susulan penilaian; penjelasan AI tidak akan dikongsi dengan pihak ketiga.",
+    "submitting": "Menghantar…",
+    "submit": "Hantar dan Hubungi Kami",
+    "cardProfile": "Templat Penilaian",
+    "cardProfileHint": "Pemberat ditentukur kepada model perniagaan",
+    "cardReadiness": "Kesiapsiagaan Syarikat",
+    "cardReadinessHint": "Daripada 100",
+    "cardWeightSum": "Jumlah Pemberat",
+    "cardWeightOk": "Berjumlah 100%",
+    "cardWeightBad": "Perlu dinormalkan atau membekukan peruntukan semasa",
+    "cardCountries": "Negara Calon",
+    "cardCountriesHint": "Gates wajib yang terpicu menetapkan lantai tetapi tidak dipadam",
+    "entryModeLabel": "Mod Masuk",
+    "metricRaw": "Skor Peluang Mentah / 100",
+    "metricAdjusted": "Skor Terlaras dengan Keyakinan / 100",
+    "metricReadiness": "Kesiapsiagaan Syarikat / 100",
+    "metricConfidence": "Gred Bukti",
+    "topStrengths": "Kuatan Utama",
+    "noStrength": "Tiada kekuatan jelas dikenal pasti",
+    "topGaps": "Lubang Utama",
+    "noGap": "Tiada lubang jelas dikenal pasti",
+    "advice": "Nasihat Keputusan",
+    "triggeredTitle": "Gates Wajib Terpicu",
+    "pendingTitle": "Gates Wajib Menunggu Pengesahan",
+    "weightBreakdown": "Lihat pecahan pemberat dan skor negara ini",
+    "weightShare": "Pemberat {{w}}%",
+    "checklistAction": "Tindakan Pengesahan Minimum",
+    "checklistSource": "Sumber",
+    "checklistOwner": "Pemilik",
+    "disclosureTitle": "Lihat Input dan Kriteria Penilaian Penuh",
+    "disclosureProduct": "Ringkasan Produk",
+    "disclosureWeights": "Pecahan Pemberat",
+    "disclosureReadiness": "Kesiapsiagaan Syarikat",
+    "aiFallback": "AI tidak tersedia; kembali kepada kesimpulan enjin peraturan.",
+    "aiStart": "Menyediakan penjelasan briefing…",
+    "startRealAssessment": "Mula memasukkan data sebenar saya →"
   }
 }
