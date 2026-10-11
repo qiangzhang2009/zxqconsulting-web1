@@ -12,7 +12,8 @@
     "about": "关于我们",
     "services": "服务",
     "markets": "全球市场",
-    "contact": "联系我们"
+    "contact": "联系我们",
+    "research": "数据会说话 · 报告库"
   },
   "hero": {
     "title": "赋能企业落地全球市场",
@@ -236,7 +237,8 @@
     "close": "关闭",
     "tags": "标签",
     "loading": "加载中...",
-    "noArticles": "没有可用的文章"
+    "noArticles": "没有可用的文章",
+    "lastUpdate": "最后更新"
   },
   "contact": {
     "title": "联系我们",
@@ -288,12 +290,16 @@
   },
   "floatingContact": {
     "call": "立即致电",
-    "wechat": "微信",
+    "wechat": "微信咨询",
     "email": "发送电子邮件",
-    "message": "留言",
+    "message": "在线留言",
     "contactUs": "联系我们",
     "workTime": "工作时间：周一至周五 9:00-18:00",
-    "copied": "已复制微信号："
+    "copied": "已复制微信号：",
+    "callNow": "立即拨打",
+    "sendEmail": "发送邮件",
+    "hours": "工作时间: 周一至周五 9:00-18:00",
+    "wechatCopied": "已复制微信号: {{id}}"
   },
   "footer": {
     "title": "准备好走向全球了吗？",
@@ -352,7 +358,12 @@
       "accuracyDesc": "AI模型预测",
       "learnMore": "联系我们获取更多市场信息",
       "dataNote": "数据每日更新，仅供参考",
-      "lastUpdate": "最后更新"
+      "lastUpdate": "最后更新",
+      "globalVisualization": "全球市场动态",
+      "marketNode": "市场节点",
+      "tradeFlow": "贸易流向",
+      "originPoint": "数据源",
+      "liveData": "实时数据流"
     }
   },
   "tools": {
@@ -663,7 +674,9 @@
     "useCases": "适用品类",
     "caseProof": "算法诊断样例",
     "expertUpgrade": "专家深度评估",
-    "selectLang": "选择语言"
+    "selectLang": "选择语言",
+    "adminEntry": "管理后台",
+    "ctaPrimary": "让小驼陪我稳稳走第一步"
   },
   "expertReview": {
     "title": "先用平台完成判断，再由专家对复杂项目做进一步评估。",
@@ -803,5 +816,552 @@
     "readyToStartEn": "Ready to get started?",
     "readyToStartDesc": "先完成 AI 诊断，或直接预约 30 分钟免费专家咨询。",
     "readyToStartDescEn": "Complete the AI diagnosis first, or book a free 30-min expert consultation directly."
+  },
+  "hero3": {
+    "topTag": "让本草品牌,稳稳走向世界",
+    "titleLine1": "让本草品牌",
+    "titleAccent": "稳稳",
+    "titleLine2": "走向世界",
+    "bencaoNote": "「本草」二字出口两千年 —— 中药、保健食品、汉方护肤的共同根",
+    "subtitleLead": "算法指方向,数据打底,真人陪你出海",
+    "subtitleDetail": "扫尽 35 国监管框架 + 10,000+ 候选,真人顾问陪你拆判断、跑合规、坐到第一张谈判桌前 —— 让出海这件事,稳稳的。",
+    "alpacaName": "小驼",
+    "ctaPrimary": "让小驼陪我稳稳走第一步",
+    "ctaMethod": "看我们的方法论",
+    "ctaSubscribe": "订阅《出海判断周报》",
+    "liveBadge": "陪跑中",
+    "alpacaFooter": "让本草品牌 稳稳走向世界",
+    "alpacaSubline": "24h 在线 · 算法 + 数据 + 真人陪跑",
+    "trustItems": [
+      "35 国数据底座 · 不凭感觉选目的地",
+      "7 天给你 3 张敢签的判断书",
+      "算法 + 数据 + 真人顾问 三重托底",
+      "签约后继续陪你稳 14 个月"
+    ],
+    "nodes": {
+      "judge": {
+        "label": "看清再走",
+        "desc": "小驼替你扫稳的方向"
+      },
+      "ally": {
+        "label": "找对队友",
+        "desc": "数据替你选稳的路径"
+      },
+      "negotiate": {
+        "label": "坐到桌前",
+        "desc": "顾问陪你稳到签约"
+      },
+      "ship": {
+        "label": "稳到出货",
+        "desc": "继续陪你稳 14 个月"
+      }
+    }
+  },
+  "about2": {
+    "taglinePill": "让本草品牌 · 稳稳走向世界",
+    "dataPill": "35 国数据底座 · 让每一个判断都站得住",
+    "dataParagraph": "出海最贵的不是钱,是走错那一次。我们不打算让你凭经验拍脑袋 —— 我们把 35 国监管框架、上万个候选、近百个真实案例,做成你能摸得到的数据底座;再让算法指方向、数据打底、真人陪你出海 —— 让你的每一步都稳稳的。",
+    "whyStableTitle": "为什么是「稳」,而不是「快」",
+    "whyStableP1": "出海不是赶路,是稳着走。走错一步,后面 12 个月都得补 —— 这个成本,我们见过太多次。",
+    "whyStableP2": "我见过一个老中医,一个人飞去日本考察,回来 6 个月没动静。不是不想动 —— 是不知道下一步该问谁,生怕走错那一步。",
+    "whyStableP3": "我们做的,就是把那个「该问谁」变成一个你能找到、24h 在线的人 —— 小驼扫数据,真人顾问陪你做判断,你只管出海路上那件你最该做的事。",
+    "whyStableP4": "差别不在资源,在每一步有没有人替你把稳。",
+    "whyStableP5": "这就是我们做岐黄四海的原因 —— 让你出海时,身后有人,身边有驼,脚下的路稳稳的。",
+    "founderRole": "主理人",
+    "founderQuote": "我们做这件事,不是要给行业多一个选择,而是要让每一个想出海的 本草品牌,都能稳稳走向世界。",
+    "founderName": "张小强",
+    "founderTitle": "岐黄四海 主理人",
+    "teammateRole": "陪跑队友",
+    "teammoteQuote": "我是小驼,张小强的同事。24h 在线,扫方向、查法规、看数据 —— 不睡觉的队友,陪你稳稳走每一步。",
+    "teammateName": "小驼",
+    "teammateTitle": "AI 陪跑队友",
+    "whoBadge": "我们是谁",
+    "whoTitle1": "不只是顾问,",
+    "whoTitle2": "是你稳稳出海的那双脚",
+    "whoQuote": "出海不是一句口号,是一段你每一步都得走得稳的路。",
+    "whoDesc": "岐黄四海专注于中医药、保健食品、汉方品牌的全球增长。让算法指方向,数据来打底,资深顾问陪你做判断 —— 从「要不要走」一直陪到「签了、出了、稳定了」。你不是一个人在出海,我们让这件事稳稳地发生。",
+    "promiseTitle": "我们对你的承诺",
+    "values": [
+      {
+        "title": "陪你把方向看稳",
+        "desc": "不催你立项,也不催你放弃 —— 35 国数据先替你看清每一步的代价"
+      },
+      {
+        "title": "陪你走到能签",
+        "desc": "从第一次见面到 MOU,我们陪在旁边 —— 不是发完报告就走"
+      },
+      {
+        "title": "算法 + 数据 + 顾问",
+        "desc": "小驼扫方向,数据打底,真人顾问做判断 —— 我们陪的是你,不是 AI"
+      },
+      {
+        "title": "签约后还陪你",
+        "desc": "出问题的夜里第一个打电话的,是我们 —— 不是机器人"
+      }
+    ],
+    "whyUsTitle": "为什么出海时,选我们陪你走得稳",
+    "whyUsLead": "不是因为我们有多大牌。是因为我们真的陪你走过 —— 走过立项的纠结、谈判的冷场、出问题的深夜。每一步,都陪你走得稳稳的。",
+    "whyUsCards": [
+      {
+        "title": "不是顾问,是队友",
+        "desc": "你的项目我们一起扛 —— 出问题我们一起熬,签下来我们一起开心,每一步都走得稳。",
+        "highlight": "真陪,不是假装"
+      },
+      {
+        "title": "不是工具,是稳稳的托底",
+        "desc": "算法指方向,数据打底,真人顾问做判断 —— 出海路上,你需要的是每一脚都踩得稳。",
+        "highlight": "算法 + 数据 + 顾问,都在"
+      },
+      {
+        "title": "不是签约就走",
+        "desc": "出海只是开始,后续 14 个月的货我们陪你盯。中途政策变了,我们比你先看到,先稳住。",
+        "highlight": "签完,继续陪"
+      }
+    ],
+    "ctaAsk": "想让小驼先陪你聊一聊?"
+  },
+  "advantages2": {
+    "topTag": "让本草品牌 · 稳稳走向世界",
+    "titleLine1": "算法指方向，数据打底，",
+    "titleAccent": "真人陪你走得稳稳的",
+    "intro": "不要海量的功能清单。只有 4 件事 —— 算法指方向,数据打底,真人陪你走得稳稳的,每一步都有人替你托底。",
+    "refuseTitle": "我们拒绝的事",
+    "refuse": "我们 不接不熟悉的品类 · 我们 不催你立项 · 我们 不签完就走 。 敢于说是陪你,敢于不也是陪你。",
+    "ctaAsk": "想让小驼陪你稳稳走第 1 步?",
+    "items": [
+      {
+        "subtitle": "When you wonder \"should we go?\"",
+        "title": "陪你把方向看稳",
+        "desc": "出海第一步往往最贵 —— 走错一次,后面 12 个月都在补。我们陪你想 —— 不是催你立项,也不是劝你放弃,而是让数据先替你看稳。",
+        "features": [
+          "60 分钟陪聊,小驼 + 真人顾问都在",
+          "35 国数据底座,我们陪你看哪个先做",
+          "预算 / 团队 / 合规,我们陪你掂量",
+          "如果不该走,我们直接告诉你"
+        ]
+      },
+      {
+        "subtitle": "When you need your first ally",
+        "title": "陪你选稳第一个队友",
+        "desc": "出海最难的不是\"找客户\",是\"找对的人\"。我们陪你挑 —— 不是扔一份名单让你自己联系,是陪你看每个候选、一起排优先级,让每一步都走得稳。",
+        "features": [
+          "小驼扫 10,000+ 候选,顾问陪你筛 50 家",
+          "每个候选的画像,我们陪你看",
+          "第一次邮件怎么写,我们陪你改",
+          "谁适合先接触,我们陪你想"
+        ]
+      },
+      {
+        "subtitle": "When regulations feel like a maze",
+        "title": "陪你走稳合规这条路",
+        "desc": "药品 / 食品 / 化妆品,每个市场门槛都不一样。我们陪你走 —— 不是丢一份 PDF 让你自己看,是陪你看条款、陪你做判断、陪你避坑,让合规这条路走得稳。",
+        "features": [
+          "35 国法规框架,我们陪你入库",
+          "剂型 / 成分 / 标签,我们陪你想",
+          "注册方案,我们陪你排时间表",
+          "政策变了,我们比你先看到"
+        ]
+      },
+      {
+        "subtitle": "When you need us after signing",
+        "title": "陪你稳到出货 · 稳 14 个月",
+        "desc": "签约不是结束。我们陪你盯 —— 政策变了我们比你先看到,订单掉了我们陪你做归因,新机会来了我们继续陪你看。出海这条路,我们陪你走得稳稳的。",
+        "features": [
+          "政策变了,我们比你先 48 小时看到",
+          "订单波动,我们陪你做归因",
+          "新机会来了,我们继续陪你看",
+          "深夜出问题,你打电话有人接"
+        ]
+      }
+    ]
+  },
+  "services2": {
+    "topTag": "让本草品牌 · 稳稳走向世界",
+    "titleLine1": "算法指方向，数据打底，",
+    "titleAccent": "陪你稳稳走完每一步",
+    "intro": "出海不是一次咨询,是一段路。迷茫时小驼先帮你看清,真人顾问陪你聊,找路时陪你找,谈判时陪你去,稳定后继续陪你稳 14 个月。让本草品牌,稳稳走向世界 —— 这是我们陪你的唯一标准。",
+    "footerNote": "第一步可以只是「让小驼陪我稳稳聊 30 分钟」—— 不承诺、不付费,只是先有人在你身后",
+    "steps": [
+      {
+        "step": "壹",
+        "titleEn": "When You're Lost",
+        "emotion": "你一个人想不清楚要不要走这一步",
+        "title": "迷茫时,陪你把方向看稳",
+        "description": "你可能听说过日本、欧盟、东南亚,但不知道哪个先做。我们陪你想 —— 不是给你一张表让你自己填,是 60 分钟一起聊,先把方向看稳。",
+        "deliverables": [
+          "60 分钟 1v1 陪聊,先把方向看稳",
+          "35 国数据底座,我们陪你看哪个先做",
+          "预算、团队、合规,陪你掂量",
+          "风险点陪你一起暴露,不是隐瞒"
+        ]
+      },
+      {
+        "step": "贰",
+        "titleEn": "When You Need Allies",
+        "emotion": "你想找第一个合伙人,但不知道谁靠谱",
+        "title": "找路时,陪你选稳第一个队友",
+        "description": "小驼扫 10,000+ 候选,数据替你打底,真人顾问陪你挑 —— 不是给一份名单让你自己联系,是陪你看每个候选、一起排优先级,让每一步都走得稳。",
+        "deliverables": [
+          "小驼扫 10,000+ 候选,数据替你打底",
+          "顾问陪你筛 50 家,每个候选的画像我们陪你看",
+          "谁适合先接触,我们陪你想",
+          "第一次邮件怎么写,我们陪你改"
+        ]
+      },
+      {
+        "step": "叁",
+        "titleEn": "When You Negotiate",
+        "emotion": "你第一次坐到谈判桌前,怕说错话",
+        "title": "谈判时,陪你坐到桌前坐稳",
+        "description": "我们陪你坐到谈判桌前 —— 不是发一份\"谈判指南\"让你自学。冷场时给提示,谈崩时一起复盘,签约时一起松口气 —— 让第一次出海的你也坐得稳。",
+        "deliverables": [
+          "第一次会谈,我们陪你一起飞过去",
+          "合同条款,我们陪你逐字看",
+          "价格博弈,我们陪你想底线",
+          "冷场 / 谈崩,我们陪你救场"
+        ]
+      },
+      {
+        "step": "肆",
+        "titleEn": "Until It Stands",
+        "emotion": "你签了约,但政策变了、订单掉了",
+        "title": "稳定后,陪你稳稳走 14 个月",
+        "description": "出海只是开始。我们陪你盯 —— 政策变了我们比你先看到,订单掉了我们陪你找原因,新机会来了我们继续陪你挖。出海这条路,我们陪你稳稳地走 14 个月。",
+        "deliverables": [
+          "政策变了,我们比你先 48 小时看到",
+          "订单波动,我们陪你做归因",
+          "新机会来了,我们继续陪你看",
+          "深夜出问题,你打电话有人接"
+        ]
+      }
+    ]
+  },
+  "contact2": {
+    "topTag": "让本草品牌 · 稳稳走向世界",
+    "title": "算法指方向，数据打底，<1>真人陪你稳稳扎根</1>",
+    "lead": "让本草品牌,稳稳走向世界 —— 用算法看方向,用数据打底,用真人顾问陪你走完每一步。无论您处于出海的哪个阶段,我们都愿意陪着。",
+    "teamLabel": "顾问团队",
+    "teamSub": "资深顾问全程陪跑您的出海之路",
+    "promise1": "专属订制算法精准匹配",
+    "promise2": "24小时内回复",
+    "promise3": "35国法规框架支持",
+    "formTitle": "留下您的信息",
+    "formLead": "我们会尽快与您联系,了解您的需求并提供初步建议。",
+    "labelName": "姓名",
+    "labelCompany": "公司/品牌",
+    "labelEmail": "Email",
+    "labelPhone": "电话",
+    "labelStage": "出海阶段",
+    "labelMarkets": "目标市场",
+    "labelChallenge": "您的需求或问题",
+    "labelTimeline": "时间线",
+    "labelNotes": "补充说明",
+    "stageOptions": [
+      {
+        "value": "idea",
+        "label": "初步想法"
+      },
+      {
+        "value": "pilot",
+        "label": "小规模试水"
+      },
+      {
+        "value": "launch",
+        "label": "正式进入"
+      },
+      {
+        "value": "scale",
+        "label": "规模化扩展"
+      }
+    ],
+    "submit": "提交咨询",
+    "submitting": "提交中...",
+    "successTitle": "提交成功!",
+    "successDesc": "感谢您的咨询。我们的顾问团队会在24小时内与您联系,请留意您的邮箱。",
+    "backgroundCaption": "中医出海 一站式服务"
+  },
+  "footer2_text": {
+    "taglinePill": "让本草品牌 · 稳稳走向世界",
+    "bigQuote": "无论世界有多大,",
+    "bigQuoteAccent": "我们陪你,稳稳走向世界。",
+    "longDesc": "迷茫时小驼先帮你看清,找路时陪你选稳的队友,谈判时陪你坐到桌前,稳定后继续陪你稳 14 个月。算法指方向,数据打底,真人陪你出海 —— 你不是一个人出海,小驼 24h 在线,真人顾问在你身后。",
+    "tags": [
+      "中药制药",
+      "保健食品",
+      "汉方护肤",
+      "功能性产品",
+      "医疗器械"
+    ],
+    "ctaAsk": "先让小驼陪你聊",
+    "ctaPrimary": "先让小驼陪你稳稳聊 30 分钟,不承诺、不付费,只是先有人在你身后。",
+    "ctaSecondary": "聊完你觉得想见真人顾问,我们再约 30 分钟陪聊。",
+    "btnConsult": "让真人顾问陪我聊",
+    "btnDiagnose": "先让小驼陪我 30 分钟",
+    "groups": [
+      {
+        "title": "陪你的",
+        "links": [
+          {
+            "name": "我们怎么陪你",
+            "to": "/method"
+          },
+          {
+            "name": "陪你去的 35 国",
+            "to": "/markets"
+          },
+          {
+            "name": "陪跑档案",
+            "to": "/research"
+          },
+          {
+            "name": "管理后台",
+            "to": "/admin/login",
+            "isAdmin": true
+          }
+        ]
+      },
+      {
+        "title": "陪你的 4 件事",
+        "links": [
+          {
+            "name": "陪你判断要不要走",
+            "to": "/method"
+          },
+          {
+            "name": "陪你找到第一个队友",
+            "to": "/method"
+          },
+          {
+            "name": "陪你打通合规路径",
+            "to": "/method"
+          },
+          {
+            "name": "陪你签约 + 继续陪",
+            "to": "/method"
+          }
+        ]
+      },
+      {
+        "title": "优先目的地",
+        "links": [
+          {
+            "name": "日本 / 韩国",
+            "to": "/markets"
+          },
+          {
+            "name": "欧盟 / 英国",
+            "to": "/markets"
+          },
+          {
+            "name": "东南亚",
+            "to": "/markets"
+          },
+          {
+            "name": "中东",
+            "to": "/markets"
+          }
+        ]
+      },
+      {
+        "title": "陪跑阶段",
+        "links": [
+          {
+            "name": "迷茫时陪你想",
+            "to": "/method"
+          },
+          {
+            "name": "找路时陪你找",
+            "to": "/method"
+          },
+          {
+            "name": "小驼先聊 30 分钟",
+            "to": "/diagnose"
+          },
+          {
+            "name": "和真人顾问见面",
+            "to": "/expert"
+          }
+        ]
+      }
+    ],
+    "brandName": "岐黄四海",
+    "brandTagline": "让本草品牌 · 稳稳走向世界",
+    "brandLongDesc": "专注于中医药与汉方品牌的全球增长。让本草品牌,稳稳走向世界。算法指方向,数据打底,真人陪你出海 —— 你不是一个人出海,我们在你身后。",
+    "brandMeta1": "定位:中医药出海陪跑伙伴",
+    "brandMeta2": "优先陪你走:日本、欧盟、东南亚、中东、澳洲、北美",
+    "affiliatedTitle": "同一个队伍",
+    "copyright": "© 2026 岐黄四海 Qihuang Sihai.",
+    "subtitle": "TCM 全球出海 · 算法 + 数据 + 真人顾问陪跑伙伴"
+  },
+  "reviews2": {
+    "tagline": "全球用户问答 · AI 顾问专业回复",
+    "title": "与岐黄四海用户交流",
+    "subtitle": "分享您的中医出海经验，或提出合规、市场、物流、税务等实际问题。发布后，AI 顾问将自动提供专业回复",
+    "namePlaceholder": "您的昵称（选填）",
+    "contentPlaceholder": "分享您的中医出海经验，或提出具体问题... AI 顾问将在发布后自动回复",
+    "policy": "友善交流，禁止人身攻击 · 留言公开显示",
+    "submitting": "发布中...",
+    "submit": "发布留言",
+    "total": "全部留言",
+    "totalUnit": "条",
+    "fromWorld": "来自全球 {{count}} 个国家和地区",
+    "latest": "最新",
+    "popular": "最热",
+    "loading": "加载中...",
+    "emptyEmoji": "💬",
+    "empty": "暂无留言，成为第一个分享者",
+    "agentConsultant": "商务顾问",
+    "agentLegal": "法律顾问",
+    "agentFinance": "财税顾问",
+    "agentLogistics": "物流顾问",
+    "replyCount": "{{count}} 条回复",
+    "like": "赞"
+  },
+  "research": {
+    "hubTitle": "数据会说话 · 报告库",
+    "hubSubtitle": "以可执行的研究成果陈列我们的方法论与判断力。每份报告均基于一手数据，标注样本规模、方法与边界。",
+    "latest": "最新成果",
+    "hint": "点击卡片即可在线阅读完整报告",
+    "min": "分钟阅读",
+    "chapters": "章节",
+    "readNow": "在线阅读",
+    "ctaTitle": "需要定制研究？",
+    "ctaDesc": "如有特定市场 / 品类 / 监管的研究需求，可申请专家评审，按项目深度交付报告。",
+    "ctaBtn": "申请专家评审",
+    "methodologyNote": "方法论：所有报告样本规模、方法、采集边界均在报告开头「数据源与方法论」章节明示。仅展示已通过内部评议的研究成果。",
+    "notFoundTitle": "没找到这份报告",
+    "notFoundDesc": "这份研究报告可能尚未发布，或者链接已失效。",
+    "backToHub": "回到报告库",
+    "researchAll": "报告库",
+    "liveDoc": "在线阅读中",
+    "openInNewTab": "在新窗口打开",
+    "saveHtml": "保存 HTML",
+    "refresh": "刷新",
+    "confidentialNote": "仅供专业评估用",
+    "loadError": "报告加载失败，请稍后再试",
+    "loadErrorDesc": "可能因为临时网络问题。请点击右上角刷新，或在新窗口打开报告原文。",
+    "retry": "重新加载",
+    "loading": "正在加载研究报告…",
+    "backTop": "回到顶部"
+  },
+  "countryAssessment": {
+    "pageTitle": "出海目标国家评估 · 岐黄四海",
+    "kicker": "出海决策工具",
+    "stepNav": "评估步骤",
+    "stepNumber": "步骤 {{count}}",
+    "footerResult": "以上为本地规则引擎计算结果；提交后系统会将配置发送到后端跟进。",
+    "needIndustry": "行业",
+    "needStage": "出海阶段",
+    "needBudget": "总预算",
+    "needRisk": "风险偏好",
+    "needProduct": "产品描述（≥ 10 字）",
+    "needFields": "请补全：{{fields}}",
+    "needCountry": "请至少选择 1 个候选国家",
+    "weightSumHint": "权重合计需等于 100%",
+    "countriesTitle": "选择候选国家与进入假设",
+    "countriesSubtitle": "至少选 1 个国家，最多 5 个。每个国家独立选择进入模式；下一步会要求逐维度打分与硬门槛状态。",
+    "entryModeTitle": "为每个候选国家选择进入模式",
+    "selectPlease": "请选择",
+    "entryMode": "进入模式",
+    "entryModeHint": "选择进入模式后会显示适配提示",
+    "notesPh": "市场假设 / 客户线索 / 客户接洽进度（可选）",
+    "tooMany": "候选国家太多会稀释区分度，建议聚焦在最具机会的 3–5 国。",
+    "evidenceNoCountries": "请先选择至少 1 个候选国家，再填评分与硬门槛。",
+    "evidenceTitle": "为每个国家填写评分、证据与硬门槛",
+    "evidenceSubtitle": "分数代表\"市场能不能做\"，证据等级代表\"我们对分数有多少证据\"，硬门槛状态代表\"必须立刻决定放不放行\"。",
+    "gateTriggeredCount": "{{count}} 项硬门槛已触发",
+    "gatePendingCount": "{{count}} 项硬门槛待验证",
+    "gateStatusTitle": "硬门槛状态",
+    "noRequiredGate": "当前模板没有强制评估的硬门槛；建议至少手动确认制裁与牌照两条。",
+    "evidenceNote": "证据等级越低，分数会自动收缩到中性值",
+    "modelTitle": "自定义权重与硬门槛",
+    "modelSubtitle": "选择业务模型模板作为起点，然后针对企业具体能力微调权重（合计必须等于 100%）。",
+    "profileTemplate": "业务模型模板",
+    "dimensionWeights": "维度权重",
+    "weightSum": "合计 {{sum}} / 100",
+    "hardGates": "硬门槛（任何一项触发都会停止推进）",
+    "hardGatesHint": "选择\"必须确认\"会让用户在下一步为该国标注状态；\"先不验证\"会把该项暂时移出硬门槛集合。",
+    "owner": "责任角色",
+    "gateRequired": "必须确认",
+    "gateOptional": "软提醒",
+    "gateIgnored": "忽略",
+    "gatePass": "通过",
+    "gatePending": "待验证",
+    "gateTriggered": "触发",
+    "profileTitle": "企业与产品画像",
+    "profileSubtitle": "先把出海命题说清楚：业务、产品、时间窗与能承担的风险。这一步的答案是后续所有评分与建议的锚点。",
+    "fieldCompany": "企业名称（可选）",
+    "fieldCompanyPh": "如：张小强本草集团",
+    "fieldIndustry": "行业 / 业务模式",
+    "fieldProduct": "产品描述（最多 200 字）",
+    "fieldProductHint": "包含目标客群、主要卖点、平均客单价与认证情况；将影响后续国家评分。",
+    "fieldProductPh": "例如：基于经典中药方的保健食品，主打护肝与免疫，目标客户为 30-55 岁高净值人群，平均客单价 600 元，已通过 GMP 与 ISO22000。",
+    "fieldStage": "当前出海阶段",
+    "fieldBudget": "总预算",
+    "fieldRisk": "风险偏好",
+    "fieldWindow": "时间窗口（自由输入）",
+    "fieldWindowHint": "描述候选国家想进入的时间窗，例如\"未来 18 个月\"、\"2026 上半年\"。",
+    "fieldWindowPh": "18 个月 / 2026 Q3 / 按市场分阶段",
+    "readinessTitle": "企业准备度自评",
+    "readinessHint": "为 6 个准备度维度打分 1–5 分。这一项衡量\"我们能不能做好\"，与国家机会分（市场能不能做）分开。",
+    "submitNeedConsent": "请先勾选同意条款",
+    "submitNeedName": "请填写姓名 / 企业",
+    "submitOk": "已提交，我们会尽快与您联系。",
+    "resultNoCountries": "请回到上一步选择至少 1 个候选国家，再生成结果。",
+    "resultKicker": "决策读数",
+    "resultTitle": "国家评估结果与下一步动作",
+    "resultSubtitle": "数字反映\"市场能不能做\" × 证据可信度，结论反映\"我们现在能不能做\"。硬门槛任一触发都会立即置底并被红色标记，不允许被分数抵消。",
+    "restart": "重新调整评估",
+    "crossTitle": "需要管理层优先关注的事项",
+    "rankTitle": "按调整分排序的候选国家",
+    "checklistTitle": "按数据采集优先级排序的清单",
+    "aiTitle": "AI 战略简报（可选）",
+    "aiHint": "基于结构化结果生成中文解释、90–180 天验证顺序和反方观点；AI 不可用时只展示规则引擎结果。",
+    "submitTitle": "把这份评估与我的团队取得联系",
+    "submitHint": "以下信息会写入现有客户信息表，工作人员可立即跟进；不填就不会保存。",
+    "contactName": "姓名",
+    "contactNamePh": "您的姓名",
+    "contactPhone": "联系电话",
+    "contactPhonePh": "可选",
+    "contactEmail": "邮箱",
+    "contactEmailPh": "可选，用于发送评估报告",
+    "contactNote": "补充说明",
+    "contactNotePh": "我们最多想对接 2 国，预计时间窗为 18 个月",
+    "consent": "我同意把上述评估结果与表单内容提交给张小强咨询团队并被用于评估推进；AI 解释内容不会与第三方共享。",
+    "submitting": "提交中…",
+    "submit": "提交并联系我们",
+    "cardProfile": "评估模板",
+    "cardProfileHint": "基于业务模型已校准权重",
+    "cardReadiness": "企业准备度",
+    "cardReadinessHint": "满分 100",
+    "cardWeightSum": "权重合计",
+    "cardWeightOk": "合计等于 100%",
+    "cardWeightBad": "需要归一化或冻结当前分配",
+    "cardCountries": "候选国家数",
+    "cardCountriesHint": "触发硬门槛会置底，但不删除",
+    "entryModeLabel": "进入模式",
+    "metricRaw": "原始机会分 / 100",
+    "metricAdjusted": "可信度调整分 / 100",
+    "metricReadiness": "企业准备度 / 100",
+    "metricConfidence": "证据等级",
+    "topStrengths": "主要优势",
+    "noStrength": "暂无明显优势",
+    "topGaps": "关键短板",
+    "noGap": "没有发现明显短板",
+    "advice": "决策建议",
+    "triggeredTitle": "触发的硬门槛",
+    "pendingTitle": "待验证的硬门槛",
+    "weightBreakdown": "查看该国的权重与分数明细",
+    "weightShare": "权重 {{w}}%",
+    "checklistAction": "最小验证动作",
+    "checklistSource": "来源",
+    "checklistOwner": "责任",
+    "disclosureTitle": "查看完整评估输入与口径",
+    "disclosureProduct": "产品摘要",
+    "disclosureWeights": "权重明细",
+    "disclosureReadiness": "企业准备度",
+    "aiFallback": "AI 不可用，已回退到规则引擎结论。",
+    "aiStart": "正在准备解释性简报…",
+    "startRealAssessment": "开始填写我的真实数据 →"
   }
 }

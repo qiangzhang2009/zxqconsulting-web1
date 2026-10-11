@@ -4,20 +4,28 @@
     "nameEn": "QihuangSihai",
     "fullName": "Qihuang Sihai",
     "tagline": "TCM Global Expansion Decision Operating System",
-    "slogan": "One Pulse of Qihuang. Health Across Four Seas."
+    "slogan": "One Pulse of Qihuang. Health Across Four Seas.",
+    "selectLanguage": "Select Language"
   },
   "nav": {
     "home": "Home",
     "about": "About Us",
     "services": "Services",
     "markets": "Global Markets",
-    "contact": "Contact"
+    "contact": "Contact",
+    "research": "Data Speaks · Research Library"
   },
   "hero": {
     "title": "Empowering Businesses to Conquer Global Markets",
     "subtitle": "From market entry strategy to operational implementation, we provide comprehensive overseas consulting services. AI-powered, resource-driven, making faster and more precise decisions for your global expansion.",
     "cta": "Start Your Global Journey",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "banner": "Qihuang Sihai · Global Services · Worth Trusting",
+    "badge": "Qihuang Sihai·Platform",
+    "highlight": "Bencao Global · Toward the World",
+    "trustBadge": "Professional Team·One-Stop Service",
+    "serviceBadge": "Professional Service·Worth Trusting",
+    "bencaoHealth": "Bencao Health"
   },
   "about": {
     "p1_title": "Judge before you invest",
@@ -229,7 +237,8 @@
     "close": "Close",
     "tags": "Tags",
     "loading": "Loading...",
-    "noArticles": "No articles available"
+    "noArticles": "No articles available",
+    "lastUpdate": "Last updated"
   },
   "contact": {
     "title": "Contact Us",
@@ -271,8 +280,26 @@
       "companyPlaceholder": "Please enter your company name",
       "message": "Inquiry Content",
       "messagePlaceholder": "Please describe your inquiry needs...",
-      "submit": "Submit Inquiry"
+      "submit": "Submit Inquiry",
+      "submitting": "Submitting...",
+      "success": "Submitted successfully",
+      "successMessage": "Thank you for your inquiry! Our professional advisor will contact you within 24 hours.",
+      "gotIt": "Got it",
+      "error": "Submission failed. Please try again later or email customer@zxqconsulting.com directly."
     }
+  },
+  "floatingContact": {
+    "call": "Call Now",
+    "wechat": "WeChat",
+    "email": "Send Email",
+    "message": "Leave a Message",
+    "contactUs": "Contact Us",
+    "workTime": "Business hours: Mon–Fri 9:00–18:00",
+    "copied": "WeChat ID copied:",
+    "callNow": "Call Now",
+    "sendEmail": "Send Email",
+    "hours": "Hours: Mon–Fri 9:00–18:00",
+    "wechatCopied": "WeChat ID copied: {{id}}"
   },
   "footer": {
     "title": "Ready to Go Global?",
@@ -282,6 +309,18 @@
     "markets": "Market Regions",
     "services": "Professional Services",
     "copyright": "© 2026 Qihuang Sihai. All rights reserved.",
+    "banner": {
+      "badge": "Qihuang Sihai·Platform",
+      "title": "Begin Your Global Journey",
+      "description": "With national policy support, we help Bencao products and TCM culture go global!",
+      "tagline": "Professional Team·One-Stop Service·Worth Trusting",
+      "button": "Contact Us and Start Your Global Journey"
+    },
+    "promo": {
+      "spring": "2026 Spring Special — Year of the Horse",
+      "spirit": "Vigorous Spirit",
+      "stride": "Galloping Across Distances"
+    },
     "nav": "Navigation",
     "priorityMarkets": "Priority Markets",
     "platformCapabilities": "Platform Capabilities",
@@ -299,6 +338,33 @@
     "euUk": "EU / UK",
     "seAsia": "Southeast Asia",
     "middleEast": "Middle East"
+  },
+  "ai": {
+    "showcase": {
+      "title": "AI-Powered·Global Market Insights",
+      "subtitle": "Overseas Market Insights",
+      "description": "Multi-dimensional data analysis delivers precise overseas market insights and decision support",
+      "heatLevel": "Market Heat",
+      "realtimeDynamics": "Realtime Market Dynamics",
+      "autoUpdate": "Daily Update",
+      "aiStats": "Data Capability",
+      "dataSources": "Data Sources",
+      "dataSourcesDesc": "Global Data Sources",
+      "updateFreq": "Update Frequency",
+      "updateFreqDesc": "Realtime Update",
+      "analysis": "Analysis Dimensions",
+      "analysisDesc": "Multi-Dimensional Analysis",
+      "accuracy": "Prediction Accuracy",
+      "accuracyDesc": "AI Model Prediction",
+      "learnMore": "Contact us for more market information",
+      "dataNote": "Data updated daily, for reference only",
+      "lastUpdate": "Last Updated",
+      "globalVisualization": "Global Market Dynamics",
+      "marketNode": "Market Node",
+      "tradeFlow": "Trade Flow",
+      "originPoint": "Data Source",
+      "liveData": "Live Data Feed"
+    }
   },
   "tools": {
     "selectMarket": "Step 1: Select Your Target Market",
@@ -364,7 +430,7 @@
     },
     "common": {
       "analyzing": "AI Analyzing...",
-      "aiAdvice": "智探Global 智能体 Advice",
+      "aiAdvice": "Global Agent Advice",
       "aiResult": "AI Assessment Result"
     },
     "policy": {
@@ -426,6 +492,16 @@
     "trust1": "Front-load judgment in 3 minutes",
     "trust2": "Covers market, compliance, cost, channel and risk",
     "trust3": "Complex projects escalated to senior advisors",
+    "convTitle": "Real Conversations · Where Decisions Start",
+    "q1c": "Advisor, our boss wants to go all-in on the Japanese market next year. Should we take this step now?",
+    "q1a": "Don't lock in Japan yet. Regulatory complexity varies 3–5x across our 35 markets, so the AI diagnosis will give you a priority ranking first — rather than letting you pick a destination outright.",
+    "q2c": "We have an OTC Chinese patent medicine and want to enter the EU and Southeast Asia. We've heard EU THR takes at least 18 months — we can't afford that.",
+    "q2a": "True — the EU traditional herbal route is not a \"big investment first\" path. I'll spend 30 minutes breaking it down for you: this should be a goal for after 12 months, not a Q1 launch.",
+    "q3c": "We've always done OTC. Now we want functional food + Hanfang skincare, but we don't know which category positioning to choose.",
+    "q3a": "Category choice itself determines your registration pathway, channels, and marketing language. The AI diagnosis will first make a call on category positioning, then a human advisor will verify it with you.",
+    "advisorQuote": "I'm not selling you a report. I'm here to make the market-entry decision together — until you dare to sign.",
+    "advisorBio": "Over the past 12 years, I've walked 60+ TCM companies through all three stages: project kickoff, market entry, and review. If the path is picked wrong even once, we'll spend 30 minutes switching it. If the product shouldn't be built, we'll tell you straight.",
+    "trustTitle": "Past Judgments · Not Just Numbers on a Slide",
     "ctaStart": "Start AI diagnosis",
     "ctaDownload": "Download 35-country guide",
     "ctaViewSample": "View sample report",
@@ -598,7 +674,9 @@
     "useCases": "Use Cases",
     "caseProof": "Algorithm Samples",
     "expertUpgrade": "Expert Evaluation",
-    "selectLang": "Choose language"
+    "selectLang": "Choose language",
+    "adminEntry": "Admin",
+    "ctaPrimary": "Let Little Tuo walk the first step with me"
   },
   "expertReview": {
     "title": "Let the platform complete the first judgment; experts step in for complex projects that need deeper evaluation.",
@@ -630,9 +708,6 @@
     "companyPlaceholder": "Company or brand",
     "emailPlaceholder": "Your email",
     "phonePlaceholder": "Best contact channel",
-    "projectStageSelect": "Project stage",
-    "budgetSelect": "Budget range",
-    "validationSelect": "Validation status",
     "stage_exploring": "Early exploration",
     "stage_committed": "Ready to commit",
     "stage_testing": "Already testing overseas",
@@ -652,8 +727,9 @@
     "companyInput": "Company or brand",
     "emailInput": "Your email",
     "phoneInput": "Best contact channel",
-    "projectStageInput": "Project stage",
-    "budgetInput": "Budget range",
+    "projectStageSelect": "Project stage",
+    "budgetSelect": "Budget range",
+    "validationSelect": "Validation status",
     "diagnosisRec": "Diagnosis Recommendation",
     "qualificationDecision": "Project Fit",
     "productCategory": "Product Category",
@@ -680,17 +756,6 @@
     "positioningEn": "Positioning: advisory for TCM global market entry and growth. Priority coverage: Japan, EU, Southeast Asia, Middle East, Australia and North America. Notice: AI diagnosis supports early-stage judgment; formal engagements rely on advisory review and local regulations.",
     "applyBtn": "Request a deeper expert evaluation",
     "applyBtnNav": "Contact Us"
-  },
-  "ai": {
-    "title": "AI Diagnosis Engine",
-    "subtitle": "Get market entry insights powered by deep market data and AI analysis",
-    "placeholder": "Describe your product and goals..."
-  },
-  "floatingContact": {
-    "title": "Contact Us",
-    "subtitle": "Have questions? Our team is here to help.",
-    "chatWithUs": "Chat with us",
-    "emailUs": "Email us"
   },
   "ai_tools": {
     "partialDataError": "Partial data unavailable, supplemented with sample data",
@@ -751,5 +816,552 @@
     "readyToStartEn": "Ready to get started?",
     "readyToStartDesc": "Complete the AI diagnosis first, or book a free 30-min expert consultation directly.",
     "readyToStartDescEn": "Complete the AI diagnosis first, or book a free 30-min expert consultation directly."
+  },
+  "hero3": {
+    "topTag": "Steadily Guide Bencao Brands to the World",
+    "titleLine1": "Let Bencao Brands",
+    "titleAccent": "steadily",
+    "titleLine2": "step out into the world",
+    "bencaoNote": "“Bencao” has been exported for two thousand years — the common root of TCM, health foods, and Hanfang skincare.",
+    "subtitleLead": "AI points the way, data grounds the foundation, and senior advisors go with you.",
+    "subtitleDetail": "Covers 35 country regulatory frameworks and 10,000+ candidates. Advisors help you unpack judgments, run compliance, and reach the first negotiation table — so going global is steady.",
+    "alpacaName": "Little Tuo",
+    "ctaPrimary": "Start my first step with Little Tuo",
+    "ctaMethod": "See our methodology",
+    "ctaSubscribe": "Subscribe to the Weekly Briefing",
+    "liveBadge": "Coaching live",
+    "alpacaFooter": "Let Bencao brands, steadily, step out into the world",
+    "alpacaSubline": "Online 24/7 · AI + data + advisor coaching",
+    "trustItems": [
+      "35-country data backbone — no gut-feel market picks",
+      "Three confident judgments in seven days",
+      "AI + data + advisor — three layers of certainty",
+      "Fourteen months of coaching after signing"
+    ],
+    "nodes": {
+      "judge": {
+        "label": "See the path",
+        "desc": "Little Tuo scans a steady direction"
+      },
+      "ally": {
+        "label": "Pick the right ally",
+        "desc": "Data picks the steady path"
+      },
+      "negotiate": {
+        "label": "Sit at the table",
+        "desc": "Advisors steady you through signing"
+      },
+      "ship": {
+        "label": "Ship steadily",
+        "desc": "Coaching continues 14 more months"
+      }
+    }
+  },
+  "about2": {
+    "taglinePill": "Let Bencao brands, steadily, step out into the world",
+    "dataPill": "35-country data backbone — every judgment stands on something",
+    "dataParagraph": "The most expensive mistake in going global isn't the money — it's that one wrong step. We won't let you rely on gut instinct. We've turned the 35-country regulatory frameworks, ten thousand candidates, and nearly a hundred real cases into a data backbone you can touch. Then AI points the way, data grounds the foundation, and senior advisors walk with you — so every step is steady.",
+    "whyStableTitle": "Why “steady” instead of “fast”",
+    "whyStableP1": "Going global isn't rushing — it's walking steadily. One wrong step costs you the next 12 months. We've seen it too many times.",
+    "whyStableP2": "I once watched an old TCM doctor fly to Japan alone to study the market — then sit still for six months. Not because he lacked drive, but because he didn't know who to ask next, afraid of taking one more wrong step.",
+    "whyStableP3": "We built Little Tuo to answer that very question: who should you ask next? A person you can find, online 24/7 — Little Tuo scans the data, senior advisors help you judge, and you focus on what only you can do.",
+    "whyStableP4": "The difference isn't resources. It's whether someone steadies each step for you.",
+    "whyStableP5": "That's why we built Qihuang Sihai — so that when you go global, someone stands behind you, Little Tuo stands beside you, and the road beneath your feet is steady.",
+    "founderRole": "Founder",
+    "founderQuote": "We didn't build this to give the industry one more option. We built it so every Bencao brand ready to go global can step out into the world — steadily.",
+    "founderName": "Zhang Xiaoqiang",
+    "founderTitle": "Qihuang Sihai · Founder",
+    "teammateRole": "Coaching teammate",
+    "teammoteQuote": "I'm Little Tuo, Zhang Xiaoqiang's colleague. Online around the clock, scanning directions, checking regulations, reading the numbers — the teammate who never sleeps, walking steadily beside you.",
+    "teammateName": "Little Tuo",
+    "teammateTitle": "AI coaching teammate",
+    "whoBadge": "Who we are",
+    "whoTitle1": "More than advisors,",
+    "whoTitle2": "the steady feet that carry your brand overseas",
+    "whoQuote": "Going global isn't a slogan — it's a road you must walk steadily, every single step.",
+    "whoDesc": "Qihuang Sihai focuses on the global growth of TCM, supplements, and Hanfang brands. AI points the way, data grounds the call, and senior advisors walk with you — from “should we go?” to “we shipped, and it's stable.” You don't go global alone; we make it happen steadily.",
+    "promiseTitle": "Our commitment to you",
+    "values": [
+      {
+        "title": "Steady the direction with you",
+        "desc": "No pressure to launch, no pressure to give up — 35-country data shows the cost of every step first."
+      },
+      {
+        "title": "Walk with you to signing",
+        "desc": "From the first meeting to the MOU, we stay beside you — we don't just send a report and leave."
+      },
+      {
+        "title": "AI + data + advisor",
+        "desc": "Little Tuo scans, data grounds, advisors judge. We coach you, not the algorithm."
+      },
+      {
+        "title": "We stay after signing",
+        "desc": "When something breaks at midnight, the first call you make is to us — not a bot."
+      }
+    ],
+    "whyUsTitle": "Why brands choose us to walk steadily overseas",
+    "whyUsLead": "Not because we're the biggest name. Because we've actually walked the road with you — through kickoff hesitations, awkward negotiations, and midnight surprises. Every step, walked steadily.",
+    "whyUsCards": [
+      {
+        "title": "Not advisors — teammates",
+        "desc": "We shoulder the project together — we sweat the problems, we celebrate the wins, and every step is steady.",
+        "highlight": "Real coaching, not pretending"
+      },
+      {
+        "title": "Not a tool — steady ground",
+        "desc": "AI points the way, data grounds the call, advisors make the call — what you need is every step landing steady.",
+        "highlight": "AI + data + advisor, all here"
+      },
+      {
+        "title": "Not gone after signing",
+        "desc": "Going global is the start; we watch the next 14 months with you. When policy changes, we see it before you do.",
+        "highlight": "After signing, we stay"
+      }
+    ],
+    "ctaAsk": "Want Little Tuo to chat with you first?"
+  },
+  "advantages2": {
+    "topTag": "Let Bencao brands, steadily, step out into the world",
+    "titleLine1": "AI points the way, data grounds it,",
+    "titleAccent": "and advisors walk steadily with you",
+    "intro": "Not a long list of capabilities. Only four: AI points the direction, data grounds the call, advisors walk you steadily — and someone steadies each step for you.",
+    "refuseTitle": "What we refuse",
+    "refuse": "We don't take categories we don't know · We don't push you to launch · We don't leave after signing. Having the courage to say yes is coaching. Having the courage to say no is also coaching.",
+    "ctaAsk": "Want Little Tuo to take the first step with you?",
+    "items": [
+      {
+        "subtitle": "When you wonder “should we go?”",
+        "title": "Steady the direction with you",
+        "desc": "The first step of going global is often the most expensive — get it wrong, and you spend the next 12 months catching up. We think with you — not rushing you to launch, not talking you out of it — letting data steady your view first.",
+        "features": [
+          "60-minute chat with Little Tuo and a senior advisor",
+          "35-country data backbone — we look at which market first",
+          "Budget, team, compliance — we weigh them with you",
+          "If it shouldn't be done, we tell you straight"
+        ]
+      },
+      {
+        "subtitle": "When you need your first ally",
+        "title": "Pick a steady first teammate",
+        "desc": "Going global isn't “finding customers” — it's “finding the right people.” We pick with you — not throwing a list for you to contact alone, but reviewing every candidate, ranking together, so every step is steady.",
+        "features": [
+          "Little Tuo scans 10,000+ candidates, advisors shortlist 50",
+          "A profile for every candidate — we review with you",
+          "The first email — we revise it with you",
+          "Who to contact first — we think with you"
+        ]
+      },
+      {
+        "subtitle": "When regulations feel like a maze",
+        "title": "Walk compliance steadily",
+        "desc": "Drug, food, cosmetics — every market's bar is different. We walk with you — not handing you a PDF to read alone, but reviewing clauses, judging with you, avoiding pitfalls together. Compliance, walked steady.",
+        "features": [
+          "35-country regulatory frameworks — we onboard them with you",
+          "Dosage form, ingredient, labeling — we think with you",
+          "Registration plan — we schedule it with you",
+          "When policy shifts, we see it before you"
+        ]
+      },
+      {
+        "subtitle": "When you need us after signing",
+        "title": "Steady through shipping · 14 months steady",
+        "desc": "Signing isn't the end. We watch with you — policy shifts, we see them first; orders dip, we run attribution; new chances appear, we keep walking with you. This road, we walk it steadily together.",
+        "features": [
+          "Policy shifts — we see them 48 hours ahead of you",
+          "Order swings — we run attribution with you",
+          "New chances — we keep looking with you",
+          "Midnight issues — there's someone on the phone"
+        ]
+      }
+    ]
+  },
+  "services2": {
+    "topTag": "Let Bencao brands, steadily, step out into the world",
+    "titleLine1": "AI points the way, data grounds it,",
+    "titleAccent": "and we walk every step with you, steadily",
+    "intro": "Going global isn't a one-time consult — it's a road. When you're lost, Little Tuo helps you see clearly; an advisor chats with you; when finding a path, we walk with you; when negotiating, we go with you; after stabilization, we keep walking with you for 14 months. Let Bencao brands, steadily, step out into the world — that's our only standard for walking with you.",
+    "footerNote": "The first step can simply be “Let Little Tuo chat with me for 30 minutes” — no commitment, no payment, just someone behind you.",
+    "steps": [
+      {
+        "step": "I",
+        "titleEn": "When You're Lost",
+        "emotion": "You can't decide alone whether to take this step",
+        "title": "When lost, we steady the direction with you",
+        "description": "You've heard of Japan, the EU, Southeast Asia — but don't know which to do first. We think with you — not handing you a form to fill, but chatting together for 60 minutes to steady the direction first.",
+        "deliverables": [
+          "60-minute 1-on-1 chat — steady the direction first",
+          "35-country data backbone — we look at which market first",
+          "Budget, team, compliance — we weigh them with you",
+          "Risks exposed together, not hidden"
+        ]
+      },
+      {
+        "step": "II",
+        "titleEn": "When You Need Allies",
+        "emotion": "You want a first partner, but don't know who's solid",
+        "title": "When finding a path, pick a steady first teammate",
+        "description": "Little Tuo scans 10,000+ candidates, data grounds the call, advisors pick with you — not a list you contact alone. We review every candidate, rank priorities together, so every step is steady.",
+        "deliverables": [
+          "Little Tuo scans 10,000+ candidates, data grounds the call",
+          "Advisors shortlist 50 — we review every profile with you",
+          "Who to contact first — we think with you",
+          "First email — we revise it with you"
+        ]
+      },
+      {
+        "step": "III",
+        "titleEn": "When You Negotiate",
+        "emotion": "You sit at the table for the first time, afraid of saying the wrong thing",
+        "title": "When negotiating, sit at the table steadily",
+        "description": "We sit with you at the negotiation table — not handing you a “negotiation guide.” When silence falls, we cue you; when it falls apart, we debrief; when it closes, we sigh together — so your first time overseas feels steady.",
+        "deliverables": [
+          "First meeting — we fly out with you",
+          "Contract terms — we read them line by line with you",
+          "Pricing — we think through your floor with you",
+          "Silence / collapse — we rescue the room with you"
+        ]
+      },
+      {
+        "step": "IV",
+        "titleEn": "Until It Stands",
+        "emotion": "You've signed, but policy changed and orders dropped",
+        "title": "After stabilization, walk 14 months steadily",
+        "description": "Going global is just the start. We watch with you — policy shifts, we see them first; orders drop, we find reasons with you; new chances appear, we keep digging with you. This road, we walk it steadily for 14 months.",
+        "deliverables": [
+          "Policy shifts — we see them 48 hours before you",
+          "Order swings — we run attribution with you",
+          "New chances — we keep looking with you",
+          "Midnight problems — someone picks up"
+        ]
+      }
+    ]
+  },
+  "contact2": {
+    "topTag": "Let Bencao brands, steadily, step out into the world",
+    "title": "AI points the way, data grounds it,<1>advisors steady every step with you</1>",
+    "lead": "Let Bencao brands, steadily, step out into the world — AI for direction, data for grounding, senior advisors for every step. Whatever stage you're at, we're ready to walk with you.",
+    "teamLabel": "Advisor team",
+    "teamSub": "Senior advisors walk the full road with you",
+    "promise1": "Custom algorithm for precise matching",
+    "promise2": "Reply within 24 hours",
+    "promise3": "35-country regulatory framework support",
+    "formTitle": "Leave your information",
+    "formLead": "We'll reach out soon to understand your needs and share early guidance.",
+    "labelName": "Name",
+    "labelCompany": "Company / Brand",
+    "labelEmail": "Email",
+    "labelPhone": "Phone",
+    "labelStage": "Stage of going global",
+    "labelMarkets": "Target markets",
+    "labelChallenge": "Your needs or questions",
+    "labelTimeline": "Timeline",
+    "labelNotes": "Additional notes",
+    "stageOptions": [
+      {
+        "value": "idea",
+        "label": "Early idea"
+      },
+      {
+        "value": "pilot",
+        "label": "Small pilot"
+      },
+      {
+        "value": "launch",
+        "label": "Formal launch"
+      },
+      {
+        "value": "scale",
+        "label": "Scale up"
+      }
+    ],
+    "submit": "Submit inquiry",
+    "submitting": "Submitting...",
+    "successTitle": "Submitted!",
+    "successDesc": "Thank you for reaching out. Our advisor team will contact you within 24 hours — please keep an eye on your inbox.",
+    "backgroundCaption": "TCM Global Expansion · One-stop service"
+  },
+  "footer2_text": {
+    "taglinePill": "Let Bencao brands, steadily, step out into the world",
+    "bigQuote": "No matter how big the world is,",
+    "bigQuoteAccent": "we walk with you — steadily into the world.",
+    "longDesc": "When you're lost, Little Tuo helps you see clearly. When finding a path, we help you pick a steady ally. When negotiating, we sit at the table with you. After stabilization, we keep walking with you for 14 months. AI points the way, data grounds the call, advisors walk with you — you don't go global alone; Little Tuo is online 24/7 and senior advisors are behind you.",
+    "tags": [
+      "TCM pharma",
+      "Health foods",
+      "Hanfang skincare",
+      "Functional products",
+      "Medical devices"
+    ],
+    "ctaAsk": "Start with Little Tuo",
+    "ctaPrimary": "Start with a steady 30-minute chat with Little Tuo — no commitment, no payment, just someone behind you.",
+    "ctaSecondary": "If you want to meet a senior advisor after that, we'll book another 30 minutes together.",
+    "btnConsult": "Chat with a senior advisor",
+    "btnDiagnose": "Start with a 30-minute chat with Little Tuo",
+    "groups": [
+      {
+        "title": "What we walk you through",
+        "links": [
+          {
+            "name": "How we walk with you",
+            "to": "/method"
+          },
+          {
+            "name": "35 destinations we cover",
+            "to": "/markets"
+          },
+          {
+            "name": "Coaching archive",
+            "to": "/research"
+          },
+          {
+            "name": "Admin",
+            "to": "/admin/login",
+            "isAdmin": true
+          }
+        ]
+      },
+      {
+        "title": "The four things we walk you through",
+        "links": [
+          {
+            "name": "Should we go?",
+            "to": "/method"
+          },
+          {
+            "name": "Find the first teammate",
+            "to": "/method"
+          },
+          {
+            "name": "Walk the compliance path",
+            "to": "/method"
+          },
+          {
+            "name": "Sign and stay coached",
+            "to": "/method"
+          }
+        ]
+      },
+      {
+        "title": "Priority destinations",
+        "links": [
+          {
+            "name": "Japan / Korea",
+            "to": "/markets"
+          },
+          {
+            "name": "EU / UK",
+            "to": "/markets"
+          },
+          {
+            "name": "Southeast Asia",
+            "to": "/markets"
+          },
+          {
+            "name": "Middle East",
+            "to": "/markets"
+          }
+        ]
+      },
+      {
+        "title": "Coaching stages",
+        "links": [
+          {
+            "name": "Think with you when lost",
+            "to": "/method"
+          },
+          {
+            "name": "Find the path with you",
+            "to": "/method"
+          },
+          {
+            "name": "30 minutes with Little Tuo",
+            "to": "/diagnose"
+          },
+          {
+            "name": "Meet a senior advisor",
+            "to": "/expert"
+          }
+        ]
+      }
+    ],
+    "brandName": "Qihuang Sihai",
+    "brandTagline": "Let Bencao brands, steadily, step out into the world",
+    "brandLongDesc": "Focused on the global growth of TCM and Hanfang brands. Let Bencao brands, steadily, step out into the world. AI points the way, data grounds the call, advisors walk beside you. You're not alone going global — we're behind you.",
+    "brandMeta1": "Positioning: TCM global-coaching partner",
+    "brandMeta2": "Priority walks: Japan, EU, Southeast Asia, Middle East, Australia, North America",
+    "affiliatedTitle": "Same team",
+    "copyright": "© 2026 Qihuang Sihai.",
+    "subtitle": "TCM global expansion · AI + data + advisor coaching partner"
+  },
+  "reviews2": {
+    "tagline": "Community Q&A · AI advisor responds in real time",
+    "title": "Talk with the Qihuang Sihai community",
+    "subtitle": "Share your TCM-going-global experience or ask concrete questions on compliance, markets, logistics, or tax. Once posted, the AI advisor will respond automatically.",
+    "namePlaceholder": "Your nickname (optional)",
+    "contentPlaceholder": "Share your TCM-going-global experience or ask a specific question... the AI advisor will reply automatically after posting.",
+    "policy": "Be respectful — no personal attacks · messages are public",
+    "submitting": "Posting...",
+    "submit": "Post message",
+    "total": "Total",
+    "totalUnit": "messages",
+    "fromWorld": "From {{count}} countries and regions",
+    "latest": "Latest",
+    "popular": "Popular",
+    "loading": "Loading...",
+    "emptyEmoji": "💬",
+    "empty": "No messages yet — be the first to share.",
+    "agentConsultant": "Business Consultant",
+    "agentLegal": "Legal Advisor",
+    "agentFinance": "Finance Advisor",
+    "agentLogistics": "Logistics Advisor",
+    "replyCount": "{{count}} replies",
+    "like": "Like"
+  },
+  "research": {
+    "hubTitle": "Data Speaks · Research Library",
+    "hubSubtitle": "Our methodology and judgment, presented as actionable research. Every report is built on first-hand data and states its sample size, method, and boundaries.",
+    "latest": "Latest Insights",
+    "hint": "Click any card to read the full report online",
+    "min": "min read",
+    "chapters": "Chapters",
+    "readNow": "Read Online",
+    "ctaTitle": "Need a custom study?",
+    "ctaDesc": "If you need research on a specific market, category, or regulation, you can request an expert review and receive a report scoped to your project.",
+    "ctaBtn": "Request Expert Review",
+    "methodologyNote": "Methodology: every report states its sample size, method, and collection boundaries in the opening \"Data Sources & Methodology\" section. Only findings that have passed internal peer review are shown.",
+    "notFoundTitle": "Report not found",
+    "notFoundDesc": "This research report may not be published yet, or the link has expired.",
+    "backToHub": "Back to Library",
+    "researchAll": "Library",
+    "liveDoc": "Reading online",
+    "openInNewTab": "Open in new tab",
+    "saveHtml": "Save HTML",
+    "refresh": "Refresh",
+    "confidentialNote": "For professional evaluation only",
+    "loadError": "Failed to load the report. Please try again later.",
+    "loadErrorDesc": "This may be a temporary network issue. Try refreshing at the top right, or open the original report in a new tab.",
+    "retry": "Reload",
+    "loading": "Loading research report…",
+    "backTop": "Back to top"
+  },
+  "countryAssessment": {
+    "pageTitle": "Export Target Country Assessment · Qihuang Sihai",
+    "kicker": "Export Decision Tool",
+    "stepNav": "Assessment Steps",
+    "stepNumber": "Step {{count}}",
+    "footerResult": "The above is computed by the local rule engine; after submission the configuration is sent to the backend for follow-up.",
+    "needIndustry": "Industry",
+    "needStage": "Export Stage",
+    "needBudget": "Total Budget",
+    "needRisk": "Risk Tolerance",
+    "needProduct": "Product description (≥ 10 characters)",
+    "needFields": "Please complete: {{fields}}",
+    "needCountry": "Please select at least 1 candidate country",
+    "weightSumHint": "Weights must total 100%",
+    "countriesTitle": "Select Candidate Countries and Entry Assumptions",
+    "countriesSubtitle": "Select at least 1 country, up to 5. Each country has its own entry mode; the next step asks you to score each dimension and set hard-gate status.",
+    "entryModeTitle": "Choose an entry mode for each candidate country",
+    "selectPlease": "Please select",
+    "entryMode": "Entry Mode",
+    "entryModeHint": "Fit hints will appear once you choose an entry mode",
+    "notesPh": "Market assumptions / customer leads / outreach progress (optional)",
+    "tooMany": "Too many candidate countries dilute the distinction. We suggest focusing on the 3–5 countries with the best odds.",
+    "evidenceNoCountries": "Please select at least 1 candidate country before entering scores and hard gates.",
+    "evidenceTitle": "Enter scores, evidence, and hard gates for each country",
+    "evidenceSubtitle": "Scores answer \"can this market work\"; evidence grade answers \"how much evidence backs the score\"; hard-gate status answers \"must we decide right now whether to proceed\".",
+    "gateTriggeredCount": "{{count}} hard gate(s) triggered",
+    "gatePendingCount": "{{count}} hard gate(s) awaiting verification",
+    "gateStatusTitle": "Hard-Gate Status",
+    "noRequiredGate": "This template has no mandatory hard gates. We recommend at least manually confirming sanctions and licensing.",
+    "evidenceNote": "The lower the evidence grade, the more the score automatically shrinks toward a neutral value",
+    "modelTitle": "Custom Weights and Hard Gates",
+    "modelSubtitle": "Start from a business-model template, then fine-tune the weights for your specific capabilities (must total 100%).",
+    "profileTemplate": "Business Model Template",
+    "dimensionWeights": "Dimension Weights",
+    "weightSum": "Total {{sum}} / 100",
+    "hardGates": "Hard Gates (triggering any one stops the assessment)",
+    "hardGatesHint": "\"Must confirm\" asks the user to mark status for this country at the next step; \"Skip for now\" temporarily removes it from the hard-gate set.",
+    "owner": "Owner Role",
+    "gateRequired": "Must Confirm",
+    "gateOptional": "Soft Reminder",
+    "gateIgnored": "Ignored",
+    "gatePass": "Pass",
+    "gatePending": "To Verify",
+    "gateTriggered": "Triggered",
+    "profileTitle": "Company and Product Profile",
+    "profileSubtitle": "Start by stating the export question clearly: business, product, time window, and the risk you can carry. The answers here anchor every score and recommendation that follows.",
+    "fieldCompany": "Company name (optional)",
+    "fieldCompanyPh": "e.g. Zhang Xiaoqiang Bencao Group",
+    "fieldIndustry": "Industry / Business Model",
+    "fieldProduct": "Product description (max 200 characters)",
+    "fieldProductHint": "Include target customers, key selling points, average order value, and certifications; this affects country scoring below.",
+    "fieldProductPh": "e.g. Health food based on a classic TCM formula, focused on liver support and immunity, targeting 30–55-year-old high-net-worth customers, average order value 600 RMB, GMP and ISO22000 certified.",
+    "fieldStage": "Current Export Stage",
+    "fieldBudget": "Total Budget",
+    "fieldRisk": "Risk Tolerance",
+    "fieldWindow": "Time Window (free input)",
+    "fieldWindowHint": "Describe the time window you want to enter candidate countries, e.g. \"the next 18 months\" or \"H1 2026\".",
+    "fieldWindowPh": "18 months / Q3 2026 / phased by market",
+    "readinessTitle": "Company Readiness Self-Assessment",
+    "readinessHint": "Score 1–5 across 6 readiness dimensions. This measures \"can we execute well\", kept separate from the country opportunity score (can the market work).",
+    "submitNeedConsent": "Please accept the terms first",
+    "submitNeedName": "Please enter your name / company",
+    "submitOk": "Submitted. We will contact you shortly.",
+    "resultNoCountries": "Please go back and select at least 1 candidate country before generating results.",
+    "resultKicker": "Decision Readout",
+    "resultTitle": "Country Assessment Results and Next Actions",
+    "resultSubtitle": "The number reflects \"can this market work\" × evidence confidence; the conclusion reflects \"can we do this now\". Any triggered hard gate immediately overrides the floor and is flagged red, and cannot be offset by the score.",
+    "restart": "Adjust the Assessment",
+    "crossTitle": "Items Needing Priority Management Attention",
+    "rankTitle": "Candidate Countries Ranked by Adjusted Score",
+    "checklistTitle": "Checklist Ordered by Data-Collection Priority",
+    "aiTitle": "AI Strategic Brief (optional)",
+    "aiHint": "Generates a Chinese explanation, a 90–180 day validation order, and a counter-argument from the structured results; when AI is unavailable only the rule-engine result is shown.",
+    "submitTitle": "Connect This Assessment with Your Team",
+    "submitHint": "The information below is written into the existing customer record so staff can follow up immediately; if left blank it will not be saved.",
+    "contactName": "Name",
+    "contactNamePh": "Your name",
+    "contactPhone": "Phone",
+    "contactPhonePh": "Optional",
+    "contactEmail": "Email",
+    "contactEmailPh": "Optional, used to send the assessment report",
+    "contactNote": "Additional Notes",
+    "contactNotePh": "We are most interested in connecting 2 countries, with an expected time window of 18 months",
+    "consent": "I agree to submit the above assessment results and form content to the Zhang Xiaoqiang Consulting team for assessment follow-up; AI explanations will not be shared with third parties.",
+    "submitting": "Submitting…",
+    "submit": "Submit and Contact Us",
+    "cardProfile": "Assessment Template",
+    "cardProfileHint": "Weights calibrated to the business model",
+    "cardReadiness": "Company Readiness",
+    "cardReadinessHint": "Out of 100",
+    "cardWeightSum": "Weight Total",
+    "cardWeightOk": "Totals 100%",
+    "cardWeightBad": "Needs normalization or freezing the current allocation",
+    "cardCountries": "Candidate Countries",
+    "cardCountriesHint": "Triggered hard gates set the floor but are not deleted",
+    "entryModeLabel": "Entry Mode",
+    "metricRaw": "Raw Opportunity Score / 100",
+    "metricAdjusted": "Confidence-Adjusted Score / 100",
+    "metricReadiness": "Company Readiness / 100",
+    "metricConfidence": "Evidence Grade",
+    "topStrengths": "Top Strengths",
+    "noStrength": "No clear strengths identified",
+    "topGaps": "Key Gaps",
+    "noGap": "No obvious gaps identified",
+    "advice": "Decision Advice",
+    "triggeredTitle": "Triggered Hard Gates",
+    "pendingTitle": "Hard Gates Awaiting Verification",
+    "weightBreakdown": "View this country's weight and score breakdown",
+    "weightShare": "Weight {{w}}%",
+    "checklistAction": "Minimum Validation Action",
+    "checklistSource": "Source",
+    "checklistOwner": "Owner",
+    "disclosureTitle": "View the Full Assessment Inputs and Criteria",
+    "disclosureProduct": "Product Summary",
+    "disclosureWeights": "Weight Breakdown",
+    "disclosureReadiness": "Company Readiness",
+    "aiFallback": "AI is unavailable; fell back to the rule-engine conclusion.",
+    "aiStart": "Preparing the explanatory brief…",
+    "startRealAssessment": "Start entering my real data →"
   }
 }

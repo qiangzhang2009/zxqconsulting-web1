@@ -1,23 +1,31 @@
 {
   "brand": {
-    "name": "Español",
-    "fullName": "Shanghai Zhang Xiaoqiang Enterprise Consulting Firm",
-    "tagline": "Your Loyal and Reliable Global Partner",
+    "name": "Qihuang Sihai (岐黄四海)",
+    "nameEn": "QihuangSihai",
+    "fullName": "Qihuang Sihai (岐黄四海)",
+    "tagline": "Guiar las marcas de Bencao (本草), con paso firme, hacia el mundo",
     "slogan": "Un linaje de Qihuang. Bienestar en los cuatro mares.",
-    "nameEn": "QihuangSihai"
+    "selectLanguage": "Seleccionar idioma"
   },
   "nav": {
     "home": "Home",
     "about": "About Us",
     "services": "Services",
     "markets": "Global Markets",
-    "contact": "Contact"
+    "contact": "Contact",
+    "research": "Los datos hablan · Biblioteca de informes"
   },
   "hero": {
     "title": "Empowering Businesses to Conquer Global Markets",
     "subtitle": "From market entry strategy to operational implementation, we provide comprehensive overseas consulting services. AI-powered, resource-driven, making faster and more precise decisions for your global expansion.",
     "cta": "Start Your Global Journey",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "banner": "Qihuang Sihai · Servicio Global · Confianza Garantizada",
+    "badge": "Qihuang Sihai · Plataforma",
+    "highlight": "Bencao sale al mundo · Hacia el planeta",
+    "trustBadge": "Equipo profesional · Servicio integral",
+    "serviceBadge": "Servicio profesional · Confianza garantizada",
+    "bencaoHealth": "Salud Bencao"
   },
   "about": {
     "p1_title": "Judge before you invest",
@@ -48,7 +56,8 @@
     "platformPurpose": "We redesigned the website not to display more capabilities, but to front-load the decisions that enterprises must make before going global.",
     "platformPurposeEn": "We redesigned the website not to display more capabilities, but to front-load the decisions that enterprises must make before going global: which market is a priority, which entry pathway is more reasonable, and which risks might prevent the project from continuing.",
     "platformOutcome": "Once the platform has produced a structured judgment, users can review sample reports, request deeper expert evaluation or explore further collaboration as needed.",
-    "platformOutcomeEn": "Only after the platform has produced a structured judgment should users move into sample reports, expert review and deeper advisory services."
+    "platformOutcomeEn": "Only after the platform has produced a structured judgment should users move into sample reports, expert review and deeper advisory services.",
+    "platformLogic": "Lógica y metodología de la plataforma"
   },
   "services": {
     "diagnosisEngineSection": "Global Entry Diagnosis Engine",
@@ -88,7 +97,16 @@
     "cap_expert_upgrade_out1": "Project-fit assessment",
     "cap_expert_upgrade_out2": "Expert evaluation request",
     "cap_expert_upgrade_out3": "Advisory handoff",
-    "viewExpertPath": "See the expert evaluation path"
+    "viewExpertPath": "See the expert evaluation path",
+    "howItWorks": "Cómo funciona la plataforma",
+    "howItWorksDesc": "Tres pasos, del diagnóstico a la ejecución",
+    "ctaNote": "Cada capacidad viene acompañada de una lista de pasos ejecutable",
+    "category_strategy": "Estrategia",
+    "category_risk": "Riesgo",
+    "category_analysis": "Análisis",
+    "category_intelligence": "Inteligencia",
+    "category_case": "Caso",
+    "category_expert": "Experto"
   },
   "whyUs": {
     "title": "Why Choose Us",
@@ -219,7 +237,8 @@
     "close": "Close",
     "tags": "Tags",
     "loading": "Loading...",
-    "noArticles": "No articles available"
+    "noArticles": "No articles available",
+    "lastUpdate": "Última actualización"
   },
   "contact": {
     "title": "Contact Us",
@@ -261,8 +280,26 @@
       "companyPlaceholder": "Please enter your company name",
       "message": "Inquiry Content",
       "messagePlaceholder": "Please describe your inquiry needs...",
-      "submit": "Submit Inquiry"
+      "submit": "Submit Inquiry",
+      "submitting": "Enviando...",
+      "success": "Envío exitoso",
+      "successMessage": "¡Gracias por su consulta! Nuestro asesor experto se pondrá en contacto con usted en un plazo de 24 horas.",
+      "gotIt": "Entendido",
+      "error": "Error en el envío. Por favor, inténtelo más tarde o envíe un correo electrónico directamente a customer@zxqconsulting.com"
     }
+  },
+  "floatingContact": {
+    "call": "Llamar ahora",
+    "wechat": "WeChat",
+    "email": "Enviar correo electrónico",
+    "message": "Dejar mensaje",
+    "contactUs": "Contáctanos",
+    "workTime": "Horario de atención: Lunes a Viernes 9:00-18:00",
+    "copied": "ID de WeChat copiado: ",
+    "callNow": "Llamar ahora",
+    "sendEmail": "Enviar correo",
+    "hours": "Horario: lun.–vie. 9:00–18:00",
+    "wechatCopied": "ID de WeChat copiado: {{id}}"
   },
   "footer": {
     "title": "Ready to Go Global?",
@@ -271,7 +308,63 @@
     "quickLinks": "Quick Links",
     "markets": "Market Regions",
     "services": "Professional Services",
-    "copyright": "© 2024 Shanghai Zhang Xiaoqiang Enterprise Consulting Firm. All rights reserved."
+    "copyright": "© 2026 Qihuang Sihai. Todos los derechos reservados.",
+    "banner": {
+      "badge": "Qihuang Sihai · Plataforma",
+      "title": "Inicie su viaje global",
+      "description": "¡Con el respaldo de políticas nacionales, ayude a los productos Bencao y la cultura de la medicina tradicional china a llegar al mundo!",
+      "tagline": "Equipo profesional · Servicio integral · Confianza garantizada",
+      "button": "Contáctenos ahora e inicie su viaje global"
+    },
+    "promo": {
+      "spring": "Programa especial de primavera del Año del Caballo 2026",
+      "spirit": "Espíritu del dragón y el caballo",
+      "stride": "Galopar mil li"
+    },
+    "nav": "Navegación del sitio",
+    "priorityMarkets": "Mercados prioritarios",
+    "platformCapabilities": "Capacidades de la plataforma",
+    "marketEntry": "Juicio de entrada al mercado",
+    "compliancePathway": "Evaluación de la vía de cumplimiento",
+    "channelGrowth": "Canales y recomendaciones de crecimiento",
+    "diagnosisExpert": "Seguimiento del diagnóstico y revisión de expertos",
+    "africaDesc": "Plataforma de arbitraje de origen africano y aranceles",
+    "global2chinaDesc": "Plataforma de consultoría para importación de productos globales a China",
+    "affiliatedPlatforms": "Plataformas afiliadas",
+    "tagline": "Plataforma de decisiones de IA para la globalización de la medicina tradicional china · Metodología de consultoría + Sistema de diagnóstico de IA",
+    "positioningCoverage": "Cobertura prioritaria: Japón, UE, Sudeste Asiático, Oriente Medio, Australia y Norteamérica",
+    "positioningDisclaimer": "Aviso: Los resultados del diagnóstico de IA se utilizan para la evaluación inicial; los proyectos formales se rigen por la evaluación de los asesores y la normativa local.",
+    "jpKorea": "Japón / Corea",
+    "euUk": "UE / Reino Unido",
+    "seAsia": "Sudeste Asiático",
+    "middleEast": "Oriente Medio"
+  },
+  "ai": {
+    "showcase": {
+      "title": "Impulsado por IA · Perspectivas de mercados globales",
+      "subtitle": "Perspectivas de mercados internacionales",
+      "description": "Basado en el análisis multidimensional de datos, proporcionamos a las empresas perspectivas precisas de mercados internacionales y apoyo a la toma de decisiones",
+      "heatLevel": "Nivel de actividad del mercado",
+      "realtimeDynamics": "Dinámica de mercado en tiempo real",
+      "autoUpdate": "Actualización diaria",
+      "aiStats": "Capacidad de datos",
+      "dataSources": "Fuentes de datos",
+      "dataSourcesDesc": "Fuentes de datos globales",
+      "updateFreq": "Frecuencia de actualización",
+      "updateFreqDesc": "Actualización en tiempo real",
+      "analysis": "Dimensiones de análisis",
+      "analysisDesc": "Análisis multidimensional",
+      "accuracy": "Precisión de predicción",
+      "accuracyDesc": "Predicción mediante modelos de IA",
+      "learnMore": "Contáctenos para obtener más información de mercado",
+      "dataNote": "Datos actualizados diariamente, solo como referencia",
+      "lastUpdate": "Última actualización",
+      "globalVisualization": "Dinámica de los mercados globales",
+      "marketNode": "Nodo de mercado",
+      "tradeFlow": "Flujo comercial",
+      "originPoint": "Fuente de datos",
+      "liveData": "Flujo de datos en directo"
+    }
   },
   "tools": {
     "selectMarket": "Step 1: Select Your Target Market",
@@ -337,7 +430,7 @@
     },
     "common": {
       "analyzing": "AI Analyzing...",
-      "aiAdvice": "智探Global 智能体 Advice",
+      "aiAdvice": "Recomendación del agente de IA Zhit-an Global",
       "aiResult": "AI Assessment Result"
     },
     "policy": {
@@ -380,16 +473,40 @@
     "tagline": "AI platform for TCM global expansion decisions",
     "subtitle": "Global Expansion Intelligence Platform",
     "titlePart1": "Use AI to decide",
-    "titlePart2Gradient": "if your TCM product should go global",
+    "titleHighlight": "es elegir",
+    "titlePart2": "35 países, 4 niveles de prioridad — le ayudamos a filtrar primero, luego usted decide",
     "description": "Qihuang Sihai turns market priority, entry complexity, channel fit and project risk into one AI decision flow so TCM, supplement, Hanfang skincare and health-product teams can evaluate opportunities before committing serious resources.",
-    "q1": "Which market should you enter first?",
-    "q2": "How hard will compliance and entry be?",
-    "q3": "Is this opportunity worth funding now?",
+    "dq1": "¿Deberíamos iniciar el proyecto ahora?",
+    "dq2": "¿Están listos el presupuesto, el equipo y el producto?",
+    "dq3": "¿Medicamento / alimento / cosmético, por qué vía?",
+    "dq4": "¿Japón / UE / Sudeste Asiático, cuál primero?",
+    "dq5": "¿Agentes, distribuidores, comercio electrónico, cómo estructurar?",
+    "trustVal1": "35",
+    "trustLabel1": "marcos regulatorios algorítmicos",
+    "trustVal2": "35",
+    "trustLabel2": "marcos regulatorios del país objetivo cargados",
+    "trustVal3": "12+",
+    "trustLabel3": "años de práctica en expansión farmacéutica",
+    "trustVal4": "¥3.000M+",
+    "trustLabel4": "en recursos de decisión acumulados de clientes",
     "trust1": "Get an initial decision in 3 minutes",
     "trust2": "Assess market, compliance, cost, channels and risk in one flow",
     "trust3": "Complex projects get a deeper expert evaluation",
+    "convTitle": "Diálogo real · Inicio de la decisión",
+    "q1c": "Asesor, nuestros directivos quieren enfocarse en el mercado japonés el próximo año, ¿deberíamos dar este paso ahora?",
+    "q1a": "Primero no se apresure con Japón. Entre los 35 países, la complejidad regulatoria varía hasta 3-5 veces; el diagnóstico de IA le dará primero una clasificación de prioridad, no que elija directamente el destino.",
+    "q2c": "Tenemos un medicamento OTC de medicina china tradicional que quiere entrar a la UE y al Sudeste Asiático; hemos escuchado que la vía THD de la UE toma al menos 18 meses, no podemos con eso.",
+    "q2a": "Es cierto, la vía de hierbas tradicionales de la UE no es «primero invertir mucho». Primero le ayudaré en 30 minutos a aclarar: esta vía debe ser un objetivo para después de 12 meses, no un proyecto del Q1.",
+    "q3c": "Siempre nos hemos dedicado a OTC, ahora queremos hacer alimentos funcionales + cosmética Hanfang, no sabemos qué posicionamiento de categoría elegir.",
+    "q3a": "La elección de la categoría determina por sí sola su vía de registro, sus canales y su lenguaje de marketing. El diagnóstico de IA primero le ayudará a juzgar el posicionamiento de la categoría, y luego un experto lo verificará.",
+    "advisorQuote": "No estoy vendiendo informes. Estoy junto a ustedes, haciendo que el juicio de expansión sea lo suficientemente claro como para tomar una decisión.",
+    "advisorBio": "En los últimos 12 años, he acompañado a más de 60 empresas de medicina tradicional china a través de las tres fases: lanzamiento, expansión y revisión. Si una vez se eligió mal el camino, en 30 minutos le ayudo a cambiar; si el producto no debía hacerse, se lo digo directamente.",
+    "trustTitle": "Juicios pasados · No solo números en un PPT",
     "ctaStart": "Start AI diagnosis",
+    "ctaDownload": "Descargar guía de 35 países",
     "ctaViewSample": "View sample report",
+    "ctaExpert": "Reservar consulta experta de 30 minutos",
+    "ctaSubscribe": "Suscribirse al boletín semanal",
     "previewLabel": "Diagnosis preview",
     "previewTitle": "Structured output, not generic advice",
     "threeMin": "3 min",
@@ -399,6 +516,15 @@
     "category": "Category",
     "categoryValue": "Supplements / TCM / Hanfang skincare",
     "categoryDesc": "Match category with entry pathways",
+    "tierA": "Nivel A · Prioridad 12 meses",
+    "tierB": "Nivel B · Medio plazo 12-24 meses",
+    "tierC": "Nivel C · Observación a largo plazo",
+    "tierD": "Nivel D · No entrar de momento",
+    "tierABDesc": "Japón — ventana de notificación abierta / Alemania — recompra de Hanfang probada",
+    "tierLabel": "Clasificación de 35 países",
+    "advisorBadge": "Asesor real",
+    "advisorTagline": "12 años acompañando a más de 60 empresas desde el lanzamiento · la expansión · la revisión",
+    "sampleOutput": "Salida de ejemplo",
     "opportunityScore": "Opportunity Score",
     "opportunityScoreText": "Identify which market-product combination deserves priority investment.",
     "entryComplexity": "Entry Complexity",
@@ -497,6 +623,29 @@
     "q_budgetDowngrade": "What is the best downgrade path if the budget is too tight?",
     "q_expertThreshold": "What conditions make a project a good fit for a deeper expert evaluation?",
     "selfServe": "Continue self-serve diagnosis",
+    "goToMarket_go": "Entrar de inmediato",
+    "goToMarket_wait": "Esperar/prepararse",
+    "goToMarket_escalate": "Se recomienda solicitar evaluación de expertos",
+    "reviewFit_expert": "Se recomienda una evaluación más profunda de expertos",
+    "reviewFit_prepare": "Se recomienda completar primero cierta información clave",
+    "reviewFit_selfServe": "Se recomienda continuar la exploración por su cuenta",
+    "nextAction_expert": "Su proyecto es más adecuado para una evaluación más profunda de expertos. El formulario pre-rellenará el contexto del diagnóstico para reducir la repetición.",
+    "nextAction_prepare": "Primero complete cierta información clave y luego solicite la evaluación de expertos; será más eficiente que enviar directamente.",
+    "nextAction_selfServe": "Continúe con el autodiagnóstico y la validación de bajo costo; solicite una evaluación más profunda cuando las hipótesis clave estén más claras.",
+    "cta_expertReview": "Acceder a la solicitud de evaluación de expertos",
+    "cta_viewEntry": "Ver el acceso a la evaluación de expertos",
+    "composing": "El sistema está organizando las conclusiones de alto nivel y la capa de evidencia",
+    "opportunity": "Puntuación de oportunidad",
+    "complexity": "Complejidad de entrada",
+    "budgetPressure": "Presión presupuestaria",
+    "pressure_low": "Baja",
+    "pressure_medium": "Media",
+    "pressure_high": "Alta",
+    "firstMarket": "Mercado de primera entrada",
+    "primaryBlocker": "Obstáculo principal",
+    "recommendedWedge": "Entrada recomendada: {{category}}. Si desea seguir una vía regulatoria más exigente, primero complete la validación, el presupuesto y la evidencia de acceso.",
+    "currentBlockers": "Puntos de bloqueo actuales",
+    "requiredBefore": "Se recomienda completar antes de solicitar evaluación más profunda de expertos",
     "tier1": "Tier 1",
     "tier2": "Tier 2",
     "market_usa": "United States",
@@ -516,12 +665,18 @@
   },
   "nav2": {
     "product": "Product",
+    "how": "Cómo funciona",
+    "cases": "Juicios anteriores",
+    "markets": "35 países",
+    "research": "Research",
+    "expert": "Asesores expertos",
     "diagnosisEngine": "Diagnosis Engine",
     "useCases": "Use Cases",
     "caseProof": "Algorithm Samples",
     "expertUpgrade": "Expert Evaluation",
     "selectLang": "Choose language",
-    "research": "Research"
+    "adminEntry": "Panel de administración",
+    "ctaPrimary": "Que Little Tuo me acompañe en el primer paso con firmeza"
   },
   "expertReview": {
     "title": "Let the platform complete the first judgment; experts step in for complex projects that need deeper evaluation.",
@@ -553,9 +708,6 @@
     "companyPlaceholder": "Company or brand",
     "emailPlaceholder": "Your email",
     "phonePlaceholder": "Best contact channel",
-    "projectStageSelect": "Project stage",
-    "budgetSelect": "Budget range",
-    "validationSelect": "Validation status",
     "stage_exploring": "Early exploration",
     "stage_committed": "Ready to commit",
     "stage_testing": "Already testing overseas",
@@ -575,8 +727,17 @@
     "companyInput": "Company or brand",
     "emailInput": "Your email",
     "phoneInput": "Best contact channel",
-    "projectStageInput": "Project stage",
-    "budgetInput": "Budget range"
+    "projectStageSelect": "Project stage",
+    "budgetSelect": "Budget range",
+    "validationSelect": "Validation status",
+    "diagnosisRec": "Vía recomendada por el diagnóstico",
+    "qualificationDecision": "Idoneidad del proyecto",
+    "productCategory": "Categoría del producto",
+    "submitError": "Error en el envío, por favor inténtelo de nuevo más tarde.",
+    "formDesc": "Complete la información más importante. Nos interesa más su trasfondo del proyecto y la pregunta de decisión quecollect una lista normal de contactos.",
+    "requestSubmitted": "Solicitud enviada",
+    "requestSubmittedMsg": "Evaluaremos la información del proyecto que envió para decidir si organizar una evaluación más profunda de expertos y nos pondremos en contacto con usted lo antes posible.",
+    "submitting": "Enviando..."
   },
   "footer2": {
     "highTrust": "AI decision platform you can trust",
@@ -596,15 +757,611 @@
     "applyBtn": "Request a deeper expert evaluation",
     "applyBtnNav": "Contact Us"
   },
-  "ai": {
-    "title": "AI Diagnosis Engine",
-    "subtitle": "Get market entry insights powered by deep market data and AI analysis",
-    "placeholder": "Describe your product and goals..."
+  "ai_tools": {
+    "partialDataError": "Error en la obtención de algunos datos, se han completado con datos de ejemplo",
+    "serviceUnavailable": "El servicio de IA no está disponible temporalmente"
   },
-  "floatingContact": {
-    "title": "Contact Us",
-    "subtitle": "Have questions? Our team is here to help.",
-    "chatWithUs": "Chat with us",
-    "emailUs": "Email us"
+  "expertAdvisors": {
+    "pageTitle": "IA + Asesores · Doble garantía de decisión",
+    "pageTitleEn": "AI + Advisors · Dual Decision Guarantee",
+    "subtitle": "Diagnóstico de IA + asesores seniors — los proyectos complejos no tienen que ser conjeturas",
+    "subtitleEn": "AI diagnosis + senior advisors — complex projects don't have to be guesswork",
+    "teamSectionTitle": "Asesores principales",
+    "teamSectionTitleEn": "Core Advisors",
+    "teamSectionDesc": "En cada región hay expertos residentes. No asesores a distancia, sino expertos prácticos locales stationed en los mercados objetivo.",
+    "teamSectionDescEn": "On-the-ground experts in every region. Not remote advisors — local practitioners based in target markets.",
+    "servicesSectionTitle": "Lo que hacemos",
+    "servicesSectionTitleEn": "What We Do",
+    "servicesSectionDesc": "No consultoría general, sino soluciones ejecutables para problemas concretos de la globalización de la medicina tradicional china.",
+    "servicesSectionDescEn": "Not generic consulting — actionable solutions for specific TCM globalization challenges.",
+    "stat1Value": "12+",
+    "stat1Label": "Años de práctica en expansión",
+    "stat1LabelEn": "Years of Practice",
+    "stat2Value": "35",
+    "stat2Label": "Países cubiertos por algoritmos",
+    "stat2LabelEn": "Markets Covered",
+    "stat3Value": "35",
+    "stat3Label": "Marcos regulatorios nacionales",
+    "stat3LabelEn": "Country Frameworks",
+    "stat4Value": "Acompañamiento integral",
+    "stat4Label": "Acompañamiento integral",
+    "stat4LabelEn": "End-to-End Coaching",
+    "bookConsultation": "Reservar consultoría experta",
+    "startDiagnosis": "Iniciar diagnóstico de IA",
+    "serviceMarketEntry": "Juicio de entrada al mercado",
+    "serviceMarketEntryEn": "Market Entry Assessment",
+    "serviceMarketEntryDesc": "Diagnóstico de IA + revisión de asesores para determinar si vale la pena entrar.",
+    "serviceMarketEntryDescEn": "AI diagnosis + advisor review to determine if entry is warranted.",
+    "serviceCompliance": "Diseño de vía de cumplimiento",
+    "serviceComplianceEn": "Compliance Pathway Design",
+    "serviceComplianceDesc": "Selección de vía de medicamento/alimento/cosmético, plan de registro y planificación del cronograma.",
+    "serviceComplianceDescEn": "Drug, food or cosmetics pathway selection, registration plan and timeline.",
+    "serviceChannel": "Estrategia y ejecución de canales",
+    "serviceChannelEn": "Channel Strategy & Execution",
+    "serviceChannelDesc": "Diseño de canales de toda la cadena: cooperación de agentes, plataformas de comercio electrónico y cadenas offline.",
+    "serviceChannelDescEn": "Full-chain channel design: agents, e-commerce and offline retail.",
+    "serviceBrand": "Localización de marca",
+    "serviceBrandEn": "Brand Localization",
+    "serviceBrandDesc": "Plan de construcción de marca para la expansión internacional: narrativa de marca, adaptación lingüística local y cultural.",
+    "serviceBrandDescEn": "Brand narrative, local language and cultural adaptation strategy.",
+    "serviceCoaching": "Acompañamiento integral del proyecto",
+    "serviceCoachingEn": "End-to-End Project Coaching",
+    "serviceCoachingDesc": "Los asesores acompañan desde el inicio hasta la ejecución, interviniendo profundamente en los puntos clave.",
+    "serviceCoachingDescEn": "Advisors coach from kick-off to launch, deep involvement at critical milestones.",
+    "serviceResources": "Conexión de recursos",
+    "serviceResourcesEn": "Resource Connection",
+    "serviceResourcesDesc": "Conexión precisa con recursos de calidad: instituciones de ensayo, bufetes de abogados, agentes y canales.",
+    "serviceResourcesDescEn": "Precise connections with testing labs, law firms, agents and channels.",
+    "readyToStart": "¿Listo para comenzar?",
+    "readyToStartEn": "Ready to get started?",
+    "readyToStartDesc": "Complete primero el diagnóstico de IA o reserve directamente una consultoría experta gratuita de 30 minutos.",
+    "readyToStartDescEn": "Complete the AI diagnosis first, or book a free 30-min expert consultation directly."
+  },
+  "hero3": {
+    "topTag": "Guiar las marcas Bencao, con paso firme, hacia el mundo",
+    "titleLine1": "Guiar las marcas Bencao",
+    "titleAccent": "con paso firme",
+    "titleLine2": "hacia el mundo",
+    "bencaoNote": "\"Bencao\" lleva dos milenios saliendo al exterior — la raíz común de la medicina china, los alimentos saludables y la cosmética Hanfang",
+    "subtitleLead": "El algoritmo señala el rumbo, los datos sustentan, un experto real te acompaña en la travesía",
+    "subtitleDetail": "Barriendo 35 marcos regulatorios + más de 10.000 candidatos, asesores reales le acompañan a desglosar juicios, ejecutar cumplimiento y llegar a la primera mesa de negociaciones — para que la expansión sea firme.",
+    "alpacaName": "Little Tuo (小驼)",
+    "ctaPrimary": "Que Little Tuo me acompañe en el primer paso con firmeza",
+    "ctaMethod": "Ver nuestra metodología",
+    "ctaSubscribe": "Suscribirse al \"Boletín semanal de juicios sobre expansión\"",
+    "liveBadge": "Acompañando",
+    "alpacaFooter": "Guiar las marcas Bencao con paso firme hacia el mundo",
+    "alpacaSubline": "En línea 24h · Algoritmo + datos + acompañamiento real",
+    "trustItems": [
+      "Base de datos de 35 países · No se elige destino por intuición",
+      "En 7 días le damos 3 dictámenes que se atreven a firmar",
+      "Algoritmo + datos + asesor real · Triple garantía",
+      "Después de firmar, le acompañamos 14 meses con firmeza"
+    ],
+    "nodes": {
+      "judge": {
+        "label": "Ver con claridad antes de avanzar",
+        "desc": "Little Tuo le muestra la dirección firme"
+      },
+      "ally": {
+        "label": "Encontrar al aliado correcto",
+        "desc": "Los datos le muestran la vía firme"
+      },
+      "negotiate": {
+        "label": "Llegar a la mesa",
+        "desc": "El asesor le acompaña con firmeza hasta la firma"
+      },
+      "ship": {
+        "label": "Firme hasta el envío",
+        "desc": "Continúa acompañándole 14 meses con firmeza"
+      }
+    }
+  },
+  "about2": {
+    "taglinePill": "Guiar las marcas Bencao · Con paso firme hacia el mundo",
+    "dataPill": "Base de datos de 35 países · Cada juicio se sustenta",
+    "dataParagraph": "Lo más caro de expandirse no es el dinero, es equivocarse una vez. No pensamos dejarle elegir por intuición — convertimos los marcos regulatorios de 35 países, miles de candidatos y casi cien casos reales en una base de datos que puede tocar; luego el algoritmo señala el rumbo, los datos sustentan, un experto real le acompaña — para que cada paso sea firme.",
+    "whyStableTitle": "Por qué \"firme\" y no \"rápido\"",
+    "whyStableP1": "Expandirse no es correr, es avanzar con firmeza. Un paso en falso le cuesta los siguientes 12 meses — este costo lo hemos visto demasiadas veces.",
+    "whyStableP2": "Conocí a un viejo médico de medicina china que voló solo a Japón a investigar el mercado, y volvió sin moverse en 6 meses. No por falta de voluntad — es que no sabía a quién preguntar a continuación, temiendo dar un paso en falso.",
+    "whyStableP3": "Lo que hacemos es convertir ese \"¿a quién preguntar?\" en una persona que pueda encontrar, en línea 24 horas — Little Tuo barre los datos, el asesor real le acompaña en el juicio, y usted solo se enfoca en lo que solo usted puede hacer.",
+    "whyStableP4": "La diferencia no está en los recursos, está en si hay alguien que le da firmeza a cada paso.",
+    "whyStableP5": "Por eso hicimos Qihuang Sihai — para que cuando se expanda, tenga a alguien detrás, un camello a su lado y el camino bajo sus pies sea firme.",
+    "founderRole": "Fundador",
+    "founderQuote": "No hacemos esto para darle al sector una opción más, sino para que toda marca Bencao que quiera expandirse pueda avanzar con firmeza hacia el mundo.",
+    "founderName": "Zhang Xiaoqiang",
+    "founderTitle": "Fundador de Qihuang Sihai",
+    "teammateRole": "Compañero de acompañamiento",
+    "teammoteQuote": "Soy Little Tuo, colega de Zhang Xiaoqiang. En línea las 24 horas, barriendo direcciones, revisando regulaciones, leyendo datos — el compañero que no duerme, acompañándole con firmeza en cada paso.",
+    "teammateName": "Little Tuo (小驼)",
+    "teammateTitle": "Compañero de acompañamiento de IA",
+    "whoBadge": "Quiénes somos",
+    "whoTitle1": "No solo asesores,",
+    "whoTitle2": "son los pies firmes que llevan su marca al mundo",
+    "whoQuote": "Expandirse no es un slogan, es un camino que debe recorrer con firmeza paso a paso.",
+    "whoDesc": "Qihuang Sihai se enfoca en el crecimiento global de marcas de medicina tradicional china, alimentos saludables y Hanfang. El algoritmo señala el rumbo, los datos sustentan, asesores seniors le acompañan en el juicio — desde \"¿vale la pena ir?\" hasta \"ya firmamos, ya enviamos, ya es estable\". No se expande solo, hacemos que esto ocurra con firmeza.",
+    "promiseTitle": "Nuestra promesa hacia usted",
+    "values": [
+      {
+        "title": "Le acompañamos a ver la dirección con firmeza",
+        "desc": "No le presionamos a iniciar proyecto ni a abandonar — la base de datos de 35 países le muestra primero el costo de cada paso"
+      },
+      {
+        "title": "Le acompañamos hasta poder firmar",
+        "desc": "Desde la primera reunión hasta el MOU, estamos cerca — no nos vamos después de enviar el informe"
+      },
+      {
+        "title": "Algoritmo + datos + asesor",
+        "desc": "Little Tuo barre la dirección, los datos sustentan, el asesor real juzga — acompañamos a usted, no a la IA"
+      },
+      {
+        "title": "Después de firmar, le seguimos acompañando",
+        "desc": "Si hay un problema en la madrugada, el primero en contestar el teléfono somos nosotros — no un robot"
+      }
+    ],
+    "whyUsTitle": "Por qué, al expandirse, nos elige para acompañarle con firmeza",
+    "whyUsLead": "No porque seamos los más conocidos. Sino porque realmente le hemos acompañado — por las dudas al iniciar, los silencios en negociaciones, las madrugadas con problemas. Cada paso, acompañado con firmeza.",
+    "whyUsCards": [
+      {
+        "title": "No somos asesores, somos compañeros",
+        "desc": "Su proyecto lo cargamos juntos — los problemas los enfrentamos juntos, cuando se firma celebramos juntos, cada paso dado con firmeza.",
+        "highlight": "Acompañamiento real, no simulación"
+      },
+      {
+        "title": "No es una herramienta, es un suelo firme",
+        "desc": "El algoritmo señala el rumbo, los datos sustentan, el asesor real juzga — en el camino de expansión, lo que necesita es que cada paso sea firme.",
+        "highlight": "Algoritmo + datos + asesor, todos presentes"
+      },
+      {
+        "title": "No nos vamos después de firmar",
+        "desc": "La expansión es solo el comienzo; le acompañamos en los siguientes 14 meses. Si la política cambia, la vemos antes que usted y la estabilizamos.",
+        "highlight": "Después de firmar, seguimos"
+      }
+    ],
+    "ctaAsk": "¿Quiere que Little Tuo le acompañe primero en una conversación?"
+  },
+  "advantages2": {
+    "topTag": "Guiar las marcas Bencao · Con paso firme hacia el mundo",
+    "titleLine1": "El algoritmo señala el rumbo, los datos sustentan,",
+    "titleAccent": "y el experto real le acompaña con firmeza",
+    "intro": "No queremos una larga lista de funciones. Solo 4 cosas: el algoritmo señala la dirección, los datos sustentan, el experto real le acompaña con firmeza, y alguien le da un suelo firme en cada paso.",
+    "refuseTitle": "Lo que nos negamos a hacer",
+    "refuse": "No aceptamos categorías que no conocemos · No le presionamos a iniciar proyecto · No nos vamos después de firmar. Atreverse a decir que sí es acompañamiento. Atreverse a decir que no también lo es.",
+    "ctaAsk": "¿Quiere que Little Tuo le acompañe en el primer paso con firmeza?",
+    "items": [
+      {
+        "subtitle": "Cuando se pregunta \"¿debemos ir?\"",
+        "title": "Le acompañamos a ver la dirección con firmeza",
+        "desc": "El primer paso de la expansión suele ser el más caro — si se falla, los siguientes 12 meses se dedican a compensar. Le acompañamos a pensar — no le instamos a iniciar el proyecto ni a desistir, sino dejar que los datos le muestren primero la firmeza.",
+        "features": [
+          "60 minutos de conversación, Little Tuo + asesor real presentes",
+          "Base de datos de 35 países, le acompañamos a ver cuál hacer primero",
+          "Presupuesto / equipo / cumplimiento, le acompañamos a evaluar",
+          "Si no debe hacerse, se lo decimos directamente"
+        ]
+      },
+      {
+        "subtitle": "Cuando necesita su primer aliado",
+        "title": "Le acompañamos a elegir al primer compañero firme",
+        "desc": "Lo más difícil de la expansión no es \"encontrar clientes\", es \"encontrar a las personas adecuadas\". Le acompañamos a elegir — no le lanzamos una lista para que contacte solo, le acompañamos a revisar cada candidato, priorizar juntos, para que cada paso sea firme.",
+        "features": [
+          "Little Tuo barre más de 10.000 candidatos, el asesor le ayuda a filtrar 50",
+          "El perfil de cada candidato, le acompañamos a revisarlo",
+          "Cómo escribir el primer correo, le acompañamos a redactarlo",
+          "A quién contactar primero, le acompañamos a pensarlo"
+        ]
+      },
+      {
+        "subtitle": "Cuando las regulaciones parecen un laberinto",
+        "title": "Le acompañamos por la vía del cumplimiento con firmeza",
+        "desc": "Medicamento / alimento / cosmético, cada mercado tiene barreras distintas. Le acompañamos — no le lanzamos un PDF para que lea solo, le acompañamos a revisar cláusulas, juzgar juntos, evitar trampas, para que la vía del cumplimiento sea firme.",
+        "features": [
+          "Marcos regulatorios de 35 países, le acompañamos a cargarlos",
+          "Forma farmacéutica / ingredientes / etiquetado, le acompañamos a pensar",
+          "Plan de registro, le acompañamos a programar",
+          "Si la política cambia, la vemos antes que usted"
+        ]
+      },
+      {
+        "subtitle": "Cuando nos necesita después de firmar",
+        "title": "Le acompañamos con firmeza hasta el envío · 14 meses de firmeza",
+        "desc": "Firmar no es el final. Le acompañamos a vigilar — si la política cambia la vemos antes que usted, si los pedidos bajan le acompañamos a encontrar la causa, si surgen nuevas oportunidades seguimos acompañándole. Esta vía de expansión, le acompañamos con firmeza.",
+        "features": [
+          "Si la política cambia, la vemos 48 horas antes que usted",
+          "Si los pedidos fluctúan, le acompañamos a hacer la atribución",
+          "Si surgen nuevas oportunidades, seguimos acompañándole a explorar",
+          "Si hay problemas en la madrugada, alguien contesta el teléfono"
+        ]
+      }
+    ]
+  },
+  "services2": {
+    "topTag": "Guiar las marcas Bencao · Con paso firme hacia el mundo",
+    "titleLine1": "El algoritmo señala el rumbo, los datos sustentan,",
+    "titleAccent": "le acompañamos con firmeza en cada paso",
+    "intro": "Expandirse no es una consultoría, es un camino. Cuando está perdido, Little Tuo le ayuda a ver con claridad; el asesor real le acompaña a conversar; cuando busca el camino, le acompañamos a buscar; cuando negocia, le acompañamos; después de estabilizarse, le seguimos acompañando 14 meses. Guiar las marcas Bencao con paso firme hacia el mundo — este es nuestro único estándar para acompañarle.",
+    "footerNote": "El primer paso puede ser simplemente \"hacer que Little Tuo me acompañe 30 minutos con firmeza\" — sin promesa, sin pago, solo alguien detrás de usted",
+    "steps": [
+      {
+        "step": "I",
+        "titleEn": "When You're Lost",
+        "emotion": "No puede decidir solo si debe dar este paso",
+        "title": "Cuando está perdido, le acompañamos a ver la dirección con firmeza",
+        "description": "Quizás haya escuchado hablar de Japón, la UE, el Sudeste Asiático, pero no sabe cuál hacer primero. Le acompañamos a pensar — no le entregamos un formulario para que complete solo, sino 60 minutos de conversación conjunta, para ver primero la dirección con firmeza.",
+        "deliverables": [
+          "60 minutos de conversación 1 a 1, ver primero la dirección con firmeza",
+          "Base de datos de 35 países, le acompañamos a ver cuál hacer primero",
+          "Presupuesto, equipo, cumplimiento, le acompañamos a evaluar",
+          "Los puntos de riesgo se exponen juntos, no se ocultan"
+        ]
+      },
+      {
+        "step": "II",
+        "titleEn": "When You Need Allies",
+        "emotion": "Quiere encontrar el primer socio, pero no sabe quién es confiable",
+        "title": "Cuando busca el camino, le acompañamos a elegir al primer compañero firme",
+        "description": "Little Tuo barre más de 10.000 candidatos, los datos sustentan y el asesor real le acompaña a elegir — no le entregamos una lista para que contacte solo, sino que revisamos cada candidato, priorizamos juntos, para que cada paso sea firme.",
+        "deliverables": [
+          "Little Tuo barre más de 10.000 candidatos, los datos sustentan",
+          "El asesor le ayuda a seleccionar 50, y el perfil de cada candidato lo revisamos con usted",
+          "A quién contactar primero, le acompañamos a pensarlo",
+          "Cómo escribir el primer correo, le acompañamos a redactarlo"
+        ]
+      },
+      {
+        "step": "III",
+        "titleEn": "When You Negotiate",
+        "emotion": "Se sienta por primera vez frente a la mesa de negociaciones y teme decir algo incorrecto",
+        "title": "Cuando negocia, le acompañamos a sentarse en la mesa con firmeza",
+        "description": "Le acompañamos a sentarse frente a la mesa de negociaciones — no le entregamos una \"guía de negociaciones\" para que estudie solo. Si hay silencio, le damos pistas; si la negociación se rompe, hacemos bilan; si se firma, suspiramos juntos — para que su primera vez en el extranjero también sea firme.",
+        "deliverables": [
+          "La primera reunión, volamos juntos",
+          "Las cláusulas del contrato, le acompañamos a leerlas palabra por palabra",
+          "La batalla de precios, le acompañamos a pensar el límite inferior",
+          "Silencio / fracaso, le acompañamos a salvar la situación"
+        ]
+      },
+      {
+        "step": "IV",
+        "titleEn": "Until It Stands",
+        "emotion": "Ya firmó, pero la política cambió y los pedidos bajaron",
+        "title": "Después de estabilizarse, le acompañamos con firmeza 14 meses",
+        "description": "La expansión es solo el comienzo. Le acompañamos a vigilar — si la política cambia la vemos antes que usted, si los pedidos bajan le acompañamos a encontrar la causa, si surgen nuevas oportunidades seguimos acompañándole a explorar. Esta vía de expansión, le acompañamos con firmeza 14 meses.",
+        "deliverables": [
+          "Si la política cambia, la vemos 48 horas antes que usted",
+          "Si los pedidos fluctúan, le acompañamos a hacer la atribución",
+          "Si surgen nuevas oportunidades, seguimos acompañándole a explorar",
+          "Si hay problemas en la madrugada, alguien contesta el teléfono"
+        ]
+      }
+    ]
+  },
+  "contact2": {
+    "topTag": "Guiar las marcas Bencao · Con paso firme hacia el mundo",
+    "title": "El algoritmo señala el rumbo, los datos sustentan,<1>el experto real le acompaña con firmeza</1>",
+    "lead": "Guiar las marcas Bencao con paso firme hacia el mundo — usando el algoritmo para ver la dirección, los datos para sustenta, el asesor real para acompañarle en cada paso. Sin importar en qué etapa de expansión se encuentre, estamos dispuestos a acompañarle.",
+    "teamLabel": "Equipo de asesores",
+    "teamSub": "Asesores seniors le acompañan en todo el camino de expansión",
+    "promise1": "Algoritmo personalizado de coincidencia precisa",
+    "promise2": "Respuesta en 24 horas",
+    "promise3": "Apoyo de marcos regulatorios de 35 países",
+    "formTitle": "Deje su información",
+    "formLead": "Nos pondremos en contacto con usted lo antes posible para conocer sus necesidades y proporcionarle una orientación inicial.",
+    "labelName": "Nombre",
+    "labelCompany": "Empresa/Marca",
+    "labelEmail": "Correo electrónico",
+    "labelPhone": "Teléfono",
+    "labelStage": "Etapa de expansión",
+    "labelMarkets": "Mercados objetivo",
+    "labelChallenge": "Sus necesidades o preguntas",
+    "labelTimeline": "Cronograma",
+    "labelNotes": "Notas complementarias",
+    "stageOptions": [
+      {
+        "value": "idea",
+        "label": "Idea inicial"
+      },
+      {
+        "value": "pilot",
+        "label": "Prueba a pequeña escala"
+      },
+      {
+        "value": "launch",
+        "label": "Entrada formal"
+      },
+      {
+        "value": "scale",
+        "label": "Expansión a escala"
+      }
+    ],
+    "submit": "Enviar consulta",
+    "submitting": "Enviando...",
+    "successTitle": "¡Envío exitoso!",
+    "successDesc": "Gracias por su consulta. Nuestro equipo de asesores se pondrá en contacto con usted en un plazo de 24 horas; revise su bandeja de entrada.",
+    "backgroundCaption": "Servicio integral para la expansión de medicina china al mundo"
+  },
+  "footer2_text": {
+    "taglinePill": "Guiar las marcas Bencao · Con paso firme hacia el mundo",
+    "bigQuote": "Por grande que sea el mundo,",
+    "bigQuoteAccent": "le acompañamos, con paso firme, hacia el mundo.",
+    "longDesc": "Cuando está perdido, Little Tuo le ayuda primero a ver con claridad; cuando busca el camino, le acompañamos a elegir compañeros firmes; cuando negocia, le acompañamos a sentarse en la mesa; después de estabilizarse, le seguimos acompañando 14 meses. El algoritmo señala el rumbo, los datos sustentan, el experto real le acompaña en la travesía — no se expande solo, Little Tuo está en línea 24 horas y el experto real está detrás de usted.",
+    "tags": [
+      "Fabricación farmacéutica de medicina china",
+      "Alimentos saludables",
+      "Cosmética Hanfang",
+      "Productos funcionales",
+      "Dispositivos médicos"
+    ],
+    "ctaAsk": "Primero haga que Little Tuo le acompañe en una conversación",
+    "ctaPrimary": "Primero haga que Little Tuo le acompañe 30 minutos con firmeza, sin promesa, sin pago, solo alguien detrás de usted.",
+    "ctaSecondary": "Si después de conversar quiere ver al experto real, reservamos otros 30 minutos de conversación conjunta.",
+    "btnConsult": "Que el experto real me acompañe en una conversación",
+    "btnDiagnose": "Primero que Little Tuo me acompañe 30 minutos",
+    "groups": [
+      {
+        "title": "Lo que le acompañamos a hacer",
+        "links": [
+          {
+            "name": "Cómo le acompañamos",
+            "to": "/method"
+          },
+          {
+            "name": "Los 35 países a los que le acompañamos",
+            "to": "/markets"
+          },
+          {
+            "name": "Archivo de acompañamiento",
+            "to": "/research"
+          },
+          {
+            "name": "Panel de administración",
+            "to": "/admin/login",
+            "isAdmin": true
+          }
+        ]
+      },
+      {
+        "title": "Las 4 cosas que le acompañamos",
+        "links": [
+          {
+            "name": "Le acompañamos a juzgar si vale la pena ir",
+            "to": "/method"
+          },
+          {
+            "name": "Le acompañamos a encontrar al primer compañero",
+            "to": "/method"
+          },
+          {
+            "name": "Le acompañamos a abrir la vía de cumplimiento",
+            "to": "/method"
+          },
+          {
+            "name": "Le acompañamos a firmar y seguimos",
+            "to": "/method"
+          }
+        ]
+      },
+      {
+        "title": "Destinos prioritarios",
+        "links": [
+          {
+            "name": "Japón / Corea",
+            "to": "/markets"
+          },
+          {
+            "name": "UE / Reino Unido",
+            "to": "/markets"
+          },
+          {
+            "name": "Sudeste Asiático",
+            "to": "/markets"
+          },
+          {
+            "name": "Oriente Medio",
+            "to": "/markets"
+          }
+        ]
+      },
+      {
+        "title": "Etapas de acompañamiento",
+        "links": [
+          {
+            "name": "Le acompañamos a pensar cuando está perdido",
+            "to": "/method"
+          },
+          {
+            "name": "Le acompañamos a buscar cuando busca el camino",
+            "to": "/method"
+          },
+          {
+            "name": "Conversar 30 minutos con Little Tuo",
+            "to": "/diagnose"
+          },
+          {
+            "name": "Reunirse con el experto real",
+            "to": "/expert"
+          }
+        ]
+      }
+    ],
+    "brandName": "Qihuang Sihai (岐黄四海)",
+    "brandTagline": "Guiar las marcas Bencao · Con paso firme hacia el mundo",
+    "brandLongDesc": "Enfocados en el crecimiento global de marcas de medicina tradicional china y Hanfang. Guiar las marcas Bencao con paso firme hacia el mundo. El algoritmo señala el rumbo, los datos sustentan, el experto real le acompaña en la travesía — no se expande solo, estamos detrás de usted.",
+    "brandMeta1": "Posicionamiento: compañero de acompañamiento para la expansión de medicina china al mundo",
+    "brandMeta2": "Le acompañamos con prioridad a: Japón, UE, Sudeste Asiático, Oriente Medio, Australia, Norteamérica",
+    "affiliatedTitle": "Un mismo equipo",
+    "copyright": "© 2026 Qihuang Sihai.",
+    "subtitle": "MTC (Medicina Tradicional China) Expansión Global · Compañero de acompañamiento de algoritmo + datos + experto real"
+  },
+  "reviews2": {
+    "tagline": "Preguntas y respuestas de usuarios globales · Respuestas profesionales de asesores de IA",
+    "title": "Conversar con usuarios de Qihuang Sihai",
+    "subtitle": "Comparta su experiencia de expansión de medicina china al mundo o plantee preguntas prácticas sobre cumplimiento, mercados, logística, impuestos. Después de publicar, el asesor de IA responderá automáticamente",
+    "namePlaceholder": "Su apodo (opcional)",
+    "contentPlaceholder": "Comparta su experiencia de expansión de medicina china al mundo o plantee preguntas concretas... El asesor de IA responderá automáticamente después de publicar",
+    "policy": "Conversación amistosa, prohibido el ataque personal · Los comentarios se muestran públicamente",
+    "submitting": "Publicando...",
+    "submit": "Publicar comentario",
+    "total": "Total",
+    "totalUnit": "mensajes",
+    "fromWorld": "De {{count}} países y regiones del mundo",
+    "latest": "Más recientes",
+    "popular": "Más populares",
+    "loading": "Cargando...",
+    "emptyEmoji": "💬",
+    "empty": "Aún no hay comentarios; sea el primero en compartir",
+    "agentConsultant": "Consultor comercial",
+    "agentLegal": "Asesor legal",
+    "agentFinance": "Asesor financiero",
+    "agentLogistics": "Asesor logístico",
+    "replyCount": "{{count}} respuestas",
+    "like": "Me gusta"
+  },
+  "research": {
+    "hubTitle": "Los datos hablan · Biblioteca de informes",
+    "hubSubtitle": "Nuestra metodología y capacidad de juicio, presentadas como investigación accionable. Cada informe se basa en datos de primera mano e indica su tamaño de muestra, método y limitaciones.",
+    "latest": "Últimos hallazgos",
+    "hint": "Haga clic en una tarjeta para leer el informe completo en línea",
+    "min": "min de lectura",
+    "chapters": "Capítulos",
+    "readNow": "Leer en línea",
+    "ctaTitle": "¿Necesita un estudio a medida?",
+    "ctaDesc": "Si necesita investigación sobre un mercado, categoría o normativa específicos, puede solicitar una evaluación experta y recibir un informe adaptado a su proyecto.",
+    "ctaBtn": "Solicitar evaluación experta",
+    "methodologyNote": "Metodología: cada informe indica su tamaño de muestra, método y límites de recopilación en el capítulo de apertura « Fuentes de datos y metodología ». Solo se muestran los resultados que han superado la revisión interna.",
+    "notFoundTitle": "Informe no encontrado",
+    "notFoundDesc": "Este informe de investigación puede que aún no se haya publicado, o el enlace haya expirado.",
+    "backToHub": "Volver a la biblioteca",
+    "researchAll": "Biblioteca",
+    "liveDoc": "Leyendo en línea",
+    "openInNewTab": "Abrir en una nueva pestaña",
+    "saveHtml": "Guardar HTML",
+    "refresh": "Actualizar",
+    "confidentialNote": "Solo para evaluación profesional",
+    "loadError": "Error al cargar el informe. Por favor, inténtelo de nuevo más tarde.",
+    "loadErrorDesc": "Puede deberse a un problema de red temporal. Pruebe a actualizar arriba a la derecha, o abra el informe original en una nueva pestaña.",
+    "retry": "Recargar",
+    "loading": "Cargando informe de investigación…",
+    "backTop": "Volver arriba"
+  },
+  "countryAssessment": {
+    "pageTitle": "Evaluación de países destino de exportación · Qihuang Sihai",
+    "kicker": "Herramienta de decisión Export",
+    "stepNav": "Pasos de evaluación",
+    "stepNumber": "Paso {{count}}",
+    "footerResult": "Lo anterior se calcula mediante el motor de reglas local; tras el envío, la configuración se envía al backend para su seguimiento.",
+    "needIndustry": "Sector",
+    "needStage": "Fase de exportación",
+    "needBudget": "Presupuesto total",
+    "needRisk": "Tolerancia al riesgo",
+    "needProduct": "Descripción del producto (≥ 10 caracteres)",
+    "needFields": "Por favor, complete: {{fields}}",
+    "needCountry": "Por favor, seleccione al menos 1 país candidato",
+    "weightSumHint": "Los pesos deben sumar el 100 %",
+    "countriesTitle": "Seleccionar países candidatos e hipótesis de entrada",
+    "countriesSubtitle": "Seleccione al menos 1 país, hasta 5. Cada país tiene su propio modo de entrada; el siguiente paso le pide puntuar cada dimensión y establecer el estado de las puertas condicionadas.",
+    "entryModeTitle": "Elegir un modo de entrada para cada país candidato",
+    "selectPlease": "Seleccionar",
+    "entryMode": "Modo de entrada",
+    "entryModeHint": "Las indicaciones de idoneidad aparecerán una vez elegido el modo de entrada",
+    "notesPh": "Hipótesis de mercado / pistas de clientes / progreso del contacto (opcional)",
+    "tooMany": "Demasiados países candidatos diluyen la diferenciación. Le sugerimos centrarse en los 3–5 países con mejores probabilidades.",
+    "evidenceNoCountries": "Por favor, seleccione al menos 1 país candidato antes de introducir puntuaciones y puertas condicionadas.",
+    "evidenceTitle": "Introducir puntuaciones, nivel de evidencia y puertas condicionadas para cada país",
+    "evidenceSubtitle": "Las puntuaciones responden a « ¿puede funcionar este mercado? » ; el nivel de evidencia responde a « ¿cuánta prueba respalda la puntuación? » ; el estado de puerta condicionada responde a « ¿debemos decidir ahora si seguimos o no? ».",
+    "gateTriggeredCount": "{{count}} puerta(s) condicionada(s) activada(s)",
+    "gatePendingCount": "{{count}} puerta(s) condicionada(s) pendiente(s) de verificación",
+    "gateStatusTitle": "Estado de puertas condicionadas",
+    "noRequiredGate": "Esta plantilla no tiene puertas condicionadas obligatorias. Recomendamos confirmar manualmente al menos sanciones y licencias.",
+    "evidenceNote": "Cuanto menor sea el nivel de evidencia, más se contrae automáticamente la puntuación hacia un valor neutro",
+    "modelTitle": "Pesos y puertas condicionadas personalizados",
+    "modelSubtitle": "Parte de una plantilla de modelo de negocio como punto de partida, luego ajuste los pesos según sus capacidades específicas (deben sumar el 100 %).",
+    "profileTemplate": "Plantilla de modelo de negocio",
+    "dimensionWeights": "Pesos de dimensiones",
+    "weightSum": "Total {{sum}} / 100",
+    "hardGates": "Puertas condicionadas (activar cualquiera detiene la evaluación)",
+    "hardGatesHint": "« Debe confirmarse » pide al usuario que marque el estado de ese país en el siguiente paso ; « Omitir por ahora » lo elimina temporalmente del conjunto de puertas condicionadas.",
+    "owner": "Rol responsable",
+    "gateRequired": "Por confirmar",
+    "gateOptional": "Recordatorio suave",
+    "gateIgnored": "Ignorado",
+    "gatePass": "Aprobado",
+    "gatePending": "Pendiente",
+    "gateTriggered": "Activado",
+    "profileTitle": "Perfil de empresa y producto",
+    "profileSubtitle": "Comience por clarificar la pregunta de exportación: negocio, producto, ventana temporal y riesgo asumible. Las respuestas aquí anclan cada puntuación y recomendación posterior.",
+    "fieldCompany": "Nombre de la empresa (opcional)",
+    "fieldCompanyPh": "p. ej. Grupo Bencao Zhang Xiaoqiang",
+    "fieldIndustry": "Sector / Modelo de negocio",
+    "fieldProduct": "Descripción del producto (máx. 200 caracteres)",
+    "fieldProductHint": "Incluya clientes objetivo, puntos clave de venta, ticket medio y certificaciones ; esto affectará la puntuación por países.",
+    "fieldProductPh": "p. ej. Complemento alimenticio basado en una fórmula clásica de medicina china, centrado en el apoyo hepático y la inmunidad, dirigido a clientes adinerados de 30–55 años, ticket medio de 600 RMB, certificado GMP e ISO22000.",
+    "fieldStage": "Fase de exportación actual",
+    "fieldBudget": "Presupuesto total",
+    "fieldRisk": "Tolerancia al riesgo",
+    "fieldWindow": "Ventana temporal (entrada libre)",
+    "fieldWindowHint": "Describa la ventana temporal en la que desea introducirse en los países candidatos, p. ej. « los próximos 18 meses » o « H1 2026 ».",
+    "fieldWindowPh": "18 meses / T3 2026 / por fases según el mercado",
+    "readinessTitle": "Autoevaluación de preparación de la empresa",
+    "readinessHint": "Puntúe 6 dimensiones de preparación del 1 al 5. Esto mide « podemos executar bien », separado de la puntuación de oportunidad país (puede funcionar el mercado).",
+    "submitNeedConsent": "Por favor, acepte primero los términos",
+    "submitNeedName": "Por favor, introduzca su nombre / empresa",
+    "submitOk": "Enviado. Le contactaremos en breve.",
+    "resultNoCountries": "Por favor, vuelva atrás y seleccione al menos 1 país candidato antes de generar resultados.",
+    "resultKicker": "Índice de decisión",
+    "resultTitle": "Resultados de evaluación por país y próximas acciones",
+    "resultSubtitle": "La cifra refleja « puede funcionar este mercado » × confianza de la evidencia ; la conclusión refleja « podemos hacerlo ahora ». Cualquier puerta condicionada activada sitúa inmediatamente el resultado en el mínimo y se marca en rojo, sin posibilidad de compensación mediante la puntuación.",
+    "restart": "Ajustar la evaluación",
+    "crossTitle": "Asuntos que requieren atención prioritaria de la dirección",
+    "rankTitle": "Países candidatos ordenados por puntuación ajustada",
+    "checklistTitle": "Lista de comprobación ordenada por prioridad de recogida de datos",
+    "aiTitle": "Briefing estratégico IA (opcional)",
+    "aiHint": "Genera, a partir de los resultados estructurados, una explicación en chino, un orden de validación de 90–180 días y un contraargumento ; cuando la IA no está disponible, solo se muestra el resultado del motor de reglas.",
+    "submitTitle": "Conectar esta evaluación con su equipo",
+    "submitHint": "La información siguiente se escribe en el expediente de cliente existente para que el personal pueda hacer seguimiento inmediato ; si se deja en blanco no se guardará.",
+    "contactName": "Nombre",
+    "contactNamePh": "Su nombre",
+    "contactPhone": "Teléfono",
+    "contactPhonePh": "Opcional",
+    "contactEmail": "Correo electrónico",
+    "contactEmailPh": "Opcional, utilizado para enviar el informe de evaluación",
+    "contactNote": "Notas adicionales",
+    "contactNotePh": "Deseamos conectar principalmente con 2 países, con una ventana temporal prevista de 18 meses",
+    "consent": "Acepto que los resultados de evaluación y el contenido del formulario superiores se envíen al equipo de Zhang Xiaoqiang Consulting para seguimiento ; las explicaciones de IA no se compartirán con terceros.",
+    "submitting": "Enviando…",
+    "submit": "Enviar y contactarnos",
+    "cardProfile": "Plantilla de evaluación",
+    "cardProfileHint": "Pesos calibrados según el modelo de negocio",
+    "cardReadiness": "Preparación de la empresa",
+    "cardReadinessHint": "Sobre 100",
+    "cardWeightSum": "Total de pesos",
+    "cardWeightOk": "Suma el 100 %",
+    "cardWeightBad": "Necesita normalización o congelar la distribución actual",
+    "cardCountries": "Número de países candidatos",
+    "cardCountriesHint": "Las puertas condicionadas activadas sitúan el resultado en el mínimo, sin eliminar",
+    "entryModeLabel": "Modo de entrada",
+    "metricRaw": "Puntuación de oportunidad bruta / 100",
+    "metricAdjusted": "Puntuación ajustada por confianza / 100",
+    "metricReadiness": "Preparación de la empresa / 100",
+    "metricConfidence": "Nivel de evidencia",
+    "topStrengths": "Fortalezas principales",
+    "noStrength": "Sin fortalezas claras identificadas",
+    "topGaps": "Brechas clave",
+    "noGap": "No se han identificado gaps obvios",
+    "advice": "Recomendación de decisión",
+    "triggeredTitle": "Puertas condicionadas activadas",
+    "pendingTitle": "Puertas condicionadas pendientes de verificación",
+    "weightBreakdown": "Ver la distribución de pesos y puntuaciones de este país",
+    "weightShare": "Peso {{w}} %",
+    "checklistAction": "Acción mínima de validación",
+    "checklistSource": "Fuente",
+    "checklistOwner": "Responsable",
+    "disclosureTitle": "Ver las entradas y criterios completos de la evaluación",
+    "disclosureProduct": "Resumen del producto",
+    "disclosureWeights": "Desglose de pesos",
+    "disclosureReadiness": "Preparación de la empresa",
+    "aiFallback": "La IA no está disponible ; se ha vuelto al resultado del motor de reglas.",
+    "aiStart": "Preparando el briefing explicativo…",
+    "startRealAssessment": "Introducir mis datos reales →"
   }
 }

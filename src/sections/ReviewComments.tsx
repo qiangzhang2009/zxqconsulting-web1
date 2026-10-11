@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import i18n from '../i18n';
 
 // ─── Types ──────────────────────────────────────────────────────────────────────
 
@@ -39,14 +41,23 @@ const GEO_FLAG: Record<string, string> = {
   SA: '🇸🇦', NZ: '🇳🇿', PH: '🇵🇭', VN: '🇻🇳', LK: '🇱🇰', MM: '🇲🇲',
 };
 
-const GEO_NAME: Record<string, string> = {
-  CN: '中国', HK: '香港', TW: '台湾', SG: '新加坡', US: '美国', GB: '英国',
-  DE: '德国', JP: '日本', KR: '韩国', AU: '澳大利亚', FR: '法国', MY: '马来西亚',
-  TH: '泰国', IN: '印度', AE: '阿联酋', CA: '加拿大', NL: '荷兰', CH: '瑞士',
-  BR: '巴西', MX: '墨西哥', ID: '印度尼西亚', SA: '沙特', NZ: '新西兰', PH: '菲律宾',
-  VN: '越南', LK: '斯里兰卡', MM: '缅甸',
-};
+// 国家/地区名走 Intl.DisplayNames, 自动适配当前语言, 无需维护 15 份对照表。
+function geoName(code: string, lang: string): string {
+  if (!code) return '';
+  try {
+    const dn = new Intl.DisplayNames([lang || 'zh'], { type: 'region' });
+    return dn.of(code.toUpperCase()) || code;
+  } catch {
+    return code;
+  }
+}
 
+const AGENT_BADGE_KEY: Record<string, string> = {
+  consultant: 'reviews2.agentConsultant',
+  legal: 'reviews2.agentLegal',
+  finance: 'reviews2.agentFinance',
+  logistics: 'reviews2.agentLogistics',
+};
 const AGENT_INFO: Record<string, { emoji: string; badge: string; color: string }> = {
   consultant: { emoji: '💼', badge: '商务顾问', color: '#3b82f6' },
   legal:      { emoji: '⚖️', badge: '法律顾问', color: '#10b981' },
@@ -56,27 +67,34 @@ const AGENT_INFO: Record<string, { emoji: string; badge: string; color: string }
 
 // ─── Time formatting ────────────────────────────────────────────────────────────
 
+// 这些函数在模块作用域, 拿不到 hook —— 读 i18n.language 当前值即可,
+// 不要用 'languageChanged' 事件: 首次加载事件早于本模块订阅, 会漏掉。
+const LOCALE_TAG: Record<string, string> = {
+  zh: 'zh-CN', en: 'en-US', ja: 'ja-JP', ko: 'ko-KR', de: 'de-DE', fr: 'fr-FR',
+  es: 'es-ES', pt: 'pt-BR', it: 'it-IT', id: 'id-ID', ms: 'ms-MY', vi: 'vi-VN',
+  ru: 'ru-RU', th: 'th-TH', ar: 'ar-SA',
+};
+const localeTag = () => LOCALE_TAG[i18n.language] ?? LOCALE_TAG[i18n.language?.split('-')[0]] ?? 'zh-CN';
+
+// Intl.RelativeTimeFormat 自带各语言语法, 不必手写 "x分钟前"。
 function fmtRelative(isoOrTs: string | number): string {
   let ms: number;
   if (typeof isoOrTs === 'string') ms = new Date(isoOrTs).getTime();
   else ms = isoOrTs;
   const diff = Date.now() - ms;
-  const minutes = Math.floor(diff / 60000);
-  const hours = Math.floor(diff / 3600000);
-  const days = Math.floor(diff / 86400000);
-  if (minutes < 1) return '刚刚';
-  if (minutes < 60) return `${minutes}分钟前`;
-  if (hours < 24) return `${hours}小时前`;
-  if (days < 30) return `${days}天前`;
-  const d = new Date(ms);
-  return d.toLocaleDateString('zh-CN', { month: 'short', day: 'numeric' });
+  const abs = Math.abs(diff);
+  const rtf = new Intl.RelativeTimeFormat(localeTag(), { numeric: 'auto' });
+  const MIN = 60_000, HOUR = 3_600_000, DAY = 86_400_000;
+  if (abs < MIN) return rtf.format(0, 'second');
+  if (abs < HOUR) return rtf.format(Math.round(diff / MIN), 'minute');
+  if (abs < DAY) return rtf.format(Math.round(diff / HOUR), 'hour');
+  if (abs < 30 * DAY) return rtf.format(Math.round(diff / DAY), 'day');
+  return new Date(ms).toLocaleDateString(localeTag(), { month: 'short', day: 'numeric' });
 }
 
 function fmtAbsolute(isoOrTs: string | number): string {
-  let d: Date;
-  if (typeof isoOrTs === 'string') d = new Date(isoOrTs);
-  else d = new Date(isoOrTs);
-  return d.toLocaleString('zh-CN', {
+  const d = new Date(typeof isoOrTs === 'string' ? isoOrTs : Number(isoOrTs));
+  return d.toLocaleString(localeTag(), {
     year: 'numeric', month: '2-digit', day: '2-digit',
     hour: '2-digit', minute: '2-digit', second: '2-digit',
   });
@@ -156,6 +174,7 @@ function TimeBadge({ time }: { time: string | number }) {
 // ─── Main Component ──────────────────────────────────────────────────────────
 
 export default function ReviewComments() {
+  const { t, i18n } = useTranslation();
   const [comments, setComments] = useState<Comment[]>([]);
   const [loading, setLoading] = useState(true);
   const [sort, setSort] = useState<'latest' | 'popular'>('latest');
@@ -254,16 +273,16 @@ export default function ReviewComments() {
             borderRadius: 999, padding: '6px 16px', fontSize: '0.78rem', color: '#2F5D57',
             fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', marginBottom: 12,
           }}>
-            💬 全球用户问答 · AI 顾问专业回复
+            💬 {t('reviews2.tagline', 'Global user Q&A · AI advisor reply')}
           </div>
           <h2 style={{
             fontSize: 'clamp(1.6rem, 4vw, 2.4rem)', fontWeight: 700, color: '#1B2520',
             letterSpacing: '-0.02em', marginBottom: 12, fontFamily: 'Georgia, serif'
           }}>
-            与岐黄四海用户交流
+            {t('reviews2.title', 'Talk with Qihuang Sihai users')}
           </h2>
           <p style={{ color: '#5b6661', maxWidth: 520, margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
-            分享您的中医出海经验，或提出合规、市场、物流、税务等实际问题。发布后，AI 顾问将自动提供专业回复
+            {t('reviews2.subtitle', 'Share your TCM going-global experience or ask about compliance, markets, logistics, tax and more. An AI advisor replies automatically.')}
           </p>
         </div>
 
@@ -277,7 +296,7 @@ export default function ReviewComments() {
             <div style={{ flex: 1 }}>
               <div style={{ display: 'flex', gap: 10, marginBottom: 12 }}>
                 <input
-                  type="text" placeholder="您的昵称（选填）" maxLength={50}
+                  type="text" placeholder={t('reviews2.namePlaceholder', 'Your nickname (optional)')} maxLength={50}
                   value={guestName}
                   onChange={e => setGuestName(e.target.value)}
                   style={{ flex: 1, background: '#FAF8F3',
@@ -292,7 +311,7 @@ export default function ReviewComments() {
               </div>
               <textarea
                 ref={textareaRef}
-                placeholder="分享您的中医出海经验，或提出具体问题... AI 顾问将在发布后自动回复"
+                placeholder={t('reviews2.contentPlaceholder', 'Share your TCM going-global experience or ask specific questions — the AI advisor replies automatically.')}
                 maxLength={2000} value={content}
                 onChange={e => setContent(e.target.value)} rows={4}
                 style={{ width: '100%', background: '#FAF8F3',
@@ -301,14 +320,14 @@ export default function ReviewComments() {
                   outline: 'none', resize: 'vertical', fontFamily: 'inherit', lineHeight: 1.6, boxSizing: 'border-box' }}
               />
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 12 }}>
-                <span style={{ fontSize: '0.78rem', color: '#5b6661' }}>友善交流，禁止人身攻击 · 留言公开显示</span>
+                <span style={{ fontSize: '0.78rem', color: '#5b6661' }}>{t('reviews2.policy', 'Be respectful, no personal attacks · messages are public')}</span>
                 <button type="submit" disabled={submitting || !content.trim()}
                   style={{ background: (submitting || !content.trim()) ? 'rgba(47, 93, 87, 0.3)' : '#2F5D57',
                     border: 'none', borderRadius: 10, padding: '10px 24px',
                     color: 'white', fontWeight: 700, fontSize: '0.88rem',
                     cursor: (submitting || !content.trim()) ? 'not-allowed' : 'pointer',
                     transition: 'all 0.2s', fontFamily: 'inherit' }}>
-                  {submitting ? '发布中...' : '发布留言'}
+                  {submitting ? t('reviews2.submitting', 'Submitting...') : t('reviews2.submit', 'Post message')}
                 </button>
               </div>
               {submitMsg && (
@@ -323,9 +342,9 @@ export default function ReviewComments() {
         {/* Sort Controls */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20, flexWrap: 'wrap', gap: 12 }}>
           <div style={{ fontSize: '0.9rem', color: '#5b6661' }}>
-            全部留言 <span style={{ color: '#2F5D57', fontWeight: 700 }}>{total}</span> 条
+            {t('reviews2.total', 'All messages')} <span style={{ color: '#2F5D57', fontWeight: 700 }}>{total}</span> {t('reviews2.totalUnit', 'in total')}
             <span style={{ marginLeft: 12, fontSize: '0.75rem', color: '#5b6661' }}>
-              来自全球 {countries} 个国家和地区
+              {t('reviews2.fromWorld', 'From {{count}} countries and regions', { count: countries })}
             </span>
           </div>
           <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
@@ -336,7 +355,7 @@ export default function ReviewComments() {
                   color: sort === s ? 'white' : '#5b6661',
                   fontSize: '0.82rem', fontWeight: sort === s ? 600 : 400,
                   cursor: 'pointer', transition: 'all 0.15s', fontFamily: 'inherit' }}>
-                {s === 'latest' ? '最新' : '最热'}
+                {s === 'latest' ? t('reviews2.latest', 'Latest') : t('reviews2.popular', 'Popular')}
               </button>
             ))}
           </div>
@@ -344,18 +363,18 @@ export default function ReviewComments() {
 
         {/* Comment List */}
         {loading ? (
-          <div style={{ textAlign: 'center', padding: 40, color: '#5b6661' }}>加载中...</div>
+          <div style={{ textAlign: 'center', padding: 50, color: '#5b6661' }}>{t('reviews2.loading', 'Loading...')}</div>
         ) : comments.length === 0 ? (
           <div style={{ textAlign: 'center', padding: 60, color: '#5b6661', background: '#FAF8F3', borderRadius: 16, border: '1px dashed rgba(47, 93, 87, 0.2)' }}>
-            <div style={{ fontSize: '2rem', marginBottom: 8 }}>💬</div>
-            <div style={{ fontSize: '0.9rem' }}>暂无留言，成为第一个分享者</div>
+            <div style={{ fontSize: '2rem', marginBottom: 8 }}>{t('reviews2.emptyEmoji', '💬')}</div>
+            <div style={{ fontSize: '0.9rem' }}>{t('reviews2.empty', 'No messages yet — be the first to share.')}</div>
           </div>
         ) : (
           <div>
             {comments.map(comment => {
               const replies = parseReplies(comment);
               const flag = GEO_FLAG[comment.geo_country] || '';
-              const countryName = GEO_NAME[comment.geo_country] || comment.geo_country || '';
+              const countryName = geoName(comment.geo_country, i18n.language);
               const location = [flag, countryName, comment.geo_region, comment.geo_city].filter(Boolean).join(' ');
 
               return (
@@ -397,10 +416,12 @@ export default function ReviewComments() {
                             fontSize: '0.8rem', padding: '2px 6px', borderRadius: 6,
                             transition: 'all 0.15s' }}>
                           <span>👍</span>
-                          <span>{comment.likes > 0 ? comment.likes : '赞'}</span>
+                          <span>{comment.likes > 0 ? comment.likes : t('reviews2.like', 'Like')}</span>
                         </button>
                         {replies.length > 0 && (
-                          <span style={{ fontSize: '0.75rem', color: '#5b6661' }}>💬 {replies.length} 条回复</span>
+                          <span style={{ fontSize: '0.75rem', color: '#5b6661' }}>
+                            💬 {t('reviews2.replyCount', '{{count}} replies', { count: replies.length })}
+                          </span>
                         )}
                       </div>
 
@@ -430,7 +451,7 @@ export default function ReviewComments() {
                                       borderRadius: 999, padding: '1px 8px',
                                       fontSize: '0.68rem', fontWeight: 600, marginLeft: 6,
                                     }}>
-                                      {agentInfo.emoji} {agentInfo.badge}
+                                      {agentInfo.emoji} {t(AGENT_BADGE_KEY[reply.agent_id!] || 'reviews2.agentConsultant')}
                                     </span>
                                   )}
                                 </div>

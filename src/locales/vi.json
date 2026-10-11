@@ -1,23 +1,31 @@
 {
   "brand": {
-    "name": "Tiếng Việt",
+    "name": "Qihuang Sihai (岐黄四海)",
+    "nameEn": "QihuangSihai",
     "fullName": "Shanghai Zhang Xiaoqiang Enterprise Consulting Firm",
     "tagline": "Your Loyal and Reliable Global Partner",
     "slogan": "Một mạch Qihuang. An lành bốn bể.",
-    "nameEn": "QihuangSihai"
+    "selectLanguage": "Chọn ngôn ngữ"
   },
   "nav": {
     "home": "Home",
     "about": "About Us",
     "services": "Services",
     "markets": "Global Markets",
-    "contact": "Contact"
+    "contact": "Contact",
+    "research": "Dữ liệu Nói · Thư viện Nghiên cứu"
   },
   "hero": {
     "title": "Empowering Businesses to Conquer Global Markets",
     "subtitle": "From market entry strategy to operational implementation, we provide comprehensive overseas consulting services. AI-powered, resource-driven, making faster and more precise decisions for your global expansion.",
     "cta": "Start Your Global Journey",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "banner": "Qihuang Sihai · Dịch vụ toàn cầu · Đáng tin cậy",
+    "badge": "Qihuang Sihai · Nền tảng",
+    "highlight": "Bencao vươn ra thế giới · Tiến ra quốc tế",
+    "trustBadge": "Đội ngũ chuyên nghiệp · Dịch vụ một cửa",
+    "serviceBadge": "Dịch vụ chuyên nghiệp · Đáng tin cậy",
+    "bencaoHealth": "Sức khỏe Bencao"
   },
   "about": {
     "p1_title": "Judge before you invest",
@@ -48,7 +56,8 @@
     "platformPurpose": "We redesigned the website not to display more capabilities, but to front-load the decisions that enterprises must make before going global.",
     "platformPurposeEn": "We redesigned the website not to display more capabilities, but to front-load the decisions that enterprises must make before going global: which market is a priority, which entry pathway is more reasonable, and which risks might prevent the project from continuing.",
     "platformOutcome": "Once the platform has produced a structured judgment, users can review sample reports, request deeper expert evaluation or explore further collaboration as needed.",
-    "platformOutcomeEn": "Only after the platform has produced a structured judgment should users move into sample reports, expert review and deeper advisory services."
+    "platformOutcomeEn": "Only after the platform has produced a structured judgment should users move into sample reports, expert review and deeper advisory services.",
+    "platformLogic": "Logic và phương pháp luận của nền tảng"
   },
   "services": {
     "diagnosisEngineSection": "Global Entry Diagnosis Engine",
@@ -88,7 +97,16 @@
     "cap_expert_upgrade_out1": "Project-fit assessment",
     "cap_expert_upgrade_out2": "Expert evaluation request",
     "cap_expert_upgrade_out3": "Advisory handoff",
-    "viewExpertPath": "See the expert evaluation path"
+    "viewExpertPath": "See the expert evaluation path",
+    "howItWorks": "Cách nền tảng vận hành",
+    "howItWorksDesc": "Ba bước, từ chẩn đoán đến triển khai",
+    "ctaNote": "Mỗi năng lực đều đi kèm danh sách bước có thể thực thi",
+    "category_strategy": "Chiến lược",
+    "category_risk": "Rủi ro",
+    "category_analysis": "Phân tích",
+    "category_intelligence": "Trí tuệ",
+    "category_case": "Case",
+    "category_expert": "Chuyên gia"
   },
   "whyUs": {
     "title": "Why Choose Us",
@@ -219,7 +237,8 @@
     "close": "Close",
     "tags": "Tags",
     "loading": "Loading...",
-    "noArticles": "No articles available"
+    "noArticles": "No articles available",
+    "lastUpdate": "Cập nhật lần cuối"
   },
   "contact": {
     "title": "Contact Us",
@@ -261,8 +280,26 @@
       "companyPlaceholder": "Please enter your company name",
       "message": "Inquiry Content",
       "messagePlaceholder": "Please describe your inquiry needs...",
-      "submit": "Submit Inquiry"
+      "submit": "Submit Inquiry",
+      "submitting": "Đang gửi...",
+      "success": "Gửi thành công",
+      "successMessage": "Cảm ơn quý khách đã quan tâm! Chuyên gia tư vấn của chúng tôi sẽ liên hệ trong vòng 24 giờ.",
+      "gotIt": "Đã hiểu",
+      "error": "Gửi thất bại. Vui lòng thử lại sau hoặc gửi email trực tiếp đến customer@zxqconsulting.com"
     }
+  },
+  "floatingContact": {
+    "call": "Gọi ngay",
+    "wechat": "WeChat",
+    "email": "Gửi email",
+    "message": "Để lại lời nhắn",
+    "contactUs": "Liên hệ với chúng tôi",
+    "workTime": "Giờ làm việc: Thứ 2 - Thứ 6 9:00-18:00",
+    "copied": "Đã sao chép WeChat ID: ",
+    "callNow": "Gọi ngay",
+    "sendEmail": "Gửi email",
+    "hours": "Giờ làm việc: T2–T6 9:00–18:00",
+    "wechatCopied": "Đã sao chép ID WeChat: {{id}}"
   },
   "footer": {
     "title": "Ready to Go Global?",
@@ -271,7 +308,63 @@
     "quickLinks": "Quick Links",
     "markets": "Market Regions",
     "services": "Professional Services",
-    "copyright": "© 2024 Shanghai Zhang Xiaoqiang Enterprise Consulting Firm. All rights reserved."
+    "copyright": "© 2024 Shanghai Zhang Xiaoqiang Enterprise Consulting Firm. All rights reserved.",
+    "banner": {
+      "badge": "Qihuang Sihai · Nền tảng",
+      "title": "Bắt đầu hành trình toàn cầu của bạn",
+      "description": "Tận dụng hỗ trợ chính sách quốc gia, giúp sản phẩm Bencao và văn hóa Y học Cổ truyền Trung Quốc vươn ra thế giới!",
+      "tagline": "Đội ngũ chuyên nghiệp · Dịch vụ một cửa · Đáng tin cậy",
+      "button": "Liên hệ ngay, bắt đầu hành trình toàn cầu"
+    },
+    "promo": {
+      "spring": "Chuyên đề mùa xuân 2026 - Năm con Ngựa",
+      "spirit": "Tinh thần Rồng Ngựa",
+      "stride": "Phi ngựa muôn dặm"
+    },
+    "nav": "Điều hướng trang",
+    "priorityMarkets": "Thị trường ưu tiên",
+    "platformCapabilities": "Năng lực nền tảng",
+    "marketEntry": "Đánh giá thị trường",
+    "compliancePathway": "Đánh giá lộ trình tuân thủ",
+    "channelGrowth": "Kênh và tư vấn tăng trưởng",
+    "diagnosisExpert": "Chẩn đoán và chuyên gia đánh giá",
+    "africaDesc": "Nền tảng chênh lệch thuế xuất xứ châu Phi",
+    "global2chinaDesc": "Nền tảng tư vấn nhập khẩu toàn cầu vào Trung Quốc",
+    "affiliatedPlatforms": "Nền tảng liên kết",
+    "tagline": "Nền tảng quyết định AI cho YHCT toàn cầu · Phương pháp tư vấn + Hệ thống chẩn đoán AI",
+    "positioningCoverage": "Phạm vi ưu tiên: Nhật Bản, EU, Đông Nam Á, Trung Đông, Úc và Bắc Mỹ",
+    "positioningDisclaimer": "Lưu ý: Kết quả chẩn đoán AI dùng cho đánh giá ban đầu, dự án chính thức dựa trên đánh giá tư vấn và quy định địa phương.",
+    "jpKorea": "Nhật Bản / Hàn Quốc",
+    "euUk": "EU / Anh",
+    "seAsia": "Đông Nam Á",
+    "middleEast": "Trung Đông"
+  },
+  "ai": {
+    "showcase": {
+      "title": "Dẫn dắt bởi AI · Thị trường toàn cầu",
+      "subtitle": "Thị trường nước ngoài",
+      "description": "Dựa trên phân tích dữ liệu đa chiều, cung cấp thị trường nước ngoài chính xác và hỗ trợ quyết định cho doanh nghiệp",
+      "heatLevel": "Nhiệt độ thị trường",
+      "realtimeDynamics": "Động thái thị trường thời gian thực",
+      "autoUpdate": "Cập nhật hàng ngày",
+      "aiStats": "Năng lực dữ liệu",
+      "dataSources": "Nguồn dữ liệu",
+      "dataSourcesDesc": "Nguồn dữ liệu toàn cầu",
+      "updateFreq": "Tần suất cập nhật",
+      "updateFreqDesc": "Cập nhật thời gian thực",
+      "analysis": "Chiều phân tích",
+      "analysisDesc": "Phân tích đa chiều",
+      "accuracy": "Độ chính xác dự đoán",
+      "accuracyDesc": "Dự đoán từ mô hình AI",
+      "learnMore": "Liên hệ chúng tôi để biết thêm thông tin thị trường",
+      "dataNote": "Dữ liệu cập nhật hàng ngày, chỉ mang tính tham khảo",
+      "lastUpdate": "Cập nhật lần cuối",
+      "globalVisualization": "Động thái Thị trường Toàn cầu",
+      "marketNode": "Nút Thị trường",
+      "tradeFlow": "Dòng Chảy Thương mại",
+      "originPoint": "Nguồn Dữ liệu",
+      "liveData": "Luồng Dữ liệu Trực tiếp"
+    }
   },
   "tools": {
     "selectMarket": "Step 1: Select Your Target Market",
@@ -337,7 +430,7 @@
     },
     "common": {
       "analyzing": "AI Analyzing...",
-      "aiAdvice": "智探Global 智能体 Advice",
+      "aiAdvice": "Gợi ý từ Global Agent",
       "aiResult": "AI Assessment Result"
     },
     "policy": {
@@ -380,16 +473,40 @@
     "tagline": "AI platform for TCM global expansion decisions",
     "subtitle": "Global Expansion Intelligence Platform",
     "titlePart1": "Use AI to decide",
-    "titlePart2Gradient": "if your TCM product should go global",
+    "titleHighlight": "là chọn lộ trình",
+    "titlePart2": "35 nước 4 cấp ưu tiên, trước giúp bạn lọc, rồi cùng bạn quyết định",
     "description": "Qihuang Sihai turns market priority, entry complexity, channel fit and project risk into one AI decision flow so TCM, supplement, Hanfang skincare and health-product teams can evaluate opportunities before committing serious resources.",
-    "q1": "Which market should you enter first?",
-    "q2": "How hard will compliance and entry be?",
-    "q3": "Is this opportunity worth funding now?",
+    "dq1": "Có nên khởi động dự án ngay bây giờ không?",
+    "dq2": "Ngân sách, đội ngũ, sản phẩm đã sẵn sàng chưa?",
+    "dq3": "Thuốc / Thực phẩm / Mỹ phẩm, nên đi lộ trình nào?",
+    "dq4": "Nhật Bản / EU / Đông Nam Á, nên làm cái nào trước?",
+    "dq5": "Đại lý, phân phối, thương mại điện tử, xây dựng thế nào?",
+    "trustVal1": "35",
+    "trustLabel1": "Quy định quốc gia được số hóa",
+    "trustVal2": "35",
+    "trustLabel2": "Quy định quốc gia mục tiêu đã nhập khẩu",
+    "trustVal3": "12+",
+    "trustLabel3": "Năm kinh nghiệm thực chiến đưa dược phẩm ra quốc tế",
+    "trustVal4": "¥30B+",
+    "trustLabel4": "Nguồn lực quyết định khách hàng tích lũy",
     "trust1": "Get an initial decision in 3 minutes",
     "trust2": "Assess market, compliance, cost, channels and risk in one flow",
     "trust3": "Complex projects get a deeper expert evaluation",
+    "convTitle": "Đối thoại thực · Bắt đầu quyết định",
+    "q1c": "Tư vấn viên, sếp tôi muốn năm nay tập trung làm thị trường Nhật, có nên bắt đầu bước này không?",
+    "q1a": "Đừng vội chọn Nhật Bản. Trong 35 nước, mỗi thị trường có độ phức tạp quy định chênh nhau 3-5 lần. Chẩn đoán AI sẽ đưa ra xếp hạng ưu tiên trước, thay vì để bạn chọn đích đến ngay.",
+    "q2c": "Chúng tôi có thuốc Y học Cổ truyền OTC muốn vào EU và Đông Nam Á, nghe nói lộ trình THR EU tối thiểu 18 tháng, chúng tôi không chịu nổi.",
+    "q2a": "Đúng vậy, lộ trình thảo dược truyền thống EU không phải 'mở đầu tầm lớn'. Tôi sẽ dùng 30 phút giúp bạn phân tích rõ: lộ trình này nên là mục tiêu sau 12 tháng, không phải khởi động Q1.",
+    "q3c": "Chúng tôi luôn làm OTC, giờ muốn làm thực phẩm chức năng + mỹ phẩm dưỡng Hanfang, không biết chọn định vị phân loại nào.",
+    "q3a": "Lựa chọn phân loại quyết định lộ trình đăng ký, kênh và ngôn ngữ tiếp thị của bạn. Chẩn đoán AI sẽ giúp bạn đưa ra quyết định về định vị phân loại trước, rồi chuyên gia thật sẽ xác nhận lại.",
+    "advisorQuote": "Tôi không bán báo cáo. Tôi cùng các bạn đưa ra quyết định vươn ra quốc tế đủ tự tin để quyết định.",
+    "advisorBio": "12 năm qua, đồng hành 60+ doanh nghiệp YHCT hoàn thành ba giai đoạn: khởi động dự án, vươn ra quốc tế, đánh giá lại. Chọn sai lộ trình 1 lần, chúng tôi sẽ dùng 30 phút giúp bạn đổi hướng; nếu sản phẩm không nên làm, chúng tôi sẽ nói thẳng.",
+    "trustTitle": "Những quyết định đã qua · Không chỉ là con số trên PPT",
     "ctaStart": "Start AI diagnosis",
+    "ctaDownload": "Tải hướng dẫn 35 nước ra quốc tế",
     "ctaViewSample": "View sample report",
+    "ctaExpert": "Đặt lịch tư vấn chuyên gia 30 phút",
+    "ctaSubscribe": "Đăng ký nhận bản tin",
     "previewLabel": "Diagnosis preview",
     "previewTitle": "Structured output, not generic advice",
     "threeMin": "3 min",
@@ -399,6 +516,15 @@
     "category": "Category",
     "categoryValue": "Supplements / TCM / Hanfang skincare",
     "categoryDesc": "Match category with entry pathways",
+    "tierA": "Hạng A · Ưu tiên 12 tháng",
+    "tierB": "Hạng B · Trung hạn 12-24 tháng",
+    "tierC": "Hạng C · Theo dõi dài hạn",
+    "tierD": "Hạng D · Tạm chưa vào",
+    "tierABDesc": "Nhật Bản — Cửa sổ đăng ký đang mở / Đức — Hanfang skincare mua lại ổn định",
+    "tierLabel": "Phân hạng 35 nước",
+    "advisorBadge": "Tư vấn viên chuyên nghiệp",
+    "advisorTagline": "12 năm đồng hành 60+ doanh nghiệp hoàn thành khởi động · vươn ra · đánh giá",
+    "sampleOutput": "Kết quả mẫu",
     "opportunityScore": "Opportunity Score",
     "opportunityScoreText": "Identify which market-product combination deserves priority investment.",
     "entryComplexity": "Entry Complexity",
@@ -497,6 +623,29 @@
     "q_budgetDowngrade": "What is the best downgrade path if the budget is too tight?",
     "q_expertThreshold": "What conditions make a project a good fit for a deeper expert evaluation?",
     "selfServe": "Continue self-serve diagnosis",
+    "goToMarket_go": "Vào ngay",
+    "goToMarket_wait": "Chờ / Chuẩn bị",
+    "goToMarket_escalate": "Nên đăng ký đánh giá chuyên gia",
+    "reviewFit_expert": "Khuyến nghị chuyên gia đánh giá thêm",
+    "reviewFit_prepare": "Khuyến nghị bổ sung một số thông tin quan trọng",
+    "reviewFit_selfServe": "Khuyến nghị tiếp tục tự khám phá",
+    "nextAction_expert": "Dự án của bạn phù hợp hơn để chuyên gia đánh giá thêm. Biểu mẫu sẽ điền sẵn ngữ cảnh chẩn đoán, giảm nhập liệu trùng lặp.",
+    "nextAction_prepare": "Bổ sung một số thông tin quan trọng trước, rồi đăng ký đánh giá chuyên gia sẽ hiệu quả hơn so với gửi trực tiếp.",
+    "nextAction_selfServe": "Tiếp tục chẩn đoán tự phục vụ và xác minh chi phí thấp, chờ khi các giả định chính rõ ràng hơn rồi quyết định có cần đánh giá chuyên gia không.",
+    "cta_expertReview": "Đi vào đánh giá chuyên gia",
+    "cta_viewEntry": "Xem lối vào đánh giá chuyên gia",
+    "composing": "Hệ thống đang tổng hợp kết luận cấp cao và tầng bằng chứng",
+    "opportunity": "Điểm cơ hội",
+    "complexity": "Độ phức tạp thị trường",
+    "budgetPressure": "Áp lực ngân sách",
+    "pressure_low": "Thấp",
+    "pressure_medium": "Trung bình",
+    "pressure_high": "Cao",
+    "firstMarket": "Thị trường đầu tiên",
+    "primaryBlocker": "Rào cản chính",
+    "recommendedWedge": "Khuyến nghị xâm nhập: {{category}}. Nếu bạn vẫn muốn lộ trình quản lý cao hơn, trước tiên hãy bổ sung xác minh, ngân sách và bằng chứng tiếp cận.",
+    "currentBlockers": "Điểm nghẽn hiện tại",
+    "requiredBefore": "Khuyến nghị bổ sung trước khi đăng ký đánh giá chuyên gia",
     "tier1": "Tier 1",
     "tier2": "Tier 2",
     "market_usa": "United States",
@@ -516,12 +665,18 @@
   },
   "nav2": {
     "product": "Product",
+    "how": "Cách hoạt động",
+    "cases": "Quyết định đã qua",
+    "markets": "35 nước",
+    "research": "Research",
+    "expert": "Tư vấn chuyên gia",
     "diagnosisEngine": "Diagnosis Engine",
     "useCases": "Use Cases",
     "caseProof": "Algorithm Samples",
     "expertUpgrade": "Expert Evaluation",
     "selectLang": "Choose language",
-    "research": "Research"
+    "adminEntry": "Quản trị hệ thống",
+    "ctaPrimary": "Để Little Tuo cùng tôi bước đầu tiên vững vàng"
   },
   "expertReview": {
     "title": "Let the platform complete the first judgment; experts step in for complex projects that need deeper evaluation.",
@@ -553,9 +708,6 @@
     "companyPlaceholder": "Company or brand",
     "emailPlaceholder": "Your email",
     "phonePlaceholder": "Best contact channel",
-    "projectStageSelect": "Project stage",
-    "budgetSelect": "Budget range",
-    "validationSelect": "Validation status",
     "stage_exploring": "Early exploration",
     "stage_committed": "Ready to commit",
     "stage_testing": "Already testing overseas",
@@ -575,36 +727,641 @@
     "companyInput": "Company or brand",
     "emailInput": "Your email",
     "phoneInput": "Best contact channel",
-    "projectStageInput": "Project stage",
-    "budgetInput": "Budget range"
+    "projectStageSelect": "Project stage",
+    "budgetSelect": "Budget range",
+    "validationSelect": "Validation status",
+    "diagnosisRec": "Lộ trình chẩn đoán được khuyến nghị",
+    "qualificationDecision": "Mức độ phù hợp dự án",
+    "productCategory": "Danh mục sản phẩm",
+    "submitError": "Gửi thất bại, vui lòng thử lại sau.",
+    "formDesc": "Vui lòng điền thông tin cốt lõi nhất. Chúng tôi quan tâm nhiều hơn đến bối cảnh dự án và câu hỏi quyết định của bạn, chứ không phải thu thập một biểu mẫu liên hệ thông thường.",
+    "requestSubmitted": "Đã gửi yêu cầu",
+    "requestSubmittedMsg": "Chúng tôi sẽ dựa trên thông tin dự án bạn gửi để quyết định có sắp xếp đánh giá chuyên gia không, rồi liên hệ bạn sớm nhất có thể.",
+    "submitting": "Đang gửi..."
   },
   "footer2": {
-    "highTrust": "AI decision platform you can trust",
-    "footerMission": "Let TCM, health products and Hanfang brands enter global markets with sharper strategy and lower execution risk.",
+    "highTrust": "Nền tảng quyết định AI đáng tin cậy",
+    "footerMission": "Để YHCT, sản phẩm sức khỏe và thương hiệu Hanfang tiến vào thị trường toàn cầu với lộ trình ổn định hơn.",
     "footerMissionEn": "Let TCM, health products and Hanfang brands enter global markets with sharper strategy and lower execution risk.",
     "footerDesc": "Across market selection, registration pathways, channel partnerships, localized branding and AI diagnosis, we support international programs with clear budgets, high compliance needs and longer horizons with strategy and execution judgment.",
     "footerDescEn": "Across market selection, registration pathways, channel partnerships, localized branding and AI diagnosis, we support high-value international programs with strategy and execution judgment.",
-    "nextStep": "Next step",
-    "nextStepDesc": "Share your project context and request a deeper expert evaluation.",
+    "nextStep": "Bước tiếp theo",
+    "nextStepDesc": "Gửi bối cảnh dự án, đăng ký đánh giá chuyên gia.",
     "nextStepDescEn": "Share your project context and request a deeper expert evaluation.",
-    "audience": "Designed for pharmaceutical, supplement, Hanfang skincare, functional product and medical device brands.",
+    "audience": "Dành cho công ty dược phẩm, thực phẩm chức năng, mỹ phẩm Hanfang, sản phẩm chức năng và thương hiệu thiết bị y tế.",
     "audienceEn": "Designed for pharmaceutical, supplement, Hanfang skincare, functional product and medical device brands.",
-    "platformFocus": "Focused on TCM and health-brand global growth, helping teams make market-entry decisions, design compliance pathways, build channels and localize premium brand narratives.",
+    "platformFocus": "Tập trung vào tăng trưởng toàn cầu của YHCT và thương hiệu sức khỏe, giúp doanh nghiệp hoàn thành đánh giá thị trường, thiết kế lộ trình tuân thủ, triển khai kênh và kể chuyện thương hiệu quốc tế.",
     "platformFocusEn": "Focused on TCM and health-brand global growth, helping teams make market-entry decisions, design compliance pathways, build channels and localize premium brand narratives.",
-    "positioning": "Positioning: advisory for TCM global market entry and growth. Priority coverage: Japan, EU, Southeast Asia, Middle East, Australia and North America. Notice: AI diagnosis supports early-stage judgment; formal engagements rely on advisory review and local regulations.",
+    "positioning": "Định vị: Tư vấn gia nhập và tăng trưởng thị trường toàn cầu YHCT. Phạm vi ưu tiên: Nhật Bản, EU, Đông Nam Á, Trung Đông, Úc và Bắc Mỹ. Lưu ý: Chẩn đoán AI dùng cho đánh giá giai đoạn đầu, dự án chính thức dựa trên đánh giá tư vấn và quy định địa phương.",
     "positioningEn": "Positioning: advisory for TCM global market entry and growth. Priority coverage: Japan, EU, Southeast Asia, Middle East, Australia and North America. Notice: AI diagnosis supports early-stage judgment; formal engagements rely on advisory review and local regulations.",
-    "applyBtn": "Request a deeper expert evaluation",
-    "applyBtnNav": "Contact Us"
+    "applyBtn": "Đăng ký đánh giá chuyên gia",
+    "applyBtnNav": "Liên hệ chúng tôi"
   },
-  "ai": {
-    "title": "AI Diagnosis Engine",
-    "subtitle": "Get market entry insights powered by deep market data and AI analysis",
-    "placeholder": "Describe your product and goals..."
+  "ai_tools": {
+    "partialDataError": "Một phần dữ liệu không lấy được, đã dùng dữ liệu mẫu bổ sung",
+    "serviceUnavailable": "Dịch vụ AI tạm thời không khả dụng"
   },
-  "floatingContact": {
-    "title": "Contact Us",
-    "subtitle": "Have questions? Our team is here to help.",
-    "chatWithUs": "Chat with us",
-    "emailUs": "Email us"
+  "expertAdvisors": {
+    "pageTitle": "AI + Tư vấn · Bảo đảm quyết định kép",
+    "pageTitleEn": "AI + Advisors · Dual Decision Guarantee",
+    "subtitle": "Chẩn đoán AI + tư vấn viên cao cấp, dự án phức tạp không còn phải đoán",
+    "subtitleEn": "AI diagnosis + senior advisors — complex projects don't have to be guesswork",
+    "teamSectionTitle": "Đội ngũ cốt lõi",
+    "teamSectionTitleEn": "Core Advisors",
+    "teamSectionDesc": "Mỗi khu vực đều có chuyên gia thường trú. Không phải tư vấn viên từ xa, mà là chuyên gia thực chiến tại thị trường mục tiêu.",
+    "teamSectionDescEn": "On-the-ground experts in every region. Not remote advisors — local practitioners based in target markets.",
+    "servicesSectionTitle": "Chúng tôi làm gì",
+    "servicesSectionTitleEn": "What We Do",
+    "servicesSectionDesc": "Không phải tư vấn chung chung, mà đưa ra giải pháp có thể thực thi cho các vấn đề cụ thể khi YHCT vươn ra quốc tế.",
+    "servicesSectionDescEn": "Not generic consulting — actionable solutions for specific TCM globalization challenges.",
+    "stat1Value": "12+",
+    "stat1Label": "Năm thực chiến ra quốc tế",
+    "stat1LabelEn": "Years of Practice",
+    "stat2Value": "35",
+    "stat2Label": "Quốc gia trong thuật toán",
+    "stat2LabelEn": "Markets Covered",
+    "stat3Value": "35",
+    "stat3Label": "Khung quy định quốc gia",
+    "stat3LabelEn": "Country Frameworks",
+    "stat4Value": "Đồng hành toàn bộ",
+    "stat4Label": "",
+    "stat4LabelEn": "End-to-End Coaching",
+    "bookConsultation": "Đặt lịch tư vấn chuyên gia",
+    "startDiagnosis": "Bắt đầu chẩn đoán AI",
+    "serviceMarketEntry": "Đánh giá thị trường",
+    "serviceMarketEntryEn": "Market Entry Assessment",
+    "serviceMarketEntryDesc": "Chẩn đoán AI + chuyên gia xác nhận, đánh giá có nên vào, có đáng vào không.",
+    "serviceMarketEntryDescEn": "AI diagnosis + advisor review to determine if entry is warranted.",
+    "serviceCompliance": "Thiết kế lộ trình tuân thủ",
+    "serviceComplianceEn": "Compliance Pathway Design",
+    "serviceComplianceDesc": "Lựa chọn lộ trình thuốc / thực phẩm / mỹ phẩm, lên kế hoạch đăng ký và timeline.",
+    "serviceComplianceDescEn": "Drug, food or cosmetics pathway selection, registration plan and timeline.",
+    "serviceChannel": "Chiến lược kênh và triển khai",
+    "serviceChannelEn": "Channel Strategy & Execution",
+    "serviceChannelDesc": "Thiết kế kênh toàn diện: hợp tác đại lý, sàn thương mại điện tử, chuỗi bán lẻ ngoại tuyến.",
+    "serviceChannelDescEn": "Full-chain channel design: agents, e-commerce and offline retail.",
+    "serviceBrand": "Bản địa hóa thương hiệu",
+    "serviceBrandEn": "Brand Localization",
+    "serviceBrandDesc": "Kể chuyện thương hiệu, ngôn ngữ địa phương, chiến lược thích nghi văn hóa để xây dựng thương hiệu ra quốc tế.",
+    "serviceBrandDescEn": "Brand narrative, local language and cultural adaptation strategy.",
+    "serviceCoaching": "Đồng hành dự án toàn bộ",
+    "serviceCoachingEn": "End-to-End Project Coaching",
+    "serviceCoachingDesc": "Từ khởi động đến triển khai, tư vấn viên đồng hành toàn bộ, can thiệp sâu vào các mốc then chốt.",
+    "serviceCoachingDescEn": "Advisors coach from kick-off to launch, deep involvement at critical milestones.",
+    "serviceResources": "Kết nối nguồn lực",
+    "serviceResourcesEn": "Resource Connection",
+    "serviceResourcesDesc": "Kết nối chính xác các nguồn lực chất lượng: phòng thí nghiệm kiểm tra, công ty luật, đại lý, kênh.",
+    "serviceResourcesDescEn": "Precise connections with testing labs, law firms, agents and channels.",
+    "readyToStart": "Đã sẵn sàng bắt đầu chưa?",
+    "readyToStartEn": "Ready to get started?",
+    "readyToStartDesc": "Hoàn thành chẩn đoán AI trước, hoặc đặt lịch tư vấn chuyên gia miễn phí 30 phút ngay.",
+    "readyToStartDescEn": "Complete the AI diagnosis first, or book a free 30-min expert consultation directly."
+  },
+  "hero3": {
+    "topTag": "Để thương hiệu Bencao, vững vàng tiến ra thế giới",
+    "titleLine1": "Để thương hiệu Bencao",
+    "titleAccent": "vững vàng",
+    "titleLine2": "tiến ra thế giới",
+    "bencaoNote": "Hai chữ 'Bencao' đã xuất khẩu hai nghìn năm — gốc chung của thuốc YHCT, thực phẩm chức năng và mỹ phẩm Hanfang.",
+    "subtitleLead": "Thuật toán chỉ đường, dữ liệu làm nền, chuyên gia thật đồng hành ra quốc tế",
+    "subtitleDetail": "Quét hết khung quy định 35 nước + 10.000+ ứng viên, tư vấn viên chuyên nghiệp cùng bạn phân tích quyết định, chạy tuân thủ, ngồi vào bàn đàm phán đầu tiên — để việc ra quốc tế này, thật vững vàng.",
+    "alpacaName": "Little Tuo (小驼)",
+    "ctaPrimary": "Để Little Tuo cùng tôi bước đầu tiên vững vàng",
+    "ctaMethod": "Xem phương pháp của chúng tôi",
+    "ctaSubscribe": "Đăng ký 'Bản tin quyết định ra quốc tế' hàng tuần",
+    "liveBadge": "Đang đồng hành",
+    "alpacaFooter": "Để thương hiệu Bencao vững vàng tiến ra thế giới",
+    "alpacaSubline": "24h trực tuyến · Thuật toán + Dữ liệu + Chuyên gia thật đồng hành",
+    "trustItems": [
+      "Cơ sở dữ liệu 35 nước · Không chọn đích đến theo cảm tính",
+      "7 ngày đưa ra 3 quyết định đủ tự tin để ký",
+      "Thuật toán + Dữ liệu + Tư vấn chuyên nghiệp Ba lớp bảo đảm",
+      "Sau khi ký hợp đồng tiếp tục đồng hành ổn định 14 tháng"
+    ],
+    "nodes": {
+      "judge": {
+        "label": "Nhìn rõ rồi đi",
+        "desc": "Little Tuo quét hướng đi vững vàng cho bạn"
+      },
+      "ally": {
+        "label": "Tìm đúng đồng đội",
+        "desc": "Dữ liệu chọn lộ trình vững vàng cho bạn"
+      },
+      "negotiate": {
+        "label": "Ngồi vào bàn",
+        "desc": "Tư vấn viên đồng hành bạn vững vàng đến khi ký"
+      },
+      "ship": {
+        "label": "Vững vàng đến khi xuất hàng",
+        "desc": "Tiếp tục đồng hành ổn định 14 tháng"
+      }
+    }
+  },
+  "about2": {
+    "taglinePill": "Để thương hiệu Bencao · Vững vàng tiến ra thế giới",
+    "dataPill": "Cơ sở dữ liệu 35 nước · Để mỗi quyết định đều có căn cứ",
+    "dataParagraph": "Ra quốc tế đắt nhất không phải tiền, mà là sai một bước. Chúng tôi không muốn bạn đoán mò — Chúng tôi đã biến khung quy định 35 nước, hàng nghìn ứng viên, gần trăm case thực tế thành cơ sở dữ liệu bạn có thể chạm vào; rồi để thuật toán chỉ đường, dữ liệu làm nền, chuyên gia thật đồng hành — để mỗi bước của bạn đều vững vàng.",
+    "whyStableTitle": "Tại sao là 'vững vàng', không phải 'nhanh'",
+    "whyStableP1": "Ra quốc tế không phải chạy đua, mà là đi vững từng bước. Sai một bước, 12 tháng sau phải bù đắp — chi phí này, chúng tôi thấy quá nhiều lần.",
+    "whyStableP2": "Tôi từng thấy một lương y già, một mình bay sang Nhật khảo sát thị trường, về nhà 6 tháng không nhúc nhích. Không phải không muốn động — là không biết bước tiếp theo nên hỏi ai, sợ sai thêm một bước.",
+    "whyStableP3": "Điều chúng tôi làm, là biến câu hỏi 'nên hỏi ai' thành một người bạn có thể tìm được, 24h trực tuyến — Little Tuo quét dữ liệu, tư vấn viên chuyên nghiệp cùng bạn quyết định, bạn chỉ lo việc quan trọng nhất trên con đường ra quốc tế.",
+    "whyStableP4": "Khác biệt không nằm ở nguồn lực, mà ở việc mỗi bước có ai đó giữ cho bạn vững.",
+    "whyStableP5": "Đó là lý do chúng tôi làm Qihuang Sihai — để khi bạn ra quốc tế, sau lưng có người, bên cạnh có Tuo, con đường dưới chân vững vàng.",
+    "founderRole": "Người chủ trì",
+    "founderQuote": "Chúng tôi làm điều này, không phải để ngành có thêm một lựa chọn, mà để mỗi thương hiệu Bencao muốn ra quốc tế đều có thể vững vàng tiến ra thế giới.",
+    "founderName": "Zhang Xiaoqiang",
+    "founderTitle": "Qihuang Sihai · Người chủ trì",
+    "teammateRole": "Đồng đội đồng hành",
+    "teammoteQuote": "Tôi là Little Tuo, đồng nghiệp của Zhang Xiaoqiang. 24h trực tuyến, quét hướng, kiểm tra quy định, xem dữ liệu — đồng đội không ngủ, đồng hành bạn vững từng bước.",
+    "teammateName": "Little Tuo (小驼)",
+    "teammateTitle": "Đồng đội AI đồng hành",
+    "whoBadge": "Chúng tôi là ai",
+    "whoTitle1": "Không chỉ là tư vấn,",
+    "whoTitle2": "mà là đôi chân để bạn vững vàng ra quốc tế",
+    "whoQuote": "Ra quốc tế không phải khẩu hiệu, là một hành trình bạn phải đi vững từng bước.",
+    "whoDesc": "Qihuang Sihai tập trung vào tăng trưởng toàn cầu của YHCT, thực phẩm chức năng, thương hiệu Hanfang. Để thuật toán chỉ đường, dữ liệu làm nền, tư vấn viên chuyên nghiệp cùng bạn quyết định — từ 'có nên đi' đến 'ký rồi, xuất hàng rồi, ổn định rồi'. Bạn không một mình ra quốc tế, chúng tôi khiến điều đó xảy ra thật vững vàng.",
+    "promiseTitle": "Cam kết của chúng tôi với bạn",
+    "values": [
+      {
+        "title": "Cùng bạn nhìn rõ hướng đi",
+        "desc": "Không thúc bạn khởi động dự án, cũng không thúc bạn từ bỏ — cơ sở dữ liệu 35 nước trước tiên giúp bạn thấy rõ chi phí từng bước"
+      },
+      {
+        "title": "Cùng bạn đến khi ký được",
+        "desc": "Từ cuộc gặp đầu tiên đến MOU, chúng tôi ở bên cạnh — không phải gửi xong báo cáo rồi đi"
+      },
+      {
+        "title": "Thuật toán + Dữ liệu + Tư vấn viên",
+        "desc": "Little Tuo quét hướng, dữ liệu làm nền, tư vấn viên chuyên nghiệp quyết định — chúng tôi đồng hành bạn, không phải AI"
+      },
+      {
+        "title": "Sau khi ký vẫn đồng hành",
+        "desc": "Đêm có vấn đề, cuộc gọi đầu tiên là cho chúng tôi — không phải robot"
+      }
+    ],
+    "whyUsTitle": "Tại sao khi ra quốc tế, chọn chúng tôi đồng hành vững vàng",
+    "whyUsLead": "Không phải vì chúng tôi nổi tiếng. Mà vì chúng tôi thực sự đã cùng bạn đi qua — đi qua sự do dự khi khởi động, sự im lặng trong đàm phán, đêm khuya gặp vấn đề. Mỗi bước, đều cùng bạn đi vững vàng.",
+    "whyUsCards": [
+      {
+        "title": "Không phải tư vấn, mà là đồng đội",
+        "desc": "Dự án của bạn chúng tôi cùng gánh — có vấn đề cùng nhau vượt, ký được cùng nhau vui, mỗi bước đều đi vững vàng.",
+        "highlight": "Đồng hành thật, không giả vờ"
+      },
+      {
+        "title": "Không phải công cụ, mà là điểm tựa vững vàng",
+        "desc": "Thuật toán chỉ đường, dữ liệu làm nền, tư vấn viên chuyên nghiệp quyết định — trên con đường ra quốc tế, bạn cần mỗi bước đều đặt vững.",
+        "highlight": "Thuật toán + Dữ liệu + Tư vấn viên, đều có"
+      },
+      {
+        "title": "Không phải ký xong rồi đi",
+        "desc": "Ra quốc tế mới là bắt đầu, 14 tháng sau chúng tôi cùng bạn theo dõi hàng hóa. Chính sách thay đổi giữa chừng, chúng tôi nhìn thấy trước bạn, ổn định trước.",
+        "highlight": "Ký xong, vẫn tiếp tục đồng hành"
+      }
+    ],
+    "ctaAsk": "Muốn Little Tuo cùng bạn trò chuyện trước?"
+  },
+  "advantages2": {
+    "topTag": "Để thương hiệu Bencao · Vững vàng tiến ra thế giới",
+    "titleLine1": "Thuật toán chỉ đường, dữ liệu làm nền,",
+    "titleAccent": "chuyên gia thật cùng bạn đi vững vàng",
+    "intro": "Không cần danh sách năng lực khổng lồ. Chỉ 4 việc — thuật toán chỉ đường, dữ liệu làm nền, chuyên gia thật cùng bạn đi vững vàng, mỗi bước đều có ai đó đỡ cho bạn.",
+    "refuseTitle": "Những gì chúng tôi từ chối",
+    "refuse": "Chúng tôi KHÔNG nhận phân loại không quen biết · Chúng tôi KHÔNG thúc bạn khởi động dự án · Chúng tôi KHÔNG ký xong rồi đi. Dám nói có là đồng hành, dám nói không cũng là đồng hành.",
+    "ctaAsk": "Muốn Little Tuo cùng bạn bước bước đầu tiên vững vàng?",
+    "items": [
+      {
+        "subtitle": "When you wonder 'should we go?'",
+        "title": "Cùng bạn nhìn rõ hướng đi",
+        "desc": "Bước đầu tiên ra quốc tế thường đắt nhất — sai một lần, 12 tháng sau đều phải bù. Chúng tôi cùng bạn nghĩ — không thúc bạn khởi động, cũng không khuyên bạn từ bỏ, mà để dữ liệu trước giúp bạn thấy rõ.",
+        "features": [
+          "60 phút trò chuyện, Little Tuo + tư vấn viên chuyên nghiệp đều có mặt",
+          "Cơ sở dữ liệu 35 nước, chúng tôi cùng bạn xem nên làm thị trường nào trước",
+          "Ngân sách / đội ngũ / tuân thủ, chúng tôi cùng bạn cân nhắc",
+          "Nếu không nên đi, chúng tôi nói thẳng"
+        ]
+      },
+      {
+        "subtitle": "When you need your first ally",
+        "title": "Cùng bạn chọn đồng đội đầu tiên vững vàng",
+        "desc": "Ra quốc tế khó nhất không phải 'tìm khách hàng', mà là 'tìm đúng người'. Chúng tôi cùng bạn chọn — không đưa một danh sách cho bạn tự liên hệ, mà cùng bạn xem từng ứng viên, xếp hạng ưu tiên, để mỗi bước đều đi vững vàng.",
+        "features": [
+          "Little Tuo quét 10.000+ ứng viên, tư vấn viên cùng bạn lọc 50",
+          "Hồ sơ từng ứng viên, chúng tôi cùng bạn xem",
+          "Email đầu tiên viết thế nào, chúng tôi cùng bạn sửa",
+          "Ai phù hợp liên hệ trước, chúng tôi cùng bạn nghĩ"
+        ]
+      },
+      {
+        "subtitle": "When regulations feel like a maze",
+        "title": "Cùng bạn đi lộ trình tuân thủ vững vàng",
+        "desc": "Thuốc / Thực phẩm / Mỹ phẩm, mỗi thị trường có tiêu chuẩn khác nhau. Chúng tôi cùng bạn đi — không gửi PDF cho bạn tự đọc, mà cùng bạn xem điều khoản, cùng bạn quyết định, cùng bạn tránh bẫy, để lộ trình tuân thủ đi vững vàng.",
+        "features": [
+          "Khung quy định 35 nước, chúng tôi cùng bạn nhập khẩu",
+          "Dạng bào chế / thành phần / nhãn, chúng tôi cùng bạn nghĩ",
+          "Phương án đăng ký, chúng tôi cùng bạn lên timeline",
+          "Chính sách thay đổi, chúng tôi nhìn thấy trước bạn"
+        ]
+      },
+      {
+        "subtitle": "When you need us after signing",
+        "title": "Cùng bạn vững đến khi xuất hàng · Vững 14 tháng",
+        "desc": "Ký hợp đồng không phải kết thúc. Chúng tôi cùng bạn theo dõi — chính sách thay đổi chúng tôi nhìn thấy trước bạn, đơn hàng giảm chúng tôi cùng bạn tìm nguyên nhân, cơ hội mới đến chúng tôi tiếp tục cùng bạn xem. Con đường ra quốc tế này, chúng tôi cùng bạn đi vững vàng.",
+        "features": [
+          "Chính sách thay đổi, chúng tôi nhìn thấy 48 tiếng trước bạn",
+          "Đơn hàng dao động, chúng tôi cùng bạn phân tích nguyên nhân",
+          "Cơ hội mới đến, chúng tôi tiếp tục cùng bạn tìm",
+          "Đêm khuya có vấn đề, có người nghe máy"
+        ]
+      }
+    ]
+  },
+  "services2": {
+    "topTag": "Để thương hiệu Bencao · Vững vàng tiến ra thế giới",
+    "titleLine1": "Thuật toán chỉ đường, dữ liệu làm nền,",
+    "titleAccent": "cùng bạn đi từng bước vững vàng",
+    "intro": "Ra quốc tế không phải một lần tư vấn, mà là một hành trình. Khi mơ hồ, Little Tuo giúp bạn nhìn rõ trước, tư vấn viên chuyên nghiệp cùng bạn trò chuyện, tìm đường thì cùng bạn tìm, đàm phán thì cùng bạn đi, ổn định rồi tiếp tục đồng hành 14 tháng. Để thương hiệu Bencao vững vàng tiến ra thế giới — đó là tiêu chuẩn duy nhất để chúng tôi đồng hành.",
+    "footerNote": "Bước đầu tiên có thể chỉ là 'để Little Tuo cùng tôi trò chuyện 30 phút vững vàng' — không cam kết, không trả phí, chỉ là có người ở sau lưng bạn trước",
+    "steps": [
+      {
+        "step": "I",
+        "titleEn": "When You're Lost",
+        "emotion": "Bạn một mình không nghĩ rõ có nên bước tiếp này không",
+        "title": "Khi mơ hồ, cùng bạn nhìn rõ hướng đi",
+        "description": "Bạn có thể đã nghe nói về Nhật Bản, EU, Đông Nam Á, nhưng không biết nên làm cái nào trước. Chúng tôi cùng bạn nghĩ — không đưa cho bạn một biểu mẫu tự điền, mà trò chuyện cùng nhau 60 phút, trước tiên nhìn rõ hướng đi.",
+        "deliverables": [
+          "60 phút trò chuyện 1-1, trước tiên nhìn rõ hướng đi",
+          "Cơ sở dữ liệu 35 nước, chúng tôi cùng bạn xem nên làm thị trường nào trước",
+          "Ngân sách, đội ngũ, tuân thủ, cùng bạn cân nhắc",
+          "Điểm rủi ro cùng nhau phơi bày, không che giấu"
+        ]
+      },
+      {
+        "step": "II",
+        "titleEn": "When You Need Allies",
+        "emotion": "Bạn muốn tìm đối tác đầu tiên, nhưng không biết ai đáng tin",
+        "title": "Khi tìm đường, cùng bạn chọn đồng đội đầu tiên vững vàng",
+        "description": "Little Tuo quét 10.000+ ứng viên, dữ liệu làm nền, tư vấn viên chuyên nghiệp cùng bạn chọn — không đưa một danh sách cho bạn tự liên hệ, mà cùng bạn xem từng ứng viên, xếp hạng ưu tiên, để mỗi bước đều đi vững vàng.",
+        "deliverables": [
+          "Little Tuo quét 10.000+ ứng viên, dữ liệu làm nền",
+          "Tư vấn viên cùng bạn lọc 50, hồ sơ từng ứng viên chúng tôi cùng bạn xem",
+          "Ai phù hợp liên hệ trước, chúng tôi cùng bạn nghĩ",
+          "Email đầu tiên viết thế nào, chúng tôi cùng bạn sửa"
+        ]
+      },
+      {
+        "step": "III",
+        "titleEn": "When You Negotiate",
+        "emotion": "Bạn lần đầu ngồi vào bàn đàm phán, sợ nói sai",
+        "title": "Khi đàm phán, cùng bạn ngồi vào bàn vững vàng",
+        "description": "Chúng tôi cùng bạn ngồi vào bàn đàm phán — không gửi 'hướng dẫn đàm phán' cho bạn tự học. Im lặng thì gợi ý, đổ bể thì cùng nhau rà soát, ký hợp đồng thì cùng nhau thở phào — để lần đầu ra quốc tế của bạn cũng ngồi vững vàng.",
+        "deliverables": [
+          "Cuộc họp đầu tiên, chúng tôi cùng bạn bay qua",
+          "Điều khoản hợp đồng, chúng tôi cùng bạn đọc từng chữ",
+          "Đàm phán giá, chúng tôi cùng bạn nghĩ về sàn",
+          "Im lặng / đổ bể, chúng tôi cùng bạn cứu trận"
+        ]
+      },
+      {
+        "step": "IV",
+        "titleEn": "Until It Stands",
+        "emotion": "Bạn đã ký hợp đồng, nhưng chính sách thay đổi, đơn hàng giảm",
+        "title": "Sau khi ổn định, cùng bạn đi vững vàng 14 tháng",
+        "description": "Ra quốc tế mới là bắt đầu. Chúng tôi cùng bạn theo dõi — chính sách thay đổi chúng tôi nhìn thấy trước bạn, đơn hàng giảm chúng tôi cùng bạn tìm nguyên nhân, cơ hội mới đến chúng tôi tiếp tục cùng bạn tìm. Con đường ra quốc tế này, chúng tôi cùng bạn đi vững vàng 14 tháng.",
+        "deliverables": [
+          "Chính sách thay đổi, chúng tôi nhìn thấy 48 tiếng trước bạn",
+          "Đơn hàng dao động, chúng tôi cùng bạn phân tích nguyên nhân",
+          "Cơ hội mới đến, chúng tôi tiếp tục cùng bạn tìm",
+          "Đêm khuya có vấn đề, có người nghe máy"
+        ]
+      }
+    ]
+  },
+  "contact2": {
+    "topTag": "Để thương hiệu Bencao · Vững vàng tiến ra thế giới",
+    "title": "Thuật toán chỉ đường, dữ liệu làm nền,<1>chuyên gia thật cùng bạn đứng vững</1>",
+    "lead": "Để thương hiệu Bencao vững vàng tiến ra thế giới — dùng thuật toán nhìn hướng, dữ liệu làm nền, tư vấn viên chuyên nghiệp cùng bạn đi từng bước. Dù bạn đang ở giai đoạn nào trên con đường ra quốc tế, chúng tôi đều sẵn sàng đồng hành.",
+    "teamLabel": "Đội ngũ tư vấn",
+    "teamSub": "Tư vấn viên cao cấp đồng hành toàn bộ hành trình ra quốc tế của bạn",
+    "promise1": "Thuật toán độc quyền ghép nối chính xác",
+    "promise2": "Phản hồi trong 24 giờ",
+    "promise3": "Hỗ trợ khung quy định 35 nước",
+    "formTitle": "Để lại thông tin của bạn",
+    "formLead": "Chúng tôi sẽ sớm liên hệ bạn, tìm hiểu nhu cầu và đưa ra gợi ý ban đầu.",
+    "labelName": "Họ tên",
+    "labelCompany": "Công ty / Thương hiệu",
+    "labelEmail": "Email",
+    "labelPhone": "Điện thoại",
+    "labelStage": "Giai đoạn ra quốc tế",
+    "labelMarkets": "Thị trường mục tiêu",
+    "labelChallenge": "Nhu cầu hoặc câu hỏi của bạn",
+    "labelTimeline": "Timeline",
+    "labelNotes": "Ghi chú bổ sung",
+    "stageOptions": [
+      {
+        "value": "idea",
+        "label": "Ý tưởng ban đầu"
+      },
+      {
+        "value": "pilot",
+        "label": "Thử nghiệm quy mô nhỏ"
+      },
+      {
+        "value": "launch",
+        "label": "Chính thức gia nhập"
+      },
+      {
+        "value": "scale",
+        "label": "Mở rộng quy mô"
+      }
+    ],
+    "submit": "Gửi yêu cầu tư vấn",
+    "submitting": "Đang gửi...",
+    "successTitle": "Gửi thành công!",
+    "successDesc": "Cảm ơn yêu cầu tư vấn của bạn. Đội ngũ tư vấn của chúng tôi sẽ liên hệ trong 24 giờ — vui lòng kiểm tra hộp thư.",
+    "backgroundCaption": "YHCT ra quốc tế · Dịch vụ một cửa"
+  },
+  "footer2_text": {
+    "taglinePill": "Để thương hiệu Bencao · Vững vàng tiến ra thế giới",
+    "bigQuote": "Dù thế giới có lớn đến đâu,",
+    "bigQuoteAccent": "chúng tôi cùng bạn, vững vàng tiến ra thế giới.",
+    "longDesc": "Khi mơ hồ, Little Tuo giúp bạn nhìn rõ trước, tìm đường thì cùng bạn chọn đồng đội vững vàng, đàm phán thì cùng bạn ngồi vào bàn, ổn định rồi tiếp tục đồng hành 14 tháng. Thuật toán chỉ đường, dữ liệu làm nền, chuyên gia thật cùng bạn ra quốc tế — bạn không một mình ra quốc tế, Little Tuo 24h trực tuyến, tư vấn viên chuyên nghiệp ở sau lưng bạn.",
+    "tags": [
+      "Dược phẩm YHCT",
+      "Thực phẩm chức năng",
+      "Mỹ phẩm Hanfang",
+      "Sản phẩm chức năng",
+      "Thiết bị y tế"
+    ],
+    "ctaAsk": "Trước tiên để Little Tuo cùng bạn trò chuyện",
+    "ctaPrimary": "Trước tiên để Little Tuo cùng bạn trò chuyện 30 phút vững vàng, không cam kết, không trả phí, chỉ là có người ở sau lưng bạn.",
+    "ctaSecondary": "Sau khi trò chuyện nếu bạn muốn gặp tư vấn viên chuyên nghiệp, chúng tôi sẽ sắp xếp thêm 30 phút trò chuyện cùng nhau.",
+    "btnConsult": "Để tư vấn viên chuyên nghiệp cùng tôi trò chuyện",
+    "btnDiagnose": "Trước tiên để Little Tuo cùng tôi 30 phút",
+    "groups": [
+      {
+        "title": "Đồng hành cùng bạn",
+        "links": [
+          {
+            "name": "Chúng tôi đồng hành cùng bạn thế nào",
+            "to": "/method"
+          },
+          {
+            "name": "35 nước chúng tôi cùng bạn đến",
+            "to": "/markets"
+          },
+          {
+            "name": "Hồ sơ đồng hành",
+            "to": "/research"
+          },
+          {
+            "name": "Quản trị hệ thống",
+            "to": "/admin/login",
+            "isAdmin": true
+          }
+        ]
+      },
+      {
+        "title": "4 việc chúng tôi đồng hành cùng bạn",
+        "links": [
+          {
+            "name": "Cùng bạn quyết định có nên đi không",
+            "to": "/method"
+          },
+          {
+            "name": "Cùng bạn tìm đồng đội đầu tiên",
+            "to": "/method"
+          },
+          {
+            "name": "Cùng bạn thông quan lộ trình tuân thủ",
+            "to": "/method"
+          },
+          {
+            "name": "Cùng bạn ký hợp đồng + tiếp tục đồng hành",
+            "to": "/method"
+          }
+        ]
+      },
+      {
+        "title": "Điểm đến ưu tiên",
+        "links": [
+          {
+            "name": "Nhật Bản / Hàn Quốc",
+            "to": "/markets"
+          },
+          {
+            "name": "EU / Anh",
+            "to": "/markets"
+          },
+          {
+            "name": "Đông Nam Á",
+            "to": "/markets"
+          },
+          {
+            "name": "Trung Đông",
+            "to": "/markets"
+          }
+        ]
+      },
+      {
+        "title": "Giai đoạn đồng hành",
+        "links": [
+          {
+            "name": "Khi mơ hồ, cùng bạn nghĩ",
+            "to": "/method"
+          },
+          {
+            "name": "Khi tìm đường, cùng bạn tìm",
+            "to": "/method"
+          },
+          {
+            "name": "Little Tuo trò chuyện 30 phút trước",
+            "to": "/diagnose"
+          },
+          {
+            "name": "Gặp tư vấn viên chuyên nghiệp",
+            "to": "/expert"
+          }
+        ]
+      }
+    ],
+    "brandName": "Qihuang Sihai (岐黄四海)",
+    "brandTagline": "Để thương hiệu Bencao · Vững vàng tiến ra thế giới",
+    "brandLongDesc": "Tập trung vào tăng trưởng toàn cầu của YHCT và thương hiệu Hanfang. Để thương hiệu Bencao vững vàng tiến ra thế giới. Thuật toán chỉ đường, dữ liệu làm nền, chuyên gia thật cùng bạn ra quốc tế — bạn không một mình ra quốc tế, chúng tôi ở sau lưng bạn.",
+    "brandMeta1": "Định vị: Đối tác đồng hành ra quốc tế của YHCT",
+    "brandMeta2": "Ưu tiên đồng hành: Nhật Bản, EU, Đông Nam Á, Trung Đông, Úc, Bắc Mỹ",
+    "affiliatedTitle": "Cùng một đội ngũ",
+    "copyright": "© 2026 Qihuang Sihai.",
+    "subtitle": "YHCT ra quốc tế · Đối tác đồng hành thuật toán + dữ liệu + tư vấn chuyên nghiệp"
+  },
+  "reviews2": {
+    "tagline": "Hỏi đáp người dùng toàn cầu · Tư vấn viên AI trả lời chuyên nghiệp",
+    "title": "Trao đổi với người dùng Qihuang Sihai",
+    "subtitle": "Chia sẻ kinh nghiệm ra quốc tế của bạn với YHCT, hoặc đặt câu hỏi cụ thể về tuân thủ, thị trường, logistics hoặc thuế. Sau khi đăng, tư vấn viên AI sẽ tự động trả lời chuyên nghiệp",
+    "namePlaceholder": "Biệt danh của bạn (tùy chọn)",
+    "contentPlaceholder": "Chia sẻ kinh nghiệm ra quốc tế của bạn với YHCT, hoặc đặt câu hỏi cụ thể... Tư vấn viên AI sẽ tự động trả lời sau khi đăng",
+    "policy": "Giao tiếp thân thiện, nghiêm cấm tấn công cá nhân · Tin nhắn hiển thị công khai",
+    "submitting": "Đang đăng...",
+    "submit": "Đăng tin nhắn",
+    "total": "Tất cả tin nhắn",
+    "totalUnit": "tin",
+    "fromWorld": "Từ {{count}} quốc gia và vùng lãnh thổ trên thế giới",
+    "latest": "Mới nhất",
+    "popular": "Phổ biến nhất",
+    "loading": "Đang tải...",
+    "emptyEmoji": "💬",
+    "empty": "Chưa có tin nhắn, trở thành người đầu tiên chia sẻ",
+    "agentConsultant": "Tư vấn kinh doanh",
+    "agentLegal": "Tư vấn pháp lý",
+    "agentFinance": "Tư vấn tài chính",
+    "agentLogistics": "Tư vấn hậu cần",
+    "replyCount": "{{count}} trả lời",
+    "like": "Thích"
+  },
+  "research": {
+    "hubTitle": "Dữ liệu Nói · Thư viện Nghiên cứu",
+    "hubSubtitle": "Phương pháp luận và năng lực phán đoán của chúng tôi, được trình bày dưới dạng nghiên cứu có thể thực thi. Mỗi báo cáo được xây dựng từ dữ liệu tay một và nêu rõ quy mô mẫu, phương pháp cùng giới hạn.",
+    "latest": "Thông tin Chiến lược Mới nhất",
+    "hint": "Nhấp vào thẻ để đọc báo cáo đầy đủ trực tuyến",
+    "min": "phút đọc",
+    "chapters": "Chương",
+    "readNow": "Đọc Trực tuyến",
+    "ctaTitle": "Cần nghiên cứu tùy chỉnh?",
+    "ctaDesc": "Nếu bạn cần nghiên cứu về một thị trường, danh mục hoặc quy định cụ thể, bạn có thể yêu cầu đánh giá chuyên gia và nhận báo cáo được điều chỉnh theo dự án của bạn.",
+    "ctaBtn": "Yêu cầu Đánh giá Chuyên gia",
+    "methodologyNote": "Phương pháp luận: mỗi báo cáo nêu rõ quy mô mẫu, phương pháp và giới hạn thu thập trong chương mở đầu \"Nguồn Dữ liệu & Phương pháp luận\". Chỉ những kết quả đã vượt qua đánh giá nội bộ mới được hiển thị.",
+    "notFoundTitle": "Không tìm thấy báo cáo",
+    "notFoundDesc": "Báo cáo nghiên cứu này có thể chưa được công bố, hoặc liên kết đã hết hạn.",
+    "backToHub": "Quay lại Thư viện",
+    "researchAll": "Thư viện",
+    "liveDoc": "Đang đọc trực tuyến",
+    "openInNewTab": "Mở trong tab mới",
+    "saveHtml": "Lưu HTML",
+    "refresh": "Làm mới",
+    "confidentialNote": "Chỉ dành cho đánh giá chuyên môn",
+    "loadError": "Không thể tải báo cáo. Vui lòng thử lại sau.",
+    "loadErrorDesc": "Đây có thể là sự cố mạng tạm thời. Hãy thử làm mới ở góc trên bên phải, hoặc mở báo cáo gốc trong tab mới.",
+    "retry": "Tải lại",
+    "loading": "Đang tải báo cáo nghiên cứu…",
+    "backTop": "Lên đầu trang"
+  },
+  "countryAssessment": {
+    "pageTitle": "Đánh giá Quốc gia Mục tiêu Xuất khẩu · Qihuang Sihai",
+    "kicker": "Công cụ Quyết định Xuất khẩu",
+    "stepNav": "Các Bước Đánh giá",
+    "stepNumber": "Bước {{count}}",
+    "footerResult": "Kết quả trên được tính toán bởi công cụ quy tắc cục bộ; sau khi gửi, cấu hình sẽ được gửi đến backend để theo dõi.",
+    "needIndustry": "Ngành",
+    "needStage": "Giai đoạn Xuất khẩu",
+    "needBudget": "Tổng Ngân sách",
+    "needRisk": "Mức chấp nhận Rủi ro",
+    "needProduct": "Mô tả sản phẩm (≥ 10 ký tự)",
+    "needFields": "Vui lòng điền: {{fields}}",
+    "needCountry": "Vui lòng chọn ít nhất 1 quốc gia ứng viên",
+    "weightSumHint": "Tổng trọng số phải bằng 100%",
+    "countriesTitle": "Chọn Quốc gia Ứng viên và Giả định Thâm nhập",
+    "countriesSubtitle": "Chọn ít nhất 1 quốc gia, tối đa 5. Mỗi quốc gia có chế độ thâm nhập riêng; bước tiếp theo sẽ yêu cầu bạn chấm điểm từng chiều và đặt trạng thái rào cản bắt buộc.",
+    "entryModeTitle": "Chọn chế độ thâm nhập cho mỗi quốc gia ứng viên",
+    "selectPlease": "Vui lòng chọn",
+    "entryMode": "Chế độ Thâm nhập",
+    "entryModeHint": "Gợi ý phù hợp sẽ xuất hiện sau khi bạn chọn chế độ thâm nhập",
+    "notesPh": "Giả định thị trường / khách hàng tiềm năng / tiến độ tiếp cận (tùy chọn)",
+    "tooMany": "Quá nhiều quốc gia ứng viên sẽ làm giảm sự phân biệt. Chúng tôi đề xuất tập trung vào 3–5 quốc gia có cơ hội tốt nhất.",
+    "evidenceNoCountries": "Vui lòng chọn ít nhất 1 quốc gia ứng viên trước khi nhập điểm và rào cản bắt buộc.",
+    "evidenceTitle": "Nhập điểm, bằng chứng và rào cản bắt buộc cho mỗi quốc gia",
+    "evidenceSubtitle": "Điểm trả lời \"thị trường này có thể thành công không\"; cấp độ bằng chứng trả lời \"chúng ta có bao nhiêu bằng chứng cho điểm số\"; trạng thái rào cản bắt buộc trả lời \"chúng ta có phải quyết định ngay về việc có tiến triển không\".",
+    "gateTriggeredCount": "{{count}} rào cản bắt buộc đã được kích hoạt",
+    "gatePendingCount": "{{count}} rào cản bắt buộc đang chờ xác minh",
+    "gateStatusTitle": "Trạng thái Rào cản Bắt buộc",
+    "noRequiredGate": "Mẫu hiện tại không có rào cản bắt buộc bắt buộc; chúng tôi đề xuất ít nhất xác nhận thủ công hai mục là trừng phạt và giấy phép.",
+    "evidenceNote": "Cấp độ bằng chứng càng thấp, điểm số càng tự động thu hẹp về giá trị trung lập",
+    "modelTitle": "Trọng số và Rào cản Bắt buộc Tùy chỉnh",
+    "modelSubtitle": "Bắt đầu từ mẫu mô hình kinh doanh, sau đó tinh chỉnh trọng số cho năng lực cụ thể của doanh nghiệp (tổng phải bằng 100%).",
+    "profileTemplate": "Mẫu Mô hình Kinh doanh",
+    "dimensionWeights": "Trọng số Chiều",
+    "weightSum": "Tổng {{sum}} / 100",
+    "hardGates": "Rào cản Bắt buộc (kích hoạt bất kỳ một cái nào sẽ dừng đánh giá)",
+    "hardGatesHint": "\"Phải xác nhận\" yêu cầu người dùng đánh dấu trạng thái cho quốc gia này ở bước tiếp theo; \"Bỏ qua tạm thời\" tạm thời loại bỏ mục đó khỏi tập hợp rào cản bắt buộc.",
+    "owner": "Vai trò Chịu trách nhiệm",
+    "gateRequired": "Phải Xác nhận",
+    "gateOptional": "Nhắc nhở Nhẹ",
+    "gateIgnored": "Bỏ qua",
+    "gatePass": "Đạt",
+    "gatePending": "Chờ Xác minh",
+    "gateTriggered": "Đã kích hoạt",
+    "profileTitle": "Hồ sơ Doanh nghiệp và Sản phẩm",
+    "profileSubtitle": "Trước tiên hãy làm rõ đề xuất xuất khẩu: hoạt động kinh doanh, sản phẩm, khung thời gian và rủi ro bạn có thể chấp nhận. Các câu trả lời ở đây làm neo cho mọi điểm số và khuyến nghị tiếp theo.",
+    "fieldCompany": "Tên doanh nghiệp (tùy chọn)",
+    "fieldCompanyPh": "ví dụ. Zhang Xiaoqiang Bencao Group",
+    "fieldIndustry": "Ngành / Mô hình Kinh doanh",
+    "fieldProduct": "Mô tả sản phẩm (tối đa 200 ký tự)",
+    "fieldProductHint": "Bao gồm khách hàng mục tiêu, điểm bán hàng chính, giá trị đơn hàng trung bình và chứng nhận; điều này ảnh hưởng đến điểm quốc gia bên dưới.",
+    "fieldProductPh": "ví dụ. Thực phẩm chức năng dựa trên công thức Y học Cổ truyền cổ điển, tập trung vào hỗ trợ gan và miễn dịch, hướng đến khách hàng giá trị cao 30–55 tuổi, giá trị đơn hàng trung bình 600 RMB, đã chứng nhận GMP và ISO22000.",
+    "fieldStage": "Giai đoạn Xuất khẩu Hiện tại",
+    "fieldBudget": "Tổng Ngân sách",
+    "fieldRisk": "Mức chấp nhận Rủi ro",
+    "fieldWindow": "Khung Thời gian (nhập tự do)",
+    "fieldWindowHint": "Mô tả khung thời gian bạn muốn thâm nhập các quốc gia ứng viên, ví dụ \"18 tháng tới\" hoặc \"H1 2026\".",
+    "fieldWindowPh": "18 tháng / T3 2026 / theo giai đoạn theo thị trường",
+    "readinessTitle": "Tự Đánh giá Mức Sẵn sàng Của Doanh nghiệp",
+    "readinessHint": "Chấm điểm 1–5 cho 6 chiều sẵn sàng. Điều này đo \"chúng ta có thể thực hiện tốt không\", được tách biệt khỏi điểm cơ hội quốc gia (thị trường có thể thành công không).",
+    "submitNeedConsent": "Vui lòng đồng ý với các điều khoản trước",
+    "submitNeedName": "Vui lòng nhập tên / doanh nghiệp của bạn",
+    "submitOk": "Đã gửi. Chúng tôi sẽ liên hệ bạn sớm.",
+    "resultNoCountries": "Vui lòng quay lại và chọn ít nhất 1 quốc gia ứng viên trước khi tạo kết quả.",
+    "resultKicker": "Số liệu Quyết định",
+    "resultTitle": "Kết quả Đánh giá Quốc gia và Hành động Tiếp theo",
+    "resultSubtitle": "Con số phản ánh \"thị trường này có thể thành công không\" × độ tin cậy của bằng chứng; kết luận phản ánh \"chúng ta có thể làm điều này bây giờ không\". Bất kỳ rào cản bắt buộc nào được kích hoạt sẽ ngay lập tức ghi đè sàn và được đánh dấu đỏ, và không thể được bù đắp bằng điểm số.",
+    "restart": "Điều chỉnh Đánh giá",
+    "crossTitle": "Các Mục Cần được Ban Lãnh đạo Ưu tiên Xử lý",
+    "rankTitle": "Quốc gia Ứng viên Được Xếp hạng theo Điểm Đã Điều chỉnh",
+    "checklistTitle": "Danh sách Kiểm tra Được Sắp xếp theo Ưu tiên Thu thập Dữ liệu",
+    "aiTitle": "Tóm tắt Chiến lược AI (tùy chọn)",
+    "aiHint": "Tạo lời giải thích bằng tiếng Trung, thứ tự xác minh 90–180 ngày và luận điểm ngược từ kết quả có cấu trúc; khi AI không khả dụng, chỉ hiển thị kết quả từ công cụ quy tắc.",
+    "submitTitle": "Kết nối Đánh giá này với Nhóm của Bạn",
+    "submitHint": "Thông tin bên dưới được ghi vào hồ sơ khách hàng hiện có để nhân viên có thể theo dõi ngay; nếu bỏ trống sẽ không được lưu.",
+    "contactName": "Tên",
+    "contactNamePh": "Tên của bạn",
+    "contactPhone": "Điện thoại",
+    "contactPhonePh": "Tùy chọn",
+    "contactEmail": "Email",
+    "contactEmailPh": "Tùy chọn, dùng để gửi báo cáo đánh giá",
+    "contactNote": "Ghi chú Bổ sung",
+    "contactNotePh": "Chúng tôi quan tâm nhất đến việc kết nối 2 quốc gia, với khung thời gian dự kiến là 18 tháng",
+    "consent": "Tôi đồng ý gửi kết quả đánh giá trên và nội dung biểu mẫu cho nhóm tư vấn Zhang Xiaoqiang để tiến hành đánh giá; nội dung giải thích AI sẽ không được chia sẻ với bên thứ ba.",
+    "submitting": "Đang gửi…",
+    "submit": "Gửi và Liên hệ Chúng tôi",
+    "cardProfile": "Mẫu Đánh giá",
+    "cardProfileHint": "Trọng số được hiệu chỉnh theo mô hình kinh doanh",
+    "cardReadiness": "Mức Sẵn sàng Của Doanh nghiệp",
+    "cardReadinessHint": "Trên 100",
+    "cardWeightSum": "Tổng Trọng số",
+    "cardWeightOk": "Tổng bằng 100%",
+    "cardWeightBad": "Cần chuẩn hóa hoặc đóng băng phân bổ hiện tại",
+    "cardCountries": "Số Quốc gia Ứng viên",
+    "cardCountriesHint": "Rào cản bắt buộc đã kích hoạt đặt sàn nhưng không bị xóa",
+    "entryModeLabel": "Chế độ Thâm nhập",
+    "metricRaw": "Điểm Cơ hội Thô / 100",
+    "metricAdjusted": "Điểm Đã Điều chỉnh theo Độ tin cậy / 100",
+    "metricReadiness": "Mức Sẵn sàng Doanh nghiệp / 100",
+    "metricConfidence": "Cấp độ Bằng chứng",
+    "topStrengths": "Điểm Mạnh Chính",
+    "noStrength": "Không có điểm mạnh rõ ràng được xác định",
+    "topGaps": "Khoảng trống Chính",
+    "noGap": "Không có khoảng trống rõ ràng được xác định",
+    "advice": "Khuyến nghị Quyết định",
+    "triggeredTitle": "Rào cản Bắt buộc Đã kích hoạt",
+    "pendingTitle": "Rào cản Bắt buộc Đang chờ Xác minh",
+    "weightBreakdown": "Xem chi tiết trọng số và điểm của quốc gia này",
+    "weightShare": "Trọng số {{w}}%",
+    "checklistAction": "Hành động Xác minh Tối thiểu",
+    "checklistSource": "Nguồn",
+    "checklistOwner": "Người chịu trách nhiệm",
+    "disclosureTitle": "Xem Đầu vào và Tiêu chí Đánh giá Đầy đủ",
+    "disclosureProduct": "Tóm tắt Sản phẩm",
+    "disclosureWeights": "Chi tiết Trọng số",
+    "disclosureReadiness": "Mức Sẵn sàng Doanh nghiệp",
+    "aiFallback": "AI không khả dụng; đã quay lại kết luận từ công cụ quy tắc.",
+    "aiStart": "Đang chuẩn bị tóm tắt giải thích…",
+    "startRealAssessment": "Bắt đầu nhập dữ liệu thực của tôi →"
   }
 }

@@ -124,12 +124,12 @@ const SEO_BY_LANGUAGE: Record<string, SeoEntry> = {
     ogLocale: 'it_IT',
     siteName: '岐黄四海 QihuangSihai',
   },
-  lo: {
-    lang: 'lo',
-    title: '岐黄四海 | Long Bun Took AI Pasoo Thom Kab Nge Optc Global',
+  th: {
+    lang: 'th',
+    title: '岐黄四海 | ระบบตัดสินใจ AI สำหรับการขยายตลาดสู่โลก',
     description:
-      '岐黄四海 neay tor tae ree sot kar ai jang xeek pp Tee ch输出 TCM, aa jing puu tee lae Hanfang skincare. Juu tee aaya waang jaak radab yang chai kee long tueng pai sie lek Global.',
-    ogLocale: 'lo_LA',
+      '岐黄四海 คือระบบตัดสินใจด้วย AI สำหรับผลิตภัณฑ์ยาจีนตำรับ ตัวแทนจำหน่าย และเครื่องสำอางสูตรชาวจีน ประเมินลำดับความสำคัญของตลาด กฎเกณฑ์ ผลตอบแทนการลงทุน ความเหมาะสมของช่องทาง และความเสี่ยงของโครงการ ก่อนเริ่มขยายตลาดระหว่างประเทศ',
+    ogLocale: 'th_TH',
     siteName: '岐黄四海 QihuangSihai',
   },
 };

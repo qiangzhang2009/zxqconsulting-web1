@@ -8,7 +8,7 @@ import HttpBackend from 'i18next-http-backend';
 import zh from './locales/zh.json';
 import en from './locales/en.json';
 
-const supportedLanguages = ['zh', 'en', 'ja', 'es', 'ar', 'fr', 'it', 'id', 'ms', 'pt', 'ru', 'de', 'lo', 'ko', 'vi', 'th'];
+const supportedLanguages = ['zh', 'en', 'ja', 'es', 'ar', 'fr', 'it', 'id', 'ms', 'pt', 'ru', 'de', 'ko', 'vi', 'th'];
 
 // 从 localStorage 读取保存的语言，避免 hydration 不匹配
 function getInitialLanguage(): string {
@@ -42,6 +42,8 @@ function getInitialLanguage(): string {
   return 'zh';
 }
 
+console.log('[i18n] init start, lng=', getInitialLanguage());
+
 i18n
   .use(HttpBackend)
   .use(LanguageDetector)
@@ -68,10 +70,47 @@ i18n
       // 按需加载语言资源：/locales/xx.json 通过 Vite public/ 目录提供
       loadPath: '/locales/{{lng}}.json',
     },
-    // 加载其他语言时由 React Suspense 等待
+    // 关键: resources 只声明了 zh+en, 告诉 i18next 这是"部分 bundled" 资源,
+    // 这样 lng=ja 时仍会触发 backend 加载 ja.json (而非误以为已经完整)
+    partialBundledLanguages: true,
+    // 加载其他语言时由 React 渲染层处理 (useSuspense=false 避免和 React 18 顶层 Suspense 冲突)
     react: {
-      useSuspense: true,
+      useSuspense: false,
     },
   });
+
+// 同步刷新 index.html 里首屏 loading 文案 —— 它在 React 挂载前就显示,
+// 不能走 t(), 否则非中文用户会一直看到中文 slogan。
+const LOADER_TEXTS = {
+  zh: '让本草品牌 · 稳稳走向世界',
+  en: 'Guiding Bencao brands, steadily into the world',
+  ja: '本草ブランドを、確かな世界へ',
+  ko: '본초 브랜드를 세계로 안전히',
+  de: 'Bencao-Marken sicher in die Welt',
+  fr: 'Accompagner les marques Bencao vers le monde',
+  es: 'Marcas Bencao, paso firme hacia el mundo',
+  pt: 'Marcas Bencao, com passo firme para o mundo',
+  it: 'Marchi Bencao, verso il mondo',
+  id: 'Merek Bencao, melangkah pasti ke dunia',
+  ms: 'Jenama Bencao, melangkah mantap ke dunia',
+  vi: 'Đưa thương hiệu Bencao vững bước ra thế giới',
+  ru: 'Бренды Bencao — уверенно в мир',
+  th: 'พาสินค้าเปิยฉ่านสู่โลกอย่างมั่นคง',
+  ar: 'نقود علامات Bencao نحو العالم بثبات',
+};
+
+// 首屏 loading 在 React 挂载前就显示, 无法走 t(); 直接按 i18n.language 上色。
+// 立即调用一次(不要只靠 languageChanged —— 首次事件早于本模块订阅)。
+const paintLoader = () => {
+  const el = document.querySelector('[data-i18n-loader]');
+  if (el) el.textContent = LOADER_TEXTS[i18n.language] ?? LOADER_TEXTS.en;
+};
+i18n.on('languageChanged', paintLoader);
+i18n.on('loaded', paintLoader);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', paintLoader);
+} else {
+  paintLoader();
+}
 
 export default i18n;

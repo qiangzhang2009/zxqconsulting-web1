@@ -23,7 +23,6 @@ const languages = [
   { code: 'id', name: 'Bahasa', flag: '🇮🇩', shortName: 'ID', tier: 3 },
   { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳', shortName: 'VN', tier: 3 },
   { code: 'ms', name: 'Bahasa', flag: '🇲🇾', shortName: 'MY', tier: 3 },
-  { code: 'lo', name: 'Lao', flag: '🇱🇦', shortName: 'LO', tier: 3 },
   { code: 'th', name: 'ไทย', flag: '🇹🇭', shortName: 'TH', tier: 3 },
   { code: 'it', name: 'Italiano', flag: '🇮🇹', shortName: 'IT', tier: 3 },
 ];
@@ -58,7 +57,7 @@ export default function LanguageSwitcher() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-1.5 px-3 py-2 rounded-lg hover:bg-gray-700/50 transition-colors duration-200 border border-gray-600 hover:border-gray-500"
-        aria-label="切换语言"
+        aria-label={t('nav2.selectLang', '切换语言')}
       >
         <span className="text-base">{currentLanguage.flag}</span>
         <span className="text-xs font-bold text-gray-300 min-w-[20px] text-center">
@@ -73,7 +72,7 @@ export default function LanguageSwitcher() {
           {/* 头部 */}
           <div className="px-4 py-3 border-b border-gray-700 bg-gray-800">
             <span className="text-sm font-semibold text-gray-300">
-              {i18n.language === 'zh' ? '切换语言 / Language' : 'Switch Language'}
+              {i18n.language === 'zh' ? t('nav2.selectLang', '切换语言') + ' / Language' : 'Switch Language'}
             </span>
           </div>
           
