@@ -39,10 +39,10 @@ jobs:
           publish_dir: ./dist
 
       - name: Deploy to Cloudflare Pages
-        if: ${{ always() }}
-        continue-on-error: true
+        # 不要用 continue-on-error / always(): 之前 CLOUDFLARE_ACCOUNT_ID 缺失导致
+        # deploy 失败, 却被吞掉, CI 显示 success 而线上仍是旧版本。
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist
+          command: pages deploy dist --branch=main
