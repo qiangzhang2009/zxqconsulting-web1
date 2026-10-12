@@ -151,11 +151,64 @@ async function replaceRelativeScripts(
       // 替换为内联脚本
       const inlineScript = `<script>${content}<\/script>`;
       result = result.slice(0, m.index!) + inlineScript + result.slice(m.index! + m[0].length);
-    } catch {
-      // fetch 失败则跳过（保留原标签，避免破坏页面）
-    }
+} catch {
+    // fetch 失败则跳过（保留原标签，避免破坏页面）
   }
-  return result;
+  }
+  return injectAnchorNavFix(result);
+}
+
+/**
+ * 修复报告在 iframe(srcDoc)中锚点导航失效的问题。
+ *
+ * 背景：报告 HTML 普遍设了 `html{scroll-behavior:smooth}`（49 份报告中 48 份）。
+ * 当报告被注入 <iframe srcDoc> 后，浏览器对 `#anchor` 点击的原生定位在 iframe
+ * 上下文中不会滚动（实测 scrollY 恒为 0），导致左侧目录 / TOC 点击无反应。
+ *
+ * 解决：在报告文档内捕获导航链接点击，仅当目标元素真实存在时接管，
+ * 改为对目标显式 scrollIntoView；目标不存在时放行默认行为，避免破坏
+ * 依赖默认行为的自定义 TOC（如 #top → document.body）。
+ *
+ * sandbox 含 allow-same-origin，故脚本可访问同源文档。
+ */
+function injectAnchorNavFix(html: string): string {
+  const script = `<script>
+(function () {
+  var doc = document;
+  // 用 id 精确查找，避免 CSS 选择器转义问题（hash 可能含特殊字符）
+  function find(hash) {
+    var id = hash.charAt(0) === '#' ? hash.slice(1) : hash;
+    if (!id) return null;
+    var byId = doc.getElementById(id);
+    if (byId) return byId;
+    try { return doc.querySelector(hash); } catch (e) { return null; }
+  }
+  function go(hash) {
+    var el = find(hash);
+    if (!el) return false;
+    var root = doc.documentElement;
+    var prev = root.style.scrollBehavior;
+    // 关闭平滑滚动，保证 scrollIntoView 立即生效
+    root.style.scrollBehavior = 'auto';
+    el.scrollIntoView({ block: 'start' });
+    root.style.scrollBehavior = prev;
+    return true;
+  }
+  doc.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (!href || href.charAt(0) !== '#' || href.length < 2) return;
+    // 目标不存在 → 放行默认行为，兼容自定义 TOC 逻辑
+    if (!find(href)) return;
+    e.preventDefault();
+    go(href);
+  }, true);
+})();
+<\/script>`;
+  return html.includes('</body>')
+    ? html.replace('</body>', `${script}\n</body>`)
+    : `${html}\n${script}`;
 }
 
   // 监听 iframe 内部滚动 → 控制返回顶部按钮
