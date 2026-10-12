@@ -27,6 +27,32 @@ export type ResearchReport = {
 
 export const RESEARCH_REPORTS: ResearchReport[] = [
   {
+    id: 'linqingxuan-overseas-2026',
+    title: '2026 上海林清轩出海变现白皮书',
+    subtitle:
+      '东南亚—日本双核心出海战略 · 集团竞争底座盘点 · SWOT 与径向知识图谱 · 四类进入模式与六情景财务测算 · 三阶段落地路线',
+    date: '2026-10-12',
+    region: '东南亚 · 日本',
+    category: '尽调',
+    readMinutes: 60,
+    chapters: 5,
+    href: '/_reports/linqingxuan-overseas-2026.html',
+    passwordHash: '5fc4d6f285572f8216137146aad2c5471553afc587222f9705ac7121ed8353fd',
+    highlights: [
+      '2025 全年营收 24.5 亿元（同比 +102.5%）· 净利润 3.6 亿元（同比 +92.9%）· 毛利率约 82% 处近年高位',
+      '2024 年以零售额计位列全球高端护肤第 13 位 — 集团国内核心竞争底座与出海现状短板逐项盘点',
+      '双核心市场研判：东南亚三国（泰国/越南/印尼）深度对标 + 日本市场单点突破，横向对比给出优先级',
+      '四类市场进入模式评估 + SKU 与定价策略 + 渠道矩阵（东南亚版/日本版）+ 山茶花东方叙事本地化',
+      '六情景财务测算与三阶段落地路线（0–3 月 / 3–12 月 / 1–3 年）· 四条最高优先级行动建议',
+    ],
+    metrics: [
+      { label: '2025 营收', value: '24.5 亿元' },
+      { label: '2025 净利润', value: '3.6 亿元' },
+      { label: '毛利率', value: '≈82%' },
+      { label: '全球高端护肤榜', value: '第 13 位' },
+    ],
+  },
+  {
     id: 'duanju-overseas-monetization-2026',
     title: '2026 短剧出海变现白皮书',
     subtitle:

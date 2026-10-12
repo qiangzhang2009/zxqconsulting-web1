@@ -1,0 +1,3682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 上海林清轩出海变现白皮书 · 东南亚—日本双核心出海战略</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts-gl@2.0.9/dist/echarts-gl.min.js"></script>
+<style>
+/* ============================================================
+   2026 上海林清轩出海变现白皮书 · 数字白皮书样式系统
+   主色：山茶花红 #c82333  辅助：金 #d4af37  底色：深墨蓝
+   PC 大屏优先 · 面向 B 端客户与投资人演示
+   ============================================================ */
+:root{
+  --camellia:#c82333;
+  --camellia-lt:#e8434f;
+  --camellia-dk:#8f1523;
+  --gold:#d4af37;
+  --gold-lt:#e8c95f;
+  --bg:#0a0c11;
+  --bg2:#0f1219;
+  --panel:#141822;
+  --panel2:#1a1f2c;
+  --panel3:#222839;
+  --text:#e9ecf4;
+  --text2:#b9c1d4;
+  --muted:#7f889e;
+  --line:rgba(255,255,255,.08);
+  --line2:rgba(255,255,255,.14);
+  --ok:#2fbf88;
+  --warn:#e8a33d;
+  --bad:#e0455a;
+  --info:#3d8bd8;
+  --sidebar-w:252px;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",Inter,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  font-size:15px;line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+  min-width:1280px;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(1200px 700px at 78% -8%, rgba(200,35,51,.16), transparent 62%),
+    radial-gradient(900px 600px at 8% 12%, rgba(212,175,55,.08), transparent 60%),
+    radial-gradient(1000px 800px at 50% 110%, rgba(61,139,216,.07), transparent 65%);
+}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:200;
+  background:linear-gradient(90deg,var(--camellia),var(--gold));box-shadow:0 0 12px rgba(200,35,51,.7)}
+
+/* ---------------- 侧边悬浮目录 ---------------- */
+#sidebar{
+  position:fixed;left:0;top:0;bottom:0;width:var(--sidebar-w);z-index:120;
+  background:linear-gradient(180deg,#0c0f16 0%,#0a0c11 100%);
+  border-right:1px solid var(--line);
+  display:flex;flex-direction:column;
+}
+#sidebar .brand{padding:22px 20px 16px;border-bottom:1px solid var(--line);flex:none}
+#sidebar .brand .logo{display:flex;align-items:center;gap:10px}
+#sidebar .brand .seal{
+  width:34px;height:34px;border-radius:9px;flex:none;
+  background:linear-gradient(140deg,var(--camellia),var(--camellia-dk));
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:800;color:#fff;letter-spacing:-1px;
+  box-shadow:0 4px 14px rgba(200,35,51,.42);
+}
+#sidebar .brand .bt{font-size:14.5px;font-weight:700;letter-spacing:.4px;color:#fff;line-height:1.35}
+#sidebar .brand .bs{font-size:11px;color:var(--muted);letter-spacing:2.4px;margin-top:2px}
+#nav{flex:1;overflow-y:auto;padding:14px 10px 30px}
+#nav::-webkit-scrollbar{width:6px}
+#nav::-webkit-scrollbar-thumb{background:#2a3040;border-radius:3px}
+#nav .ngroup{font-size:10.5px;letter-spacing:2.2px;color:#5b6479;padding:14px 10px 7px;font-weight:700}
+#nav a{
+  display:flex;align-items:center;gap:9px;
+  padding:7.5px 11px;margin-bottom:2px;border-radius:8px;
+  color:var(--text2);text-decoration:none;font-size:13px;line-height:1.5;
+  border-left:2px solid transparent;transition:.16s;
+}
+#nav a:hover{background:rgba(255,255,255,.05);color:#fff}
+#nav a.on{background:linear-gradient(90deg,rgba(200,35,51,.22),rgba(200,35,51,.02));
+  color:#fff;border-left-color:var(--camellia);font-weight:600}
+#nav a .num{font-size:10.5px;color:#5b6479;min-width:20px;font-family:"SF Mono",Menlo,monospace}
+#nav a.on .num{color:var(--camellia-lt)}
+#nav a.app .num{color:var(--gold)}
+#nav a.app.on{border-left-color:var(--gold);background:linear-gradient(90deg,rgba(212,175,55,.2),rgba(212,175,55,.02))}
+#nav a.app.on .num{color:var(--gold-lt)}
+#sidefoot{flex:none;padding:12px 16px 14px;border-top:1px solid var(--line);font-size:10.5px;color:#59617a;line-height:1.7}
+
+/* ---------------- 主体容器 ---------------- */
+#main{margin-left:var(--sidebar-w);position:relative;z-index:1}
+section{scroll-margin-top:24px}
+.chapter{max-width:1280px;margin:0 auto;padding:56px 60px 10px}
+.sec-head{margin-bottom:30px;padding-bottom:18px;border-bottom:1px solid var(--line);position:relative}
+.sec-head::after{content:"";position:absolute;left:0;bottom:-1px;width:96px;height:2px;
+  background:linear-gradient(90deg,var(--camellia),var(--gold))}
+.sec-head .eyebrow{font-size:11.5px;letter-spacing:3.6px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:9px}
+.sec-head h2{font-size:30px;font-weight:800;line-height:1.35;letter-spacing:-.3px;color:#fff}
+.sec-head .lede{margin-top:12px;color:var(--text2);font-size:14.5px;max-width:940px;line-height:1.9}
+h3.sub{font-size:20px;font-weight:700;color:#fff;margin:40px 0 14px;padding-left:13px;border-left:3px solid var(--camellia);line-height:1.5}
+h3.sub .en{font-size:11.5px;color:var(--muted);font-weight:500;letter-spacing:1.6px;display:block;margin-top:2px}
+h4.ssub{font-size:16.5px;font-weight:700;color:#f0f2f8;margin:26px 0 10px;display:flex;align-items:baseline;gap:9px}
+h4.ssub .idx{font-size:11px;color:var(--camellia-lt);background:rgba(200,35,51,.13);
+  border:1px solid rgba(200,35,51,.3);padding:2px 8px;border-radius:5px;font-weight:700;flex:none;font-family:"SF Mono",Menlo,monospace}
+p{margin-bottom:12px;color:var(--text2)}
+p strong,li strong{color:#f2f4fa;font-weight:600}
+ul,ol{margin:0 0 14px 20px;color:var(--text2)}
+li{margin-bottom:7px}
+ul.tick{list-style:none;margin-left:2px}
+ul.tick li{padding-left:24px;position:relative}
+ul.tick li::before{content:"▸";position:absolute;left:4px;top:-1px;color:var(--camellia);font-size:14px}
+ul.dot{list-style:none;margin-left:2px}
+ul.dot li{padding-left:20px;position:relative}
+ul.dot li::before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+a.lk{color:var(--gold);text-decoration:none;border-bottom:1px dashed rgba(212,175,55,.45)}
+small.sm{font-size:12.5px;color:var(--muted)}
+
+/* ---------------- 封面 ---------------- */
+#cover{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+#cover .cv-inner{max-width:1280px;margin:0 auto;padding:70px 60px;position:relative;z-index:2}
+#cover .cv-grid{position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:64px 64px;z-index:1;
+  -webkit-mask-image:radial-gradient(circle at 62% 42%,#000 0%,transparent 72%);
+  mask-image:radial-gradient(circle at 62% 42%,#000 0%,transparent 72%)}
+#cover .camellia{position:absolute;right:-140px;top:50%;transform:translateY(-50%);
+  width:640px;height:640px;opacity:.16;z-index:1;
+  background:radial-gradient(circle at 50% 50%,var(--camellia) 0%,rgba(200,35,51,.35) 42%,transparent 66%);
+  filter:blur(6px)}
+.cv-top{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+.cv-top .seal{width:46px;height:46px;border-radius:11px;background:linear-gradient(140deg,var(--camellia),var(--camellia-dk));
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px;color:#fff;
+  box-shadow:0 6px 22px rgba(200,35,51,.45)}
+.cv-top .who .t1{font-size:16px;font-weight:700;color:#fff;letter-spacing:.6px}
+.cv-top .who .t2{font-size:11px;color:var(--muted);letter-spacing:2.6px;margin-top:1px}
+.cv-kicker{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:4px;
+  color:var(--gold);border:1px solid rgba(212,175,55,.34);background:rgba(212,175,55,.07);
+  padding:7px 17px;border-radius:100px;margin-bottom:26px;font-weight:600}
+.cv-kicker i{width:5px;height:5px;background:var(--gold);border-radius:50%;box-shadow:0 0 8px var(--gold)}
+#cover h1{font-size:64px;line-height:1.18;font-weight:800;letter-spacing:-1.6px;color:#fff;max-width:1000px}
+#cover h1 em{font-style:normal;
+  background:linear-gradient(100deg,var(--camellia-lt),var(--gold) 72%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.cv-sub{margin-top:22px;font-size:18.5px;color:var(--text2);max-width:860px;line-height:1.85;font-weight:300}
+.cv-rule{width:150px;height:3px;margin:34px 0 30px;
+  background:linear-gradient(90deg,var(--camellia),var(--gold),transparent)}
+.cv-meta{display:flex;gap:44px;flex-wrap:wrap;margin-bottom:38px}
+.cv-meta .m .k{font-size:10.5px;letter-spacing:2.2px;color:#5f6880;margin-bottom:4px;font-weight:700}
+.cv-meta .m .v{font-size:14.5px;color:#e9ecf4;font-weight:600}
+.cv-dual{display:inline-flex;align-items:stretch;border:1px solid var(--line2);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.03)}
+.cv-dual .d{padding:16px 26px;border-right:1px solid var(--line2)}
+.cv-dual .d:last-child{border-right:none}
+.cv-dual .d .n{font-size:20px;font-weight:800;letter-spacing:-.3px}
+.cv-dual .d .n span{font-size:11.5px;font-weight:600;letter-spacing:1px;display:block;margin-top:2px;opacity:.72}
+.cv-dual .d.a .n{color:var(--camellia-lt)}
+.cv-dual .d.b .n{color:var(--gold)}
+.cv-note{margin-top:34px;padding:14px 18px;border-left:2px solid var(--warn);background:rgba(232,163,61,.06);
+  border-radius:0 8px 8px 0;font-size:12.5px;color:#d9c9a8;max-width:900px;line-height:1.85}
+.cv-note b{color:var(--warn)}
+.cv-scroll{position:absolute;bottom:26px;left:60px;font-size:11px;letter-spacing:3px;color:#4d556b;z-index:2}
+
+/* ---------------- 通用卡片 ---------------- */
+.card{background:linear-gradient(160deg,var(--panel),var(--bg2));border:1px solid var(--line);
+  border-radius:var(--radius);padding:22px 24px;margin-bottom:16px}
+.card>h4,.card .ch{font-size:15.5px;font-weight:700;color:#fff;margin-bottom:11px;display:flex;align-items:center;gap:9px}
+.card .ch .dot{width:7px;height:7px;border-radius:2px;background:var(--camellia);flex:none}
+.card.gold .ch .dot{background:var(--gold)}
+.card.blue .ch .dot{background:var(--info)}
+.card.ok .ch .dot{background:var(--ok)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.grid-2-1{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.grid-1-2{display:grid;grid-template-columns:1fr 2fr;gap:16px}
+
+/* 结论高亮 */
+.insight{background:linear-gradient(135deg,rgba(200,35,51,.13),rgba(200,35,51,.03));
+  border:1px solid rgba(200,35,51,.28);border-left:3px solid var(--camellia);
+  border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:18px 0}
+.insight .lb{font-size:10.5px;letter-spacing:2.6px;color:var(--camellia-lt);font-weight:800;margin-bottom:7px}
+.insight p{margin:0;color:#f0dfe1;font-size:14.5px;line-height:1.9}
+.insight p+p{margin-top:8px}
+.insight.gold{background:linear-gradient(135deg,rgba(212,175,55,.12),rgba(212,175,55,.02));border-color:rgba(212,175,55,.28);border-left-color:var(--gold)}
+.insight.gold .lb{color:var(--gold)}
+.insight.gold p{color:#f2e8cd}
+
+/* 风险提示 */
+.risk{background:linear-gradient(135deg,rgba(232,163,61,.11),rgba(232,163,61,.02));
+  border:1px solid rgba(232,163,61,.3);border-left:3px solid var(--warn);
+  border-radius:0 var(--radius) var(--radius) 0;padding:17px 22px;margin:18px 0}
+.risk .lb{font-size:10.5px;letter-spacing:2.6px;color:var(--warn);font-weight:800;margin-bottom:7px}
+.risk p{color:#f0e2c9}
+
+/* 安全警示卡片 */
+.safety{background:linear-gradient(135deg,rgba(224,69,90,.15),rgba(143,21,35,.06));
+  border:1px solid rgba(224,69,90,.42);border-left:4px solid var(--bad);
+  border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px;margin:20px 0;position:relative;overflow:hidden}
+.safety::after{content:"⚠";position:absolute;right:14px;top:2px;font-size:62px;color:rgba(224,69,90,.11);line-height:1;pointer-events:none}
+.safety .lb{font-size:10.5px;letter-spacing:2.8px;color:var(--bad);font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.safety .lb .tp{background:var(--bad);color:#fff;padding:2px 8px;border-radius:4px;letter-spacing:1.4px;font-size:9.5px}
+.safety p{color:#f6d9de}
+.safety p strong{color:#fff}
+.safety ul{margin-top:8px}
+.safety ul li{color:#f0cdd3}
+.safety .lk-warn{border:1px solid rgba(224,69,90,.45);background:rgba(224,69,90,.1);color:#ffd0d7;
+  padding:10px 14px;border-radius:8px;font-size:13px;margin-top:12px;display:block;line-height:1.8}
+
+/* 引用 */
+blockquote.q{border-left:3px solid var(--gold);background:rgba(212,175,55,.05);
+  padding:16px 22px;margin:18px 0;border-radius:0 10px 10px 0;color:#e9e0c8;font-size:14.5px;line-height:1.95}
+blockquote.q .qs{display:block;margin-top:8px;font-size:11.5px;color:var(--muted);letter-spacing:1.4px}
+
+/* 数据 badge */
+.badges{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0 18px}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:100px;font-size:12.5px;
+  background:rgba(255,255,255,.045);border:1px solid var(--line2);color:var(--text2);font-weight:600}
+.badge .n{font-family:"SF Mono",Menlo,monospace;font-size:13.5px;color:#fff;font-weight:700}
+.badge.r{background:rgba(200,35,51,.12);border-color:rgba(200,35,51,.36)}
+.badge.r .n{color:var(--camellia-lt)}
+.badge.g{background:rgba(212,175,55,.11);border-color:rgba(212,175,55,.34)}
+.badge.g .n{color:var(--gold-lt)}
+.badge.b{background:rgba(61,139,216,.12);border-color:rgba(61,139,216,.34)}
+.badge.b .n{color:#79b4f0}
+.badge.o{background:rgba(47,191,136,.1);border-color:rgba(47,191,136,.3)}
+.badge.o .n{color:#4fd3a0}
+.badge.w{background:rgba(232,163,61,.11);border-color:rgba(232,163,61,.34)}
+.badge.w .n{color:#f0bc6a}
+
+/* 统计块 */
+.stat{background:linear-gradient(160deg,var(--panel2),var(--bg2));border:1px solid var(--line);
+  border-radius:12px;padding:18px 20px;text-align:left}
+.stat .v{font-size:30px;font-weight:800;letter-spacing:-1px;line-height:1.1;
+  font-family:"SF Mono","PingFang SC",Menlo,monospace}
+.stat .v small{font-size:14px;font-weight:600;margin-left:2px}
+.stat .l{font-size:12.5px;color:var(--text2);margin-top:6px;font-weight:600}
+.stat .d{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.6}
+.stat.r .v{color:var(--camellia-lt)}.stat.g .v{color:var(--gold)}
+.stat.b .v{color:#79b4f0}.stat.o .v{color:#4fd3a0}.stat.w .v{color:#f0bc6a}
+
+/* 标签 */
+.tag{display:inline-block;font-size:11px;padding:3px 9px;border-radius:5px;font-weight:700;letter-spacing:.4px;
+  vertical-align:middle;margin-left:8px}
+.tag.r{background:rgba(200,35,51,.18);color:#ff9aa5;border:1px solid rgba(200,35,51,.35)}
+.tag.g{background:rgba(212,175,55,.16);color:var(--gold-lt);border:1px solid rgba(212,175,55,.34)}
+.tag.b{background:rgba(61,139,216,.16);color:#79b4f0;border:1px solid rgba(61,139,216,.32)}
+.tag.o{background:rgba(47,191,136,.15);color:#4fd3a0;border:1px solid rgba(47,191,136,.3)}
+.tag.w{background:rgba(232,163,61,.16);color:#f0bc6a;border:1px solid rgba(232,163,61,.33)}
+.tag.n{background:rgba(255,255,255,.07);color:var(--text2);border:1px solid var(--line2)}
+
+/* 表格 */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:16px 0 8px;background:var(--panel)}
+table.tbl{width:100%;border-collapse:collapse;font-size:13.2px;min-width:760px}
+table.tbl thead th{background:linear-gradient(180deg,#1c2130,#171b26);color:#fff;font-weight:700;
+  padding:12px 13px;text-align:left;border-bottom:2px solid var(--line2);white-space:nowrap;font-size:12.8px;letter-spacing:.3px}
+table.tbl thead th.rk{background:linear-gradient(90deg,rgba(200,35,51,.26),rgba(200,35,51,.05));color:#ffd7dc}
+table.tbl thead th.sec-th{background:linear-gradient(90deg,rgba(224,69,90,.3),rgba(224,69,90,.08));color:#ffd0d7}
+table.tbl tbody td{padding:10px 13px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--text2);vertical-align:top;line-height:1.75}
+table.tbl tbody tr:nth-child(even){background:rgba(255,255,255,.022)}
+table.tbl tbody tr:hover{background:rgba(200,35,51,.07)}
+table.tbl tbody td b,table.tbl tbody td strong{color:#fff}
+table.tbl tbody tr.hi{background:rgba(212,175,55,.07)}
+table.tbl tbody tr.hi td{color:#f0e6cc}
+table.tbl .num{font-family:"SF Mono",Menlo,monospace;text-align:right;white-space:nowrap}
+table.tbl .ctr{text-align:center}
+.tnote{font-size:11.5px;color:var(--muted);margin:6px 0 20px;line-height:1.8;padding-left:2px}
+
+/* 图表卡 */
+.chartcard{background:linear-gradient(170deg,var(--panel),#0d1016);border:1px solid var(--line);
+  border-radius:var(--radius);margin:22px 0 26px;overflow:hidden}
+.chartcard .chd{padding:16px 22px 13px;border-bottom:1px solid var(--line);
+  display:flex;align-items:flex-start;gap:13px;background:rgba(255,255,255,.018)}
+.chartcard .chd .no{font-size:11px;font-family:"SF Mono",Menlo,monospace;color:var(--bg);
+  background:var(--gold);padding:3px 9px;border-radius:5px;font-weight:800;flex:none;margin-top:3px}
+.chartcard .chd.r .no{background:var(--camellia);color:#fff}
+.chartcard .chd .tt{font-size:16px;font-weight:700;color:#fff;line-height:1.5}
+.chartcard .chd .st{font-size:11px;color:var(--muted);margin-top:3px;letter-spacing:1.4px}
+.chartcard .chd .stars{margin-left:auto;font-size:13px;color:var(--gold);letter-spacing:2px;flex:none;margin-top:3px}
+.chartcard .cbd{padding:16px 18px 6px}
+.chart{width:100%}
+.cap-read{padding:0 22px 14px;font-size:13.2px;color:var(--text2);line-height:1.9}
+.cap-read .k{color:var(--gold);font-weight:700}
+.cap-read li{margin-bottom:5px}
+.cap-src{padding:11px 22px 14px;font-size:11.3px;color:#6d768c;border-top:1px dashed var(--line);line-height:1.8;
+  display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+.cap-src .as{color:var(--warn);background:rgba(232,163,61,.1);border:1px solid rgba(232,163,61,.28);
+  padding:2px 9px;border-radius:5px;font-weight:700}
+.cap-src .src-l{color:#59617a}
+
+/* SWOT */
+.swot{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.swot .q{border-radius:12px;padding:17px 20px;border:1px solid var(--line2)}
+.swot .q .h{font-size:14px;font-weight:800;letter-spacing:1.4px;margin-bottom:11px;display:flex;align-items:center;gap:9px}
+.swot .q .h .ic{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff}
+.swot .s{background:linear-gradient(160deg,rgba(47,191,136,.09),rgba(47,191,136,.01));border-color:rgba(47,191,136,.3)}
+.swot .s .h{color:#4fd3a0}.swot .s .h .ic{background:rgba(47,191,136,.85)}
+.swot .w{background:linear-gradient(160deg,rgba(224,69,90,.09),rgba(224,69,90,.01));border-color:rgba(224,69,90,.3)}
+.swot .w .h{color:#ff8f9d}.swot .w .h .ic{background:rgba(224,69,90,.85)}
+.swot .o{background:linear-gradient(160deg,rgba(61,139,216,.09),rgba(61,139,216,.01));border-color:rgba(61,139,216,.3)}
+.swot .o .h{color:#79b4f0}.swot .o .h .ic{background:rgba(61,139,216,.85)}
+.swot .t{background:linear-gradient(160deg,rgba(232,163,61,.09),rgba(232,163,61,.01));border-color:rgba(232,163,61,.3)}
+.swot .t .h{color:#f0bc6a}.swot .t .h .ic{background:rgba(232,163,61,.85)}
+.swot ul{list-style:none;margin:0;font-size:13px;line-height:1.8}
+.swot ul li{padding-left:16px;position:relative;margin-bottom:6px;color:var(--text2)}
+.swot ul li::before{content:"·";position:absolute;left:5px;color:currentColor;font-weight:800;font-size:17px;line-height:1.2}
+
+/* 流程/阶段 */
+.phase{position:relative;padding-left:34px;margin-bottom:26px}
+.phase::before{content:"";position:absolute;left:11px;top:8px;bottom:-26px;width:2px;background:linear-gradient(180deg,var(--camellia),var(--gold),transparent)}
+.phase:last-child::before{display:none}
+.phase .pd{position:absolute;left:0;top:2px;width:24px;height:24px;border-radius:50%;
+  background:linear-gradient(140deg,var(--camellia),var(--camellia-dk));display:flex;align-items:center;
+  justify-content:center;font-size:11.5px;font-weight:800;color:#fff;box-shadow:0 0 0 4px var(--bg),0 3px 12px rgba(200,35,51,.4)}
+.phase.g .pd{background:linear-gradient(140deg,var(--gold),#8f7320);box-shadow:0 0 0 4px var(--bg),0 3px 12px rgba(212,175,55,.4)}
+.phase .ph{font-size:16.5px;font-weight:700;color:#fff;margin-bottom:3px}
+.phase .pt{font-size:11.5px;color:var(--muted);letter-spacing:1.4px;margin-bottom:9px}
+
+/* 附录 */
+.appcard{background:linear-gradient(160deg,var(--panel),var(--bg2));border:1px solid var(--line);
+  border-radius:var(--radius);padding:22px 24px;margin-bottom:16px}
+.appcard>.ah{font-size:17px;font-weight:700;color:#fff;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.appcard>.ah .an{font-size:11px;font-family:"SF Mono",Menlo,monospace;color:var(--gold);
+  border:1px solid rgba(212,175,55,.35);background:rgba(212,175,55,.08);padding:2px 8px;border-radius:5px}
+.appcard>.ad{font-size:12.5px;color:var(--muted);margin-bottom:13px;line-height:1.75}
+
+/* 目录内小锚 */
+.anchorlink{font-size:12.5px;margin:8px 0 4px}
+.anchorlink a{display:inline-block;margin-right:14px;color:var(--muted);text-decoration:none;
+  border-bottom:1px dotted var(--line2);transition:.15s}
+.anchorlink a:hover{color:var(--gold);border-color:var(--gold)}
+
+.kv{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 4px}
+.kv .i{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:8px;padding:7px 13px;font-size:12.5px;color:var(--text2)}
+.kv .i b{color:#fff;font-family:"SF Mono",Menlo,monospace;margin-right:5px}
+
+.toc-inline{background:rgba(255,255,255,.025);border:1px dashed var(--line2);border-radius:10px;padding:14px 20px;margin:16px 0;font-size:13px}
+.toc-inline .th{font-size:11px;letter-spacing:2.4px;color:var(--gold);font-weight:800;margin-bottom:8px}
+.toc-inline ol{margin:0 0 0 18px}
+.toc-inline ol li{margin-bottom:4px;color:var(--text2)}
+.toc-inline ol li a{color:var(--text2);text-decoration:none}
+.toc-inline ol li a:hover{color:var(--gold)}
+
+.foot{margin-left:var(--sidebar-w);border-top:1px solid var(--line);background:#070910}
+.foot .fin{max-width:1280px;margin:0 auto;padding:40px 60px 50px;color:#5f6880;font-size:12.5px;line-height:1.9}
+.foot .fin .fr{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:18px}
+.foot .fin b{color:var(--text2)}
+
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-track{background:#0a0c11}
+::-webkit-scrollbar-thumb{background:#262c3b;border-radius:5px}
+::-webkit-scrollbar-thumb:hover{background:#343c50}
+@media print{
+  #sidebar,#progress,.cv-scroll{display:none}
+  #main{margin-left:0}
+  body{min-width:0}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<!-- ========================= 侧边悬浮目录 ========================= -->
+<aside id="sidebar">
+  <div class="brand">
+    <div class="logo">
+      <div class="seal">林</div>
+      <div>
+        <div class="bt">出海变现白皮书</div>
+        <div class="bs">2026 EDITION</div>
+      </div>
+    </div>
+  </div>
+  <nav id="nav">
+    <div class="ngroup">概 览</div>
+    <a href="#cover" data-t="cover"><span class="num">00</span>封面</a>
+    <a href="#exec" data-t="exec"><span class="num">ES</span>执行摘要</a>
+    <div class="ngroup">正 文</div>
+    <a href="#ch1" data-t="ch1"><span class="num">01</span>全球护肤格局与范式</a>
+    <a href="#ch2" data-t="ch2"><span class="num">02</span>企业基本面与出海诊断</a>
+    <a href="#ch3" data-t="ch3"><span class="num">03</span>东南亚·日本双市场研判</a>
+    <a href="#ch4" data-t="ch4"><span class="num">04</span>出海变现商业模式设计</a>
+    <a href="#ch5" data-t="ch5"><span class="num">05</span>分阶段落地行动路线图</a>
+    <a href="#ch6" data-t="ch6"><span class="num">06</span>风险识别与应对预案</a>
+    <a href="#ch7" data-t="ch7"><span class="num">07</span>总结与战略启示</a>
+    <div class="ngroup">附 录</div>
+    <a href="#appA" class="app" data-t="appA"><span class="num">A</span>东南亚合规认证清单</a>
+    <a href="#appB" class="app" data-t="appB"><span class="num">B</span>日本药机法合规清单</a>
+    <a href="#appC" class="app" data-t="appC"><span class="num">C</span>服务商采购需求清单</a>
+    <a href="#appD" class="app" data-t="appD"><span class="num">D</span>财务测算关键假设</a>
+    <a href="#appE" class="app" data-t="appE"><span class="num">E</span>客户演示专区 3D</a>
+    <a href="#appF" class="app" data-t="appF"><span class="num">F</span>海外人员安全管理要点</a>
+  </nav>
+  <div id="sidefoot">
+    数字白皮书 v2026.1<br>
+    情景推演模型 · 非实际经营数据<br>
+    供管理层 / 董事会决策参考
+  </div>
+</aside>
+
+<!-- ========================= 主体 ========================= -->
+<main id="main">
+
+<!-- ============ 封面 ============ -->
+<section id="cover">
+  <div class="cv-grid"></div>
+  <div class="camellia"></div>
+  <div class="cv-inner">
+    <div class="cv-top">
+      <div class="seal">林</div>
+      <div class="who">
+        <div class="t1">上海林清轩化妆品集团股份有限公司</div>
+        <div class="t2">SHANGHAI GINKGO COSMETICS GROUP · HKEX LISTED</div>
+      </div>
+    </div>
+    <div class="cv-kicker"><i></i>2026 战略级 · 数字白皮书</div>
+    <h1>2026 上海林清轩<br><em>出海变现白皮书</em></h1>
+    <div class="cv-rule"></div>
+    <div class="cv-sub">
+      以「以油养肤」东方植物护肤为原点，系统评估东南亚与日本两大目标市场的进入路径、变现模型、
+      合规壁垒与<strong style="color:#f0dfe1">海外中方人员人身安全与资产营商安全约束</strong>，
+      为集团董事会与出海项目组提供一份可执行、可推演、可复盘的战略决策底稿。
+    </div>
+
+    <div class="cv-dual">
+      <div class="d a">
+        <div class="n">东南亚<span>SOUTHEAST ASIA · 高增长 / 高治理成本</span></div>
+      </div>
+      <div class="d">
+        <div class="n" style="color:var(--text2)">＋</div>
+      </div>
+      <div class="d b">
+        <div class="n">日本<span>JAPAN · 成熟高端 / 高合规门槛</span></div>
+      </div>
+      <div class="d" style="display:flex;align-items:center;background:rgba(212,175,55,.08)">
+        <div class="n" style="font-size:14px;color:var(--gold);line-height:1.5">双核心<br>并行推进</div>
+      </div>
+    </div>
+
+    <div class="cv-meta" style="margin-top:34px">
+      <div class="m"><div class="k">白皮书版本</div><div class="v">v2026.1 · 首版</div></div>
+      <div class="m"><div class="k">出品时间</div><div class="v">2026 年 10 月</div></div>
+      <div class="m"><div class="k">业务主题</div><div class="v">出海变现 · 品牌出海（非产能出海）</div></div>
+      <div class="m"><div class="k">目标读者</div><div class="v">管理层 · 董事会 · 项目组 · 投资人</div></div>
+      <div class="m"><div class="k">项目时间窗口</div><div class="v">1–3 个月启动（时间非常紧迫）</div></div>
+      <div class="m"><div class="k">风险偏好设定</div><div class="v">中等（可接受适度风险）</div></div>
+    </div>
+
+    <div class="cv-note">
+      <b>⚠ 情景假设声明</b>　本白皮书内所有市场规模测算、财务预测、资金流转模型、竞争格局量化评分均为
+      <b>基于公开信息的顾问模型推演结果</b>，不代表林清轩实际经营数据，亦不构成业绩承诺或投资建议。
+      所有推演结论均在使用时附带情景前提，请读者在使用前核对最新公开披露数据与实际市场调研结果。
+    </div>
+  </div>
+  <div class="cv-scroll">▼ 向下滚动开始阅读 · SCROLL</div>
+</section>
+
+<!-- ============ 执行摘要 ============ -->
+<section id="exec" class="chapter">
+  <div class="sec-head">
+    <div class="eyebrow">Executive Summary · 高管一页纸</div>
+    <h2>执行摘要：东南亚＋日本「双核心」不是二选一，而是两种性质完全不同的增长资产</h2>
+    <div class="lede">
+      面向林清轩上市后第二个增长曲线的战略判断：东南亚提供<b>规模与增速</b>，日本提供<b>品牌高度与利润质量</b>；
+      而支撑两者的第一约束条件不是市场，而是<b>海外中方人员人身安全与海外资产营商安全</b>。
+      本章为管理层 3 分钟决策读本，全文详论见后续章节。
+    </div>
+  </div>
+
+  <div class="badges">
+    <div class="badge r"><span class="n">24.5 亿</span>2025 国内营收（人民币）</div>
+    <div class="badge g"><span class="n">3.6 亿</span>2025 净利润</div>
+    <div class="badge b"><span class="n">82%</span>毛利率区间</div>
+    <div class="badge o"><span class="n">600+</span>国内高端购物中心门店</div>
+    <div class="badge w"><span class="n">2.0 万+</span>红山茶花合作种植基地</div>
+    <div class="badge r"><span class="n">第 13 位</span>全球高端护肤榜唯一国货（2024 零售额）</div>
+  </div>
+
+  <div class="insight">
+    <div class="lb">核 心 结 论 ｜ THE ONE-PAGE VERDICT</div>
+    <p><strong>结论一 · 双线并行，但两线的 KPI 不能同一套。</strong>
+      东南亚线应以「规模增速 + 安全合规达标率」双轨考核，日本线应以「品牌资产积累 + 毛利与复购」为核心考核。
+      用同一套 ROI 指标衡量两条性质完全不同的业务线，是本项目最容易出现的战略失误。</p>
+    <p><strong>结论二 · 安全是国别筛选的前置门槛，不是风险管理的事后补救。</strong>
+      东南亚部分国家与城市存在针对华人的绑架、电信诈骗、勒索等现实风险，这些风险与商业收益是
+      <b>负相关</b>的——单国收益越高，往往意味着合规灰度空间与治安变量越大。建议将「人身与营商安全等级」
+      写入国别选择的一票否决项，而非加权项。</p>
+    <p><strong>结论三 · 日本是本项目「品牌出海」叙事最完整的验证场。</strong>
+      日本消费者对东方植物成分的接受度、对高端国货的评价机制、以及医药部外品以外的
+      <b>一般化妆品（化粧品）路径</b>，使林清轩可以<b>不触发药机法功效审查</b>的前提下
+      完成一次高质量品牌登陆——这恰是日本线最重要的战略价值。</p>
+  </div>
+
+  <h3 class="sub">一、三大商业机会<span class="en">Three Commercial Opportunities</span></h3>
+  <div class="grid3">
+    <div class="card ok">
+      <div class="ch"><span class="dot"></span>机会 A｜东方植物成分的全球稀缺性</div>
+      <p style="font-size:13.2px">
+      全球高端护肤长期被欧美系成分叙事（视黄醇、维 C、胜肽）与日系科技叙事（防晒、发酵）占据。
+      <strong>「以油养肤 + 红山茶花」是一个具备完整原料溯源链条、天然携带东方文化属性、且与国际大牌
+      成分叙事不冲突的差异化定位</strong>，在成分党心智已经成熟的东南亚与日本，均具备可被讲述、可被验证的故事性。</p>
+      <div class="kv"><div class="i"><b>2.0 万+</b>合作种植基地</div><div class="i"><b>2003</b>品牌起源</div></div>
+    </div>
+    <div class="card ok">
+      <div class="ch"><span class="dot"></span>机会 B｜东南亚电商渗透红利窗口</div>
+      <p style="font-size:13.2px">
+      印尼、泰国、马来西亚三国移动电商渗透率与社媒带货成熟度处于全球增速前列，
+      <strong>中国美妆品牌在当地的渠道成本结构仍显著低于欧美市场</strong>。
+      TikTok Shop 本地化店铺 + 中腰部 KOL 矩阵，是高端国货在东南亚快速建立认知的现实路径
+      （对比线下专柜模式，其前期固定成本与安全暴露面显著更低）。</p>
+      <div class="kv"><div class="i"><b>Shopee/Lazada</b>双平台</div><div class="i"><b>TikTok Shop</b>增量渠道</div></div>
+    </div>
+    <div class="card ok">
+      <div class="ch"><span class="dot"></span>机会 C｜日本植物系护肤的结构性缺口</div>
+      <p style="font-size:13.2px">
+      日本本土品牌高度集中于「敏感肌防御 / 医药部外品功效 / 高科技抗老」，在
+      <strong>「东方植物 + 高端油类保养」细分赛道仍缺少一个能与资生堂、花王、Fancl 正面区隔的中国品牌</strong>。
+      通过一般化妆品（化粧品）路径进入，可在 9–12 个月内完成上市，
+      避开医药部外品 12–24 个月的不确定周期与高审查成本。</p>
+      <div class="kv"><div class="i"><b>一般化妆品</b>优先路径</div><div class="i"><b>9–12 月</b>上市周期（模型推演）</div></div>
+    </div>
+  </div>
+
+  <h3 class="sub">二、三大类核心风险<span class="en">Three Critical Risk Categories</span></h3>
+  <div class="safety">
+    <div class="lb"><span class="tp">风险 01 · 最高优先级</span>海外中方人员人身安全与海外资产营商安全</div>
+    <p>
+      <strong>这不是常规的商业风险类别，而是本项目的生存性前提。</strong>
+      东南亚多国近年持续发生针对华人的绑架、拘禁勒索、电信诈骗与「虚拟园区」型非法拘禁案件；
+      部分城市的赌博与非法产业交叉地带，对中资企业人员的胁迫性索要高发。跨境商务活动中的
+      「私人借贷」「投资邀约」「线下验货」「供应商考察」等场景，是此类风险的高发入口。
+    </p>
+    <ul>
+      <li><strong>风险表现：</strong>中方人员被诱骗至境外后遭拘禁勒索；银行账户/支付通道被用于洗钱导致账户冻结；货物与资金被扣押施压；本地雇员或合作方携款潜逃。</li>
+      <li><strong>资产侧连锁：</strong>人身安全事件往往与本地合作方资信问题共生，一旦合作方涉诈或涉赌，账户、库存、品牌授权三者会同时受损。</li>
+      <li><strong>本白皮书立场：</strong>所有东南亚落地城市建议限定为<b>安全等级 A / B 级</b>；低于 B 级的城市即使商业回报更优，也建议以第三方平台直营模式替代自建团队驻点。</li>
+    </ul>
+    <div class="lk-warn">📌 详细风险识别、分国分城市安全评级、驻点与出差管控机制、应急处置与业务暂停/退出触发条件，见<b>第六章 6.3 节</b>与<b>附录 F</b>。</div>
+  </div>
+  <div class="grid2">
+    <div class="risk">
+      <div class="lb">风险 02 · 高优先级｜合规与监管风险</div>
+      <p style="color:#f0e2c9">
+      东南亚侧：印尼 BPOM 化妆品通告（Notifkos）注册、泰国 FDA 备案、马来西亚 NPRA 通知式注册、
+      部分市场对成分与宣称的额外限制、马来西亚与印尼市场的 <b>Halal 认证</b>（宗教属性一旦缺失将直接切断
+      主流零售与电商货架）。</p>
+      <p style="color:#f0e2c9">
+      日本侧：<b>《药机法》</b>将产品严格划分为一般化妆品与医药部外品；美白、防脱发等功效宣称一旦触及
+      医药部外品范畴，即需完成审批并由<b>日本境内责任企业主体</b>担任 Responsible Company，
+      周期长、成本高、审查不确定性大。同时对功效宣称语、日文标签、进口者名义有极严限制。</p>
+    </div>
+    <div class="risk">
+      <div class="lb">风险 03 · 中高优先级｜商业模式与现金流风险</div>
+      <ul style="color:#f0e2c9">
+        <li><b>品牌贬值风险：</b>为快速起量进入低价区，与国内「拒绝低价下探」的品牌定位冲突，可能造成海外渠道对价格体系的破坏，反向侵蚀国内高端心智。</li>
+        <li><b>合规周期与现金流错配：</b>日本一般化妆品备案、东南亚 BPOM 注册的政府侧周期不完全可控，货先到、证未下将产生仓储与清关成本。</li>
+        <li><b>回款与汇率：</b>印尼盾、泰铢、越南盾汇率波动区间大；跨境回款路径若依赖第三方支付，存在账户冻结与合规审查风险。</li>
+        <li><b>组织能力缺口：</b>无本地法务、无海外 HR/EOR、无本地内容运营能力的情况下直接铺货，营销 ROI 将显著低于国内水平。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="sub">三、四条最高优先级行动建议<span class="en">Four Priority Actions</span></h3>
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:52px" class="ctr">优先级</th><th style="width:210px">行动</th><th>核心内容</th><th style="width:190px">交付物 / 验收标准</th><th style="width:96px">窗口</th></tr>
+    </thead>
+    <tbody>
+      <tr class="hi">
+        <td class="ctr"><span class="tag r">P0</span></td>
+        <td><b>成立「出海安全与合规双轨评审委员会」</b></td>
+        <td>由董事会授权组建，成员含法务、CFO、海外业务负责人、<b>外部安全顾问</b>。核心机制：<b>国别/城市进入实行安全一票否决</b>——安全评级低于 B 级，无论商业测算多优，均不予立项；同时建立「安全事件一票暂停」授权。</td>
+        <td>《海外业务安全与合规评审章程》+ 国别/城市安全评级台账（动态更新）</td>
+        <td>0–1 个月</td>
+      </tr>
+      <tr>
+        <td class="ctr"><span class="tag g">P0</span></td>
+        <td><b>日本线优先走「一般化妆品 + 跨境电商」路径启动</b></td>
+        <td>首年<b>不申请医药部外品</b>，规避审批不确定性；以一般化妆品完成 2–3 个核心 SKU 备案，通过乐天/亚马逊日本/品牌 DTC 站完成品牌登陆，同步设立日本境内责任企业主体与本地代理商，为后续医药部外品预留通道。</td>
+        <td>日本市场 SKU 备案计划书 + 责任企业主体设立方案 + 12 个月上市排期</td>
+        <td>0–3 个月</td>
+      </tr>
+      <tr>
+        <td class="ctr"><span class="tag b">P1</span></td>
+        <td><b>东南亚线锁定「1 主 2 辅」，并做城市级安全收敛</b></td>
+        <td>建议<b>印尼为主战国</b>（规模最大、穆斯林合规可解、TikTok Shop 生态成熟），泰国、马来西亚为辅战国；落地方式限定为「平台店铺 + 第三方本地代理」，<b>不建议首年自建本地团队驻点</b>；所有线下活动限定安全等级 A 级城市。</td>
+        <td>国别进入顺序决策书 + 城市安全等级白名单 + 代理/平台合作框架</td>
+        <td>0–3 个月</td>
+      </tr>
+      <tr>
+        <td class="ctr"><span class="tag o">P1</span></td>
+        <td><b>预算节奏：先投「合规 + 安全 + 内容资产」，后投「效果投放」</b></td>
+        <td>0–3 个月预算结构建议：合规认证与法务 30%、本地化内容与视觉资产 25%、渠道与平台费用 20%、<b>安全咨询与应急体系建设 15%</b>、投放测试 10%。在产品备案与安全体系就绪前，不做大额效果投放，避免为「上架即违规」或「无人管控的投放资金」承担风险。</td>
+        <td>分阶段预算表 + 投放前置条件清单（备案完成 / 店铺合规自检 / 素材法务审核通过）</td>
+        <td>0–3 个月</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 优先级为顾问建议排序；预算比例为模型推演的结构性建议，实际执行须结合集团财务口径与董事会审批结果。</div>
+
+  <blockquote class="q">
+    「东南亚与日本的差异，不在于哪个市场更便宜或更大，而在于你要用什么样的能力去交换。
+    东南亚交换的是<b>运营速度与风险承受力</b>；日本交换的是<b>产品合规能力与品牌长期信用</b>。
+    林清轩手里最稀缺的不是产能，而是『东方植物护肤的高端叙事 + 原料全链条』——这套叙事的最大溢价市场在日本，
+    最大规模市场在东南亚。两条线不是先后关系，而是同一套品牌资产在不同市场的两次定价。」
+    <span class="qs">— 白皮书核心判断 · 2026 战略推演</span>
+  </blockquote>
+
+  <div class="toc-inline">
+    <div class="th">本白皮书图表清单（8 类高阶可视化）</div>
+    <ol>
+      <li><b>图 2-1</b> 径向知识图谱 · 林清轩商业主体一级关联全景（第二章 2.3）</li>
+      <li><b>图 3-1</b> 2D 力导向图 · 亚洲美妆市场竞争实体网络（第三章 3.1.4）</li>
+      <li><b>图 3-2</b> 地理网络图 · 亚洲跨境市场权重与安全等级分布（第三章 3.3）</li>
+      <li><b>图 4-1</b> 降噪弦图 · 出海业务实体合作强关联网络（第五章 5.4）</li>
+      <li><b>图 4-2</b> 桑基图 · 跨境贸易资金双向流转（东南亚 + 日本双线）（第四章 4.5）</li>
+      <li><b>图 4-3</b> 旭日图 · 红山茶花全链路供应链价值分层拆解（第四章 4.5）</li>
+      <li><b>图 4-4</b> 折线图 · 东南亚 / 日本三情景收入与利润推演对比（第四章 4.6）</li>
+      <li><b>图 E-1</b> 3D 力导向演示图 · 全球跨境主体分布（附录 E · 仅供演示）</li>
+    </ol>
+  </div>
+</section>
+<!-- ============ 第一章 ============ -->
+<section id="ch1" class="chapter">
+  <div class="sec-head">
+    <div class="eyebrow">Chapter 01 · Global Skincare Landscape</div>
+    <h2>第一章　国货高端护肤全球化浪潮：亚洲市场大盘与范式迭代</h2>
+    <div class="lede">
+      本章回答三个前置问题：全球高端护肤的格局正在如何重排？东南亚与日本两个亚洲市场各自的
+      「钱从哪来、门槛在哪、风险在哪」？以及，在范式上，<b>「产能出海」与「品牌出海」的盈利结构到底差在哪里</b>。
+    </div>
+  </div>
+
+  <div class="anchorlink">
+    <a href="#s11">1.1 全球格局与国货出海范式变迁</a>
+    <a href="#s12">1.2 东南亚美妆护肤大盘</a>
+    <a href="#s13">1.3 日本美妆市场大盘</a>
+    <a href="#s14">1.4 产品出海 vs 品牌出海</a>
+  </div>
+
+  <h3 class="sub" id="s11">1.1　全球高端护肤市场格局与国货出海范式变迁<span class="en">Global Premium Skincare &amp; the New Playbook for Chinese Brands</span></h3>
+
+  <p>
+    全球护肤品是少数「在成熟市场仍有结构性增长」的消费品类，而<b>高端（Premium）细分是其中增长质量最高、
+    价格弹性最好、且对品牌叙事依赖度最高</b>的一段。这一段长期由欧美系（Audrey Hepburn 式的奢侈叙事、
+    高浓度活性物）与日系（防晒、发酵、敏感肌防御）两条叙事线占据，消费者心智稳定、价格体系牢固。
+  </p>
+  <p>
+    中国品牌的破局路径在过去十年里经历了三代范式迭代。第一代是<b>「产能出海 / 白牌出海」</b>：
+    以跨境电商铺货低价 SKU 或 OEM 代工切入，走的是量而非价，本质是把国内产能冗余出口；
+    第二代是<b>「渠道出海」</b>：以平台运营、直播带货为能力核心，把国内成熟的运营方法论平移到海外，
+    本质是把国内渠道效率复制出去；第三代才是<b>「品牌出海」</b>：以品牌资产、产品力与合规能力为核心，
+    本地化定价、本地化运营、长期投入品牌建设，本质是<b>在海外市场重新建立一套定价权</b>。
+  </p>
+
+  <div class="insight">
+    <div class="lb">范 式 判 断 ｜ THE THIRD PARADIGM</div>
+    <p>
+      2024–2026 年中国美妆出海已进入<b>第三代范式的早期验证期</b>：头部品牌（珀莱雅、润本、可复美、毛戈平等）
+      在东南亚与日本已形成可观测的品牌溢价；中小品牌与白牌仍停留在第一、二代，但因平台流量成本上升、
+      低价段竞争饱和，正在被快速挤出。窗口期特征是：<b>渠道红利仍在，但渠道套利空间正在消失</b>。
+    </p>
+    <p>
+      对林清轩的含义是明确的——以 82% 毛利率与「以油养肤」赛道开创者的身份，
+      进入第三代范式的<b>结构条件已经具备</b>（产品力、原料链、品牌调性），真正的瓶颈不在产品，
+      而在<b>海外合规能力、组织能力与安全管控能力</b>三项基础设施。
+    </p>
+  </div>
+
+  <h4 class="ssub"><span class="idx">1.1.1</span>高端护肤的三个结构性特征（决定出海策略）</h4>
+  <div class="grid3">
+    <div class="card">
+      <div class="ch"><span class="dot"></span>特征一：品牌溢价高于渠道效率</div>
+      <p style="font-size:13.2px">
+      高端护肤的利润主要由<b>品牌定价权</b>决定，而非流量采购效率。国际大牌在东南亚的投放回报率通常不占优，
+      但其毛利与复购依然远高于本土 challenger——因为消费者是为「成分体系 + 品牌信用 + 使用体验」付费。
+      <strong>这决定了低端价格战无法在国际牌主导的高端段取胜。</strong></p>
+    </div>
+    <div class="card">
+      <div class="ch"><span class="dot"></span>特征二：合规是准入门槛而非加分项</div>
+      <p style="font-size:13.2px">
+      在日本、印尼、泰国、马来西亚，化妆品均属<b>严格监管品类</b>：未注册即销售属违法；
+      宣称违规会导致下架、封店、追责。与国内「先上架后整改」的电商逻辑截然不同。
+      <strong>合规能力是高端品牌的入场券，而不是可以外包的营销成本。</strong></p>
+    </div>
+    <div class="card">
+      <div class="ch"><span class="dot"></span>特征三：文化亲近度在高价位段被重新定价</div>
+      <p style="font-size:13.2px">
+      「东方植物 / 草本 / 传统芳疗」在东南亚与日本的高端段，历史上曾是<b>被现代化叙事边缘化</b>的资产，
+      但在 2020 年后重新被估值——因为它同时满足「天然（clean beauty）」「可溯源（traceability）」
+      「差异化（非西方成分模板）」三重叙事。<strong>这正是林清轩资产的最大潜在价值点。</strong></p>
+    </div>
+  </div>
+
+  <h3 class="sub" id="s12">1.2　东南亚美妆护肤大盘、消费画像、增长驱动与机会痛点<span class="en">Southeast Asia: Market Size, Consumer Profile &amp; Risk Reality</span></h3>
+
+  <h4 class="ssub"><span class="idx">1.2.1</span>大盘与增长驱动（模型推演口径）</h4>
+  <p>
+    东南亚是全球人口与消费增长最快的区域之一，也是<b>护肤与美妆渗透率提升空间最大的区域之一</b>。
+    其核心增长驱动有四：① 城市化与中产扩容带动日常护肤渗透；② 电商与社媒降低了美妆消费决策门槛；
+    ③ 本土护肤品牌供给不足，消费者对「进口/外资品牌」的溢价接受度高；④ 中国供应链红利带来的高性价比
+    品牌供给大量涌入，加速了市场教育。
+  </p>
+  <div class="badges">
+    <div class="badge r"><span class="n">≈ 7 亿</span>区域总人口（模型口径）</div>
+    <div class="badge g"><span class="n">高个位数</span>护肤品类年增速（模型推演）</div>
+    <div class="badge b"><span class="n">Shopee/Lazada/TikTok Shop</span>三大主流电商生态</div>
+    <div class="badge o"><span class="n">Halal</span>印尼/马来核心准入要素</div>
+    <div class="badge w"><span class="n">高</span>中国美妆品牌供给增速</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card gold">
+      <div class="ch"><span class="dot"></span>机会痛点一：本土高端护肤品牌缺位</div>
+      <p style="font-size:13.2px">
+      东南亚本土强势美妆以<b>散妆、日化、色彩（唇膏/眼影）</b>为主，<b>高端面部精华与油类保养品</b>
+      供给稀缺，本土品牌缺乏「以油养肤 / 植物活性成分」的高端体系。这为以植物成分为轴的中国品牌留出了
+      结构性空档：消费者想要「比本土高一个档次、比欧美大牌更亲近」的选项。</p>
+    </div>
+    <div class="card gold">
+      <div class="ch"><span class="dot"></span>机会痛点二：中国品牌认知混乱、价格体系失序</div>
+      <p style="font-size:13.2px">
+      大量中国白牌以极低价格涌入平台，<b>拉低了「中国美妆」在消费者心智中的整体标签</b>，
+      让真正做高端的中国品牌难以收取溢价，并面临价格锚定效应。<strong>这为「坚持高端、拒绝低价下探」的
+      品牌，反而提供了一条差异化突围路径</strong>——用品牌调性与成分叙事对抗低价锚点，而不是与白牌比价。</p>
+    </div>
+  </div>
+
+  <div class="safety">
+    <div class="lb"><span class="tp">治安风险提示 · 必读</span>东南亚区域社会安全现状（影响市场选择与落地方式）</div>
+    <p>
+      在讨论东南亚市场机会的同时，必须同步评估其<b>社会安全环境</b>。近年东南亚多国持续发生
+      <strong>针对华人的绑架拘禁、电信诈骗（园区型）、勒索敲诈、非法拘禁</strong>等案件，部分案件涉及
+      中资商贸人员；个别地区的非法产业（赌博、网络诈骗、非法采矿）与部分「园区」经济交叉，
+      对前往开展线下业务的中方人员构成现实的人身安全威胁。
+    </p>
+    <ul>
+      <li><strong>高发风险环节：</strong>线下验货 / 供应商实地考察、私人借贷与「投资」邀约、代办通关与物流的灰色渠道、
+      频繁往返边境与偏远地区参加非正式商务宴请、使用非正规支付通道。</li>
+      <li><strong>与商业判断的关系：</strong>治安风险与「合规灰度空间」往往同源——越是依赖灰色清关、非正规支付、
+      无正式合约的地方业务，其治安与资产风险越高。<b>因此本白皮书建议以「安全等级」作为国别与城市筛选的
+      一票否决项，而非在合规成本之外的附加分。</b></li>
+    </ul>
+    <div class="lk-warn">📌 分国分城市安全评级与管控预案，见<b>第三章 3.1.3</b>与<b>第六章 6.3 节</b>；本节提示用于在选择市场时即纳入考量。</div>
+  </div>
+
+  <h4 class="ssub"><span class="idx">1.2.2</span>消费人群画像（模型推演 · 三类核心人群）</h4>
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:150px">人群</th><th style="width:180px">画像特征（模型推演）</th><th>核心护肤诉求</th><th>对中国品牌的接受度</th><th>对应产品策略</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>都市新贵女性</b><span class="tag n">25–35 岁</span></td><td>一二线城市白领 / 创业者，收入中高，社媒重度用户，成分意识强</td><td>初抗老、屏障修护、成分安全、质感与仪式感</td><td>高——愿意为「有故事的成分」付溢价</td><td>山茶花修护精华油为主轴，精华 + 面霜组合</td></tr>
+      <tr><td><b>精致妈妈群体</b><span class="tag n">30–45 岁</span></td><td>已婚有子女，注重成分安全与家庭共用，追求性价比与可靠性</td><td>温和、安全、全家可用、性价比</td><td>中高——对成分党中国品牌接受度提升</td><td>家庭装、日常护理线，成分透明背书</td></tr>
+      <tr><td><b>成分尝鲜青年</b><span class="tag n">18–26 岁</span></td><td>学生/初入职场，社媒与直播重度用户，价格敏感但愿为新概念尝鲜</td><td>基础保湿、即时肤感、成分概念新鲜感</td><td>高——是中国品牌出海的第一波传播主力</td><td>入门精华/护肤油小规格，礼盒化，KOL 种草</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 人群画像为基于公开行业报告的模型推演，非林清轩实际客群数据；落地前建议以目标市场社媒调研与 KOL 访谈校准。</div>
+
+  <h3 class="sub" id="s13">1.3　日本美妆市场大盘、消费特征与高端护肤机会<span class="en">Japan: Mature Premium Market with High Compliance Barriers</span></h3>
+
+  <p>
+    日本是全球人均美妆支出最高、且<b>护肤消费习惯最成熟、消费者教育最充分</b>的市场之一。与东南亚「增长型市场」
+    的属性不同，日本是典型的<b>「存量博弈 + 质量溢价型」市场</b>：总量增长有限甚至结构性下滑，
+    但高端细分（抗老、油类肌护理、植物系敏感肌）仍具备提价空间，且竞争格局相对固化——
+    对新进入者而言，机会不在「抢量」，而在<b>「以清晰的差异化定位切入一个被忽视的细分」</b>。
+  </p>
+
+  <div class="grid3">
+    <div class="card gold">
+      <div class="ch"><span class="dot"></span>机会：植物系与「养成型」护肤叙事</div>
+      <p style="font-size:13.2px">
+      日本消费者对<b>植物成分、香氛、仪式感、使用体验</b>有稳定偏好，「和汉植物」「东方草本」在日本
+      美容文化中有历史渊源（并非全新概念，需以现代科学语言重新包装）。山茶花（tslbloom / サツキ）
+      在日本亦有文化联想（冬季盛放、花语「纯洁」），<b>具备把「东方叙事」翻译为日本语言的基础</b>。</p>
+    </div>
+    <div class="card gold">
+      <div class="ch"><span class="dot"></span>机会：油类肌护理（Oil Skin / オイル Huber）品类增长</div>
+      <p style="font-size:13.2px">
+      以油类护理为主体的「保养型护肤」在日本有稳定且增长中的消费基础，与林清轩<b>「以油养肤」核心大单品
+      完全同构</b>。这意味着林清轩在日本是<b>「用主航道产品打细分市场」</b>，而非需要从零教育消费者一个新品类——
+      产品定位与品类习惯的对接成本显著低于其他出海品牌。</p>
+    </div>
+    <div class="card gold">
+      <div class="ch"><span class="dot"></span>机会：药妆店（Drugstore）渠道仍具长尾价值</div>
+      <p style="font-size:13.2px">
+      因药机法与渠道分层制度，日本存在「药妆店 / 百货 / 药粧店专柜 / 电商」多层渠道。作为新进入者，
+      <b>首年现实路径是跨境电商 + 少量药妆店或代理商铺货</b>；但需评估药妆店对进口品牌的准入与账期门槛。
+      该渠道优势是覆盖广、信用稳，劣势是<b>毛利与定价权受限</b>，与高端定位需平衡。</p>
+    </div>
+  </div>
+
+  <div class="risk">
+    <div class="lb">关键提示｜日本市场的本质壁垒不在营销，在合规主体</div>
+    <p>
+      进入日本的核心门槛是<b>「谁是这个产品在日本的法定责任人」</b>——《药机法》要求一般化妆品与医药部外品
+      均须由<b>日本境内（或特定条件的境外）责任企业主体</b>担任进口/责任主体，并履行备案、表示义务与安全信息。
+      没有本地责任主体，就没有合规上市路径；因此<b>「设立日本实体/委托责任企业」是日本线的第一道前置工程</b>，
+      详见 3.2.2 节。
+    </p>
+  </div>
+
+  <h4 class="ssub"><span class="idx">1.3.1</span>国货品牌在日本进入现状（事实性描述）</h4>
+  <p>
+    中国美妆品牌在日本主要以两种形态存在：① <b>跨境电商直邮</b>（通过乐天、亚马逊日本购、Yahoo!ショッピング）
+    以「话题型/性价比型」SKU 切入，客单价偏低、品牌溢价有限；② <b>通过日本代理商或并购本地品牌</b> 落地，
+    以「本地化运营 + 本地 KOL」建立认知。真正意义上以「高端品牌出海」在日本获得高端百货专柜与主流认可的中国品牌仍属少数，
+    说明<b>该市场存在真实空位，但准入门槛（合规 + 本地实体 + 品牌信用积累）是实打实的</b>。
+  </p>
+
+  <h3 class="sub" id="s14">1.4　「产品出海」vs「品牌出海」的盈利差异，以及安全作为新决策变量<span class="en">Product Export vs Brand Export — &amp; Safety as a New Decision Variable</span></h3>
+
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:150px" class="rk">盈利维度</th><th>产品出海（产能/铺货出海）</th><th>品牌出海（本白皮书主张）</th><th style="width:230px">对林清轩的含义</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>收入逻辑</b></td><td>走量、低客单、渠道驱动，毛利被平台与流量吃掉</td><td>高客单、品牌驱动，毛利与定价权沉淀在品牌方</td><td>林清轩国内客单 200–500 元、毛利 82%，天然适配品牌出海而非铺货出海</td></tr>
+      <tr><td><b>毛利率结构</b></td><td>出厂价谈判主导，实际到手毛利常被压至 20%–40%</td><td>零售端定价主导，品牌可保留 50%–65% 的品牌毛利空间（推演）</td><td>82% 的国内毛利是「可以谈高端」的前提；出海若走铺货，等于主动放弃这一优势</td></tr>
+      <tr><td><b>可复制性</b></td><td>易被更低价的竞争者替代，护城河浅</td><td>品牌心智 + 本地化资产沉淀，形成时间壁垒</td><td>时间壁垒与港股上市后「全球品牌叙事」诉求一致</td></tr>
+      <tr><td><b>合规与安全暴露面</b></td><td>依赖非正规渠道时合规与治安暴露面高（灰色清关、熟人中介）</td><td>走正规渠道、合约化合作，暴露面可控但前期投入高</td><td><b>品牌出海本身即是一种安全策略</b>——正规的渠道与合约体系是人身与资产安全的基础设施</td></tr>
+      <tr><td><b>与国内定位一致性</b></td><td>易造成「海外低价」标签，反向侵蚀国内高端心智</td><td>全球统一高端定位，强化港股市场的品牌叙事</td><td>坚持「拒绝低价下探」，是品牌一致性与安全策略的共同要求</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 毛利率与定价空间为基于行业结构与集团现有毛利水平的模型推演区间，非承诺值；实际取决于渠道结构、税费与履约成本。</div>
+
+  <div class="insight gold">
+    <div class="lb">新增关键变量｜人身安全与海外资产安全</div>
+    <p>
+      传统的出海市场选择模型通常包含：市场规模、增长潜力、文化亲近性、竞争强度、渠道效率、合规成本。
+      林清轩的项目情境要求<b>新增一个更前置的变量——目的地对中方人员的人身安全与对中资资产的营商安全</b>。
+      这个变量的特殊性在于：<strong>它不是与其他因素「权衡取舍」的成本项，而是「是否进入」的前置门槛</strong>。
+      在一个收益高但安全等级低的市场里，即便商业测算最优，也应通过<b>降低人身暴露（不自建驻点、纯线上、不做线下验货）</b>的方式参与，
+      而非以常规招商与驻点团队的方式进入。这是本白皮书在方法论上最重要的一个立场。
+    </p>
+  </div>
+</section>
+
+<!-- ============ 第二章 ============ -->
+<section id="ch2" class="chapter">
+  <div class="sec-head">
+    <div class="eyebrow">Chapter 02 · Capability &amp; Readiness Diagnosis</div>
+    <h2>第二章　林清轩企业基本面与出海底座能力诊断</h2>
+    <div class="lede">
+      回答「凭什么出海」与「现在缺什么」。本章基于集团公开披露的经营事实与问卷填写的出海现状，
+      先给出一条客观的能力底座画像（事实部分），再做一份不回避问题的 SWOT（判断部分），
+      并以一张<b>径向知识图谱</b>把林清轩的「主体—资产—渠道—潜在海外实体—服务商—资本方」全景关系一次性摊开。
+    </div>
+  </div>
+
+  <div class="anchorlink">
+    <a href="#s21">2.1 集团国内核心竞争底座</a>
+    <a href="#s22">2.2 当前出海现状盘点与短板</a>
+    <a href="#s23">2.3 SWOT 与径向知识图谱</a>
+  </div>
+
+  <h3 class="sub" id="s21">2.1　集团国内核心竞争底座（事实基础）<span class="en">Domestic Core Competence Base (Factual)</span></h3>
+
+  <div class="grid4">
+    <div class="stat r"><div class="v">24.5<small>亿元</small></div><div class="l">2025 全年营收</div><div class="d">同比 +102.5%（模型/披露口径）</div></div>
+    <div class="stat o"><div class="v">3.6<small>亿元</small></div><div class="l">2025 净利润</div><div class="d">同比 +92.9%，净利率约 14.7%</div></div>
+    <div class="stat b"><div class="v">≈82<small>%</small></div><div class="l">毛利率（近年高位）</div><div class="d">2022–2024: 78% / 81.2% / 82.5%</div></div>
+    <div class="stat g"><div class="v">第 13<small>位</small></div><div class="l">全球高端护肤榜（2024 零售额）</div><div class="d">前 15 中唯一国货，国内高端国货第 1</div></div>
+  </div>
+
+  <div class="badges">
+    <div class="badge o"><span class="n">2003</span>品牌创立 / 2014 首款山茶花润肤油</div>
+    <div class="badge o"><span class="n">2025-12-30</span>港交所主板上市</div>
+    <div class="badge b"><span class="n">600+</span>高端购物中心门店</div>
+    <div class="badge b"><span class="n">65.4%</span>线上收入占比（2025H1）</div>
+    <div class="badge g"><span class="n">2.0 万+</span>红山茶花合作种植基地</div>
+    <div class="badge r"><span class="n">以油养肤</span>核心赛道开创者</div>
+  </div>
+
+  <div class="swot" style="margin-top:20px">
+    <div class="card ok" style="margin:0">
+      <div class="ch"><span class="dot"></span>五大竞争底座（事实）</div>
+      <ul class="tick" style="font-size:13.2px">
+        <li><b>产品底座：</b>以山茶花修护精华油为核心大单品，2014 年推出第一代润肤油，深耕「以油养肤」细分二十余年，具备可迁移的高端护肤产品逻辑与复购基础。</li>
+        <li><b>供应链底座：</b>红山茶花种植基地（2 万+ 合作基地）+ 原料提取 + 研发生产全链条，<b>原料可溯源是海外「clean/traceable」叙事的硬证据</b>，在国际大牌普遍依赖第三方原料的背景下具备稀缺性。</li>
+        <li><b>品牌底座：</b>2016 年主动砍掉平价产品线确立高端路线，是国货中少有的「主动向上」品牌样本；「东方植物护肤」的品牌人格清晰，具备跨文化叙事基础。</li>
+        <li><b>渠道底座：</b>国内线下 600+ 高端购物中心专柜（验证高端化与线下运营能力）+ 线上抖音/天猫（验证内容电商与投放效率），这两套能力分别对应海外的「线下渠道 + 社媒电商」两条路。</li>
+        <li><b>财务与资本底座：</b>港股上市后具备资本能见度与国际机构覆盖，82% 毛利提供较高的试错预算弹性（问卷反馈预算弹性大），为「双线并行 + 前期重投入」提供了财务空间。</li>
+      </ul>
+    </div>
+    <div class="card blue" style="margin:0">
+      <div class="ch"><span class="dot"></span>出海关键资产可迁移性判断</div>
+      <ul class="dot" style="font-size:13.2px">
+        <li><b>高度可迁移：</b>山茶花原料与「以油养肤」产品逻辑（跨境可直接销售，配方通用性高）。</li>
+        <li><b>可迁移但需重构：</b>抖音内容电商方法论 → 可迁移到 TikTok，但需按东南亚/日本的文化语境与平台规则重构（不能照搬国内素材）。</li>
+        <li><b>不可直接迁移：</b>国内线下专柜运营 → 海外线下渠道的成本结构、选址逻辑、店员体系完全不同，需重新构建或依赖本地代理商。</li>
+        <li><b>严重缺失：</b>海外合规（药机法/BPOM/NPRA）、海外法务税务、本地化人才、海外安全管控——这些不是「迁移」问题，而是「从零建设」问题。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="sub" id="s22">2.2　当前出海现状盘点与能力短板<span class="en">Current Overseas Readiness &amp; Capability Gaps</span></h3>
+
+  <p>
+    依据企业出海信息采集表填写内容，林清轩当前出海阶段为<b>「小范围试水」</b>，已勾选拥有海外子公司/分支机构
+    （但机构信息尚未补全）、海外营收规模勾选 1000–5000 万（占整体营收比例待确认）。问卷显示
+    <b>对市场选择、单品、商业模式、合规认证等关键字段存在大量空白</b>——这本身说明：
+    <b>出海项目目前仍处于「战略意向明确、但落地要件未闭环」的阶段</b>，这对服务商与内部决策者均是重要信号。
+  </p>
+
+  <div class="swot">
+    <div class="q s">
+      <div class="h"><span class="ic">S</span>优势 STRENGTHS（内部·已有）</div>
+      <ul>
+        <li>82% 高毛利 + 3.6 亿净利，具备承受前期投入与试错的财务能力</li>
+        <li>原料全产业链（2 万+ 基地），可溯源叙事是海外差异化的「硬资产」</li>
+        <li>国内 600+ 高端专柜 + 抖音电商，线下高端运营与内容投放双经验</li>
+        <li>港股上市带来的资本能见度与机构背书，便于海外合作方建立信任</li>
+        <li>「以油养肤」赛道开创者，品类心智清晰，产品逻辑天然适配日本油类肌护理</li>
+      </ul>
+    </div>
+    <div class="q w">
+      <div class="h"><span class="ic">W</span>劣势 WEAKNESSES（内部·缺失）</div>
+      <ul>
+        <li><b>海外合规能力空白</b>：无药机法/NPRA/BPOM 实操经验，日本责任企业主体未设立</li>
+        <li><b>海外组织能力空白</b>：无本地法务、无 EOR/本地团队、无本地化内容运营</li>
+        <li><b>海外渠道空白</b>：无海外经销商/代理商网络，跨境平台店铺未体系化运营</li>
+        <li><b>海外人员安全管控机制缺失</b>：出差审批、驻地安全、应急处置、领事联动均未建立</li>
+        <li>关键出海决策字段（SKU、定价、认证、竞品）尚未闭环，方案与报价难以精准</li>
+      </ul>
+    </div>
+    <div class="q o">
+      <div class="h"><span class="ic">O</span>机会 OPPORTUNITIES（外部·有利）</div>
+      <ul>
+        <li>东南亚电商渗透红利 + 本土高端护肤品牌缺位（结构性空档）</li>
+        <li>日本植物系 / 油类肌护理细分赛道缺少「东方植物高端品牌」</li>
+        <li>全球 clean beauty / 可溯源成分趋势，与自身原料资产高度契合</li>
+        <li>中国美妆品牌整体出海势能上行，供应链与服务生态成熟（服务商可获得）</li>
+        <li>港股上市后有动力建立「全球化品牌」叙事，资本市场对出海故事给予估值关注</li>
+      </ul>
+    </div>
+    <div class="q t">
+      <div class="h"><span class="ic">T</span>威胁 THREATS（外部·风险）</div>
+      <ul>
+        <li><b>人身与营商安全风险（最高关注）</b>：东南亚针对华人的绑架/诈骗/勒索案件，直接威胁中方人员安全</li>
+        <li>日本药机法严苛合规壁垒，医药部外品审批周期长、不确定性高</li>
+        <li>低价白牌冲击导致中国美妆整体标签贬值，压制高端品牌溢价空间</li>
+        <li>汇率波动（印尼盾/泰铢）+ 跨境回款与账户合规风险</li>
+        <li>合规主体不清导致的「上架即违规」下架/封店风险（东南亚+日本均有）</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tnote">※ SWOT 为基于公开信息与问卷填写的顾问判断，属定性分析；「空白/缺失」项以企业后续补全的海外机构与方案信息为准。</div>
+
+  <h3 class="sub" id="s23">2.3　林清轩商业主体一级关联全景（径向知识图谱）<span class="en">Radial Knowledge Graph — Corporate Entity Landscape</span></h3>
+
+  <div class="chartcard">
+    <div class="chd">
+      <div class="no">图 2-1</div>
+      <div>
+        <div class="tt">径向知识图谱 · 林清轩商业主体一级关联全景</div>
+        <div class="st">RADIAL KNOWLEDGE GRAPH · CORPORATE ENTITY LANDSCAPE</div>
+      </div>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="cbd">
+      <div class="chart" id="c_graph2_1" style="height:700px"></div>
+    </div>
+    <div class="cap-read">
+      <span class="k">图表业务解读：</span>
+      以林清轩上市集团为圆心，向外辐射六类一级关联实体——①集团与资本层（港股上市主体、股东、H股回购）；
+      ②原料与供应链（红山茶花种植基地、原料提取、研发生产）；③国内渠道资产（600+ 高端购物中心专柜、抖音/天猫线上）；
+      ④品牌与产品资产（山茶花修护精华油等核心 SKU）；⑤潜在海外实体（东南亚各国与日本的主体/代理/平台节点）；
+      ⑥服务商与资本方（合规认证、跨境物流、红人营销、安全咨询等）。
+      <b>圆环按「一级关联强度」分层，由内至外代表由核心资产向外围合作网络的辐射关系；节点颜色区分实体类型（红色=集团与资本，
+      金色=原料与供应链，蓝色=国内渠道，绿色=品牌产品，紫/青=潜在海外实体，灰色=服务商）。</b>
+      该图的作用不是展示「规模」，而是展示<b>「出海决策需要同时牵动哪些国内资产与外部资源」</b>，
+      提示项目组：任何一条海外线（东南亚或日本）的落地，都会反向调用集团内部的原料、品牌、渠道、法务、财务与安全资源。
+    </div>
+    <div class="cap-src">
+      <span class="src-l">数据来源：</span>集团公开披露信息 · 企业出海信息采集表 · 顾问整理
+      <span class="as">情景假设提示：本图为实体关系结构示意（含推演的潜在海外实体与合作方类别），非实际经营数据，不代表已签约合作方</span>
+    </div>
+  </div>
+</section>
+<!-- ============ 第三章 ============ -->
+<section id="ch3" class="chapter">
+  <div class="sec-head">
+    <div class="eyebrow">Chapter 03 · Dual Market Deep Dive</div>
+    <h2>第三章　目标市场深度研判：东南亚与日本双市场横向对比</h2>
+    <div class="lede">
+      本章是全白皮书的<b>决策核心章</b>。东南亚与日本被提升为同等重要的核心目标市场，各占独立完整篇幅：
+      东南亚侧重规模、合规与<b>社会安全专项评估</b>；日本侧重消费特征、<b>《药机法》合规拆解</b>与渠道机会。
+      章末输出<b>【目标市场多维度综合评估打分表】</b>，其中<b>「人身与营商安全风险等级」为强制评估项</b>，
+      并以地理网络图可视化市场权重与安全等级的分布关系。
+    </div>
+  </div>
+
+  <div class="anchorlink">
+    <a href="#s31">3.1 东南亚三国深度研判</a>
+    <a href="#s3114">3.1.4 竞争格局与力导向图</a>
+    <a href="#s32">3.2 日本市场深度研判</a>
+    <a href="#s33">3.3 横向对比与优先级</a>
+  </div>
+
+  <!-- ========== 3.1 东南亚 ========== -->
+  <h3 class="sub" id="s31">3.1　东南亚重点国家深度研判（印尼、泰国、马来西亚）<span class="en">Southeast Asia Deep Dive: Indonesia · Thailand · Malaysia</span></h3>
+
+  <h4 class="ssub"><span class="idx">3.1.1</span>护肤消费偏好与东方植物护肤接受度</h4>
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:112px">国家</th><th style="width:150px">市场定位（模型推演）</th><th>护肤消费偏好特征</th><th>东方植物护肤接受度</th><th>关键合规前提</th></tr>
+    </thead>
+    <tbody>
+      <tr class="hi">
+        <td><b>印度尼西亚</b><span class="tag g">主战国</span></td>
+        <td>区域第一大人口与消费市场，增长与规模兼具</td>
+        <td>偏好<b>抗痘控油、提亮、持久妆感</b>；气候湿热，对厚重油类的肤感接受度需验证；对防晒与控油需求刚性</td>
+        <td><b>中高</b>——「天然/植物」概念认知度高，但更信任<b>Halal 认证</b>与本土成分背书（如本地香草、temulawak）</td>
+        <td>BPOM 化妆品通告（Notifkos）注册 + <b>Halal 认证（BPJPH）</b> + 进口许可（API-U/E）</td>
+      </tr>
+      <tr>
+        <td><b>泰国</b><span class="tag b">辅战国</span></td>
+        <td>东南亚消费成熟度最高的市场，美容文化浓厚</td>
+        <td><b>追求天然、有机、spa 体验感</b>；对「草本/热带植物」叙事接受度区域最高；护肤 + 香氛 + SPA 交叉消费</td>
+        <td><b>高</b>——区域对东方草本文化最亲近的华人文化圈市场之一</td>
+        <td>泰国 FDA 化妆品备案（Notification）+ TISI 标准引用；宣称监管逐步收紧</td>
+      </tr>
+      <tr>
+        <td><b>马来西亚</b><span class="tag b">辅战国</span></td>
+        <td>区域最规范市场，兼具规模与秩序</td>
+        <td>偏好<b>Halal、温和、防晒、清爽保湿</b>；对成分与安全性敏感；价格敏感度高于印尼</td>
+        <td><b>中高</b>——Malaysian 认证与温和配方是加分项</td>
+        <td>NPRA 通知式注册（Notification）+ <b>JAKIM Halal 认证</b>（强制属性强）+ 化妆品规范（Cosmetics Regulation 2024）</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 国别接受度与偏好描述为基于公开行业信息的模型推演，非林清轩实际调研结果；正式立项前建议以目标国 KOL/消费者定量调研校准。</div>
+
+  <div class="insight">
+    <div class="lb">产品适配洞察｜气候与肤质对「以油养肤」的挑战与解法</div>
+    <p>
+      「以油养肤」的核心逻辑（油脂封护 + 植物活性物）在东南亚湿热气候下存在<b>肤感适配风险</b>：
+      高温高湿环境下消费者对黏腻感的容忍度显著低于国内，且叠加控油、防痘诉求，纯油类产品体感可能不占优。
+      建议的本地化解法（详见 4.2）：<b>① 质地轻盈化（精华油 → 轻质干油 / 油乳质地）；② 增加控油与抗痘成分叙事；
+      ③ 强化「养肤后清爽」的使用步骤教育（配合 KOL 内容）；④ 防晒叠加的高温稳定性。</b>
+      这一适配成本应在产品立项阶段即纳入，而非上市后再调整。
+    </p>
+  </div>
+
+  <h4 class="ssub"><span class="idx">3.1.2</span>BPOM / Halal / 税务 / 劳动法务合规卡点梳理</h4>
+  <div class="grid2">
+    <div class="card">
+      <div class="ch"><span class="dot"></span>化妆品注册与准入卡点</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>印尼 BPOM：</b>化妆品须完成通告注册（Notifkos），需提交成分安全评估、产品信息、责任人信息；<b>非注册即销售违法</b>。周期通常数月，且对「美白」「防晒」等宣称有专门审评要求。</li>
+        <li><b>Halal 认证（印尼/马来）：</b>凡宣称或面向穆斯林消费者的产品，实质需要 Halal 认证（印尼 BPJPH、马来 JAKIM）。<b>原料亦需可追溯至非猪源、非酒精争议成分</b>——这对以油类产品尤其关键，需提前确认乙醇与精油来源。</li>
+        <li><b>马来西亚 NPRA：</b>通知式注册（Notification），注册周期相对短，但宣称须符合 ACDIM 指南；<b>近年监管趋严</b>，需持续更新产品信息。</li>
+        <li><b>泰国 FDA：</b>化妆品备案（Notification）制度，泰国本地代理/责任方要求逐步明确；宣称禁用词（如美白、瘦身）严格。</li>
+        <li><b>共同前提：</b>三地均要求<b>本地责任人/进口商主体</b>；无本地实体时需依赖授权进口商或代理，而这将削弱品牌对渠道与价格体系的控制力。</li>
+      </ul>
+    </div>
+    <div class="card blue">
+      <div class="ch"><span class="dot"></span>税务与劳动法务要点</div>
+      <ul class="dot" style="font-size:13px">
+        <li><b>印尼税负：</b>进口关税 + VAT（印尼盾计税，通常 11%–12% 量级）+ PPh（企业所得税）等，需提前测算「到岸成本 + 税负」对定价的影响。</li>
+        <li><b>泰国/马来税负：</b>泰国 VAT 7%；马来西亚 SST + sales tax 体系。跨境电商进口税政策近年频繁调整，需建立<b>动态税负监测机制</b>。</li>
+        <li><b>劳动法务：</b>若自建团队，需处理劳动合同、解雇成本、外籍员工工作许可；若用 EOR，需确认 EOR 的合规性与连带责任。问卷已勾选「劳动法务」需求，建议与税务筹划打包为一套「目的国实体与用工架构」方案。</li>
+        <li><b>转让定价与资金回流：</b>跨境品牌授权费、商标许可、跨境服务费的定价需有商业实质支撑，避免被当地税务机关质疑。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="safety" id="s313">
+    <div class="lb"><span class="tp">强制评估项</span>3.1.3 · 社会安全风险专项评估（分国分城市）</div>
+    <p>
+      本小节为白皮书的<b>强制评估内容</b>。人身与营商安全是国别/城市选择的<b>前置门槛</b>，
+      其权重高于任何商业测算。以下评级为基于公开治安事件报道、领事安全提醒与国际旅行风险标准的
+      <b>顾问定性评级（A 最安全 / B 较安全 / C 中等风险 / D 高风险，仅建议线上轻量参与）</b>，供企业安全决策参考，
+      并非官方安全评估；正式驻点前建议引入第三方安全机构做实地尽调。
+    </p>
+
+    <div class="tw" style="margin-top:14px">
+    <table class="tbl">
+      <thead>
+        <tr><th style="width:104px">国家</th><th style="width:96px" class="ctr">整体安全等级</th><th style="width:170px">主要风险形态（识别）</th><th>中方人员风险高发环节</th><th style="width:210px">建议管控 / 进入方式</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>印度尼西亚</b></td>
+          <td class="ctr"><span class="tag w">B 较安全</span></td>
+          <td>泗水、勿加泗等西部城市偶发绑架勒索；雅加达「公寓诈骗」与非法拘禁勒索；边境及矿区非法产业；<b>泗水—边模口岸一带为重点警示区</b></td>
+          <td>线下验货/工厂考察、私人借贷、代办通关、夜间非正式宴请与高额消费、频繁往返偏远港口</td>
+          <td>首年<b>不自建驻点</b>，以「平台店铺 + 第三方本地代理」进入；线下活动限定<b>雅加达/万隆等 A 级城市</b>；人员出差须报备并启用行程安保；不与无正式合约的清关中介合作</td>
+        </tr>
+        <tr>
+          <td><b>泰国</b></td>
+          <td class="ctr"><span class="tag w">B 较安全</span></td>
+          <td>整体秩序优于印尼；但<b>边境省份及部分旅游城市的「园区」诈骗网络</b>、非法拘禁勒索案件持续；曼谷都市圈治安事件（扒窃、团伙抢劫偶发）</td>
+          <td>边境地区「考察/投资」邀约、SPA/娱乐场所附带风险场景、非正规车队与住宿安排</td>
+          <td>以「平台 + 代理」进入；<b>严禁员工以个人身份前往边境省份进行商务活动</b>；线下活动限定<b>曼谷、清迈（城区）等 A 级城市</b>；差旅用车与住宿走合规平台并留存记录</td>
+        </tr>
+        <tr class="hi">
+          <td><b>马来西亚</b></td>
+          <td class="ctr"><span class="tag g">A 相对安全</span></td>
+          <td>三地中秩序与法治水平最高；风险主要来自电信诈骗与网络赌博的<b>资金链条</b>（账户被牵连冻结），以及少量针对商旅的盗窃/诈骗</td>
+          <td>个人账户与公司账户被用于涉诈资金流转；轻信高回报「合资/投资」邀约；跨境携带现金</td>
+          <td>可考虑<b>作为东南亚首个实体落点</b>（吉隆坡/巴生谷 A 级）；<b>重点做支付通道与账户合规隔离</b>，禁止业务资金与任何高风险第三方共账户；不参与灰名单合作方</td>
+        </tr>
+        <tr style="background:rgba(224,69,90,.05)">
+          <td><b>其他东南亚<br>（越南/菲律宾/柬埔寨）</b></td>
+          <td class="ctr"><span class="tag r">C–D 中高风险</span></td>
+          <td><b>柬埔寨「园区」（西哈努克港、金边周边）</b>非法拘禁勒索、网络诈骗窝点风险高发；越南河内/胡志明市周边诈骗窝点关联；菲律宾-<b>POGO（离岸博彩）园区</b>涉中方人员非法拘禁风险持续</td>
+          <td>被「高薪工作/考察团」邀约至边境或园区性质区域、线下验厂与投资洽谈、携带设备与现金入境</td>
+          <td><b>不建议首年以自建团队或自营方式进入</b>；若必须覆盖，仅通过合规平台以跨境电商方式销售，且严禁任何中方人员以商务目的前往上述高风险区域</td>
+        </tr>
+        <tr>
+          <td><b>日本</b><span class="tag g">对照</span></td>
+          <td class="ctr"><span class="tag g">A 相对安全</span></td>
+          <td>整体<b>全球最低风险区间</b>：法治完善、治安良好、对华商旅保护机制成熟；主要风险为常规旅财安全（扒窃）与地震等自然灾害，而非针对华人的犯罪</td>
+          <td>常规旅财安全事项；商务诈骗（针对中资企业的合同/贸易欺诈偶发）</td>
+          <td>可正常驻点与线下布局；仍需常规差旅安全与商务合同管理（法务已覆盖）；建议接入中国驻日使领馆常规联络渠道与应急机制</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="tnote">※ 安全等级为顾问定性评级，依据公开治安事件与国际旅行风险标准的整体印象推定，<b>非官方安全评估</b>；评级会随时间与地区变化，务必结合最新领事提醒与第三方安全机构意见动态复核。</div>
+
+    <div class="lk-warn">
+      🚨 <b>止损触发条件（与第六章一致，此处预告）：</b>① 出现中方人员失联、被限制人身自由或遭遇胁迫的任一疑似事件；
+      ② 合作方/代理涉诈、涉赌或被执法调查；③ 业务资金或支付账户被冻结、被要求冻结他人款项；
+      ④ 目的地安全等级被官方下调或出现区域性治安事件。<b>满足任一条，即触发「业务暂停 + 安全复核 + 集团层面决策」流程</b>，
+      详见 <b>6.3.2 与 6.4 节</b>。
+    </div>
+  </div>
+
+  <h4 class="ssub" id="s3114"><span class="idx">3.1.4</span>竞争格局分析：亚洲美妆市场竞争实体网络<span class="en">Competitive Entity Network — Asian Skincare</span></h4>
+
+  <p>
+    东南亚与日本的中高端护肤市场并非空白，而是由<b>三股力量同时占据</b>：① 国际美妆巨头（欧莱雅、资生堂、雅诗兰黛等，
+    凭品牌规模与本地子公司深耕）；② 日本本土品牌（资生堂、FANCL、Kose、 Pola 等，以技术与敏感肌防御著称）；
+    ③ 东南亚本土 challenger（Innisfree、Skinfood、Beauty Buffet 等，以性价比与社媒声量为先），
+    同时中国出海品牌（珀莱雅、毛戈平、薇诺娜等）已先行切入部分细分。林清轩进入的是
+    「<b>东方植物 + 油类高端保养</b>」这一由②强（但不专精）与③弱（不高端）之间的结构性缝隙。
+  </p>
+
+  <div class="chartcard">
+    <div class="chd r">
+      <div class="no">图 3-1</div>
+      <div>
+        <div class="tt">2D 力导向图 · 亚洲美妆市场竞争实体网络</div>
+        <div class="st">FORCE-DIRECTED NETWORK · COMPETITIVE ENTITY RELATIONSHIPS</div>
+      </div>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="cbd">
+      <div class="chart" id="c_graph3_1" style="height:600px"></div>
+    </div>
+    <div class="cap-read">
+      <span class="k">图表业务解读：</span>
+      本图以「实体」为节点、以「竞争 / 合作 / 渠道 / 资本 / 供应链」关系为连线，构建亚洲美妆市场的竞争网络全景。
+      <b>节点按阵营着色</b>：红色为林清轩（核心）、橙色为国际美妆巨头、紫色为东南亚本土品牌、
+      金色为日本本土品牌、青色为中国出海竞品、绿色为 KOL/MCN 与平台方（Shopee / Lazada / TikTok Shop / 乐天 / 亚马逊日本等）。
+      <b>连线粗细代表关系强度</b>，虚线代表潜在的替代/竞争关系，实线代表实际存在的渠道/供应链/资本关联。
+      图中可直观读出三点：① 林清轩当前在「海外渠道」与「海外合规」两个维度<b>连接稀疏</b>，
+      说明其海外网络尚未建立，是本次项目的核心待补项；② 国际巨头与日本本土品牌在「日本市场」形成密集竞争区，
+      正面硬刚成本高；③ 东南亚本土品牌高度依附 KOL/平台节点，说明<b>东南亚市场的胜负手在内容与渠道效率</b>，
+      这与林清轩抖音电商的经验直接相关。
+    </div>
+    <div class="cap-src">
+      <span class="src-l">数据来源：</span>公开行业信息 · 企业出海信息采集表 · 顾问整理
+      <span class="as">情景假设提示：本图为竞争关系结构示意（含推演的竞争与合作关联强度），非实际经营数据，节点位置为算法自动布局，不代表地理或实际市占率</span>
+    </div>
+  </div>
+
+  <!-- ========== 3.2 日本 ========== -->
+  <h3 class="sub" id="s32">3.2　日本市场深度研判（核心重点市场）<span class="en">Japan Market Deep Dive — The Core Priority Market</span></h3>
+
+  <div class="insight gold">
+    <div class="lb">为何日本应与东南亚并列为核心市场</div>
+    <p>
+      东南亚提供<b>规模与增速</b>，但竞争激烈、安全治理成本高、价格体系易被低价白牌扰动；
+      日本提供<b>品牌高度与利润质量</b>，竞争格局相对稳固、消费者支付意愿强、且人身安全环境优。
+      更关键的是，<b>日本是林清轩「东方植物 + 油类保养」叙事最容易被完整理解的验证场</b>——
+      日本消费者对「以油养肤」的品类习惯已有基础，无需从零教育。这使日本不仅是「第二个市场」，
+      更是<b>品牌出海叙事能否成立的战略验证地</b>，值得投入不低于东南亚的资源密度。
+    </p>
+  </div>
+
+  <h4 class="ssub"><span class="idx">3.2.1</span>日本高端护肤消费画像与山茶花概念接受度</h4>
+  <p>
+    日本高端护肤消费者具有鲜明的画像：<b>重视成分标识的「可读性」</b>（喜欢清晰标注活性成分与浓度）、
+    <b>重视「浸透感 + 光泽感」并存的使用体验</b>、<b>重视包装与仪式感</b>、<b>对「国产/进口」不敏感但对品质与备案资质敏感</b>。
+    女性消费者中「植物系/敏感肌友好/无香料」是高频关键词；同时日本存在「东方（中国）文化好感度历史较高」
+    的文化基础，令和风、和汉、和菓子等传统美学与中国文化有相通表达。
+  </p>
+  <div class="grid3">
+    <div class="card gold">
+      <div class="ch"><span class="dot"></span>山茶花（Camellia japonica）概念的日本接受度分析</div>
+      <p style="font-size:13px">
+      山茶花在东亚（中日）文化中均有深厚意涵（纯洁、高洁、冬季盛放），<b>并非完全陌生的外来符号</b>，
+      这为「中国山茶花」进入日本叙事提供了<b>「似曾相识但更东方」的文化接口</b>。
+      在日本美妆语境中，山茶花油（tslbloom oil）也已有既有的「植物性优质油」定位（常用于护发/润肤高端线），
+      林清轩的「山茶花修护精华油」在成分与形态上具备天然的<b>「日本消费者熟悉符号 + 中国品牌独有故事」</b>双重优势。
+      这是本白皮书认为日本线最值得投入的一个产品切口。</p>
+    </div>
+    <div class="card gold">
+      <div class="ch"><span class="dot"></span>油类肌护理（Oil Skin）消费基础</div>
+      <p style="font-size:13px">
+      日本「保养型护肤」中，<b>油类护理是稳定且高端的品类</b>（美容油 / 脸上的油）。林清轩的「大单品 = 精华油」结构与日本消费者的油类肌护理心智<b>高度同构</b>，
+      意味着在日本市场可以「顺着品类习惯讲故事」，而非强行创造新品类教育，这是降低上市成本的关键。</p>
+    </div>
+    <div class="card gold">
+      <div class="ch"><span class="dot"></span>待验证的本地化风险</div>
+      <p style="font-size:13px">
+      需注意：① 日本消费者对<b>「夸大宣称」高度敏感</b>，「修护/焕亮/抗老」等词需严格规避或改写为非功效表达；
+      ② 日文标签、成分标注、说明书需达到<b>日本药机法下的严谨与可读性</b>，翻译质量直接影响信任；
+      ③ 「以油养肤」若翻译不当可能引起「油腻」的既有联想，需以日式语言（如「保湿感」「透亮光泽」）重塑。</p>
+    </div>
+  </div>
+
+  <h4 class="ssub"><span class="idx">3.2.2</span>日本《药机法》合规拆解（核心壁垒）<span class="en">Pharmaceutical &amp; Medical Device Act (PMDA) Compliance Breakdown</span></h4>
+
+  <p>
+    日本《药机法》（医薬品医療機器等法、略称药机法）对化妆品实施<b>二元分类监管</b>，这是进入日本最核心、
+    最容易被低估的合规分水岭。下表对一般化妆品与医药部外品的差异做完整拆解：
+  </p>
+
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:130px">合规维度</th><th>一般化妆品（化粧品 / acknowledged cosmetics）</th><th>医药部外品（医薬部外品）</th><th style="width:180px">对林清轩的策略含义</th></tr>
+    </thead>
+    <tbody>
+      <tr class="hi">
+        <td><b>功效宣称自由度</b></td>
+        <td>仅限<b>保水保湿</b>（保湿、基礎保湿 等）与清洁类表述；<b>禁止美白、防晒、抗老、祛痘等功效宣称</b></td>
+        <td>可宣称美白（-effects限于祛斑美白）、防晒（防紫外线）、防脱发、杀菌等<b>医药功效</b></td>
+        <td>首年定位为<b>一般化妆品</b>，功效宣称全面「收敛」为保湿与使用感；抗老/美白诉求引导至「妆前/打底」等非功效表达</td>
+      </tr>
+      <tr>
+        <td><b>责任主体</b></td>
+        <td>须由<b>日本境内（或获准的境外）责任企业主体</b>「輸出入販売業」责任主体担任，负责备案与表示义务</td>
+        <td>同上，且需<b>经 PMDA/ prefectural 审批</b>（承認取得）</td>
+        <td>无论走哪条路径，<b>「日本责任企业主体」是共同前置</b>；首年选一般化妆品可更快锁定主体与责任方</td>
+      </tr>
+      <tr>
+        <td><b>审批 / 备案周期</b></td>
+        <td><b>备案制（届出）</b>，无实质审批环节，周期较短（模型推演约 3–6 个月，含测试与文件准备）</td>
+        <td><b>审批制（承認）</b>，需提交功效评价资料，周期长（模型推演约 12–24 个月）且有被驳回风险</td>
+        <td><b>首年不申请医药部外品</b>，规避 12–24 月不确定周期与高审查成本，先以一般化妆品建立品牌认知与合规信用</td>
+      </tr>
+      <tr>
+        <td><b>表示义务与标签</b></td>
+        <td>严格：成分表（全成分名称）、法定标注项目、日文标签、使用方法/注意事项，禁止医疗用语与病患暗示</td>
+        <td>同左，另需标注医药部外品的专用标识与不可作为医药品的说明</td>
+        <td>需<b>高标准日文标签与成分表本地化</b>，且合规审核必须前置（不可「先上架后整改」）</td>
+      </tr>
+      <tr>
+        <td><b>进口与流通</b></td>
+        <td>由日本境内责任主体进口，或委托合规进口商；进口时可能抽检</td>
+        <td>同左，且药部外品对流通渠道有更严格的销售主体要求</td>
+        <td>物流与仓储需可对接日本药妆/电商渠道的合规要求（批号、效期管理）</td>
+      </tr>
+      <tr>
+        <td><b>成本量级（推演）</b></td>
+        <td>相对可控：责任主体 + 备案 + 标签本地化 + 测试</td>
+        <td>高额：主体 + 功效评价 + 审批应对 + 可能的追加试验</td>
+        <td>首年一般化妆品投入产出比更优；医药部外品作为<b>第二年可选升级项</b>（待一般化妆品跑通并积累安全数据后申请）</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 周期与成本为顾问基于行业一般认知的模型推演，实际以日本法规最新要求、PMDA/都道府县审查口径与合规服务商评估为准。</div>
+
+  <div class="risk">
+    <div class="lb">日本线第一道前置工程｜责任企业主体与进口路径</div>
+    <p>
+      <b>这是日本线能否成立的总开关。</b>没有日本境内（或获准境外）的「输出入販売業责任主体」，
+      则一般化妆品与医药部外品均无法合法进口与销售。实务上有三条路径：① 自设日本子公司（控制力最强、成本与时间最高）；
+      ② 委托日本合规代理商/责任企业（速度较快，但需签正式委任/责任合同，品控与数据掌控力略弱）；
+      ③ 与已有日本实体的中方出海品牌/日方企业合作导入（可借力已有责任主体，需严选并做尽职调查）。
+      <b>本白皮书建议：首年采用「② + 同步筹备「①」</b>——先用代理商路径快速完成一般化妆品上市跑通闭环，
+      同步在上海/东京筹备日本子公司，为后续医药部外品与更深渠道（百货专柜）预留主体。
+    </p>
+  </div>
+
+  <h4 class="ssub"><span class="idx">3.2.3</span>日本竞争格局与渠道机会<span class="en">Japan Competitive Landscape &amp; Channel Opportunities</span></h4>
+  <p>
+    日本中高端护肤由「药妆店巨头（Kose、Shiseido、FANCL、Canmake 等）+ 百货专柜国际大牌（资生堂、CPB、Clé de Peau 等）
+    + 药部外品功效品牌 + 新兴 DTC/线上品牌」四层构成。林清轩在日本的可争位置是
+    <b>「百货/百货专柜与线上之间的高品质植物系面孔护理」</b>。渠道机会分层评估如下（详见 4.1 / 4.3）：
+  </p>
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:130px">渠道类型</th><th style="width:96px" class="ctr">进入难度</th><th style="width:96px" class="ctr">毛利空间</th><th>适配阶段</th><th style="width:200px">说明</th></tr>
+    </thead>
+    <tbody>
+      <tr class="hi"><td><b>跨境电商</b><br><small class="sm">乐天 / 亚马逊日本购 / Yahoo!ショッピング</small></td><td class="ctr"><span class="tag o">低</span></td><td class="ctr"><span class="tag w">中</span></td><td><b>第一年（首发）</b></td><td>以一般化妆品备案 + DTC 品牌店方式进入；平台自带流量与信任；<b>是日本线「跑通变现闭环、测 ROI」的最短路径</b></td></tr>
+      <tr><td><b>DTC 独立站</b><br><small class="sm">品牌官网 + 日本语客服</small></td><td class="ctr"><span class="tag o">低</span></td><td class="ctr"><span class="tag b">中高</span></td><td>第一年并行</td><td>掌握用户数据与品牌叙事；需解决日本支付与跨境物流履约；日本消费者对官网直购接受度中等</td></tr>
+      <tr><td><b>药妆店分销</b><br><small class="sm">日本药妆连锁体系（第三方采购）</small></td><td class="ctr"><span class="tag w">中高</span></td><td class="ctr"><span class="tag w">中</span></td><td>第二年</td><td>覆盖广、信用稳，但账期与毛利受限；需经日本代理商/批发体系进入，需权衡高端定位与渠道毛利</td></tr>
+      <tr><td><b>百货专柜</b><br><small class="sm">高岛屋/伊势丹 等</small></td><td class="ctr"><span class="tag r">高</span></td><td class="ctr"><span class="tag g">高</span></td><td>第三年（品牌成熟后）</td><td>品牌高度最高，但需高额上架费/佣金、严格选品与专柜形象；作为长期品牌标杆，不作为首年变现主力</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 难度/毛利为相对评级（顾问判断），具体费用与账期以渠道商实际商务条款为准。</div>
+
+  <h4 class="ssub"><span class="idx">3.2.4</span>日本营商与人身安全环境评估（对比东南亚）<span class="en">Japan: Business &amp; Personal Safety vs Southeast Asia</span></h4>
+  <div class="grid2">
+    <div class="card ok">
+      <div class="ch"><span class="dot"></span>日本：低人身风险 / 高合规风险</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>人身安全：</b>全球最低风险区间。法治完善、治安优良，针对华人的绑架/诈骗类案件极少；中方人员可正常驻点、出差、建立本地团队，无需额外安保。</li>
+        <li><b>营商安全：</b>产权与合同保护体系成熟，司法可预期；主要风险不是人身安全，而是<b>合规风险</b>（药机法违规即面临下架/追责）与<b>商务合规</b>（合同、税务、反商业贿赂——日本对海外业务中的合规审查较严）。</li>
+        <li><b>建议：</b>日本线可以承担更「重」的落地形式（自建团队、线下活动、代理拜访），但要把资源重心放在<b>合规与品牌长期信用</b>的投入上。</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="ch"><span class="dot"></span>与东南亚的安全差异总结（决策口径）</div>
+      <div class="tw" style="margin:6px 0 0">
+      <table class="tbl" style="min-width:0">
+        <thead><tr><th style="width:120px">安全维度</th><th>东南亚（印/泰/马）</th><th>日本</th></tr></thead>
+        <tbody>
+          <tr><td><b>人身安全</b></td><td><span class="tag r">中–较高</span> 需分国分城市管控</td><td><span class="tag g">低</span> 常规旅财安全即可</td></tr>
+          <tr><td><b>资产/资金安全</b></td><td><span class="tag w">中</span> 涉诈账户牵连、灰名单合作方</td><td><span class="tag g">低–中</span> 合同与司法保护强</td></tr>
+          <tr><td><b>主要风险类型</b></td><td>绑架勒索 / 电信诈骗 / 园区非法拘禁</td><td>合规违规 / 商务欺诈（非人身）</td></tr>
+          <tr><td><b>落地方式建议</b></td><td>平台+代理，不自建驻点</td><td>可自建团队/线下布局</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 3.3 横向对比 ========== -->
+  <h3 class="sub" id="s33">3.3　东南亚 vs 日本综合对比、市场机会窗口与进入优先级<span class="en">Comparative Assessment &amp; Market Entry Priority</span></h3>
+
+  <h4 class="ssub"><span class="idx">3.3.1</span>地理网络图：亚洲跨境市场权重与安全等级分布<span class="en">Geo Network · Market Weight &amp; Security Tier Distribution</span></h4>
+  <div class="chartcard">
+    <div class="chd">
+      <div class="no">图 3-2</div>
+      <div>
+        <div class="tt">地理网络图 · 亚洲跨境市场权重分布与安全等级标注</div>
+        <div class="st">GEO NETWORK · MARKET WEIGHT &amp; SECURITY TIER MAPPING</div>
+      </div>
+      <div class="stars">★★★★</div>
+    </div>
+    <div class="cbd">
+      <div class="chart" id="c_graph3_2" style="height:720px"></div>
+    </div>
+    <div class="cap-read">
+      <span class="k">图表业务解读：</span>
+      以中国（上海/总部）为原点，辐射东南亚与日本的<b>跨境市场网络</b>。
+      <b>节点大小 = 该市场在模型中的布局权重（综合市场规模、增长、进入难度、战略价值）</b>；
+      <b>连线粗细 = 拟投入的贸易/资金流量强度</b>；<b>节点颜色与标签 = 人身与营商安全等级（A 绿 / B 黄 / C 橙 / D 红）</b>。
+      从图上可直接读出本白皮书的核心战略取向：<b>日本（Tokyo）与马来西亚（Kuala Lumpur）因安全等级 A 而可承接较重的落地形式；
+      印尼（Jakarta）虽权重最高，但因安全等级 B 且规模最大，建议以「平台+代理」方式进入；
+      菲律宾、柬埔寨、越南因安全等级 C–D，仅保留极轻量的线上覆盖或暂不进入。</b>
+      这张图把「商业权重」与「安全等级」放在同一平面，正是本白皮书主张国别选择必须二维决策的直观表达。
+    </div>
+    <div class="cap-src">
+      <span class="src-l">数据来源：</span>公开行业信息 · 顾问安全评级框架 · 顾问整理
+      <span class="as">情景假设提示：节点大小（布局权重）与连线粗细（流量强度）均为模型推演值，非实际经营数据；安全等级为定性评级，随时间变化</span>
+    </div>
+  </div>
+
+  <h4 class="ssub"><span class="idx">3.3.2</span>【核心输出】目标市场多维度综合评估打分表<span class="en">Multi-Dimension Target Market Scorecard (Safety = Mandatory Criterion)</span></h4>
+
+  <div class="insight">
+    <div class="lb">打分方法说明</div>
+    <p>
+      采用<b>六维度加权评分</b>，分值 1–10 分（10 为最优），<b>其中「人身与营商安全风险」为强制评估项且采用「反向计分」</b>
+      （安全等级 A 计 10 分、B 计 7 分、C 计 4 分、D 计 1 分），即安全分越高代表人身与营商环境越安全。
+      总分 = 市场规模×20% + 增长潜力×18% + 文化亲近性×12% + 利润空间×18% + 合规成本（反向，越易得分越高）×12% +
+      <b>安全风险（反向）×20%</b>。<b>安全权重（20%）高于任何单一商业维度，并在实操中建议作为一票否决的门槛项：安全分低于 7 分的市场，不进入本项目首轮。</b>
+      ※ 以下分值为顾问基于公开信息的定性/半定量推演，供决策框架使用，非精确量化结果。
+    </p>
+  </div>
+
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th style="width:130px" class="rk">目标市场</th>
+        <th style="width:84px" class="ctr">市场规模<br><small class="sm">20%</small></th>
+        <th style="width:84px" class="ctr">增长潜力<br><small class="sm">18%</small></th>
+        <th style="width:84px" class="ctr">文化亲近性<br><small class="sm">12%</small></th>
+        <th style="width:84px" class="ctr">利润空间<br><small class="sm">18%</small></th>
+        <th style="width:96px" class="ctr">合规成本<br><small class="sm">反向·12%</small></th>
+        <th style="width:104px" class="ctr" class="sec-th">安全风险等级<br><small class="sm">强制·20%</small></th>
+        <th style="width:92px" class="ctr">加权总分</th>
+        <th style="width:170px">顾问建议进入优先级</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>印度尼西亚</b><br><small class="sm">雅加达</small></td>
+        <td class="num">9</td><td class="num">9</td><td class="num">7</td><td class="num">6</td><td class="num">5</td>
+        <td class="ctr"><span class="tag w">B · 7 分</span></td>
+        <td class="ctr"><b style="color:#f0bc6a;font-size:15px">7.3</b></td>
+        <td><b>主战国</b>——规模最大必进，但仅以「平台+代理」方式进入，不自建驻点</td>
+      </tr>
+      <tr>
+        <td><b>泰国</b><br><small class="sm">曼谷</small></td>
+        <td class="num">7</td><td class="num">7</td><td class="num">8</td><td class="num">6</td><td class="num">5</td>
+        <td class="ctr"><span class="tag w">B · 7 分</span></td>
+        <td class="ctr"><b style="color:#f0bc6a;font-size:15px">6.7</b></td>
+        <td><b>辅战国</b>——文化亲近度高可作次站，严禁员工前往边境省份</td>
+      </tr>
+      <tr class="hi">
+        <td><b>马来西亚</b><br><small class="sm">吉隆坡</small></td>
+        <td class="num">6</td><td class="num">6</td><td class="num">7</td><td class="num">6</td><td class="num">6</td>
+        <td class="ctr"><span class="tag g">A · 10 分</span></td>
+        <td class="ctr"><b style="color:#4fd3a0;font-size:15px">7.0</b></td>
+        <td><b>辅战国 / 备选落地实体点</b>——安全最优，可承接较重落地形式</td>
+      </tr>
+      <tr class="hi" style="background:rgba(212,175,55,.06)">
+        <td><b>日本</b><br><small class="sm">东京 / 大阪</small><span class="tag g">并列核心</span></td>
+        <td class="num">8</td><td class="num">5</td><td class="num">7</td><td class="num">9</td><td class="num">4</td>
+        <td class="ctr"><span class="tag g">A · 10 分</span></td>
+        <td class="ctr"><b style="color:#4fd3a0;font-size:15px">7.6</b></td>
+        <td><b>并列核心市场</b>——品牌高度+利润质量最优，安全环境优；瓶颈在药机法合规而非安全</td>
+      </tr>
+      <tr style="background:rgba(232,163,61,.04)">
+        <td><b>越南</b><br><small class="sm">胡志明市</small></td>
+        <td class="num">7</td><td class="num">8</td><td class="num">7</td><td class="num">5</td><td class="num">5</td>
+        <td class="ctr"><span class="tag r">C · 4 分</span></td>
+        <td class="ctr"><b style="color:#ff8f9d;font-size:15px">6.1</b></td>
+        <td><b>暂缓</b>——增长高但安全分低于门槛，仅保留线上覆盖</td>
+      </tr>
+      <tr style="background:rgba(224,69,90,.05)">
+        <td><b>菲律宾</b><br><small class="sm">马尼拉</small></td>
+        <td class="num">6</td><td class="num">7</td><td class="num">6</td><td class="num">5</td><td class="num">5</td>
+        <td class="ctr"><span class="tag r">C–D · 3 分</span></td>
+        <td class="ctr"><b style="color:#ff8f9d;font-size:15px">5.4</b></td>
+        <td><b>不建议进入</b>——安全分低于门槛，涉园区非法拘禁风险高</td>
+      </tr>
+      <tr style="background:rgba(224,69,90,.06)">
+        <td><b>柬埔寨</b><br><small class="sm">金边 / 西哈努克港</small></td>
+        <td class="num">4</td><td class="num">6</td><td class="num">6</td><td class="num">4</td><td class="num">4</td>
+        <td class="ctr"><span class="tag r">D · 1 分</span></td>
+        <td class="ctr"><b style="color:#ff8f9d;font-size:15px">4.2</b></td>
+        <td><b>一票否决</b>——园区非法拘禁风险极高，本项目不予进入</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 所有分值为顾问基于公开信息的推演评分，用于建立决策框架与优先级排序，非精确量化结果；安全等级为定性评级（详见 3.1.3），请结合最新领事提醒与第三方安全意见动态复核。</div>
+
+  <div class="insight">
+    <div class="lb">3.3 结论 · 双核心的落地顺序与形态</div>
+    <p>
+      综合六维打分与安全强制门槛，本白皮书给出的<b>并行落地结构</b>是：
+      <b>① 日本线 = 「品牌验证核心」</b>——优先启动，走一般化妆品 + 跨境电商 + 日本责任主体，
+      目标是 <b>12 个月内验证「东方植物高端护肤」在日本的可接受度与毛利结构</b>，并为集团积累海外合规信用；
+      <b>② 东南亚线 = 「规模增长核心」</b>——以印尼为主、泰马为辅，全部以「平台店铺 + 第三方代理」形态进入，
+      <b>不自建驻点、不做重资产线下</b>，目标是 <b>12–18 个月跑通「东南亚电商变现闭环」并测试营销 ROI</b>，
+      过程中把人身与资产安全管控作为与营收同等重要的考核项。
+    </p>
+    <p>
+      两条线的<b>共同底线</b>：坚持品牌出海定位与高端定价，绝不以低价倾销换量；
+      任何市场的进入、扩张、暂停与退出，均须通过<b>安全与合规双轨评审委员会</b>的门槛校验（见执行摘要与 5.4 节）。
+    </p>
+  </div>
+</section>
+<!-- ============ 第四章 ============ -->
+<section id="ch4" class="chapter">
+  <div class="sec-head">
+    <div class="eyebrow">Chapter 04 · Commercial Model Design (Core)</div>
+    <h2>第四章　出海变现商业模式设计（全书核心）</h2>
+    <div class="lede">
+      本章回答「怎么赚钱、赚谁的钱、钱从哪来、留多少」。全部设计围绕一个原则：
+      <b>品牌出海而非产能出海</b>——坚持高端定位、拒绝低价下探，通过品牌溢价而非产能规模获取回报。
+      东南亚线与日本线<b>各给一套进入模式与 SKU/定价/渠道策略</b>，并在 4.5 节以桑基图与旭日图呈现资金与价值分配，
+      4.6 节给出三情景财务推演。
+    </div>
+  </div>
+
+  <div class="anchorlink">
+    <a href="#s41">4.1 多市场进入模式评估</a>
+    <a href="#s42">4.2 SKU 与定价策略</a>
+    <a href="#s43">4.3 渠道矩阵（东南亚版/日本版）</a>
+    <a href="#s44">4.4 山茶花东方叙事本地化</a>
+    <a href="#s45">4.5 资金与供应链价值拆解</a>
+    <a href="#s46">4.6 三情景财务测算</a>
+  </div>
+
+  <h3 class="sub" id="s41">4.1　多市场进入模式评估：东南亚适配 vs 日本适配<span class="en">Entry Mode Assessment: SEA-Adapted vs Japan-Adapted</span></h3>
+
+  <p>
+    进入模式的选择本质是「<b>速度 / 控制力 / 风险 / 毛利</b>」四者之间的取舍。东南亚的核心矛盾是
+    <b>安全与治理成本</b>，因此倾向于「轻资产、低暴露」的电商/代理模式；日本的核心矛盾是
+    <b>合规主体与长期品牌信用</b>，因此倾向于「合规前置 + 品牌建设」的路径。下表对五种模式做双市场适配对比：
+  </p>
+
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th style="width:132px" class="rk">进入模式</th>
+        <th style="width:96px" class="ctr">控制力</th><th style="width:96px" class="ctr">起量速度</th>
+        <th style="width:96px" class="ctr">毛利保留</th><th style="width:96px" class="ctr">人身/资产风险</th>
+        <th>东南亚适配模式与理由</th><th>日本适配模式与理由</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>① 跨境电商平台入驻</b><br><small class="sm">Shopee / Lazada / TikTok Shop</small></td>
+        <td class="ctr"><span class="tag w">中</span></td><td class="ctr"><span class="tag g">快</span></td>
+        <td class="ctr"><span class="tag w">中</span></td><td class="ctr"><span class="tag g">低</span></td>
+        <td><b>【推荐】东南亚首发模式</b>——无需重资产驻点，安全暴露面最低，平台承担流量与支付基础设施；契合「不自建团队」的安全原则</td>
+        <td>不适用（东南亚平台不覆盖日本）</td>
+      </tr>
+      <tr class="hi">
+        <td><b>② DTC 独立站</b><br><small class="sm">品牌官网 + 独立支付</small></td>
+        <td class="ctr"><span class="tag g">高</span></td><td class="ctr"><span class="tag w">中</span></td>
+        <td class="ctr"><span class="tag g">高</span></td><td class="ctr"><span class="tag g">低</span></td>
+        <td>作为平台店铺的<b>品牌沉淀补充</b>（用户数据资产），但东南亚独立站转化率与支付习惯弱于平台，建议非首选</td>
+        <td><b>【推荐】日本核心模式之一</b>——日本消费者有一定官网直购习惯；DTC 可完整承载「东方植物」品牌叙事与全套合规表述，掌控用户数据</td>
+      </tr>
+      <tr>
+        <td><b>③ 日本平台电商</b><br><small class="sm">乐天 / 亚马逊日本购 / Yahoo!ショッピング</small></td>
+        <td class="ctr"><span class="tag w">中</span></td><td class="ctr"><span class="tag g">快</span></td>
+        <td class="ctr"><span class="tag w">中</span></td><td class="ctr"><span class="tag g">低</span></td>
+        <td>不适用（东南亚平台不覆盖日本）</td>
+        <td><b>【推荐·首发】日本首发模式</b>——在一般化妆品备案完成后即可上架，平台信任背书强，是日本线「跑通变现闭环、测 ROI」的最短路径</td>
+      </tr>
+      <tr>
+        <td><b>④ 本地分销 / 代理商</b><br><small class="sm">B2B 经销</small></td>
+        <td class="ctr"><span class="tag r">低</span></td><td class="ctr"><span class="tag w">中</span></td>
+        <td class="ctr"><span class="tag r">低</span></td><td class="ctr"><span class="tag r">中高</span></td>
+        <td><b>【谨慎/限定】仅用于已验证爆品的补量</b>——代理资质与资信核验难度大，涉诈/涉赌合作方风险需尽调；不作为首年主力</td>
+        <td>配合责任企业主体使用；<b>是拓展药妆店/百货渠道的必经之路</b>，但需以正式委任合同与品控条款锁定责任边界</td>
+      </tr>
+      <tr>
+        <td><b>⑤ 线下门店 / 专柜</b><br><small class="sm">自营 or 寄售</small></td>
+        <td class="ctr"><span class="tag g">高</span></td><td class="ctr"><span class="tag r">慢</span></td>
+        <td class="ctr"><span class="tag g">高</span></td><td class="ctr"><span class="tag r">高</span></td>
+        <td><b>【不建议·首年】</b>——线下重资产 + 长期人员驻点 = 安全暴露面最大化，与本项目安全原则冲突</td>
+        <td><b>【长期目标·第三年】</b>——日本线下安全环境优，百货专柜是品牌高度标杆；但需先跑通线上闭环并积累品牌信用</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 模式适配与风险等级为顾问判断；具体平台入驻门槛、费用与合规主体要求以各平台与当地监管最新规则为准。</div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="ch"><span class="dot"></span>东南亚适配组合（推荐）</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>主渠道：</b>Shopee + Lazada + TikTok Shop 官方店（印尼为主、泰马同步铺货）</li>
+        <li><b>辅助：</b>品牌 DTC 站（品牌沉淀与用户资产）</li>
+        <li><b>结构：</b>「平台店铺 + 第三方本地代理/代运营」，<b>不自建本地法人团队与驻点</b></li>
+        <li><b>物流：</b>前期国内直发 / 第三方海外仓（雅加达或新加坡仓，中转东南亚）</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="ch"><span class="dot"></span>日本适配组合（推荐）</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>首发渠道：</b>乐天 / 亚马逊日本购 / Yahoo!ショッピング + 品牌日文 DTC 站并行</li>
+        <li><b>合规前置：</b>一般化妆品备案 + 日本责任企业主体（或委托合规责任方）先行，备案完成后方可上架</li>
+        <li><b>第二年升级：</b>医药部外品路径（美白/防晒类 SKU）作为可选增强</li>
+        <li><b>第三年：</b>药妆店分销 → 百货专柜（品牌高度）</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="sub" id="s42">4.2　SKU 筛选、本地化改造与定价策略<span class="en">SKU Curation, Localization &amp; Pricing Discipline</span></h3>
+
+  <div class="insight">
+    <div class="lb">定价原则｜坚持高端，拒绝低价下探</div>
+    <p>
+      海外定价参照<b>「当地高端品牌/国际大牌」价格带</b>，而非当地竞品的最低价。
+      国内客单价 200–500 元人民币，映射到日本市场约对应 <b>4,000–9,000 日元区间</b>（模型推演），
+      东南亚则对应各国民均高端护肤价格带的 1.2–1.8 倍定位（高于本土 challenger、接近国际牌入门线）。
+      <b>任何以「快速起量」为由的降价促销，须经品牌与董事会双重审批</b>，且明确区分「促销价」与「标价」，
+      避免形成海外低价标签反向侵蚀国内定位。
+    </p>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="ch"><span class="dot"></span>东南亚 SKU 与本地化改造</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>首发 SKU（建议 3–5 个）：</b>山茶花修护精华油（旗舰，小规格先行）、山茶花滋养面霜、清透型精华油（新增）、身体护理油、护手霜</li>
+        <li><b>气候适配：</b>干热/湿热气候下<b>降低油类黏腻度</b>——推出「轻质干油 / 精华油乳」质地，增加控油与抗痘成分叙事，验证高温稳定性与包材兼容性。</li>
+        <li><b>Halal 适配：</b>确认全链路无猪源成分与争议酒精来源，选用合规防腐体系；包装、宣称避免宗教敏感表述，并准备 Halal 认证材料。</li>
+        <li><b>宣称适配：</b>避免触发当地对美白/防晒的额外审评；东南亚宣称整体保守化处理，以「保湿、滋养、柔润」为主。</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="ch"><span class="dot"></span>日本 SKU 与法规适配</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>首发 SKU（建议 2–3 个，全部走一般化妆品）：</b>山茶花修护精华油（保湿/光泽定位）、山茶花保湿面霜、妆前保湿打底精华</li>
+        <li><b>宣称严格收敛：</b>仅使用<b>保湿・保護・光泽感等非医药功效表述</b>；<b>严禁美白、防晒、抗衰、祛痘</b>等词，避免被归为医药部外品。</li>
+        <li><b>标签与成分表：</b>高标准日文本地化——全成分名称、法定标注、使用方法、注意事项、由日本责任主体审校。</li>
+        <li><b>申报规划分层：</b><b>普通化妆品（一般化妆品）</b>= 首年主力；<b>医药部外品</b>= 第二年可选（需功效评价与审批，作为高端线升级项）。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="sub" id="s43">4.3　渠道矩阵：分市场组合打法<span class="en">Channel Playbook: SEA Edition &amp; Japan Edition</span></h3>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="ch"><span class="dot"></span>【东南亚版】渠道与营销组合</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>电商平台：</b>Shopee（印尼/泰/马）、Lazada（印尼/泰/马）、TikTok Shop（印尼为增长引擎）。以官方旗舰店形式入驻，保证品牌呈现与价格控制。</li>
+        <li><b>红人营销：</b>以<b>中腰部 KOL（1万–50万粉）矩阵</b>为核心，降低单一大 KOL 依赖与合规风险；内容以「清爽质地实测 + 东方成分讲解 + 热带气候使用场景」为主轴。</li>
+        <li><b>广告投放：</b>TikTok Ads / Meta / Shopee Ads 组合；以「内容验证后再放量」为原则，先小预算测素材 CTR 与转化，再阶梯加投。</li>
+        <li><b>本地化：</b>印尼语/泰语/马来语文案与字幕，KOL 本地沟通（避免直译导致违禁词）。</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="ch"><span class="dot"></span>【日本版】渠道与营销组合</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>电商平台：</b>乐天（品牌旗舰店，契合日式电商信任习惯）、亚马逊日本购、Yahoo!ショッピング；DTC 官网同步。</li>
+        <li><b>红人/媒体：</b>日本美妆 KOL（如 @元本AKE 等内容型达人）+ 美容媒体测评；<b>务必做「宣称合规前置」</b>——提供给达人的 brief 只能含合规表述，避免达人自发说出医药功效用语引发下架/追责。</li>
+        <li><b>广告投放：</b>以搜索广告 + 平台站内广告为主（高意图流量），配合官网再营销。</li>
+        <li><b>本地化：</b>日文 KOL brief、母语配音内容；强调「保湿感・透亮光泽」的日式使用体验描述。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="sub" id="s44">4.4　山茶花东方叙事的本地化营销<span class="en">Localizing the Camellia Eastern Narrative</span></h3>
+
+  <p>
+    同一套「山茶花 · 以油养肤 · 东方植物」资产，在两个市场需要<b>不同的翻译方式</b>——
+    不是简单改语言，而是改「卖什么情绪」。东南亚要卖<b>「天然可信的日常高效」</b>，日本要卖<b>「被东方美学背书的精致保湿」</b>。
+  </p>
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:120px" class="rk">叙事维度</th><th>东南亚版本（印尼/泰/马）</th><th>日本版本</th><th style="width:220px">底层资产（共用）</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>核心情绪</b></td><td>「天然·温和·每天都能用的东方植物精华」——强调 clean、skin-friendly、日常可靠</td><td>「東方植物の、緻密な保湿と光沢」——强调精致、仪式感、文化品位与使用愉悦</td><td>红山茶花 2 万+ 种植基地 + 可溯源原料 + 「以油养肤」22 年体系</td></tr>
+      <tr><td><b>文化切入点</b></td><td>东方植物的「亲缘感」（华人文化圈亲近度）+ 本土热带植物的类比（建立熟悉感）</td><td>东方美学（山茶花=纯洁/高洁意象）、和风质感、日式「养成」文化（长期护理的仪式）</td><td>山茶花在日本已有的「优质植物油」符号基础</td></tr>
+      <tr><td><b>达人内容主轴</b></td><td>质地清爽实测、热带气候不闷痘、成分平价好物、干季急救</td><td>使用质感（浸透感+光泽）、妆前打底、成分表考据、山茶花文化故事</td><td>产品力 + 原料真实性 + 品牌高端调性</td></tr>
+      <tr><td><b>合规注意</b></td><td>避开美白/防晒宣称；Halal 相关表述须合规</td><td>严禁医药功效词；KOL brief 强制合规审核</td><td>统一的宣称合规审核流程（与法务协同）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 日文/东南亚语表述为示意，落地需由本地母语团队与合规顾问定稿。</div>
+
+  <h3 class="sub" id="s45">4.5　三层资金流转与供应链价值拆解<span class="en">Value &amp; Cash-Flow Structure Across the Supply Chain</span></h3>
+
+  <p>
+    本节用两张图回答「钱从哪来、留在哪」：桑基图呈现<b>从国内供应链到海外渠道、再到营收回流与利润留存的三层资金流转</b>（东南亚 + 日本双线），
+    以保守/基准/乐观三情景展示；旭日图呈现<b>红山茶花从原料到出海渠道的每一层价值分配</b>，看清各环节的钱被谁分走。
+  </p>
+
+  <div class="chartcard">
+    <div class="chd r">
+      <div class="no">图 4-2</div>
+      <div>
+        <div class="tt">桑基图 · 跨境贸易资金双向流转（东南亚 + 日本双线）</div>
+        <div class="st">SANKEY DIAGRAM · CROSS-BORDER CASH FLOW, THREE SCENARIOS</div>
+      </div>
+      <div class="stars">★★★★</div>
+    </div>
+    <div class="cbd">
+      <div class="chart" id="c_graph4_2" style="height:620px"></div>
+    </div>
+    <div class="cap-read">
+      <span class="k">图表业务解读：</span>
+      桑基图按<b>「投入端 → 渠道端 → 回流端 → 留存端」</b>四段展开：左侧为国内供应链成本（原料、生产、质检）与营销投放预算；
+      中部为东南亚线与日本线的出海渠道分成（平台佣金、代理商分成、履约物流、税费）；
+      右侧为营收回流与最终利润留存。切换<b>保守 / 基准 / 乐观</b>情景可直观看到：在保守情景下，
+      营销投放与渠道分成的「漏出」显著压缩利润；而日本线因渠道结构与定价更高，
+      <b>同等投入下的利润留存率高于东南亚线</b>——这正是「日本是品牌验证核心」的资金侧证据。
+      <b>节点宽度代表资金量级（模型推演值），流向代表资金的实际流转方向。</b>
+    </div>
+    <div class="cap-src">
+      <span class="src-l">数据来源：</span>顾问现金流模型 · 行业成本结构参考
+      <span class="as">情景假设提示：本图为模型推演，非实际经营数据。三情景仅用于结构对比，不构成财务预测或业绩承诺</span>
+    </div>
+  </div>
+
+  <div class="chartcard">
+    <div class="chd r">
+      <div class="no">图 4-3</div>
+      <div>
+        <div class="tt">旭日图 · 红山茶花全链路供应链价值分层拆解</div>
+        <div class="st">SUNBURST · END-TO-END SUPPLY CHAIN VALUE BREAKDOWN</div>
+      </div>
+      <div class="stars">★★★★☆</div>
+    </div>
+    <div class="cbd">
+      <div class="chart" id="c_graph4_3" style="height:600px"></div>
+    </div>
+    <div class="cap-read">
+      <span class="k">图表业务解读：</span>
+      旭日图从内圈到外圈逐层展开红山茶花全链路：<b>中心=红山茶花原料（自有/合作基地）→ 第二圈=研发与生产（林清轩自有制造）→ 第三圈=国内渠道（专柜/抖音）→ 最外圈=出海渠道（东南亚线 + 日本线）</b>。
+      每个扇区的角度代表该环节在终端零售价中的价值分配占比。
+      <b>图谱要传递的核心洞察是：品牌方自有环节（原料+研发生产+品牌）留存了价值链中最大、最稳定的一块</b>，
+      而「出海渠道」环节（代理商、平台、履约）虽然扩张了规模，但也伴随最高的价值分流与合规成本。
+      这解释了为何本白皮书坚持「品牌出海」而非「产能出海」——<b>价值的大头在品牌与原料端，不在代工与铺货端。</b>
+    </div>
+    <div class="cap-src">
+      <span class="src-l">数据来源：</span>顾问价值链模型 · 行业价值分配参考
+      <span class="as">情景假设提示：本图为模型推演的价值分配示意，非实际经营数据；各环节占比随渠道结构与谈判地位变化</span>
+    </div>
+  </div>
+
+  <h3 class="sub" id="s46">4.6　三情景财务测算：东南亚与日本独立推演<span class="en">Scenario Financial Modeling (SEA &amp; Japan, Separately)</span></h3>
+
+  <p>
+    以下财务测算<b>分东南亚、日本两套独立模型</b>，各设保守/基准/乐观三情景。
+    <b>所有数字均为模型推演假设</b>，用于结构化思考与相对比较，<b>不代表林清轩实际经营数据，不构成业绩承诺或投资建议</b>。
+    关键假设与口径详见<b>附录 D</b>。
+  </p>
+
+  <h4 class="ssub"><span class="idx">4.6.1</span>【东南亚线】三情景测算（推演假设）</h4>
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:150px" class="rk">指标（模型口径 · 第 12 个月）</th><th>保守情景</th><th>基准情景</th><th>乐观情景</th><th style="width:230px">口径说明</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>出海首年营收（RMB）</td><td class="num">800 万</td><td class="num">2,000 万</td><td class="num">4,000 万</td><td>按 GMV/净销售额口径估算，东南亚三平台合计</td></tr>
+      <tr><td>综合毛利率</td><td class="num">52%</td><td class="num">58%</td><td class="num">63%</td><td>扣除平台佣金、代理分成、履约与税费后</td></tr>
+      <tr><td>营销投放占营收比</td><td class="num">22%</td><td class="num">18%</td><td class="num">15%</td><td>KOL + 广告投放合计</td></tr>
+      <tr><td>合规与运营固定成本（RMB）</td><td class="num">600 万</td><td class="num">750 万</td><td class="num">900 万</td><td>注册/认证、代理与代运营、物流与人力</td></tr>
+      <tr class="hi"><td><b>首年净利（推演）</b></td><td class="num" style="color:#ff8f9d">−280 万</td><td class="num" style="color:#f0bc6a">+110 万</td><td class="num" style="color:#4fd3a0">+680 万</td><td>毛利 − 投放 − 固定成本 − 分摊管理费用</td></tr>
+      <tr><td>盈亏平衡判断</td><td>第二年转正</td><td>首年微利</td><td>首年盈利</td><td>东南亚前期需容忍一定亏损以建品牌与渠道</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 东南亚线三情景均为模型推演值，非实际经营数据。实际表现高度依赖平台流量成本、Halal/BPOM 认证进度与代理履约质量。</div>
+
+  <h4 class="ssub"><span class="idx">4.6.2</span>【日本线】三情景独立测算（推演假设）</h4>
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:150px" class="rk">指标（模型口径 · 第 12 个月）</th><th>保守情景</th><th>基准情景</th><th>乐观情景</th><th style="width:230px">口径说明</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>出海首年营收（RMB）</td><td class="num">500 万</td><td class="num">1,500 万</td><td class="num">3,500 万</td><td>乐天/亚马逊/DTC 合计，一般化妆品 2–3 SKU 为主</td></tr>
+      <tr><td>综合毛利率</td><td class="num">55%</td><td class="num">62%</td><td class="num">68%</td><td>日本定价更高、渠道结构更优，但合规与履约成本更高</td></tr>
+      <tr><td>营销投放占营收比</td><td class="num">25%</td><td class="num">20%</td><td class="num">16%</td><td>日本内容营销 + 搜索广告占比更高</td></tr>
+      <tr><td>合规与运营固定成本（RMB）</td><td class="num">700 万</td><td class="num">850 万</td><td class="num">1,000 万</td><td>责任主体、药机法备案、日文本地化、日 KOL</td></tr>
+      <tr class="hi"><td><b>首年净利（推演）</b></td><td class="num" style="color:#ff8f9d">−450 万</td><td class="num" style="color:#f0bc6a">+150 万</td><td class="num" style="color:#4fd3a0">+950 万</td><td>日本线固定成本更高（合规投入大），但毛利与利润质量更好</td></tr>
+      <tr><td>盈亏平衡判断</td><td>第二年转正</td><td>首年微利</td><td>首年盈利</td><td>日本线前期合规投入重，属「先合规后利润」的典型曲线</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 日本线三情景均为模型推演值，非实际经营数据。实际表现高度依赖一般化妆品备案进度、责任主体落地方式与日本 KOL 投放效率。</div>
+
+  <h4 class="ssub"><span class="idx">4.6.3</span>【辅助图】三情景收入与利润推演对比（东南亚 vs 日本）</h4>
+  <div class="chartcard">
+    <div class="chd">
+      <div class="no">图 4-4</div>
+      <div>
+        <div class="tt">折线图 · 双市场三情景营收与净利推演对比</div>
+        <div class="st">LINE CHART · SEA vs JAPAN, THREE SCENARIOS</div>
+      </div>
+      <div class="stars">辅助图</div>
+    </div>
+    <div class="cbd">
+      <div class="chart" id="c_graph4_4" style="height:420px"></div>
+    </div>
+    <div class="cap-read">
+      <span class="k">图表业务解读：</span>
+      对比东南亚线与日本线在保守/基准/乐观三情景下的<b>首年营收（柱/左轴）与净利（折线/右轴）</b>。
+      可读出两条线的结构性差异：<b>东南亚线营收弹性更大（规模驱动），日本线净利率更优（品牌与定价驱动）</b>。
+      这正是「双核心并行」的财务依据——两条线不是替代关系，而是<b>一个提供增长弹性、一个提供利润质量</b>的组合。
+      ※ 图中数值与 4.6.1 / 4.6.2 表格一致，均为模型推演。
+    </div>
+    <div class="cap-src">
+      <span class="src-l">数据来源：</span>顾问财务模型（与 4.6 表格同源）
+      <span class="as">情景假设提示：所有数值为模型推演，非实际经营数据，不构成财务预测或业绩承诺；实际以备案进度、渠道与投放效率为准</span>
+    </div>
+  </div>
+
+  <div class="insight gold">
+    <div class="lb">4.6 结论 · 两条线的财务定位</div>
+    <p>
+      <b>东南亚线是「增长引擎 + 风险敞口」，日本线是「利润引擎 + 品牌资产」。</b>
+      在中等风险偏好下，建议集团对两条线采取<b>差异化资源配置与考核</b>：东南亚线以「增长 + 安全双达标」考核（安全为一票否决），
+      日本线以「毛利 + 合规信用 + 品牌资产」考核。同时，两线首年在保守情景下均可能出现亏损，
+      <b>建议以「双线合计在基准/乐观情景下第二年转正」为集团层面的财务容忍度前提</b>，而非要求任一单线首年即盈利。
+    </p>
+  </div>
+</section>
+<!-- ============ 第五章 ============ -->
+<section id="ch5" class="chapter">
+  <div class="sec-head">
+    <div class="eyebrow">Chapter 05 · Implementation Roadmap</div>
+    <h2>第五章　落地实施全路径：分阶段行动路线图</h2>
+    <div class="lede">
+      按「0–3 个月 / 3–12 个月 / 1–3 年」三阶段推进，<b>东南亚线与日本线在每个阶段并行推进但节奏不同</b>。
+      每个阶段都设置了明确的交付物与<b>安全合规的阶段性门禁（Gate）</b>——未过门禁不进入下一阶段，
+      这是应对「时间非常紧迫」与「安全不可妥协」这对矛盾的关键机制设计。
+    </div>
+  </div>
+
+  <div class="anchorlink">
+    <a href="#s51">5.1 第一阶段（0–3 月）</a>
+    <a href="#s52">5.2 第二阶段（3–12 月）</a>
+    <a href="#s53">5.3 第三阶段（1–3 年）</a>
+    <a href="#s54">5.4 组织能力与服务商图谱</a>
+  </div>
+
+  <h3 class="sub" id="s51">5.1　第一阶段（0–3 个月）：冷启动筹备期<span class="en">Phase 1 (0–3 Months): Cold Start</span></h3>
+
+  <div class="phase">
+    <div class="pd">1</div>
+    <div class="ph">双线并行的冷启动：合规前置 + 安全体系建立<span class="pt">GATE 1｜合规备案完成 · 安全制度落地 · 服务商到位</span></div>
+    <p style="font-size:13.5px">
+      第一阶段的核心逻辑是<b>「合规先行、安全同步、投放暂缓」</b>。在产品备案与安全体系就绪前，
+      不做大额效果投放，避免「上架即违规」或「无人管控的资金投放」风险。
+    </p>
+    <div class="tw">
+    <table class="tbl">
+      <thead>
+        <tr><th style="width:132px">工作流</th><th>东南亚线（印尼主 / 泰马辅）</th><th>日本线</th><th style="width:150px">交付物</th><th style="width:78px" class="ctr">窗口</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>合规认证</b></td><td>印尼 BPOM（Notifkos）注册启动；<b>Halal 认证（BPJPH）</b>启动；马来 NPRA 通知式注册；泰国 FDA 备案路径确认</td><td><b>一般化妆品路径判定</b>（锁定 2–3 个 SKU 不触碰医药功效宣称）；日本责任企业主体方案（自设 or 委托）定稿并启动</td><td>各国注册/备案计划书 + 责任主体合同</td><td class="ctr">0–3 月</td></tr>
+        <tr class="hi" style="background:rgba(224,69,90,.05)">
+          <td><b>安全制度建立</b><br><small class="sm">强制项</small></td>
+          <td colspan="2"><b>集团层面统一建设</b>：① 出差审批与报备制度（目的地、时段、同行人员、行程留痕）；② 海外驻地/酒店安全标准；③ 第三方安全咨询服务商签约（提供目的国风险情报与 7×24 应急热线）；④ 与中国使领馆建立联络渠道；⑤ 制定突发事件应急处置预案（详见 6.3.2 与附录 F）</td>
+          <td>《海外人员安全管理制度》+ 应急预案 + 顾问服务合同</td><td class="ctr">0–3 月</td></tr>
+        <tr><td><b>服务商选型</b></td><td>平台代运营（Shopee/Lazada/TikTok Shop）+ 本地代理/分销候选 + Halal 认证机构 + 跨境物流</td><td>日本责任企业主体/代理商 + 药机法合规顾问 + 日文本地化（标签+KOL）+ 跨境支付</td><td>服务商比选报告 + 合同</td><td class="ctr">0–3 月</td></tr>
+        <tr><td><b>产品筛选与本地化</b></td><td>3–5 个 SKU 定稿；干热气候质地调整；Halal 原料合规确认；印尼语/泰语包装标签</td><td>2–3 个一般化妆品 SKU 定稿；日文标签与全成分表本地化；宣称合规审核（仅保湿类表述）</td><td>SKU 一页纸 + 本地化包（标签/详情页）</td><td class="ctr">1–3 月</td></tr>
+        <tr><td><b>品牌与内容资产</b></td><td>东南亚版山茶花叙事 + KOL 内容 brief（含合规审核）</td><td>日本版东方叙事 + 日文 KOL brief + 官网 DTC 内容</td><td>本地化品牌内容包</td><td class="ctr">1–3 月</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="tnote">※ 时间窗口为建议排期，实际取决于各国监管审批周期与服务商产能；日本责任主体落地方式的选择对后续合规路径影响最大。</div>
+  </div>
+
+  <div class="insight">
+    <div class="lb">Gate 1 · 第一阶段门禁（未过不进入第二阶段）</div>
+    <p>
+      ① 各目标市场<b>合规注册/备案路径已明确并已提交或可提交</b>；② <b>《海外人员安全管理制度》已发布并完成全员培训</b>，
+      安全顾问已签约；③ 各市场<b>落地城市已通过安全等级校验</b>（A/B 级白名单确认）；④ 服务商合同已签且含安全与合规条款；
+      ⑤ 产品宣称已通过法务合规审核。→ 五项齐备，方可启动第二阶段的实际上架与投放。
+    </p>
+  </div>
+
+  <h3 class="sub" id="s52">5.2　第二阶段（3–12 个月）：小规模试水验证期<span class="en">Phase 2 (3–12 Months): Pilot &amp; Validation</span></h3>
+
+  <div class="phase">
+    <div class="pd">2</div>
+    <div class="ph">两条线并行验证：东南亚测 ROI，日本跑通合规变现闭环<span class="pt">GATE 2｜变现闭环跑通 · ROI 达标 · 安全零事件</span></div>
+    <p style="font-size:13.5px">
+      第二阶段的目标是<b>「用最小成本验证两条线各自的可行性」</b>，而非追求规模：
+      东南亚线测<b>营销 ROI 与渠道效率</b>；日本线测<b>合规上架后的转化与毛利结构</b>。两条线的验证指标不同。
+    </p>
+    <div class="grid2">
+      <div class="card">
+        <div class="ch"><span class="dot"></span>东南亚线：小批量测试（3–12 月）</div>
+        <ul class="tick" style="font-size:13px">
+          <li><b>印尼为主：</b>Shopee/Lazada/TikTok Shop 官方店上架，中腰部 KOL 矩阵铺量，小预算广告测素材。</li>
+          <li><b>泰马同步但轻量：</b>泰国侧重天然/草本叙事，马来西亚侧重 Halal + 温和。</li>
+          <li><b>验证指标：</b>单客获客成本、转化率、复购率、营销 ROI、Halal/BPOM 合规状态。</li>
+          <li><b>安全并行：</b>线下活动限定 A 级城市；差旅执行报备制度；代理资信持续核验。</li>
+          <li><b>物流：</b>前期国内直发测试量，稳定后评估海外仓（雅加达/新加坡）。</li>
+        </ul>
+      </div>
+      <div class="card gold">
+        <div class="ch"><span class="dot"></span>日本线：优先跨境电商试水（3–12 月）</div>
+        <ul class="tick" style="font-size:13px">
+          <li><b>备案完成后上架：</b>一般化妆品备案落地 → 乐天/亚马逊日本/DTC 上线 2–3 个 SKU。</li>
+          <li><b>跑通变现闭环：</b>下单 → 支付 → 日本境内仓储/直发 → 清关 → 售后全链路测试。</li>
+          <li><b>内容与 KOL：</b>日文 KOL brief 合规审核；官网 DTC 内容承载东方叙事。</li>
+          <li><b>验证指标：</b>客单价、转化率、毛利率、复购率、日文合规审核通过率、用户评价内容。</li>
+          <li><b>合规并行：</b>建立合规自检机制；KOL 内容合规抽查；同步筹备第二年医药部外品评估。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tw">
+    <table class="tbl">
+      <thead>
+        <tr><th style="width:130px" class="rk">第二阶段 KPI（验证门槛）</th><th>东南亚线达标线（推演）</th><th>日本线达标线（推演）</th><th style="width:190px">不达标的处置</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>营销 ROI</b></td><td>≥ 1.2（首年可接受区间 1.0–1.5）</td><td>≥ 1.0（内容 + 搜索广告综合）</td><td>暂停放量投放，回炉素材与人群定向</td></tr>
+        <tr><td><b>复购率（6 个月）</b></td><td>≥ 12%</td><td>≥ 18%（护肤复购逻辑更强）</td><td>复购偏低说明产品/定价或渠道错配，需复盘</td></tr>
+        <tr><td><b>综合毛利率</b></td><td>≥ 52%</td><td>≥ 55%</td><td>毛利率过低则重新核算渠道结构与定价</td></tr>
+        <tr class="hi" style="background:rgba(224,69,90,.05)"><td><b>安全合规事件</b></td><td colspan="2"><b>零容忍</b>——任一人身安全事件、账户冻结事件或合作方涉诈事件，触发立即业务暂停与安全复核</td><td>按 6.4 止损机制处置</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="tnote">※ KPI 达标线为顾问建议的验证门槛（模型推演），需管理层结合实际成本结构校准；安全合规事件为零容忍，非 KPI 而是一票否决。</div>
+  </div>
+
+  <div class="insight gold">
+    <div class="lb">Gate 2 · 第二阶段门禁</div>
+    <p>
+      ① 两条线均<b>跑通从下单到回款的完整变现闭环</b>（非仅上架）；② 关键 KPI（ROI/复购/毛利）达到或接近达标线；
+      ③ <b>全周期零人身安全事件、零账户冻结事件、零合作方涉诈事件</b>；④ 合规自检无重大违规；
+      ⑤ 具备对本地代理/合作方的持续资信核验能力。→ 满足后进入规模化扩张。
+    </p>
+  </div>
+
+  <h3 class="sub" id="s53">5.3　第三阶段（1–3 年）：规模化扩张期<span class="en">Phase 3 (1–3 Years): Scale-Up</span></h3>
+
+  <div class="phase g">
+    <div class="pd">3</div>
+    <div class="ph">按验证结果差异化加码：品牌收入双向放大<span class="pt">分方向·按 Gate 2 结果决定投入强度</span></div>
+    <p style="font-size:13.5px">
+      第三阶段的核心是<b>「根据第二阶段的验证结果，选择加大投入的市场与渠道」</b>——
+      本白皮书不建议两线平均加码，而是按验证表现<b>差异化配置资源</b>。
+    </p>
+    <div class="tw">
+    <table class="tbl">
+      <thead>
+        <tr><th style="width:132px" class="rk">扩张路径</th><th>东南亚线（若验证达标）</th><th>日本线（若验证达标）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>第 1 年（12–24 月）</b></td><td>加大印尼投入；扩展至更多平台与本地仓；KOL 从腰部向头部延伸；启动泰马线下分销（限定 A 级城市）</td><td>扩展至更多日本平台；启动第二年医药部外品评估；拓展药妆店分销渠道；DTC 会员体系</td></tr>
+        <tr><td><b>第 2 年（24–36 月）</b></td><td>评估越南等市场（仅在安全评级改善前提下）；本地化产能/包装定制探索</td><td>进入百货专柜试水；品牌高度建设（广告、代言、文化合作）；医药部外品 SKU 上市</td></tr>
+        <tr><td><b>品牌层面</b></td><td colspan="2"><b>品牌收入双向放大</b>——东南亚提供规模与现金流，日本提供品牌高度与利润；两者共用「山茶花东方植物」品牌资产，实现<b>全球统一高端定位</b>，支撑港股市场的全球化品牌叙事。</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="tnote">※ 第三年及以后的扩张以第二阶段实际验证数据为准，本表为基于推演的路径建议，不构成扩张承诺。</div>
+  </div>
+
+  <h3 class="sub" id="s54">5.4　组织与服务商能力补齐清单（含安全咨询）<span class="en">Capability &amp; Vendor Gap Closure — Chord Diagram</span></h3>
+
+  <p>
+    下图以<b>降噪弦图</b>呈现出海业务的多实体合作/利益关联网络：<b>仅展示强业务关联</b>（过滤弱连接），
+    弦的粗细代表关联强度。图中同时包含<b>日本代理商、东南亚渠道伙伴、合规与安全服务商、平台方、内部职能</b>，
+    用于识别「谁和谁必须强绑定」以及「哪些关键节点目前是断链」。
+  </p>
+
+  <div class="chartcard">
+    <div class="chd r">
+      <div class="no">图 4-1</div>
+      <div>
+        <div class="tt">降噪弦图 · 出海业务实体合作强关联网络</div>
+        <div class="st">DENOISED CHORD DIAGRAM · KEY ENTITY COLLABORATION NETWORK</div>
+      </div>
+      <div class="stars">★★★★</div>
+    </div>
+    <div class="cbd">
+      <div class="chart" id="c_graph4_1" style="height:640px"></div>
+    </div>
+    <div class="cap-read">
+      <span class="k">图表业务解读：</span>
+      弦图按实体职能分为六组：<b>集团职能（法务/财务/品牌/安全）· 供应链（原料/生产/物流）· 东南亚渠道（平台/代理/KOL）· 日本渠道（代理商/平台/KOL）· 专业服务（合规认证/支付/安全咨询）· 目标市场（印尼/泰国/马来西亚/日本）</b>。
+      <b>弦的粗细 = 强业务关联强度</b>，已过滤弱连接以降噪。可读出的关键洞察：
+      ① <b>「安全咨询」节点与「集团职能-安全」之间应有最强关联</b>——这是本项目目前完全缺失、必须优先建立的连接；
+      ② 日本线中「代理商/责任主体」与「日本市场」「合规服务」强绑定，是日本线的枢纽；
+      ③ 东南亚线中「平台方」与「KOL」是主要价值流转节点，但当前对「代理」的依赖度高（资信风险点）；
+      ④ 图中刻意<b>不显示弱连接</b>（如可有可无的市场触点），强调真正的业务强绑定关系。
+    </div>
+    <div class="cap-src">
+      <span class="src-l">数据来源：</span>顾问合作网络模型 · 企业出海需求清单
+      <span class="as">情景假设提示：关联强度为模型推演值，节点为推演的关键合作方类别；不代表已签约合作方或实际合同关系</span>
+    </div>
+  </div>
+
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:150px" class="rk">能力 / 服务商类别</th><th style="width:96px" class="ctr">当前状态</th><th>首年优先级</th><th style="width:180px">选择要点</th></tr>
+    </thead>
+    <tbody>
+      <tr class="hi" style="background:rgba(224,69,90,.05)">
+        <td><b>海外安全咨询服务商</b><br><small class="sm">新增类别</small></td>
+        <td class="ctr"><span class="tag r">缺失</span></td>
+        <td><b>P0（最高）</b></td>
+        <td>需具备目的国实地情报、7×24 应急响应、撤离与危机管理能力；优先选择有中国政府/中资企业服务经验者</td>
+      </tr>
+      <tr class="hi" style="background:rgba(224,69,90,.05)">
+        <td><b>领事安全/使领馆联络机制</b><br><small class="sm">非商业服务商</small></td>
+        <td class="ctr"><span class="tag r">缺失</span></td>
+        <td><b>P0（最高）</b></td>
+        <td>与中国驻目的国使领馆建立应急联络渠道；将目的地风险纳入领事提醒跟踪机制</td>
+      </tr>
+      <tr><td><b>合规认证服务商</b><br><small class="sm">BPOM/NPRA/Halal/药机法</small></td><td class="ctr"><span class="tag w">待建</span></td><td>P0</td><td>需覆盖东南亚三国 + 日本药机法；日本线需懂「责任企业主体」落地</td></tr>
+      <tr><td><b>跨境物流/海外仓</b></td><td class="ctr"><span class="tag w">待建</span></td><td>P1</td><td>需熟悉东南亚清关与日本进口合规；对账与合规留痕</td></tr>
+      <tr><td><b>本地化内容/翻译</b><br><small class="sm">日文/印尼语/泰语</small></td><td class="ctr"><span class="tag w">待建</span></td><td>P1</td><td>日本标签合规与 KOL brief 需母语 + 合规双能力</td></tr>
+      <tr><td><b>跨境支付/收款</b></td><td class="ctr"><span class="tag w">待建</span></td><td>P1</td><td>需规避涉诈风险，账户与资金隔离合规</td></tr>
+      <tr><td><b>平台代运营/本地代理</b></td><td class="ctr"><span class="tag w">待建</span></td><td>P0</td><td>东南亚侧重资信核验；日本侧兼作责任主体候选</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 优先级为顾问建议；「缺失/待建」依据问卷现状（未勾选或空白项）与本白皮书能力诊断。</div>
+</section>
+
+<!-- ============ 第六章 ============ -->
+<section id="ch6" class="chapter">
+  <div class="sec-head">
+    <div class="eyebrow">Chapter 06 · Risk Management</div>
+    <h2>第六章　风险识别与应对预案</h2>
+    <div class="lede">
+      本章将风险分为四类：<b>商业合规风险、商业与运营风险（竞争/文化/汇率/供应链）、
+      【海外中方人员人身安全与海外资产营商安全风险】（独立重点小节）</b>、以及
+      中等风险偏好下的整体业务止损机制与完整 KPI 监控体系。
+      其中 6.3 节为本白皮书的<b>强制重点章节</b>，提供可落地的管控预案。
+    </div>
+  </div>
+
+  <div class="anchorlink">
+    <a href="#s61">6.1 商业合规风险</a>
+    <a href="#s62">6.2 市场竞争/文化/汇率/供应链</a>
+    <a href="#s63">6.3 人身与资产安全风险（重点）</a>
+    <a href="#s64">6.4 止损机制</a>
+    <a href="#s65">6.5 KPI 监控体系</a>
+  </div>
+
+  <h3 class="sub" id="s61">6.1　商业合规风险<span class="en">Commercial &amp; Regulatory Compliance Risk</span></h3>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="ch"><span class="dot"></span>东南亚合规风险</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>注册风险：</b>未注册即销售（印尼 BPOM/马来 NPRA/泰国 FDA 均属违法），可能致下架、封店、追责。</li>
+        <li><b>Halal 风险：</b>印尼/马来 Halal 认证缺失将直接切断主流零售与电商货架；原料非 Halal 源将导致认证失败与信任崩塌。</li>
+        <li><b>宣称风险：</b>美白/防晒等宣称触发额外审评；禁用词违规将致产品下架。</li>
+        <li><b>税务风险：</b>进口税/VAT 政策频繁调整，税负测算失准将侵蚀毛利；转让定价缺乏商业实质支撑可能被质询。</li>
+        <li><b>用工/劳动法务风险：</b>若自建团队，劳动合同与解雇成本、外籍工作许可等风险；若用 EOR，需确认连带责任。</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="ch"><span class="dot"></span>日本合规风险（药机法 / 医药部外品）</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>主体风险：</b>无日本责任企业主体 = 无法合法进口销售（最高优先级合规前提）。</li>
+        <li><b>分类风险：</b>功效宣称若使产品被归为医药部外品，需审批；周期长、有驳回风险。</li>
+        <li><b>标签/表示风险：</b>成分表与法定标注不严谨、含医疗用语将致违规；日文翻译不当引发合规与信任双重风险。</li>
+        <li><b>KOL 内容风险：</b>达人自发说出医药功效用语，可能连带触发产品下架与追责——需 brief 管控与内容抽查。</li>
+        <li><b>医药部外品审批不确定性：</b>作为第二年可选升级项，其审批结果不可控，不应作为首年核心依赖。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="risk">
+    <div class="lb">合规风险应对原则</div>
+    <p>
+      <b>合规能力建设是「前置投资」而非「被动应对」</b>：所有产品宣称在投放/上架前完成法务审核；
+      所有合规主体（注册、责任企业）在上架前落地；建立<b>合规自检清单</b>并由专人负责；对服务商的选择以「合规能力」而非「价格」为首要标准。
+    </p>
+  </div>
+
+  <h3 class="sub" id="s62">6.2　市场竞争、文化差异、汇率与供应链风险<span class="en">Market / Culture / FX / Supply Chain Risk</span></h3>
+
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:120px" class="rk">风险类别</th><th>风险描述</th><th>影响</th><th style="width:230px">应对措施</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>市场竞争</b></td><td>中国出海美妆品牌与东南亚本土 challenger 双重挤压；低价白牌拉低整体标签</td><td>溢价受限、获客成本上升</td><td>坚持高端定位差异化；以原料/文化叙事建立区隔；不参与低价竞争；用合规与品牌信用建护城河</td></tr>
+      <tr><td><b>文化差异</b></td><td>肤质/气候偏好、审美与使用习惯、宗教敏感性（Halal）、语言与宣称禁忌</td><td>产品体感不佳、传播失焦、触犯禁忌</td><td>本地化产品调整（质地/控油）；本地 KOL 与母语内容；宣称本地化与合规审核前置</td></tr>
+      <tr><td><b>汇率风险</b></td><td>印尼盾/泰铢/越南盾/日元波动；结算与回款路径风险</td><td>毛利被汇率侵蚀、回款延迟</td><td>定价含汇率缓冲；分批结汇；优先选择稳妥结算币种与通道；做敏感性分析</td></tr>
+      <tr><td><b>供应链</b></td><td>跨境物流时效与清关不确定；原料/产能受国内波动影响；断货风险</td><td>交期延误、缺货损失口碑</td><td>前期适度备货 + 海外仓；多口岸/多仓分散；关键原料双供应；与物流商签 SLA</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 风险描述与应对为顾问建议，具体措施需结合实际供应链与财务安排确定。</div>
+
+  <h3 class="sub" id="s63">6.3　【重点】海外人员人身安全与海外资产营商安全<span class="en">Personnel Security &amp; Overseas Asset Safety (Core)</span></h3>
+
+  <div class="safety">
+    <div class="lb"><span class="tp">最高优先级章节</span>海外中方人员人身安全 · 海外资产营商安全</div>
+    <p>
+      本节是白皮书的强制重点，也是<b>本项目区别于常规出海方案的核心</b>。
+      在东南亚部分国家，针对华人的<b>绑架拘禁、电信诈骗、勒索敲诈、园区非法拘禁</b>等风险是现实存在的，
+      直接威胁中方人员的人身安全；在日本，此类人身犯罪风险极低，但合规与资产安全风险需以「药物规」级别的严谨度对待。
+      <b>本节提供可落地的「识别—管控—应急—止损」四步机制。</b>
+    </p>
+  </div>
+
+  <h4 class="ssub" id="s631"><span class="idx">6.3.1</span>风险识别：东南亚 vs 日本<span class="en">Risk Identification</span></h4>
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:140px" class="rk">风险类型</th><th>东南亚（印尼/泰国/马来西亚等）识别</th><th>日本识别</th><th style="width:110px" class="ctr">量级</th></tr>
+    </thead>
+    <tbody>
+      <tr style="background:rgba(224,69,90,.05)">
+        <td><b>绑架 / 非法拘禁勒索</b></td>
+        <td>以「考察、投资、验货、工作机会」为诱饵将中方人员引至边境/园区/偏远区域后拘禁勒索；或商务应酬中被团伙控制。涉事区域含印尼西部、泰缅边境、柬埔寨园区、菲 POGO 区等</td>
+        <td>极低（全球最低风险区间）</td>
+        <td class="ctr"><span class="tag r">东南亚高</span></td>
+      </tr>
+      <tr style="background:rgba(224,69,90,.05)">
+        <td><b>电信诈骗 / 园区网络</b></td>
+        <td>合作方/代理实为诈骗园区关联方；业务资金往来卷入涉诈资金链导致账户冻结；本地雇员涉诈导致资金被追回冻结</td>
+        <td>极低</td>
+        <td class="ctr"><span class="tag r">东南亚中高</span></td>
+      </tr>
+      <tr>
+        <td><b>勒索 / 敲诈</b></td>
+        <td>以「合规打点」「关系维护」为名向中方人员/企业索要不正当费用；利用信息不对称胁迫</td>
+        <td>低（商务合规层面，如反商业贿赂压力）</td>
+        <td class="ctr"><span class="tag w">中</span></td>
+      </tr>
+      <tr>
+        <td><b>旅财安全 / 常规抢劫</b></td>
+        <td>部分城市夜间扒窃、团伙抢劫（尤以边境与偏僻区域为甚）</td>
+        <td>低（常规旅财风险，夜间与特定区域）</td>
+        <td class="ctr"><span class="tag o">低–中</span></td>
+      </tr>
+      <tr>
+        <td><b>资产/资金安全</b></td>
+        <td>合作方携款潜逃；账户被冻结；货物扣押施压；商标/货物在灰色渠道被仿冒</td>
+        <td>低（司法与合同保护强），但合规违规致资产/货品被处置</td>
+        <td class="ctr"><span class="tag w">中</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 风险识别基于公开安全形势与行业共识整理；具体风险分布随地区和时间变化，须结合最新领事安全提醒与第三方安全机构情报动态更新。</div>
+
+  <h4 class="ssub" id="s632"><span class="idx">6.3.2</span>安全管控机制（可落地）<span class="en">Security Control Framework</span></h4>
+
+  <div class="grid2">
+    <div class="card" style="border-color:rgba(224,69,90,.3)">
+      <div class="ch"><span class="dot"></span>① 出差与驻地安全管控</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>出差审批与报备：</b>所有赴海外人员出差<b>事前审批</b>，明确目的地（限 A/B 级安全城市）、时段、同行人员、行程与住宿；行程留痕备查。</li>
+        <li><b>高风险区域禁行：</b>严禁中方人员以商务目的前往<b>边境省份、园区性质区域、偏远矿区</b>（如柬埔寨园区、菲 POGO 区、缅泰边境等）。</li>
+        <li><b>驻地安全标准：</b>海外驻地/酒店须符合安全标准（门禁、监控、消防、避开孤立区域）；不租用无安保的偏远住所。</li>
+        <li><b>行程安保：</b>跨境移动使用合规平台专车/接送；避免夜间前往偏僻地点；重要行程随行安保（由安全顾问协调）。</li>
+        <li><b>通讯与定位：</b>关键人员配备安全通讯/一键报警/定位手段；建立每日（或按风险等级）安全报平安机制。</li>
+      </ul>
+    </div>
+    <div class="card" style="border-color:rgba(224,69,90,.3)">
+      <div class="ch"><span class="dot"></span>② 第三方安全服务与领事联动</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>安全咨询服务商：</b>签约提供<b>目的国风险情报、7×24 应急热线、危机响应/撤离支持</b>；纳入年度预算（建议占首年预算 15% 左右，推演建议）。</li>
+        <li><b>使领馆应急联络：</b>与中国驻目的国使领馆建立<b>应急联络渠道</b>（备案人员信息、联络方式）；定期跟踪领事提醒与安全通报。</li>
+        <li><b>风险情报订阅：</b>订阅目的国安全形势、治安事件、疫情/自然灾害通报；建立<b>安全预警台账</b>并定期更新评级。</li>
+        <li><b>培训与演练：</b>赴海外人员<b>行前安全培训</b>（含诈骗识别、绑架应对、逃生与报警流程）；每年至少一次应急演练。</li>
+      </ul>
+    </div>
+    <div class="card" style="border-color:rgba(224,69,90,.3)">
+      <div class="ch"><span class="dot"></span>③ 突发事件应急处置预案</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>分级响应：</b>按事件严重度分<b>Ⅰ级（人员安全受威胁/失联）· Ⅱ级（重大治安/涉诈事件）· Ⅲ级（一般预警）</b>，对应不同响应与上报机制。</li>
+        <li><b>Ⅰ级响应流程：</b>① 第一时间核实人员状态 → ② 启动安全顾问与使领馆应急联络 → ③ 集团层面安全应急小组介入 → ④ 视情启动撤离/救援 → ⑤ 依法报案并对外口径管控。</li>
+        <li><b>统一指挥：</b>设<b>安全应急指挥人</b>（建议由集团高管或安委负责人担任），确保跨部门（法务、公关、业务）统一行动，避免多头指令。</li>
+        <li><b>对外沟通：</b>涉安全事件的对外披露须经集团统一口径管理，兼顾法务与舆情风险（呼应港股上市公司信息披露责任）。</li>
+      </ul>
+    </div>
+    <div class="card" style="border-color:rgba(224,69,90,.3)">
+      <div class="ch"><span class="dot"></span>④ 资产与资金安全（对应营商安全）</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>账户隔离：</b>业务资金账户与个人账户、任何第三方账户严格隔离；<b>禁止业务资金与高风险/涉诈关联方共账户</b>。</li>
+        <li><b>合作方资信核验：</b>所有代理/服务商入驻前做<b>背景与涉诈涉赌关联核验</b>；建立黑名单与定期复核机制。</li>
+        <li><b>合约与履约保障：</b>与代理/服务商签署正式合同（明确责任、合规承诺、违约与退出条款）；关键款项分阶段支付并与履约挂钩。</li>
+        <li><b>商标与 IP 保护：</b>提前在目标国注册商标；海关/IP 备案防仿冒；严禁配方与品牌资料流出。</li>
+        <li><b>回款安全：</b>优先采用正规跨境支付/银行通道；大额回款留存合规凭证；警惕「公账私转」「第三方代收」。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="sub" id="s64">6.4　中等风险偏好下的整体业务止损机制<span class="en">Business Stop-Loss Mechanism (Medium Risk Appetite)</span></h3>
+
+  <p>
+    在「中等风险偏好」设定下，本白皮书建议建立<b>「预警—暂停—复核—决策」四级止损机制</b>，
+    并明确<b>安全事件为最高优先级触发源</b>：
+  </p>
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:96px" class="ctr" class="sec-th">触发级别</th><th style="width:220px">触发条件（任一满足）</th><th>响应动作</th><th style="width:130px">决策层级</th></tr>
+    </thead>
+    <tbody>
+      <tr style="background:rgba(224,69,90,.06)">
+        <td class="ctr"><b style="color:#ff8f9d">Ⅰ级<br>立即暂停</b></td>
+        <td>① 中方人员失联、被限制人身自由或遭遇胁迫的疑似事件；② 出现针对中方人员的绑架/勒索；③ 合作方/代理涉诈、涉赌或被执法调查</td>
+        <td><b>立即暂停相关业务与人员派驻</b>；启动应急响应；安全顾问与使领馆介入；全面安全复核</td><td>集团安全应急小组 + 董事会</td>
+      </tr>
+      <tr style="background:rgba(232,163,61,.05)">
+        <td class="ctr"><b style="color:#f0bc6a">Ⅱ级<br>冻结扩张</b></td>
+        <td>① 业务资金/支付账户被冻结或涉入涉诈资金链；② 目的地安全等级被官方下调或出现区域性治安事件；③ 重大合规违规致封店/下架</td>
+        <td>冻结该市场新增投入与扩张；启动专项排查（资金/合规/安全）；评估是否需业务结构调整</td><td>出海项目委员会</td>
+      </tr>
+      <tr>
+        <td class="ctr"><b style="color:#79b4f0">Ⅲ级<br>复盘纠偏</b></td>
+        <td>① KPI 连续两月不达达标线（ROI/复购/毛利）；② 合规审核多次不过；③ 合作方频繁更换或异常</td>
+        <td>暂停放量、复盘定位问题、回炉策略与服务商；必要时更换合作方</td><td>出海项目负责人</td>
+      </tr>
+      <tr>
+        <td class="ctr"><b style="color:#4fd3a0">Ⅳ级<br>常规监控</b></td>
+        <td>日常安全/合规/财务指标波动在阈值内</td>
+        <td>常规监控与预警，维持既有节奏</td><td>日常运营</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 止损触发级别与响应为顾问建议；Ⅰ级为「安全一票否决」，须由集团层面决策。</div>
+
+  <div class="insight">
+    <div class="lb">止损机制的设计意图</div>
+    <p>
+      止损机制不是「失败文化」，而是<b>「把不可承受的风险提前设定退出路径」</b>——
+      在中等风险偏好下，允许「可承受的试错」，但对<b>人身安全与重大资产事件设置零容忍的暂停/退出</b>。
+      关键是<b>触发条件事先明确、决策层级事先约定</b>，避免事件发生时临场争论，从而实现「快停、止损、可复盘」。
+    </p>
+  </div>
+
+  <h3 class="sub" id="s65">6.5　完整 KPI 监控体系<span class="en">Comprehensive KPI Framework</span></h3>
+
+  <div class="tw">
+  <table class="tbl">
+    <thead>
+      <tr><th style="width:140px" class="rk">指标大类</th><th>具体指标</th><th style="width:130px">频率</th><th style="width:120px">目标（推演）</th><th style="width:110px">触发动作</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>商业变现指标</b></td><td>营收、GMV、毛利率、营销 ROI、客单价、复购率、CAC、退货率</td><td>月度</td><td>见 4.6 KPI 达标线</td><td>Ⅲ级复盘</td></tr>
+      <tr><td><b>品牌指标</b></td><td>品牌搜索量、社媒声量与情感、NPS/用户评分、内容互动率、复购与口碑</td><td>月度/季度</td><td>品牌声量与评分稳步上升</td><td>策略复盘</td></tr>
+      <tr style="background:rgba(224,69,90,.05)">
+        <td><b>海外安全风险指标</b><br><small class="sm">强制</small></td>
+        <td>① 安全事件数（人身/资产，目标 0）；② 出差报备执行率（目标 100%）；③ 培训覆盖率（目标 100%）；④ 目的地安全等级变动；⑤ 合作方涉诈/合规异常数（目标 0）；⑥ 安全预警响应时效</td><td>月度</td><td><b>安全事件 0；报备/培训 100%</b></td><td>未达标即升级；任一安全事件→Ⅰ级暂停</td></tr>
+      <tr><td><b>合规指标</b></td><td>注册/备案状态、产品合规审核通过率、KOL 内容合规抽查通过率、宣称违规数（目标 0）</td><td>月度</td><td>合规 100% 前置，违规 0</td><td>Ⅲ级/Ⅱ级处置</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ KPI 目标为顾问建议（推演）；安全风险指标与商业指标并列纳入监控，体现「安全与营收同等重要」的治理原则。</div>
+</section>
+
+<!-- ============ 第七章 ============ -->
+<section id="ch7" class="chapter">
+  <div class="sec-head">
+    <div class="eyebrow">Chapter 07 · Conclusion &amp; Strategic Implications</div>
+    <h2>第七章　总结与中国高端国货出海战略启示</h2>
+  </div>
+
+  <div class="insight">
+    <div class="lb">全 书 总 结 ｜ THE STRATEGIC VERDICT</div>
+    <p>
+      林清轩的出海命题，本质不是「要不要去东南亚或日本」的选择题，而是
+      <b>「如何把一份中国高端护肤的品牌资产，在两个性质迥异的市场里分别完成一次可信的定价」</b>。
+      本白皮书的核心判断是：<b>东南亚与日本应作为并列的双核心市场并行推进</b>——
+      东南亚提供规模与增速（以印尼为主、泰马为辅，平台+代理、不自建驻点、以安全为门槛），
+      日本提供品牌高度与利润质量（以一般化妆品跨境电商首发、药机法合规前置、安全环境优）。
+    </p>
+    <p>
+      贯穿全书的<b>方法论立场</b>是：<b>坚持品牌出海而非产能出海，坚持高端定价而非低价倾销</b>——
+      因为价值链的大头在品牌与原料端而非铺货端（见旭日图），且品牌出海本身就是降低人身与资产安全暴露的最优结构。
+      同时，<b>把「海外中方人员人身安全与海外资产营商安全」作为国别选择的一票否决门槛</b>，
+      以分国分城市评级、出差驻地管控、第三方安全服务、使领馆联动、应急处置与止损机制，形成可落地的安全体系。
+    </p>
+  </div>
+
+  <div class="grid3">
+    <div class="card ok">
+      <div class="ch"><span class="dot"></span>启示一：对林清轩</div>
+      <ul class="tick" style="font-size:13px">
+        <li>以「山茶花 · 以油养肤」的原料与文化叙事为统一品牌内核，在东南亚讲「天然高效」、在日本讲「东方精致」。</li>
+        <li>首年优先走「一般化妆品 + 跨境电商」低风险路径，医药部外品作为第二年升级项。</li>
+        <li>建立出海安全与合规双轨评审委员会，把安全作为国别/城市准入的一票否决项。</li>
+      </ul>
+    </div>
+    <div class="card gold">
+      <div class="ch"><span class="dot"></span>启示二：对行业</div>
+      <ul class="tick" style="font-size:13px">
+        <li>中国高端美妆出海的胜负手已从「渠道效率」转向「品牌信用 + 合规能力 + 安全治理」三位一体。</li>
+        <li>价值链重构下，能守住品牌与原料端的企业才能留住利润；纯铺货模式将加速出局。</li>
+        <li>出海安全将从「HR 附属议题」升级为「企业级风险管理议题」，需要制度化能力而非个案处理。</li>
+      </ul>
+    </div>
+    <div class="card blue">
+      <div class="ch"><span class="dot"></span>启示三：对投资人</div>
+      <ul class="tick" style="font-size:13px">
+        <li>评估出海企业时，区分「产能出海」（规模但低毛利、抗风险弱）与「品牌出海」（前期投入、但壁垒与利润质量高）。</li>
+        <li>关注其海外合规主体建设与安全治理成熟度——这是出海能否走长的先行指标。</li>
+        <li>双核心市场布局（东南亚规模 + 日本品牌）提供了风险分散与结构互补的全球化路径。</li>
+      </ul>
+    </div>
+  </div>
+
+  <blockquote class="q">
+    「国货出海的下半场，不是把中国的便宜卖到全世界，而是把中国的品牌讲给全世界听。
+    而讲一个高端护肤品牌的故事，需要的不只是产能与渠道，更需要合规的底气与安全的底气——
+    这是林清轩这一代中国品牌，与上一代出海者最本质的区别。」
+    <span class="qs">— 白皮书结语 · 2026 战略展望</span>
+  </blockquote>
+</section>
+
+<!-- ============ 附录 A ============ -->
+<section id="appA" class="chapter">
+  <div class="sec-head">
+    <div class="eyebrow">Appendix A</div>
+    <h2>附录A　东南亚美妆合规认证清单</h2>
+    <div class="lede">按国家列示核心注册/认证项与关键卡点，供项目组与服务商对照执行。实际以各国监管最新要求为准。</div>
+  </div>
+
+  <div class="tw">
+  <table class="tbl">
+    <thead><tr><th style="width:110px">国家</th><th style="width:150px">核心注册/认证</th><th style="width:150px">Halal 要求</th><th>关键卡点与周期（模型推演）</th><th style="width:110px" class="ctr">优先级</th></tr></thead>
+    <tbody>
+      <tr><td><b>印度尼西亚</b></td><td>BPOM 化妆品通告 Notifkos；进口许可 API-U/API-E</td><td>BPJPH Halal 认证（强制属性强）</td><td>注册周期数月；Halal 需确认无猪源与争议酒精；宣称需审评</td><td class="ctr"><span class="tag r">P0</span></td></tr>
+      <tr><td><b>泰国</b></td><td>泰国 FDA 化妆品备案（Notification）</td><td>非强制但加分</td><td>备案周期较短；宣称禁用词严格；需明确本地责任方</td><td class="ctr"><span class="tag b">P1</span></td></tr>
+      <tr><td><b>马来西亚</b></td><td>NPRA 通知式注册；Cosmetics Regulation 2024</td><td>JAKIM Halal 认证（强制属性强）</td><td>注册周期相对短；宣称须符合 ACDIM 指南；监管趋严需持续更新</td><td class="ctr"><span class="tag b">P1</span></td></tr>
+      <tr><td><b>越南（暂缓）</b></td><td>MOH 化妆品通告</td><td>非强制</td><td>因安全评级 C 暂缓，仅保留线上覆盖评估</td><td class="ctr"><span class="tag n">暂缓</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 周期为模型推演，实际取决于监管审批与服务商经验；Halal 认证在印尼/马来是货架准入前提，非「加分项」。</div>
+</section>
+
+<!-- ============ 附录 B ============ -->
+<section id="appB" class="chapter">
+  <div class="sec-head">
+    <div class="eyebrow">Appendix B</div>
+    <h2>附录B　日本市场药机法与医药部外品完整合规清单</h2>
+    <div class="lede">日本线落地必须逐项落实的合规事项，按「主体—分类—备案—标签—渠道」组织。</div>
+  </div>
+
+  <div class="tw">
+  <table class="tbl">
+    <thead><tr><th style="width:130px" class="rk">合规环节</th><th>要求</th><th style="width:220px">落地要点</th><th style="width:100px" class="ctr">阶段</th></tr></thead>
+    <tbody>
+      <tr><td><b>① 责任企业主体</b></td><td>一般化妆品与医药部外品均须由日本境内（或获准境外）「輸出入販売業」责任主体担任</td><td>自设日本子公司 或 委托合规代理商/责任企业；签正式委任/责任合同</td><td class="ctr"><span class="tag r">第一优先</span></td></tr>
+      <tr><td><b>② 产品分类判定</b></td><td>明确归入一般化妆品（化粧品）还是医药部外品</td><td>首年锁定一般化妆品，功效宣称收敛为保湿类，避开美白/防晒/抗老</td><td class="ctr"><span class="tag r">第一优先</span></td></tr>
+      <tr><td><b>③ 备案（届出）</b></td><td>一般化妆品履行届出义务；医药部外品需承認取得</td><td>一般化妆品备案周期较短；医药部外品审批周期长且不确定，列为第二年项</td><td class="ctr"><span class="tag r">第一优先</span></td></tr>
+      <tr><td><b>④ 日文标签与成分表</b></td><td>全成分名称、法定标注项目、使用方法与注意事项；禁止医疗用语</td><td>高标准日文本地化 + 日本责任主体审校；成分表与宣称一致</td><td class="ctr"><span class="tag r">第一优先</span></td></tr>
+      <tr><td><b>⑤ 宣称合规</b></td><td>一般化妆品仅限保湿・保護・光泽等非医药功效表述</td><td>KOL brief 与投放素材强制合规审核，避免达人自发医药功效用语</td><td class="ctr"><span class="tag r">第一优先</span></td></tr>
+      <tr><td><b>⑥ 进口与流通</b></td><td>由日本责任主体进口或委托合规进口商；批号、效期管理</td><td>物流/仓储对接日本渠道合规要求；进口抽检应对</td><td class="ctr"><span class="tag b">P1</span></td></tr>
+      <tr><td><b>⑦ 医药部外品升级</b></td><td>美白/防晒等功效需功效评价与承認</td><td>第二年可选；待一般化妆品积累安全数据与品牌信用后申请</td><td class="ctr"><span class="tag o">第二年</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 日本药机法要求以法规最新文本与主管机关口径为准；本清单为落地执行框架，非法律意见，正式方案须由日本法务/合规顾问出具。</div>
+</section>
+
+<!-- ============ 附录 C ============ -->
+<section id="appC" class="chapter">
+  <div class="sec-head">
+    <div class="eyebrow">Appendix C</div>
+    <h2>附录C　出海服务商采购需求清单（含海外安全咨询）</h2>
+    <div class="lede">供项目组向服务商发出采购/RFP 需求，含问卷已勾选项与建议补选项，并新增海外安全咨询服务商类别。</div>
+  </div>
+
+  <div class="tw">
+  <table class="tbl">
+    <thead><tr><th style="width:140px" class="rk">服务模块</th><th style="width:96px" class="ctr">来源</th><th>采购需求 / 选择标准</th><th style="width:96px" class="ctr">优先级</th></tr></thead>
+    <tbody>
+      <tr class="hi" style="background:rgba(224,69,90,.05)">
+        <td><b>海外安全咨询服务商</b><br><small class="sm">新增类别</small></td><td class="ctr"><span class="tag g">新增</span></td><td>目的国风险情报、7×24 应急热线、危机响应/撤离支持；优先具中资企业/政府服务经验；需覆盖东南亚三国 + 日本</td><td class="ctr"><span class="tag r">P0</span></td></tr>
+      <tr class="hi" style="background:rgba(224,69,90,.05)">
+        <td><b>领事安全/使领馆联络</b></td><td class="ctr"><span class="tag g">新增</span></td><td>非商业采购；建立应急联络与人员备案，跟踪领事提醒</td><td class="ctr"><span class="tag r">P0</span></td></tr>
+      <tr><td><b>平台入驻/代运营</b></td><td class="ctr"><span class="tag b">已勾选</span></td><td>覆盖 Shopee/Lazada/TikTok Shop（东南亚）与乐天/亚马逊日本（日本）；以合规能力与品牌呈现为首要标准</td><td class="ctr"><span class="tag r">P0</span></td></tr>
+      <tr><td><b>合规认证/法务</b></td><td class="ctr"><span class="tag b">已勾选</span></td><td>BPOM/NPRA/Halal/药机法；需出具日本责任主体落地方案；劳动法务与合规</td><td class="ctr"><span class="tag r">P0</span></td></tr>
+      <tr><td><b>税务筹划</b></td><td class="ctr"><span class="tag b">已勾选</span></td><td>进口税/VAT、转让定价、跨境资金回流与主体架构；覆盖东南亚 + 日本</td><td class="ctr"><span class="tag r">P0</span></td></tr>
+      <tr><td><b>红人营销（KOL）</b></td><td class="ctr"><span class="tag b">已勾选</span></td><td>东南亚中腰部 KOL 矩阵 + 日本美妆达人；brief 须含合规审核（尤其日本宣称）</td><td class="ctr"><span class="tag b">P1</span></td></tr>
+      <tr><td><b>广告投放</b></td><td class="ctr"><span class="tag b">已勾选</span></td><td>东南亚 TikTok/Meta/Shopee Ads + 日本搜索/站内广告；先测后放量</td><td class="ctr"><span class="tag b">P1</span></td></tr>
+      <tr><td><b>本地化内容/翻译</b></td><td class="ctr"><span class="tag o">建议补选</span></td><td>日文（标签合规+内容）、印尼语、泰语；母语 + 合规双能力</td><td class="ctr"><span class="tag b">P1</span></td></tr>
+      <tr><td><b>跨境物流/海外仓</b></td><td class="ctr"><span class="tag o">建议补选</span></td><td>东南亚清关 + 日本进口合规；批号效期管理；对账与合规留痕</td><td class="ctr"><span class="tag b">P1</span></td></tr>
+      <tr><td><b>跨境支付/收款</b></td><td class="ctr"><span class="tag o">建议补选</span></td><td>规避涉诈风险、账户隔离合规、支持东南亚多币种与日元结算</td><td class="ctr"><span class="tag b">P1</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="tnote">※ 「已勾选」源自企业出海信息采集表；「新增/建议补选」为顾问依据能力诊断与安全要求补充。</div>
+</section>
+
+<!-- ============ 附录 D ============ -->
+<section id="appD" class="chapter">
+  <div class="sec-head">
+    <div class="eyebrow">Appendix D</div>
+    <h2>附录D　财务测算全部关键假设说明（分市场）</h2>
+    <div class="lede">
+      <b>本章为全部财务图表与数字的「假设说明书」。</b>所有数值均为顾问模型推演，
+      用于结构化比较与决策参考，<b>不代表林清轩实际经营数据，不构成财务预测、业绩承诺或投资建议</b>。
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="appcard">
+      <div class="ah"><span class="an">SEA</span>东南亚线关键假设</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>营收口径：</b>按平台净销售额（非 GMV）估算，印尼为主、泰马为辅；基准情景首年约 2,000 万人民币（推演）。</li>
+        <li><b>毛利率结构：</b>出厂毛利（参考国内 82%）→ 扣除平台佣金、代理分成、跨境履约与进口税费 → 落至综合毛利率 52%–63%（推演区间）。</li>
+        <li><b>营销投放：</b>KOL + 广告合计占营收 15%–22%（推演），首年偏高以建品牌与渠道。</li>
+        <li><b>固定成本：</b>含注册/认证、代理与代运营费、物流与人力，600–900 万（推演）。</li>
+        <li><b>关键敏感变量：</b>Halal/BPOM 进度、平台流量成本、代理履约质量、汇率（印尼盾/泰铢）。</li>
+      </ul>
+    </div>
+    <div class="appcard">
+      <div class="ah"><span class="an">JP</span>日本线关键假设</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>营收口径：</b>一般化妆品 2–3 SKU 首发，乐天/亚马逊/DTC 合计，基准情景首年约 1,500 万人民币（推演）。</li>
+        <li><b>毛利率结构：</b>日本定价更高、渠道结构更优，但合规与履约成本高 → 综合毛利率 55%–68%（推演区间）。</li>
+        <li><b>营销投放：</b>日本内容营销 + 搜索广告占比更高，16%–25%（推演）。</li>
+        <li><b>固定成本：</b>含责任主体、药机法备案、日文本地化、日 KOL，700–1,000 万（推演），属「先合规后利润」曲线。</li>
+        <li><b>关键敏感变量：</b>一般化妆品备案进度、责任主体落地方式、日 KOL 效率、汇率（日元）。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="risk">
+    <div class="lb">通用假设与免责声明</div>
+    <ul style="color:#f0e2c9">
+      <li>所有市场规模、增长、竞争强度、消费者偏好、安全等级均为<b>基于公开信息的顾问定性/半定量判断</b>，非精确量化。</li>
+      <li>财务测算为<b>情景推演</b>，三情景（保守/基准/乐观）仅用于结构对比与敏感性思考，<b>不构成业绩预测或承诺</b>。</li>
+      <li>合规周期、成本量级基于行业一般认知，实际以监管最新口径与服务商评估为准。</li>
+      <li>安全评级为顾问定性评估（A–D），<b>随时间与地区变化，须结合最新领事提醒与第三方安全机构意见动态复核</b>。</li>
+      <li>本白皮书不构成法律、税务或投资建议；重大决策前请咨询专业机构。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 附录 E · 演示专区 ============ -->
+<section id="appE" class="chapter">
+  <div class="sec-head">
+    <div class="eyebrow">Appendix E · Client Presentation Zone</div>
+    <h2>附录E【客户演示专区】全球跨境主体分布演示视图</h2>
+    <div class="lede">
+      <b>演示视图 · 供投屏展示</b>。本模块使用 ECharts-GL 3D 力导向图，
+      展示林清轩及全球跨境主体在三维空间中的分布与连接，用于客户演示与场景化讲解。
+      <b>本视图仅用于演示，不作为商业决策依据</b>；其布局由算法自动生成，不代表真实地理位置或实际业务体量。
+    </div>
+  </div>
+
+  <div class="chartcard">
+    <div class="chd">
+      <div class="no">图 E-1</div>
+      <div>
+        <div class="tt">3D 力导向演示图 · 全球跨境主体分布（演示视图）</div>
+        <div class="st">3D FORCE GRAPH · GLOBAL CROSS-BORDER ENTITY DISTRIBUTION (DEMO)</div>
+      </div>
+      <div class="stars">★★★★★</div>
+    </div>
+    <div class="cbd">
+      <div class="chart" id="c_graphE_1" style="height:640px"></div>
+    </div>
+    <div class="cap-read">
+      <span class="k">图表业务解读（演示用）：</span>
+      三维力导向图将林清轩（集团/原料/渠道）与东南亚、日本及其他全球市场的跨境主体置于同一空间，
+      以三维连线展示「主体—资源—渠道」的连接关系。<b>中心为林清轩主体群，环绕分布各目标市场实体与服务商</b>，
+      用于在客户演示中直观呈现「以林清轩为枢纽的全球化出海网络」。
+      <b>⚠ 本视图仅为演示，不作为商业决策依据</b>——节点位置与距离为算法布局结果，不代表真实地理分布、市场份额或业务权重。
+    </div>
+    <div class="cap-src">
+      <span class="src-l">数据来源：</span>顾问演示模型
+      <span class="as">演示视图标注：本图仅用于演示，不做商业决策依据；非实际经营数据，节点布局为算法自动生成</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 附录 F ============ -->
+<section id="appF" class="chapter">
+  <div class="sec-head">
+    <div class="eyebrow">Appendix F</div>
+    <h2>附录F　海外人员安全管理要点简版（企业内部执行）</h2>
+    <div class="lede">供出海项目组与赴外人员内部执行的一页纸安全管理要点；详细预案见第六章 6.3 节。</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card" style="border-color:rgba(224,69,90,.3)">
+      <div class="ch"><span class="dot"></span>行前（Before）</div>
+      <ul class="tick" style="font-size:13px">
+        <li>出差<b>事前审批报备</b>：目的地（限 A/B 级城市）、时段、同行人、行程、住宿全留痕。</li>
+        <li><b>禁行清单</b>：边境省份、园区性质区域、偏远矿区（柬埔寨园区、菲 POGO、缅泰边境等）严禁商务前往。</li>
+        <li><b>行前安全培训</b>：诈骗识别、绑架应对、逃生报警流程；确认安全顾问 7×24 热线已存。</li>
+        <li><b>备案使领馆</b>：按要求完成人员信息备案，保持应急联络畅通。</li>
+      </ul>
+    </div>
+    <div class="card" style="border-color:rgba(224,69,90,.3)">
+      <div class="ch"><span class="dot"></span>在途与驻留（During）</div>
+      <ul class="tick" style="font-size:13px">
+        <li>住宿/办公地符合安全标准；<b>避开孤立区域</b>；移动用合规专车，夜间谨慎出行。</li>
+        <li>按风险等级执行<b>定时报平安</b>；关键人员配一键报警/定位。</li>
+        <li><b>拒绝</b>非正式「私人借贷/投资」邀约、灰色清关中介、不明宴请与高额消费。</li>
+        <li>业务资金与个人账户、第三方账户<b>严格隔离</b>；不携大额现金。</li>
+      </ul>
+    </div>
+    <div class="card" style="border-color:rgba(224,69,90,.3)">
+      <div class="ch"><span class="dot"></span>应急（Emergency）</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>Ⅰ级（人员受威胁/失联）：</b>立即联系安全顾问与使领馆 → 启动集团应急小组 → 视情撤离/救援 → 依法报案。</li>
+        <li><b>Ⅱ级（涉诈/账户冻结/重大治安）：</b>冻结相关业务与资金操作 → 启动排查 → 评估结构调整。</li>
+        <li>对外披露<b>统一口径</b>，兼顾法务与舆情（呼应上市公司信息披露责任）。</li>
+      </ul>
+    </div>
+    <div class="card gold" style="border-color:rgba(212,175,55,.3)">
+      <div class="ch"><span class="dot"></span>管理人：安全一票否决</div>
+      <ul class="tick" style="font-size:13px">
+        <li><b>准入：</b>任何国别/城市进入，安全评级低于 B 级<b>不予立项</b>（一票否决）。</li>
+        <li><b>止损：</b>任一人身安全事件、账户冻结事件、合作方涉诈事件 → <b>立即暂停相关业务</b>并启动复核。</li>
+        <li><b>治理：</b>出海安全与合规双轨评审委员会统一决策；安全指标纳入商业 KPI 并列考核。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 页脚 ============ -->
+<footer class="foot">
+  <div class="fin">
+    <div class="fr">
+      <div><b>《2026 上海林清轩出海变现白皮书》</b><br>v2026.1 · 2026 年 10 月 · 东南亚—日本双核心出海战略</div>
+      <div style="text-align:right">上海林清轩化妆品集团股份有限公司<br>咨询顾问出品 · 供管理层/董事会决策参考</div>
+    </div>
+    <div>
+      ⚠ <b>重要声明：</b>本白皮书所有财务预测、市场测算、竞争评分与安全评级均为<b>基于公开信息的顾问模型推演或定性判断</b>，
+      <b>不代表林清轩实际经营数据，不构成业绩承诺、财务预测或投资建议</b>。涉及人身与营商安全的内容为风险提示与建议，
+      不替代官方安全评估或专业机构意见。出海安全等级随时间与地区变化，务必结合最新领事安全提醒与第三方安全机构意见动态复核。
+      正式决策与落地前，请咨询法律、税务、合规与安全等专业机构。
+    </div>
+  </div>
+</footer>
+<!--PART6-->
+</main>
+
+<script>
+/* ============================================================================
+   2026 上海林清轩出海变现白皮书 · 图表与交互脚本
+   全部图表：ECharts 5 + ECharts-GL（CDN），高阶图谱为主
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  /* ---------- 主题常量 ---------- */
+  var C = {
+    red:'#c82333', redL:'#e8434f', redD:'#8f1523',
+    gold:'#d4af37', goldL:'#e8c95f', goldD:'#8f7320',
+    blue:'#3d8bd8', blueL:'#79b4f0',
+    green:'#2fbf88', greenL:'#4fd3a0',
+    orange:'#e8843d', purple:'#9b6dd6', purpleL:'#c19ee8',
+    teal:'#2bb3c0', yellow:'#e8c95f', pink:'#e06a9c',
+    text:'#e9ecf4', text2:'#b9c1d4', muted:'#7f889e', line:'rgba(255,255,255,.08)',
+    panel:'#141822'
+  };
+  var FONT = '"PingFang SC","Microsoft YaHei","Hiragino Sans GB",Inter,sans-serif';
+
+  function baseTip(extra) {
+    var t = {
+      backgroundColor:'rgba(14,17,24,.96)',
+      borderColor:'rgba(255,255,255,.16)', borderWidth:1,
+      padding:[10,14], textStyle:{color:C.text,fontSize:12.5,fontFamily:FONT},
+      extraCssText:'border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.6);backdrop-filter:blur(6px);',
+      confine:true
+    };
+    if (extra) { for (var k in extra) t[k] = extra[k]; }
+    return t;
+  }
+  function axisBase() {
+    return {
+      axisLine:{ lineStyle:{ color:'rgba(255,255,255,.14)' } },
+      axisTick:{ show:false },
+      axisLabel:{ color:C.muted, fontSize:11, fontFamily:FONT },
+      splitLine:{ lineStyle:{ color:'rgba(255,255,255,.055)', type:'dashed' } }
+    };
+  }
+  function mk(id) {
+    var el = document.getElementById(id);
+    if (!el) return null;
+    var c = echarts.init(el, null, { renderer:'canvas' });
+    window.addEventListener('resize', function(){
+      c.resize();
+      // 弦图几何随容器尺寸计算，需按新尺寸重排
+      if (c.__rebuild) c.__rebuild();
+    });
+    return c;
+  }
+  var charts = [];
+  function reg(c){ if(c) charts.push(c); return c; }
+
+  /* ==========================================================================
+     图 2-1 · 径向知识图谱：林清轩商业主体一级关联全景
+     ========================================================================== */
+  function radialGraph() {
+    var c = mk('c_graph2_1'); if (!c) return;
+
+    var ringCfg = [
+      { r0:'11%', r1:'23%', name:'集团与资本层', color:C.red,    cat:0 },
+      { r0:'24%', r1:'36%', name:'原料与供应链', color:C.gold,   cat:1 },
+      { r0:'37%', r1:'49%', name:'品牌与产品资产', color:C.green,cat:2 },
+      { r0:'50%', r1:'62%', name:'国内渠道资产', color:C.blue,   cat:3 },
+      { r0:'63%', r1:'75%', name:'潜在海外实体', color:C.purple, cat:4 },
+      { r0:'76%', r1:'88%', name:'服务商与资本方', color:'#6b7590',cat:5 }
+    ];
+
+    var nodes = [];
+    var links = [];
+
+    // 中心节点
+    nodes.push({
+      name:'林清轩集团\n(港股上市主体)',
+      value:100, symbolSize:96, category:0, x:0, y:0,
+      itemStyle:{ color:new echarts.graphic.RadialGradient(0.5,0.5,0.9,[
+        {offset:0,color:'#e8434f'},{offset:1,color:'#7d1220'} ]),
+        borderColor:'#ffd7dc', borderWidth:2.5,
+        shadowBlur:26, shadowColor:'rgba(200,35,51,.65)'
+      },
+      label:{ show:true, color:'#fff', fontSize:14, fontWeight:'bold', fontFamily:FONT,
+              lineHeight:18, formatter:function(p){return '林清轩\n集团主体';} }
+    });
+
+    // 各环节点（按环均分角度）
+    function ringNodes(ring, list) {
+      var n = list.length;
+      for (var i = 0; i < n; i++) {
+        var ang = (i / n) * Math.PI * 2 - Math.PI / 2;
+        var rad = (parseFloat(ring.r0) + parseFloat(ring.r1)) / 2 / 100;
+        var x = Math.cos(ang) * rad, y = Math.sin(ang) * rad;
+        var sz = list[i][2] || 34;
+        nodes.push({
+          name:list[i][0], value:list[i][1], symbolSize:sz, category:ring.cat,
+          x:x, y:y, fixed:true,
+          itemStyle:{ color:ring.color, borderColor:'rgba(255,255,255,.42)', borderWidth:1.4,
+                      shadowBlur:12, shadowColor:'rgba(0,0,0,.55)' },
+          label:{ show:true, position:'outside', color:'#dfe3ee', fontSize:11.5,
+                  fontFamily:FONT, lineHeight:15, distance:4,
+                  formatter:function(p){ return p.name; } }
+        });
+        links.push({
+          source:'林清轩集团\n(港股上市主体)',
+          target:list[i][0],
+          lineStyle:{ width: list[i][4] || 1.5,
+                      color:'rgba(200,35,51,.30)',
+                      curveness: 0.06 * ((i % 2) ? 1 : -1),
+                      opacity:.85 }
+        });
+      }
+    }
+
+    ringNodes(ringCfg[0], [
+      ['港交所主板\n上市主体', 96, 52], ['股东 / H股回购', 70, 44],
+      ['集团总部\n(上海)', 88, 50], ['集团财务中心', 72, 42], ['品牌管理总部', 74, 42]
+    ]);
+    ringNodes(ringCfg[1], [
+      ['红山茶花\n种植基地 2万+', 95, 56], ['原料提取\n(活性物)', 80, 46],
+      ['研发中心', 84, 46], ['生产制造\n(自有工厂)', 86, 50], ['质量与\n供应链管理', 76, 44],
+      ['海外订单履约\n(出口)', 66, 42]
+    ]);
+    ringNodes(ringCfg[2], [
+      ['山茶花修护\n精华油 (旗舰)', 96, 54], ['山茶花\n系列护肤', 78, 44],
+      ['身体护理系列', 68, 42], ['礼盒 / 套装线', 66, 40], ['品牌 IP\n(山茶花叙事)', 72, 44]
+    ]);
+    ringNodes(ringCfg[3], [
+      ['600+ 高端\n购物中心专柜', 92, 54], ['抖音电商\n(线上第一大)', 88, 50],
+      ['天猫 / 京东', 78, 44], ['私域 / 会员', 70, 42], ['线下 BA\n运营体系', 68, 42]
+    ]);
+    ringNodes(ringCfg[4], [
+      ['印尼\n(雅加达·主体/代理)', 88, 50, 0, 2.2], ['泰国\n(曼谷·代理)', 76, 44, 0, 1.8],
+      ['马来西亚\n(吉隆坡·代理)', 74, 44, 0, 1.8], ['日本\n(东京·责任主体/子公司)', 86, 50, 0, 2.4],
+      ['海外平台店铺\n(Shopee/Lazada/TikTok)', 80, 46, 0, 1.6],
+      ['海外 DTC\n独立站', 70, 42, 0, 1.6], ['日本平台\n(乐天/亚马逊日本)', 74, 44, 0, 1.8]
+    ]);
+    ringNodes(ringCfg[5], [
+      ['合规认证服务商\n(BPOM/NPRA/Halal)', 70, 44, 0, 1.5], ['日本药机法\n合规顾问', 68, 44, 0, 1.6],
+      ['海外安全\n咨询服务商', 70, 46, 0, 1.7], ['跨境物流 /\n海外仓', 66, 42, 0, 1.4],
+      ['跨境支付通道', 62, 40, 0, 1.4], ['红人营销 /\nMCN 资源', 66, 42, 0, 1.4],
+      ['财务税务\n顾问', 64, 40, 0, 1.3], ['国际投资者 /\n机构股东', 66, 42, 0, 1.3]
+    ]);
+
+    c.setOption({
+      tooltip: baseTip({ formatter:function(p){
+        if (p.dataType === 'edge') {
+          return '<b style="color:'+C.redL+'">一级关联</b><br>' +
+                 '中心主体 → '+ p.data.target.replace(/\n/g,' ');
+        }
+        var ringName = '';
+        for (var i=0;i<ringCfg.length;i++){ if (ringCfg[i].cat === p.data.category) ringName = ringCfg[i].name; }
+        return '<b style="color:#fff">'+ p.name.replace(/\n/g,' ') +'</b><br>' +
+               '所属环层：<b>'+ ringName +'</b><br>关联权重：'+ p.data.value;
+      }}),
+      legend:[{
+        data: ringCfg.map(function(r){ return r.name; }),
+        top:10, left:'center', itemGap:16, itemWidth:12, itemHeight:8,
+        textStyle:{ color:C.text2, fontSize:11.5, fontFamily:FONT }
+      }],
+      series:[{
+        type:'graph', layout:'none',
+        coordinateSystem:null,
+        roam:false, zoom:1,
+        data:nodes, links:links,
+        categories: ringCfg.map(function(r){
+          return { name:r.name, itemStyle:{ color:r.color } };
+        }),
+        edgeSymbol:['none','none'],
+        lineStyle:{ opacity:.9 },
+        label:{ show:true },
+        emphasis:{ focus:'adjacency', scale:1.08,
+                  lineStyle:{ width:3, color:C.goldL, opacity:1 } },
+        animationDuration:1100, animationEasingUpdate:'quinticInOut'
+      }],
+      graphic:[
+        { type:'text', left:'center', bottom:6,
+          style:{ text:'径向知识图谱｜圆心：林清轩上市集团　·　由内至外：一级关联由强到弱',
+                  fill:C.muted, font:'12px '+FONT, textAlign:'center' } }
+      ]
+    }, true);
+  }
+
+  /* ==========================================================================
+     图 3-1 · 2D 力导向图：亚洲美妆市场竞争实体网络
+     ========================================================================== */
+  function compForce() {
+    var c = mk('c_graph3_1'); if (!c) return;
+
+    var cats = [
+      { name:'林清轩',            itemStyle:{ color:C.red } },
+      { name:'国际美妆巨头',      itemStyle:{ color:C.orange } },
+      { name:'日本本土品牌',      itemStyle:{ color:C.gold } },
+      { name:'东南亚本土品牌',    itemStyle:{ color:C.purple } },
+      { name:'中国出海竞品',      itemStyle:{ color:C.teal } },
+      { name:'KOL / MCN / 平台方',itemStyle:{ color:C.green } }
+    ];
+
+    var nodes = [
+      // 林清轩
+      { name:'林清轩\nGINKGO', cat:0, symbolSize:74, value:96,
+        label:{ fontSize:14, fontWeight:'bold', color:'#fff' },
+        itemStyle:{ shadowBlur:24, shadowColor:'rgba(200,35,51,.7)' },
+        desc:'核心主体：以油养肤·山茶花，高端国货护肤' },
+      // 国际巨头
+      { name:'欧莱雅\nL’Oréal', cat:1, symbolSize:58, value:90 },
+      { name:'雅诗兰黛\nEstée Lauder', cat:1, symbolSize:56, value:88 },
+      { name:'资生堂集团\n(海外)', cat:1, symbolSize:54, value:86 },
+      { name:'宝洁 / P&G\n(美妆)', cat:1, symbolSize:48, value:80 },
+      // 日本本土
+      { name:'资生堂\nSHISEIDO', cat:2, symbolSize:54, value:86 },
+      { name:'FANCL\n(敏感肌)', cat:2, symbolSize:50, value:82 },
+      { name:'KOSE\n高丝', cat:2, symbolSize:46, value:78 },
+      { name:'Pola\n高端线', cat:2, symbolSize:44, value:74 },
+      // 东南亚本土
+      { name:'Innisfree\n(韩系东南亚)', cat:3, symbolSize:46, value:78 },
+      { name:'Skinfood\n(泰国)', cat:3, symbolSize:44, value:74 },
+      { name:'Beauty Buffet\n(泰国)', cat:3, symbolSize:40, value:70 },
+      { name:'本地 challenger\n(印尼/马来)', cat:3, symbolSize:42, value:72 },
+      // 中国出海竞品
+      { name:'珀莱雅', cat:4, symbolSize:50, value:82 },
+      { name:'薇诺娜\n(敏感肌)', cat:4, symbolSize:46, value:78 },
+      { name:'毛戈平', cat:4, symbolSize:44, value:76 },
+      { name:'可复美 / 润本', cat:4, symbolSize:42, value:74 },
+      // KOL / MCN / 平台
+      { name:'TikTok Shop', cat:5, symbolSize:52, value:84 },
+      { name:'Shopee', cat:5, symbolSize:48, value:80 },
+      { name:'Lazada', cat:5, symbolSize:44, value:76 },
+      { name:'乐天市场\nRakuten', cat:5, symbolSize:46, value:78 },
+      { name:'亚马逊日本', cat:5, symbolSize:44, value:76 },
+      { name:'日本美妆 KOL\n(元本AKE等)', cat:5, symbolSize:40, value:72 },
+      { name:'东南亚中腰部\nKOL 矩阵', cat:5, symbolSize:42, value:74 },
+      { name:'本地 MCN\n(东南亚)', cat:5, symbolSize:38, value:68 },
+      { name:'百货专柜\n(日本)', cat:5, symbolSize:36, value:66 },
+      { name:'药妆店渠道\n(日本)', cat:5, symbolSize:36, value:66 }
+    ];
+    nodes.forEach(function(n){ if(!n.label) n.label={ fontSize:11, color:'#dfe3ee' }; if(!n.itemStyle) n.itemStyle={}; });
+
+    // links: 关系类型
+    var L = function(s,t,w,kind,label){ return { source:s, target:t, lineStyle:{ width:w, curveness:0.12 }, rel:kind, labelText:label }; };
+
+    var links = [
+      // 林清轩 —— 已建立/规划中的强关联
+      L('林清轩\nGINKGO','Shopee',2.4,'plan','拟接入'),
+      L('林清轩\nGINKGO','Lazada',2.2,'plan','拟接入'),
+      L('林清轩\nGINKGO','TikTok Shop',2.6,'plan','拟接入'),
+      L('林清轩\nGINKGO','东南亚中腰部\nKOL 矩阵',2.4,'plan','拟合作'),
+      L('林清轩\nGINKGO','日本美妆 KOL\n(元本AKE等)',2.3,'plan','拟合作'),
+      L('林清轩\nGINKGO','乐天市场\nRakuten',2.2,'plan','拟接入'),
+      L('林清轩\nGINKGO','亚马逊日本',2.0,'plan','拟接入'),
+      // 竞争关系（东南亚）
+      L('林清轩\nGINKGO','Innisfree\n(韩系东南亚)',1.8,'rival','品类竞合'),
+      L('林清轩\nGINKGO','Skinfood\n(泰国)',1.6,'rival','价位竞合'),
+      L('林清轩\nGINKGO','本地 challenger\n(印尼/马来)',2.0,'rival','正面竞合'),
+      L('林清轩\nGINKGO','Beauty Buffet\n(泰国)',1.4,'rival','价位竞合'),
+      // 竞争关系（日本）
+      L('林清轩\nGINKGO','资生堂\nSHISEIDO',2.2,'rival','高端正面竞合'),
+      L('林清轩\nGINKGO','FANCL\n(敏感肌)',1.8,'rival','人群竞合'),
+      L('林清轩\nGINKGO','Pola\n高端线',1.7,'rival','价格带竞合'),
+      // 国际巨头在日本/东南亚压制
+      L('欧莱雅\nL’Oréal','资生堂\nSHISEIDO',2.4,'rival','市场压制'),
+      L('雅诗兰黛\nEstée Lauder','资生堂\nSHISEIDO',2.0,'rival','市场压制'),
+      L('欧莱雅\nL’Oréal','KOSE\n高丝',1.8,'rival','渠道竞争'),
+      L('宝洁 / P&G\n(美妆)','Shopee',1.6,'supply','品牌入驻'),
+      L('雅诗兰黛\nEstée Lauder','百货专柜\n(日本)',2.2,'supply','专柜渠道'),
+      L('资生堂\nSHISEIDO','百货专柜\n(日本)',2.4,'supply','专柜渠道'),
+      L('KOSE\n高丝','药妆店渠道\n(日本)',2.2,'supply','药妆渠道'),
+      L('FANCL\n(敏感肌)','药妆店渠道\n(日本)',2.0,'supply','药妆渠道'),
+      L('Pola\n高端线','百货专柜\n(日本)',1.8,'supply','专柜渠道'),
+      // 东南亚本土 —— 依附平台/KOL
+      L('Innisfree\n(韩系东南亚)','TikTok Shop',2.2,'supply','渠道依赖'),
+      L('Skinfood\n(泰国)','TikTok Shop',2.4,'supply','渠道依赖'),
+      L('Skinfood\n(泰国)','本地 MCN\n(东南亚)',2.0,'supply','MCN合作'),
+      L('Beauty Buffet\n(泰国)','东南亚中腰部\nKOL 矩阵',2.2,'supply','KOL带货'),
+      L('本地 challenger\n(印尼/马来)','Shopee',2.0,'supply','平台渠道'),
+      L('本地 challenger\n(印尼/马来)','东南亚中腰部\nKOL 矩阵',1.8,'supply','KOL带货'),
+      // 中国出海竞品
+      L('珀莱雅','TikTok Shop',2.4,'peer','同赛道出海'),
+      L('珀莱雅','东南亚中腰部\nKOL 矩阵',2.0,'peer','KOL竞争'),
+      L('薇诺娜\n(敏感肌)','FANCL\n(敏感肌)',2.0,'peer','人群竞合'),
+      L('薇诺娜\n(敏感肌)','药妆店渠道\n(日本)',1.6,'peer','渠道试探'),
+      L('毛戈平','百货专柜\n(日本)',1.8,'peer','高端柜试点'),
+      L('可复美 / 润本','Lazada',1.8,'peer','东南亚铺货'),
+      L('可复美 / 润本','Shopee',1.6,'peer','东南亚铺货'),
+      // 平台方互连
+      L('TikTok Shop','东南亚中腰部\nKOL 矩阵',2.2,'supply','平台×KOL'),
+      L('Shopee','Lazada',1.4,'peer','平台竞合'),
+      L('乐天市场\nRakuten','日本美妆 KOL\n(元本AKE等)',1.8,'supply','平台×KOL'),
+      L('亚马逊日本','资生堂集团\n(海外)',1.8,'supply','平台×品牌'),
+      L('林清轩\nGINKGO','珀莱雅',2.4,'peer','同为中国出海竞品'),
+      L('珀莱雅','资生堂集团\n(海外)',1.6,'peer','市场共存')
+    ];
+
+    links.forEach(function(l){
+      if (l.rel === 'rival')      l.lineStyle.color='rgba(224,69,90,.55)';
+      else if (l.rel === 'peer')   l.lineStyle.color='rgba(47,191,136,.5)';
+      else                          l.lineStyle.color='rgba(61,139,216,.45)';
+      l.lineStyle.type = 'solid';
+    });
+
+    c.setOption({
+      tooltip: baseTip({ formatter:function(p){
+        if (p.dataType === 'edge') {
+          var map={rival:'⚔ 竞争关系',peer:'◆ 同业/竞品关系',supply:'⇄ 渠道/供应链关系',plan:'✦ 规划中关系'};
+          return '<b>'+p.data.source.replace(/\n/g,' ')+'</b> <span style="color:'+C.gold+'">→</span> <b>'+
+                 p.data.target.replace(/\n/g,' ')+'</b><br>'+
+                 '关系：<b style="color:'+C.goldL+'">'+(map[p.data.rel]||p.data.rel)+'</b>'+
+                 (p.data.labelText?('　·　'+p.data.labelText):'');
+        }
+        var catName = cats[p.data.category] ? cats[p.data.category].name : '';
+        return '<b style="color:#fff;font-size:13px">'+ p.name.replace(/\n/g,' ') +'</b><br>' +
+               '阵营：<b style="color:'+ (cats[p.data.category]?cats[p.data.category].itemStyle.color:'#fff') +'">'+ catName +'</b>';
+      }}),
+      legend:[{
+        data: cats.map(function(x){return x.name;}),
+        top:8, left:'center', itemGap:14, itemWidth:11, itemHeight:11,
+        textStyle:{ color:C.text2, fontSize:11.5, fontFamily:FONT }
+      }],
+      series:[{
+        type:'graph', layout:'force',
+        roam:true, draggable:true,
+        data:nodes, links:links, categories:cats,
+        force:{ repulsion:340, edgeLength:[70,170], gravity:0.09, friction:0.28,
+                layoutAnimation:true },
+        lineStyle:{ opacity:.85 },
+        label:{ show:true, position:'right', distance:5,
+                fontFamily:FONT, formatter:function(p){ return p.name; } },
+        emphasis:{ focus:'adjacency', scale:1.12,
+                  label:{ fontSize:13, fontWeight:'bold', color:'#fff' },
+                  lineStyle:{ width:3.4, opacity:1 } },
+        animationDuration:1300, animationEasingUpdate:'quinticInOut'
+      }],
+      graphic:[{
+        type:'text', left:'center', bottom:4,
+        style:{ text:'连线：红线=竞争　绿线=同业/竞品　蓝线=渠道/供应链　｜　林清轩与海外渠道节点的连线代表"规划中"关系',
+                fill:C.muted, font:'11.5px '+FONT, textAlign:'center' }
+      }]
+    }, true);
+  }
+
+  /* ==========================================================================
+     图 3-2 · 地理网络图：亚洲跨境市场权重与安全等级分布
+     ========================================================================== */
+  function geoNetwork() {
+    var c = mk('c_graph3_2'); if (!c) return;
+
+    // 手绘亚洲示意坐标（经度/纬度），dx/dy 为可读性微调偏移（示意用途）
+    var home = { name:'中国 · 上海（集团总部）', lon:121.5, lat:31.2, dx:0, dy:0,
+                 v:100, tier:'A', note:'总部 · 辐射原点' };
+    var markets = [
+      { name:'日本 · 东京',       lon:139.7, lat:35.7,  dx:0,    dy:0,   v:88, tier:'A', note:'并列核心 · 品牌高度' },
+      { name:'日本 · 大阪',       lon:135.5, lat:34.7,  dx:-1.2, dy:1.6, v:52, tier:'A', note:'次级 · 渠道拓展' },
+      { name:'马来西亚 · 吉隆坡', lon:101.7, lat:3.1,   dx:-2.6, dy:0,   v:70, tier:'A', note:'备选实体落点' },
+      { name:'泰国 · 曼谷',       lon:100.5, lat:13.75, dx:-2.4, dy:0,   v:66, tier:'B', note:'辅战国' },
+      { name:'泰国 · 清迈',       lon:98.98, lat:18.79, dx:-1.2, dy:0,   v:38, tier:'B', note:'线下活动限定' },
+      { name:'印尼 · 雅加达',     lon:106.8, lat:-6.2,  dx:-3.4, dy:0,   v:95, tier:'B', note:'主战国 · 平台+代理' },
+      { name:'印尼 · 泗水',       lon:112.7, lat:-7.25, dx:1.0,  dy:-1.2,v:26, tier:'B', note:'⚠ 安全警示区 · 避免线下' },
+      { name:'印尼 · 万隆',       lon:107.6, lat:-6.9,  dx:2.2,  dy:-1.6,v:34, tier:'A', note:'线下活动 A 级城市' },
+      { name:'新加坡（仓配）',    lon:103.8, lat:1.35,  dx:-1.4, dy:1.8, v:56, tier:'A', note:'中转仓配' },
+      { name:'越南 · 胡志明市',   lon:106.7, lat:10.8,  dx:3.6,  dy:0,   v:44, tier:'C', note:'暂缓 · 仅线上覆盖' },
+      { name:'菲律宾 · 马尼拉',   lon:120.98,lat:14.6,  dx:0,    dy:0,   v:36, tier:'C', note:'不建议进入' },
+      { name:'柬埔寨 · 金边',     lon:104.9, lat:11.55, dx:-1.6, dy:0,   v:22, tier:'D', note:'一票否决 · 园区风险' }
+    ];
+
+    var tierColor = { A:C.green, B:C.gold, C:C.orange, D:C.red };
+    var tierName  = { A:'A 级 · 相对安全', B:'B 级 · 较安全', C:'C 级 · 中等风险', D:'D 级 · 高风险（不予进入）' };
+
+    // 等距圆柱投影 + 纵横比校正（保持地理形态可读）
+    var LAT_SCALE = 0.80;
+    function px(lon){ return lon; }
+    function py(lat){ return -lat * LAT_SCALE; }
+    function pos(m){ return [px(m.lon + (m.dx||0)), py(m.lat - (m.dy||0))]; }
+
+    // 标签方位（避免密集区重叠）
+    var LBL = {
+      '日本 · 东京':'top','日本 · 大阪':'left','马来西亚 · 吉隆坡':'left',
+      '泰国 · 曼谷':'left','泰国 · 清迈':'top','印尼 · 雅加达':'left',
+      '印尼 · 泗水':'right','印尼 · 万隆':'bottom','新加坡（仓配）':'bottom',
+      '越南 · 胡志明市':'right','菲律宾 · 马尼拉':'top','柬埔寨 · 金边':'left'
+    };
+
+    var homePt = pos(home);
+    var scatterData = [{
+      name:home.name, value:[homePt[0], homePt[1], home.v],
+      symbol:'diamond', symbolSize:36,
+      itemStyle:{ color:C.red, borderColor:'#fff', borderWidth:2.5,
+                  shadowBlur:26, shadowColor:'rgba(200,35,51,.85)' },
+      label:{ show:true, position:'right', distance:10,
+              formatter:'中国 · 上海（集团总部）', fontSize:13, fontWeight:'bold',
+              color:'#fff', backgroundColor:'rgba(200,35,51,.42)',
+              padding:[5,9], borderRadius:5 },
+      tier:home.tier, note:home.note
+    }].concat(markets.map(function(m){
+      var big = m.v >= 60;
+      var warn = (m.tier === 'C' || m.tier === 'D');
+      return {
+        name:m.name, value:pos(m).concat([m.v]),
+        symbol:'circle', symbolSize: Math.max(15, m.v * 0.48),
+        itemStyle:{ color:tierColor[m.tier], borderColor:'rgba(255,255,255,.75)', borderWidth:1.6,
+                    shadowBlur: warn ? 22 : 11, shadowColor: tierColor[m.tier] },
+        label:{ show:true, position: LBL[m.name] || 'top', distance:8,
+                formatter: m.name + '\n' + tierName[m.tier],
+                fontSize: big?12:10.5, fontWeight: big?'bold':'normal',
+                color: big?'#fff':tierColor[m.tier],
+                lineHeight:14, backgroundColor:'rgba(10,12,17,.86)',
+                padding:[3,6], borderRadius:4 },
+        tier:m.tier, note:m.note
+      };
+    }));
+
+    function findPt(n){ var r=null; markets.forEach(function(m){ if(m.name===n) r=pos(m); }); return r; }
+
+    var edgeData = markets.map(function(m){
+      var warn = (m.tier==='C'||m.tier==='D');
+      return {
+        coords:[ homePt, pos(m) ],
+        lineStyle:{
+          width: Math.max(1.2, m.v/30),
+          color: tierColor[m.tier],
+          opacity: warn ? 0.26 : (m.tier==='A' ? 0.66 : 0.48),
+          curveness: 0.07,
+          type: warn ? 'dashed' : 'solid'
+        },
+        note:m.note, tier:m.tier, flow:m.v, label:m.name
+      };
+    });
+
+    // 区域内协同连线（次级关系，弱化显示）
+    var regionEdges = [
+      { a:'日本 · 东京', b:'日本 · 大阪', w:1.2, op:.42, cc:.08 },
+      { a:'泰国 · 曼谷', b:'泰国 · 清迈', w:1.0, op:.34, cc:.06 },
+      { a:'印尼 · 雅加达', b:'印尼 · 泗水', w:1.0, op:.34, cc:.06 },
+      { a:'印尼 · 雅加达', b:'印尼 · 万隆', w:1.0, op:.34, cc:-.06 },
+      { a:'马来西亚 · 吉隆坡', b:'新加坡（仓配）', w:1.1, op:.38, cc:.05 },
+      { a:'泰国 · 曼谷', b:'马来西亚 · 吉隆坡', w:1.0, op:.30, cc:.05 },
+      { a:'新加坡（仓配）', b:'印尼 · 雅加达', w:1.0, op:.30, cc:-.05 },
+      { a:'泰国 · 曼谷', b:'柬埔寨 · 金边', w:1.0, op:.26, cc:-.06 }
+    ];
+    var regionData = regionEdges.map(function(e){
+      var pa = findPt(e.a), pb = findPt(e.b);
+      if (!pa || !pb) return null;
+      return { coords:[ pa, pb ],
+               lineStyle:{ width:e.w, color:'#8a93aa', opacity:e.op, curveness:e.cc, type:'solid' },
+               region:true };
+    }).filter(Boolean);
+
+    c.setOption({
+      tooltip: baseTip({ formatter:function(p){
+        if (p.seriesType === 'lines') {
+          if (p.data && p.data.label) {
+            return '<b>拟投入流量线路</b><br>中国 · 上海 → '+ p.data.label.replace(/\n/g,' ')+
+                   '<br>流量强度（模型推演）：<b style="color:'+C.goldL+'">'+p.data.flow+'</b><br>'+
+                   '安全等级：<b style="color:'+tierColor[p.data.tier]+'">'+tierName[p.data.tier]+'</b><br>'+
+                   '<span style="color:'+C.muted+'">'+p.data.note+'</span>';
+          }
+          return '<b>区域内协同关联</b><br><span style="color:'+C.muted+'">次级关系，弱化显示</span>';
+        }
+        if (p.data && p.data.tier) {
+          return '<b style="color:#fff;font-size:13px">'+p.data.name.replace(/\n/g,' ')+'</b><br>'+
+                 '布局权重（模型推演）：<b style="color:'+C.goldL+'">'+p.value[2]+'</b><br>'+
+                 '安全等级：<b style="color:'+tierColor[p.data.tier]+'">'+tierName[p.data.tier]+'</b><br>'+
+                 '<span style="color:'+C.muted+'">'+p.data.note+'</span>';
+        }
+        return p.name;
+      }}),
+      legend:[{
+        top:10, left:'center', itemGap:16, itemWidth:12, itemHeight:12,
+        textStyle:{ color:C.text2, fontSize:11.5, fontFamily:FONT },
+        data:[{ name:'A 级 · 相对安全', itemStyle:{color:tierColor.A}},
+              { name:'B 级 · 较安全', itemStyle:{color:tierColor.B}},
+              { name:'C 级 · 中等风险', itemStyle:{color:tierColor.C}},
+              { name:'D 级 · 高风险（不予进入）', itemStyle:{color:tierColor.D}}]
+      }],
+      grid:{ left:150, right:110, top:64, bottom:62 },
+      xAxis:{ type:'value', min:94, max:146, show:false },
+      yAxis:{ type:'value', min:-33, max:13, show:false },
+      series:[
+        { name:'区域关联', type:'lines', coordinateSystem:'cartesian2d',
+          data:regionData, zlevel:1,
+          lineStyle:{ curveness:0.08 } },
+        { name:'总部辐射', type:'lines', coordinateSystem:'cartesian2d',
+          data:edgeData, zlevel:2,
+          lineStyle:{ curveness:0.07 } },
+        { name:'市场节点', type:'effectScatter', coordinateSystem:'cartesian2d',
+          symbolSize:function(val){ return Math.max(7, val[2] * 0.18); },
+          showEffectOn:'render',
+          rippleEffect:{ brushType:'stroke', scale:2.6, period:3.6 },
+          data: markets.map(function(m){ return { name:m.name, value:pos(m).concat([m.v]) }; }),
+          itemStyle:{ color:'rgba(212,175,55,.40)' },
+          zlevel:2, silent:true },
+        { name:'市场节点', type:'scatter', coordinateSystem:'cartesian2d',
+          data:scatterData, zlevel:3,
+          labelLayout:{ moveOverlap:'shiftY', hideOverlap:false },
+          emphasis:{ scale:1.16, itemStyle:{ shadowBlur:30 } } }
+      ],
+      graphic:[
+        { type:'text', left:14, top:56,
+          style:{ text:'节点大小 = 市场布局权重（模型推演）', fill:C.muted, font:'11px '+FONT } },
+        { type:'text', left:14, top:74,
+          style:{ text:'连线粗细 = 拟投入流量强度　虚线 = 暂缓/不建议', fill:C.muted, font:'11px '+FONT } },
+        { type:'text', left:14, top:92,
+          style:{ text:'灰线 = 区域内协同（次级关系）', fill:C.muted, font:'11px '+FONT } },
+        { type:'text', left:'center', bottom:14,
+          style:{ text:'中国为原点辐射东南亚与日本｜泗水为安全警示区（避免线下活动）｜金边（D 级）不予进入',
+                  fill:C.muted, font:'11.5px '+FONT, textAlign:'center' } }
+      ]
+    }, true);
+  }
+
+  /* ==========================================================================
+     图 4-1 · 降噪弦图：出海业务实体合作强关联网络
+     ========================================================================== */
+  function chordDiagram() {
+    var c = mk('c_graph4_1'); if (!c) return;
+
+    // 扁平化功能节点（按职能分组着色），仅保留强业务关联（降噪）
+    var nodes = [
+      { name:'集团·品牌管理', g:'集团职能', color:'#c82333' },
+      { name:'集团·法务合规', g:'集团职能', color:'#a51c2a' },
+      { name:'集团·财务税务', g:'集团职能', color:'#a51c2a' },
+      { name:'集团·海外安全管理', g:'集团职能', color:'#e8434f' },
+
+      { name:'供应链·原料基地', g:'供应链', color:'#8f7320' },
+      { name:'供应链·生产制造', g:'供应链', color:'#a08a26' },
+      { name:'供应链·物流海外仓', g:'供应链', color:'#8f7320' },
+
+      { name:'东南亚·电商平台方', g:'东南亚渠道', color:'#6b3fa0' },
+      { name:'东南亚·本地代理分销', g:'东南亚渠道', color:'#7f4fb8' },
+      { name:'东南亚·KOL 矩阵', g:'东南亚渠道', color:'#5c3389' },
+
+      { name:'日本·代理商/责任主体', g:'日本渠道', color:'#25609b' },
+      { name:'日本·电商平台方', g:'日本渠道', color:'#3170b0' },
+      { name:'日本·KOL / 媒体', g:'日本渠道', color:'#1d4e80' },
+
+      { name:'专业服务·合规认证', g:'专业服务', color:'#1c7f8c' },
+      { name:'专业服务·跨境支付', g:'专业服务', color:'#28929f' },
+      { name:'专业服务·海外安全咨询', g:'专业服务', color:'#c82333' },
+
+      { name:'市场·印尼', g:'目标市场', color:'#1f8f62' },
+      { name:'市场·泰国', g:'目标市场', color:'#2aa876' },
+      { name:'市场·马来西亚', g:'目标市场', color:'#1f8f62' },
+      { name:'市场·日本', g:'目标市场', color:'#37bd8a' }
+    ];
+
+    var idx = {}; nodes.forEach(function(n,i){ idx[n.name] = i; });
+    var m = nodes.map(function(){ return nodes.map(function(){ return 0; }); });
+    function set(a,b,v){ m[idx[a]][idx[b]] += v; m[idx[b]][idx[a]] += v; }
+
+    var A='集团·海外安全管理', SEC='专业服务·海外安全咨询';
+
+    // ① 安全域：最强绑定（当前断链 → 必须优先建立）
+    set(A, SEC, 12);
+    set(A, '集团·法务合规', 8);
+    set(A, '集团·品牌管理', 6);
+    set(SEC, '市场·印尼', 6);
+    set(SEC, '市场·泰国', 5);
+    set(SEC, '市场·马来西亚', 5);
+    set(SEC, '市场·日本', 4);
+    set(SEC, '集团·财务税务', 6);
+
+    // ② 合规域
+    set('集团·法务合规', '专业服务·合规认证', 9);
+    set('集团·法务合规', '日本·代理商/责任主体', 8);
+    set('专业服务·合规认证', '日本·代理商/责任主体', 7);
+    set('专业服务·合规认证', '市场·印尼', 5);
+    set('专业服务·合规认证', '市场·泰国', 4);
+    set('专业服务·合规认证', '市场·马来西亚', 4);
+    set('专业服务·合规认证', '市场·日本', 6);
+
+    // ③ 财务与资金域
+    set('集团·财务税务', '专业服务·跨境支付', 8);
+    set('专业服务·跨境支付', '市场·印尼', 5);
+    set('专业服务·跨境支付', '市场·日本', 4);
+    set('集团·财务税务', '供应链·物流海外仓', 6);
+
+    // ④ 供应链域
+    set('供应链·原料基地', '供应链·生产制造', 9);
+    set('供应链·生产制造', '供应链·物流海外仓', 8);
+    set('供应链·生产制造', '集团·品牌管理', 7);
+    set('供应链·原料基地', '集团·品牌管理', 6);
+    set('供应链·物流海外仓', '市场·印尼', 6);
+    set('供应链·物流海外仓', '市场·日本', 6);
+    set('供应链·物流海外仓', '市场·泰国', 5);
+
+    // ⑤ 东南亚渠道域
+    set('东南亚·电商平台方', '市场·印尼', 8);
+    set('东南亚·电商平台方', '市场·泰国', 7);
+    set('东南亚·电商平台方', '市场·马来西亚', 7);
+    set('东南亚·KOL 矩阵', '市场·印尼', 6);
+    set('东南亚·KOL 矩阵', '市场·泰国', 6);
+    set('东南亚·KOL 矩阵', '市场·马来西亚', 5);
+    set('东南亚·本地代理分销', '市场·印尼', 7);
+    set('东南亚·本地代理分销', '市场·泰国', 6);
+    set('东南亚·本地代理分销', '市场·马来西亚', 6);
+    set('东南亚·KOL 矩阵', '集团·品牌管理', 6);
+    set('东南亚·电商平台方', '集团·品牌管理', 5);
+
+    // ⑥ 日本渠道域
+    set('日本·代理商/责任主体', '市场·日本', 10);
+    set('日本·电商平台方', '市场·日本', 8);
+    set('日本·KOL / 媒体', '市场·日本', 6);
+    set('日本·KOL / 媒体', '集团·品牌管理', 7);
+    set('日本·电商平台方', '集团·品牌管理', 6);
+    set('日本·代理商/责任主体', '供应链·物流海外仓', 5);
+
+    var chartNodes = nodes.map(function(n,i){
+      var sum = m[i].reduce(function(a,b){ return a + b; }, 0);
+      return {
+        name:n.name, value:sum,
+        itemStyle:{ color:n.color, borderWidth:0 },
+        group:n.g
+      };
+    });
+
+    /* ---- 环形弦图渲染 --------------------------------------------------
+       ECharts 5.4.3 官方 bundle 不含 chord 系列（v6.1.0 才补上导出口，
+       但 v6 已移除 graph3D，与附录 3D 图冲突）。
+       因此这里用 cartesian2d 的 lines + pie 组合自绘标准弦图：
+         pie  → 环形节点弧段 + 外侧实体名称标签
+         lines→ 实体之间的双向弦带，线宽 = 关联强度
+       几何量依赖容器尺寸，故挂到 __rebuild 供 resize 时重排。
+    ------------------------------------------------------------------- */
+    c.__rebuild = function(){
+    var n  = chartNodes.length;
+    var CW = c.getWidth(), CH = c.getHeight();
+    var MINWH = Math.min(CW, CH);
+    var CX = CW/2, CY = CH/2 + 4;
+    var R  = MINWH * 0.335;                      // 弦环半径（随容器自适应）
+    var PIE_IN  = (R/MINWH)*100 - 12;            // pie 内半径 %
+    var PIE_OUT = (R/MINWH)*100 - 1;             // pie 外半径 %
+
+    // 每个实体的关联强度合计（矩阵对称，取半避免弧段过长）
+    var W = chartNodes.map(function(_, i){
+      return m[i].reduce(function(a,b){ return a+b; }, 0) / 2;
+    });
+    var WSUM = W.reduce(function(a,b){ return a+b; }, 0) || 1;
+
+    // 按权重分配角度，段间留缝
+    var GAP   = Math.min(0.06, 0.9/n);           // 弧度
+    var usable = Math.PI*2 - GAP*n;
+    var seg = [], cur = -Math.PI/2;
+    for (var i=0;i<n;i++){
+      var w = usable * W[i] / WSUM;
+      seg.push([cur, cur+w]); cur += w + GAP;
+    }
+    function mid(i){ return (seg[i][0]+seg[i][1])/2; }
+    function px(i){ var m2 = mid(i); return [CX + Math.cos(m2)*R, CY + Math.sin(m2)*R]; }
+
+    // 弦带：每条关联画正反两条同宽弧，形成带状弦（着色取源实体色）
+    var ribbons = [];
+    for (var a=0;a<n;a++){
+      for (var b=a+1;b<n;b++){
+        var v = m[a][b]; if (!v) continue;
+        var pa = px(a), pb = px(b);
+        var w  = Math.max(0.6, Math.min(9, v/1.7));
+        ribbons.push({ coords:[pa, pb], _ab:[a,b,v],
+          lineStyle:{ width:w, color:chartNodes[a].itemStyle.color, opacity:0.26, curveness: 0.42 } });
+        ribbons.push({ coords:[pa, pb], _ab:[a,b,v],
+          lineStyle:{ width:w, color:chartNodes[b].itemStyle.color, opacity:0.26, curveness:-0.42 } });
+      }
+    }
+
+    c.setOption({
+      tooltip: baseTip({ formatter:function(p){
+        if (p.seriesType === 'lines' && p.data && p.data._ab) {
+          var ab = p.data._ab;
+          return '<b style="color:#fff">'+ chartNodes[ab[0]].name +'</b> ↔ <b style="color:#fff">'+ chartNodes[ab[1]].name +'</b><br>'+
+                 '关联强度：<b style="color:'+C.goldL+'">'+ ab[2] +'</b><br>'+
+                 '<span style="color:'+C.muted+'">弦粗细代表强业务关联（已过滤弱连接降噪）</span>';
+        }
+        var v = (typeof p.value === 'number') ? p.value : (p.data && p.data.value);
+        return '<b style="color:#fff">'+ p.name +'</b><br>'+
+               '关联强度合计：<b style="color:'+C.goldL+'">'+ (v*2) +'</b>';
+      }}),
+      xAxis:{ type:'value', min:0, max:CW, show:false },
+      yAxis:{ type:'value', min:0, max:CH, show:false },
+      grid:{ left:0, right:0, top:0, bottom:0 },
+      series:[
+        {
+          type:'lines', coordinateSystem:'cartesian2d', zlevel:1,
+          data: ribbons,
+          lineStyle:{ cap:'round' },
+          emphasis:{ lineStyle:{ opacity:0.9, width:5, shadowBlur:14, shadowColor:'rgba(212,175,55,.55)' } },
+          animationDuration:900, animationEasingUpdate:'quinticInOut'
+        },
+        {
+          type:'pie', zlevel:3,
+          radius:[PIE_IN+'%', PIE_OUT+'%'], center:['50%','50%'],
+          startAngle:-90, clockwise:true, avoidLabelOverlap:true, minAngle:3,
+          itemStyle:{ borderColor:'#0a0d13', borderWidth:1.5 },
+          label:{
+            show:true, position:'outside', color:'#dfe3ee',
+            fontSize:11, fontFamily:FONT, alignTo:'labelLine',
+            edgeDistance:4, bleedMargin:2,
+            formatter:function(p){ return p.name; }
+          },
+          labelLine:{ show:true, length:8, length2:10,
+                      lineStyle:{ color:'rgba(255,255,255,.26)', width:1 } },
+          emphasis:{ scale:true, scaleSize:7,
+                     label:{ color:'#fff', fontWeight:'bold' } },
+          data: chartNodes.map(function(nd,i){ return { name:nd.name, value:W[i] }; })
+        }
+      ],
+      graphic:[
+        { type:'text', left:'center', top:14,
+          style:{ text:'降噪弦图｜仅展示强业务关联（过滤弱连接）　·　弦粗细 = 关联强度',
+                  fill:C.muted, font:'12px '+FONT, textAlign:'center' } },
+        { type:'text', left:'center', bottom:14,
+          style:{ text:'核心洞察：「海外安全咨询」↔「集团·海外安全管理」为必须优先建立的最强关联（当前断链）',
+                  fill:C.gold, font:'11.5px '+FONT, textAlign:'center' } },
+        { type:'text', left:'center', top:'50%',
+          style:{ text:'出海实体\n合作网络', fill:'rgba(233,236,244,.30)', font:'bold 15px '+FONT,
+                  textAlign:'center', textVerticalAlign:'middle' } }
+      ]
+    }, true);
+    };
+    c.__rebuild();   // 首次渲染
+  }
+
+  /* ==========================================================================
+     图 4-2 · 桑基图：跨境贸易资金双向流转（东南亚+日本双线，三情景）
+     ========================================================================== */
+  function sankeyChart() {
+    var c = mk('c_graph4_2'); if (!c) return;
+    var scenario = 'base'; // base | cons | opt
+    var cur = 'base';
+
+    var SEC = [
+      { name:'国内供应链成本',  color:C.redD },
+      { name:'营销投放预算',    color:'#6e1520' },
+      { name:'东南亚·渠道分成', color:'#8f5cc4' },
+      { name:'日本·渠道分成',   color:'#3a7fc4' },
+      { name:'东南亚·营销费用', color:'#7a4aad' },
+      { name:'日本·营销费用',   color:'#2f6ba8' },
+      { name:'营收回流',        color:C.green },
+      { name:'日本营收回流',     color:'#1f8f62' },
+      { name:'利润留存',        color:C.gold },
+      { name:'运营/合规/安全成本', color:C.orange },
+      { name:'再投入/扩量',     color:'#9c7a1f' }
+    ];
+    function col(name){ for(var i=0;i<SEC.length;i++) if(SEC[i].name===name) return SEC[i].color; return '#888'; }
+
+    // 三情景模型（单位：万人民币；模型推演）
+    /* 结构约束（关键）：
+       ECharts sankey 要求有向无环图。原模型中「运营/合规/安全成本」既有入流又
+       向「利润留存」出流，形成回路，会导致末端节点被挤出 right 可视区、
+       标签丢失（已在 5.4.3 复现）。故此处把成本节点设为终端汇聚点（只入不出），
+       并把成本净额直接并入各市场的「利润留存」流，保证语义不变且拓扑无环。*/
+    var SC = {
+      cons: {
+        // source, target, value（value 均已归一为正数，见 buildData）
+        d: [
+          ['国内供应链成本','东南亚·渠道分成',120],
+          ['国内供应链成本','日本·渠道分成',80],
+          ['国内供应链成本','运营/合规/安全成本',200],
+          ['营销投放预算','东南亚·营销费用',150],
+          ['营销投放预算','日本·营销费用',110],
+          ['营销投放预算','运营/合规/安全成本',40],
+          ['东南亚·渠道分成','营收回流',400],
+          ['东南亚·营销费用','营收回流',190],
+          ['日本·渠道分成','日本营收回流',150],
+          ['日本·营销费用','日本营收回流',60],
+          ['营收回流','利润留存',280],
+          ['营收回流','再投入/扩量',120],
+          ['日本营收回流','利润留存',300],
+          ['日本营收回流','再投入/扩量',80]
+        ]
+      },
+      base: {
+        d: [
+          ['国内供应链成本','东南亚·渠道分成',420],
+          ['国内供应链成本','日本·渠道分成',260],
+          ['国内供应链成本','运营/合规/安全成本',450],
+          ['营销投放预算','东南亚·营销费用',320],
+          ['营销投放预算','日本·营销费用',260],
+          ['营销投放预算','运营/合规/安全成本',60],
+          ['东南亚·渠道分成','营收回流',1550],
+          ['东南亚·营销费用','营收回流',420],
+          ['日本·渠道分成','日本营收回流',780],
+          ['日本·营销费用','日本营收回流',260],
+          ['营收回流','利润留存',600],
+          ['营收回流','再投入/扩量',340],
+          ['日本营收回流','利润留存',450],
+          ['日本营收回流','再投入/扩量',90]
+        ]
+      },
+      opt: {
+        d: [
+          ['国内供应链成本','东南亚·渠道分成',880],
+          ['国内供应链成本','日本·渠道分成',520],
+          ['国内供应链成本','运营/合规/安全成本',560],
+          ['营销投放预算','东南亚·营销费用',520],
+          ['营销投放预算','日本·营销费用',480],
+          ['营销投放预算','运营/合规/安全成本',80],
+          ['东南亚·渠道分成','营收回流',3400],
+          ['东南亚·营销费用','营收回流',700],
+          ['日本·渠道分成','日本营收回流',1700],
+          ['日本·营销费用','日本营收回流',420],
+          ['营收回流','利润留存',1500],
+          ['营收回流','再投入/扩量',700],
+          ['日本营收回流','利润留存',950],
+          ['日本营收回流','再投入/扩量',280]
+        ]
+      }
+    };
+
+    // ECharts sankey 不接受负值，且此处拓扑已保证无环，直接透传。
+    // 注意：link 必须用 source/target，误用 name 会静默丢失连线（整图只剩文字标签）。
+    function buildData(key){
+      return SC[key].d.map(function(r){
+        return {
+          source: r[0],
+          target: r[1],
+          value: r[2],
+          lineStyle:{ color: col(r[1]), opacity:.40, curveness:0.5 }
+        };
+      });
+    }
+
+    function setScenario(key, chart) {
+      var links = buildData(key);
+      chart.setOption({
+        tooltip: baseTip({ trigger:'item', formatter:function(p){
+          if (p.dataType === 'edge') {
+            return p.data.source.replace(/\n/g,' ') +' → '+ p.data.target.replace(/\n/g,' ') +
+                   '<br>资金量级（模型推演）：<b style="color:'+C.goldL+'">'+ p.data.value +' 万</b>';
+          }
+          return '<b>'+p.name.replace(/\n/g,' ')+'</b>';
+        }}),
+        series:[{
+          type:'sankey',
+          left:26, right:176, top:56, bottom:34,
+          data: SEC.map(function(s){ return { name:s.name, itemStyle:{ color:s.color, borderWidth:0 } }; }),
+          links: links,
+          nodeGap: 14, nodeWidth: 13,
+          draggable: false,
+          emphasis:{ focus:'adjacency' },
+          label:{ color:'#e9ecf4', fontSize:11, fontFamily:FONT, lineHeight:14, position:'right' },
+          lineStyle:{ curveness:0.5, opacity:.40 },
+          animationDuration:900, animationEasingUpdate:'quinticInOut'
+        }]
+      }, true);
+    }
+
+    c.setOption({
+      tooltip: baseTip({ trigger:'item' }),
+      title: {
+        text:'跨境贸易资金双向流转（东南亚 + 日本双线）',
+        subtext:'单位：万元人民币 · 模型推演值 · 可点击右上切换情景',
+        left:'center', top:14,
+        textStyle:{ color:C.text, fontSize:15, fontWeight:'bold', fontFamily:FONT },
+        subtextStyle:{ color:C.muted, fontSize:11.5, fontFamily:FONT }
+      }
+    });
+    setScenario('base', c);
+
+    // 情景切换按钮
+    var host = document.getElementById('c_graph4_2');
+    var bar = document.createElement('div');
+    bar.style.cssText='position:absolute;right:18px;top:12px;z-index:5;display:flex;gap:6px';
+    var labs = { cons:'保守', base:'基准', opt:'乐观' };
+    Object.keys(labs).forEach(function(k){
+      var b = document.createElement('button');
+      b.textContent = labs[k];
+      b.style.cssText='font:600 11.5px '+FONT+';padding:4px 11px;border-radius:6px;cursor:pointer;'+
+        'background:'+(k===cur?'#c82333':'rgba(255,255,255,.05)')+';color:'+(k===cur?'#fff':'#b9c1d4')+
+        ';border:1px solid '+(k===cur?'#c82333':'rgba(255,255,255,.16)')+';transition:.15s';
+      b.onclick=function(){
+        cur=k;
+        Array.prototype.forEach.call(bar.children,function(x){ x.style.background='rgba(255,255,255,.05)'; x.style.color='#b9c1d4'; x.style.borderColor='rgba(255,255,255,.16)'; });
+        b.style.background='#c82333'; b.style.color='#fff'; b.style.borderColor='#c82333';
+        setScenario(k,c);
+      };
+      bar.appendChild(b);
+    });
+    host.parentNode.style.position='relative';
+    host.parentNode.appendChild(bar);
+  }
+
+  /* ==========================================================================
+     图 4-3 · 旭日图：红山茶花全链路供应链价值分层拆解
+     ========================================================================== */
+  function sunburstChart() {
+    var c = mk('c_graph4_3'); if (!c) return;
+
+    var data = [{
+      name:'红山茶花全链路',
+      children:[
+        {
+          name:'① 原料端',
+          children:[
+            { name:'自有/合作种植基地', value:16 },
+            { name:'原料提取与活性物', value:9 }
+          ]
+        },
+        {
+          name:'② 研发生产端',
+          children:[
+            { name:'配方研发', value:11 },
+            { name:'生产制造', value:14 },
+            { name:'质量与包材', value:6 }
+          ]
+        },
+        {
+          name:'③ 国内渠道端',
+          children:[
+            { name:'600+ 高端专柜', value:15 },
+            { name:'抖音/天猫电商', value:11 },
+            { name:'分销与会员', value:4 }
+          ]
+        },
+        {
+          name:'④ 出海渠道端',
+          children:[
+            { name:'东南亚·平台与代理', value:7 },
+            { name:'日本·平台与代理商', value:7 }
+          ]
+        }
+      ]
+    }];
+
+    c.setOption({
+      tooltip: baseTip({ formatter:function(p){
+        var pct = p.percent;
+        return '<b style="color:#fff">'+p.name+'</b><br>'+
+               '价值分配占比（模型推演）：<b style="color:'+C.goldL+'">'+pct+'%</b>';
+      }}),
+      series:[
+        {
+          type:'sunburst', radius:['14%','80%'],
+          center:['50%','53%'],
+          labelLayout:{ moveOverlap:'shiftY', hideOverlap:false },
+          data:data,
+          nodeClick:'zoomToNode',
+          sort: null,
+          emphasis:{ focus:'ancestor' },
+          levels:[
+            { itemStyle:{ borderColor:'#0a0c11', borderWidth:2.5 }, upperLabel:{ show:false } },
+            { itemStyle:{ borderColor:'#0a0c11', borderWidth:2 },
+              upperLabel:{ show:true, height:26, color:'#fff', fontSize:12.5,
+                           fontWeight:'bold', fontFamily:FONT, formatter:function(p){ return p.name; } } },
+            { itemStyle:{ borderColor:'#0a0c11', borderWidth:1.5 },
+              label:{ show:true, fontSize:11, color:'#fff', fontFamily:FONT, formatter:function(p){ return p.name+'\n'+p.percent+'%'; } } }
+          ],
+          color: [ C.red, C.redL, C.gold, C.goldL, C.blue, C.blueL, C.green, C.greenL,
+                   C.purple, C.purpleL, C.teal, C.orange ],
+          animationDuration:1100
+        }
+      ],
+      graphic:[{
+        type:'text', left:'center', top:10,
+        style:{ text:'旭日图｜由内至外：原料 → 研发生产 → 国内渠道 → 出海渠道　（点击可下钻）',
+                fill:C.muted, font:'12px '+FONT, textAlign:'center' }
+      },{
+        type:'text', left:'center', top:'48%',
+        style:{ text:'红山茶花\n全链路', fill:'rgba(233,236,244,.34)',
+                font:'bold 14px '+FONT, textAlign:'center', lineHeight:19 }
+      },{
+        type:'text', left:'center', bottom:8,
+        style:{ text:'核心洞察：品牌与原料端（内两环）留存价值链最大且最稳定的一块；出海渠道虽扩张规模，但价值分流与合规成本最高',
+                fill:C.gold, font:'11.5px '+FONT, textAlign:'center' }
+      }]
+    }, true);
+  }
+
+  /* ==========================================================================
+     图 4-4 · 折线图：双市场三情景收入与净利推演对比（辅助图）
+     ========================================================================== */
+  function scenarioLine() {
+    var c = mk('c_graph4_4'); if (!c) return;
+
+    var scen = ['保守情景','基准情景','乐观情景'];
+    var seaRev = [800, 2000, 4000], seaProfit = [-280, 110, 680];
+    var jpRev  = [500, 1500, 3500], jpProfit = [-450, 150, 950];
+
+    c.setOption({
+      tooltip: baseTip({ trigger:'axis', axisPointer:{ type:'shadow' } }),
+      legend:{
+        top:8, left:'center', itemGap:16, itemWidth:14, itemHeight:9,
+        textStyle:{ color:C.text2, fontSize:11.5, fontFamily:FONT },
+        data:['东南亚营收','东南亚净利','日本营收','日本净利']
+      },
+      grid:{ left:56, right:60, top:56, bottom:44 },
+      xAxis: Object.assign({ type:'category', data:scen }, axisBase()),
+      yAxis:[
+        Object.assign({ type:'value', name:'营收（万元）', nameTextStyle:{ color:C.muted, fontSize:11 },
+          axisLabel:{ color:C.muted, fontSize:11, formatter:function(v){ return v; } } }, axisBase()),
+        Object.assign({ type:'value', name:'净利（万元）', nameTextStyle:{ color:C.muted, fontSize:11 },
+          axisLabel:{ color:C.muted, fontSize:11 }, splitLine:{ show:false } }, axisBase())
+      ],
+      series:[
+        { name:'东南亚营收', type:'bar', data:seaRev, barWidth:26, itemStyle:{
+            color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#a51c2a'},{offset:1,color:'#5c0e17'}]),
+            borderRadius:[4,4,0,0] } },
+        { name:'日本营收', type:'bar', data:jpRev, barWidth:26, itemStyle:{
+            color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'#c8a133'},{offset:1,color:'#6b541a'}]),
+            borderRadius:[4,4,0,0] } },
+        { name:'东南亚净利', type:'line', yAxisIndex:1, data:seaProfit, smooth:true,
+            symbol:'circle', symbolSize:9, lineStyle:{ width:3, color:'#e8434f' },
+            itemStyle:{ color:'#e8434f', borderColor:'#fff', borderWidth:1.5 } },
+        { name:'日本净利', type:'line', yAxisIndex:1, data:jpProfit, smooth:true,
+            symbol:'diamond', symbolSize:10, lineStyle:{ width:3, color:'#e8c95f', type:'dashed' },
+            itemStyle:{ color:'#e8c95f', borderColor:'#fff', borderWidth:1.5 } }
+      ],
+      graphic:[{
+        type:'text', left:'center', bottom:6,
+        style:{ text:'营收（柱，左轴）与净利（线，右轴）均为模型推演值，非实际经营数据',
+                fill:C.muted, font:'11px '+FONT, textAlign:'center' }
+      }]
+    }, true);
+  }
+
+  /* ==========================================================================
+     图 E-1 · 3D 力导向演示图（附录 E · 仅供演示）
+     ========================================================================== */
+  function demo3D() {
+    var c = mk('c_graphE_1'); if (!c) return;
+
+    var nodes = [
+      { name:'林清轩\n(集团)', symbolSize:36, category:0, x:0, y:0, z:0,
+        label:{ fontSize:13, color:'#fff', fontWeight:'bold' } },
+      { name:'红山茶花\n基地', symbolSize:18, category:1, x:-70, y:40, z:20 },
+      { name:'生产制造', symbolSize:16, category:1, x:-40, y:60, z:-20 },
+      { name:'国内\n600+专柜', symbolSize:16, category:2, x:40, y:50, z:20 },
+      { name:'抖音电商', symbolSize:14, category:2, x:70, y:20, z:-20 },
+      { name:'印尼\n主体/代理', symbolSize:18, category:3, x:60, y:-50, z:30 },
+      { name:'泰国\n代理', symbolSize:14, category:3, x:20, y:-70, z:-10 },
+      { name:'马来西亚\n代理', symbolSize:14, category:3, x:-20, y:-70, z:20 },
+      { name:'日本\n责任主体/子公司', symbolSize:20, category:4, x:-60, y:-30, z:-30 },
+      { name:'海外平台方', symbolSize:14, category:3, x:90, y:0, z:0 },
+      { name:'日本平台方', symbolSize:14, category:4, x:-90, y:0, z:0 },
+      { name:'合规/安全\n服务商', symbolSize:16, category:5, x:0, y:80, z:40 },
+      { name:'资本方/机构', symbolSize:14, category:5, x:0, y:-90, z:-30 },
+      { name:'KOL/MCN', symbolSize:12, category:3, x:100, y:-40, z:20 },
+      { name:'物流/海外仓', symbolSize:12, category:1, x:-100, y:10, z:-20 }
+    ];
+    var links = [
+      ['林清轩\n(集团)','红山茶花\n基地'],
+      ['林清轩\n(集团)','生产制造'],
+      ['林清轩\n(集团)','国内\n600+专柜'],
+      ['林清轩\n(集团)','抖音电商'],
+      ['林清轩\n(集团)','印尼\n主体/代理'],
+      ['林清轩\n(集团)','泰国\n代理'],
+      ['林清轩\n(集团)','马来西亚\n代理'],
+      ['林清轩\n(集团)','日本\n责任主体/子公司'],
+      ['林清轩\n(集团)','海外平台方'],
+      ['林清轩\n(集团)','日本平台方'],
+      ['林清轩\n(集团)','合规/安全\n服务商'],
+      ['林清轩\n(集团)','资本方/机构'],
+      ['印尼\n主体/代理','海外平台方'],
+      ['印尼\n主体/代理','KOL/MCN'],
+      ['印尼\n主体/代理','物流/海外仓'],
+      ['日本\n责任主体/子公司','日本平台方'],
+      ['日本\n责任主体/子公司','合规/安全\n服务商'],
+      ['日本\n责任主体/子公司','物流/海外仓'],
+      ['泰国\n代理','海外平台方'],
+      ['马来西亚\n代理','海外平台方'],
+      ['国内\n600+专柜','生产制造'],
+      ['红山茶花\n基地','生产制造'],
+      ['资本方/机构','林清轩\n(集团)']
+    ].map(function(l){ return { source:l[0], target:l[1] }; });
+
+    var cats = [
+      { name:'林清轩主体', itemStyle:{ color:C.red } },
+      { name:'供应链',      itemStyle:{ color:C.gold } },
+      { name:'国内渠道',    itemStyle:{ color:C.blue } },
+      { name:'东南亚实体',  itemStyle:{ color:C.purple } },
+      { name:'日本实体',    itemStyle:{ color:C.teal } },
+      { name:'服务商/资本', itemStyle:{ color:'#6b7590' } }
+    ];
+
+    c.setOption({
+      tooltip: baseTip({ formatter:function(p){
+        if (p.dataType === 'edge') return '<b>'+String(p.data.source).replace(/\n/g,' ')+'</b> → <b>'+String(p.data.target).replace(/\n/g,' ')+'</b>';
+        var cat = cats[p.data.category] ? cats[p.data.category].name : '';
+        return '<b>'+String(p.name).replace(/\n/g,' ')+'</b><br>类别：'+cat;
+      }}),
+      legend:{ data: cats.map(function(x){return x.name;}), top:6, left:'center',
+        itemGap:12, itemWidth:10, itemHeight:10,
+        textStyle:{ color:C.text2, fontSize:10.5, fontFamily:FONT } },
+      xAxis3D:{}, yAxis3D:{}, zAxis3D:{ show:false },
+      grid3D:{ boxWidth:130, boxDepth:130, environment:'#0a0d13',
+               /* 注意：axisLine.show 必须保持 true。echarts-gl 在 autoRotate 每次相机变化时
+                  会遍历 axis.axisLineCoords；当 axisLine 被隐藏时该值为 null，
+                  触发 "Cannot read properties of null" 并每帧抛错（见 2.0.9 的
+                  _updateAxisLabelAlign）。故改为显示但设为极淡描边，视觉等同隐藏。 */
+               axisLine:{ show:true, lineStyle:{ color:'rgba(255,255,255,.06)' } },
+               axisPointer:{ show:false }, axisLabel:{ show:false },
+               axisTick:{ show:false }, splitLine:{ show:false }, splitArea:{ show:false },
+               viewControl:{ distance:215, alpha:30, beta:38, autoRotate:true, autoRotateSpeed:0.75,
+                             center:[0,0,0], damping:0.9 } },
+      series:[{
+        type:'graphGL',
+        coordinateSystem:'3D',
+        nodes:nodes, edges:links, categories:cats,
+        symbol:'circle',
+        lineStyle:{ width:1.6, color:'rgba(200,35,51,.62)', opacity:.85 },
+        itemStyle:{ opacity:.96, borderWidth:1, borderColor:'rgba(255,255,255,.4)' },
+        label:{ show:true, fontSize:9.5, color:'#e9ecf4', fontFamily:FONT, distance:1 },
+        emphasis:{ label:{ color:'#fff', fontSize:12, fontWeight:'bold' } },
+        roam: true,
+        animationDuration:1200
+      }],
+      graphic:[{
+        type:'text', left:'center', top:38,
+        style:{ text:'⚠ 演示视图 · 仅用于客户投屏演示，不作为商业决策依据',
+                fill:'#f0bc6a', font:'bold 12.5px '+FONT, textAlign:'center' }
+      },{
+        type:'text', left:'center', bottom:8,
+        style:{ text:'节点位置为算法自动布局，不代表真实地理位置或业务体量　·　可拖拽旋转查看',
+                fill:C.muted, font:'11px '+FONT, textAlign:'center' }
+      }]
+    }, true);
+  }
+
+  /* ==========================================================================
+     初始化
+     ========================================================================== */
+  function initAll() {
+    try { radialGraph();   } catch(e){ console.error('图2-1 失败', e); }
+    try { compForce();     } catch(e){ console.error('图3-1 失败', e); }
+    try { geoNetwork();    } catch(e){ console.error('图3-2 失败', e); }
+    try { chordDiagram();  } catch(e){ console.error('图4-1 失败', e); }
+    try { sankeyChart();   } catch(e){ console.error('图4-2 失败', e); }
+    try { sunburstChart(); } catch(e){ console.error('图4-3 失败', e); }
+    try { scenarioLine();  } catch(e){ console.error('图4-4 失败', e); }
+    try { demo3D();        } catch(e){ console.error('图E-1 失败', e); }
+  }
+
+  /* ---------- 侧边导航高亮 + 进度条 + 平滑滚动 ---------- */
+  function initNav() {
+    var links = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
+    var targets = links.map(function(a){ return document.getElementById(a.getAttribute('data-t')); });
+    var progress = document.getElementById('progress');
+
+    function onScroll() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (h > 0 ? (window.scrollY / h * 100) : 0) + '%';
+
+      var y = window.scrollY + window.innerHeight * 0.28;
+      var idx = 0;
+      for (var i = 0; i < targets.length; i++) {
+        if (targets[i] && targets[i].offsetTop <= y) idx = i;
+      }
+      links.forEach(function(a, i){ a.classList.toggle('on', i === idx); });
+    }
+    window.addEventListener('scroll', onScroll, { passive:true });
+    onScroll();
+
+    // 侧边导航高亮项自动滚入视野
+    var nav = document.getElementById('nav');
+    setInterval(function(){
+      var on = nav.querySelector('a.on');
+      if (on) {
+        var r = on.getBoundingClientRect(), nr = nav.getBoundingClientRect();
+        if (r.top < nr.top || r.bottom > nr.bottom) {
+          on.scrollIntoView({ block:'nearest' });
+        }
+      }
+    }, 400);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function(){ initNav(); initAll(); });
+  } else {
+    initNav(); initAll();
+  }
+})();
+</script>
+</body>
+</html>
