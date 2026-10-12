@@ -27,6 +27,32 @@ export type ResearchReport = {
 
 export const RESEARCH_REPORTS: ResearchReport[] = [
   {
+    id: 'duanju-overseas-monetization-2026',
+    title: '2026 短剧出海变现白皮书',
+    subtitle:
+      '从「高收入、低利润」到「可验证的经营利润」— 五大区域 · 四类业务形态 · 五种变现模式的成本‑收益拆解与落地路径',
+    date: '2026-10-12',
+    region: '全球',
+    category: '情报',
+    readMinutes: 70,
+    chapters: 10,
+    href: '/_reports/duanju-overseas-monetization-2026.html',
+    passwordHash: '5fc4d6f285572f8216137146aad2c5471553afc587222f9705ac7121ed8353fd',
+    highlights: [
+      '2026 全球市场规模 36 亿美元（MPA 口径）· 同比 +33% · 年末月活 3.89 亿 · 增速已由 +78% 明显放缓',
+      '核心矛盾切换：2023–2024 是「能不能做出爆款」，2026 是「爆款能不能赚钱」· 头部 DramaBox 短剧业务净利率不足 1%',
+      '单位经济模型才是利润来源：北美 80 集译制剧 — 平台分成 30% + 支付税费 4–6% + 买量 35–50% + 盗版流失 5–12%，内容成本仅占 3–5%',
+      '五种变现模式盈利能力差异 4–6 倍：IAP ROI 60–100% / IAA 25–45% / 混合 80–130% / 版权分销 20–40% / 短剧电商毛利 60–80%',
+      'AI 已把内容成本打掉 55–70%，但同时把供给推高 3–5 倍 — 真正的价值是把「押注单部」变成「概率管理」',
+    ],
+    metrics: [
+      { label: '市场规模', value: '36 亿美元' },
+      { label: '同比增速', value: '+33%' },
+      { label: '年末月活', value: '3.89 亿' },
+      { label: '盈亏阈值 LTV/CPI', value: '1.6' },
+    ],
+  },
+  {
     id: 'tcm-15th-fiveyear-strategy-2026',
     title: '中医药十五五 · 战略解码与企业行动指南',
     subtitle: '顶层政策深读 · 七大黄金赛道 · 企业战略三轴 · 十大轻资产方案 · 风险矩阵 · 五年关键预测',

@@ -181,3 +181,37 @@ export CLOUDFLARE_API_TOKEN="..."
 - push 到 main 后 10+ 分钟 CF Pages 还没更新(GitHub integration webhook 卡住)
 - Actions workflow 整体失败但本地 dist 是好的
 - 紧急修复需要绕过 CI 立即上线
+
+---
+
+## 🔍 2026-10-12 线上实测复核(补充,优先级高于上文旧描述)
+
+复核后**修正三处旧认知**,已同步写入 `DEPLOYMENT.md`:
+
+### 1. 验证线上**必须用 `www.` 域名,裸域会误判**
+
+实测裸域与 www **不是同一个版本**:
+
+| 入口 | chunk | 状态 |
+|---|---|---|
+| `zxqconsulting.com` | `index-BduvQaB_.js` | **落后**,且响应头带 `x-robots-tag: noindex` |
+| `www.zxqconsulting.com` | `index-CaUgDHY7.js` | 最新(= HEAD) |
+
+CI 只部署 Pages 项目 `qiangzhang2009-zxqconsulting-web1`(仅 www 侧),**裸域不随之更新**。
+推完若用裸域验证,会把"已生效"误判成"没生效"。**一律 `curl -sL https://www.zxqconsulting.com/`。**
+
+### 2. Cloudflare Tunnel **没有**托管主站
+
+`~/.cloudflared/config.yml` 里 `zxqconsulting.com → localhost:3006`,但 **3006 端口无服务监听**(实测 `curl` 返回 `000`),该映射**实际不生效**。
+Tunnel 仍在跑,只服务本机兄弟站(`zhi.ji`/`africa`/`global2china` 等,见该文件 ingress 列表)。**主站发布不要去动 tunnel。**
+
+### 3. `DEPLOYMENT.md` 旧版是 Vercel 时代残留,已重写
+
+旧版通篇教 `vercel deploy --prod`,但 **Vercel 生产 URL 返回 `410 GONE`**(项目已删)。
+本规则上文"GitHub integration webhook 自动 build"的说法与现状有出入:当前是 **`.github/workflows/deploy.yml` 在 push main 时通过 CI 的 `wrangler-action` 步骤部署**,不是 Pages webhook。
+
+### 4. 报告密码不是真正的访问控制
+
+`passwordHash` 随前端 bundle 发布,且 `/_reports/*.html` 位于可公开直链的静态路径。
+它挡的是"随手点开",**不是保密**——知道 URL 即可直接下载。
+真要受控需把文件移出 `public/`(后端函数 / R2 鉴权),属另一套架构改动。
