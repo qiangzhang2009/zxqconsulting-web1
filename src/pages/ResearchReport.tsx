@@ -137,29 +137,40 @@ async function replaceRelativeScripts(
   // 匹配 <script src="...">（忽略 defer/async 和引号类型）
   const scriptSrcRe = /<script\s+[^>]*\bsrc=["']([^"']+)["'][^>]*>\s*<\/script>/gi;
   const matches = [...html.matchAll(scriptSrcRe)];
+  const MAX_SCRIPT_SIZE = 512 * 1024;
 
-  let result = html;
+  // 一次遍历收集所有替换，最后统一重建字符串（避免逐次 slice 偏移量累积问题）
+  const replacements: { start: number; end: number; inline: string }[] = [];
+
   for (const m of matches) {
     const src = m[1];
-    // 处理相对路径脚本（同域下可内联）和 CDN 绝对路径脚本
-    // 注意：在 srcDoc iframe 里，所有外部 <script src> 都不执行，
-    // 包括 CDN (https://)，必须内联才能工作。
     const isExternal = src.startsWith('/') || src.startsWith('http://') || src.startsWith('https://');
     const scriptUrl = isExternal ? src : basePath + src;
-    // 对 CDN 脚本设置合理的大小上限(512KB)，防止误内联非脚本资源
-    const MAX_SCRIPT_SIZE = 512 * 1024;
     try {
       const scriptRes = await fetch(scriptUrl, { cache: 'no-cache' });
       if (!scriptRes.ok) continue;
       const content = await scriptRes.text();
       if (content.length > MAX_SCRIPT_SIZE) continue;
-      // 替换为内联脚本
-      const inlineScript = `<script>${content}<\/script>`;
-      result = result.slice(0, m.index!) + inlineScript + result.slice(m.index! + m[0].length);
-} catch {
-    // fetch 失败则跳过（保留原标签，避免破坏页面）
+      replacements.push({
+        start: m.index!,
+        end: m.index! + m[0].length,
+        inline: `<script>${content}<\/script>`,
+      });
+    } catch {
+      // fetch 失败则跳过
+    }
   }
+
+  // 统一重建：将所有替换一次性应用到原始 html
+  let result = '';
+  let lastIndex = 0;
+  for (const { start, end, inline } of replacements) {
+    result += html.slice(lastIndex, start);
+    result += inline;
+    lastIndex = end;
   }
+  result += html.slice(lastIndex);
+
   return injectAnchorNavFix(result);
 }
 
