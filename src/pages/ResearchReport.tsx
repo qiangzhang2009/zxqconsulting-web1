@@ -141,13 +141,18 @@ async function replaceRelativeScripts(
   let result = html;
   for (const m of matches) {
     const src = m[1];
-    // 只处理相对路径（不以 / 或 http 开头）
-    if (src.startsWith('/') || src.startsWith('http://') || src.startsWith('https://')) continue;
+    // 处理相对路径脚本（同域下可内联）和 CDN 绝对路径脚本
+    // 注意：在 srcDoc iframe 里，所有外部 <script src> 都不执行，
+    // 包括 CDN (https://)，必须内联才能工作。
+    const isExternal = src.startsWith('/') || src.startsWith('http://') || src.startsWith('https://');
+    const scriptUrl = isExternal ? src : basePath + src;
+    // 对 CDN 脚本设置合理的大小上限(512KB)，防止误内联非脚本资源
+    const MAX_SCRIPT_SIZE = 512 * 1024;
     try {
-      const scriptUrl = basePath + src;
       const scriptRes = await fetch(scriptUrl, { cache: 'no-cache' });
       if (!scriptRes.ok) continue;
       const content = await scriptRes.text();
+      if (content.length > MAX_SCRIPT_SIZE) continue;
       // 替换为内联脚本
       const inlineScript = `<script>${content}<\/script>`;
       result = result.slice(0, m.index!) + inlineScript + result.slice(m.index! + m[0].length);
