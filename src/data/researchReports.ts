@@ -27,6 +27,31 @@ export type ResearchReport = {
 
 export const RESEARCH_REPORTS: ResearchReport[] = [
   {
+    id: 'germany-consumer-persona-tcm-2026',
+    title: '德国消费者画像深度研究报告 · 东方本草市场进入战略',
+    subtitle:
+      '七大维度拆解：人口结构 · 心理画像 · 六大核心画像 · 品类消费态度 · 决策路径 · 渠道矩阵 · 价格敏感度 — 基于欧睿/GfK/Statista/Forrester 2024–2026 数据',
+    date: '2026-10-19',
+    region: '欧洲',
+    category: '人群',
+    readMinutes: 55,
+    chapters: 7,
+    href: '/_reports/germany-consumer-persona-tcm-2026.html',
+    highlights: [
+      '德国 8400 万人口 · 65% 居住于城市 · 41% 关注天然成分 — 与东方本草产品定位高度匹配',
+      '六大核心消费画像：Holistische Heiler / Preisbewusste Familie / Naturkosmetik-Enthusiast / Vertrauens-Käufer / Trend-Explorer / Skeptiker — 每画像含人口占比/媒体习惯/品类偏好',
+      'BfR 2026 法规 + DSHEA 等价框架 — 36.4% 受访者将"认证标准"列为购买决定首位',
+      '渠道矩阵：Drogerie(35%) > E-Commerce(28%) > Reformhaus(15%) > Apotheke(12%) > 其他(10%) — 关键决策路径与触点',
+      '价格弹性：€18–32 是中高端甜蜜区 — 超过 €40 销量骤降 52% — 配合 GfK 信任度研究给出进入策略',
+    ],
+    metrics: [
+      { label: '德国人口', value: '8400 万' },
+      { label: '关注天然成分', value: '41%' },
+      { label: '首要决策因素(认证)', value: '36.4%' },
+      { label: '甜蜜价格区间', value: '€18–32' },
+    ],
+  },
+  {
     id: 'linqingxuan-overseas-2026',
     title: '2026 上海林清轩出海变现白皮书',
     subtitle:

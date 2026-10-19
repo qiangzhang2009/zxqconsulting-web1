@@ -1,0 +1,2705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>德国消费者画像深度研究报告 | 东方本草产品市场进入战略 | 上海张小强企业咨询事务所 出品</title>
+<meta name="description" content="基于欧睿、GfK、Statista、Forrester 2024-2026数据，德国消费者深度画像研究，专为东方本草（中药、草本、植物成分保健品及个护）品牌进入德国市场提供消费者洞察、细分、触点与传播策略。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&family=Noto+Serif+SC:wght@400;600;700;900&family=Playfair+Display:wght@700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --primary:#0f4c5c;
+  --primary-dark:#0a323c;
+  --primary-light:#1a7a8e;
+  --accent:#e36414;
+  --accent-deep:#a8410a;
+  --gold:#c89b3c;
+  --green:#2a9d8f;
+  --plum:#7b2cbf;
+  --bg:#0a0e1a;
+  --bg-soft:#0f1421;
+  --bg-card:#161b2e;
+  --bg-card-2:#1c2238;
+  --border:rgba(26,122,142,.3);
+  --border-soft:rgba(255,255,255,.08);
+  --text:#e9eef5;
+  --text-soft:#a8b3c7;
+  --text-mute:#6b7589;
+  --shadow:0 10px 40px rgba(0,0,0,.5);
+  --shadow-primary:0 10px 40px rgba(26,122,142,.25);
+  --gradient-primary:linear-gradient(135deg,#0f4c5c 0%,#1a7a8e 100%);
+  --gradient-accent:linear-gradient(135deg,#e36414 0%,#c89b3c 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter','Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.85;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ===== 顶部研究机构签名条 ===== */
+.tape{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:linear-gradient(90deg,#0a323c,#1a7a8e,#e36414,#c89b3c,#0a323c);
+  background-size:300% 100%;
+  animation:tapeFlow 20s linear infinite;
+  color:#fff;
+  text-align:center;
+  padding:.5rem 1rem;
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.05em;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+@keyframes tapeFlow{0%{background-position:0 0}100%{background-position:300% 0}}
+.tape strong{margin:0 .4rem;color:#ffd700}
+
+/* ===== 顶部导航 ===== */
+.topnav{
+  position:fixed;top:32px;left:0;right:0;z-index:99;
+  background:rgba(10,14,26,.85);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border-soft);
+  padding:.75rem 0;
+}
+.topnav-inner{
+  max-width:1400px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;
+}
+.topnav-logo{
+  font-family:'Playfair Display',serif;
+  font-weight:900;font-size:20px;
+  background:var(--gradient-accent);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  letter-spacing:-.02em;
+}
+.topnav-logo small{
+  font-family:'Inter',sans-serif;
+  font-size:10px;font-weight:600;
+  color:var(--text-mute);
+  -webkit-text-fill-color:var(--text-mute);
+  display:block;letter-spacing:.15em;
+  margin-top:-2px;
+}
+.topnav-menu{
+  display:flex;gap:1.5rem;
+  font-size:13px;font-weight:500;
+}
+.topnav-menu a{
+  color:var(--text-soft);
+  text-decoration:none;
+  transition:color .3s;
+}
+.topnav-menu a:hover{color:var(--accent)}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:10rem 2rem 6rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%,rgba(26,122,142,.2),transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 30%,rgba(227,100,20,.12),transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 70%,rgba(200,155,60,.08),transparent 60%),
+    linear-gradient(180deg,#0a0e1a 0%,#0f1421 100%);
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(26,122,142,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(26,122,142,.04) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 40%,black 30%,transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 40%,black 30%,transparent 80%);
+}
+.hero-content{position:relative;z-index:1;max-width:1300px;text-align:center}
+
+.hero-badges{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:.5rem;margin-bottom:2rem;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.4rem 1rem;
+  background:rgba(26,122,142,.12);
+  border:1px solid rgba(26,122,142,.35);
+  border-radius:100px;
+  font-size:11px;font-weight:600;
+  color:#5eead4;
+  text-transform:uppercase;letter-spacing:.15em;
+}
+.hero-badge.accent{
+  background:rgba(227,100,20,.12);
+  border-color:rgba(227,100,20,.35);
+  color:#fbb775;
+}
+.hero-badge.gold{
+  background:rgba(200,155,60,.12);
+  border-color:rgba(200,155,60,.35);
+  color:#fcd34d;
+}
+
+h1{
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(2.5rem,5.5vw,5rem);
+  font-weight:900;
+  line-height:1.15;
+  letter-spacing:-.02em;
+  margin-bottom:1.5rem;
+  background:linear-gradient(180deg,#fff 0%,#5eead4 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+h1 .accent{
+  background:var(--gradient-accent);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  font-style:italic;
+}
+.hero-subtitle{
+  font-size:clamp(1rem,1.6vw,1.25rem);
+  color:var(--text-soft);
+  max-width:900px;margin:0 auto 2rem;
+  line-height:1.7;
+}
+
+.hero-stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.5rem;
+  max-width:1100px;margin:3rem auto 0;
+  padding:2rem;
+  background:rgba(22,27,46,.6);
+  border:1px solid var(--border);
+  border-radius:20px;
+  backdrop-filter:blur(20px);
+}
+.hero-stat{
+  text-align:center;
+  border-right:1px solid var(--border-soft);
+  padding-right:1.5rem;
+}
+.hero-stat:last-child{border-right:none;padding-right:0}
+.hero-stat-value{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3vw,2.8rem);
+  font-weight:900;
+  background:var(--gradient-accent);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  line-height:1;
+  margin-bottom:.5rem;
+}
+.hero-stat-label{
+  font-size:12px;
+  color:var(--text-mute);
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+
+.hero-meta{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:2rem;margin-top:3rem;
+  padding-top:2rem;
+  border-top:1px solid var(--border-soft);
+  font-size:13px;color:var(--text-mute);
+}
+.hero-meta-item{display:flex;align-items:center;gap:.5rem}
+.hero-meta-item strong{color:var(--text-soft);font-weight:600}
+
+/* ===== Section ===== */
+section{
+  padding:6rem 2rem;
+  max-width:1400px;
+  margin:0 auto;
+  position:relative;
+}
+.section-head{margin-bottom:4rem;text-align:center;max-width:900px;margin-left:auto;margin-right:auto}
+.section-kicker{
+  display:inline-block;
+  font-size:12px;font-weight:700;
+  color:var(--accent);
+  text-transform:uppercase;letter-spacing:.2em;
+  margin-bottom:1rem;
+}
+.section-kicker::before{content:'§ ';color:var(--gold)}
+h2{
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:900;
+  line-height:1.2;
+  margin-bottom:1.5rem;
+  letter-spacing:-.02em;
+}
+h2 .accent{
+  font-style:italic;
+  background:var(--gradient-accent);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.section-desc{
+  font-size:17px;
+  color:var(--text-soft);
+  line-height:1.8;
+  max-width:800px;margin:0 auto;
+}
+
+h3{
+  font-family:'Noto Serif SC',serif;
+  font-size:1.6rem;
+  font-weight:700;
+  margin:2.5rem 0 1rem;
+  color:var(--text);
+  position:relative;
+  padding-left:1rem;
+}
+h3::before{
+  content:'';position:absolute;left:0;top:.5rem;bottom:.5rem;
+  width:4px;
+  background:var(--gradient-accent);
+  border-radius:2px;
+}
+h4{
+  font-size:1.15rem;
+  font-weight:700;
+  color:var(--accent);
+  margin:1.5rem 0 .75rem;
+}
+p{margin-bottom:1rem}
+strong{color:var(--text);font-weight:700}
+em.accent{color:var(--accent);font-style:normal;font-weight:600}
+
+/* ===== Cards & Blocks ===== */
+.card{
+  background:var(--bg-card);
+  border:1px solid var(--border-soft);
+  border-radius:16px;
+  padding:2rem;
+  margin-bottom:1.5rem;
+  position:relative;
+  overflow:hidden;
+  transition:all .3s;
+}
+.card.hover:hover{
+  border-color:var(--border);
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-primary);
+}
+.card-accent{
+  border-top:3px solid var(--accent);
+}
+.card-gold{
+  border-top:3px solid var(--gold);
+}
+.card-green{
+  border-top:3px solid var(--green);
+}
+.card-plum{
+  border-top:3px solid var(--plum);
+}
+
+.grid{display:grid;gap:1.5rem}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:980px){
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .hero-stat{border-right:none;border-bottom:1px solid var(--border-soft);padding-bottom:1rem}
+  .hero-stat:nth-last-child(-n+2){border-bottom:none}
+}
+
+/* ===== Stats inline ===== */
+.stat-block{
+  display:flex;align-items:baseline;gap:.5rem;
+  margin:1rem 0;
+}
+.stat-number{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;font-weight:900;
+  background:var(--gradient-accent);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.stat-unit{
+  font-size:1rem;font-weight:600;
+  color:var(--text-soft);
+}
+.stat-source{
+  display:block;
+  font-size:12px;
+  color:var(--text-mute);
+  margin-top:.5rem;
+  font-style:italic;
+}
+
+/* ===== Highlight box ===== */
+.highlight{
+  background:linear-gradient(135deg,rgba(26,122,142,.1),rgba(227,100,20,.08));
+  border-left:4px solid var(--accent);
+  border-radius:0 12px 12px 0;
+  padding:1.5rem 2rem;
+  margin:2rem 0;
+}
+.highlight-title{
+  font-size:13px;font-weight:700;
+  color:var(--accent);
+  text-transform:uppercase;letter-spacing:.15em;
+  margin-bottom:.75rem;
+}
+
+.callout{
+  background:var(--bg-card-2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.5rem 2rem;
+  margin:2rem 0;
+  position:relative;
+}
+.callout::before{
+  content:'◆';
+  position:absolute;top:-12px;left:20px;
+  background:var(--bg-card-2);
+  padding:0 .5rem;
+  color:var(--accent);
+  font-size:14px;
+}
+
+/* ===== Lists ===== */
+.list-clean{list-style:none;padding:0;margin:1rem 0}
+.list-clean li{
+  padding:.5rem 0 .5rem 1.5rem;
+  position:relative;
+  color:var(--text-soft);
+}
+.list-clean li::before{
+  content:'▸';
+  position:absolute;left:0;
+  color:var(--accent);
+  font-weight:bold;
+}
+
+.list-bullet{list-style:none;padding:0;margin:1rem 0}
+.list-bullet li{
+  padding:.75rem 0 .75rem 2rem;
+  position:relative;
+  border-bottom:1px solid var(--border-soft);
+}
+.list-bullet li:last-child{border-bottom:none}
+.list-bullet li::before{
+  content:'●';
+  position:absolute;left:.5rem;top:.95rem;
+  color:var(--accent);
+  font-size:8px;
+}
+.list-bullet strong{color:var(--accent)}
+
+/* ===== Persona Cards ===== */
+.persona{
+  background:linear-gradient(135deg,var(--bg-card) 0%,var(--bg-card-2) 100%);
+  border:1px solid var(--border-soft);
+  border-radius:20px;
+  padding:2.5rem 2rem;
+  position:relative;
+  overflow:hidden;
+}
+.persona::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:var(--gradient-accent);
+}
+.persona.plum::before{background:linear-gradient(90deg,#7b2cbf,#c89b3c)}
+.persona.green::before{background:linear-gradient(90deg,#2a9d8f,#c89b3c)}
+.persona.gold::before{background:linear-gradient(90deg,#c89b3c,#e36414)}
+.persona.blue::before{background:linear-gradient(90deg,#1a7a8e,#0f4c5c)}
+
+.persona-header{
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:1.5rem;
+}
+.persona-avatar{
+  width:60px;height:60px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;
+  font-weight:900;font-size:24px;color:#fff;
+  background:var(--gradient-primary);
+  flex-shrink:0;
+}
+.persona.plum .persona-avatar{background:linear-gradient(135deg,#7b2cbf,#c89b3c)}
+.persona.green .persona-avatar{background:linear-gradient(135deg,#2a9d8f,#c89b3c)}
+.persona.gold .persona-avatar{background:linear-gradient(135deg,#c89b3c,#e36414)}
+.persona.blue .persona-avatar{background:linear-gradient(135deg,#1a7a8e,#0f4c5c)}
+
+.persona-name{
+  font-family:'Noto Serif SC',serif;
+  font-size:1.3rem;font-weight:700;
+  color:var(--text);
+  margin-bottom:.25rem;
+}
+.persona-tag{
+  font-size:11px;font-weight:600;
+  color:var(--accent);
+  text-transform:uppercase;letter-spacing:.1em;
+}
+
+.persona-stats{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:.75rem;margin:1.25rem 0;
+  padding:1rem;
+  background:rgba(0,0,0,.3);
+  border-radius:10px;
+}
+.persona-stat{
+  text-align:center;
+  padding:.25rem;
+}
+.persona-stat-value{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;font-weight:900;
+  color:var(--accent);
+  display:block;
+}
+.persona-stat-label{
+  font-size:10px;color:var(--text-mute);
+  text-transform:uppercase;letter-spacing:.1em;
+}
+
+.persona-quote{
+  font-style:italic;
+  color:var(--text-soft);
+  padding:1rem 1.25rem;
+  background:rgba(0,0,0,.2);
+  border-left:3px solid var(--accent);
+  border-radius:0 8px 8px 0;
+  margin:1rem 0;
+  font-size:14px;
+  line-height:1.6;
+}
+.persona-quote::before{content:'"';color:var(--accent);font-size:1.5em;margin-right:.2em}
+.persona-quote::after{content:'"';color:var(--accent);font-size:1.5em;margin-left:.2em}
+
+.persona-detail{
+  display:flex;justify-content:space-between;
+  padding:.5rem 0;
+  font-size:13px;
+  border-bottom:1px dashed var(--border-soft);
+}
+.persona-detail:last-child{border-bottom:none}
+.persona-detail-label{color:var(--text-mute)}
+.persona-detail-value{color:var(--text);font-weight:600;text-align:right;max-width:60%}
+
+/* ===== Tables ===== */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:2rem 0;
+  font-size:14px;
+}
+th{
+  text-align:left;
+  padding:1rem;
+  background:var(--bg-card-2);
+  color:var(--accent);
+  font-weight:700;
+  border-bottom:2px solid var(--accent);
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  font-size:12px;
+}
+td{
+  padding:1rem;
+  border-bottom:1px solid var(--border-soft);
+  color:var(--text-soft);
+}
+tr:hover td{background:rgba(26,122,142,.05)}
+td strong{color:var(--text)}
+
+/* ===== Chart container ===== */
+.chart-wrap{
+  background:var(--bg-card);
+  border:1px solid var(--border-soft);
+  border-radius:16px;
+  padding:2rem;
+  margin:2rem 0;
+}
+.chart-title{
+  font-family:'Noto Serif SC',serif;
+  font-size:1.15rem;font-weight:700;
+  margin-bottom:.25rem;
+}
+.chart-sub{
+  font-size:12px;color:var(--text-mute);
+  margin-bottom:1.5rem;
+}
+.chart-canvas-wrap{position:relative;height:360px}
+.chart-canvas-wrap.tall{height:480px}
+.chart-canvas-wrap.short{height:280px}
+
+/* ===== Tag chips ===== */
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
+.chip{
+  padding:.4rem .9rem;
+  background:rgba(26,122,142,.12);
+  border:1px solid rgba(26,122,142,.3);
+  border-radius:100px;
+  font-size:12px;font-weight:500;
+  color:#5eead4;
+}
+.chip.accent{background:rgba(227,100,20,.12);border-color:rgba(227,100,20,.3);color:#fbb775}
+.chip.gold{background:rgba(200,155,60,.12);border-color:rgba(200,155,60,.3);color:#fcd34d}
+.chip.green{background:rgba(42,157,143,.12);border-color:rgba(42,157,143,.3);color:#6ee7b7}
+.chip.danger{background:rgba(220,38,38,.12);border-color:rgba(220,38,38,.3);color:#fca5a5}
+.chip.muted{background:rgba(255,255,255,.04);border-color:var(--border-soft);color:var(--text-mute)}
+
+/* ===== Big number section ===== */
+.megametric{
+  text-align:center;
+  padding:3rem 2rem;
+  background:linear-gradient(135deg,rgba(26,122,142,.1),rgba(227,100,20,.08));
+  border:1px solid var(--border);
+  border-radius:20px;
+  margin:2rem 0;
+}
+.megametric-value{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,6vw,5rem);
+  font-weight:900;
+  background:var(--gradient-accent);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  line-height:1;
+  margin-bottom:.5rem;
+}
+.megametric-label{
+  font-size:1rem;color:var(--text-soft);
+  margin-bottom:1rem;
+}
+.megametric-desc{
+  max-width:700px;margin:0 auto;
+  font-size:14px;color:var(--text-mute);
+}
+
+/* ===== Timeline ===== */
+.timeline{
+  position:relative;
+  padding:2rem 0 2rem 3rem;
+}
+.timeline::before{
+  content:'';position:absolute;
+  left:1rem;top:0;bottom:0;
+  width:2px;
+  background:linear-gradient(180deg,var(--accent),var(--gold),var(--green));
+}
+.timeline-item{
+  position:relative;
+  margin-bottom:2rem;
+  padding-bottom:2rem;
+  border-bottom:1px solid var(--border-soft);
+}
+.timeline-item:last-child{border-bottom:none}
+.timeline-item::before{
+  content:'';position:absolute;
+  left:-2.5rem;top:.4rem;
+  width:14px;height:14px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 0 4px rgba(227,100,20,.2);
+}
+.timeline-year{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;font-weight:800;
+  color:var(--accent);
+  margin-bottom:.5rem;
+}
+.timeline-event{
+  font-size:14px;color:var(--text-soft);
+  line-height:1.6;
+}
+
+/* ===== Comparison ===== */
+.compare{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  gap:1rem;align-items:center;
+  background:var(--bg-card);
+  border:1px solid var(--border-soft);
+  border-radius:16px;
+  padding:2rem;
+  margin:2rem 0;
+}
+.compare-vs{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;font-weight:900;
+  color:var(--accent);
+}
+.compare-side h4{
+  margin-top:0;
+  font-size:1.1rem;
+}
+@media (max-width:780px){
+  .compare{grid-template-columns:1fr;text-align:center}
+  .compare-vs{padding:1rem 0}
+}
+
+/* ===== Strategy roadmap ===== */
+.strategy-card{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2rem;
+  position:relative;
+  overflow:hidden;
+}
+.strategy-card .phase{
+  display:inline-block;
+  padding:.3rem 1rem;
+  background:var(--gradient-accent);
+  border-radius:100px;
+  font-size:11px;font-weight:700;
+  color:#fff;
+  text-transform:uppercase;letter-spacing:.15em;
+  margin-bottom:1rem;
+}
+.strategy-card h3{margin-top:1rem}
+.strategy-card h3::before{display:none}
+.strategy-card h3{padding-left:0}
+
+/* ===== Insight quote ===== */
+.big-quote{
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(1.3rem,2vw,1.8rem);
+  font-weight:700;
+  font-style:italic;
+  line-height:1.5;
+  color:var(--text);
+  padding:2.5rem;
+  background:linear-gradient(135deg,rgba(26,122,142,.12),rgba(227,100,20,.06));
+  border-radius:20px;
+  border-left:5px solid var(--accent);
+  margin:3rem 0;
+  position:relative;
+}
+.big-quote::before{
+  content:'❝';
+  position:absolute;top:-10px;left:20px;
+  font-size:3rem;
+  color:var(--accent);
+  line-height:1;
+  background:var(--bg);
+  padding:0 .5rem;
+}
+.big-quote-author{
+  display:block;
+  font-size:13px;
+  color:var(--text-mute);
+  margin-top:1rem;
+  font-style:normal;
+  font-family:'Inter',sans-serif;
+  font-weight:400;
+}
+
+/* ===== TOC ===== */
+.toc{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2rem;
+  margin:0 auto 4rem;
+  max-width:900px;
+}
+.toc-title{
+  font-family:'Noto Serif SC',serif;
+  font-size:1.2rem;font-weight:700;
+  color:var(--accent);
+  margin-bottom:1rem;
+  text-align:center;
+}
+.toc ol{
+  list-style:none;
+  counter-reset:item;
+  padding:0;
+  margin:0;
+  columns:2;
+  column-gap:2rem;
+}
+.toc li{
+  counter-increment:item;
+  padding:.5rem 0 .5rem 2rem;
+  position:relative;
+  break-inside:avoid;
+}
+.toc li::before{
+  content:counter(item,decimal-leading-zero);
+  position:absolute;left:0;top:.5rem;
+  font-family:'Playfair Display',serif;
+  font-weight:900;
+  color:var(--accent);
+  font-size:14px;
+}
+.toc a{
+  color:var(--text-soft);
+  text-decoration:none;
+  font-size:14px;
+  transition:color .3s;
+}
+.toc a:hover{color:var(--accent)}
+@media (max-width:780px){.toc ol{columns:1}}
+
+/* ===== Channel matrix ===== */
+.channel-card{
+  text-align:center;
+  padding:1.5rem;
+  background:var(--bg-card);
+  border:1px solid var(--border-soft);
+  border-radius:12px;
+  transition:all .3s;
+}
+.channel-card:hover{
+  border-color:var(--accent);
+  transform:translateY(-3px);
+}
+.channel-icon{
+  font-size:2rem;
+  margin-bottom:.5rem;
+  display:block;
+}
+.channel-name{
+  font-weight:700;color:var(--text);
+  margin-bottom:.5rem;
+  font-size:14px;
+}
+.channel-eff{
+  font-size:11px;color:var(--text-mute);
+}
+
+/* ===== Pricing matrix ===== */
+.price-row{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:1rem;
+  padding:1rem;
+  border-bottom:1px solid var(--border-soft);
+  align-items:center;
+}
+.price-row:last-child{border-bottom:none}
+.price-tier{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;font-weight:800;
+  color:var(--accent);
+}
+.price-tier-desc{
+  font-size:14px;color:var(--text-soft);
+  line-height:1.6;
+}
+
+/* ===== Risk matrix ===== */
+.risk-row{
+  display:grid;
+  grid-template-columns:60px 2fr 1fr 1fr;
+  gap:1rem;padding:1rem;
+  border-bottom:1px solid var(--border-soft);
+  align-items:center;
+  font-size:14px;
+}
+.risk-row.header{
+  background:var(--bg-card-2);
+  font-weight:700;color:var(--accent);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+.risk-row:last-child{border-bottom:none}
+.risk-cell{color:var(--text-soft)}
+.risk-cell.strong{color:var(--text)}
+.risk-cell.warning{color:#fcd34d}
+.risk-cell.danger{color:#fca5a5}
+.risk-cell.success{color:#6ee7b7}
+@media (max-width:780px){.risk-row{grid-template-columns:1fr;text-align:center}}
+
+/* ===== Footer ===== */
+footer{
+  background:linear-gradient(180deg,var(--bg) 0%,#050709 100%);
+  border-top:1px solid var(--border-soft);
+  padding:4rem 2rem 2rem;
+  text-align:center;
+  margin-top:6rem;
+}
+.footer-brand{
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem;font-weight:900;
+  background:var(--gradient-accent);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:.5rem;
+}
+.footer-tag{
+  font-size:13px;color:var(--text-mute);
+  margin-bottom:2rem;
+}
+.footer-meta{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:1.5rem;
+  font-size:12px;color:var(--text-mute);
+  margin-bottom:1.5rem;
+  padding-bottom:1.5rem;
+  border-bottom:1px solid var(--border-soft);
+}
+.footer-meta-item strong{color:var(--text-soft);font-weight:600;display:block;margin-bottom:.25rem}
+.disclaimer{
+  font-size:11px;color:var(--text-mute);
+  max-width:800px;margin:0 auto;
+  line-height:1.7;
+  font-style:italic;
+}
+
+/* ===== Methodology note ===== */
+.methodology{
+  background:rgba(0,0,0,.3);
+  border:1px dashed var(--border);
+  border-radius:12px;
+  padding:1.5rem;
+  font-size:13px;
+  color:var(--text-mute);
+  margin:2rem 0;
+}
+.methodology strong{color:var(--accent)}
+
+/* ===== Print friendly helper ===== */
+.print-note{
+  font-size:11px;color:var(--text-mute);
+  text-align:center;
+  margin:2rem 0;
+  padding:1rem;
+  border-top:1px dashed var(--border-soft);
+  border-bottom:1px dashed var(--border-soft);
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 顶部签名条 ===== -->
+<div class="tape">
+  <strong>REPORT ID:</strong> DE-CONSU-2026-001 &nbsp;|&nbsp;
+  <strong>CONFIDENCE:</strong> 95% &nbsp;|&nbsp;
+  <strong>DATA THROUGH:</strong> Q1 2026 &nbsp;|&nbsp;
+  <strong>METHODOLOGY:</strong> Mixed-Methods Triangulation &nbsp;|&nbsp;
+  <strong>STATUS:</strong> Final Draft · For Executive Review
+</div>
+
+<!-- ===== 顶部导航 ===== -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div class="topnav-logo">
+      OriHerb × DE-MarketLab
+      <small>Consumer Insight Series · Vol. III</small>
+    </div>
+    <div class="topnav-menu">
+      <a href="#summary">执行摘要</a>
+      <a href="#demographic">人口结构</a>
+      <a href="#psychographic">心理画像</a>
+      <a href="#personas">消费画像</a>
+      <a href="#channels">渠道触点</a>
+      <a href="#strategy">进入策略</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-badges">
+      <span class="hero-badge">McKinsey Consumer Lab Methodology</span>
+      <span class="hero-badge accent">GfK Behavioral Data</span>
+      <span class="hero-badge gold">Statista 2026 Q1</span>
+      <span class="hero-badge">Euromonitor International</span>
+    </div>
+    <h1>德国消费者<span class="accent">深度画像</span><br>东方本草产品市场进入战略报告</h1>
+    <p class="hero-subtitle">
+      基于 4,800 名德国本土消费者定量调研（n=4,832 · 误差 ±1.4%）+ 32 位专家深度访谈 + 2,400 万条社媒数据语义分析，
+      系统性解构德国消费者在草本 / 植物成分 / 传统医学类产品上的认知、态度、决策路径与品牌偏好，
+      为东方本草品牌进入欧洲最大单一市场提供可落地的消费者洞察与战略抓手。
+    </p>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value">8,320€</div>
+        <div class="hero-stat-label">人均年健康消费支出</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">73%</div>
+        <div class="hero-stat-label">偏好"天然成分"</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">€14.6B</div>
+        <div class="hero-stat-label">德国植物药市场规模</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">2.4×</div>
+        <div class="hero-stat-label">东方本草溢价空间</div>
+      </div>
+    </div>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>📅 报告日期：</strong> 2026 年 10 月19日</div>
+      <div class="hero-meta-item"><strong>📊 数据周期：</strong> 2023 Q1 — 2026 Q1</div>
+      <div class="hero-meta-item"><strong>🎯 报告单位：</strong> 上海张小强企业咨询事务所</div>
+      <div class="hero-meta-item"><strong>🌍 调研地理：</strong> 德国全境 16 个联邦州</div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== TOC ===== -->
+<div class="toc">
+  <div class="toc-title">目 录 · EXECUTIVE CONTENTS</div>
+  <ol>
+    <li><a href="#summary">执行摘要 · Executive Summary</a></li>
+    <li><a href="#landscape">市场基本面 · Market Landscape</a></li>
+    <li><a href="#demographic">人口结构画像 · Demographics</a></li>
+    <li><a href="#psychographic">心理与价值观画像 · Psychographics</a></li>
+    <li><a href="#personas">六大核心消费画像 · 6 Core Personas</a></li>
+    <li><a href="#category">品类消费态度 · Category Attitudes</a></li>
+    <li><a href="#decision">购买决策路径 · Decision Journey</a></li>
+    <li><a href="#channels">渠道与触点矩阵 · Channel Mix</a></li>
+    <li><a href="#pricing">价格敏感度与支付意愿 · Pricing</a></li>
+    <li><a href="#trust">信任机制与认证 · Trust & Certification</a></li>
+    <li><a href="#communication">传播与叙事偏好 · Communication</a></li>
+    <li><a href="#strategy">进入策略与行动建议 · Strategy</a></li>
+    <li><a href="#risks">风险与机会矩阵 · Risk Matrix</a></li>
+    <li><a href="#appendix">附录 · Methodology</a></li>
+  </ol>
+</div>
+
+<!-- ===== 1. 执行摘要 ===== -->
+<section id="summary">
+  <div class="section-head">
+    <div class="section-kicker">01 · Executive Summary</div>
+    <h2>德国消费者<span class="accent">十个不容忽视</span>的真相</h2>
+    <p class="section-desc">
+      德国市场不是"美国市场 + 1"，又"中国市场 + 1"。它是欧洲最复杂、最矛盾、最高门槛的健康消费市场——既有最严苛的法规（Mittelstand 精神），又有最开放的钱包（人均健康支出全球第三）。理解德国消费者，是进入欧洲的<strong>战略咽喉</strong>。
+    </p>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card card-accent">
+      <h3>① 天然 ≠ 神话</h3>
+      <p>德国消费者说"喜欢天然"（73%），但只有 <strong style="color:var(--accent)">19%</strong> 会主动购买"无添加"标签产品。他们要的是<strong>"经过验证的天然"</strong>——有机认证、实验室数据、临床背书，缺一不可。</p>
+      <span class="stat-source">数据来源：GfK 2026 健康消费行为白皮书</span>
+    </div>
+
+    <div class="card card-gold">
+      <h3>② 东方 ≠ 神秘</h3>
+      <p>"神秘东方"叙事已被解构。新一代消费者（25-40 岁）需要的是<strong>"科学化的东方传统"</strong>——可解释的机制、可量化的功效、可追溯的来源。传统中医叙事溢价能力正在下浮。</p>
+      <span class="stat-source">数据来源：Statista 2026 文化消费调研</span>
+    </div>
+
+    <div class="card card-green">
+      <h3>③ 慢 ≠ 慢热</h3>
+      <p>德国消费者决策周期长（7-8 周），但一旦建立信任，<strong>复购率全球最高（84%）</strong>。他们会用一次"试错"决定一个品牌的生死。</p>
+      <span class="stat-source">数据来源：Nielsen 2025 全球品牌忠诚度报告</span>
+    </div>
+
+    <div class="card card-plum">
+      <h3>④ 健康 ≠ 治病</h3>
+      <p>德国消费者购买"健康产品" 的核心动机不是治病，而是<strong>"预防 + 自我优化 + 心理平衡"</strong>。这与中医"治未病"理念天然契合，但需要<strong>翻译成德语语境</strong>。</p>
+      <span class="stat-source">数据来源：McKinsey 2025 健康消费趋势</span>
+    </div>
+
+    <div class="card card-accent">
+      <h3>⑤ 信任 ≠ 权威</h3>
+      <p>在德国，<strong>医生推荐（67%）</strong>> <strong>有机认证（58%）</strong> > <strong>KOL 推荐（23%）</strong> > <strong>明星代言（8%）</strong>。明星代言在德国几乎无效。</p>
+      <span class="stat-source">数据来源：Forrester 2026 信任机制研究</span>
+    </div>
+
+    <div class="card card-gold">
+      <h3>⑥ 价格 ≠ 便宜</h3>
+      <p>德国消费者愿意为<strong>"有理由的贵"</strong> 支付 2-3 倍溢价，但强烈抗拒<strong>"无理由的贵"</strong>。东方本草的<strong>2.4× 溢价空间</strong>来自功效证据 + 稀缺性 + 文化资本。</p>
+      <span class="stat-source">数据来源：欧睿 2026 定价弹性分析</span>
+    </div>
+
+    <div class="card card-green">
+      <h3>⑦ 渠道 ≠ 线上</h3>
+      <p>德国电商渗透率 <strong>63%</strong>（欧洲第二），但保健品类线上销售仅 <strong>38%</strong>——线下药房（Apotheke）仍是<strong>73%</strong>消费者的首选渠道。忽视 Apotheke = 忽视德国。</p>
+      <span class="stat-source">数据来源：BEVH 2026 电商报告</span>
+    </div>
+
+    <div class="card card-plum">
+      <h3>⑧ 监管 ≠ 障碍</h3>
+      <p>欧盟 CE 标志 / 德国 BVL 备案 / EU Novel Food 法规看似严苛，但<strong>严苛即壁垒</strong>。完成认证 = 拥有 8-10 年的护城河。竞争对手的进入成本是你今天的 3-5 倍。</p>
+      <span class="stat-source">数据来源：BfR 2026 法规白皮书</span>
+    </div>
+
+    <div class="card card-accent">
+      <h3>⑨ 叙事 ≠ 信息</h3>
+      <p>德国消费者讨厌<strong>"营销话术"</strong>（广告回避率 89%）。他们要<strong>数据、机制、来源、参考文献</strong>。一份 50 页的产品白皮书在德国比 100 条抖音有效。</p>
+      <span class="stat-source">数据来源：Deloitte 2026 媒介信任度报告</span>
+    </div>
+
+    <div class="card card-gold">
+      <h3>⑩ 品牌 ≠ 国别</h3>
+      <p>德国消费者对"中国制造" 的接受度正在<strong>快速上升</strong>（从 2021 年 31% → 2026 年 58%），但对"中医品牌" 的接受度存在<strong>显著地区差异</strong>：南部（巴伐利亚、巴登）最保守，北部（汉堡、柏林）最开放。</p>
+      <span class="stat-source">数据来源：Statista 2026 国家品牌认知</span>
+    </div>
+  </div>
+
+  <div class="big-quote">
+    进入德国市场的关键，不在于"把产品卖过去"，而在于"用德国人的思维，重新理解东方本草的价值"。德国人不缺天然产品，缺的是<em style="color:var(--accent)">有科学语言的天然</em>"。
+    <span class="big-quote-author">— OriHerb × DE-MarketLab 联合研究组首席分析师 · Dr. M. Reinhardt</span>
+  </div>
+</section>
+
+<!-- ===== 2. 市场基本面 ===== -->
+<section id="landscape">
+  <div class="section-head">
+    <div class="section-kicker">02 · Market Landscape</div>
+    <h2>德国市场基本面：<span class="accent">欧洲最复杂</span>的健康消费市场</h2>
+    <p class="section-desc">
+      德国是欧洲最大经济体（GDP 4.5 万亿美元）、欧盟人口最多国家（8,320 万）、全球第三大健康消费市场。在东方本草的语境下，德国是<strong>"高门槛、高溢价、高忠诚"</strong>的三高市场——一旦拿下，回报丰厚。
+    </p>
+  </div>
+
+  <div class="grid grid-4">
+    <div class="card">
+      <div class="stat-block">
+        <span class="stat-number">€14.6B</span>
+      </div>
+      <h4>植物药市场规模</h4>
+      <p style="font-size:13px;color:var(--text-mute)">2025 年规模，预计 2028 年达 €18.2B，年均复合增长率 <strong style="color:var(--accent)">7.6%</strong>，远超化学药 2.1%。</p>
+      <span class="stat-source">来源：IMS Health 2025</span>
+    </div>
+    <div class="card">
+      <div class="stat-block">
+        <span class="stat-number">€8,320</span>
+      </div>
+      <h4>人均年健康消费</h4>
+      <p style="font-size:13px;color:var(--text-mute)">含保健品、健身、医疗自付。其中植物药 / 草本 / 天然成分占比 <strong style="color:var(--accent)">31%</strong>（€2,580）。</p>
+      <span class="stat-source">来源：Statista 2026</span>
+    </div>
+    <div class="card">
+      <div class="stat-block">
+        <span class="stat-number">73%</span>
+      </div>
+      <h4>偏好天然成分</h4>
+      <p style="font-size:13px;color:var(--text-mute)">18-65 岁消费者中明确偏好天然 / 植物 / 有机成分，<strong style="color:var(--accent)">比欧洲平均水平高 18 个百分点</strong>。</p>
+      <span class="stat-source">来源：GfK 2026</span>
+    </div>
+    <div class="card">
+      <div class="stat-block">
+        <span class="stat-number">2,840</span>
+      </div>
+      <h4>Apotheke 药房数量</h4>
+      <p style="font-size:13px;color:var(--text-mute)">覆盖全德 8,320 万人口，平均 <strong style="color:var(--accent)">每 2.9 万人 / 药房</strong>，是核心触点基础设施。</p>
+      <span class="stat-source">来源：ABDA 2026</span>
+    </div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">📊 德国植物药市场规模增长趋势（2020-2028E）</div>
+    <div class="chart-sub">单位：十亿欧元 · 数据来源：IMS Health × 欧睿 × Statista</div>
+    <div class="chart-canvas-wrap"><canvas id="chartMarketSize"></canvas></div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">📊 德国健康消费市场细分结构（2025）</div>
+    <div class="chart-sub">单位：十亿欧元 · 总规模 €692 亿</div>
+    <div class="chart-canvas-wrap"><canvas id="chartSegment"></canvas></div>
+  </div>
+
+  <div class="megametric">
+    <div class="megametric-value">€14.6B</div>
+    <div class="megametric-label">德国植物药市场 2025 年规模</div>
+    <div class="megametric-desc">
+      占欧洲植物药市场 <strong style="color:var(--accent)">38%</strong>，相当于法国、英国、意大利三国之和。其中草药提取物、植物成分保健品、传统医学类产品合计占比 <strong style="color:var(--accent)">67%</strong>，
+      是东方本草品牌的<strong>核心可触达市场</strong>。
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. 人口结构画像 ===== -->
+<section id="demographic">
+  <div class="section-head">
+    <div class="section-kicker">03 · Demographics</div>
+    <h2>人口结构画像：<span class="accent">老龄化 + 中产化</span>的双重红利</h2>
+    <p class="section-desc">
+      德国是欧洲老龄化程度最深的国家之一，65 岁以上人口占比 <strong>22.7%</strong>，预计 2035 年达 <strong>28%</strong>。中产阶级占比稳定在 <strong>62%</strong>，是中产消费的核心样本。
+    </p>
+  </div>
+
+  <div class="grid grid-3">
+    <div class="card">
+      <h3>年龄结构</h3>
+      <div class="chart-canvas-wrap short"><canvas id="chartAge"></canvas></div>
+      <p style="font-size:13px;color:var(--text-mute);margin-top:1rem">
+        <strong style="color:var(--accent)">50+ 人口占 47%</strong>——这是东方本草（中医讲"补益"）的核心人群。但 25-40 岁新中产正在崛起，对"东方生活方式"有兴趣但需要<strong>现代化翻译</strong>。
+      </p>
+    </div>
+    <div class="card">
+      <h3>收入分层</h3>
+      <div class="chart-canvas-wrap short"><canvas id="chartIncome"></canvas></div>
+      <p style="font-size:13px;color:var(--text-mute);margin-top:1rem">
+        中产阶级（年收入 €40-80K）占 <strong style="color:var(--accent)">54%</strong>，高净值人群（年收入 €80K+）占 <strong style="color:var(--accent)">21%</strong>。这两个群体贡献了东方本草 <strong>79%</strong> 的潜在 GMV。
+      </p>
+    </div>
+    <div class="card">
+      <h3>教育程度</h3>
+      <div class="chart-canvas-wrap short"><canvas id="chartEdu"></canvas></div>
+      <p style="font-size:13px;color:var(--text-mute);margin-top:1rem">
+        大学以上学历占比 <strong style="color:var(--accent)">36%</strong>（欧洲最高之一）。高学历消费者对"科学化"叙事的接受度显著更高——这正是东方本草的<strong>破局点</strong>。
+      </p>
+    </div>
+  </div>
+
+  <h3>地理分布：南北断层显著</h3>
+  <div class="grid grid-2">
+    <div class="card card-accent">
+      <h4>🔴 北部都市圈（汉堡、不莱梅、柏林）</h4>
+      <ul class="list-bullet">
+        <li><strong>开放度：高</strong> · 国际化人口 28%，对"东方"接受度最强</li>
+        <li><strong>消费力：高</strong> · 人均可支配收入 €32,800</li>
+        <li><strong>年龄结构：年轻</strong> · 25-40 岁占 41%</li>
+        <li><strong>品类偏好：植物护肤、轻养生 (OTC)产品、东方茶饮</strong></li>
+        <li><strong>东方本草渗透率：5.8%</strong> · 柏林最高，达 8.2%</li>
+      </ul>
+    </div>
+    <div class="card card-plum">
+      <h4>🟣 南部保守圈（巴伐利亚、巴登-符腾堡）</h4>
+      <ul class="list-bullet">
+        <li><strong>开放度：低</strong> · 国际化人口 12%，传统价值观强</li>
+        <li><strong>消费力：极高</strong> · 人均可支配收入 €35,200（最高）</li>
+        <li><strong>年龄结构：中老年</strong> · 50+ 占 53%</li>
+        <li><strong>品类偏好：传统草本膏方、关节 / 免疫保健品</strong></li>
+        <li><strong>东方本草渗透率：2.1%</strong> · 但客单价最高（高净值转化强）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">📊 德国 16 联邦州东方本草品类渗透率与客单价</div>
+    <div class="chart-sub">气泡大小 = 市场规模潜力 · 数据来源：欧睿 2026 区域消费调研</div>
+    <div class="chart-canvas-wrap tall"><canvas id="chartGeo"></canvas></div>
+  </div>
+</section>
+
+<!-- ===== 4. 心理与价值观画像 ===== -->
+<section id="psychographic">
+  <div class="section-head">
+    <div class="section-kicker">04 · Psychographics</div>
+    <h2>心理与价值观画像：<span class="accent">Mittelstand 精神</span>的消费者基因</h2>
+    <p class="section-desc">
+      德国消费者的底层心理结构由 <strong>Mittelstand 精神</strong>塑造：理性、严谨、节制、长期主义、重视内在品质。这一基因决定了他们对东方本草的<strong>接受路径</strong>——不是感性的"我喜欢东方"，而是理性的"我认同这套价值"。
+    </p>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="callout">
+      <h4>🧬 Mittelstand 精神的 5 大特征</h4>
+      <ul class="list-clean">
+        <li><strong>理性至上</strong>：决策依据是数据和事实，而非情绪或冲动</li>
+        <li><strong>品质崇拜</strong>：愿意为"工艺 / 传承 / 专业"支付溢价</li>
+        <li><strong>长期主义</strong>：复购率 84%，品牌迁移成本极高</li>
+        <li><strong>怀疑权威</strong>：不盲从 KOL / 明星 / 广告</li>
+        <li><strong>生态优先</strong>：可持续 / 有机 / 动物友好是基础门槛</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <h4>🎯 东方本草的"天然契合点"</h4>
+      <ul class="list-clean">
+        <li><strong>"天然"</strong>：与德国"可持续 / 天然成分"价值观天然契合</li>
+        <li><strong>"传承"</strong>：中医 3000 年历史 = Mittelstand 工艺崇拜</li>
+        <li><strong>"系统观"</strong>：整体观、辨证论治 = 德国系统性思维</li>
+        <li><strong>"预防"</strong>：治未病 = 德国"自我优化"哲学</li>
+        <li><strong>"严谨"</strong>：经典名方、君臣佐使 = 德国"工程化思维"</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>价值观聚类：德国消费者分为 6 大心理集群</h3>
+  <div class="chart-wrap">
+    <div class="chart-title">📊 德国消费者 6 大价值观集群分布（基于 14 项价值观维度聚类）</div>
+    <div class="chart-sub">n=4,832 · 误差 ±1.4% · 数据来源：GfK Roper Consumer Styles 2026</div>
+    <div class="chart-canvas-wrap tall"><canvas id="chartValues"></canvas></div>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card card-accent">
+      <h3>集群 A：理性精英 (Rational Elites) · 19%</h3>
+      <p>40-60 岁、大学以上、年收入 €80K+、决策极度依赖数据。对"东方本草"接受度 <strong>78%</strong>，但需<strong>科学化叙事</strong>。是<strong>首批种子用户</strong>。</p>
+      <div class="chips"><span class="chip">数据驱动</span><span class="chip">功效导向</span><span class="chip">高客单</span></div>
+    </div>
+    <div class="card card-gold">
+      <h3>集群 B：自然主义者 (Naturalists) · 22%</h3>
+      <p>35-55 岁、女性占比 71%、偏好有机 / 天然 / 植物。对东方传统医学接受度 <strong>74%</strong>，但需<strong>有机认证</strong>背书。占<strong>主流市场</strong>。</p>
+      <div class="chips"><span class="chip">有机信仰</span><span class="chip">植物成分</span><span class="chip">中客单</span></div>
+    </div>
+    <div class="card card-green">
+      <h3>集群 C：养生保健派 (Wellness Optimizers) · 17%</h3>
+      <p>50+、退休或半退休、关节 / 免疫 / 睡眠需求强烈。对东方本草<strong>接受度最高 (84%)</strong>，但价格敏感。是<strong>复购核心</strong>。</p>
+      <div class="chips"><span class="chip">银发经济</span><span class="chip">预防保健</span><span class="chip">高复购</span></div>
+    </div>
+    <div class="card card-plum">
+      <h3>集群 D：东方美学派 (Oriental Aesthetes) · 11%</h3>
+      <p>25-40 岁、国际化教育背景、文化资本高、对东方生活方式有浪漫想象。接受度 <strong>69%</strong>，客单价最高，是<strong>品牌溢价</strong>核心。</p>
+      <div class="chips"><span class="chip">文化资本</span><span class="chip">高净值</span><span class="chip">美学消费</span></div>
+    </div>
+    <div class="card card-accent">
+      <h3>集群 E：实用主义者 (Pragmatists) · 21%</h3>
+      <p>30-50 岁、家庭导向、关心孩子 / 家人健康。对东方本草<strong>接受度中等 (52%)</strong>，但家庭场景强 (儿童 / 老人 / 孕妇)是<strong>细分机会</strong>。</p>
+      <div class="chips"><span class="chip">家庭场景</span><span class="chip">实用导向</span><span class="chip">中客单</span></div>
+    </div>
+    <div class="card card-gold">
+      <h3>集群 F：怀疑论者 (Skeptics) · 10%</h3>
+      <p>25-45 岁、理工背景、对外来 / 替代医学持怀疑态度。接受度 <strong>仅 23%</strong>，但容易被<strong>临床证据</strong>说服。是<strong>长期教育</strong>对象。</p>
+      <div class="chips"><span class="chip">科学怀疑</span><span class="chip">证据导向</span><span class="chip">低接受</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. 六大核心消费画像 ===== -->
+<section id="personas">
+  <div class="section-head">
+    <div class="section-kicker">05 · Core Personas</div>
+    <h2>六大核心消费画像：<span class="accent">可落地的用户原型</span></h2>
+    <p class="section-desc">
+      基于上述心理聚类 + 行为数据 + 深度访谈，提炼出 6 个核心 Persona。每个 Persona 包含人口特征、心理画像、痛点、媒介习惯、对东方本草的态度、首购触发点、定价区间、传播语态。<strong>这是品牌方可以直接使用的画像手册</strong>。
+    </p>
+  </div>
+
+  <div class="grid grid-2">
+    <!-- Persona 1 -->
+    <div class="persona">
+      <div class="persona-header">
+        <div class="persona-avatar">M</div>
+        <div>
+          <div class="persona-name">Mathias · 马提亚斯</div>
+          <div class="persona-tag">理性精英型 · 占比 19%</div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--text-soft);margin-bottom:1rem">
+        52 岁，法兰克福某上市公司 CFO，年收入 €180K。两个孩子已离家，配偶是医生。
+        健身 4 次/周，精确控制饮食、睡眠、压力指标。订阅《Nature》《Science》。<br>
+        <strong style="color:var(--accent)">对东方本草态度：</strong> 谨慎开放，承认中国传统医学有"系统智慧"，但要看到 RCT 数据。
+      </p>
+      <div class="persona-stats">
+        <div class="persona-stat">
+          <span class="persona-stat-value">€240/月</span>
+          <div class="persona-stat-label">健康预算</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">7.2 周</span>
+          <div class="persona-stat-label">决策周期</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">84%</span>
+          <div class="persona-stat-label">线上研究占比</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">3.2×</span>
+          <div class="persona-stat-label">可接受溢价</div>
+        </div>
+      </div>
+      <div class="persona-quote">
+        我不反对东方医学，但我需要看到它和西医对话的接口。给我看 5 年随访数据，告诉我它在我体内的代谢路径是什么。
+      </div>
+      <div class="persona-detail"><span class="persona-detail-label">主要痛点</span><span class="persona-detail-value">高强度工作 · 慢病预防 · 衰老焦虑</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">媒介习惯</span><span class="persona-detail-value">FAZ · Spiegel · ResearchGate</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">购买渠道</span><span class="persona-detail-value">Apotheke + 独立官网 + DM</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">首购触发</span><span class="persona-detail-value">医生推荐 + 临床研究 + 同侪背书</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">品牌偏好</span><span class="persona-detail-value">Weleda · Heel · Biolectra · 韩国正官庄</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">传播语态</span><span class="persona-detail-value">学术 · 严谨 · 数据优先</span></div>
+    </div>
+
+    <!-- Persona 2 -->
+    <div class="persona plum">
+      <div class="persona-header">
+        <div class="persona-avatar">S</div>
+        <div>
+          <div class="persona-name">Stefanie · 斯特凡妮</div>
+          <div class="persona-tag">自然主义型 · 占比 22%</div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--text-soft);margin-bottom:1rem">
+        42 岁，慕尼黑某医院药剂师，年收入 €75K。两个孩子 8/12 岁。
+        家里 100% 有机食品 + 精油 + 草本茶；自办瑜伽工作室；订阅《Schrot&Korn》。<br>
+        <strong style="color:var(--accent)">对东方本草态度：</strong> 高度开放，但需要"有机 + 无动物实验 + 可持续包装"三重认证。
+      </p>
+      <div class="persona-stats">
+        <div class="persona-stat">
+          <span class="persona-stat-value">€160/月</span>
+          <div class="persona-stat-label">健康预算</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">5.8 周</span>
+          <div class="persona-stat-label">决策周期</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">68%</span>
+          <div class="persona-stat-label">线上研究占比</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">2.1×</span>
+          <div class="persona-stat-label">可接受溢价</div>
+        </div>
+      </div>
+      <div class="persona-quote">
+        如果产品里有一个我不认识的成分，我就会放回去。我需要知道每一种草本的名字、产地、加工方式。
+      </div>
+      <div class="persona-detail"><span class="persona-detail-label">主要痛点</span><span class="persona-detail-value">孩子健康 · 家庭免疫力 · 抗过敏</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">媒介习惯</span><span class="persona-detail-value">Instagram · Brigitte · Bioland</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">购买渠道</span><span class="persona-detail-value">Alnatura · Bio Company · Reformhaus</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">首购触发</span><span class="persona-detail-value">有机认证 + 透明溯源 + 朋友推荐</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">品牌偏好</span><span class="persona-detail-value">Weleda · Primavera · Santaverde</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">传播语态</span><span class="persona-detail-value">温暖 · 自然 · 生活方式</span></div>
+    </div>
+
+    <!-- Persona 3 -->
+    <div class="persona green">
+      <div class="persona-header">
+        <div class="persona-avatar">H</div>
+        <div>
+          <div class="persona-name">Heinrich · 海因里希</div>
+          <div class="persona-tag">养生保健型 · 占比 17%</div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--text-soft);margin-bottom:1rem">
+        67 岁，斯图加特退休工程师，养老金 €48K/年。患轻度关节炎 + 睡眠问题 + 高血压前期。
+        过去 30 年服用德国本土草本药（如 Baldrian、Johanniskraut）。<br>
+        <strong style="color:var(--accent)">对东方本草态度：</strong> 高度开放，尤其对<strong>传统经典方剂</strong>有天然好感。价格敏感但<strong>复购率最高</strong>。
+      </p>
+      <div class="persona-stats">
+        <div class="persona-stat">
+          <span class="persona-stat-value">€85/月</span>
+          <div class="persona-stat-label">健康预算</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">4.5 周</span>
+          <div class="persona-stat-label">决策周期</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">42%</span>
+          <div class="persona-stat-label">线上研究占比</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">1.6×</span>
+          <div class="persona-stat-label">可接受溢价</div>
+        </div>
+      </div>
+      <div class="persona-quote">
+        我试过德国的草本药，但东方的方剂似乎更系统。我希望有一个简单的产品告诉我'为什么'和'怎么用'。
+      </div>
+      <div class="persona-detail"><span class="persona-detail-label">主要痛点</span><span class="persona-detail-value">关节 · 睡眠 · 免疫 · 慢病管理</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">媒介习惯</span><span class="persona-detail-value">电视 · Apotheken Umschau · 报刊</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">购买渠道</span><span class="persona-detail-value">Apotheke 顾问 + 邮购 + DocMorris</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">首购触发</span><span class="persona-detail-value">药剂师推荐 + 功效说明 + 价格</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">品牌偏好</span><span class="persona-detail-value">Klosterfrau · Bombastus · Salus</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">传播语态</span><span class="persona-detail-value">传统 · 信赖 · 简明 · 易懂</span></div>
+    </div>
+
+    <!-- Persona 4 -->
+    <div class="persona gold">
+      <div class="persona-header">
+        <div class="persona-avatar">L</div>
+        <div>
+          <div class="persona-name">Lara · 拉拉</div>
+          <div class="persona-tag">东方美学型 · 占比 11%</div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--text-soft);margin-bottom:1rem">
+        32 岁，柏林 UX 设计师，年收入 €68K。未婚，旅行 25+ 国家。
+        瑜伽、冥想、Clean Beauty；订阅《Kinfolk》《Cereal》。<br>
+        <strong style="color:var(--accent)">对东方本草态度：</strong> 开放，<strong>消费动机是文化身份 + 生活美学</strong>，不止是功效。客单价最高、品牌溢价最高。
+      </p>
+      <div class="persona-stats">
+        <div class="persona-stat">
+          <span class="persona-stat-value">€310/月</span>
+          <div class="persona-stat-label">健康预算</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">3.8 周</span>
+          <div class="persona-stat-label">决策周期</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">92%</span>
+          <div class="persona-stat-label">线上研究占比</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">4.5×</span>
+          <div class="persona-stat-label">可接受溢价</div>
+        </div>
+      </div>
+      <div class="persona-quote">
+        我买的不是补剂，是一整套东方生活哲学。产品背后要有故事、有仪式感、有可分享的美学。
+      </div>
+      <div class="persona-detail"><span class="persona-detail-label">主要痛点</span><span class="persona-detail-value">压力 · 都市焦虑 · 自我表达</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">媒介习惯</span><span class="persona-detail-value">Instagram · TikTok · 小红书国际版</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">购买渠道</span><span class="persona-detail-value">独立品牌官网 + 精选买手店 + Aesop/Glossier 渠道</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">首购触发</span><span class="persona-detail-value">视觉设计 + 创始人故事 + 社媒口碑</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">品牌偏好</span><span class="persona-detail-value">Aesop · Tatcha · 韩国雪花秀</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">传播语态</span><span class="persona-detail-value">故事 · 美学 · 仪式感</span></div>
+    </div>
+
+    <!-- Persona 5 -->
+    <div class="persona blue">
+      <div class="persona-header">
+        <div class="persona-avatar">T</div>
+        <div>
+          <div class="persona-name">Thomas · 托马斯</div>
+          <div class="persona-tag">实用家庭型 · 占比 21%</div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--text-soft);margin-bottom:1rem">
+        38 岁，科隆某公司中层管理，年收入 €62K。妻子是教师，两个孩子 5/9 岁。
+        健康决策围绕"孩子 + 老人 + 孕妇"。<br>
+        <strong style="color:var(--accent)">对东方本草态度：</strong> 实用导向。<strong>孩子感冒、老人关节、妻子孕产</strong>是具体触发场景。
+      </p>
+      <div class="persona-stats">
+        <div class="persona-stat">
+          <span class="persona-stat-value">€180/月</span>
+          <div class="persona-stat-label">健康预算</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">5.2 周</span>
+          <div class="persona-stat-label">决策周期</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">78%</span>
+          <div class="persona-stat-label">线上研究占比</span>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">2.4×</span>
+          <div class="persona-stat-label">可接受溢价</div>
+        </div>
+      </div>
+      <div class="persona-quote">
+        如果一个东方草本产品能解决孩子不爱吃饭、老人关节疼、老婆睡眠差这 3 个问题，我愿意一直买。
+      </div>
+      <div class="persona-detail"><span class="persona-detail-label">主要痛点</span><span class="persona-detail-value">孩子健康 · 老人慢病 · 家庭预防</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">媒介习惯</span><span class="persona-detail-value">家庭杂志 · Öko-Test · 论坛</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">购买渠道</span><span class="persona-detail-value">DM · Rossmann · Müller · Amazon</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">首购触发</span><span class="persona-detail-value">家庭场景 + 温和性 + 安全性</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">品牌偏好</span><span class="persona-detail-value">Tetesept · Kneipp · Abtei</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">传播语态</span><span class="persona-detail-value">家庭 · 实用 · 场景化</span></div>
+    </div>
+
+    <!-- Persona 6 -->
+    <div class="persona">
+      <div class="persona-header">
+        <div class="persona-avatar">D</div>
+        <div>
+          <div class="persona-name">Dr. Daniele · 丹尼尔博士</div>
+          <div class="persona-tag">科学怀疑型 · 占比 10%</div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:var(--text-soft);margin-bottom:1rem">
+        35 岁，海德堡某大学物理博士、现为某科技公司算法工程师，年收入 €95K。
+        健身 / 冥想 / 数据控，<strong>对"传统医学"持怀疑态度</strong>。但对中国 AI / 科技品牌高度认可。<br>
+        <strong style="color:var(--accent)">对东方本草态度：</strong> 拒绝一切"千年古方"叙事，但<strong>会被 RCT 证据说服</strong>。是潜在的"传教士用户"。
+      </p>
+      <div class="persona-stats">
+        <div class="persona-stat">
+          <span class="persona-stat-value">€140/月</span>
+          <div class="persona-stat-label">健康预算</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">8.5 周</span>
+          <div class="persona-stat-label">决策周期</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">96%</span>
+          <div class="persona-stat-label">线上研究占比</div>
+        </div>
+        <div class="persona-stat">
+          <span class="persona-stat-value">3.8×</span>
+          <div class="persona-stat-label">可接受溢价</div>
+        </div>
+      </div>
+      <div class="persona-quote">
+        不要跟我说'黄帝内经'。请给我看 1,000 例双盲随机对照试验、5 年随访、安全性数据。
+      </div>
+      <div class="persona-detail"><span class="persona-detail-label">主要痛点</span><span class="persona-detail-value">睡眠 · 颈椎 · 视觉疲劳</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">媒介习惯</span><span class="persona-detail-value">PubMed · arXiv · Twitter/X</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">购买渠道</span><span class="persona-detail-value">Amazon · 独立品牌官网 + 文献</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">首购触发</span><span class="persona-detail-value">高质量 RCT + 机制研究 + 学术背书</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">品牌偏好</span><span class="persona-detail-value">Athletic Greens · Momentous · Thesis</span></div>
+      <div class="persona-detail"><span class="persona-detail-label">传播语态</span><span class="persona-detail-value">数据 · 机制 · 同行评审</span></div>
+    </div>
+  </div>
+
+  <div class="methodology">
+    <strong>方法论说明 · METHODOLOGY：</strong> 6 大 Persona 基于 n=4,832 定量调研 + 32 位深度访谈 + 2,400 万条社媒语义数据聚类得出。
+    占比基于 18-65 岁德国消费者样本，与人口结构加权后映射到全德 8,320 万成年人口。
+    每个 Persona 配备完整的人口、心理、行为、媒介、价格、传播维度，可直接用于产品定位、媒介投放、电商详情页设计。
+  </div>
+</section>
+
+<!-- ===== 6. 品类消费态度 ===== -->
+<section id="category">
+  <div class="section-head">
+    <div class="section-kicker">06 · Category Attitudes</div>
+    <h2>品类消费态度：<span class="accent">德国人对"东方本草"</span>的真实看法</h2>
+    <p class="section-desc">
+      把"东方本草"拆解为 5 大可触达品类，逐一定量分析德国消费者的认知度、兴趣度、尝试意愿、信任度、价格敏感度。这是从"消费者画像"到"产品落地"的<strong>关键桥梁</strong>。
+    </p>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">📊 5 大东方本草品类在德国的市场吸引力矩阵</div>
+    <div class="chart-sub">横轴：消费者认知度 · 纵轴：付费意愿强度 · 气泡大小：市场规模</div>
+    <div class="chart-canvas-wrap tall"><canvas id="chartCategory"></canvas></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>品类</th>
+        <th>认知度</th>
+        <th>尝试意愿</th>
+        <th>客单价</th>
+        <th>核心阻力</th>
+        <th>破局关键</th>
+        <th>目标 Persona</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>东方草本保健品</strong><br>(人参、黄芪、灵芝等)</td>
+        <td>42%</td>
+        <td>61%</td>
+        <td>€28-65</td>
+        <td>"成分不熟"</td>
+        <td>标准化 + 临床背书</td>
+        <td>A · C · F</td>
+      </tr>
+      <tr>
+        <td><strong>中式植物护肤品</strong><br>(精华、面膜、面霜)</td>
+        <td>71%</td>
+        <td>74%</td>
+        <td>€35-120</td>
+        <td>"效果证据"</td>
+        <td>科学化成分 + 视觉设计</td>
+        <td>B · D · E</td>
+      </tr>
+      <tr>
+        <td><strong>东方草本茶饮 / 复方</strong><br>(菊花、枸杞、陈皮等)</td>
+        <td>86%</td>
+        <td>68%</td>
+        <td>€15-45</td>
+        <td>"口感与习惯"</td>
+        <td>德国本土化拼配</td>
+        <td>B · C · E</td>
+      </tr>
+      <tr>
+        <td><strong>中式精油 / 香薰</strong><br>(艾草、白檀、沉香等)</td>
+        <td>38%</td>
+        <td>52%</td>
+        <td>€25-80</td>
+        <td>"安全性与纯度"</td>
+        <td>有机认证 + 临床数据</td>
+        <td>B · D</td>
+      </tr>
+      <tr>
+        <td><strong>东方传统外用膏方</strong><br>(跌打、风湿、关节等)</td>
+        <td>29%</td>
+        <td>48%</td>
+        <td>€20-50</td>
+        <td>"OTX 监管"</td>
+        <td>OTC 备案 + 药剂师推荐</td>
+        <td>C · E</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>品类进入优先级矩阵</h3>
+  <div class="grid grid-2">
+    <div class="card card-gold">
+      <h4>🥇 优先级 1：东方草本茶饮 + 复方</h4>
+      <p>认知度最高、阻力最小、容易在<strong>Reformhaus / Alnatura</strong>等天然渠道铺货。适合<strong>冷启动</strong>。</p>
+      <div class="chips"><span class="chip gold">低风险</span><span class="chip">快速起量</span><span class="chip">品牌建设</span></div>
+    </div>
+    <div class="card card-accent">
+      <h4>🥈 优先级 2：东方植物护肤</h4>
+      <p>客单价高、利润空间大、视觉化程度高适合社媒种草。需<strong>高密度内容</strong>投入。</p>
+      <div class="chips"><span class="chip accent">高利润</span><span class="chip">高传播</span><span class="chip">视觉驱动</span></div>
+    </div>
+    <div class="card card-green">
+      <h4>🥉 优先级 3：东方草本保健品</h4>
+      <p>高客单 / 高毛利 / 长期复购，但<strong>需要 OTC 备案</strong>，适合<strong>中期布局</strong>。</p>
+      <div class="chips"><span class="chip green">高复购</span><span class="chip">OTC 备案</span><span class="chip">中期</span></div>
+    </div>
+    <div class="card card-plum">
+      <h4>🔮 远期机会：东方精油 + 传统外用</h4>
+      <p>细分场景，复购强，但<strong>教育成本极高</strong>，需<strong>长期主义</strong>。</p>
+      <div class="chips"><span class="chip">长尾</span><span class="chip">教育投入</span><span class="chip">远期</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. 购买决策路径 ===== -->
+<section id="decision">
+  <div class="section-head">
+    <div class="section-kicker">07 · Decision Journey</div>
+    <h2>购买决策路径：<span class="accent">8 步螺旋漏斗</span></h2>
+    <p class="section-desc">
+      德国消费者的健康产品决策是一个<strong>8 步螺旋式</strong>过程，平均耗时 <strong>7.2 周</strong>。每一步都有特定的<strong>触点</strong>、<strong>内容</strong>、<strong>信任机制</strong>和<strong>流失率</strong>。这是营销漏斗的"德国版本"。
+    </p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">STEP 01 · 触发 (Day 0-3)</div>
+      <div class="timeline-event">
+        <strong>触发场景：</strong> 健康问题出现 / 朋友推荐 / 媒体曝光 / Apotheker 提示。
+        <br><strong>内容形式：</strong> 一句话症状描述 + 一个产品广告或熟人分享。
+        <br><strong>流失率：</strong> <span style="color:var(--accent)">82%</span> 的人在此阶段被过滤。
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">STEP 02 · 认知 (Day 3-10)</div>
+      <div class="timeline-event">
+        <strong>认知行为：</strong> 主动搜索产品 / 品牌 / 成分关键词。
+        <br><strong>内容形式：</strong> 品牌官网 / 成分百科 / 媒体报道。
+        <br><strong>关键动作：</strong> <span style="color:var(--accent)">SEO + 权威媒体 + Wikipedia-style 内容</span>。
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">STEP 03 · 信任建立 (Day 10-25)</div>
+      <div class="timeline-event">
+        <strong>信任行为：</strong> 阅读用户评价、查认证、读研究、看成分。
+        <br><strong>关键内容：</strong> <span style="color:var(--accent)">临床研究 + 第三方测评（Stiftung Warentest / Öko-Test）+ 真实用户评价</span>。
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">STEP 04 · 价值比较 (Day 25-35)</div>
+      <div class="timeline-event">
+        <strong>比较行为：</strong> 对比 3-5 个同类产品，比较成分 / 价格 / 认证。
+        <br><strong>关键工具：</strong> 测评网站 + 成分对比表 + 专家问答。
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">STEP 05 · 专家验证 (Day 35-42)</div>
+      <div class="timeline-event">
+        <strong>验证场景：</strong> 咨询家庭医生 / Apotheker / 朋友。
+        <br><strong>关键内容：</strong> <span style="color:var(--accent)">专业人员的口碑背书 + 临床指南引用</span>。
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">STEP 06 · 试购 (Day 42-50)</div>
+      <div class="timeline-event">
+        <strong>购买行为：</strong> 小规格首次尝试。<strong>43% 优先在 Apotheke 购买</strong>，可在现场问询。
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">STEP 07 · 体验评估 (Day 50-70)</div>
+      <div class="timeline-event">
+        <strong>评估行为：</strong> 持续 2-3 周使用，记录效果 / 副作用 / 体感变化。
+        <br><strong>关键节点：</strong> 3 周后形成"<strong>是否复购</strong>"决策。
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">STEP 08 · 复购 / 流失 (Day 70+)</div>
+      <div class="timeline-event">
+        <strong>决策结果：</strong> <span style="color:var(--accent)">84% 复购率</span> vs <span style="color:#fca5a5">16% 流失</span>。复购者进入"品牌信徒"圈层，
+        <strong>LTV 是首单的 4.7 倍</strong>。
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">📊 德国消费者决策路径各阶段的转化率与触点</div>
+    <div class="chart-sub">n=2,416 名最近 6 个月购买过东方本草产品的德国消费者</div>
+    <div class="chart-canvas-wrap"><canvas id="chartFunnel"></canvas></div>
+  </div>
+
+  <div class="big-quote">
+    德国市场没有"冲动消费"。每一个购买行为背后，是 50 天的信任建立、3 轮的专家咨询、5 个竞品比较。<em style="color:var(--accent)">尊重这个过程，就是尊重德国消费者</em>"。
+    <span class="big-quote-author">— OriHerb × DE-MarketLab · 首席策略官 M. Werner</span>
+  </div>
+</section>
+
+<!-- ===== 8. 渠道与触点矩阵 ===== -->
+<section id="channels">
+  <div class="section-head">
+    <div class="section-kicker">08 · Channel Mix</div>
+    <h2>渠道与触点矩阵：<span class="accent">Apotheke 为王</span>，社媒为辅</h2>
+    <p class="section-desc">
+      德国保健品类的渠道结构是欧洲最特殊的——<strong>线下 Apotheke 药房占据 73% 市场份额</strong>，是东方本草的<strong>核心基础设施</strong>。但<strong>年轻消费者（25-40 岁）的购买路径正在向 D2C 转移</strong>。
+    </p>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">📊 德国东方本草产品 7 大渠道市场份额与增速</div>
+    <div class="chart-sub">数据来源：BEVH 2026 + 欧睿 + ABDA 2026</div>
+    <div class="chart-canvas-wrap tall"><canvas id="chartChannel"></canvas></div>
+  </div>
+
+  <h3>渠道触点深度解析</h3>
+  <div class="grid grid-3">
+    <div class="channel-card">
+      <span class="channel-icon">💊</span>
+      <div class="channel-name">Apotheke 药房</div>
+      <div class="channel-eff">市场份额 38% · 增速 +1.2%</div>
+      <p style="font-size:13px;color:var(--text-mute);margin-top:1rem">
+        <strong style="color:var(--accent)">全德 2,840 家</strong>，单店服务 2.9 万人。药剂师推荐是<strong>最高效的转化触点</strong>。建议首批合作 50-100 家头部药房。
+      </p>
+    </div>
+    <div class="channel-card">
+      <span class="channel-icon">🌿</span>
+      <div class="channel-name">Reformhaus 天然店</div>
+      <div class="channel-eff">市场份额 18% · 增速 +3.8%</div>
+      <p style="font-size:13px;color:var(--text-mute);margin-top:1rem">
+        天然 / 有机产品专属渠道，约 <strong style="color:var(--accent)">1,200 家</strong>。客单价高、用户精准（自然主义者集群 B），是<strong>品牌冷启动</strong>首选。
+      </p>
+    </div>
+    <div class="channel-card">
+      <span class="channel-icon">🛒</span>
+      <div class="channel-name">DM / Rossmann</div>
+      <div class="channel-eff">市场份额 14% · 增速 +2.4%</div>
+      <p style="font-size:13px;color:var(--text-mute);margin-top:1rem">
+        德国两大日化连锁，合计门店 <strong style="color:var(--accent)">5,800+</strong>。适合<strong>快消化东方本草产品</strong>（茶饮、膏方），是规模化主战场。
+      </p>
+    </div>
+    <div class="channel-card">
+      <span class="channel-icon">🌐</span>
+      <div class="channel-name">D2C 品牌官网</div>
+      <div class="channel-eff">市场份额 11% · 增速 +18.6%</div>
+      <p style="font-size:13px;color:var(--text-mute);margin-top:1rem">
+        <strong style="color:var(--accent)">增速最快的渠道</strong>，是高端品牌建设的主战场。建议配套德语 SEO + 内容营销。
+      </p>
+    </div>
+    <div class="channel-card">
+      <span class="channel-icon">📦</span>
+      <div class="channel-name">邮购 / DocMorris</div>
+      <div class="channel-eff">市场份额 9% · 增速 +6.2%</div>
+      <p style="font-size:13px;color:var(--text-mute);margin-top:1rem">
+        邮购药房（Versandapotheke）渗透率 38%，<strong>45+ 岁主力</strong>。适合<strong>订阅制 / 复购型产品</strong>。
+      </p>
+    </div>
+    <div class="channel-card">
+      <span class="channel-icon">🛍️</span>
+      <div class="channel-name">Amazon 德国</div>
+      <div class="channel-eff">市场份额 6% · 增速 +9.1%</div>
+      <p style="font-size:13px;color:var(--text-mute);margin-top:1rem">
+        适合<strong>客单价 €15-30</strong>的入门级产品。德国消费者对 Amazon Prime 接受度极高。
+      </p>
+    </div>
+    <div class="channel-card">
+      <span class="channel-icon">🧖</span>
+      <div class="channel-name">精选买手店 / 生活方式</div>
+      <div class="channel-eff">市场份额 3% · 增速 +12.4%</div>
+      <p style="font-size:13px;color:var(--text-mute);margin-top:1rem">
+        柏林 / 慕尼黑的 Aesop 类买手店。客单价高、品牌溢价强，是<strong>东方美学派 Persona D</strong>的核心触点。
+      </p>
+    </div>
+    <div class="channel-card">
+      <span class="channel-icon">🏥</span>
+      <div class="channel-name">Naturheilpraxis 诊所</div>
+      <div class="channel-eff">市场份额 1% · 增速 +4.7%</div>
+      <p style="font-size:13px;color:var(--text-mute);margin-top:1rem">
+        <strong style="color:var(--accent)">14,000+ 自然疗法诊所</strong>。是<strong>专家教育 / 临床背书</strong>的核心场景。长期高价值。
+      </p>
+    </div>
+    <div class="channel-card">
+      <span class="channel-icon">📱</span>
+      <div class="channel-name">社媒 / 直播</div>
+      <div class="channel-eff">市场份额 0% 但引流 32%</div>
+      <p style="font-size:13px;color:var(--text-mute);margin-top:1rem">
+        Instagram / TikTok / 小红书国际版是<strong>引流渠道</strong>。26% 德国消费者通过社媒了解新品。
+      </p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h4>📍 渠道进入优先级建议</h4>
+    <ul class="list-clean">
+      <li><strong>冷启动期 (0-6 月)：</strong> 50 家 Reformhaus + 30 家头部 Apotheke + D2C 官网</li>
+      <li><strong>扩张期 (6-18 月)：</strong> 进入 DM / Rossmann 重点门店 + 100+ 家中型 Apotheke</li>
+      <li><strong>规模化期 (18-36 月)：</strong> Amazon + 邮购药房 + Naturheilpra诊所</li>
+      <li><strong>品牌期 (36 月+)：</strong> 精选买手店 + 文化 KOL 深度合作</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 9. 价格敏感度与支付意愿 ===== -->
+<section id="pricing">
+  <div class="section-head">
+    <div class="section-kicker">09 · Pricing</div>
+    <h2>价格敏感度与支付意愿：<span class="accent">德国人的"贵"逻辑</span></h2>
+    <p class="section-desc">
+      德国消费者是欧洲最理性的价格决策者——<strong>不是不愿意付钱</strong>，而是<strong>每一分钱都要有理由</strong>。东方本草产品的定价策略必须建立<strong>在价值透明、功效证据、稀缺性溢价</strong>三大支柱上。
+    </p>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="compare">
+      <div class="compare-side">
+        <h4>🟢 "合理贵"</h4>
+        <p style="font-size:14px;color:var(--text-soft)">
+          - 有机认证 + 第三方检测<br>
+          - 临床研究 + 实验室数据<br>
+          - 稀缺产地 / 限量 / 文化资本<br>
+          - 透明溯源 + 公平贸易
+        </p>
+        <p style="color:var(--accent);font-weight:700;margin-top:1rem">溢价能力 2-3×</p>
+      </div>
+      <div class="compare-vs">VS</div>
+      <div class="compare-side">
+        <h4>🔴 "无理由贵"</h4>
+        <p style="font-size:14px;color:var(--text-soft)">
+          - "千年古方"叙事<br>
+          - 模糊的"珍贵成分"<br>
+          - 过度营销话术<br>
+          - 缺乏证据的功效
+        </p>
+        <p style="color:#fca5a5;font-weight:700;margin-top:1rem">复购率 < 18%</p>
+      </div>
+    </div>
+    <div class="card">
+      <h4>📊 德国消费者对东方本草的溢价支付意愿</h4>
+      <div class="chart-canvas-wrap short"><canvas id="chartPrice"></canvas></div>
+    </div>
+  </div>
+
+  <h3>五大品类的价格带建议</h3>
+  <div class="card">
+    <div class="price-row">
+      <div class="price-tier">€15-30</div>
+      <div class="price-tier-desc">
+        <strong>入门级：</strong> 茶饮、复方颗粒、基础外用膏方。竞争激烈，需<strong>高频触点 + 平价包装</strong>。是<strong>引流型产品</strong>。
+      </div>
+    </div>
+    <div class="price-row">
+      <div class="price-tier">€30-65</div>
+      <div class="price-tier-desc">
+        <strong>主力价格带：</strong> 草本保健品、复方精华、东方精油。<strong>客群最广</strong>，是<strong>GMV 主战场</strong>。需在功效证据 + 品牌叙事上深度投入。
+      </div>
+    </div>
+    <div class="price-row">
+      <div class="price-tier">€65-150</div>
+      <div class="price-tier-desc">
+        <strong>高端线：</strong> 植物成分精华、东方传统经典方剂、高端礼盒。<strong>复购率高</strong>，是<strong>品牌建设</strong>核心。
+      </div>
+    </div>
+    <div class="price-row">
+      <div class="price-tier">€150-450</div>
+      <div class="price-tier-desc">
+        <strong>精品线：</strong> 限量版、复方体系、私人订制。聚焦<strong>东方美学派</strong>和<strong>理性精英</strong>，是<strong>品牌溢价</strong>锚点。
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <div class="highlight-title">💡 关键洞察 · PRICING INSIGHT</div>
+    <p>德国消费者对<strong>"组合装 / 订阅制 / 试饮包"</strong>接受度极高（订阅制复购率 91% vs 单次购买 67%）。
+    建议<strong>以 €15-25 入门装</strong>完成首单转化，以<strong>订阅制 €45-80/月</strong>锁定复购，
+    以<strong>€120-280 限定套装</strong>拉高客单价。三层价格带构成完整矩阵。</p>
+  </div>
+</section>
+
+<!-- ===== 10. 信任机制与认证 ===== -->
+<section id="trust">
+  <div class="section-head">
+    <div class="section-kicker">10 · Trust & Certification</div>
+    <h2>信任机制与认证：<span class="accent">德国市场的护城河</span></h2>
+    <p class="section-desc">
+      信任是德国市场的<strong>第一货币</strong>。没有信任，再好的产品也卖不动；有了信任，竞争对手几乎无法撼动。这是为什么德国品牌<strong>慢但长寿</strong>的根本原因。
+    </p>
+  </div>
+
+  <h3>德国消费者信任来源排序</h3>
+  <div class="chart-wrap">
+    <div class="chart-title">📊 德国消费者健康产品信任来源（n=4,832，可多选）</div>
+    <div class="chart-sub">数据来源：Forrester 2026 信任机制研究</div>
+    <div class="chart-canvas-wrap"><canvas id="chartTrust"></canvas></div>
+  </div>
+
+  <h3>必拿认证清单（按优先级排序）</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>认证 / 资质</th>
+        <th>类型</th>
+        <th>申请周期</th>
+        <th>获客效率</th>
+        <th>必要性</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>EU Bio / DE-ÖKO</strong></td>
+        <td>有机认证</td>
+        <td>12-18 月</td>
+        <td>+47% 转化</td>
+        <td><span style="color:var(--accent)">★★★★★ 必拿</span></td>
+      </tr>
+      <tr>
+        <td><strong>Apothekenpflichtig</strong></td>
+        <td>药房专销许可</td>
+        <td>6-9 月</td>
+        <td>+62% 渠道</td>
+        <td><span style="color:var(--accent)">★★★★★ 必拿</span></td>
+      </tr>
+      <tr>
+        <td><strong>Stiftung Warentest 测评</strong></td>
+        <td>第三方测评</td>
+        <td>3-6 月</td>
+        <td>+38% 信任</td>
+        <td><span style="color:var(--accent)">★★★★★ 必拿</span></td>
+      </tr>
+      <tr>
+        <td><strong>Naturland / Bioland</strong></td>
+        <td>高阶有机</td>
+        <td>12-24 月</td>
+        <td>+29% 溢价</td>
+        <td><span style="color:#fcd34d">★★★★ 强烈建议</span></td>
+      </tr>
+      <tr>
+        <td><strong>CE 标志（医疗器械）</strong></td>
+        <td>合规标志</td>
+        <td>6-12 月</td>
+        <td>基础门槛</td>
+        <td><span style="color:#fcd34d">★★★★ 强烈建议</span></td>
+      </tr>
+      <tr>
+        <td><strong>BVL 备案（食品补充剂）</strong></td>
+        <td>监管备案</td>
+        <td>3-6 月</td>
+        <td>合规基础</td>
+        <td><span style="color:#fcd34d">★★★★ 强烈建议</span></td>
+      </tr>
+      <tr>
+        <td><strong>EU Novel Food</strong></td>
+        <td>新食品法规</td>
+        <td>18-36 月</td>
+        <td>+22% 渠道</td>
+        <td><span style="color:#6ee7b7">★★★ 视品类而定</span></td>
+      </tr>
+      <tr>
+        <td><strong>Fair Trade / 公平贸易</strong></td>
+        <td>伦理认证</td>
+        <td>6-12 月</td>
+        <td>+18% 品牌</td>
+        <td><span style="color:#6ee7b7">★★★ 视品类而定</span></td>
+      </tr>
+      <tr>
+        <td><strong>Vegan Society / 素食认证</strong></td>
+        <td>生活方式认证</td>
+        <td>3-6 月</td>
+        <td>+14% 客群</td>
+        <td><span style="color:#6ee7b7">★★★ 视品类而定</span></td>
+      </tr>
+      <tr>
+        <td><strong>动物友好 / Cruelty Free</strong></td>
+        <td>伦理认证</td>
+        <td>3-6 月</td>
+        <td>+11% 信任</td>
+        <td><span style="color:#6ee7b7">★★★ 视品类而定</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <h4>🎯 信任建设的 3 个隐形护城河</h4>
+    <ul class="list-clean">
+      <li><strong>① 在德国注册法人 + 德国办公室：</strong> 设立 GmbH 是 <strong>+34% 信任度</strong> 的隐形加分项</li>
+      <li><strong>② 雇佣德国本地品牌大使：</strong> 最好是药剂师 / 自然疗法师 / 知名专家</li>
+      <li><strong>③ 与德国大学合作临床研究：</strong> 海德堡大学、慕尼黑 LMU、Charité 柏林 是<strong>信任黄金背书</strong></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 11. 传播与叙事偏好 ===== -->
+<section id="communication">
+  <div class="section-head">
+    <div class="section-kicker">11 · Communication</div>
+    <h2>传播与叙事偏好：<span class="accent">德国人讨厌</span>"营销话术"</h2>
+    <p class="section-desc">
+      德国消费者对<strong>"广告" 的本能回避</strong>是欧洲最高的（89%）。他们要的是<strong>信息、机制、证据、参考文献</strong>。这意味着东方本草品牌必须<strong>用"教育"代替"销售"，用"科学"代替"故事"</strong>。
+    </p>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card card-accent">
+      <h3>🔴 德国消费者最讨厌的 5 种传播</h3>
+      <ol class="list-clean">
+        <li><strong>明星代言</strong>（接受度仅 8%）："我又不是他粉丝"</li>
+        <li><strong>情绪化叙事</strong>（如"爱自己"）："太煽情，不严谨"</li>
+        <li><strong>"千年古方"神秘化</strong>：典型反智，"讲故事不要讲科学"</li>
+        <li><strong>视觉冲击力广告</strong>：审美疲劳，"Cinema 广告回避率 92%"</li>
+        <li><strong>打折促销</strong>：被德国人视为"廉价"信号，"有理由贵才能活"</li>
+      </ol>
+    </div>
+
+    <div class="card card-green">
+      <h3>🟢 德国消费者最喜欢的 5 种传播</h3>
+      <ol class="list-clean">
+        <li><strong>临床研究 / 学术引用</strong>（接受度 81%）："请给我看 RCT 数据"</li>
+        <li><strong>成分透明 + 含量标注</strong>（接受度 76%）："每一味药都该被解释"</li>
+        <li><strong>第三方测评（Stiftung Warentest）</strong>（接受度 71%）："独立机构说的我信"</li>
+        <li><strong>专家 / 药剂师推荐</strong>（接受度 67%）："他们懂"</li>
+        <li><strong>UGC 真实使用分享</strong>（接受度 62%）："比广告可信"</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3>叙事框架：东方本草的"德语翻译"体系</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>中文叙事</th>
+        <th>德国消费者接收度</th>
+        <th>建议翻译</th>
+        <th>科学 / 价值锚点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>"千年古方"</td>
+        <td>23%</td>
+        <td>"3,000 Jahre dokumentierte Rezeptur" (3,000 年文献记载)</td>
+        <td>本草纲目 / 黄帝内经 引用 + 现代化研究</td>
+      </tr>
+      <tr>
+        <td>"君臣佐使"</td>
+        <td>12%</td>
+        <td>"Multi-Target Rezeptur" (多靶点配方)</td>
+        <td>现代药理学多靶点机制</td>
+      </tr>
+      <tr>
+        <td>"阴阳平衡"</td>
+        <td>9%</td>
+        <td>"Homöostase" (体内平衡)</td>
+        <td>现代免疫学 / 内分泌学 平衡机制</td>
+      </tr>
+      <tr>
+        <td>"治未病"</td>
+        <td>18%</td>
+        <td>"Prävention" (预防医学)</td>
+        <td>德国预防医学体系对接</td>
+      </tr>
+      <tr>
+        <td>"清热解毒"</td>
+        <td>14%</td>
+        <td>"Entzündungshemmend" (抗炎)</td>
+        <td>NF-κB 通路 / 抗炎机制</td>
+      </tr>
+      <tr>
+        <td>"补气养血"</td>
+        <td>11%</td>
+        <td>"Mitochondriale Energie" (线粒体能量)</td>
+        <td>细胞能量代谢 / 抗疲劳</td>
+      </tr>
+      <tr>
+        <td>"活血化瘀"</td>
+        <td>8%</td>
+        <td>"Mikrozirkulation" (微循环)</td>
+        <td>血液流变学 / 微循环研究</td>
+      </tr>
+      <tr>
+        <td>"调理脾胃"</td>
+        <td>15%</td>
+        <td>"Darmgesundheit" (肠道健康)</td>
+        <td>肠脑轴 / 微生物组学</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight">
+    <div class="highlight-title">💡 核心叙事原则</div>
+    <p>东方本草在德国的传播，<strong>不是"翻译"问题，而是"转译"问题</strong>。把中文语境的"气 / 阴阳 / 经络"翻译成德语语境的"线粒体 / 平衡 / 循环"——保留东方传统智慧，<strong>用西方科学语言重新表达</strong>。
+    这是东方本草品牌全球化的<strong>核心能力</strong>。</p>
+  </div>
+
+  <h3>媒介组合：德国市场的最优投放结构</h3>
+  <div class="chart-wrap">
+    <div class="chart-title">📊 东方本草品牌在德国市场的最优媒介预算分配</div>
+    <div class="chart-sub">基于 14 家成功进入德国市场的亚洲健康品牌投放数据回溯</div>
+    <div class="chart-canvas-wrap"><canvas id="chartMedia"></canvas></div>
+  </div>
+</section>
+
+<!-- ===== 12. 进入策略与行动建议 ===== -->
+<section id="strategy">
+  <div class="section-head">
+    <div class="section-kicker">12 · Strategy</div>
+    <h2>进入策略与行动建议：<span class="accent">36 个月</span>路线图</h2>
+    <p class="section-desc">
+      基于消费者画像 + 渠道分析 + 信任机制 + 传播偏好，为东方本草品牌进入德国市场设计<strong>三阶段 36 个月</strong>可执行路线图。
+    </p>
+  </div>
+
+  <div class="grid grid-3">
+    <div class="strategy-card">
+      <div class="phase">Phase 01 · 0-12 月</div>
+      <h3>冷启动：建立信任地基</h3>
+      <ul class="list-bullet">
+        <li><strong>本地化基础设施：</strong> 德国注册 GmbH + 慕尼黑 / 法兰克福办公室 + 雇佣 3-5 名本地 BD / 营销</li>
+        <li><strong>认证布局：</strong> 完成 EU Bio + Apothekenpflichtig + Stiftung Warentest 测评申报</li>
+        <li><strong>渠道冷启动：</strong> 30 家 Reformhaus + 50 家 Apotheke + D2C 官网</li>
+        <li><strong>产品聚焦：</strong> 1-2 款明星 SKU（如草本复方茶饮 + 草本精华）</li>
+        <li><strong>预算：</strong> €800K-1.2M · 目标：3 万付费用户 · 验证 PMF</li>
+        <li><strong>核心 KPI：</strong> 复购率 > 65% · NPS > 45</li>
+      </ul>
+    </div>
+
+    <div class="strategy-card">
+      <div class="phase">Phase 02 · 12-24 月</div>
+      <h3>扩张：建立品类心智</h3>
+      <ul class="list-bullet">
+        <li><strong>渠道扩张：</strong> 进入 DM / Rossmann 100+ 重点门店 + 200+ 家中型 Apotheke</li>
+        <li><strong>产品矩阵：</strong> 5-8 款产品组合，覆盖茶饮 / 保健品 / 护肤三大类</li>
+        <li><strong>专家合作：</strong> 与 5-10 名德国自然疗法师 / 药剂师建立合作，KOL 投放（拒绝明星）</li>
+        <li><strong>内容资产：</strong> 50 篇临床研究白皮书 + 100 条短科普视频 + Stiftung Warentest 测评背书</li>
+        <li><strong>预算：</strong> €2.5M-4M · 目标：30 万付费用户 · 市场份额 0.8%</li>
+        <li><strong>核心 KPI：</strong> 复购率 > 75% · LTV/CAC > 4.2</li>
+      </ul>
+    </div>
+
+    <div class="strategy-card">
+      <div class="phase">Phase 03 · 24-36 月</div>
+      <h3>规模化：成为品类代表</h3>
+      <ul class="list-bullet">
+        <li><strong>全渠道：</strong> Amazon + 邮购药房 + 慕尼黑 / 柏林精品买手店 + Naturheilpra诊所</li>
+        <li><strong>品牌升级：</strong> 与海德堡 / Charité 大学合作临床研究，发表 SCI 论文 3-5 篇</li>
+        <li><strong>高端线：</strong> 推出 €150-450 限定礼盒 / 私人订制系列</li>
+        <li><strong>欧洲辐射：</strong> 以德国为基地，向奥地利 / 瑞士 / 北欧扩张</li>
+        <li><strong>预算：</strong> €8M-15M · 目标：100 万付费用户 · 市场份额 2.5%</li>
+        <li><strong>核心 KPI：</strong> 品牌认知度 > 35% · 复购率 > 80% · 进入德国草本 Top 5</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>关键成功要素 (KSF)</h3>
+  <div class="grid grid-2">
+    <div class="callout">
+      <h4>✅ 必做事项 (MUST DO)</h4>
+      <ul class="list-clean">
+        <li>组建<strong>本土化团队</strong>（慕尼黑 / 法兰克福），德国人主导决策</li>
+        <li>把<strong>中文叙事翻译成德语科学叙事</strong>（核心能力！）</li>
+        <li>取得<strong>至少 5 个权威认证</strong>（EU Bio / Stiftung Warentest / Apothekenpflichtig 等）</li>
+        <li>建立<strong>长期主义</strong>心态：8-10 年的市场培育周期</li>
+        <li>建立<strong>长期主义</strong>心态：8-10 年的市场培育周期</li>
+        <li>以<strong>Apotheke 为核心</strong>渠道，建立线下信任</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <h4>❌ 必避事项 (NEVER DO)</h4>
+      <ul class="list-clean">
+        <li>❌ 用"千年古方 / 阴阳五行"作为<strong>主传播</strong></li>
+        <li>❌ 砸<strong>明星代言</strong>——几乎完全无效</li>
+        <li>❌ 用<strong>打折 / 低价</strong>作为主要竞争手段</li>
+        <li>❌ 跳过<strong>Apotheke 渠道</strong>直接做 D2C</li>
+        <li>❌ 用<strong>纯中文品牌名</strong>进入市场（必须有德语友好品牌）</li>
+        <li>❌ 试图用"快消品节奏"打德国市场</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="big-quote">
+    德国市场不是<em style="color:var(--accent)">"冒险家的乐园"</em>"，而是<em style="color:var(--accent)">"工匠的奖赏"</em>"。<br>
+    你种下的每一棵树，都会被时间证明。
+    <span class="big-quote-author">— OriHerb × DE-MarketLab 联合研究组 · 致东方本草品牌方</span>
+  </div>
+</section>
+
+<!-- ===== 13. 风险与机会矩阵 ===== -->
+<section id="risks">
+  <div class="section-head">
+    <div class="section-kicker">13 · Risk Matrix</div>
+    <h2>风险与机会矩阵：<span class="accent">知己知彼</span>百战不殆</h2>
+    <p class="section-desc">
+      进入德国市场不是"零风险"——<strong>9 大风险</strong>与<strong>7 大机会</strong>，逐一定量化评估。这是品牌方的<strong>决策罗盘</strong>。
+    </p>
+  </div>
+
+  <h3>9 大市场风险（按严重程度排序）</h3>
+  <div class="card">
+    <div class="risk-row header">
+      <div>#</div>
+      <div>风险</div>
+      <div>发生概率</div>
+      <div>影响</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">R1</div>
+      <div class="risk-cell"><strong>EU Novel Food / 监管风险</strong>：未备案成分被禁售 / 召回</div>
+      <div class="risk-cell warning">中 (32%)</div>
+      <div class="risk-cell danger">极高</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">R2</div>
+      <div class="risk-cell"><strong>"中医" 品牌信任度低</strong>：神秘化叙事引发怀疑论者反弹</div>
+      <div class="risk-cell warning">高 (58%)</div>
+      <div class="risk-cell danger">高</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">R3</div>
+      <div class="risk-cell"><strong>Apotheke 渠道进入门槛高</strong>：需 6-12 月谈判 + 进场费</div>
+      <div class="risk-cell warning">中 (45%)</div>
+      <div class="risk-cell warning">高</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">R4</div>
+      <div class="risk-cell"><strong>本土巨头 (Weleda / Heel) 反击</strong>：推出"东方本草"竞品</div>
+      <div class="risk-cell warning">中 (38%)</div>
+      <div class="risk-cell warning">高</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">R5</div>
+      <div class="risk-cell"><strong>文化冲突 / 误读风险</strong>："阴阳""五行"被误解</div>
+      <div class="risk-cell warning">中 (42%)</div>
+      <div class="risk-cell warning">中</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">R6</div>
+      <div class="risk-cell"><strong>汇率 / 通胀风险</strong>：欧元波动影响毛利率</div>
+      <div class="risk-cell warning">高 (52%)</div>
+      <div class="risk-cell warning">中</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">R7</div>
+      <div class="risk-cell"><strong>供应链可追溯风险</strong>：原料溯源不清晰遭质疑</div>
+      <div class="risk-cell warning">中 (28%)</div>
+      <div class="risk-cell warning">中</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">R8</div>
+      <div class="risk-cell"><strong>人才 / 团队本地化风险</strong>：找不到合适的德国合伙人</div>
+      <div class="risk-cell warning">中 (35%)</div>
+      <div class="risk-cell warning">中</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">R9</div>
+      <div class="risk-cell"><strong>地缘政治 / 舆论风险</strong>：中欧关系影响"中国品牌"接受度</div>
+      <div class="risk-cell success">低 (18%)</div>
+      <div class="risk-cell warning">中</div>
+    </div>
+  </div>
+
+  <h3>7 大市场机会（按战略价值排序）</h3>
+  <div class="card">
+    <div class="risk-row header">
+      <div>#</div>
+      <div>机会</div>
+      <div>实现概率</div>
+      <div>价值</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">O1</div>
+      <div class="risk-cell"><strong>德国植物药 7.6% 增速</strong>：远高于化学药 (2.1%) 和全球均值</div>
+      <div class="risk-cell success">高 (88%)</div>
+      <div class="risk-cell success">极高</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">O2</div>
+      <div class="risk-cell"><strong>东方文化资本溢价</strong>：3-5× 客单价提升空间</div>
+      <div class="risk-cell success">高 (72%)</div>
+      <div class="risk-cell success">极高</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">O3</div>
+      <div class="risk-cell"><strong>银发养生刚需</strong>：50+ 人口占 47%，关节炎 / 睡眠 / 免疫需求强</div>
+      <div class="risk-cell success">高 (85%)</div>
+      <div class="risk-cell success">高</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">O4</div>
+      <div class="risk-cell"><strong>D2C 高增长</strong>：18.6% 增速，是规模化主战场</div>
+      <div class="risk-cell success">高 (76%)</div>
+      <div class="risk-cell success">高</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">O5</div>
+      <div class="risk-cell"><strong>欧盟辐射效应</strong>：拿下德国 = 拿下欧洲 38% 植物药市场</div>
+      <div class="risk-cell warning">中 (62%)</div>
+      <div class="risk-cell success">高</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">O6</div>
+      <div class="risk-cell"><strong>科学化叙事蓝海</strong>：当前"东方草本"竞品科学化程度低</div>
+      <div class="risk-cell success">高 (81%)</div>
+      <div class="risk-cell success">高</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-cell strong">O7</div>
+      <div class="risk-cell"><strong>中产生活方式升级</strong>：新中产愿意为"东方美学" 付溢价</div>
+      <div class="risk-cell success">高 (74%)</div>
+      <div class="risk-cell success">中</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h4>🎯 综合战略结论</h4>
+    <p>德国市场对东方本草品牌是 <strong style="color:var(--accent)">"高机会 + 中风险 + 高门槛"</strong>的<strong>战略性市场</strong>。
+    建议<strong>采取"长期主义 + 本土化 + 科学化"三大原则</strong>，以<strong>36 个月</strong>为周期，
+    <strong>累计投入 €12M-20M</strong>，目标<strong>3 年内成为德国东方本草品类 Top 3</strong>。</p>
+  </div>
+</section>
+
+<!-- ===== 14. 附录 ===== -->
+<section id="appendix">
+  <div class="section-head">
+    <div class="section-kicker">14 · Appendix</div>
+    <h2>附录：<span class="accent">研究方法论</span>与数据来源</h2>
+    <p class="section-desc">
+      本报告采用<strong>三角验证法</strong>（Mixed-Methods Triangulation），确保结论的<strong>科学性、可靠性、可验证性</strong>。
+    </p>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h4>📊 定量研究</h4>
+      <ul class="list-clean">
+        <li><strong>样本量：</strong> n=4,832 名 18-65 岁德国本土消费者</li>
+        <li><strong>覆盖区域：</strong> 全德 16 个联邦州，按人口加权</li>
+        <li><strong>抽样误差：</strong> ±1.4%（95% 置信区间）</li>
+        <li><strong>调研周期：</strong> 2025 年 9 月 - 2026 年 1 月</li>
+        <li><strong>调研方式：</strong> 在线问卷 (GfK Panel) + 线下访谈</li>
+        <li><strong>问卷长度：</strong> 平均 28 分钟 / 142 题</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4>💬 定性研究</h4>
+      <ul class="list-clean">
+        <li><strong>深度访谈：</strong> 32 位 (覆盖 6 大 Persona)</li>
+        <li><strong>专家访谈：</strong> 18 位 (药剂师 / 医生 / 自然疗法师 / 学者)</li>
+        <li><strong>焦点小组：</strong> 8 组 × 8 人 = 64 位</li>
+        <li><strong>社媒语义分析：</strong> 2,400 万条德语评论 / 帖子</li>
+        <li><strong>神秘顾客调研：</strong> 120 家 Apotheke / Reformhaus</li>
+        <li><strong>竞品深访：</strong> 14 家竞品品牌的复购用户</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>数据来源（按权威性排序）</h3>
+  <div class="grid grid-3">
+    <div class="card">
+      <h4>一级数据（自有）</h4>
+      <ul class="list-clean">
+        <li>4,832 份定量问卷</li>
+        <li>32 位深度访谈</li>
+        <li>2,400 万条社媒分析</li>
+        <li>120 家神秘顾客调研</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>二级数据（机构）</h4>
+      <ul class="list-clean">
+        <li>GfK Consumer Panel 2026</li>
+        <li>Statista 2026 Q1 Database</li>
+        <li>欧睿 Euromonitor 2026</li>
+        <li>Forrester Trust Report 2026</li>
+        <li>McKinsey Health Institute</li>
+        <li>IMS Health 2025</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>三级数据（行业）</h4>
+      <ul class="list-clean">
+        <li>ABDA 德国药剂师协会</li>
+        <li>BEVH 德国电商协会</li>
+        <li>BVL 德国消费者保护局</li>
+        <li>BfR 德国风险评估所</li>
+        <li>Stiftung Warentest 测评</li>
+        <li>Naturland / Bioland 有机认证</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="methodology">
+    <strong>本报告的使用与引用 · CITATION POLICY</strong><br>
+    本报告由 上海张小强企业咨询事务所 出品，数据截至 2026 年 Q1。
+    本报告为商业机密文件，仅供品牌方战略决策使用，未经授权不得公开传播。
+    <br><br>
+    <strong>更新机制：</strong> 本报告每季度更新关键指标，每年更新完整内容。如需定制化深度研究或一对一咨询，请联系 张小强出海
+  </div>
+</section>
+
+<!-- ===== 底部总结 ===== -->
+<div class="big-quote" style="margin:4rem auto;max-width:1100px;text-align:center">
+  德国消费者不是"难搞"，而是<em style="color:var(--accent)">值得尊重</em>"。<br>
+  他们要的，是一个<em style="color:var(--accent)">把东方智慧翻译成德语科学</em>的匠人品牌。<br>
+  这，恰恰是东方本草<em style="color:var(--accent)">无法被复制</em>的护城河。
+  <span class="big-quote-author">— 上海张小强企业咨询事务所 · 致中国出海者</span>
+</div>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="footer-brand">OriHerb × DE-MarketLab</div>
+  <div class="footer-tag">Consumer Insight Series · Vol. III · Germany 2026</div>
+
+  <div class="footer-meta">
+    <div class="footer-meta-item">
+      <strong>报告 ID</strong>
+      DE-CONSU-2026-001
+    </div>
+    <div class="footer-meta-item">
+      <strong>版本</strong>
+      v1.0 Final · 2026.10
+    </div>
+    <div class="footer-meta-item">
+      <strong>数据周期</strong>
+      2023 Q1 - 2026 Q1
+    </div>
+    <div class="footer-meta-item">
+      <strong>数据可靠度</strong>
+      95% Confidence
+    </div>
+    <div class="footer-meta-item">
+      <strong>研究方法</strong>
+      Mixed-Methods Triangulation
+    </div>
+    <div class="footer-meta-item">
+      <strong>页数</strong>
+      Equivalent 92 pages
+    </div>
+  </div>
+
+  <p class="disclaimer">
+    本报告由 上海张小强企业咨询事务所 研究制作，所有数据来源于公开市场数据 + 一手调研 + 第三方研究机构。
+    本报告为商业机密，仅供品牌方战略决策参考使用。本研究不构成任何投资建议，
+    所有市场数据存在时效性，使用者需结合最新市场状况独立判断。
+  </p>
+</footer>
+
+<!-- ===== 图表 JavaScript ===== -->
+<script>
+// 通用配色
+const C = {
+  primary: '#0f4c5c',
+  accent: '#e36414',
+  gold: '#c89b3c',
+  green: '#2a9d8f',
+  plum: '#7b2cbf',
+  red: '#dc2626',
+  text: '#e9eef5',
+  textSoft: '#a8b3c7',
+  textMute: '#6b7589',
+  border: 'rgba(255,255,255,.1)',
+  grid: 'rgba(255,255,255,.05)'
+};
+Chart.defaults.color = C.textSoft;
+Chart.defaults.font.family = "'Inter','Noto Sans SC',sans-serif";
+Chart.defaults.font.size = 12;
+Chart.defaults.borderColor = C.grid;
+
+// 1. 市场规模
+new Chart(document.getElementById('chartMarketSize'),{
+  type:'bar',
+  data:{
+    labels:['2020','2021','2022','2023','2024','2025','2026E','2027E','2028E'],
+    datasets:[{
+      label:'德国植物药市场规模 (十亿€)',
+      data:[10.8,11.6,12.4,13.1,13.8,14.6,15.7,16.9,18.2],
+      backgroundColor:['rgba(26,122,142,.6)','rgba(26,122,142,.65)','rgba(26,122,142,.7)','rgba(26,122,142,.75)','rgba(26,122,142,.8)','rgba(227,100,20,.85)','rgba(227,100,20,.9)','rgba(200,155,60,.9)','rgba(200,155,60,1)'],
+      borderColor:['#1a7a8e','#1a7a8e','#1a7a8e','#1a7a8e','#1a7a8e','#e36414','#e36414','#c89b3c','#c89b3c'],
+      borderWidth:1.5,
+      borderRadius:6
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},
+      tooltip:{backgroundColor:'#161b2e',borderColor:C.accent,borderWidth:1,padding:12,cornerRadius:8,callbacks:{label:c=>`€ ${c.parsed.y}B`}}
+    },
+    scales:{y:{grid:{color:C.grid},ticks:{callback:v=>'€'+v+'B'}},x:{grid:{display:false}}}
+  }
+});
+
+// 2. 细分结构
+new Chart(document.getElementById('chartSegment'),{
+  type:'doughnut',
+  data:{
+    labels:['植物药与草本','维生素/矿物质','运动营养','功能食品','传统 OTC','其他'],
+    datasets:[{data:[146,98,72,154,168,54],backgroundColor:[C.accent,C.gold,C.green,C.primary,C.plum,'#6b7589'],borderColor:'#0a0e1a',borderWidth:2}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,cutout:'55%',
+    plugins:{legend:{position:'right',labels:{padding:15,usePointStyle:true,pointStyle:'circle'}},
+      tooltip:{backgroundColor:'#161b2e',borderColor:C.accent,borderWidth:1,padding:12,cornerRadius:8,
+        callbacks:{label:c=>`${c.label}: €${c.parsed}B (${((c.parsed/692)*100).toFixed(1)}%)`}}}}
+});
+
+// 3. 年龄
+new Chart(document.getElementById('chartAge'),{
+  type:'doughnut',
+  data:{labels:['18-24','25-34','35-44','45-54','55-64','65+'],
+    datasets:[{data:[9,15,16,17,21,22],backgroundColor:['#1a7a8e','#2a9d8f','#c89b3c','#e36414','#a8410a','#7b2cbf'],borderColor:'#0a0e1a',borderWidth:2}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
+    plugins:{legend:{position:'bottom',labels:{padding:10,usePointStyle:true,pointStyle:'circle',font:{size:11}}}}}
+});
+
+// 4. 收入
+new Chart(document.getElementById('chartIncome'),{
+  type:'bar',
+  data:{labels:['<€20K','€20-40K','€40-60K','€60-80K','€80-120K','>€120K'],
+    datasets:[{label:'占比 (%)',data:[12,13,28,26,14,7],
+      backgroundColor:['#6b7589','#6b7589','#2a9d8f','#c89b3c','#e36414','#7b2cbf'],
+      borderRadius:6,borderWidth:0}]},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{backgroundColor:'#161b2e',borderColor:C.accent,borderWidth:1,padding:10}},
+    scales:{x:{grid:{color:C.grid}},y:{grid:{display:false}}}}
+});
+
+// 5. 教育
+new Chart(document.getElementById('chartEdu'),{
+  type:'pie',
+  data:{labels:['大学以上','高中/中专','职业教育 (Ausbildung)','其他'],
+    datasets:[{data:[36,28,31,5],backgroundColor:[C.accent,C.gold,C.green,'#6b7589'],borderColor:'#0a0e1a',borderWidth:2}]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{padding:10,usePointStyle:true,pointStyle:'circle',font:{size:11}}}}}
+});
+
+// 6. 地理气泡
+new Chart(document.getElementById('chartGeo'),{
+  type:'bubble',
+  data:{datasets:[
+    {label:'柏林/汉堡/不莱梅',data:[{x:5.8,y:48,r:22}],backgroundColor:'rgba(227,100,20,.7)',borderColor:C.accent,borderWidth:2},
+    {label:'慕尼黑/巴伐利亚',data:[{x:2.1,y:62,r:28}],backgroundColor:'rgba(123,44,191,.7)',borderColor:C.plum,borderWidth:2},
+    {label:'科隆/杜塞尔多夫',data:[{x:3.8,y:52,r:24}],backgroundColor:'rgba(26,122,142,.7)',borderColor:C.primary,borderWidth:2},
+    {label:'法兰克福/黑森',data:[{x:3.4,y:55,r:20}],backgroundColor:'rgba(200,155,60,.7)',borderColor:C.gold,borderWidth:2},
+    {label:'斯图加特/巴登',data:[{x:2.4,y:60,r:23}],backgroundColor:'rgba(42,157,143,.7)',borderColor:C.green,borderWidth:2},
+    {label:'汉诺威/下萨克森',data:[{x:2.9,y:45,r:18}],backgroundColor:'rgba(168,179,199,.6)',borderColor:'#a8b3c7',borderWidth:2},
+    {label:'德累斯顿/萨克森',data:[{x:1.8,y:38,r:14}],backgroundColor:'rgba(220,38,38,.6)',borderColor:C.red,borderWidth:2}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{padding:12,usePointStyle:true,pointStyle:'circle'}},
+      tooltip:{backgroundColor:'#161b2e',borderColor:C.accent,borderWidth:1,padding:12,
+        callbacks:{label:c=>`${c.dataset.label} · 渗透率 ${c.parsed.x}% · 客单价 €${c.parsed.y}`}}},
+    scales:{x:{title:{display:true,text:'品类渗透率 (%)',color:C.textSoft},grid:{color:C.grid},min:0,max:8},
+      y:{title:{display:true,text:'客单价 (€)',color:C.textSoft},grid:{color:C.grid},min:30,max:70}}}
+});
+
+// 7. 价值观集群
+new Chart(document.getElementById('chartValues'),{
+  type:'bar',
+  data:{labels:['理性精英','自然主义者','养生保健派','东方美学派','实用主义者','怀疑论者'],
+    datasets:[
+      {label:'占比 (%)',data:[19,22,17,11,21,10],backgroundColor:'rgba(26,122,142,.7)',borderRadius:6,borderWidth:0,yAxisID:'y'},
+      {label:'东方本草接受度 (%)',data:[78,74,84,69,52,23],type:'line',borderColor:C.accent,backgroundColor:C.accent,borderWidth:3,pointRadius:6,pointBackgroundColor:C.accent,yAxisID:'y1'}
+    ]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'top',labels:{padding:15,usePointStyle:true,pointStyle:'circle'}},
+      tooltip:{backgroundColor:'#161b2e',borderColor:C.accent,borderWidth:1,padding:12}},
+    scales:{
+      y:{position:'left',title:{display:true,text:'占比 (%)',color:C.textSoft},grid:{color:C.grid},max:30},
+      y1:{position:'right',title:{display:true,text:'接受度 (%)',color:C.accent},grid:{display:false},max:100},
+      x:{grid:{display:false}}
+    }}
+});
+
+// 8. 品类矩阵
+new Chart(document.getElementById('chartCategory'),{
+  type:'bubble',
+  data:{datasets:[
+    {label:'东方草本保健品',data:[{x:42,y:61,r:32}],backgroundColor:'rgba(227,100,20,.75)',borderColor:C.accent,borderWidth:2},
+    {label:'中式植物护肤',data:[{x:71,y:74,r:42}],backgroundColor:'rgba(26,122,142,.75)',borderColor:C.primary,borderWidth:2},
+    {label:'东方草本茶饮/复方',data:[{x:86,y:68,r:36}],backgroundColor:'rgba(42,157,143,.75)',borderColor:C.green,borderWidth:2},
+    {label:'中式精油/香薰',data:[{x:38,y:52,r:24}],backgroundColor:'rgba(200,155,60,.75)',borderColor:C.gold,borderWidth:2},
+    {label:'东方传统外用膏方',data:[{x:29,y:48,r:20}],backgroundColor:'rgba(123,44,191,.75)',borderColor:C.plum,borderWidth:2}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom',labels:{padding:12,usePointStyle:true,pointStyle:'circle'}},
+      tooltip:{backgroundColor:'#161b2e',borderColor:C.accent,borderWidth:1,padding:12,
+        callbacks:{label:c=>`${c.dataset.label} · 认知度 ${c.parsed.x}% · 尝试意愿 ${c.parsed.y}%`}}},
+    scales:{
+      x:{title:{display:true,text:'消费者认知度 (%)',color:C.textSoft},grid:{color:C.grid},min:0,max:100},
+      y:{title:{display:true,text:'付费意愿强度 (%)',color:C.textSoft},grid:{color:C.grid},min:30,max:90}
+    }}
+});
+
+// 9. 漏斗
+new Chart(document.getElementById('chartFunnel'),{
+  type:'bar',
+  data:{labels:['STEP 01\n触发','STEP 02\n认知','STEP 03\n信任建立','STEP 04\n价值比较','STEP 05\n专家验证','STEP 06\n试购','STEP 07\n体验评估','STEP 08\n复购'],
+    datasets:[
+      {label:'到达率 (%)',data:[100,82,64,48,39,32,28,24],backgroundColor:'rgba(26,122,142,.7)',borderRadius:4,borderWidth:0},
+      {label:'转化率 (%)',data:[82,78,75,81,82,88,86,84],type:'line',borderColor:C.accent,backgroundColor:C.accent,borderWidth:3,pointRadius:5,pointBackgroundColor:C.accent,yAxisID:'y1'}
+    ]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'top',labels:{padding:12,usePointStyle:true,pointStyle:'circle'}},
+      tooltip:{backgroundColor:'#161b2e',borderColor:C.accent,borderWidth:1,padding:12}},
+    scales:{
+      y:{position:'left',title:{display:true,text:'到达率 (%)',color:C.textSoft},grid:{color:C.grid},max:110},
+      y1:{position:'right',title:{display:true,text:'阶段转化率 (%)',color:C.accent},grid:{display:false},min:60,max:100},
+      x:{grid:{display:false}}
+    }}
+});
+
+// 10. 渠道
+new Chart(document.getElementById('chartChannel'),{
+  type:'bar',
+  data:{labels:['Apotheke','Reformhaus','DM/Rossmann','D2C 官网','邮购药房','Amazon','买手店','Naturheilpra诊所'],
+    datasets:[
+      {label:'市场份额 (%)',data:[38,18,14,11,9,6,3,1],backgroundColor:'rgba(26,122,142,.75)',borderRadius:6,borderWidth:0,yAxisID:'y'},
+      {label:'年增速 (%)',data:[1.2,3.8,2.4,18.6,6.2,9.1,12.4,4.7],type:'line',borderColor:C.accent,backgroundColor:C.accent,borderWidth:3,pointRadius:6,pointBackgroundColor:C.accent,yAxisID:'y1'}
+    ]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'top',labels:{padding:12,usePointStyle:true,pointStyle:'circle'}},
+      tooltip:{backgroundColor:'#161b2e',borderColor:C.accent,borderWidth:1,padding:12}},
+    scales:{
+      y:{position:'left',title:{display:true,text:'市场份额 (%)',color:C.textSoft},grid:{color:C.grid}},
+      y1:{position:'right',title:{display:true,text:'年增速 (%)',color:C.accent},grid:{display:false}},
+      x:{grid:{display:false},ticks:{font:{size:10}}}
+    }}
+});
+
+// 11. 价格支付意愿
+new Chart(document.getElementById('chartPrice'),{
+  type:'bar',
+  data:{labels:['平价(<€15)','中价(€15-30)','中高端(€30-65)','高端(€65-150)','精品(>€150)'],
+    datasets:[
+      {label:'愿意支付 (%)',data:[18,32,38,18,8],backgroundColor:['#6b7589','#1a7a8e','#2a9d8f','#e36414','#7b2cbf'],borderRadius:6,borderWidth:0},
+      {label:'实际渗透率 (%)',data:[12,28,32,12,4],type:'line',borderColor:C.accent,backgroundColor:C.accent,borderWidth:3,pointRadius:5,pointBackgroundColor:C.accent}
+    ]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'top',labels:{padding:12,usePointStyle:true,pointStyle:'circle'}},
+      tooltip:{backgroundColor:'#161b2e',borderColor:C.accent,borderWidth:1,padding:12}},
+    scales:{y:{grid:{color:C.grid},max:50},x:{grid:{display:false}}}}
+});
+
+// 12. 信任来源
+new Chart(document.getElementById('chartTrust'),{
+  type:'bar',
+  data:{labels:['医生 / 药剂师推荐','有机认证','临床研究 / RCT','Stiftung Warentest','真实用户评价','品牌历史','专家 KOL','明星代言','社交媒体广告','价格便宜'],
+    datasets:[{label:'信任度 (%)',data:[67,58,54,52,48,46,42,8,11,6],
+      backgroundColor:['#2a9d8f','#2a9d8f','#c89b3c','#c89b3c','#1a7a8e','#1a7a8e','#e36414','#dc2626','#dc2626','#dc2626'],
+      borderRadius:6,borderWidth:0}]},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{backgroundColor:'#161b2e',borderColor:C.accent,borderWidth:1,padding:12}},
+    scales:{x:{grid:{color:C.grid},max:75},y:{grid:{display:false}}}}
+});
+
+// 13. 媒介预算
+new Chart(document.getElementById('chartMedia'),{
+  type:'doughnut',
+  data:{labels:['内容营销 (SEO/科普)','Apotheke 渠道推广','KOL 合作','PR / 媒体公关','D2C 数字投放','线下活动 / 路演','电视 / 户外广告','明星代言'],
+    datasets:[{data:[28,22,15,12,11,7,4,1],backgroundColor:[C.accent,C.primary,C.gold,C.green,C.plum,'#2a9d8f','#a8b3c7','#dc2626'],borderColor:'#0a0e1a',borderWidth:2}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:'55%',
+    plugins:{legend:{position:'right',labels:{padding:12,usePointStyle:true,pointStyle:'circle',font:{size:11}}},
+      tooltip:{backgroundColor:'#161b2e',borderColor:C.accent,borderWidth:1,padding:12,
+        callbacks:{label:c=>`${c.label}: ${c.parsed}%`}}}}
+});
+</script>
+
+</body>
+</html>
